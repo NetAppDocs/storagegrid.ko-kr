@@ -1,0 +1,17 @@
+---
+sidebar: sidebar 
+permalink: storagegrid-hardware.html 
+keywords: storagegrid, software, grid 
+summary: StorageGRID 어플라이언스 하드웨어를 설치, 구성 및 사용하는 방법에 대해 알아보십시오. 
+---
+= StorageGRID 어플라이언스
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+StorageGRID 스토리지 및 서비스 어플라이언스를 설치, 구성 및 유지 관리하는 방법에 대해 알아보려면 를 https://docs.netapp.com/us-en/storagegrid-appliances/index.html["StorageGRID 어플라이언스 설명서"^] 참조하십시오.

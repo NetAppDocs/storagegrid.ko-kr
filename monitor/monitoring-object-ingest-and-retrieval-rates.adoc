@@ -1,0 +1,35 @@
+---
+permalink: monitor/monitoring-object-ingest-and-retrieval-rates.html 
+sidebar: sidebar 
+keywords: object ingest rates, object retrieval rates, monitor s3, client operations 
+summary: 오브젝트 수집 및 검색 속도와 오브젝트 수, 쿼리, 검증을 위한 메트릭을 모니터링할 수 있습니다. 클라이언트 응용 프로그램이 StorageGRID 시스템에서 개체를 읽고, 쓰고, 수정하는 데 성공한 시도 및 실패한 시도 횟수를 볼 수 있습니다. 
+---
+= S3 클라이언트 작업 모니터링
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+오브젝트 수집 및 검색 속도와 오브젝트 수, 쿼리, 검증을 위한 메트릭을 모니터링할 수 있습니다. 클라이언트 응용 프로그램이 StorageGRID 시스템에서 개체를 읽고, 쓰고, 수정하는 데 성공한 시도 및 실패한 시도 횟수를 볼 수 있습니다.
+
+.시작하기 전에
+* 을 사용하여 그리드 관리자에 로그인되어 있습니다.link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]
+
+
+.단계
+. 대시보드에서 * 성능 * 탭을 선택합니다.
+. 스토리지 노드에서 수행하는 클라이언트 작업 수와 선택한 기간 동안 스토리지 노드에서 수신한 API 요청 수를 요약한 S3 차트를 참조하십시오.
+. nodes * 를 선택하여 Nodes 페이지에 액세스합니다.
+. 노드 홈 페이지(그리드 수준)에서 * Objects * 탭을 선택합니다.
++
+이 차트에서는 전체 StorageGRID 시스템에 대한 S3 수집 및 검색 속도와 수집 또는 검색된 데이터의 양을 초당 바이트 단위로 보여 줍니다. 시간 간격을 선택하거나 사용자 지정 간격을 적용할 수 있습니다.
+
+. 특정 스토리지 노드에 대한 정보를 보려면 왼쪽의 목록에서 노드를 선택하고 * Objects * 탭을 선택합니다.
++
+차트에는 노드의 수집 및 검색 속도가 표시됩니다. 이 탭에는 개체 수, 메타데이터 쿼리 및 검증 작업에 대한 메트릭도 포함됩니다.
+
++
+image::../media/nodes_storage_node_objects_help.png[노드 >_스토리지 노드_> 오브젝트 > 속성 도움말의 스크린샷]
+
+

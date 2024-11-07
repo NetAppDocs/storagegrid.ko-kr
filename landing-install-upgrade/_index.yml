@@ -1,0 +1,65 @@
+---
+indexpage:
+  title: StorageGRID 설치, 업그레이드 및 핫픽스
+  summary: StorageGRID 시스템은 개별 하드웨어 기반 노드와 소프트웨어 기반 노드로 구성됩니다. 먼저 각 어플라이언스 노드에 대한
+    하드웨어를 설치하고 각 Linux 또는 VMware 호스트를 구성합니다. 그런 다음, 각 어플라이언스 또는 소프트웨어 호스트에 StorageGRID
+    소프트웨어를 설치하고 노드를 그리드에 연결합니다.
+  keywords: install, upgrade, hotfix
+  lead: StorageGRID 시스템은 개별 하드웨어 기반 노드와 소프트웨어 기반 노드로 구성됩니다. 먼저 각 어플라이언스 노드에 대한 하드웨어를
+    설치하고 각 Linux 또는 VMware 호스트를 구성합니다. 그런 다음, 각 어플라이언스 또는 소프트웨어 호스트에 StorageGRID 소프트웨어를
+    설치하고 노드를 그리드에 연결합니다.
+  tiles:
+  - title: 빠른 시작
+    links:
+    - title: 어플라이언스 하드웨어
+      url: https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html
+    - title: Red Hat Enterprise Linux
+      url: "../rhel/index.html"
+    - title: Ubuntu 또는 Debian
+      url: "../ubuntu/index.html"
+    - title: VMware
+      url: "../vmware/index.html"
+  - title: 재료를 준비합니다
+    links:
+    - title: Red Hat Enterprise Linux
+      url: "../rhel/required-materials.html"
+    - title: Ubuntu 또는 Debian
+      url: "../ubuntu/required-materials.html"
+    - title: VMware
+      url: "../vmware/required-materials.html"
+  - title: 설치를 자동화합니다
+    links:
+    - title: Red Hat Enterprise Linux
+      url: "../rhel/automating-installation.html"
+    - title: Ubuntu 또는 Debian
+      url: "../ubuntu/automating-installation.html"
+    - title: VMware
+      url: "../vmware/automating-grid-node-deployment-in-vmware-vsphere.html"
+  - title: 노드 구축
+    links:
+    - title: Red Hat Enterprise Linux
+      url: "../rhel/creating-node-configuration-files.html"
+    - title: Ubuntu 또는 Debian
+      url: "../ubuntu/creating-node-configuration-files.html"
+    - title: VMware
+      url: "../vmware/collecting-information-about-your-deployment-environment.html"
+  - title: 노드 설치를 완료합니다
+    links:
+    - title: Red Hat Enterprise Linux
+      url: "../rhel/navigating-to-grid-manager.html"
+    - title: Ubuntu 또는 Debian
+      url: "../ubuntu/navigating-to-grid-manager.html"
+    - title: VMware
+      url: "../vmware/navigating-to-grid-manager.html"
+  - title: 업그레이드 또는 핫픽스
+    links:
+    - title: 새로운 소식
+      url: "../upgrade/whats-new.html"
+    - title: 예상 완료 시간
+      url: "../upgrade/estimating-time-to-complete-upgrade.html"
+    - title: 업그레이드 중 시스템에 미치는 영향
+      url: "../upgrade/how-your-system-is-affected-during-upgrade.html"
+    - title: 업그레이드 빠른 시작
+      url: "../upgrade/upgrade-workflow.html"
+    - title: 핫픽스를 적용합니다
+      url: "../maintain/storagegrid-hotfix-procedure.html"

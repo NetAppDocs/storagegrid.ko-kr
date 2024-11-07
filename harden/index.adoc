@@ -1,0 +1,28 @@
+---
+permalink: harden/index.html 
+sidebar: sidebar 
+keywords: Hardening guidelines, system, security 
+summary: 시스템 강화는 StorageGRID 시스템에서 가능한 한 많은 보안 위험을 제거하는 프로세스입니다. 
+---
+= 시스템 강화에 대한 일반 고려 사항
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+시스템 강화는 StorageGRID 시스템에서 가능한 한 많은 보안 위험을 제거하는 프로세스입니다.
+
+StorageGRID를 설치 및 구성할 때 이 지침을 사용하여 기밀성, 무결성 및 가용성에 대해 규정된 모든 보안 목표를 충족할 수 있습니다.
+
+시스템 강화를 위해 업계 표준 모범 사례를 이미 사용하고 있어야 합니다. 예를 들어 StorageGRID에 강력한 암호를 사용하고, HTTP 대신 HTTPS를 사용하고, 가능한 경우 인증서 기반 인증을 사용하도록 설정할 수 있습니다.
+
+StorageGRID는 을 https://security.netapp.com/policy/["NetApp 취약성 처리 정책"^]따릅니다. 보고된 취약점은 제품 보안 사고 대응 프로세스에 따라 확인 및 해결됩니다.
+
+StorageGRID 시스템을 강화할 때는 다음 사항을 고려하십시오.
+
+* * 세 가지 StorageGRID 네트워크 중 어떤 네트워크를 구현했습니까 *. 모든 StorageGRID 시스템은 그리드 네트워크를 사용해야 하지만 관리자 네트워크, 클라이언트 네트워크 또는 둘 다를 사용할 수도 있습니다. 각 네트워크마다 서로 다른 보안 고려 사항이 있습니다.
+* * StorageGRID 시스템의 개별 노드에 사용하는 플랫폼 유형 *. StorageGRID 노드는 VMware 가상 머신, Linux 호스트의 컨테이너 엔진 내부 또는 전용 하드웨어 어플라이언스에 구축할 수 있습니다. 각 플랫폼 유형에는 강화 모범 사례가 자체적으로 있습니다.
+* * 테넌트 계정은 얼마나 신뢰할 수 있습니까 *. 신뢰할 수 없는 테넌트 계정을 사용하는 서비스 공급자라면 신뢰할 수 있는 내부 테넌트만 사용하는 것과 보안 문제가 다릅니다.
+* * 어떤 보안 요구 사항 및 규약 * 귀하의 조직에서 따라야 합니까? 특정 규정 또는 기업 요구 사항을 준수해야 할 수 있습니다.
+

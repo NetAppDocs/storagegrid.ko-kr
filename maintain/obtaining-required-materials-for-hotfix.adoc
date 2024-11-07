@@ -1,0 +1,61 @@
+---
+permalink: maintain/obtaining-required-materials-for-hotfix.html 
+sidebar: sidebar 
+keywords: storagegrid, hotfix 
+summary: 핫픽스를 적용하기 전에 필요한 모든 자료를 확보해야 합니다. 
+---
+= 핫픽스에 필요한 자료를 얻습니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+핫픽스를 적용하기 전에 필요한 모든 자료를 확보해야 합니다.
+
+[cols="1a,2a"]
+|===
+| 항목 | 참고 
+
+
+ a| 
+StorageGRID 핫픽스 파일
+ a| 
+StorageGRID 핫픽스 파일을 다운로드해야 합니다.
+
+
+
+ a| 
+* 네트워크 포트
+* link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]
+* SSH 클라이언트(예: PuTTY)
+
+ a| 
+
+
+
+ a| 
+복구 패키지(`.zip`) 파일입니다
+ a| 
+핫픽스를 적용하기 전에 link:downloading-recovery-package.html["최신 복구 패키지 파일을 다운로드합니다"]핫픽스 중에 문제가 발생할 경우 그런 다음 핫픽스를 적용한 후 복구 패키지 파일의 새 복사본을 다운로드하여 안전한 위치에 저장합니다. 업데이트된 복구 패키지 파일을 사용하면 오류가 발생할 경우 시스템을 복원할 수 있습니다.
+
+
+
+| Passwords.txt 파일  a| 
+선택 사항이며 SSH 클라이언트를 사용하여 핫픽스를 수동으로 적용하는 경우에만 사용됩니다. 이 `Passwords.txt` 파일은 복구 패키지 파일의 `.zip` 일부입니다.
+
+
+
+ a| 
+프로비저닝 암호
+ a| 
+StorageGRID 시스템을 처음 설치할 때 암호가 생성되고 문서화됩니다. 프로비저닝 암호가 파일에 나열되지 `Passwords.txt` 않습니다.
+
+
+
+ a| 
+관련 문서
+ a| 
+`readme.txt` 핫픽스에 대한 파일입니다. 이 파일은 핫픽스 다운로드 페이지에 포함되어 있습니다.  `readme`핫픽스를 적용하기 전에 파일을 주의 깊게 검토하십시오.
+
+|===

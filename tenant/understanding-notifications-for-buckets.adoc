@@ -1,0 +1,71 @@
+---
+permalink: tenant/understanding-notifications-for-buckets.html 
+sidebar: sidebar 
+keywords: s3 bucket event notification, sequencer key 
+summary: StorageGRID에서 지정된 이벤트에 대한 알림을 대상 Kafka 클러스터 또는 Amazon Simple Notification Service로 보내려면 S3 버킷에 대한 이벤트 알림을 활성화할 수 있습니다. 
+---
+= 버킷에 대한 알림을 이해합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID에서 지정된 이벤트에 대한 알림을 대상 Kafka 클러스터 또는 Amazon Simple Notification Service로 보내려면 S3 버킷에 대한 이벤트 알림을 활성화할 수 있습니다.
+
+예를 들어, 버킷에 추가된 각 오브젝트에 대해 관리자에게 경고가 전송되도록 구성할 수 있습니다. 여기서 객체는 중요한 시스템 이벤트와 연결된 로그 파일을 나타냅니다.
+
+이벤트 알림은 알림 구성에 지정된 대로 소스 버킷에서 생성되며 대상으로 전달됩니다. 개체와 관련된 이벤트가 성공하면 해당 이벤트에 대한 알림이 생성되고 배달 대기 상태가 됩니다.
+
+알림의 고유성과 순서는 보장되지 않습니다. 전송 성공을 보장하기 위해 수행된 작업의 결과로 하나 이상의 이벤트 알림이 대상에 전달될 수 있습니다. 그리고 납품이 비동기식이기 때문에, 특히 서로 다른 StorageGRID 사이트에서 발생하는 작업의 경우, 대상에서 알림의 시간 순서가 소스 버킷의 이벤트 순서와 일치한다고 보장할 수 없습니다. 이벤트 메시지에서 키를 사용하여 Amazon S3 설명서에 설명된 대로 특정 객체에 대한 이벤트 순서를 결정할 수 `sequencer` 있습니다.
+
+StorageGRID 이벤트 알림은 Amazon S3 API를 따르지만 몇 가지 제한 사항을 따릅니다.
+
+* 지원되는 이벤트 유형은 다음과 같습니다.
++
+** S3:ObjectCreated:
+** S3:오브젝트 생성:PUT
+** S3:오브젝트 작성:우편
+** S3:오브젝트 생성:복사
+** S3:ObjectCreated:CompleteMultipartUpload
+** S3:ObjectRemoved:
+** S3:ObjectRemoved:Delete
+** S3:ObjectRemoved:DeleteMarkerCreated
+** S3:ObjectRestore:게시
+
+
+* StorageGRID에서 보낸 이벤트 알림은 표준 JSON 형식을 사용하지만 일부 키는 포함하지 않으며 표에 나와 있는 대로 다른 키의 특정 값을 사용합니다.
+
+
+[cols="1a,2a"]
+|===
+| 키 이름 | StorageGRID 값 
+
+
+ a| 
+이벤트 소스
+ a| 
+`sgws:s3`
+
+
+
+ a| 
+awsRegion
+ a| 
+_ 포함되지 않음 _
+
+
+
+ a| 
+X-amz-id-2
+ a| 
+_ 포함되지 않음 _
+
+
+
+ a| 
+ARN
+ a| 
+`urn:sgws:s3:::bucket_name`
+
+|===

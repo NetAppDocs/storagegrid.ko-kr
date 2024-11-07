@@ -1,0 +1,53 @@
+---
+permalink: maintain/stopping-service.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, stop service, service 
+summary: 일부 유지 관리 절차에서는 그리드 노드의 다른 서비스를 계속 실행하는 동안 단일 서비스를 중지해야 합니다. 유지 관리 절차에 의해 지시된 경우에만 개별 서비스를 중지하십시오. 
+---
+= 서비스를 중지합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+일부 유지 관리 절차에서는 그리드 노드의 다른 서비스를 계속 실행하는 동안 단일 서비스를 중지해야 합니다. 유지 관리 절차에 의해 지시된 경우에만 개별 서비스를 중지하십시오.
+
+.시작하기 전에
+ `Passwords.txt`파일이 있습니다.
+
+.이 작업에 대해
+이 단계를 사용하여 서비스를 "관리 방식으로 중지"하면 서버 관리자가 서비스를 자동으로 다시 시작하지 않습니다. 단일 서비스를 수동으로 시작하거나 Server Manager를 다시 시작해야 합니다.
+
+스토리지 노드에서 LDR 서비스를 중지해야 하는 경우 활성 연결이 있는 경우 서비스를 중지하는 데 시간이 걸릴 수 있습니다.
+
+.단계
+. 그리드 노드에 로그인합니다.
++
+.. 다음 명령을 입력합니다. `ssh admin@_grid_node_IP_`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
+.. 다음 명령을 입력하여 루트로 전환합니다. `su -`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
+
+
++
+루트로 로그인하면 프롬프트가 에서 `$` 로 `#`변경됩니다.
+
+. 개별 서비스 중지: `service _servicename_ stop`
++
+예를 들면 다음과 같습니다.
+
++
+[listing]
+----
+service ldr stop
+----
++
+
+NOTE: 서비스를 중지하는 데 최대 11분이 걸릴 수 있습니다.
+
+. 명령 셸에서 로그아웃합니다. `exit`
+
+
+.관련 정보
+link:forcing-service-to-terminate.html["서비스 강제 종료"]

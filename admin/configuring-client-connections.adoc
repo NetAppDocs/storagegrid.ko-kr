@@ -1,0 +1,174 @@
+---
+permalink: admin/configuring-client-connections.html 
+sidebar: sidebar 
+keywords: s3 connection, connect to storagegrid, s3 setup wizard 
+summary: 그리드 관리자는 S3 클라이언트 애플리케이션이 StorageGRID 시스템에 연결하여 데이터를 저장 및 검색하는 방법을 제어하는 구성 옵션을 관리합니다. 
+---
+= S3 클라이언트 연결을 구성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+그리드 관리자는 S3 클라이언트 애플리케이션이 StorageGRID 시스템에 연결하여 데이터를 저장 및 검색하는 방법을 제어하는 구성 옵션을 관리합니다.
+
+
+TIP: 이 버전의 문서 사이트에서 Swift 세부 정보가 제거되었습니다. 을 https://docs.netapp.com/us-en/storagegrid-118/admin/configuring-client-connections.html["StorageGRID 11.8: S3 및 Swift 클라이언트 연결 구성"^]참조하십시오.
+
+
+
+== 구성 작업
+
+. 클라이언트 응용 프로그램이 StorageGRID에 연결되는 방법에 따라 StorageGRID에서 필수 작업을 수행합니다.
+
+
+[role="tabbed-block"]
+====
+.필수 작업
+--
+다음 정보를 얻어야 합니다.
+
+* IP 주소
+* 도메인 이름
+* SSL 인증서
+
+
+--
+.선택적 태스크입니다
+--
+필요에 따라 다음을 구성합니다.
+
+* ID 제휴
+* SSO
+
+
+--
+====
+. StorageGRID를 사용하여 응용 프로그램이 그리드에 연결하는 데 필요한 값을 얻습니다. S3 설정 마법사를 사용하거나 각 StorageGRID 엔터티를 수동으로 구성할 수 있습니다. 를 누릅니다
+
+
+[role="tabbed-block"]
+====
+.S3 설정 마법사를 사용합니다
+--
+S3 설정 마법사의 단계를 따릅니다.
+
+--
+.수동으로 구성합니다
+--
+. 고가용성 그룹을 생성합니다
+. 로드 밸런서 끝점을 만듭니다
+. 테넌트 계정을 생성합니다
+. 버킷 및 액세스 키를 생성합니다
+. ILM 규칙 및 정책을 구성합니다
+
+
+--
+====
+. S3 애플리케이션을 사용하여 StorageGRID에 대한 연결을 완료합니다. DNS 항목을 만들어 사용하려는 도메인 이름에 IP 주소를 연결합니다.
++
+필요에 따라 추가 애플리케이션 설정을 수행합니다.
+
+. 애플리케이션 및 StorageGRID에서 지속적인 작업을 수행하여 시간에 따라 오브젝트 스토리지를 관리하고 모니터링합니다.
+
+
+
+
+== StorageGRID를 클라이언트 애플리케이션에 연결하는 데 필요한 정보입니다
+
+StorageGRID를 S3 클라이언트 응용 프로그램에 연결하려면 먼저 StorageGRID에서 구성 단계를 수행하고 특정 값을 얻어야 합니다.
+
+
+
+=== 어떤 가치가 필요합니까?
+
+다음 표에는 StorageGRID에서 구성해야 하는 값과 S3 응용 프로그램 및 DNS 서버에서 이러한 값을 사용하는 위치가 나와 있습니다.
+
+[cols="1a,1a,1a"]
+|===
+| 값 | 값이 구성된 위치 | 값이 사용되는 위치 
+
+
+ a| 
+가상 IP(VIP) 주소입니다
+ a| 
+StorageGRID > HA 그룹 을 선택합니다
+ a| 
+DNS 항목
+
+
+
+ a| 
+포트
+ a| 
+StorageGRID > 부하 분산 장치 끝점
+ a| 
+클라이언트 응용 프로그램
+
+
+
+ a| 
+SSL 인증서
+ a| 
+StorageGRID > 부하 분산 장치 끝점
+ a| 
+클라이언트 응용 프로그램
+
+
+
+ a| 
+서버 이름(FQDN)
+ a| 
+StorageGRID > 부하 분산 장치 끝점
+ a| 
+* 클라이언트 응용 프로그램
+* DNS 항목
+
+
+
+
+ a| 
+S3 액세스 키 ID 및 비밀 액세스 키
+ a| 
+StorageGRID > 테넌트 및 버킷
+ a| 
+클라이언트 응용 프로그램
+
+
+
+ a| 
+버킷/컨테이너 이름입니다
+ a| 
+StorageGRID > 테넌트 및 버킷
+ a| 
+클라이언트 응용 프로그램
+
+|===
+
+
+=== 이러한 값을 얻으려면 어떻게 해야 합니까?
+
+요구 사항에 따라 다음 중 하나를 수행하여 필요한 정보를 얻을 수 있습니다.
+
+* * 를 사용합니다link:use-s3-setup-wizard.html["S3 설정 마법사"]. S3 설정 마법사를 사용하면 StorageGRID에서 필요한 값을 빠르게 구성하고 S3 애플리케이션을 구성할 때 사용할 수 있는 하나 또는 두 개의 파일을 출력할 수 있습니다. 마법사는 필요한 단계를 안내하고 설정이 StorageGRID 모범 사례를 준수하는지 확인하는 데 도움이 됩니다.
++
+
+NOTE: S3 애플리케이션을 구성할 경우 특별한 요구 사항이 있거나 구현이 상당한 사용자 지정이 필요한 경우가 아니라면 S3 설정 마법사를 사용하는 것이 좋습니다.
+
+* * 를 사용합니다link:../fabricpool/use-fabricpool-setup-wizard.html["FabricPool 설정 마법사"]. S3 설정 마법사와 마찬가지로 FabricPool 설정 마법사를 사용하면 필요한 값을 빠르게 구성하고 ONTAP에서 FabricPool 클라우드 계층을 구성할 때 사용할 수 있는 파일을 출력할 수 있습니다.
++
+
+NOTE: StorageGRID를 FabricPool 클라우드 계층의 오브젝트 스토리지 시스템으로 사용하려는 경우 특별한 요구사항이 있는지 또는 구현을 위해 상당한 양의 사용자 지정이 필요한 경우가 아니라면 FabricPool 설정 마법사를 사용하는 것이 좋습니다.
+
+* * 항목을 수동으로 구성 *. S3 응용 프로그램에 연결하는 경우 S3 설정 마법사를 사용하지 않으려면 수동으로 구성을 수행하여 필요한 값을 얻을 수 있습니다. 다음 단계를 수행하십시오.
++
+.. S3 애플리케이션에 사용할 고가용성(HA) 그룹을 구성합니다. 을 link:configure-high-availability-group.html["고가용성 그룹을 구성합니다"]참조하십시오.
+.. S3 애플리케이션에서 사용할 로드 밸런서 끝점을 생성합니다. 을 link:configuring-load-balancer-endpoints.html["로드 밸런서 엔드포인트를 구성합니다"]참조하십시오.
+.. S3 응용 프로그램에서 사용할 테넌트 계정을 만듭니다. 을 link:creating-tenant-account.html["테넌트 계정을 생성합니다"]참조하십시오.
+.. S3 테넌트의 경우 테넌트 계정에 로그인하고 응용 프로그램에 액세스할 각 사용자에 대한 액세스 키 ID 및 비밀 액세스 키를 생성합니다. 을 link:../tenant/creating-your-own-s3-access-keys.html["사용자 고유의 액세스 키를 생성합니다"]참조하십시오.
+.. 테넌트 계정 내에 하나 이상의 S3 버킷을 생성합니다. S3의 경우 을 link:../tenant/creating-s3-bucket.html["S3 버킷을 생성합니다"]참조하십시오.
+.. 새 테넌트 또는 버킷/컨테이너에 속한 개체에 대한 특정 배치 지침을 추가하려면 새 ILM 규칙을 생성하고 해당 규칙을 사용하도록 새 ILM 정책을 활성화합니다. link:../ilm/access-create-ilm-rule-wizard.html["ILM 규칙을 생성합니다"]및 을 link:../ilm/creating-ilm-policy.html["ILM 정책을 생성합니다"]참조하십시오.
+
+
+

@@ -1,0 +1,94 @@
+---
+permalink: audit/object-storage-audit-messages.html 
+sidebar: sidebar 
+keywords: audit, object storage, object management, object retrieval, node transfer, verification, BROR, CBSE, CBRE, CGRR, EBDL, EBKR, SCMT, SREM 
+summary: 따라서 오브젝트 스토리지 감사 범주에 속하는 감사 메시지를 잘 알고 있어야 합니다. 이러한 이벤트는 StorageGRID 시스템 내에서 개체의 스토리지 및 관리와 관련된 이벤트입니다. 여기에는 오브젝트 스토리지 및 검색, 그리드 노드에서 그리드 노드 전송, 검증도 포함됩니다. 
+---
+= 오브젝트 스토리지 감사 메시지
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+오브젝트 스토리지 감사 범주에 속하는 감사 메시지는 StorageGRID 시스템 내의 오브젝트 스토리지 및 관리와 관련된 이벤트에 사용됩니다. 여기에는 오브젝트 스토리지 및 검색, 그리드 노드에서 그리드 노드 전송, 검증도 포함됩니다.
+
+
+NOTE: 기능이 더 이상 사용되지 않으므로 제품 및 설명서에서 감사 코드가 제거됩니다. 여기에 나열되지 않은 감사 코드가 발생하는 경우 이전 SG 릴리스에 대한 이 항목의 이전 버전을 확인하십시오.  https://docs.netapp.com/us-en/storagegrid-118/audit/object-storage-audit-messages.html["StorageGRID 11.8 오브젝트 스토리지 감사 메시지"^]예를 들어,
+
+[cols="1a,2a,1a"]
+|===
+| 코드 | 설명 | 을 참조하십시오 
+
+
+ a| 
+브루
+ a| 
+버킷 읽기 전용 요청: 버킷이 읽기 전용 모드로 들어가거나 종료되었습니다.
+ a| 
+link:bror-bucket-read-only-request.html["BROR: 버킷 읽기 전용 요청"]
+
+
+
+ a| 
+카운터보어
+ a| 
+Object Send End(개체 보내기 종료): 소스 엔터티가 그리드 노드 간 데이터 전송 작업을 완료했습니다.
+ a| 
+link:cbse-object-send-end.html["CBSE: 객체 보내기 종료"]
+
+
+
+ a| 
+CBRE
+ a| 
+오브젝트 수신 종료: 대상 엔터티가 그리드 노드에서 그리드 노드 데이터 전송 작업을 완료했습니다.
+ a| 
+link:cbre-object-receive-end.html["CBRE: 객체 수신 종료"]
+
+
+
+ a| 
+CGRR
+ a| 
+교차 그리드 복제 요청: StorageGRID는 그리드 연합 연결에서 버킷 간에 객체를 복제하기 위해 교차 그리드 복제 작업을 시도했습니다.
+ a| 
+link:cgrr-cross-grid-replication-request.html["CGRR: 교차 그리드 복제 요청"]
+
+
+
+ a| 
+EBDL
+ a| 
+빈 버킷 삭제: ILM 스캐너가 모든 오브젝트를 삭제 중인 버킷 객체를 삭제했습니다(빈 버킷 작업 수행).
+ a| 
+link:ebdl-empty-bucket-delete.html["EBDL: 빈 버킷 삭제"]
+
+
+
+ a| 
+EBKR
+ a| 
+빈 버킷 요청: 사용자가 빈 버킷을 켜거나 끄라는 요청을 보냈습니다(즉, 버킷 오브젝트를 삭제하거나 오브젝트 삭제를 중지하기 위해).
+ a| 
+link:ebkr-empty-bucket-request.html["EBKR: 빈 버킷 요청"]
+
+
+
+ a| 
+SCMT
+ a| 
+오브젝트 저장소 커밋: 콘텐츠 블록이 완전히 저장되고 확인되었으므로 이제 요청할 수 있습니다.
+ a| 
+link:scmt-object-store-commit.html["SCMT: 오브젝트 저장소 커밋 요청"]
+
+
+
+ a| 
+SREM
+ a| 
+오브젝트 저장소 제거: 콘텐츠 블록이 그리드 노드에서 삭제되었으며 더 이상 직접 요청할 수 없습니다.
+ a| 
+link:srem-object-store-remove.html["SREM: 오브젝트 저장소 제거"]
+
+|===

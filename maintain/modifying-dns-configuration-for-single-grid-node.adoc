@@ -1,0 +1,80 @@
+---
+permalink: maintain/modifying-dns-configuration-for-single-grid-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, dns, modify dns 
+summary: 전체 배포에 대해 DNS를 전역적으로 구성하는 대신 스크립트를 실행하여 각 그리드 노드에 대해 DNS를 다르게 구성할 수 있습니다. 
+---
+= 단일 그리드 노드에 대한 DNS 구성을 수정합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+전체 배포에 대해 DNS를 전역적으로 구성하는 대신 스크립트를 실행하여 각 그리드 노드에 대해 DNS를 다르게 구성할 수 있습니다.
+
+일반적으로 Grid Manager의 * 유지보수 * > * 네트워크 * > * DNS 서버 * 옵션을 사용하여 DNS 서버를 구성해야 합니다. 다른 그리드 노드에 다른 DNS 서버를 사용해야 하는 경우에만 다음 스크립트를 사용하십시오.
+
+.단계
+. 기본 관리자 노드에 로그인합니다.
++
+.. 다음 명령을 입력합니다. `ssh admin@_primary_Admin_Node_IP_`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
+.. 다음 명령을 입력하여 루트로 전환합니다. `su -`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
++
+루트로 로그인하면 프롬프트가 에서 `$` 로 `#`변경됩니다.
+
+.. SSH 에이전트에 SSH 개인 키를 추가합니다. 다음을 입력합니다. `ssh-add`
+.. 파일에 나열된 SSH 액세스 암호를 `Passwords.txt` 입력합니다.
+
+
+. [[LOG_IN_TO_NODE]] 사용자 지정 DNS 구성으로 업데이트할 노드에 로그인합니다. `ssh _node_IP_address_`
+. DNS 설정 스크립트를 실행합니다. `setup_resolv.rb.`
++
+스크립트는 지원되는 명령 목록으로 응답합니다.
+
++
+[listing]
+----
+Tool to modify external name servers
+
+available commands:
+  add search <domain>
+               add a specified domain to search list
+               e.g.> add search netapp.com
+  remove search <domain>
+               remove a specified domain from list
+               e.g.> remove search netapp.com
+  add nameserver <ip>
+               add a specified IP address to the name server list
+               e.g.> add nameserver 192.0.2.65
+  remove nameserver <ip>
+               remove a specified IP address from list
+               e.g.> remove nameserver 192.0.2.65
+  remove nameserver all
+               remove all nameservers from list
+  save         write configuration to disk and quit
+  abort        quit without saving changes
+  help         display this help message
+
+
+Current list of name servers:
+    192.0.2.64
+Name servers inherited from global DNS configuration:
+    192.0.2.126
+    192.0.2.127
+Current list of search entries:
+    netapp.com
+
+Enter command [`add search <domain>|remove search <domain>|add nameserver <ip>`]
+              [`remove nameserver <ip>|remove nameserver all|save|abort|help`]
+----
+. 네트워크에 도메인 이름 서비스를 제공하는 서버의 IPv4 주소를 추가합니다. `add <nameserver IP_address>`
+. 명령을 반복하여 `add nameserver` 이름 서버를 추가합니다.
+. 다른 명령을 묻는 메시지가 나타나면 지침을 따릅니다.
+. 변경 사항을 저장하고 응용 프로그램을 종료합니다. `save`
+. [[close_cmd_shell]] 서버에서 명령 셸을 닫습니다. `exit`
+. 각 그리드 노드에 대해 ~ 단계를 <<log_in_to_node,노드에 로그인합니다>><<close_cmd_shell,명령 셸을 닫습니다>>반복합니다.
+. 다른 서버에 대한 암호 없는 액세스가 더 이상 필요하지 않으면 SSH 에이전트에서 개인 키를 제거합니다. 다음을 입력합니다. `ssh-add -D`
+

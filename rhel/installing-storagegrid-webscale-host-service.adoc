@@ -1,0 +1,43 @@
+---
+permalink: rhel/installing-storagegrid-webscale-host-service.html 
+sidebar: sidebar 
+keywords: how to install host services 
+summary: StorageGRID RPM 패키지를 사용하여 StorageGRID 호스트 서비스를 설치합니다. 
+---
+= StorageGRID 호스트 서비스를 설치합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID RPM 패키지를 사용하여 StorageGRID 호스트 서비스를 설치합니다.
+
+.이 작업에 대해
+다음 지침은 RPM 패키지에서 호스트 서비스를 설치하는 방법을 설명합니다. 또는 설치 아카이브에 포함된 DNF 리포지토리 메타데이터를 사용하여 RPM 패키지를 원격으로 설치할 수 있습니다. Linux 운영 체제에 대한 DNF 리포지토리 지침을 참조하십시오.
+
+.단계
+. 각 호스트에 StorageGRID RPM 패키지를 복사하거나 공유 스토리지에서 사용할 수 있도록 합니다.
++
+예를 들어, `/tmp` 다음 단계에서 예제 명령을 사용할 수 있도록 디렉토리에 배치합니다.
+
+. 각 호스트에 루트로 로그인하거나 sudo 권한이 있는 계정을 사용하여 다음 명령을 지정된 순서대로 실행합니다.
++
+[listing]
+----
+sudo dnf --nogpgcheck localinstall /tmp/StorageGRID-Webscale-Images-version-SHA.rpm
+----
++
+[listing]
+----
+sudo dnf --nogpgcheck localinstall /tmp/StorageGRID-Webscale-Service-version-SHA.rpm
+----
++
+
+CAUTION: 먼저 이미지 패키지를 설치하고 서비스 패키지를 다시 설치해야 합니다.
+
++
+
+NOTE: 패키지를 이외의 디렉토리에 배치한 경우 `/tmp` 사용한 경로를 반영하도록 명령을 수정합니다.
+
+

@@ -1,0 +1,25 @@
+---
+permalink: monitor/viewing-network-tab.html 
+sidebar: sidebar 
+keywords: network tab 
+summary: 네트워크 탭은 노드, 사이트 또는 그리드의 모든 네트워크 인터페이스를 통해 수신 및 전송된 네트워크 트래픽을 보여주는 그래프를 표시합니다. 
+---
+= 네트워크 탭을 봅니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+네트워크 탭은 노드, 사이트 또는 그리드의 모든 네트워크 인터페이스를 통해 수신 및 전송된 네트워크 트래픽을 보여주는 그래프를 표시합니다.
+
+네트워크 탭은 모든 노드, 각 사이트 및 전체 그리드에 대해 표시됩니다.
+
+다른 시간 간격을 표시하려면 차트 또는 그래프 위에 있는 컨트롤 중 하나를 선택합니다. 1시간, 1일, 1주 또는 1개월 간격으로 사용 가능한 정보를 표시할 수 있습니다. 날짜 및 시간 범위를 지정할 수 있는 사용자 지정 간격을 설정할 수도 있습니다.
+
+노드의 경우 네트워크 인터페이스 표에 각 노드의 물리적 네트워크 포트에 대한 정보가 나와 있습니다. Network communications(네트워크 통신) 표에는 각 노드의 수신 및 전송 작업과 드라이버에서 보고된 고장 카운터에 대한 세부 정보가 나와 있습니다.
+
+image::../media/nodes_page_network_tab.png[노드 페이지 네트워크 탭]
+
+.관련 정보
+link:monitoring-network-connections-and-performance.html["네트워크 연결 및 성능을 모니터링합니다"]

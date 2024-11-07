@@ -1,0 +1,92 @@
+---
+permalink: maintain/removing-port-remaps-on-bare-metal-hosts.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, linux, linux host, bare metal host, baremetal host, remove port remap, removing port remap, port remap 
+summary: 로드 밸런서 서비스에 대한 끝점을 구성하려는 경우 포트 재매핑의 매핑된-대상 포트로 이미 구성된 포트를 사용하려면 먼저 기존 포트 재매핑을 제거해야 합니다. 그렇지 않으면 끝점이 적용되지 않습니다. 
+---
+= 베어 메탈 호스트에서 포트 재맵을 제거합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+로드 밸런서 서비스에 대한 끝점을 구성하려는 경우 포트 재매핑의 매핑된-대상 포트로 이미 구성된 포트를 사용하려면 먼저 기존 포트 재매핑을 제거해야 합니다. 그렇지 않으면 끝점이 적용되지 않습니다.
+
+.이 작업에 대해
+베어 메탈 호스트에서 StorageGRID를 실행 중인 경우 포트 재맵을 제거하는 일반 절차 대신 이 절차를 따르십시오. 충돌하는 재매핑된 포트가 있는 각 관리 노드와 게이트웨이 노드에 대한 노드 구성 파일을 편집하여 노드의 모든 포트를 제거하고 노드를 다시 시작해야 합니다.
+
+
+CAUTION: 이 절차를 수행하면 모든 포트 재맵이 제거됩니다. 일부 재맵을 유지해야 하는 경우 기술 지원 부서에 문의하십시오.
+
+로드 밸런서 엔드포인트를 구성하는 방법에 대한 자세한 내용은 StorageGRID 관리 지침을 참조하십시오.
+
+
+NOTE: 노드를 다시 시작할 때 이 절차를 수행하면 서비스가 일시적으로 손실될 수 있습니다.
+
+.단계
+. 노드를 지원하는 호스트에 로그인합니다. 루트 또는 sudo 권한이 있는 계정으로 로그인합니다.
+. 다음 명령을 실행하여 노드를 일시적으로 사용하지 않도록 설정합니다. `sudo storagegrid node stop _node-name_`
+. vim 또는 pico와 같은 텍스트 편집기를 사용하여 노드의 노드 구성 파일을 편집합니다.
++
+노드 구성 파일은 에서 찾을 수 `/etc/storagegrid/nodes/_node-name_.conf` 있습니다.
+
+. 포트 재맵이 포함된 노드 구성 파일의 섹션을 찾습니다.
++
+다음 예제의 마지막 두 줄을 참조하십시오.
+
++
+[listing, subs="specialcharacters,quotes"]
+----
+ADMIN_NETWORK_CONFIG = STATIC
+ADMIN_NETWORK_ESL = 10.0.0.0/8, 172.19.0.0/16, 172.21.0.0/16
+ADMIN_NETWORK_GATEWAY = 10.224.0.1
+ADMIN_NETWORK_IP = 10.224.5.140
+ADMIN_NETWORK_MASK = 255.255.248.0
+ADMIN_NETWORK_MTU = 1400
+ADMIN_NETWORK_TARGET = eth1
+ADMIN_NETWORK_TARGET_TYPE = Interface
+BLOCK_DEVICE_VAR_LOCAL = /dev/sda2
+CLIENT_NETWORK_CONFIG = STATIC
+CLIENT_NETWORK_GATEWAY = 47.47.0.1
+CLIENT_NETWORK_IP = 47.47.5.140
+CLIENT_NETWORK_MASK = 255.255.248.0
+CLIENT_NETWORK_MTU = 1400
+CLIENT_NETWORK_TARGET = eth2
+CLIENT_NETWORK_TARGET_TYPE = Interface
+GRID_NETWORK_CONFIG = STATIC
+GRID_NETWORK_GATEWAY = 192.168.0.1
+GRID_NETWORK_IP = 192.168.5.140
+GRID_NETWORK_MASK = 255.255.248.0
+GRID_NETWORK_MTU = 1400
+GRID_NETWORK_TARGET = eth0
+GRID_NETWORK_TARGET_TYPE = Interface
+NODE_TYPE = VM_API_Gateway
+*PORT_REMAP = client/tcp/8082/443*
+*PORT_REMAP_INBOUND = client/tcp/8082/443*
+----
+. port_remap 및 port_remap_inbound 항목을 편집하여 포트 재맵을 제거합니다.
++
+[listing]
+----
+PORT_REMAP =
+PORT_REMAP_INBOUND =
+----
+. 다음 명령을 실행하여 노드의 노드 구성 파일에 대한 변경 내용을 검증합니다. ``sudo storagegrid node validate _node-name_``
++
+다음 단계로 진행하기 전에 오류 또는 경고를 모두 해결하십시오.
+
+. 다음 명령을 실행하여 포트 재매핑 없이 노드를 다시 시작합니다. `sudo storagegrid node start _node-name_`
+. 파일에 나열된 암호를 사용하여 노드에 admin으로 `Passwords.txt` 로그인합니다.
+. 서비스가 올바르게 시작되는지 확인합니다.
++
+.. 서버에 있는 모든 서비스의 상태 목록을 봅니다.``sudo storagegrid-status``
++
+상태가 자동으로 업데이트됩니다.
+
+.. 모든 서비스가 실행 중 또는 확인됨의 상태가 될 때까지 기다립니다.
+.. 상태 화면을 종료합니다.``Ctrl+C``
+
+
+. 재매핑된 포트가 충돌하는 각 관리 노드와 게이트웨이 노드에서 이 단계를 반복합니다.
+

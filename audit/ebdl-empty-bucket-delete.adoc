@@ -1,0 +1,64 @@
+---
+permalink: audit/ebdl-empty-bucket-delete.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, EBDL, Empty Bucket Delete 
+summary: 'ILM 스캐너가 모든 오브젝트를 삭제 중인 버킷 내 오브젝트를 삭제했습니다(빈 버킷 작업 수행).' 
+---
+= EBDL: 빈 버킷 삭제
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ILM 스캐너가 모든 오브젝트를 삭제 중인 버킷 내 오브젝트를 삭제했습니다(빈 버킷 작업 수행).
+
+[cols="1a,1a,4a"]
+|===
+| 코드 | 필드에 입력합니다 | 설명 
+
+
+ a| 
+CSRZ
+ a| 
+개체 크기
+ a| 
+오브젝트의 크기(바이트)입니다.
+
+
+
+ a| 
+경로
+ a| 
+S3 버킷/키
+ a| 
+S3 버킷 이름 및 S3 키 이름.
+
+
+
+ a| 
+SEGC
+ a| 
+컨테이너 UUID입니다
+ a| 
+분할된 객체에 대한 컨테이너의 UUID입니다. 이 값은 개체가 분할된 경우에만 사용할 수 있습니다.
+
+
+
+ a| 
+UUID입니다
+ a| 
+범용 고유 식별자
+ a| 
+StorageGRID 시스템 내의 개체의 식별자입니다.
+
+
+
+ a| 
+RSLT
+ a| 
+삭제 작업의 결과
+ a| 
+이벤트, 프로세스 또는 트랜잭션의 결과 이 메시지와 관련이 없으면 메시지가 실수로 필터링되지 않도록 SUCS 대신 사용되지 않습니다.
+
+|===

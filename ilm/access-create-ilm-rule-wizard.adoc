@@ -1,0 +1,47 @@
+---
+permalink: ilm/access-create-ilm-rule-wizard.html 
+sidebar: sidebar 
+keywords: create ILM rule, information lifecycle rule 
+summary: ILM 규칙 만들기 마법사를 사용하여 ILM 규칙을 만듭니다. 
+---
+= ILM 규칙 만들기 마법사에 액세스합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ILM 규칙을 사용하여 시간에 따른 오브젝트 데이터 배치를 관리할 수 있습니다. ILM 규칙을 만들려면 ILM 규칙 만들기 마법사를 사용합니다.
+
+
+NOTE: 정책에 대한 기본 ILM 규칙을 생성하려면 대신 를 link:creating-default-ilm-rule.html["기본 ILM 규칙 생성에 대한 지침"]따르십시오.
+
+.시작하기 전에
+* 을 사용하여 그리드 관리자에 로그인되어 있습니다.link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]
+* 있습니다. link:../admin/admin-group-permissions.html["특정 액세스 권한"]
+* 이 규칙이 적용되는 테넌트 계정을 지정하려면 link:../admin/admin-group-permissions.html["테넌트 계정 권한"]각 계정의 계정 ID를 알고 있어야 합니다.
+* 규칙이 마지막 액세스 시간 메타데이터에서 오브젝트를 필터링하도록 하려면 S3 버킷에서 마지막 액세스 시간 업데이트를 활성화해야 합니다.
+* 사용할 클라우드 스토리지 풀을 구성했습니다. 을 link:creating-cloud-storage-pool.html["클라우드 스토리지 풀을 생성합니다"]참조하십시오.
+* 에 대해 잘 알고 link:data-protection-options-for-ingest.html["수집 옵션"]있습니다.
+* S3 오브젝트 잠금과 함께 사용할 규정 준수 규칙을 생성해야 하는 경우 에 익숙합니다.link:requirements-for-s3-object-lock.html["S3 오브젝트 잠금에 대한 요구사항"]
+* 선택적으로 비디오를 시청했습니다 https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9872d38f-80b3-4ad4-9f79-b1ff008760c7["비디오: ILM 규칙 개요"^].
++
+[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9872d38f-80b3-4ad4-9f79-b1ff008760c7]
+image::../media/video-screenshot-ilm-rules-118.png[비디오: ILM 규칙 개요]
+
+
+
+.이 작업에 대해
+ILM 규칙 생성 시:
+
+* StorageGRID 시스템의 토폴로지 및 스토리지 구성을 고려하십시오.
+* 만들려는 오브젝트 복사본의 유형(복제 또는 삭제 코딩)과 필요한 각 오브젝트의 복사본 수를 고려하십시오.
+* StorageGRID 시스템에 연결하는 응용 프로그램에서 사용되는 개체 메타데이터 유형을 확인합니다. ILM 규칙은 해당 메타데이터를 기반으로 개체를 필터링합니다.
+* 시간에 따라 오브젝트 복사본을 배치할 위치를 고려합니다.
+* 사용할 수집 옵션(균형, 엄격 또는 이중 커밋)을 결정합니다.
+
+
+.단계
+. ILM * > * 규칙 * 을 선택합니다.
+. Create * 를 선택합니다. link:create-ilm-rule-enter-details.html["1단계(세부 정보 입력)"] ILM 규칙 생성 마법사가 나타납니다.
+

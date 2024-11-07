@@ -1,0 +1,37 @@
+---
+permalink: tenant/guidelines-for-configuring-openldap-server.html 
+sidebar: sidebar 
+keywords: how to configure open ldap 
+summary: OpenLDAP 서버를 ID 페더레이션에 사용하려면 OpenLDAP 서버에서 특정 설정을 구성해야 합니다. 
+---
+= OpenLDAP 서버 구성 지침
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+OpenLDAP 서버를 ID 페더레이션에 사용하려면 OpenLDAP 서버에서 특정 설정을 구성해야 합니다.
+
+
+
+== MemberOf 및 구체화 오버레이
+
+MemberOf 및 구체화 오버레이를 활성화해야 합니다. 자세한 내용은 _OpenLDAP 소프트웨어 관리자 가이드 _ 에서 역방향 그룹 구성원 유지 관리 지침을 참조하십시오.
+
+
+
+== 인덱싱
+
+지정된 인덱스 키워드를 사용하여 다음 OpenLDAP 속성을 구성해야 합니다.
+
+[listing]
+----
+olcDbIndex: objectClass eq
+olcDbIndex: uid eq,pres,sub
+olcDbIndex: cn eq,pres,sub
+olcDbIndex: entryUUID eq
+----
+또한 최적의 성능을 위해 사용자 이름 도움말에 언급된 필드를 인덱싱해야 합니다.
+
+OpenLDAP Software Administrator's Guide _ 에서 역방향 그룹 구성원 유지 관리에 대한 정보를 참조하십시오.

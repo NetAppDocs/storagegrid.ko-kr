@@ -1,0 +1,31 @@
+---
+permalink: s3/deprecated-put-bucket-request-modifications-for-compliance.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, deprecated bucket requests for compliance 
+summary: SGCompliance XML 요소는 사용되지 않습니다. 이전에는 이 StorageGRID 사용자 지정 요소를 CreateBucket 요청의 선택적 XML 요청 본문에 포함시켜 준수 버킷을 만들 수 있었습니다. 
+---
+= 사용되지 않음: 규정 준수를 위한 CreateBucket 요청 수정
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SGCompliance XML 요소는 사용되지 않습니다. 이전에는 이 StorageGRID 사용자 지정 요소를 CreateBucket 요청의 선택적 XML 요청 본문에 포함시켜 준수 버킷을 만들 수 있었습니다.
+
+[NOTE]
+====
+이전 StorageGRID 버전에서 사용할 수 있었던 StorageGRID 규정 준수 기능은 더 이상 사용되지 않으며 S3 오브젝트 잠금으로 대체되었습니다. 자세한 내용은 다음을 참조하십시오.
+
+* link:../s3/use-s3-api-for-s3-object-lock.html["S3 REST API를 사용하여 S3 오브젝트 잠금을 구성합니다"]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["NetApp 기술 자료: StorageGRID 11.5에서 레거시 준수 버킷을 관리하는 방법"^]
+
+
+====
+Compliance가 설정된 새 버킷을 더 이상 생성할 수 없습니다. 규정 준수를 위해 CreateBucket 요청 수정을 사용하여 새 준수 버킷을 생성하려고 하면 다음 오류 메시지가 반환됩니다.
+
+[listing]
+----
+The Compliance feature is deprecated.
+Contact your StorageGRID administrator if you need to create new Compliant buckets.
+----

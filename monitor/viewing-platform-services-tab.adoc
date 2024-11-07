@@ -1,0 +1,20 @@
+---
+permalink: monitor/viewing-platform-services-tab.html 
+sidebar: sidebar 
+keywords: platform services tab 
+summary: 플랫폼 서비스 탭은 사이트의 S3 플랫폼 서비스 작업에 대한 정보를 제공합니다. 
+---
+= 플랫폼 서비스 탭을 봅니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+플랫폼 서비스 탭은 사이트의 S3 플랫폼 서비스 작업에 대한 정보를 제공합니다.
+
+플랫폼 서비스 탭이 각 사이트에 표시됩니다. 이 탭은 CloudMirror 복제 및 검색 통합 서비스와 같은 S3 플랫폼 서비스에 대한 정보를 제공합니다. 이 탭의 그래프에는 보류 중인 요청 수, 요청 완료율, 요청 실패율 등의 메트릭이 표시됩니다.
+
+image::../media/nodes_page_site_level_platform_services.gif[노드 페이지 사이트 레벨 플랫폼 서비스]
+
+문제 해결 정보를 비롯한 S3 플랫폼 서비스에 대한 자세한 내용은 를 참조하십시오link:../admin/index.html["StorageGRID 관리 지침"].

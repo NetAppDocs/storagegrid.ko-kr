@@ -1,0 +1,98 @@
+---
+permalink: expand/copying-audit-logs.html 
+sidebar: sidebar 
+keywords: copy audit log, Admin Node expansion, 
+summary: 확장 절차를 통해 새 관리 노드를 추가하면 AMS 서비스는 시스템에 연결된 후에 발생하는 이벤트 및 동작만 기록합니다. 필요에 따라 이전에 설치된 관리 노드에서 새 확장 관리 노드로 감사 로그를 복사하여 나머지 StorageGRID 시스템과 동기화할 수 있습니다. 
+---
+= 감사 로그를 복사합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+확장 절차를 통해 새 관리 노드를 추가하면 AMS 서비스는 시스템에 연결된 후에 발생하는 이벤트 및 동작만 기록합니다. 필요에 따라 이전에 설치된 관리 노드에서 새 확장 관리 노드로 감사 로그를 복사하여 나머지 StorageGRID 시스템과 동기화할 수 있습니다.
+
+.시작하기 전에
+* 관리자 노드를 추가하는 데 필요한 확장 단계를 완료했습니다.
+*  `Passwords.txt`파일이 있습니다.
+
+
+.이 작업에 대해
+새 관리 노드에서 기록 감사 메시지를 사용하려면 감사 로그 파일을 기존 관리 노드에서 확장 관리 노드로 수동으로 복사해야 합니다.
+
+[NOTE]
+====
+기본적으로 감사 정보는 관리 노드의 감사 로그로 전송됩니다. 다음 중 하나가 적용되는 경우 이 단계를 건너뛸 수 있습니다.
+
+* 외부 syslog 서버를 구성했으며 이제 감사 로그가 관리 노드 대신 syslog 서버로 전송됩니다.
+* 감사 메시지를 생성한 로컬 노드에만 저장하도록 명시적으로 지정했습니다.
+
+
+자세한 내용은 을 link:../monitor/configure-audit-messages.html["감사 메시지 및 로그 대상을 구성합니다"] 참조하십시오.
+
+====
+.단계
+. 기본 관리자 노드에 로그인합니다.
++
+.. 다음 명령을 입력합니다. `ssh _admin@_primary_Admin_Node_IP_`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
+.. 다음 명령을 입력하여 루트로 전환합니다. `su -`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
++
+루트로 로그인하면 프롬프트가 에서 `$` 로 `#`변경됩니다.
+
+
+
+. AMS 서비스를 중지하면 새 파일이 생성되지 않습니다. `service ams stop`
+. 감사 내보내기 디렉터리로 이동합니다.
++
+`cd /var/local/log`
+
+. 소스 파일의 이름을 `audit.log` 변경하여 복사할 확장 관리자 노드의 파일을 덮어쓰지 않도록 합니다.
++
+[listing]
+----
+ls -l
+mv audit.log _new_name_.txt
+----
+. 모든 감사 로그 파일을 확장 관리자 노드의 대상 위치로 복사합니다.
++
+`scp -p * _IP_address_:/var/local/log`
+
+. 에 대한 암호를 입력하라는 메시지가 표시되면 파일에 나열된 기본 관리자 노드의 SSH 액세스 암호를 `Passwords.txt` 입력합니다 `/root/.ssh/id_rsa`.
+. 원본 파일 복원 `audit.log`:
++
+`mv _new_name_.txt audit.log`
+
+. AMS 서비스를 시작합니다.
++
+`service ams start`
+
+. 서버에서 로그아웃합니다.
++
+`exit`
+
+. 확장 관리 노드에 로그인합니다.
++
+.. 다음 명령을 입력합니다. `ssh admin@_expansion_Admin_Node_IP_`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
+.. 다음 명령을 입력하여 루트로 전환합니다. `su -`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
++
+루트로 로그인하면 프롬프트가 에서 `$` 로 `#`변경됩니다.
+
+
+
+. 감사 로그 파일에 대한 사용자 및 그룹 설정을 업데이트합니다.
++
+`cd /var/local/log`
+
++
+`chown ams-user:bycast *`
+
+. 서버에서 로그아웃합니다.
++
+`exit`
+
+

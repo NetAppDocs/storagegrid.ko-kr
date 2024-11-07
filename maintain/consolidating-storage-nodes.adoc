@@ -1,0 +1,23 @@
+---
+permalink: maintain/consolidating-storage-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, storage node, consolidate storage node, consolidating storage node 
+summary: 스토리지 노드를 통합하여 스토리지 용량을 늘리면서 사이트 또는 구축의 스토리지 노드 수를 줄일 수 있습니다. 
+---
+= 스토리지 노드 통합
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스토리지 노드를 통합하여 스토리지 용량을 늘리면서 사이트 또는 구축의 스토리지 노드 수를 줄일 수 있습니다.
+
+스토리지 노드를 통합할 경우 link:../expand/index.html["StorageGRID 시스템을 확장합니다"]더 큰 용량의 새로운 스토리지 노드를 추가한 다음 이전의 더 작은 용량 스토리지 노드를 폐기합니다. 서비스 해제 절차 중에 오브젝트는 이전 스토리지 노드에서 새 스토리지 노드로 마이그레이션됩니다.
+
+
+NOTE: 구형 어플라이언스와 소형 어플라이언스를 새로운 모델 또는 대용량 어플라이언스와 통합하는 경우 일대일 교체를 https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/how-appliance-node-cloning-works.html["어플라이언스 노드 클론 생성"^] 수행하지 않는 경우 어플라이언스 노드 클론 생성 및 서비스 해제 절차를 고려하십시오.
+
+예를 들어, 용량이 큰 새 스토리지 노드 2개를 추가하여 세 개의 이전 스토리지 노드를 교체할 수 있습니다. 먼저 확장 절차를 사용하여 2개의 더 큰 새 스토리지 노드를 추가한 다음 서비스 해제 절차를 사용하여 이전의 3개의 더 작은 용량 스토리지 노드를 제거할 수 있습니다.
+
+기존 스토리지 노드를 제거하기 전에 새 용량을 추가하면 StorageGRID 시스템 전체에서 데이터의 균형 잡힌 배포가 보장됩니다. 또한 기존 스토리지 노드가 스토리지 워터마크 수준 이상으로 푸시될 가능성을 줄일 수 있습니다.

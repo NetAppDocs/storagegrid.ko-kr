@@ -1,0 +1,31 @@
+---
+permalink: primer/ingest-data-flow.html 
+sidebar: sidebar 
+keywords: object data, ingest 
+summary: 수집 또는 저장 작업은 클라이언트와 StorageGRID 시스템 간에 정의된 데이터 흐름으로 구성됩니다. 
+---
+= 수집 데이터 흐름
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+수집 또는 저장 작업은 클라이언트와 StorageGRID 시스템 간에 정의된 데이터 흐름으로 구성됩니다.
+
+
+
+== 데이터 흐름
+
+클라이언트가 StorageGRID 시스템에 개체를 요청하면 스토리지 노드의 LDR 서비스가 요청을 처리하고 메타데이터 및 데이터를 디스크에 저장합니다.
+
+image::../media/ingest_data_flow.png[동기식 배치로 수집]
+
+. 클라이언트 응용 프로그램은 개체를 만들어 HTTP PUT 요청을 통해 StorageGRID 시스템으로 보냅니다.
+. 객체는 시스템의 ILM 정책에 따라 평가됩니다.
+. LDR 서비스는 오브젝트 데이터를 복제된 복사본 또는 삭제 코딩 복사본으로 저장합니다. (이 다이어그램은 복제된 복사본을 디스크에 저장하는 간단한 버전을 보여 줍니다.)
+. LDR 서비스는 개체 메타데이터를 메타데이터 저장소로 보냅니다.
+. 메타데이터 저장소는 객체 메타데이터를 디스크에 저장합니다.
+. 메타데이터 저장소가 객체 메타데이터의 복제본을 다른 스토리지 노드로 전파합니다. 이러한 사본은 디스크에도 저장됩니다.
+. LDR 서비스는 개체가 수집되었음을 확인할 수 있도록 클라이언트에 대한 HTTP 200 OK 응답을 반환합니다.
+

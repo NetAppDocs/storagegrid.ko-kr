@@ -1,0 +1,139 @@
+---
+permalink: ubuntu/automating-installation.html 
+sidebar: sidebar 
+keywords: how to automate ubuntu or debian installation 
+summary: StorageGRID 호스트 서비스 설치 및 그리드 노드 구성을 자동화할 수 있습니다. 
+---
+= 설치 자동화(Ubuntu 또는 Debian)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 호스트 서비스 설치 및 그리드 노드 구성을 자동화할 수 있습니다.
+
+.이 작업에 대해
+구축 자동화는 다음 경우에 유용할 수 있습니다.
+
+* 이미 Ansible, Puppet 또는 Chef와 같은 표준 오케스트레이션 프레임워크를 사용하여 물리적 호스트 또는 가상 호스트를 구축 및 구성합니다.
+* 여러 StorageGRID 인스턴스를 배포하려고 합니다.
+* 크고 복잡한 StorageGRID 인스턴스를 구축하고 있습니다.
+
+
+StorageGRID 호스트 서비스는 패키지에 의해 설치되며 수동 설치 중에 대화형으로 만들 수 있는 구성 파일에 의해 구동되거나, 표준 오케스트레이션 프레임워크를 사용하여 자동 설치를 지원하기 위해 미리 준비되거나 프로그래밍 방식으로 준비됩니다. StorageGRID는 StorageGRID 어플라이언스 및 전체 StorageGRID 시스템("그리드")의 구성을 자동화하기 위한 선택적 Python 스크립트를 제공합니다. 이러한 스크립트를 직접 사용하거나 직접 개발한 그리드 배포 및 구성 도구에서 StorageGRID 설치 REST API를 사용하는 방법을 알아보기 위해 스크립트를 검사할 수 있습니다.
+
+
+
+== StorageGRID 호스트 서비스의 설치 및 구성을 자동화합니다
+
+Anabilities, Puppet, Chef, Fabric 또는 SaltStack과 같은 표준 오케스트레이션 프레임워크를 사용하여 StorageGRID 호스트 서비스의 설치를 자동화할 수 있습니다.
+
+StorageGRID 호스트 서비스는 DEB에 패키징되며 자동 설치를 활성화하기 위해 미리 준비하거나 프로그래밍 방식으로 준비할 수 있는 구성 파일에 의해 구동됩니다. 표준 오케스트레이션 프레임워크를 사용하여 Ubuntu 또는 Debian을 설치 및 구성하는 경우 플레이북이나 레시피에 StorageGRID를 추가하는 것이 간단해야 합니다.
+
+다음과 같은 작업을 자동화할 수 있습니다.
+
+. Linux를 설치하는 중입니다
+. Linux 구성
+. StorageGRID 요구 사항을 충족하도록 호스트 네트워크 인터페이스 구성
+. StorageGRID 요구 사항을 충족하도록 호스트 스토리지 구성
+. Docker 설치 중
+. StorageGRID 호스트 서비스 설치
+. 에서 StorageGRID 노드 구성 파일을 생성합니다 `/etc/storagegrid/nodes`
+. StorageGRID 노드 구성 파일의 유효성을 검사하는 중입니다
+. StorageGRID 호스트 서비스를 시작합니다
+
+
+
+
+=== Ansible 역할 및 플레이북 예
+
+예제 Ansible 역할 및 플레이북은 폴더에 설치 아카이브와 함께 `/extras` 제공됩니다. Ansible 플레이북에서는 역할이 호스트를 준비하고 타겟 서버에 StorageGRID를 설치하는 방법을 보여줍니다 `storagegrid`. 필요에 따라 역할 또는 플레이북을 사용자 지정할 수 있습니다.
+
+
+
+== StorageGRID의 구성을 자동화합니다
+
+그리드 노드를 구축한 후 StorageGRID 시스템 구성을 자동화할 수 있습니다.
+
+.시작하기 전에
+* 설치 아카이브에서 다음 파일의 위치를 알고 있습니다.
++
+[cols="1a,1a"]
+|===
+| 파일 이름 | 설명 
+
+
+| configure-storagegrid.py  a| 
+구성을 자동화하는 데 사용되는 Python 스크립트입니다
+
+
+
+| configure -StorageGrid.sample.json  a| 
+스크립트와 함께 사용할 예제 구성 파일
+
+
+
+| configure -StorageGrid.blank.json을 지정합니다  a| 
+스크립트에 사용할 빈 구성 파일입니다
+
+|===
+*  `configure-storagegrid.json`구성 파일을 만들었습니다. 이 파일을 작성하려면 예제 구성 파일(`configure-storagegrid.sample.json`)이나 빈 구성 파일을 수정할 수 (`configure-storagegrid.blank.json`있습니다.
+
+
+.이 작업에 대해
+Python 스크립트와 `configure-storagegrid.json` 구성 파일을 사용하여 StorageGRID 시스템 구성을 자동화할 수 `configure-storagegrid.py` 있습니다.
+
+
+NOTE: 그리드 관리자 또는 설치 API를 사용하여 시스템을 구성할 수도 있습니다.
+
+.단계
+. Python 스크립트를 실행하기 위해 사용 중인 Linux 시스템에 로그인합니다.
+. 설치 아카이브를 추출한 디렉토리로 변경합니다.
++
+예를 들면 다음과 같습니다.
+
++
+[listing]
+----
+cd StorageGRID-Webscale-version/platform
+----
++
+여기서 `platform` 는 `debs`, `rpms` 또는 `vsphere`입니다.
+
+. Python 스크립트를 실행하고 생성한 구성 파일을 사용합니다.
++
+예를 들면 다음과 같습니다.
+
++
+[listing]
+----
+./configure-storagegrid.py ./configure-storagegrid.json --start-install
+----
+
+
+.결과
+복구 패키지 `.zip` 파일은 구성 프로세스 중에 생성되며 설치 및 구성 프로세스를 실행 중인 디렉터리에 다운로드됩니다. 하나 이상의 그리드 노드에 장애가 발생할 경우 StorageGRID 시스템을 복구할 수 있도록 복구 패키지 파일을 백업해야 합니다. 예를 들어, 안전한 백업 네트워크 위치 및 안전한 클라우드 저장소 위치에 복사합니다.
+
+
+CAUTION: 복구 패키지 파일은 StorageGRID 시스템에서 데이터를 가져오는 데 사용할 수 있는 암호화 키와 암호가 포함되어 있으므로 보안을 유지해야 합니다.
+
+임의의 암호를 생성하도록 지정한 경우 파일을 열고 `Passwords.txt` StorageGRID 시스템에 액세스하는 데 필요한 암호를 찾습니다.
+
+[listing]
+----
+######################################################################
+##### The StorageGRID "Recovery Package" has been downloaded as: #####
+#####           ./sgws-recovery-package-994078-rev1.zip          #####
+#####   Safeguard this file as it will be needed in case of a    #####
+#####                 StorageGRID node recovery.                 #####
+######################################################################
+----
+확인 메시지가 표시되면 StorageGRID 시스템이 설치 및 구성됩니다.
+
+[listing]
+----
+StorageGRID has been configured and installed.
+----
+.관련 정보
+link:overview-of-installation-rest-api.html["REST API 설치"]

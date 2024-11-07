@@ -1,0 +1,46 @@
+---
+permalink: monitor/index.html 
+sidebar: sidebar 
+keywords: monitor StorageGRID 
+summary: StorageGRID 시스템을 정기적으로 모니터링하여 예상대로 작동하는지 확인합니다. 
+---
+= StorageGRID 시스템을 모니터링합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 시스템을 정기적으로 모니터링하여 예상대로 작동하는지 확인합니다.
+
+.시작하기 전에
+* 을 사용하여 그리드 관리자에 로그인되어 있습니다.link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]
+* 있습니다. link:../admin/admin-group-permissions.html["특정 액세스 권한"]
+
+
+
+NOTE: Grid Manager에 표시된 스토리지 값의 단위를 변경하려면 Grid Manager의 오른쪽 상단에서 사용자 드롭다운을 선택한 다음 * User preferences * 를 선택합니다.
+
+.이 작업에 대해
+이 지침에서는 다음을 수행하는 방법을 설명합니다.
+
+* link:viewing-dashboard.html["대시보드를 보고 관리합니다"]
+* link:viewing-nodes-page.html["노드 페이지를 봅니다"]
+* link:information-you-should-monitor-regularly.html["시스템의 이러한 측면을 정기적으로 모니터링합니다."]
++
+** link:monitoring-system-health.html["시스템 상태입니다"]
+** link:monitoring-storage-capacity.html["스토리지 용량"]
+** link:monitoring-information-lifecycle-management.html["정보 수명 주기 관리"]
+** link:monitoring-network-connections-and-performance.html["네트워킹 및 시스템 리소스"]
+** link:monitoring-tenant-activity.html["테넌트 작업"]
+** link:monitoring-load-balancing-operations.html["로드 밸런싱 작업"]
+** link:grid-federation-monitor-connections.html["그리드 페더레이션 연결"]
+
+
+* link:managing-alerts.html["알림을 관리합니다"]
+* link:logs-files-reference.html["로그 파일을 봅니다"]
+* link:configure-audit-messages.html["감사 메시지 및 로그 대상을 구성합니다"]
+* link:considerations-for-external-syslog-server.html["외부 syslog 서버를 사용합니다"] 감사 정보를 수집합니다
+* link:using-snmp-monitoring.html["모니터링에 SNMP를 사용합니다"]
+* link:using-charts-and-reports.html["추가 StorageGRID 데이터를 가져옵니다"]측정 지표 및 진단 포함
+

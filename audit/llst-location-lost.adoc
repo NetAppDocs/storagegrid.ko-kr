@@ -1,0 +1,99 @@
+---
+permalink: audit/llst-location-lost.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, LLST, Location Lost 
+summary: '이 메시지는 개체 복사본의 위치\(복제 또는 삭제 코딩\)를 찾을 수 없을 때마다 생성됩니다.' 
+---
+= LLST: 위치가 손실되었습니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 메시지는 오브젝트 복사본(복제 또는 삭제 코딩)의 위치를 찾을 수 없을 때마다 생성됩니다.
+
+[cols="1a,1a,4a"]
+|===
+| 코드 | 필드에 입력합니다 | 설명 
+
+
+ a| 
+CBIL
+ a| 
+CBID
+ a| 
+영향을 받는 CBID
+
+
+
+ a| 
+ECPR
+ a| 
+삭제 - 코딩 프로필
+ a| 
+삭제 코딩 오브젝트 데이터의 경우: 사용된 삭제 코딩 프로필의 ID입니다.
+
+
+
+ a| 
+LTYP
+ a| 
+위치 유형
+ a| 
+CLDI(온라인): 복제된 개체 데이터의 경우
+
+CLEC(온라인): 삭제 코딩 오브젝트 데이터
+
+CLNL(Nearline): 아카이빙된 복제 객체 데이터의 경우
+
+
+
+ a| 
+귀도
+ a| 
+소스 노드 ID입니다
+ a| 
+위치가 손실된 노드 ID입니다.
+
+
+
+ a| 
+PCLD
+ a| 
+복제된 객체에 대한 경로입니다
+ a| 
+손실된 개체 데이터의 디스크 위치에 대한 전체 경로입니다. LTYP에 CLDI 값(즉, 복제된 개체의 경우)이 있는 경우에만 반환됩니다.
+
+폼을 사용합니다 `/var/local/rangedb/2/p/13/13/00oJs6X%{h{U)SeUFxE@`
+
+
+
+ a| 
+RSLT
+ a| 
+결과
+ a| 
+항상 없음. RSLT는 필수 메시지 필드이지만 이 메시지와 관련이 없습니다. 이 메시지가 필터링되지 않도록 SUCS 대신 사용되지 않습니다.
+
+
+
+ a| 
+TsRC
+ a| 
+트리거 소스
+ a| 
+사용자: 사용자가 트리거했습니다
+
+시스템: 시스템이 트리거되었습니다
+
+
+
+ a| 
+UUID입니다
+ a| 
+범용 고유 ID입니다
+ a| 
+StorageGRID 시스템에서 영향을 받는 개체의 식별자입니다.
+
+|===

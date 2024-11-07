@@ -1,0 +1,39 @@
+---
+permalink: tenant/editing-group-name.html 
+sidebar: sidebar 
+keywords: how to edit tenant group name 
+summary: 그룹의 표시 이름을 편집할 수 있습니다. 그룹의 고유한 이름은 편집할 수 없습니다. 
+---
+= 그룹 이름을 편집합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+그룹의 표시 이름을 편집할 수 있습니다. 그룹의 고유한 이름은 편집할 수 없습니다.
+
+.시작하기 전에
+* 를 사용하여 테넌트 관리자에 로그인되어 link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]있습니다.
+* 루트 액세스 권한이 있는 사용자 그룹에 속해 있습니다. 을 link:tenant-management-permissions.html["테넌트 관리 권한"]참조하십시오.
+
+
+.단계
+. 액세스 관리 * > * 그룹 * 을 선택합니다.
+. 표시 이름을 편집할 그룹의 확인란을 선택합니다.
+. Actions * > * Edit group name * 을 선택합니다.
++
+Edit group name(그룹 이름 편집) 대화 상자가 나타납니다.
+
++
+image::../media/edit_group_name.png[그룹 이름을 편집합니다]
+
+. 로컬 그룹을 편집하는 경우 필요에 따라 표시 이름을 업데이트합니다.
++
+그룹의 고유한 이름은 변경할 수 없습니다. 통합 그룹의 표시 이름은 편집할 수 없습니다.
+
+. 변경 내용 저장 * 을 선택합니다.
++
+페이지의 오른쪽 상단에 확인 메시지가 나타납니다.
+
+

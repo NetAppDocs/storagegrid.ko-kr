@@ -1,0 +1,29 @@
+---
+permalink: admin/identifying-primary-admin-node.html 
+sidebar: sidebar 
+keywords: primary admin node, configuration management node 
+summary: 기본 관리자 노드는 비기본 관리자 노드보다 더 많은 기능을 제공합니다. 예를 들어, 일부 유지 보수 절차는 기본 관리자 노드를 사용하여 수행해야 합니다. 
+---
+= 기본 관리 노드를 식별합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기본 관리자 노드는 비기본 관리자 노드보다 더 많은 기능을 제공합니다. 예를 들어, 일부 유지 보수 절차는 기본 관리자 노드를 사용하여 수행해야 합니다.
+
+관리 노드에 대한 자세한 내용은 을 참조하십시오link:../primer/what-admin-node-is.html["관리자 노드란 무엇입니까"].
+
+.시작하기 전에
+* 을 사용하여 그리드 관리자에 로그인되어 있습니다.link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]
+* 있습니다. link:admin-group-permissions.html["특정 액세스 권한"]
+
+
+.단계
+. 노드 * 를 선택합니다.
+. 검색 상자에 * primary * 를 입력합니다.
++
+검색 결과에서 유형 열에 "기본 관리자 노드"가 표시된 노드를 확인합니다. 하나의 기본 관리자 노드가 나열되어야 합니다.
+
+

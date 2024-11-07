@@ -1,0 +1,44 @@
+---
+permalink: maintain/forcing-service-to-terminate.html 
+sidebar: sidebar 
+keywords: storagegrid, terminate service, terminating service, force terminate 
+summary: '서비스를 즉시 중지해야 하는 경우 명령을 사용할 수 `force-stop` 있습니다.' 
+---
+= 서비스 강제 종료
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+서비스를 즉시 중지해야 하는 경우 명령을 사용할 수 `force-stop` 있습니다.
+
+.시작하기 전에
+ `Passwords.txt`파일이 있습니다.
+
+.단계
+. 그리드 노드에 로그인합니다.
++
+.. 다음 명령을 입력합니다. `ssh admin@_grid_node_IP_`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
+.. 다음 명령을 입력하여 루트로 전환합니다. `su -`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
+
+
++
+루트로 로그인하면 프롬프트가 에서 `$` 로 `#`변경됩니다.
+
+. 수동으로 서비스 종료: `service _servicename_ force-stop`
++
+예를 들면 다음과 같습니다.
+
++
+[listing]
+----
+service ldr force-stop
+----
++
+시스템은 30초 후에 서비스를 종료합니다.
+
+. 명령 셸에서 로그아웃합니다. `exit`
+

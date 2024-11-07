@@ -1,0 +1,32 @@
+---
+permalink: ilm/how-ilm-operates-throughout-objects-life.html 
+sidebar: sidebar 
+keywords: ilm lifecycle, object lifecycle and ILM 
+summary: StorageGRID에서 ILM을 사용하여 삶의 모든 단계에서 개체를 관리하는 방법을 이해하면 더 효과적인 정책을 설계하는 데 도움이 됩니다. 
+---
+= ILM이 개체 수명 전반에 걸쳐 작동하는 방식
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID에서 ILM을 사용하여 삶의 모든 단계에서 개체를 관리하는 방법을 이해하면 더 효과적인 정책을 설계하는 데 도움이 됩니다.
+
+* * Ingest *: Ingest는 S3 클라이언트 응용 프로그램이 StorageGRID 시스템에 개체를 저장하기 위한 연결을 설정할 때 시작되며 StorageGRID가 클라이언트에 "수집 성공" 메시지를 반환할 때 완료됩니다. ILM 요구 사항이 지정된 방식에 따라 즉시(동기식 배치) ILM 명령을 적용하거나 나중에 ILM(이중 커밋)을 적용하여 수집 중에 오브젝트 데이터를 보호합니다.
+* * 복사본 관리 *: ILM의 배치 명령에 지정된 오브젝트 복사본의 수와 유형을 생성한 후 StorageGRID는 오브젝트 위치를 관리하고 개체로부터 손실을 보호합니다.
++
+** * ILM 스캔 및 평가 *: StorageGRID는 그리드에 저장된 객체 목록을 지속적으로 검사하고 현재 복사본이 ILM 요구 사항을 충족하는지 확인합니다. 오브젝트 복사본의 유형, 숫자 또는 위치가 서로 다른 경우 StorageGRID은 필요에 따라 복사본을 생성, 삭제 또는 이동합니다.
+** * 배경 검증 * : StorageGRID는 객체 데이터의 무결성을 확인하기 위해 지속적으로 백그라운드 검증을 수행합니다. 문제가 발견되면 StorageGRID는 현재 ILM 요구사항을 충족하는 위치에 새 오브젝트 복사본 또는 삭제 코딩 된 대체 오브젝트 조각을 자동으로 생성합니다. 을 link:../troubleshoot/verifying-object-integrity.html["개체 무결성을 확인합니다"]참조하십시오.
+
+
+* * 개체 삭제 *: StorageGRID 시스템에서 모든 복사본이 제거될 때 개체 관리가 종료됩니다. 클라이언트의 삭제 요청 결과로 또는 ILM에 의한 삭제 또는 S3 버킷 라이프사이클의 만료로 인한 삭제로 인해 오브젝트를 제거할 수 있습니다.
++
+
+NOTE: S3 오브젝트 잠금이 활성화된 버킷의 오브젝트는 법적 증거 자료 보관 중이거나 보존 기한이 지정되었지만 아직 충족되지 않은 경우 삭제할 수 없습니다.
+
+
+
+이 다이어그램은 ILM이 개체 수명 주기 동안 어떻게 작동하는지를 요약합니다.
+
+image::../media/overview_of_object_lifecycle.png[개체 수명 주기 개요]

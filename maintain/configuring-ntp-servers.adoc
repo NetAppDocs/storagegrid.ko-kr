@@ -1,0 +1,73 @@
+---
+permalink: maintain/configuring-ntp-servers.html 
+sidebar: sidebar 
+keywords: storagegrid, ntp, ntp server, configure ntp, configuring ntp 
+summary: 'StorageGRID 시스템의 그리드 노드 간에 데이터가 정확하게 동기화되도록 NTP(네트워크 시간 프로토콜) 서버를 추가, 업데이트 또는 제거할 수 있습니다.' 
+---
+= NTP 서버를 관리합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 시스템의 그리드 노드 간에 데이터가 정확하게 동기화되도록 NTP(네트워크 시간 프로토콜) 서버를 추가, 업데이트 또는 제거할 수 있습니다.
+
+.시작하기 전에
+* 을 사용하여 그리드 관리자에 로그인되어 있습니다.link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]
+* 이 link:../admin/admin-group-permissions.html["유지 관리 또는 루트 액세스 권한"]있습니다.
+* 프로비저닝 암호가 있습니다.
+* 구성할 NTP 서버의 IPv4 주소가 있습니다.
+
+
+
+
+== StorageGRID에서 NTP를 사용하는 방법
+
+StorageGRID 시스템은 NTP(네트워크 시간 프로토콜)를 사용하여 그리드의 모든 그리드 노드 간에 시간을 동기화합니다.
+
+각 사이트에서 StorageGRID 시스템의 노드 2개 이상에 기본 NTP 역할이 할당됩니다. 이들은 최소 4개, 최대 6개의 외부 시간 소스와 상호 동기화됩니다. StorageGRID 시스템의 기본 NTP 노드가 아닌 모든 노드는 NTP 클라이언트로 작동하며 이러한 기본 NTP 노드와 동기화됩니다.
+
+외부 NTP 서버는 이전에 기본 NTP 역할을 할당한 노드에 연결됩니다. 따라서 주 NTP 역할을 가진 노드를 두 개 이상 지정하는 것이 좋습니다.
+
+
+
+== NTP 서버 지침
+
+타이밍 문제로부터 보호하려면 다음 지침을 따르십시오.
+
+* 외부 NTP 서버는 이전에 기본 NTP 역할을 할당한 노드에 연결됩니다. 따라서 주 NTP 역할을 가진 노드를 두 개 이상 지정하는 것이 좋습니다.
+* 각 사이트에서 최소 2개의 노드가 4개 이상의 외부 NTP 소스에 액세스할 수 있는지 확인합니다. 사이트에서 하나의 노드만 NTP 소스에 연결할 수 있는 경우 해당 노드가 중단되면 타이밍 문제가 발생합니다. 또한 사이트당 두 노드를 기본 NTP 소스로 지정하면 사이트가 나머지 그리드에서 격리될 경우 정확한 시간을 보장할 수 있습니다.
+* 지정된 외부 NTP 서버는 NTP 프로토콜을 사용해야 합니다. 시간 드리프트와 관련된 문제를 방지하려면 Stratum 3 이상의 NTP 서버 참조를 지정해야 합니다.
+
+
+
+NOTE: 프로덕션 수준 StorageGRID 설치에 외부 NTP 소스를 지정할 때 Windows Server 2016 이전 버전의 Windows에서는 Windows 시간(W32Time) 서비스를 사용하지 마십시오. 이전 버전의 Windows의 시간 서비스는 정확하지 않으며 StorageGRID를 비롯한 정확도가 높은 환경에서 사용할 수 있도록 Microsoft에서 지원되지 않습니다. 자세한 내용은 을 참조하십시오 https://support.microsoft.com/en-us/help/939322/support-boundary-to-configure-the-windows-time-service-for-high-accura["정확도가 높은 환경에 대한 Windows 시간 서비스를 구성하기 위한 경계를 지원합니다"^].
+
+
+
+== NTP 서버를 구성합니다
+
+다음 단계에 따라 NTP 서버를 추가, 업데이트 또는 제거합니다.
+
+.단계
+. 유지보수 * > * 네트워크 * > * NTP 서버 * 를 선택합니다.
+. Servers 섹션에서 필요에 따라 NTP 서버 항목을 추가, 업데이트 또는 제거합니다.
++
+NTP 서버는 4개 이상 포함해야 하며 최대 6개의 서버를 지정할 수 있습니다.
+
+. StorageGRID 시스템의 프로비저닝 암호를 입력하고 * Save * 를 선택합니다.
++
+구성 업데이트가 완료될 때까지 페이지가 비활성화됩니다.
+
++
+
+NOTE: 새 NTP 서버를 저장한 후 모든 NTP 서버가 연결 테스트에 실패하면 계속 진행하지 마십시오. 기술 지원 부서에 문의하십시오.
+
+
+
+
+
+== NTP 서버 문제를 해결합니다
+
+설치 중에 원래 지정한 NTP 서버의 안정성 또는 가용성에 문제가 발생하면 StorageGRID 시스템에서 서버를 추가하거나 기존 서버를 업데이트 또는 제거하여 사용하는 외부 NTP 소스 목록을 업데이트할 수 있습니다.

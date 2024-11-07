@@ -1,0 +1,52 @@
+---
+permalink: network/networking-and-ports-for-platform-services-and-cloud-storage-pools.html 
+sidebar: sidebar 
+keywords: networking for platform services, networking for cloud storage pools 
+summary: StorageGRID 플랫폼 서비스 또는 클라우드 스토리지 풀을 사용하려는 경우 대상 엔드포인트에 연결할 수 있도록 그리드 네트워킹 및 방화벽을 구성해야 합니다. 
+---
+= 플랫폼 서비스 및 클라우드 스토리지 풀을 위한 네트워킹 및 포트
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 플랫폼 서비스 또는 클라우드 스토리지 풀을 사용하려는 경우 대상 엔드포인트에 연결할 수 있도록 그리드 네트워킹 및 방화벽을 구성해야 합니다.
+
+
+
+== 플랫폼 서비스를 위한 네트워킹
+
+및 에 설명된 바와 같이 link:../admin/manage-platform-services-for-tenants.html["테넌트를 위한 플랫폼 서비스 관리"]link:../tenant/considerations-for-platform-services.html["플랫폼 서비스 관리"]플랫폼 서비스에는 검색 통합, 이벤트 알림 및 CloudMirror 복제를 제공하는 외부 서비스가 포함됩니다.
+
+플랫폼 서비스를 사용하려면 StorageGRID ADC 서비스를 외부 서비스 끝점에 호스팅하는 스토리지 노드로부터 액세스해야 합니다. 액세스 제공 예는 다음과 같습니다.
+
+* ADC 서비스가 있는 스토리지 노드에서 대상 끝점으로 라우팅하는 AESL 항목을 사용하여 고유한 관리 네트워크를 구성합니다.
+* 클라이언트 네트워크에서 제공하는 기본 경로를 사용합니다. 기본 경로를 사용하는 경우 을 사용하여 인바운드 연결을 제한할 수 link:../admin/manage-firewall-controls.html["신뢰할 수 없는 클라이언트 네트워크 기능입니다"]있습니다.
+
+
+
+
+== 클라우드 스토리지 풀을 위한 네트워킹
+
+또한 클라우드 스토리지 풀에서는 Amazon S3 Glacier 또는 Microsoft Azure Blob 스토리지와 같이 사용되는 외부 서비스에서 제공하는 엔드포인트로 스토리지 노드에서 액세스할 수 있어야 합니다. 자세한 내용은 을 link:../ilm/what-cloud-storage-pool-is.html["클라우드 스토리지 풀이란 무엇입니까"]참조하십시오.
+
+
+
+== 플랫폼 서비스 및 클라우드 스토리지 풀을 위한 포트입니다
+
+기본적으로 플랫폼 서비스 및 클라우드 스토리지 풀 통신에는 다음 포트가 사용됩니다.
+
+* *80*: 로 시작하는 끝점 URI입니다 `http`
+* *443*: 로 시작하는 끝점 URI입니다 `https`
+
+
+끝점을 만들거나 편집할 때 다른 포트를 지정할 수 있습니다. 을 link:internal-grid-node-communications.html["네트워크 포트 참조"]참조하십시오.
+
+투명하지 않은 프록시 서버를 사용하는 경우 인터넷의 끝점과 같은 외부 끝점으로 메시지를 보낼 수 있도록 허용해야 link:../admin/configuring-storage-proxy-settings.html["스토리지 프록시 설정을 구성합니다"]합니다.
+
+
+
+== VLAN 및 플랫폼 서비스와 클라우드 스토리지 풀
+
+플랫폼 서비스 또는 클라우드 스토리지 풀에 VLAN 네트워크를 사용할 수 없습니다. 대상 엔드포인트는 그리드, 관리자 또는 클라이언트 네트워크를 통해 연결할 수 있어야 합니다.

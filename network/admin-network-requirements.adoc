@@ -1,0 +1,22 @@
+---
+permalink: network/admin-network-requirements.html 
+sidebar: sidebar 
+keywords: admin network requirements, guidelines for admin network, aesl 
+summary: 관리 네트워크는 선택 사항입니다. 관리 네트워크를 구성하려는 경우 다음 요구 사항 및 지침을 따르십시오. 
+---
+= 관리 네트워크 요구 사항
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+관리 네트워크는 선택 사항입니다. 관리 네트워크를 구성하려는 경우 다음 요구 사항 및 지침을 따르십시오.
+
+관리 네트워크의 일반적인 사용에는 관리 연결, AutoSupport, KMS 및 NTP, DNS 및 LDAP와 같은 중요한 서버에 대한 연결(이러한 연결이 그리드 네트워크 또는 클라이언트 네트워크를 통해 제공되지 않는 경우)이 포함됩니다.
+
+
+NOTE: 원하는 네트워크 서비스 및 클라이언트에 연결할 수 있는 경우 관리 네트워크 및 AESL은 각 노드에 고유할 수 있습니다.
+
+
+NOTE: 외부 서브넷에서 인바운드 연결을 활성화하려면 관리자 네트워크에서 하나 이상의 서브넷을 정의해야 합니다. 정적 라우트는 AESL의 각 서브넷에 대해 자동으로 생성됩니다.

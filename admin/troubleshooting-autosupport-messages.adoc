@@ -1,0 +1,54 @@
+---
+permalink: admin/troubleshooting-autosupport-messages.html 
+sidebar: sidebar 
+keywords: troubleshoot autosupport, asup package 
+summary: AutoSupport 패키지 전송 시도가 실패하면 StorageGRID 시스템은 AutoSupport 패키지 유형에 따라 다른 작업을 수행합니다. 지원\>툴\>AutoSupport\> 결과를 선택하여 AutoSupport 패키지의 상태를 확인할 수 있습니다. 
+---
+= AutoSupport 패키지 문제 해결
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+AutoSupport 패키지 전송 시도가 실패하면 StorageGRID 시스템은 AutoSupport 패키지 유형에 따라 다른 작업을 수행합니다. AutoSupport 패키지의 상태는 * 지원 * > * 툴 * > * AutoSupport * > * 결과 * 를 선택하여 확인할 수 있습니다.
+
+AutoSupport 패키지를 전송하지 못했으면 * AutoSupport * 페이지의 * 결과 * 탭에 "실패"가 표시됩니다.
+
+
+NOTE: AutoSupport 패키지를 NetApp에 전달하도록 프록시 서버를 구성한 경우link:configuring-admin-proxy-settings.html["프록시 서버 구성 설정이 올바른지 확인합니다"],
+
+
+
+== 주별 AutoSupport 패키지 오류
+
+주별 AutoSupport 패키지를 전송하지 못한 경우 StorageGRID 시스템은 다음 작업을 수행합니다.
+
+. 가장 최근의 결과 속성을 다시 시도하도록 업데이트합니다.
+. AutoSupport 패키지를 1시간 동안 4분마다 15회 재전송합니다.
+. 전송 실패 1시간 후 는 가장 최근의 결과 속성을 실패 로 업데이트합니다.
+. 다음 예약 시간에 AutoSupport 패키지 전송을 다시 시도합니다.
+. NMS 서비스를 이용할 수 없어 패키지가 실패하는 경우, 7일 전에 패키지가 발송되는 경우, AutoSupport 스케줄을 정기적으로 유지
+. NMS 서비스를 다시 사용할 수 있게 되면 는 패키지를 7일 이상 보내지 않은 경우 즉시 AutoSupport 패키지를 보냅니다.
+
+
+
+
+== 사용자가 트리거하거나 이벤트가 트리거된 AutoSupport 패키지 오류입니다
+
+사용자가 트리거하거나 이벤트가 트리거된 AutoSupport 패키지를 전송하지 못하는 경우 StorageGRID 시스템은 다음 작업을 수행합니다.
+
+. 오류가 알려진 경우 오류 메시지를 표시합니다. 예를 들어, 사용자가 올바른 이메일 구성 설정을 제공하지 않고 SMTP 프로토콜을 선택하면 다음 오류가 표시됩니다. `AutoSupport packages cannot be sent using SMTP protocol due to incorrect settings on the E-mail Server page.`
+. 패키지를 다시 보내지 않습니다.
+. 에 오류를 `nms.log` 기록합니다.
+
+
+오류가 발생하고 SMTP가 선택한 프로토콜인 경우 StorageGRID 시스템의 이메일 서버가 올바르게 구성되어 있고 이메일 서버가 실행 중인지(* 지원 * > * 알람(레거시) * > * 레거시 이메일 설정 *) 확인하십시오. AutoSupport 페이지에 다음과 같은 오류 메시지가 나타날 수 있습니다. `AutoSupport packages cannot be sent using SMTP protocol due to incorrect settings on the E-mail Server page.`
+
+의 방법을 link:../monitor/email-alert-notifications.html["이메일 서버 설정을 구성합니다"]알아보십시오.
+
+
+
+== AutoSupport 패키지 오류를 해결합니다
+
+오류가 발생하고 SMTP가 선택한 프로토콜인 경우 StorageGRID 시스템의 이메일 서버가 올바르게 구성되어 있고 이메일 서버가 실행 중인지 확인합니다. AutoSupport 페이지에 다음과 같은 오류 메시지가 나타날 수 있습니다. `AutoSupport packages cannot be sent using SMTP protocol due to incorrect settings on the E-mail Server page.`

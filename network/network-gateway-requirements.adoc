@@ -1,0 +1,19 @@
+---
+permalink: network/network-gateway-requirements.html 
+sidebar: sidebar 
+keywords: network gateway requirements 
+summary: 네트워크 게이트웨이 또는 라우터에 대한 다음 요구 사항 및 지침을 따르십시오. 
+---
+= 네트워크 게이트웨이 요구 사항
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+네트워크 게이트웨이 또는 라우터에 대한 다음 요구 사항 및 지침을 따르십시오.
+
+* 설정된 경우 해당 네트워크의 게이트웨이는 특정 네트워크의 서브넷 내에 있어야 합니다.
+* 정적 주소 지정을 사용하여 인터페이스를 구성하는 경우 0.0.0.0이 아닌 게이트웨이 주소를 지정해야 합니다.
+* 게이트웨이가 없는 경우 가장 좋은 방법은 게이트웨이 주소를 네트워크 인터페이스의 IP 주소로 설정하는 것입니다.
+

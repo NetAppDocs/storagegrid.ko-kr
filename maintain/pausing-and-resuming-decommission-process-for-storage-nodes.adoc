@@ -1,0 +1,46 @@
+---
+permalink: maintain/pausing-and-resuming-decommission-process-for-storage-nodes.html 
+sidebar: sidebar 
+keywords: how to pause decommission 
+summary: 두 번째 유지 보수 절차를 수행해야 하는 경우 특정 단계에서 스토리지 노드에 대한 서비스 해제 절차를 일시 중지할 수 있습니다. 다른 절차가 완료된 후 서비스 해제를 재개할 수 있습니다. 
+---
+= 스토리지 노드에 대한 서비스 해제 프로세스를 일시 중지하고 다시 시작합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+두 번째 유지 보수 절차를 수행해야 하는 경우 특정 단계에서 스토리지 노드에 대한 서비스 해제 절차를 일시 중지할 수 있습니다. 다른 절차가 완료된 후 서비스 해제를 재개할 수 있습니다.
+
+
+NOTE: ILM 평가 또는 삭제 코딩 데이터 사용 중단 단계에 도달한 경우에만 * 일시 중지 * 버튼이 활성화됩니다. 그러나 ILM 평가(데이터 마이그레이션)는 백그라운드에서 계속 실행됩니다.
+
+.시작하기 전에
+* 을 사용하여 그리드 관리자에 로그인되어 있습니다.link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]
+* 이 link:../admin/admin-group-permissions.html["유지 관리 또는 루트 액세스 권한"]있습니다.
+
+
+.단계
+. 유지 관리 * > * 작업 * > * 서비스 해제 * 를 선택합니다.
++
+서비스 해제 페이지가 나타납니다.
+
+. 서비스 해제 노드 * 를 선택합니다.
++
+서비스 해제 노드 페이지가 나타납니다. 서비스 해제 절차가 다음 단계 중 하나에 도달하면 * Pause * (일시 중지 *) 버튼이 활성화됩니다.
+
++
+** ILM 평가 중
+** 삭제 해제 - 코드화된 데이터
+
+
+. 절차를 일시 중지하려면 * Pause * 를 선택합니다.
++
+현재 단계가 일시 중지되고 * Resume * 버튼이 활성화됩니다.
+
++
+image::../media/decommission_nodes_procedure_paused.png[노드 서비스 해제 절차가 일시 중지되었습니다]
+
+. 다른 유지보수 절차가 완료된 후 서비스 해제를 진행하려면 * Resume * 을 선택하십시오.
+

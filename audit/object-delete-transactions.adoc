@@ -1,0 +1,78 @@
+---
+permalink: audit/object-delete-transactions.html 
+sidebar: sidebar 
+keywords: object delete transaction, S3 delete, SDEL, WDEL 
+summary: S3 API 관련 감사 메시지를 찾아 감사 로그에서 오브젝트 삭제 트랜잭션을 식별할 수 있습니다. 
+---
+= 객체 삭제 트랜잭션입니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+S3 API 관련 감사 메시지를 찾아 감사 로그에서 오브젝트 삭제 트랜잭션을 식별할 수 있습니다.
+
+다음 표에는 삭제 트랜잭션 중에 생성된 모든 감사 메시지가 나와 있지 않습니다. 삭제 트랜잭션을 추적하는 데 필요한 메시지만 포함됩니다.
+
+
+
+== S3 감사 메시지 삭제
+
+[cols="1a,1a,2a,1a,2a"]
+|===
+| 코드 | 이름 | 설명 | 트레이스 | 을 참조하십시오 
+
+
+ a| 
+SDEL
+ a| 
+S3 삭제
+ a| 
+버킷에서 오브젝트를 삭제하도록 요청했습니다.
+ a| 
+CBID, S3KY
+ a| 
+link:sdel-s3-delete.html["SDEL: S3 삭제"]
+
+|===
+
+
+== 감사 메시지를 신속하게 삭제합니다
+
+[cols="1a,1a,2a,1a,2a"]
+|===
+| 코드 | 이름 | 설명 | 트레이스 | 을 참조하십시오 
+
+
+ a| 
+WDEL
+ a| 
+스위프트 삭제
+ a| 
+컨테이너 또는 컨테이너에서 개체를 삭제하도록 요청했습니다.
+ a| 
+CBID, WOBJ
+ a| 
+link:wdel-swift-delete.html["WDEL: Swift 삭제"]
+
+|===
+
+
+== 예: S3 오브젝트 삭제
+
+S3 클라이언트가 스토리지 노드(LDR 서비스)에서 개체를 삭제하면 감사 메시지가 생성되고 감사 로그에 저장됩니다.
+
+
+NOTE: 삭제 트랜잭션 중에 생성된 모든 감사 메시지가 아래 예제에 나와 있지 않습니다. S3 삭제 트랜잭션(SDEL)과 관련된 항목만 나열됩니다.
+
+
+
+=== SDEL:S3 삭제
+
+클라이언트가 DeleteObject 요청을 LDR 서비스로 보내면 객체 삭제가 시작됩니다. 메시지에는 오브젝트를 삭제할 버킷과 오브젝트를 식별하는 데 사용되는 오브젝트의 S3 키가 포함됩니다.
+
+[listing, subs="specialcharacters,quotes"]
+----
+2017-07-17T21:17:58.959669[AUDT:[RSLT(FC32):SUCS][TIME(UI64):14316][SAIP(IPAD):"10.96.112.29"][S3AI(CSTR):"70899244468554783528"][SACC(CSTR):"test"][S3AK(CSTR):"SGKHyalRU_5cLflqajtaFmxJn946lAWRJfBF33gAOg=="][SUSR(CSTR):"urn:sgws:identity::70899244468554783528:root"][SBAI(CSTR):"70899244468554783528"][SBAC(CSTR):"test"]\[S3BK\(CSTR\):"example"\]\[S3KY\(CSTR\):"testobject-0-7"\][CBID\(UI64\):0x339F21C5A6964D89][CSIZ(UI64):30720][AVER(UI32):10][ATIM(UI64):150032627859669][ATYP\(FC32\):SDEL][ANID(UI32):12086324][AMID(FC32):S3RQ][ATID(UI64):4727861330952970593]]
+----

@@ -1,0 +1,6 @@
+= 
+:allow-uri-read: 
+
+
+
+NOTE: BMC를 포함하는 모든 어플라이언스에 대해 원격 IPMI 액세스를 활성화 또는 비활성화할 수 있습니다. 원격 IPMI 인터페이스를 사용하면 BMC 계정 및 암호를 가진 모든 사용자가 StorageGRID 어플라이언스에 낮은 수준의 하드웨어 액세스를 할 수 있습니다. BMC에 대한 원격 IPMI 액세스가 필요하지 않은 경우 다음 방법 중 하나를 사용하여 이 옵션을 사용하지 않도록 설정합니다. + 그리드 관리자에서 * configuration * > * Security * > * Security settings * > * Appliances * 로 이동한 다음 * 원격 IPMI 액세스 활성화 * 확인란의 선택을 취소합니다. + 그리드 관리 API에서 전용 끝점을 사용합니다 `PUT /private/bmc`.

@@ -1,0 +1,61 @@
+---
+permalink: admin/configuring-admin-proxy-settings.html 
+sidebar: sidebar 
+keywords: admin proxy, autosupport, non-transparent proxy 
+summary: 'HTTP 또는 HTTPS를 사용하여 AutoSupport 패키지를 보내는 경우 관리 노드와 기술 지원\(AutoSupport\) 간에 비투명 프록시 서버를 구성할 수 있습니다.' 
+---
+= 관리자 프록시 설정을 구성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+HTTP 또는 HTTPS를 사용하여 AutoSupport 패키지를 보내는 경우 관리 노드와 기술 지원(AutoSupport) 간에 비투명 프록시 서버를 구성할 수 있습니다.
+
+AutoSupport에 대한 자세한 내용은 을 link:configure-autosupport-grid-manager.html["AutoSupport를 구성합니다"]참조하십시오.
+
+.시작하기 전에
+* 있습니다. link:admin-group-permissions.html["특정 액세스 권한"]
+* 을 사용하여 그리드 관리자에 로그인되어 있습니다.link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]
+
+
+.이 작업에 대해
+단일 관리자 프록시에 대한 설정을 구성할 수 있습니다.
+
+.단계
+. 구성 * > * 보안 * > * 프록시 설정 * 을 선택합니다.
++
+프록시 설정 페이지가 나타납니다. 기본적으로 탭 메뉴에서 스토리지가 선택되어 있습니다.
+
+. 관리 * 탭을 선택합니다.
+. 관리자 프록시 사용 * 확인란을 선택합니다.
+. 프록시 서버의 호스트 이름 또는 IP 주소를 입력합니다.
+. 프록시 서버에 연결하는 데 사용되는 포트를 입력합니다.
+. 필요한 경우 프록시 서버의 사용자 이름과 암호를 입력합니다.
++
+프록시 서버에 사용자 이름 또는 암호가 필요하지 않은 경우 이 필드를 비워 둡니다.
+
+. 다음 중 하나를 선택합니다.
++
+** 관리자 프록시에 대한 연결을 보호하려면 * 프록시 인증서 확인 * 을 선택합니다. CA 번들을 업로드하여 관리 프록시 서버에서 제공하는 SSL 인증서의 신뢰성을 확인합니다.
++
+
+CAUTION: 프록시 인증서가 확인된 경우 AutoSupport on Demand, StorageGRID를 통한 E-Series AutoSupport 및 StorageGRID 업그레이드 페이지의 업데이트 경로 확인이 작동하지 않습니다.
+
++
+CA 번들을 업로드하면 해당 메타데이터가 나타납니다.
+
+** 관리자 프록시 서버와 통신할 때 인증서의 유효성을 검사하지 않으려면 * 프록시 인증서 확인 안 함 * 을 선택합니다.
+
+
+. 저장 * 을 선택합니다.
++
+관리자 프록시가 저장된 후 관리 노드와 기술 지원 간의 프록시 서버가 구성됩니다.
+
++
+
+NOTE: 프록시 변경 사항이 적용되려면 최대 10분이 소요될 수 있습니다.
+
+. 관리자 프록시를 비활성화해야 하는 경우 * 관리자 프록시 사용 * 확인란의 선택을 취소한 다음 * 저장 * 을 선택합니다.
+

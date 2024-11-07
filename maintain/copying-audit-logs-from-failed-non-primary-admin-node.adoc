@@ -1,0 +1,56 @@
+---
+permalink: maintain/copying-audit-logs-from-failed-non-primary-admin-node.html 
+sidebar: sidebar 
+keywords: storagegrid, audit log, copy audit log, copying audit log, non-primary admin node, non primary admin node 
+summary: 실패한 관리 노드에서 감사 로그를 복사할 수 있는 경우 해당 감사 로그를 보존하여 시스템 활동 및 사용에 대한 그리드의 기록을 유지해야 합니다. 감사 로그를 실행 및 실행한 후 복구된 비 기본 관리 노드로 복원할 수 있습니다. 
+---
+= 실패한 비기본 관리 노드에서 감사 로그를 복사합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+실패한 관리 노드에서 감사 로그를 복사할 수 있는 경우 해당 감사 로그를 보존하여 시스템 활동 및 사용에 대한 그리드의 기록을 유지해야 합니다. 감사 로그를 실행 및 실행한 후 복구된 비 기본 관리 노드로 복원할 수 있습니다.
+
+이 절차에서는 실패한 관리 노드의 감사 로그 파일을 별도의 그리드 노드의 임시 위치로 복사합니다. 이렇게 보존된 감사 로그를 대체 관리 노드에 복사할 수 있습니다. 감사 로그는 새 관리 노드에 자동으로 복사되지 않습니다.
+
+실패 유형에 따라 실패한 관리 노드에서 감사 로그를 복사하지 못할 수 있습니다. 배포에 하나의 관리 노드만 있는 경우 복구된 관리 노드는 새 빈 파일의 감사 로그에 이벤트를 기록하기 시작하고 이전에 기록된 데이터가 손실됩니다. 배포에 둘 이상의 관리 노드가 포함된 경우 다른 관리 노드에서 감사 로그를 복구할 수 있습니다.
+
+
+NOTE: 지금 실패한 관리 노드에서 감사 로그에 액세스할 수 없는 경우 호스트 복구 후 나중에 감사 로그에 액세스할 수 있습니다.
+
+. 가능한 경우 실패한 관리 노드에 로그인합니다. 그렇지 않으면 기본 관리자 노드 또는 다른 관리자 노드(있는 경우)에 로그인합니다.
++
+.. 다음 명령을 입력합니다. `ssh admin@grid_node_IP`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
+.. 다음 명령을 입력하여 루트로 전환합니다. `su -`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
+
+
++
+루트로 로그인하면 프롬프트가 에서 `$` 로 `#`변경됩니다.
+
+. AMS 서비스를 중지하면 새 로그 파일이 생성되지 않습니다.``service ams stop``
+. 감사 내보내기 디렉터리로 이동합니다.
++
+`cd /var/local/log`
+
+. 소스 audit.log 파일의 이름을 고유한 번호 지정 파일 이름으로 바꿉니다. 예를 들어, audit.log 파일의 이름을 로 `2023-10-25.txt.1`변경합니다.
++
+[listing]
+----
+ls -l
+mv audit.log 2023-10-25.txt.1
+----
+. AMS 서비스를 다시 시작합니다. `service ams start`
+. 디렉토리를 생성하여 모든 감사 로그 파일을 별도의 그리드 노드의 임시 위치에 복사합니다. `ssh admin@grid_node_IP mkdir -p /var/local/tmp/saved-audit-logs`
++
+메시지가 표시되면 admin의 암호를 입력합니다.
+
+. 모든 감사 로그 파일을 임시 위치에 복사: `scp -p * admin@grid_node_IP:/var/local/tmp/saved-audit-logs`
++
+메시지가 표시되면 admin의 암호를 입력합니다.
+
+. 루트로 로그아웃: `exit`
+

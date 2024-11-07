@@ -1,0 +1,22 @@
+---
+permalink: monitor/creating-custom-monitoring-applications.html 
+sidebar: sidebar 
+keywords: custom monitoring, monitoring, dashboard 
+summary: 그리드 관리 API에서 사용할 수 있는 StorageGRID 메트릭을 사용하여 맞춤형 모니터링 애플리케이션과 대시보드를 구축할 수 있습니다. 
+---
+= 맞춤형 모니터링 애플리케이션을 생성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+그리드 관리 API에서 사용할 수 있는 StorageGRID 메트릭을 사용하여 맞춤형 모니터링 애플리케이션과 대시보드를 구축할 수 있습니다.
+
+그리드 관리자의 기존 페이지에 표시되지 않은 메트릭을 모니터링하거나 StorageGRID용 사용자 지정 대시보드를 만들려는 경우 그리드 관리 API를 사용하여 StorageGRID 메트릭을 쿼리할 수 있습니다.
+
+Grafana와 같은 외부 모니터링 툴을 사용하여 Prometheus 메트릭에 직접 액세스할 수도 있습니다. 외부 도구를 사용하려면 StorageGRID에서 보안을 위해 도구를 인증할 수 있도록 관리 클라이언트 인증서를 업로드하거나 생성해야 합니다. 를 link:../admin/index.html["StorageGRID 관리 지침"]참조하십시오.
+
+사용 가능한 메트릭의 전체 목록을 포함하여 메트릭 API 작업을 보려면 Grid Manager로 이동하십시오. 페이지 상단에서 도움말 아이콘을 선택하고 * api documentation * > * metrics * 를 선택합니다. image:../media/help_api_docs_metrics.png["도움말 API 문서 메트릭 섹션"]
+
+사용자 지정 모니터링 응용 프로그램을 구현하는 방법에 대한 자세한 내용은 이 설명서의 범위를 벗어납니다.

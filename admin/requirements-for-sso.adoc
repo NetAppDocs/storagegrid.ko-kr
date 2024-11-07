@@ -1,0 +1,95 @@
+---
+permalink: admin/requirements-for-sso.html 
+sidebar: sidebar 
+keywords: sso requirements, single sign on requirements, identity federation requirements for sso, pingfederate, azure ad, ad fs 
+summary: StorageGRID 시스템에 대해 Single Sign-On을 설정하기 전에 요구 사항 및 고려 사항을 검토하십시오. 
+---
+= SSO(Single Sign-On)에 대한 요구 사항 및 고려 사항
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 시스템에 대해 SSO(Single Sign-On)를 활성화하기 전에 요구 사항 및 고려 사항을 검토하십시오.
+
+
+
+== ID 공급자 요구 사항
+
+StorageGRID는 다음 SSO ID 공급자(IDP)를 지원합니다.
+
+* AD FS(Active Directory Federation Service)
+* Azure Active Directory(Azure AD)
+* PingFederate(PingFederate)
+
+
+SSO ID 공급자를 구성하려면 먼저 StorageGRID 시스템에 대한 ID 페더레이션을 구성해야 합니다. ID 페더레이션에 사용하는 LDAP 서비스 유형은 구현할 수 있는 SSO 유형을 제어합니다.
+
+[cols="1a,1a"]
+|===
+| 구성된 LDAP 서비스 유형입니다 | SSO ID 공급자에 대한 옵션 
+
+
+ a| 
+Active Directory를 클릭합니다
+ a| 
+* Active Directory를 클릭합니다
+* Azure를 지원합니다
+* PingFederate(PingFederate)
+
+
+
+
+ a| 
+Azure를 지원합니다
+ a| 
+Azure를 지원합니다
+
+|===
+
+
+=== AD FS 요구 사항
+
+다음 버전의 AD FS를 사용할 수 있습니다.
+
+* Windows Server 2022 AD FS
+* Windows Server 2019 AD FS
+* Windows Server 2016 AD FS
+
+
+
+NOTE: Windows Server 2016은, 이상을 사용해야 https://support.microsoft.com/en-us/help/3201845/cumulative-update-for-windows-10-version-1607-and-windows-server-2016["KB3201845 업데이트"^] 합니다.
+
+
+
+=== 추가 요구 사항
+
+* TLS(전송 계층 보안) 1.2 또는 1.3
+* Microsoft .NET Framework 버전 3.5.1 이상
+
+
+
+
+=== Azure 고려 사항
+
+Azure를 SSO 유형으로 사용하고 sAMAccountName을 접두사로 사용하지 않는 사용자 기본 이름이 있는 경우 StorageGRID와 LDAP 서버 간의 연결이 끊어지면 로그인 문제가 발생할 수 있습니다. 사용자가 로그인할 수 있도록 하려면 LDAP 서버에 대한 연결을 복원해야 합니다.
+
+
+
+== 서버 인증서 요구 사항
+
+기본적으로 StorageGRID는 각 관리 노드의 관리 인터페이스 인증서를 사용하여 그리드 관리자, 테넌트 관리자, 그리드 관리 API 및 테넌트 관리 API에 대한 액세스를 보호합니다. AD FS(사용자 트러스트), Azure(엔터프라이즈 응용 프로그램) 또는 StorageGRID에 대한 서비스 공급자 연결(PingFederate)을 구성하는 경우 서버 인증서를 StorageGRID 요청에 대한 서명 인증서로 사용합니다.
+
+아직 하지 않았다면 link:configuring-custom-server-certificate-for-grid-manager-tenant-manager.html["관리 인터페이스에 대한 사용자 지정 인증서를 구성했습니다"]지금 그렇게 해야 합니다. 사용자 지정 서버 인증서는 모든 관리 노드에 사용되며 모든 StorageGRID 신뢰할 수 있는 당사자, 엔터프라이즈 응용 프로그램 또는 SP 연결에서 사용할 수 있습니다.
+
+
+NOTE: 사용 중인 신뢰, 엔터프라이즈 응용 프로그램 또는 SP 연결에서 관리 노드의 기본 서버 인증서를 사용하는 것은 권장되지 않습니다. 노드가 실패하고 복구되면 새로운 기본 서버 인증서가 생성됩니다. 복구된 노드에 로그인하려면 먼저 신뢰할 수 있는 당사자 신뢰, 엔터프라이즈 애플리케이션 또는 SP 연결을 새 인증서로 업데이트해야 합니다.
+
+노드의 명령 셸에 로그인하고 디렉터리로 이동하여 관리자 노드의 서버 인증서에 액세스할 수 `/var/local/mgmt-api` 있습니다. 사용자 지정 서버 인증서의 이름은 `custom-server.crt`입니다. 노드의 기본 서버 인증서 이름은 `server.crt`입니다.
+
+
+
+== 포트 요구 사항
+
+제한된 Grid Manager 또는 테넌트 관리자 포트에서는 SSO(Single Sign-On)를 사용할 수 없습니다. 사용자가 SSO(Single Sign-On)로 인증하도록 하려면 기본 HTTPS 포트(443)를 사용해야 합니다. 을 link:controlling-access-through-firewalls.html["외부 방화벽에서 액세스를 제어합니다"]참조하십시오.

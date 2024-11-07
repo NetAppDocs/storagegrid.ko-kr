@@ -1,0 +1,204 @@
+---
+permalink: admin/grid-federation-retry-failed-replication.html 
+sidebar: sidebar 
+keywords: grid federation, troubleshoot 
+summary: Cross-grid replication permanent failure alert를 해결한 후에는 객체 또는 삭제 마커를 다른 그리드에 복제하지 못했는지 확인해야 합니다. 그런 다음 이러한 객체를 다시 수집하거나 Grid Management API를 사용하여 복제를 다시 시도할 수 있습니다. 
+---
+= 실패한 복제 작업을 식별하고 다시 시도하십시오
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cross-grid replication permanent failure * 경고를 해결한 후에는 어떤 개체나 삭제 표식을 다른 그리드에 복제하지 못했는지 확인해야 합니다. 그런 다음 이러한 객체를 다시 수집하거나 Grid Management API를 사용하여 복제를 다시 시도할 수 있습니다.
+
+Cross-grid replication permanent failure * 알림은 사용자 개입이 필요한 이유로 두 그리드의 버킷 간에 테넌트 객체를 복제할 수 없음을 나타냅니다. 이 알림은 일반적으로 소스 또는 대상 버킷의 변경으로 인해 발생합니다. 자세한 내용은 을 참조하십시오 link:grid-federation-troubleshoot.html["그리드 통합 오류 문제 해결"].
+
+
+
+== 복제하지 못한 개체가 있는지 확인합니다
+
+개체 또는 삭제 표식이 다른 그리드에 복제되지 않았는지 확인하려면 감사 로그에서 메시지를 검색할 link:../audit/cgrr-cross-grid-replication-request.html["CGRR(Cross-Grid Replication Request)"]수 있습니다. 이 메시지는 StorageGRID가 대상 버킷에 오브젝트, 다중 파트 오브젝트 또는 삭제 마커를 복제하지 못할 때 로그에 추가됩니다.
+
+을 사용하여 결과를 읽기 쉬운 형식으로 변환할 수 link:../audit/using-audit-explain-tool.html["감사 - 설명 도구"]있습니다.
+
+.시작하기 전에
+* 루트 액세스 권한이 있습니다.
+*  `Passwords.txt`파일이 있습니다.
+* 기본 관리 노드의 IP 주소를 알고 있습니다.
+
+
+.단계
+. 기본 관리자 노드에 로그인합니다.
++
+.. 다음 명령을 입력합니다. `ssh admin@_primary_Admin_Node_IP_`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
+.. 다음 명령을 입력하여 루트로 전환합니다. `su -`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
++
+루트로 로그인하면 프롬프트가 에서 `$` 로 `#`변경됩니다.
+
+
+
+. audit.log 에서 CGRR 메시지를 검색하고 감사 설명 도구를 사용하여 결과를 포맷합니다.
++
+예를 들어 이 명령은 지난 30분 동안 모든 CGRR 메시지에 대해 greps를 수행하고 감사 설명 도구를 사용합니다.
+
++
+`# awk -vdate=$(date -d "30 minutes ago" '+%Y-%m-%dT%H:%M:%S') '$1$2 >= date { print }' audit.log | grep CGRR | audit-explain`
+
++
+명령의 결과는 이 예와 같이 되며, 이 예제에는 6개의 CGRR 메시지에 대한 항목이 있습니다. 이 예에서는 모든 크로스 그리드 복제 요청이 객체를 복제할 수 없기 때문에 일반 오류를 반환했습니다. 처음 세 가지 오류는 "개체 복제" 작업이고, 마지막 세 가지 오류는 "마커 복제" 작업용입니다.
+
++
+[listing]
+----
+CGRR Cross-Grid Replication Request tenant:50736445269627437748 connection:447896B6-6F9C-4FB2-95EA-AEBF93A774E9 operation:"replicate object" bucket:bucket123 object:"audit-0" version:QjRBNDIzODAtNjQ3My0xMUVELTg2QjEtODJBMjAwQkI3NEM4 error:general error
+CGRR Cross-Grid Replication Request tenant:50736445269627437748 connection:447896B6-6F9C-4FB2-95EA-AEBF93A774E9 operation:"replicate object" bucket:bucket123 object:"audit-3" version:QjRDOTRCOUMtNjQ3My0xMUVELTkzM0YtOTg1MTAwQkI3NEM4 error:general error
+CGRR Cross-Grid Replication Request tenant:50736445269627437748 connection:447896B6-6F9C-4FB2-95EA-AEBF93A774E9 operation:"replicate delete marker" bucket:bucket123 object:"audit-1" version:NUQ0OEYxMDAtNjQ3NC0xMUVELTg2NjMtOTY5NzAwQkI3NEM4 error:general error
+CGRR Cross-Grid Replication Request tenant:50736445269627437748 connection:447896B6-6F9C-4FB2-95EA-AEBF93A774E9 operation:"replicate delete marker" bucket:bucket123 object:"audit-5" version:NUQ1ODUwQkUtNjQ3NC0xMUVELTg1NTItRDkwNzAwQkI3NEM4 error:general error
+----
++
+각 항목에는 다음 정보가 포함되어 있습니다.
+
++
+[cols="1a,2a"]
+|===
+| 필드에 입력합니다 | 설명 
+
+
+| CGRR 교차 그리드 복제 요청  a| 
+요청 이름입니다
+
+
+
+| 테넌트  a| 
+테넌트의 계정 ID입니다
+
+
+
+| 연결  a| 
+그리드 페더레이션 연결의 ID입니다
+
+
+
+| 작동  a| 
+시도 중인 복제 작업의 유형:
+
+** 오브젝트 복제
+** 삭제 마커를 복제합니다
+** 다중 파트 개체를 복제합니다
+
+
+
+
+| 버킷  a| 
+버킷 이름입니다
+
+
+
+| 오브젝트  a| 
+개체 이름입니다
+
+
+
+| 버전  a| 
+객체의 버전 ID입니다
+
+
+
+| 오류  a| 
+오류 유형입니다. 크로스 그리드 복제에 실패한 경우 오류는 "일반 오류"입니다.
+
+|===
+
+
+
+
+== 실패한 복제를 다시 시도하십시오
+
+객체 목록을 생성하고 대상 버킷에 복제되지 않은 마커를 삭제하고 기본 문제를 해결한 후 다음 두 가지 방법 중 하나로 복제를 재시도할 수 있습니다.
+
+* 각 오브젝트를 소스 버킷으로 재수집하십시오.
+* 그리드 관리 전용 API를 사용합니다(설명 참조).
+
+
+.단계
+. Grid Manager 상단에서 도움말 아이콘을 선택하고 * API documentation * 을 선택합니다.
+. 전용 API 문서로 이동 * 을 선택합니다.
++
+
+NOTE: "비공개"로 표시된 StorageGRID API 끝점은 예고 없이 변경될 수 있습니다. StorageGRID 전용 엔드포인트도 요청의 API 버전을 무시합니다.
+
+. Cross-grid-replication-advanced * 섹션에서 다음 끝점을 선택합니다.
++
+`POST /private/cross-grid-replication-retry-failed`
+
+. 체험하기 * 를 선택합니다.
+. body * 텍스트 상자에서 * versionID * 의 예제 항목을 실패한 교차 그리드 복제 요청에 해당하는 audit.log 의 버전 ID로 바꿉니다.
++
+문자열 주위에 큰따옴표를 붙여야 합니다.
+
+. Execute * 를 선택합니다.
+. 서버 응답 코드가 * 204 * 인지 확인합니다. 이는 개체 또는 삭제 마커가 다른 그리드에 교차 그리드 복제를 위해 보류 중으로 표시되었음을 나타냅니다.
++
+
+NOTE: 보류 중 은 교차 그리드 복제 요청이 처리를 위해 내부 대기열에 추가되었음을 의미합니다.
+
+
+
+
+
+== 복제 재시도를 모니터링합니다
+
+복제 재시도 작업을 모니터링하여 작업이 완료되었는지 확인해야 합니다.
+
+
+TIP: 개체 또는 삭제 마커를 다른 그리드에 복제하려면 몇 시간 이상이 걸릴 수 있습니다.
+
+다음 두 가지 방법 중 하나로 재시도 작업을 모니터링할 수 있습니다.
+
+* S3 사용 link:../s3/head-object.html["HeadObject 를 선택합니다"]또는 link:../s3/get-object.html["GetObject 를 참조하십시오"] 요청 응답에는 다음 값 중 하나가 있는 StorageGRID 관련 `x-ntap-sg-cgr-replication-status` 응답 헤더가 포함됩니다.
++
+[cols="1a,2a"]
+|===
+| 그리드 | 복제 상태입니다 
+
+
+ a| 
+출처
+ a| 
+** * 완료됨 *: 복제가 성공했습니다.
+** * 보류 중 *: 객체가 아직 복제되지 않았습니다.
+** * 실패 *: 영구적인 장애로 인해 복제에 실패했습니다. 사용자가 오류를 해결해야 합니다.
+
+
+
+
+ a| 
+목적지
+ a| 
+* replica *: 객체가 소스 그리드에서 복제되었습니다.
+
+|===
+* 그리드 관리 전용 API를 사용합니다(설명 참조).
+
+
+.단계
+. 전용 API 설명서의 * cross-grid-replication-advanced * 섹션에서 다음 끝점을 선택합니다.
++
+`GET /private/cross-grid-replication-object-status/{id}`
+
+. 체험하기 * 를 선택합니다.
+. 매개 변수 섹션에서 요청에 사용한 버전 ID를 `cross-grid-replication-retry-failed` 입력합니다.
+. Execute * 를 선택합니다.
+. 서버 응답 코드가 * 200 * 인지 확인합니다.
+. 다음 중 하나인 복제 상태를 검토합니다.
++
+** * 보류 중 *: 객체가 아직 복제되지 않았습니다.
+** * 완료됨 *: 복제가 성공했습니다.
+** * 실패 *: 영구적인 장애로 인해 복제에 실패했습니다. 사용자가 오류를 해결해야 합니다.
+
+
+

@@ -1,0 +1,6 @@
+= 
+:allow-uri-read: 
+
+
+
+NOTE: 표시된 스크린샷은 예시입니다. 결과는 StorageGRID 버전에 따라 다를 수 있습니다.

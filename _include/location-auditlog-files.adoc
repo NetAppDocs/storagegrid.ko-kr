@@ -1,0 +1,5 @@
+= 
+:allow-uri-read: 
+
+
+link:../monitor/configure-audit-messages.html#select-audit-information-destinations["감사 정보의 대상에 대해 자세히 알아봅니다"]..

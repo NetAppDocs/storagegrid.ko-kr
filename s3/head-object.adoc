@@ -1,0 +1,189 @@
+---
+permalink: s3/head-object.html 
+sidebar: sidebar 
+keywords: HeadObject 
+summary: S3 HeadObject 요청을 사용하여 개체 자체를 반환하지 않고 개체에서 메타데이터를 검색할 수 있습니다. 
+---
+= HeadObject 를 선택합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+S3 HeadObject 요청을 사용하여 개체 자체를 반환하지 않고 개체에서 메타데이터를 검색할 수 있습니다. 객체가 클라우드 스토리지 풀에 저장된 경우 HeadObject 를 사용하여 객체의 전환 상태를 확인할 수 있습니다.
+
+
+
+== HeadObject 및 multipart 개체
+
+요청 매개 변수를 사용하여 멀티파트 또는 분할된 개체의 특정 부분에 대한 메타데이터를 검색할 수 `partNumber` 있습니다.  `x-amz-mp-parts-count`응답 요소는 개체의 파트 수를 나타냅니다.
+
+분할/다중 파트 오브젝트 및 비분할/비다중 파트 오브젝트 모두에 대해 1로 설정할 수 `partNumber` 있지만 `x-amz-mp-parts-count` 응답 요소는 분할된 오브젝트 또는 다중 파트 오브젝트에 대해서만 반환됩니다.
+
+
+
+== 사용자 메타데이터의 UTF-8 문자
+
+StorageGRID는 사용자 정의 메타데이터에서 이스케이프된 UTF-8 문자를 구문 분석하거나 해석하지 않습니다. 사용자 정의 메타데이터에서 이스케이프된 UTF-8 문자가 있는 개체에 대한 헤드 요청은 키 이름이나 값에 인쇄할 수 없는 문자가 포함된 경우 헤더를 반환하지 `x-amz-missing-meta` 않습니다.
+
+
+
+== 지원되는 요청 헤더
+
+다음 요청 헤더가 지원됩니다.
+
+* `x-amz-checksum-mode`
++
+ `partNumber`매개 변수 및 `Range` 머리글은 HeadObject 에 대해 지원되지 `x-amz-checksum-mode` 않습니다. 활성화된 상태로 요청에 포함하면 `x-amz-checksum-mode` StorageGRID는 응답에 체크섬 값을 반환하지 않습니다.
+
+
+
+
+
+== 지원되지 않는 요청 헤더입니다
+
+다음 요청 헤더는 지원되지 않으며 `XNotImplemented` 반환됩니다.
+
+* `x-amz-website-redirect-location`
+
+
+
+
+== 버전 관리
+
+하위 리소스가 지정되지 않은 경우 `versionId` 이 작업은 버전이 지정된 버킷에서 가장 최신 버전의 개체를 가져옵니다. 객체의 현재 버전이 삭제 마커인 경우 응답 헤더가 로 설정된 `true` 상태에서 "찾을 수 없음" 상태가 `x-amz-delete-marker` 반환됩니다.
+
+
+
+== 고객이 제공한 암호화 키(SSE-C)를 사용하여 서버측 암호화를 위한 요청 헤더
+
+사용자가 제공한 고유 키로 개체를 암호화한 경우 이 헤더 3개를 모두 사용합니다.
+
+* `x-amz-server-side-encryption-customer-algorithm`: `AES256` 지정합니다.
+* `x-amz-server-side-encryption-customer-key`: 개체의 암호화 키를 지정합니다.
+* `x-amz-server-side-encryption-customer-key-MD5`: 개체의 암호화 키의 MD5 다이제스트를 지정합니다.
+
+
+
+CAUTION: 제공한 암호화 키는 저장되지 않습니다. 암호화 키를 분실하면 해당 개체가 손실됩니다. 고객이 제공한 키를 사용하여 개체 데이터를 보호하기 전에 의 고려 사항을 검토하십시오link:using-server-side-encryption.html["서버측 암호화를 사용합니다"].
+
+
+
+== 클라우드 스토리지 풀 객체에 대한 HeadObject 응답입니다
+
+개체가 에 저장된 경우 link:../ilm/what-cloud-storage-pool-is.html["클라우드 스토리지 풀"]다음 응답 헤더가 반환됩니다.
+
+* `x-amz-storage-class: GLACIER`
+* `x-amz-restore`
+
+
+응답 헤더는 클라우드 스토리지 풀로 이동되는 오브젝트의 상태에 대한 정보를 제공하며, 선택적으로 검색할 수 없는 상태로 전환된 후 복구됩니다.
+
+[cols="1a,1a"]
+|===
+| 개체의 상태입니다 | HeadObject에 대한 응답입니다 
+
+
+ a| 
+StorageGRID로 수집되었지만 아직 ILM에 의해 평가되지 않은 오브젝트 또는 기존 스토리지 풀에 저장된 오브젝트 또는 삭제 코딩 사용
+ a| 
+`200 OK` (특수 응답 헤더가 반환되지 않음)
+
+
+
+ a| 
+Cloud Storage Pool의 개체이지만 아직 검색할 수 없는 상태로 전환되지 않았습니다
+ a| 
+`200 OK`
+
+`x-amz-storage-class: GLACIER`
+
+`x-amz-restore: ongoing-request="false", expiry-date="Sat, 23 July 20 2030 00:00:00 GMT"`
+
+오브젝트가 검색 불가능한 상태로 전환될 때까지 의 값은 `expiry-date` 나중에 먼 시간으로 설정됩니다. 정확한 전환 시간은 StorageGRID 시스템에 의해 제어되지 않습니다.
+
+
+
+ a| 
+개체가 검색할 수 없는 상태로 전환되었지만 하나 이상의 복사본이 그리드에 있습니다
+ a| 
+`200 OK`
+
+`x-amz-storage-class: GLACIER`
+
+`x-amz-restore: ongoing-request="false", expiry-date="Sat, 23 July 20 2030 00:00:00 GMT"`
+
+의 값은 `expiry-date` 나중에 먼 시간으로 설정됩니다.
+
+* 참고 *: 그리드의 복제본을 사용할 수 없는 경우(예: 스토리지 노드가 다운된 경우), 객체를 성공적으로 검색하기 전에 클라우드 스토리지 풀에서 복제본을 복원하도록 요청을 해야 link:post-object-restore.html["RestoreObject 를 선택합니다"]합니다.
+
+
+
+ a| 
+개체가 검색할 수 없는 상태로 전환되었으며 그리드에 복사본이 없습니다
+ a| 
+`200 OK`
+
+`x-amz-storage-class: GLACIER`
+
+
+
+ a| 
+복구할 수 없는 상태에서 복원 중인 개체입니다
+ a| 
+`200 OK`
+
+`x-amz-storage-class: GLACIER`
+
+`x-amz-restore: ongoing-request="true"`
+
+
+
+ a| 
+객체가 클라우드 스토리지 풀에 완전히 복구되었습니다
+ a| 
+`200 OK`
+
+`x-amz-storage-class: GLACIER`
+
+`x-amz-restore: ongoing-request="false", expiry-date="Sat, 23 July 20 2018 00:00:00 GMT"`
+
+는 `expiry-date` 클라우드 스토리지 풀의 객체가 검색할 수 없는 상태로 반환되는 시점을 나타냅니다.
+
+|===
+
+
+=== Cloud Storage Pool에서 다중 또는 분할 오브젝트 지원
+
+여러 부분 개체를 업로드했거나 StorageGRID가 큰 개체를 세그먼트로 분할한 경우 StorageGRID는 개체의 부분 또는 세그먼트의 하위 집합을 샘플링하여 클라우드 저장소 풀에서 개체를 사용할 수 있는지 여부를 결정합니다. 개체의 일부 부분이 이미 검색할 수 없는 상태로 전환되었거나 개체의 일부 부분이 아직 복원되지 않은 경우 HeadObject 요청이 잘못 반환될 수 `x-amz-restore: ongoing-request="false"` 있습니다.
+
+
+
+== HeadObject 및 교차 그리드 복제
+
+를 사용  중이며 link:../tenant/grid-federation-manage-cross-grid-replication.html["교차 그리드 복제"]버킷에 대해 활성화된 경우 link:../admin/grid-federation-overview.html["그리드 통합"]S3 클라이언트는 HeadObject 요청을 실행하여 객체의 복제 상태를 확인할 수 있습니다. 응답에는 다음 값 중 하나가 있는 StorageGRID 관련 `x-ntap-sg-cgr-replication-status` 응답 헤더가 포함됩니다.
+
+[cols="1a,2a"]
+|===
+| 그리드 | 복제 상태입니다 
+
+
+ a| 
+출처
+ a| 
+* * 완료됨 *: 복제가 성공했습니다.
+* * 보류 중 *: 객체가 아직 복제되지 않았습니다.
+* * 실패 *: 영구적인 장애로 인해 복제에 실패했습니다. 사용자가 오류를 해결해야 합니다.
+
+
+
+
+ a| 
+목적지
+ a| 
+* replica *: 객체가 소스 그리드에서 복제되었습니다.
+
+|===
+
+NOTE: StorageGRID는 헤더를 지원하지 `x-amz-replication-status` 않습니다.

@@ -1,0 +1,28 @@
+---
+permalink: troubleshoot/object-store-storage-volume-failures.html 
+sidebar: sidebar 
+keywords: how to confirm object location, object metadata lookup 
+summary: 스토리지 노드의 기본 스토리지는 오브젝트 저장소로 나뉩니다. 오브젝트 저장소는 스토리지 볼륨이라고도 합니다. 
+---
+= 오브젝트 저장소(스토리지 볼륨) 장애가 발생했습니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스토리지 노드의 기본 스토리지는 오브젝트 저장소로 나뉩니다. 오브젝트 저장소는 스토리지 볼륨이라고도 합니다.
+
+각 스토리지 노드에 대한 오브젝트 저장소 정보를 볼 수 있습니다. 오브젝트 저장소는 * 노드 * > *_스토리지 노드_ * > * 스토리지 * 페이지 하단에 표시됩니다.
+
+image::../media/nodes_page_storage_nodes_storage_tables.png[노드 페이지 스토리지 노드 스토리지 테이블]
+
+자세한 내용을 보려면 link:../monitor/viewing-grid-topology-tree.html["각 스토리지 노드에 대한 세부 정보입니다"]다음 단계를 따르십시오.
+
+. 지원 * > * 도구 * > * 그리드 토폴로지 * 를 선택합니다.
+. site_ * > *_Storage Node_ * > * LDR * > * Storage * > * Overview * > * Main * 을 선택합니다.
+
+
+image::../media/storage_node_object_stores.png[스토리지 노드 오브젝트 저장소]
+
+장애의 특성에 따라 스토리지 볼륨의 장애가 에 반영될 수 link:../monitor/alerts-reference.html["스토리지 볼륨 경고"]있습니다. 스토리지 볼륨에 장애가 발생하면 장애가 발생한 스토리지 볼륨을 복구하여 스토리지 노드를 최대한 빨리 전체 기능으로 복원해야 합니다. 필요한 경우 * 구성 * 탭으로 이동하여 StorageGRID 시스템에서 서버의 전체 복구를 준비하는 동안 데이터 검색에 이 탭을 link:../maintain/checking-storage-state-after-recovering-storage-volumes.html["스토리지 노드를 읽기 전용 상태로 둡니다"]사용할 수 있습니다.

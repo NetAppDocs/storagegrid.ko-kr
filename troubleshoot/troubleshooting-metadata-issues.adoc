@@ -1,0 +1,62 @@
+---
+permalink: troubleshoot/troubleshooting-metadata-issues.html 
+sidebar: sidebar 
+keywords: how to troubleshoot metadata issues 
+summary: 메타데이터 문제가 발생하면 경고가 문제의 출처와 권장 조치를 알려 줍니다. 특히, Low metadata storage 경고가 트리거된 경우 새 스토리지 노드를 추가해야 합니다. 
+---
+= 메타데이터 문제를 해결합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+메타데이터 문제가 발생하면 경고가 문제의 출처와 권장 조치를 알려 줍니다. 특히, Low metadata storage 경고가 트리거된 경우 새 스토리지 노드를 추가해야 합니다.
+
+.시작하기 전에
+을 사용하여 그리드 관리자에 로그인되어 있습니다.link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]
+
+.이 작업에 대해
+트리거된 각 메타데이터 관련 알림에 대해 권장되는 작업을 수행합니다. 메타데이터 스토리지 부족 * 경고가 트리거되면 새 스토리지 노드를 추가해야 합니다.
+
+StorageGRID는 각 스토리지 노드의 볼륨 0에 개체 메타데이터를 위한 일정한 양의 공간을 예약합니다. _actual reserved space_라고 하는 이 공간은 개체 메타데이터(허용된 메타데이터 공간)에 허용되는 공간과 압축 및 복구와 같은 필수 데이터베이스 작업에 필요한 공간으로 세분화됩니다. 허용되는 메타데이터 공간은 전체 오브젝트 용량을 관리합니다.
+
+image::../media/metadata_allowed_space_volume_0.png[메타데이터 허용 공간 볼륨 0]
+
+오브젝트 메타데이터가 메타데이터에 허용된 공간의 100% 이상을 소비하면 데이터베이스 작업을 효율적으로 실행할 수 없으며 오류가 발생합니다.
+
+오류를 예측하여 오류가 발생하기 전에 수정할 수 있도록 도울 수 link:../monitor/monitoring-storage-capacity.html#monitor-object-metadata-capacity-for-each-storage-node["각 스토리지 노드의 객체 메타데이터 용량을 모니터링합니다"]있습니다.
+
+StorageGRID는 다음 Prometheus 메트릭을 사용하여 허용되는 메타데이터 공간의 전체 용량을 측정합니다.
+
+[listing]
+----
+storagegrid_storage_utilization_metadata_bytes/storagegrid_storage_utilization_metadata_allowed_bytes
+----
+이 Prometheus 표현식이 특정 임계값에 도달하면 * Low metadata storage * 경고가 트리거됩니다.
+
+* * Minor * : 객체 메타데이터가 허용된 메타데이터 공간의 70% 이상을 사용하고 있습니다. 가능한 빨리 새 스토리지 노드를 추가해야 합니다.
+* * Major *: 오브젝트 메타데이터는 허용된 메타데이터 공간을 90% 이상 사용합니다. 새 스토리지 노드를 즉시 추가해야 합니다.
++
+
+CAUTION: 개체 메타데이터가 허용되는 메타데이터 공간의 90% 이상을 사용하는 경우 대시보드에 경고가 표시됩니다. 이 경고가 나타나면 새 스토리지 노드를 즉시 추가해야 합니다. 오브젝트 메타데이터에서 허용되는 공간의 100% 이상을 사용하도록 허용해서는 안 됩니다.
+
+* * Critical *: 오브젝트 메타데이터는 허용된 메타데이터 공간을 100% 이상 사용하며 필수 데이터베이스 작업에 필요한 공간을 사용하기 시작합니다. 새 오브젝트 수집을 중지해야 하며 새 스토리지 노드를 즉시 추가해야 합니다.
+
+
+
+CAUTION: 볼륨 0의 크기가 Metadata Reserved Space Storage Option(예: 비운영 환경)보다 작은 경우 * Low Metadata Storage * 알림에 대한 계산이 부정확할 수 있습니다.
+
+.단계
+. alerts * > * current * 를 선택합니다.
+. 경고 표에서 * Low metadata storage * 알림 그룹을 확장하고 필요한 경우 보려는 특정 경고를 선택합니다.
+. 경고 대화 상자에서 세부 정보를 검토합니다.
+. Major 또는 Critical * Low Metadata Storage * 알림이 트리거된 경우 확장을 수행하여 스토리지 노드를 즉시 추가합니다.
++
+
+NOTE: StorageGRID는 모든 오브젝트 메타데이터의 전체 복사본을 각 사이트에 유지하므로 전체 그리드의 메타데이터 용량은 가장 작은 사이트의 메타데이터 용량에 의해 제한됩니다. 한 사이트에 메타데이터 용량을 추가해야 하는 경우 동일한 수의 스토리지 노드로도 추가해야 link:../expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html["다른 사이트를 확장합니다"]합니다.
+
++
+확장을 수행한 후 StorageGRID는 기존 오브젝트 메타데이터를 새 노드로 재분산하여 그리드의 전체 메타데이터 용량을 늘립니다. 사용자 작업이 필요하지 않습니다. Low metadata storage * 알림이 지워집니다.
+
+

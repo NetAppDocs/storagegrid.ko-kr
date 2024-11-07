@@ -1,0 +1,166 @@
+---
+permalink: tenant/specifying-urn-for-platform-services-endpoint.html 
+sidebar: sidebar 
+keywords: how to specify platform services urn 
+summary: '플랫폼 서비스 끝점을 만들 때는 고유한 URN(리소스 이름)을 지정해야 합니다. 플랫폼 서비스에 대한 구성 XML을 만들 때 URN을 사용하여 끝점을 참조합니다. 각 끝점의 URN은 고유해야 합니다.' 
+---
+= 플랫폼 서비스 끝점에 URN을 지정합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+플랫폼 서비스 끝점을 만들 때는 고유한 URN(리소스 이름)을 지정해야 합니다. 플랫폼 서비스에 대한 구성 XML을 만들 때 URN을 사용하여 끝점을 참조합니다. 각 끝점의 URN은 고유해야 합니다.
+
+StorageGRID에서는 플랫폼 서비스 엔드포인트를 만들 때 이를 검증합니다. 플랫폼 서비스 끝점을 만들기 전에 끝점에 지정된 리소스가 있고 해당 리소스에 도달할 수 있는지 확인합니다.
+
+
+
+== urn 요소
+
+플랫폼 서비스 끝점의 URN은 다음과 같이 또는 `urn:mysite` 로 시작해야 합니다 `arn:aws`.
+
+* 서비스가 AWS(Amazon Web Services)에서 호스팅되는 경우 를 사용합니다 `arn:aws`
+* 서비스가 Google Cloud Platform(GCP)에서 호스팅되는 경우 를 사용합니다 `arn:aws`
+* 서비스가 로컬로 호스팅되는 경우 를 사용합니다 `urn:mysite`
+
+
+예를 들어, StorageGRID에서 호스팅되는 CloudMirror 끝점에 대해 URN을 지정하는 경우 URN은 로 시작할 수 `urn:sgws` 있습니다.
+
+URN의 다음 요소는 다음과 같이 플랫폼 서비스의 유형을 지정합니다.
+
+[cols="2a,1a"]
+|===
+| 서비스 | 유형 
+
+
+ a| 
+CloudMirror 복제
+ a| 
+`s3`
+
+
+
+ a| 
+알림
+ a| 
+`sns` 또는 `kafka`
+
+
+
+ a| 
+검색 통합
+ a| 
+`es`
+
+|===
+예를 들어, StorageGRID에서 호스팅되는 CloudMirror 끝점에 대해 URN을 계속 지정하려면 GET에 `urn:sgws:s3` 을 추가합니다 `s3`.
+
+URN의 마지막 요소는 대상 URI에서 특정 대상 리소스를 식별합니다.
+
+[cols="1a,2a"]
+|===
+| 서비스 | 특정 리소스 
+
+
+ a| 
+CloudMirror 복제
+ a| 
+`bucket-name`
+
+
+
+ a| 
+알림
+ a| 
+`sns-topic-name` 또는 `kafka-topic-name`
+
+
+
+ a| 
+검색 통합
+ a| 
+`domain-name/index-name/type-name`
+
+* 참고: * Elasticsearch 클러스터가 자동으로 인덱스를 만들도록 * 구성되지 * 인 경우 끝점을 만들기 전에 수동으로 인덱스를 만들어야 합니다.
+
+|===
+
+
+== AWS 및 GCP에서 호스팅되는 서비스의 여관
+
+AWS 및 GCP 엔터티의 경우 URN은 유효한 AWS ARN입니다. 예를 들면 다음과 같습니다.
+
+* CloudMirror 복제:
++
+[listing]
+----
+arn:aws:s3:::bucket-name
+----
+* 알림:
++
+[listing]
+----
+arn:aws:sns:region:account-id:topic-name
+----
+* 검색 통합:
++
+[listing]
+----
+arn:aws:es:region:account-id:domain/domain-name/index-name/type-name
+----
++
+
+NOTE: AWS 검색 통합 끝점의 경우 에 `domain-name` 나와 있는 리터럴 문자열이 포함되어야 `domain/` 합니다.
+
+
+
+
+
+== 현지 호스팅 서비스를 위한 여관
+
+클라우드 서비스 대신 로컬로 호스팅된 서비스를 사용하는 경우 URN에 필요한 요소가 세 번째 및 최종 위치에 포함되어 있는 한 유효하고 고유한 URN을 만드는 방식으로 URN을 지정할 수 있습니다. 선택 사항으로 표시된 요소를 비워 두거나 자원을 식별하고 URN을 고유하게 만드는 데 도움이 되도록 원하는 방식으로 지정할 수 있습니다. 예를 들면 다음과 같습니다.
+
+* CloudMirror 복제:
++
+[listing]
+----
+urn:mysite:s3:optional:optional:bucket-name
+----
++
+StorageGRID에 호스팅된 CloudMirror 엔드포인트의 경우 다음으로 시작하는 유효한 URN을 지정할 수 `urn:sgws` 있습니다.
+
++
+[listing]
+----
+urn:sgws:s3:optional:optional:bucket-name
+----
+* 알림:
++
+Amazon Simple Notification Service 끝점 지정:
+
++
+[listing]
+----
+urn:mysite:sns:optional:optional:sns-topic-name
+----
++
+Kafka 끝점 지정:
+
++
+[listing]
+----
+urn:mysite:kafka:optional:optional:kafka-topic-name
+----
+* 검색 통합:
++
+[listing]
+----
+urn:mysite:es:optional:optional:domain-name/index-name/type-name
+----
++
+
+NOTE: 로컬로 호스팅되는 검색 통합 끝점의 경우 `domain-name` 끝점의 URN이 고유하면 모든 문자열이 요소가 될 수 있습니다.
+
+

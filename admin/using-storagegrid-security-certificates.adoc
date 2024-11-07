@@ -1,0 +1,487 @@
+---
+permalink: admin/using-storagegrid-security-certificates.html 
+sidebar: sidebar 
+keywords: security certificates, grid CA certificate, types of certificates 
+summary: 보안 인증서는 StorageGRID 구성 요소와 StorageGRID 구성 요소 및 외부 시스템 간에 안전하고 신뢰할 수 있는 연결을 만드는 데 사용되는 작은 데이터 파일입니다. 
+---
+= 보안 인증서를 관리합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+보안 인증서는 StorageGRID 구성 요소와 StorageGRID 구성 요소 및 외부 시스템 간에 안전하고 신뢰할 수 있는 연결을 만드는 데 사용되는 작은 데이터 파일입니다.
+
+StorageGRID는 두 가지 유형의 보안 인증서를 사용합니다.
+
+* HTTPS 연결을 사용할 때는 * 서버 인증서 * 가 필요합니다. 서버 인증서는 클라이언트와 서버 간의 보안 연결을 설정하고, 클라이언트에 대한 서버 ID를 인증하고, 데이터에 대한 보안 통신 경로를 제공하는 데 사용됩니다. 서버와 클라이언트마다 인증서의 복사본이 있습니다.
+* * 클라이언트 인증서 * 는 서버에 대한 클라이언트 또는 사용자 ID를 인증하여 암호만 사용하는 것보다 더 안전한 인증을 제공합니다. 클라이언트 인증서는 데이터를 암호화하지 않습니다.
+
+
+클라이언트가 HTTPS를 사용하여 서버에 연결하면 서버는 공개 키가 포함된 서버 인증서로 응답합니다. 클라이언트는 서버 서명을 인증서 사본의 서명과 비교하여 이 인증서를 확인합니다. 서명이 일치하면 클라이언트는 동일한 공개 키를 사용하여 서버와 세션을 시작합니다.
+
+StorageGRID는 로드 밸런서 끝점과 같은 일부 연결에 대한 서버 또는 CloudMirror 복제 서비스와 같은 다른 연결에 대한 클라이언트로 작동합니다.
+
+* 기본 그리드 CA 인증서 *
+
+StorageGRID에는 시스템 설치 중에 내부 그리드 CA 인증서를 생성하는 내장 CA(인증 기관)가 포함되어 있습니다. 그리드 CA 인증서는 기본적으로 내부 StorageGRID 트래픽을 보호하기 위해 사용됩니다. 외부 CA(인증 기관)는 조직의 정보 보안 정책을 완벽하게 준수하는 사용자 지정 인증서를 발급할 수 있습니다. 비프로덕션 환경에 대해 Grid CA 인증서를 사용할 수 있지만 프로덕션 환경에 가장 적합한 방법은 외부 인증 기관에서 서명한 사용자 지정 인증서를 사용하는 것입니다. 인증서가 없는 비보안 연결도 지원되지만 권장되지 않습니다.
+
+* 사용자 지정 CA 인증서는 내부 인증서를 제거하지 않지만 사용자 지정 인증서는 서버 연결을 확인하기 위해 지정된 인증서여야 합니다.
+* 모든 사용자 지정 인증서는 를 충족해야 link:../harden/hardening-guideline-for-server-certificates.html["서버 인증서에 대한 시스템 강화 지침"]합니다.
+* StorageGRID는 CA의 인증서를 단일 파일(CA 인증서 번들이라고 함)로 번들링하는 것을 지원합니다.
+
+
+
+NOTE: StorageGRID에는 모든 그리드에서 동일한 운영 체제 CA 인증서도 포함됩니다. 프로덕션 환경에서는 운영 체제 CA 인증서 대신 외부 인증 기관에서 서명한 사용자 지정 인증서를 지정해야 합니다.
+
+서버 및 클라이언트 인증서 유형의 변형은 여러 가지 방법으로 구현됩니다. 시스템을 구성하기 전에 특정 StorageGRID 구성에 필요한 모든 인증서를 준비해야 합니다.
+
+
+
+== 보안 인증서에 액세스합니다
+
+각 인증서의 구성 워크플로 링크와 함께 모든 StorageGRID 인증서에 대한 정보에 액세스할 수 있습니다.
+
+.단계
+. Grid Manager에서 * 구성 * > * 보안 * > * 인증서 * 를 선택합니다.
++
+image::security_certificates.png[인증서 페이지]
+
+. 인증서 페이지에서 탭을 선택하여 각 인증서 범주에 대한 정보를 확인하고 인증서 설정에 액세스합니다. 가 있는 경우 탭에 액세스할 수 link:admin-group-permissions.html["적절한 권한"]있습니다.
++
+** * 글로벌 *: 웹 브라우저 및 외부 API 클라이언트에서 StorageGRID 액세스를 보호합니다.
+** * 그리드 CA *: 내부 StorageGRID 트래픽을 보호합니다.
+** * 클라이언트 *: 외부 클라이언트와 StorageGRID Prometheus 데이터베이스 간의 연결을 보호합니다.
+** * 로드 밸런서 엔드포인트 *: S3 클라이언트와 StorageGRID 로드 밸런서 간의 연결을 보호합니다.
+** * 테넌트 *: ID 페더레이션 서버 또는 플랫폼 서비스 끝점에서 S3 스토리지 리소스에 대한 연결을 보호합니다.
+** * 기타 *: 특정 인증서가 필요한 StorageGRID 연결을 보호합니다.
++
+각 탭은 아래에 추가 인증서 세부 정보에 대한 링크와 함께 설명되어 있습니다.
+
++
+[role="tabbed-block"]
+====
+.글로벌
+--
+글로벌 인증서는 웹 브라우저 및 외부 S3 API 클라이언트에서 StorageGRID 액세스를 보호합니다. 두 개의 글로벌 인증서는 처음에 설치 중에 StorageGRID 인증 기관에서 생성합니다. 프로덕션 환경의 모범 사례는 외부 인증 기관에서 서명한 사용자 지정 인증서를 사용하는 것입니다.
+
+*** <<관리 인터페이스 인증서입니다>>: StorageGRID 관리 인터페이스에 대한 클라이언트 웹 브라우저 연결의 보안을 유지합니다.
+*** <<S3 API 인증서>>: S3 클라이언트 애플리케이션이 오브젝트 데이터를 업로드 및 다운로드하는 데 사용하는 스토리지 노드, 관리 노드 및 게이트웨이 노드에 대한 클라이언트 API 연결을 보호합니다.
+
+
+설치된 글로벌 인증서에 대한 정보는 다음과 같습니다.
+
+*** * 이름 *: 인증서 관리 링크가 있는 인증서 이름입니다.
+*** * 설명 *
+*** * 유형 *: 사용자 정의 또는 기본값 + 그리드 보안을 강화하기 위해 항상 사용자 지정 인증서를 사용해야 합니다.
+*** * 만료 날짜 *: 기본 인증서를 사용하는 경우 만료 날짜가 표시되지 않습니다.
+
+
+다음을 수행할 수 있습니다.
+
+*** 기본 인증서를 외부 인증 기관에서 서명한 사용자 지정 인증서로 교체하여 그리드 보안 강화:
++
+**** link:configuring-custom-server-certificate-for-grid-manager-tenant-manager.html["기본 StorageGRID 생성 관리 인터페이스 인증서를 교체합니다"] Grid Manager 및 Tenant Manager 연결에 사용됩니다.
+**** link:configuring-custom-server-certificate-for-storage-node.html["S3 API 인증서를 교체합니다"] 스토리지 노드 및 로드 밸런서 엔드포인트(선택 사항) 연결에 사용됩니다.
+
+
+*** link:configuring-custom-server-certificate-for-grid-manager-tenant-manager.html#restore-the-default-management-interface-certificate["기본 관리 인터페이스 인증서를 복원합니다"]..
+*** link:configuring-custom-server-certificate-for-storage-node.html#restore-the-default-s3-api-certificate["기본 S3 API 인증서를 복원합니다"]..
+*** link:configuring-custom-server-certificate-for-grid-manager-tenant-manager.html#use-a-script-to-generate-a-new-self-signed-management-interface-certificate["스크립트를 사용하여 자체 서명된 새 관리 인터페이스 인증서를 생성합니다"]..
+*** 또는 을 복사하거나 link:configuring-custom-server-certificate-for-grid-manager-tenant-manager.html#download-or-copy-the-management-interface-certificate["관리 인터페이스 인증서입니다"]link:configuring-custom-server-certificate-for-storage-node.html#download-or-copy-the-s3-api-certificate["S3 API 인증서"]다운로드합니다.
+
+
+--
+.그리드 CA
+--
+<<gridca_details,Grid CA 인증서>>StorageGRID 설치 중에 StorageGRID 인증 기관에서 생성한 는 모든 내부 StorageGRID 트래픽을 보호합니다.
+
+인증서 정보에는 인증서 만료 날짜 및 인증서 내용이 포함됩니다.
+
+link:copying-storagegrid-system-ca-certificate.html["Grid CA 인증서를 복사하거나 다운로드합니다"]변경할 수는 있지만 변경할 수는 없습니다.
+
+--
+.클라이언트
+--
+<<adminclientcert_details,클라이언트 인증서>>외부 인증 기관에서 생성한 로 외부 모니터링 도구와 StorageGRID Prometheus 데이터베이스 간의 연결을 보호합니다.
+
+인증서 테이블에는 구성된 각 클라이언트 인증서에 대한 행이 있으며 인증서 만료 날짜와 함께 인증서를 Prometheus 데이터베이스 액세스에 사용할 수 있는지 여부를 나타냅니다.
+
+다음을 수행할 수 있습니다.
+
+*** link:configuring-administrator-client-certificates.html#add-client-certificates["새 클라이언트 인증서를 업로드하거나 생성합니다."]
+*** 인증서 이름을 선택하면 다음 작업을 수행할 수 있는 인증서 세부 정보가 표시됩니다.
++
+**** link:configuring-administrator-client-certificates.html#edit-client-certificates["클라이언트 인증서 이름을 변경합니다."]
+**** link:configuring-administrator-client-certificates.html#edit-client-certificates["Prometheus 액세스 권한을 설정합니다."]
+**** link:configuring-administrator-client-certificates.html#edit-client-certificates["클라이언트 인증서를 업로드하고 교체합니다."]
+**** link:configuring-administrator-client-certificates.html#download-or-copy-client-certificates["클라이언트 인증서를 복사하거나 다운로드합니다."]
+**** link:configuring-administrator-client-certificates.html#remove-client-certificates["클라이언트 인증서를 제거합니다."]
+
+
+*** 작업 * 을 선택하여 빠르게 link:configuring-administrator-client-certificates.html#edit-client-certificates["편집"]또는 link:configuring-administrator-client-certificates.html#attach-new-client-certificate["첨부"] link:configuring-administrator-client-certificates.html#remove-client-certificates["제거"]클라이언트 인증서를 선택합니다. 클라이언트 인증서를 최대 10개까지 선택하고 * Actions * > * Remove * 를 사용하여 한 번에 제거할 수 있습니다.
+
+
+--
+.부하 분산 장치 엔드포인트
+--
+<<로드 밸런서 끝점 인증서,로드 밸런서 끝점 인증서>> 게이트웨이 노드 및 관리 노드에서 S3 클라이언트와 StorageGRID 로드 밸런서 서비스 간의 연결을 보호합니다.
+
+로드 밸런서 끝점 테이블에는 구성된 각 로드 밸런서 끝점에 대한 행이 있으며, 글로벌 S3 API 인증서나 사용자 지정 로드 밸런서 끝점 인증서가 끝점에 사용되고 있는지 여부를 나타냅니다. 각 인증서의 만료 날짜도 표시됩니다.
+
+
+NOTE: 끝점 인증서 변경 내용을 모든 노드에 적용하는 데 최대 15분이 걸릴 수 있습니다.
+
+다음을 수행할 수 있습니다.
+
+*** link:configuring-load-balancer-endpoints.html["로드 밸런서 끝점을 봅니다"]인증서 세부 정보가 포함됩니다.
+*** link:../fabricpool/creating-load-balancer-endpoint-for-fabricpool.html["FabricPool에 대한 로드 밸런서 끝점 인증서를 지정합니다."]
+*** link:configuring-load-balancer-endpoints.html["글로벌 S3 API 인증서를 사용합니다"] 새 로드 밸런서 엔드포인트 인증서를 생성하는 대신
+
+
+--
+.테넌트
+--
+테넌트는 또는 <<플랫폼 서비스 끝점 인증서,플랫폼 서비스 끝점 인증서>> 를 사용하여 StorageGRID과의 연결을 보호할 수 <<ID 페더레이션 인증서,ID 페더레이션 서버 인증서>>있습니다.
+
+테넌트 테이블에는 각 테넌트에 대한 행이 있으며 각 테넌트가 자체 ID 소스 또는 플랫폼 서비스를 사용할 수 있는 권한이 있는지 여부를 나타냅니다.
+
+다음을 수행할 수 있습니다.
+
+*** link:../tenant/signing-in-to-tenant-manager.html["테넌트 관리자에 로그인할 테넌트 이름을 선택합니다"]
+*** link:../tenant/using-identity-federation.html["테넌트 이름을 선택하여 테넌트 ID 페더레이션 세부 정보를 봅니다"]
+*** link:../tenant/editing-platform-services-endpoint.html["테넌트 이름을 선택하여 테넌트 플랫폼 서비스 세부 정보를 봅니다"]
+*** link:../tenant/creating-platform-services-endpoint.html["엔드포인트 생성 중에 플랫폼 서비스 끝점 인증서를 지정합니다"]
+
+
+--
+.기타
+--
+StorageGRID는 특정 목적으로 다른 보안 인증서를 사용합니다. 이러한 인증서는 기능 이름으로 나열됩니다. 기타 보안 인증서에는 다음이 포함됩니다.
+
+*** <<Cloud Storage Pool 엔드포인트 인증서입니다,클라우드 스토리지 풀 인증서>>
+*** <<이메일 경고 알림 인증서입니다,이메일 경고 알림 인증서>>
+*** <<외부 syslog 서버 인증서입니다,외부 syslog 서버 인증서>>
+*** <<grid-federation-certificate,그리드 페더레이션 연결 인증서>>
+*** <<ID 페더레이션 인증서,ID 페더레이션 인증서>>
+*** <<KMS(키 관리 서버) 인증서,KMS(키 관리 서버) 인증서>>
+*** <<SSO(Single Sign-On) 인증서,SSO(Single Sign-On) 인증서>>
+
+
+정보는 함수에 사용되는 인증서 유형과 해당 서버 및 클라이언트 인증서 만료 날짜를 나타냅니다. 기능 이름을 선택하면 인증서 세부 정보를 보고 편집할 수 있는 브라우저 탭이 열립니다.
+
+
+NOTE: 가 있는 경우에만 다른 인증서의 정보를 보고 액세스할 수 link:admin-group-permissions.html["적절한 권한"]있습니다.
+
+다음을 수행할 수 있습니다.
+
+*** link:../ilm/creating-cloud-storage-pool.html["S3, C2S S3 또는 Azure에 대한 클라우드 스토리지 풀 인증서를 지정합니다"]
+*** link:../monitor/email-alert-notifications.html["경고 e-메일 알림에 사용할 인증서를 지정합니다"]
+*** link:../monitor/configure-audit-messages.html#use-external-syslog-server["외부 syslog 서버에 인증서를 사용합니다"]
+*** link:grid-federation-manage-connection.html#rotate-connection-certificates["그리드 페더레이션 연결 인증서를 회전합니다"]
+*** link:using-identity-federation.html["ID 페더레이션 인증서를 보고 편집합니다"]
+*** link:kms-adding.html["KMS(키 관리 서버) 서버 및 클라이언트 인증서를 업로드합니다"]
+*** link:creating-relying-party-trusts-in-ad-fs.html#create-a-relying-party-trust-manually["신뢰할 수 있는 당사자 트러스트를 위해 SSO 인증서를 수동으로 지정합니다"]
+
+
+--
+====
+
+
+
+
+
+
+== 보안 인증서 세부 정보입니다
+
+각 보안 인증서 유형은 구현 지침에 대한 링크와 함께 아래에 설명되어 있습니다.
+
+
+
+=== 관리 인터페이스 인증서입니다
+
+[cols="1a,1a,1a,1a"]
+|===
+| 인증서 유형입니다 | 설명 | 내비게이션 위치 | 세부 정보 
+
+
+ a| 
+서버
+ a| 
+클라이언트 웹 브라우저와 StorageGRID 관리 인터페이스 간의 연결을 인증하여 사용자가 보안 경고 없이 그리드 관리자 및 테넌트 관리자에 액세스할 수 있도록 합니다.
+
+또한 이 인증서는 Grid Management API 및 테넌트 관리 API 연결을 인증합니다.
+
+설치 중에 생성된 기본 인증서를 사용하거나 사용자 지정 인증서를 업로드할 수 있습니다.
+ a| 
+* 구성 * > * 보안 * > * 인증서 * 에서 * 글로벌 * 탭을 선택한 다음 * 관리 인터페이스 인증서 * 를 선택합니다
+ a| 
+link:configuring-custom-server-certificate-for-grid-manager-tenant-manager.html["관리 인터페이스 인증서를 구성합니다"]
+
+|===
+
+
+=== S3 API 인증서
+
+[cols="1a,1a,1a,1a"]
+|===
+| 인증서 유형입니다 | 설명 | 내비게이션 위치 | 세부 정보 
+
+
+ a| 
+서버
+ a| 
+스토리지 노드 및 로드 밸런서 엔드포인트에 대한 보안 S3 클라이언트 연결을 인증합니다(선택 사항).
+ a| 
+* configuration * > * Security * > * Certificates * 에서 * 글로벌 * 탭을 선택한 다음 * S3 API certificate * 를 선택합니다
+ a| 
+link:configuring-custom-server-certificate-for-storage-node.html["S3 API 인증서를 구성합니다"]
+
+|===
+
+
+=== Grid CA 인증서
+
+를 <<gridca_details,기본 그리드 CA 인증서 설명입니다>>참조하십시오.
+
+
+
+=== 관리자 클라이언트 인증서입니다
+
+[cols="1a,1a,1a,1a"]
+|===
+| 인증서 유형입니다 | 설명 | 내비게이션 위치 | 세부 정보 
+
+
+ a| 
+클라이언트
+ a| 
+각 클라이언트에 설치되어 StorageGRID에서 외부 클라이언트 액세스를 인증할 수 있습니다.
+
+* 권한이 있는 외부 클라이언트가 StorageGRID Prometheus 데이터베이스에 액세스할 수 있습니다.
+* 외부 도구를 사용하여 StorageGRID를 안전하게 모니터링할 수 있습니다.
+
+ a| 
+구성 * > * 보안 * > * 인증서 * 를 선택한 다음 * 클라이언트 * 탭을 선택합니다
+ a| 
+link:configuring-administrator-client-certificates.html["클라이언트 인증서를 구성합니다"]
+
+|===
+
+
+=== 로드 밸런서 끝점 인증서
+
+[cols="1a,1a,1a,1a"]
+|===
+| 인증서 유형입니다 | 설명 | 내비게이션 위치 | 세부 정보 
+
+
+ a| 
+서버
+ a| 
+게이트웨이 노드 및 관리 노드에서 S3 클라이언트와 StorageGRID 로드 밸런서 서비스 간의 연결을 인증합니다. 로드 밸런서 끝점을 구성할 때 로드 밸런서 인증서를 업로드하거나 생성할 수 있습니다. 클라이언트 응용 프로그램은 StorageGRID에 연결할 때 로드 밸런서 인증서를 사용하여 개체 데이터를 저장하고 검색합니다.
+
+전역  인증서의 사용자 지정 버전을 사용하여 부하 분산 서비스에 대한 연결을 인증할 수도 <<S3 API 인증서>>있습니다. 글로벌 인증서를 사용하여 로드 밸런서 연결을 인증하는 경우 각 로드 밸런서 끝점에 대해 별도의 인증서를 업로드하거나 생성할 필요가 없습니다.
+
+* 참고: * 로드 밸런서 인증에 사용되는 인증서는 일반적인 StorageGRID 작업 중에 가장 많이 사용되는 인증서입니다.
+ a| 
+구성 * > * 네트워크 * > * 로드 밸런서 엔드포인트 *
+ a| 
+* link:configuring-load-balancer-endpoints.html["로드 밸런서 엔드포인트를 구성합니다"]
+* link:../fabricpool/creating-load-balancer-endpoint-for-fabricpool.html["FabricPool용 로드 밸런서 끝점을 만듭니다"]
+
+
+|===
+
+
+=== Cloud Storage Pool 엔드포인트 인증서입니다
+
+[cols="1a,1a,1a,1a"]
+|===
+| 인증서 유형입니다 | 설명 | 내비게이션 위치 | 세부 정보 
+
+
+ a| 
+서버
+ a| 
+StorageGRID 클라우드 스토리지 풀에서 S3 Glacier 또는 Microsoft Azure Blob 스토리지와 같은 외부 스토리지 위치로 연결을 인증합니다. 각 클라우드 공급자 유형에는 다른 인증서가 필요합니다.
+ a| 
+ILM * > * 스토리지 풀 *
+ a| 
+link:../ilm/creating-cloud-storage-pool.html["클라우드 스토리지 풀을 생성합니다"]
+
+|===
+
+
+=== 이메일 경고 알림 인증서입니다
+
+[cols="1a,1a,1a,1a"]
+|===
+| 인증서 유형입니다 | 설명 | 내비게이션 위치 | 세부 정보 
+
+
+ a| 
+서버 및 클라이언트
+ a| 
+SMTP 이메일 서버와 알림 알림에 사용되는 StorageGRID 간의 연결을 인증합니다.
+
+* SMTP 서버와의 통신에 TLS(Transport Layer Security)가 필요한 경우 전자 메일 서버 CA 인증서를 지정해야 합니다.
+* SMTP 전자 메일 서버에 인증을 위해 클라이언트 인증서가 필요한 경우에만 클라이언트 인증서를 지정합니다.
+
+ a| 
+* 알림 * > * 이메일 설정 *
+ a| 
+link:../monitor/email-alert-notifications.html["알림에 대한 이메일 알림을 설정합니다"]
+
+|===
+
+
+=== 외부 syslog 서버 인증서입니다
+
+[cols="1a,1a,1a,1a"]
+|===
+| 인증서 유형입니다 | 설명 | 내비게이션 위치 | 세부 정보 
+
+
+ a| 
+서버
+ a| 
+StorageGRID에서 이벤트를 기록하는 외부 syslog 서버 간의 TLS 또는 RELP/TLS 연결을 인증합니다.
+
+* 참고: * 외부 syslog 서버에 대한 TCP, RELP/TCP 및 UDP 연결에는 외부 syslog 서버 인증서가 필요하지 않습니다.
+ a| 
+* 구성 * > * 모니터링 * > * 감사 및 syslog 서버 *
+ a| 
+link:../monitor/configure-audit-messages.html#use-external-syslog-server["외부 syslog 서버를 사용합니다"]
+
+|===
+
+
+=== [[grid-federation-certificate]] 그리드 페더레이션 연결 인증서
+
+[cols="1a,1a,1a,1a"]
+|===
+| 인증서 유형입니다 | 설명 | 내비게이션 위치 | 세부 정보 
+
+
+ a| 
+서버 및 클라이언트
+ a| 
+그리드 페더레이션 연결에서 현재 StorageGRID 시스템과 다른 그리드 간에 전송된 정보를 인증하고 암호화합니다.
+ a| 
+* 구성 * > * 시스템 * > * 그리드 페더레이션 *
+ a| 
+* link:grid-federation-create-connection.html["그리드 페더레이션 연결을 만듭니다"]
+* link:grid-federation-manage-connection.html#rotate_grid_fed_certificates["연결 인증서를 회전합니다"]
+
+
+|===
+
+
+=== ID 페더레이션 인증서
+
+[cols="1a,1a,1a,1a"]
+|===
+| 인증서 유형입니다 | 설명 | 내비게이션 위치 | 세부 정보 
+
+
+ a| 
+서버
+ a| 
+Active Directory, OpenLDAP 또는 Oracle Directory Server와 같은 외부 ID 공급자와 StorageGRID 간의 연결을 인증합니다. ID 페더레이션에 사용됩니다. 이 페더레이션을 사용하면 외부 시스템에서 관리 그룹 및 사용자를 관리할 수 있습니다.
+ a| 
+* 구성 * > * 액세스 제어 * > * ID 페더레이션 *
+ a| 
+link:using-identity-federation.html["ID 페더레이션을 사용합니다"]
+
+|===
+
+
+=== KMS(키 관리 서버) 인증서
+
+[cols="1a,1a,1a,1a"]
+|===
+| 인증서 유형입니다 | 설명 | 내비게이션 위치 | 세부 정보 
+
+
+ a| 
+서버 및 클라이언트
+ a| 
+StorageGRID와 StorageGRID 어플라이언스 노드에 암호화 키를 제공하는 외부 키 관리 서버(KMS) 간의 연결을 인증합니다.
+ a| 
+구성 * > * 보안 * > * 키 관리 서버 *
+ a| 
+link:kms-adding.html["KMS(키 관리 서버) 추가"]
+
+|===
+
+
+=== 플랫폼 서비스 끝점 인증서
+
+[cols="1a,1a,1a,1a"]
+|===
+| 인증서 유형입니다 | 설명 | 내비게이션 위치 | 세부 정보 
+
+
+ a| 
+서버
+ a| 
+StorageGRID 플랫폼 서비스에서 S3 스토리지 리소스에 대한 연결을 인증합니다.
+ a| 
+* 테넌트 관리자 * > * 스토리지(S3) * > * 플랫폼 서비스 엔드포인트 *
+ a| 
+link:../tenant/creating-platform-services-endpoint.html["플랫폼 서비스 끝점을 만듭니다"]
+
+link:../tenant/editing-platform-services-endpoint.html["플랫폼 서비스 끝점을 편집합니다"]
+
+|===
+
+
+=== SSO(Single Sign-On) 인증서
+
+[cols="1a,1a,1a,1a"]
+|===
+| 인증서 유형입니다 | 설명 | 내비게이션 위치 | 세부 정보 
+
+
+ a| 
+서버
+ a| 
+AD FS(Active Directory Federation Services)와 같은 ID 페더레이션 서비스와 SSO(Single Sign-On) 요청에 사용되는 StorageGRID 간의 연결을 인증합니다.
+ a| 
+* 구성 * > * 액세스 제어 * > * Single Sign-On *
+ a| 
+link:configuring-sso.html["Single Sign-On 구성"]
+
+|===
+
+
+== 인증서 예
+
+
+
+=== 예 1: 부하 분산 서비스
+
+이 예에서 StorageGRID는 서버 역할을 합니다.
+
+. 로드 밸런서 끝점을 구성하고 StorageGRID에서 서버 인증서를 업로드하거나 생성합니다.
+. 로드 밸런서 끝점에 대한 S3 클라이언트 연결을 구성하고 동일한 인증서를 클라이언트에 업로드합니다.
+. 클라이언트가 데이터를 저장하거나 검색하려는 경우 HTTPS를 사용하여 로드 밸런서 끝점에 연결합니다.
+. StorageGRID는 공개 키가 포함된 서버 인증서와 개인 키를 기반으로 하는 서명으로 응답합니다.
+. 클라이언트는 서버 서명을 인증서 사본의 서명과 비교하여 이 인증서를 확인합니다. 서명이 일치하면 클라이언트는 동일한 공개 키를 사용하여 세션을 시작합니다.
+. 클라이언트가 StorageGRID로 개체 데이터를 보냅니다.
+
+
+
+
+=== 예 2: 외부 키 관리 서버(KMS)
+
+이 예에서 StorageGRID는 클라이언트 역할을 합니다.
+
+. 외부 키 관리 서버 소프트웨어를 사용하면 StorageGRID를 KMS 클라이언트로 구성하고 CA 서명된 서버 인증서, 공용 클라이언트 인증서 및 클라이언트 인증서에 대한 개인 키를 얻을 수 있습니다.
+. Grid Manager를 사용하여 KMS 서버를 구성하고 서버 및 클라이언트 인증서와 클라이언트 개인 키를 업로드합니다.
+. StorageGRID 노드에 암호화 키가 필요한 경우, 이 노드는 인증서의 데이터와 개인 키를 기반으로 하는 서명을 포함하는 KMS 서버에 요청합니다.
+. KMS 서버는 인증서 서명의 유효성을 검사하고 StorageGRID를 신뢰할 수 있는지 결정합니다.
+. KMS 서버는 검증된 연결을 사용하여 응답합니다.
+

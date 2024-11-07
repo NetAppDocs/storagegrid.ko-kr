@@ -1,0 +1,25 @@
+---
+permalink: audit/audit-messages-main.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, messages, message 
+summary: 시스템에서 반환된 감사 메시지에 대한 자세한 설명은 다음 섹션에 나와 있습니다. 각 감사 메시지는 먼저 메시지가 나타내는 활동 클래스별로 관련 메시지를 그룹화하는 표에 나열됩니다. 이러한 그룹화는 감사되는 활동의 유형을 이해하고 원하는 유형의 감사 메시지 필터링을 선택하는 데 유용합니다. 
+---
+= 감사 메시지 설명
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+시스템에서 반환된 감사 메시지에 대한 자세한 설명은 다음 섹션에 나와 있습니다. 각 감사 메시지는 먼저 메시지가 나타내는 활동 클래스별로 관련 메시지를 그룹화하는 표에 나열됩니다. 이러한 그룹화는 감사되는 활동의 유형을 이해하고 원하는 유형의 감사 메시지 필터링을 선택하는 데 유용합니다.
+
+감사 메시지는 4자리 코드별로 알파벳순으로 나열됩니다. 이 알파벳 목록을 사용하여 특정 메시지에 대한 정보를 찾을 수 있습니다.
+
+이 장에서 사용되는 4자리 코드는 다음 예제 메시지에 표시된 감사 메시지에 있는 ATYP 값입니다.
+
+[listing, subs="specialcharacters,quotes"]
+----
+2014-07-17T03:50:47.484627
+\[AUDT:[RSLT(FC32):VRGN][AVER(UI32):10][ATIM(UI64):1405569047484627][*ATYP\(FC32\):SYSU*][ANID(UI32):11627225][AMID(FC32):ARNI][ATID(UI64):9445736326500603516]]
+----
+감사 메시지 수준 설정, 로그 대상 변경 및 감사 정보에 대한 외부 syslog 서버 사용에 대한 자세한 내용은 을 참조하십시오 link:../monitor/configure-audit-messages.html["감사 메시지 및 로그 대상을 구성합니다"]

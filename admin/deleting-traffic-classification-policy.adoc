@@ -1,0 +1,49 @@
+---
+permalink: admin/deleting-traffic-classification-policy.html 
+sidebar: sidebar 
+keywords: delete traffic classification policy 
+summary: 트래픽 분류 정책이 더 이상 필요하지 않으면 삭제할 수 있습니다. 
+---
+= 트래픽 분류 정책을 삭제합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+더 이상 필요하지 않은 경우 트래픽 분류 정책을 삭제할 수 있습니다. 삭제 시 정책을 검색할 수 없으므로 올바른 정책을 삭제해야 합니다.
+
+.시작하기 전에
+* 을 사용하여 그리드 관리자에 로그인되어 있습니다.link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]
+* 이 link:admin-group-permissions.html["루트 액세스 권한"]있습니다.
+
+
+.단계
+. 구성 * > * 네트워크 * > * 트래픽 분류 * 를 선택합니다.
++
+트래픽 분류 정책 페이지가 테이블에 나열된 기존 정책과 함께 나타납니다.
+
+. 작업 메뉴 또는 세부 정보 페이지를 사용하여 정책을 삭제합니다.
++
+[role="tabbed-block"]
+====
+.작업 메뉴
+--
+.. 정책 확인란을 선택합니다.
+.. Actions * > * Remove * 를 선택합니다.
+
+
+--
+.정책 세부 정보 페이지
+--
+.. 정책 이름을 선택합니다.
+.. 정책 이름 옆의 * 제거 * 버튼을 선택합니다.
+
+
+--
+====
+. 예 * 를 선택하여 정책을 삭제할 것임을 확인합니다.
++
+정책이 삭제됩니다.
+
+

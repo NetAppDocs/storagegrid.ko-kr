@@ -1,0 +1,49 @@
+---
+permalink: admin/viewing-storagegrid-license-information.html 
+sidebar: sidebar 
+keywords: storagegrid license, view license, licensed capacity of grid 
+summary: 필요한 경우 그리드의 최대 스토리지 용량과 같은 StorageGRID 시스템에 대한 라이센스 정보를 볼 수 있습니다. 
+---
+= StorageGRID 라이센스 정보를 봅니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+필요한 경우 그리드의 최대 스토리지 용량과 같은 StorageGRID 시스템에 대한 라이센스 정보를 볼 수 있습니다.
+
+.시작하기 전에
+을 사용하여 그리드 관리자에 로그인되어 있습니다.link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]
+
+.이 작업에 대해
+이 StorageGRID 시스템의 소프트웨어 라이센스에 문제가 있는 경우 대시보드의 상태 카드에 라이센스 상태 아이콘과 * 라이센스 * 링크가 포함됩니다. 이 숫자는 라이센스 관련 문제의 수를 나타냅니다.
+
+image::../media/dashboard_health_panel_license_status.png[대시보드 상태 카드 라이센스 상태입니다]
+
+.단계
+. 다음 중 하나를 수행하여 라이센스 페이지에 액세스합니다.
++
+** 유지 관리 * > * 시스템 * > * 라이센스 * 를 선택합니다.
+** 대시보드의 상태 카드에서 라이센스 상태 아이콘 또는 * 라이센스 * 링크를 선택합니다.
++
+이 링크는 라이센스에 문제가 있는 경우에만 나타납니다.
+
+
+
+. 현재 라이센스에 대한 읽기 전용 세부 정보 보기:
++
+** StorageGRID 시스템 ID로, 이 StorageGRID 설치의 고유 식별 번호입니다
+** 라이센스 일련 번호입니다
+** 라이센스 유형, * 영구 * 또는 * 가입 *
+** 그리드의 라이센스가 부여된 스토리지 용량입니다
+** 지원되는 스토리지 용량입니다
+** 라이선스 종료 날짜. 영구 라이센스에 대해 * 해당 없음 * 이 나타납니다.
+** 지원 종료 날짜입니다
++
+이 날짜는 현재 라이센스 파일에서 읽으며 라이센스 파일을 얻은 후 지원 서비스 계약을 연장하거나 갱신한 경우 최신 날짜가 아닐 수 있습니다. 이 값을 업데이트하려면 을 참조하십시오link:updating-storagegrid-license-information.html["StorageGRID 라이센스 정보를 업데이트합니다"]. Active IQ를 사용하여 실제 계약 종료 날짜를 볼 수도 있습니다.
+
+** 라이센스 텍스트 파일의 내용입니다
+
+
+

@@ -1,0 +1,76 @@
+---
+permalink: admin/manage-s3-select-for-tenant-accounts.html 
+sidebar: sidebar 
+keywords: s3 select, selectobjectcontent, best practices, object format, s3 select requirements 
+summary: 특정 S3 테넌트가 S3 선택을 사용하여 개별 오브젝트에 SelectObjectContent 요청을 발급하도록 허용할 수 있습니다. 
+---
+= 관리 S3 테넌트 계정에 대해 선택
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+특정 S3 테넌트가 S3 선택을 사용하여 개별 오브젝트에 SelectObjectContent 요청을 발급하도록 허용할 수 있습니다.
+
+S3 Select를 사용하면 데이터베이스와 관련 리소스를 배치하지 않고도 대량의 데이터를 효율적으로 검색할 수 있습니다. 또한, 데이터를 검색하는 데 드는 비용과 대기 시간도 줄어듭니다.
+
+
+
+== S3 Select란 무엇입니까?
+
+S3 Select를 사용하면 S3 클라이언트가 SelectObjectContent 요청을 사용하여 오브젝트에서 필요한 데이터만 필터링 및 검색할 수 있습니다. S3 Select의 StorageGRID 구현에는 S3 Select 명령 및 기능의 하위 집합이 포함됩니다.
+
+
+
+== S3 Select 사용에 대한 고려 사항 및 요구 사항
+
+
+
+=== 그리드 관리 요구 사항
+
+그리드 관리자는 테넌트에 S3 Select 기능을 부여해야 합니다. 또는 를 선택하면 * Allow S3 Select * link:creating-tenant-account.html["테넌트 생성"]link:editing-tenant-account.html["테넌트 편집"]가 선택됩니다.
+
+
+
+=== 오브젝트 형식 요구사항
+
+쿼리할 객체는 다음 형식 중 하나여야 합니다.
+
+* CSV *. GZIP 또는 BZIP2 보관 파일로 압축하거나 그대로 사용할 수 있습니다.
+* * 파케 *. Parquet 객체에 대한 추가 요구 사항:
++
+** S3 Select는 GZIP 또는 Snappy를 사용한 컬럼 압축만 지원합니다. S3 Select는 Parquet 오브젝트에 대한 전체 오브젝트 압축을 지원하지 않습니다.
+** S3 Select는 Parquet 출력을 지원하지 않습니다. 출력 형식을 CSV 또는 JSON으로 지정해야 합니다.
+** 압축되지 않은 최대 행 그룹 크기는 512MB입니다.
+** 개체의 스키마에 지정된 데이터 형식을 사용해야 합니다.
+** 간격, JSON, 목록, 시간 또는 UUID 논리적 유형은 사용할 수 없습니다.
+
+
+
+
+
+
+=== 엔드포인트 요구 사항
+
+SelectObjectContent 요청을 로 보내야 link:configuring-load-balancer-endpoints.html["StorageGRID 로드 밸런서 엔드포인트"]합니다.
+
+끝점에서 사용하는 관리자 및 게이트웨이 노드는 다음 중 하나여야 합니다.
+
+* 서비스 어플라이언스 노드입니다
+* VMware 기반 소프트웨어 노드입니다
+* cgroup v2가 활성화된 커널을 실행하는 베어 메탈 노드
+
+
+
+
+=== 일반 고려 사항
+
+쿼리를 스토리지 노드로 직접 보낼 수 없습니다.
+
+
+CAUTION: SelectObjectContent 요청은 모든 S3 클라이언트 및 모든 테넌트의 로드 밸런서 성능을 줄일 수 있습니다. 신뢰할 수 있는 테넌트에만 필요한 경우에만 이 기능을 사용하도록 설정합니다.
+
+를 link:../s3/use-s3-select.html["S3 Select 사용에 대한 지침"]참조하십시오.
+
+시간에 따른 S3 Select 작업을 보려면 link:../monitor/reviewing-support-metrics.html["Grafana 차트"]그리드 관리자에서 * 지원 * > * 툴 * > * 메트릭 * 을 선택합니다.

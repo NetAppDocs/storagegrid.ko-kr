@@ -1,0 +1,30 @@
+---
+permalink: expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html 
+sidebar: sidebar 
+keywords: grid node, add node, add site, expand, expansion 
+summary: 기존 사이트에 그리드 노드를 추가하거나 새 사이트를 추가하려면 다음 절차를 따르십시오. 한 번에 하나의 확장 유형만 수행할 수 있습니다. 
+---
+= 기존 사이트에 그리드 노드를 추가하거나 새 사이트를 추가합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기존 사이트에 그리드 노드를 추가하거나 새 사이트를 추가하려면 다음 절차를 따르십시오. 한 번에 하나의 확장 유형만 수행할 수 있습니다.
+
+.시작하기 전에
+* 이 link:../admin/admin-group-permissions.html["루트 액세스 또는 유지 관리 권한"]있습니다.
+* 그리드의 모든 기존 노드가 모든 사이트에서 실행 및 실행됩니다.
+* 이전의 모든 확장, 업그레이드, 사용 중단 또는 복구 절차가 완료되었습니다.
++
+
+NOTE: 다른 확장, 업그레이드, 복구 또는 활성 서비스 해제 절차가 진행 중인 동안에는 확장을 시작할 수 없습니다. 그러나 필요한 경우 서비스 해제 절차를 일시 중지하여 확장을 시작할 수 있습니다.
+
+
+
+.단계
+. link:updating-subnets-for-grid-network.html["그리드 네트워크에 대한 서브넷을 업데이트합니다"]..
+. link:deploying-new-grid-nodes.html["새 그리드 노드를 배포합니다"]..
+. link:performing-expansion.html["확장을 수행합니다"]..
+

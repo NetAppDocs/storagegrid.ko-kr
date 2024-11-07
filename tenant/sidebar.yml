@@ -1,0 +1,129 @@
+---
+section: tenant
+title: 테넌트 계정을 사용합니다
+entries:
+- title: 테넌트 계정이란 무엇입니까
+  pdf-filename: StorageGRID 테넌트 계정을 사용합니다
+  url: "/tenant/index.html"
+- title: 로그인 및 로그아웃 방법
+  entries:
+  - title: 테넌트 관리자에 로그인합니다
+    url: "/tenant/signing-in-to-tenant-manager.html"
+  - title: 테넌트 관리자에서 로그아웃합니다
+    url: "/tenant/signing-out-of-tenant-manager.html"
+- title: 테넌트 관리자 대시보드
+  url: "/tenant/understanding-tenant-manager-dashboard.html"
+- title: 테넌트 관리 API
+  entries:
+  - title: 테넌트 관리 API 이해
+    url: "/tenant/understanding-tenant-management-api.html"
+  - title: 테넌트 관리 API 버전 관리
+    url: "/tenant/tenant-management-api-versioning.html"
+  - title: 사이트 간 요청 위조(CSRF)로부터 보호
+    url: "/tenant/protecting-against-cross-site-request-forgery-csrf.html"
+- title: 그리드 페더레이션 연결을 사용합니다
+  entries:
+  - title: 클론 테넌트 그룹 및 사용자
+    url: "/tenant/grid-federation-account-clone.html"
+  - title: API를 사용하여 S3 액세스 키의 클론을 생성합니다
+    url: "/tenant/grid-federation-clone-keys-with-api.html"
+  - title: 교차 그리드 복제 관리
+    url: "/tenant/grid-federation-manage-cross-grid-replication.html"
+  - title: 그리드 페더레이션 연결을 봅니다
+    url: "/tenant/grid-federation-view-connections-tenant.html"
+- title: 그룹 및 사용자를 관리합니다
+  entries:
+  - title: ID 페더레이션을 사용합니다
+    url: "/tenant/using-identity-federation.html"
+  - title: 테넌트 그룹을 관리합니다
+    entries:
+    - title: S3 그룹을 생성합니다
+      url: "/tenant/creating-groups-for-s3-tenant.html"
+    - title: Swift 그룹을 생성합니다
+      url: "/tenant/creating-groups-for-swift-tenant.html"
+    - title: 테넌트 관리 권한
+      url: "/tenant/tenant-management-permissions.html"
+    - title: 그룹을 관리합니다
+      url: "/tenant/manage-groups.html"
+  - title: 로컬 사용자를 관리합니다
+    url: "/tenant/managing-local-users.html"
+- title: S3 액세스 키를 관리합니다
+  entries:
+  - title: 테넌트 액세스 키
+    pdf-filename: S3 액세스 키를 관리합니다
+    url: "/tenant/managing-s3-access-keys.html"
+  - title: S3 액세스 키를 생성합니다
+    url: "/tenant/creating-your-own-s3-access-keys.html"
+  - title: S3 액세스 키를 봅니다
+    url: "/tenant/viewing-your-s3-access-keys.html"
+  - title: S3 액세스 키를 삭제합니다
+    url: "/tenant/deleting-your-own-s3-access-keys.html"
+  - title: 다른 사용자의 S3 액세스 키를 생성합니다
+    url: "/tenant/creating-another-users-s3-access-keys.html"
+  - title: 다른 사용자의 S3 액세스 키를 봅니다
+    url: "/tenant/viewing-another-users-s3-access-keys.html"
+  - title: 다른 사용자의 S3 액세스 키를 삭제합니다
+    url: "/tenant/deleting-another-users-s3-access-keys.html"
+- title: S3 버킷을 관리합니다
+  entries:
+  - title: 버킷을 생성합니다
+    url: "/tenant/creating-s3-bucket.html"
+  - title: 버킷 세부 정보를 봅니다
+    url: "/tenant/viewing-s3-bucket-details.html"
+  - title: 버킷에 ILM 정책 태그를 적용합니다
+    url: "/tenant/ilm-policy-tags.html"
+  - title: 버킷 정책을 관리합니다
+    url: "/tenant/manage-bucket-policy.html"
+  - title: 버킷 일관성 관리
+    url: "/tenant/manage-bucket-consistency.html"
+  - title: 마지막 액세스 시간 업데이트를 사용하거나 사용하지 않도록 설정합니다
+    url: "/tenant/enabling-or-disabling-last-access-time-updates.html"
+  - title: 오브젝트 버전 관리 변경
+    url: "/tenant/changing-bucket-versioning.html"
+  - title: S3 오브젝트 잠금을 사용합니다
+    url: "/tenant/using-s3-object-lock.html"
+  - title: S3 오브젝트 잠금 기본 보존 업데이트
+    url: "/tenant/update-default-retention-settings.html"
+  - title: CORS(Cross-Origin Resource Sharing) 구성
+    url: "/tenant/configuring-cross-origin-resource-sharing-cors.html"
+  - title: 버킷에서 오브젝트를 삭제합니다
+    url: "/tenant/deleting-s3-bucket-objects.html"
+  - title: 버킷을 삭제합니다
+    url: "/tenant/deleting-s3-bucket.html"
+  - title: S3 콘솔 사용
+    url: "/tenant/use-s3-console.html"
+- title: S3 플랫폼 서비스 관리
+  entries:
+  - title: S3 플랫폼 서비스
+    pdf-filename: S3 플랫폼 서비스 관리
+    entries:
+    - title: 플랫폼 서비스에 대한 고려 사항
+      url: "/tenant/considerations-for-platform-services.html"
+    - title: CloudMirror 복제 서비스
+      url: "/tenant/understanding-cloudmirror-replication-service.html"
+    - title: 버킷 관련 알림
+      url: "/tenant/understanding-notifications-for-buckets.html"
+    - title: 검색 통합 서비스
+      url: "/tenant/understanding-search-integration-service.html"
+  - title: 플랫폼 서비스 끝점을 관리합니다
+    entries:
+    - title: 플랫폼 서비스 끝점을 구성합니다
+      url: "/tenant/configuring-platform-services-endpoints.html"
+    - title: URN을 지정합니다
+      url: "/tenant/specifying-urn-for-platform-services-endpoint.html"
+    - title: 끝점 작성
+      url: "/tenant/creating-platform-services-endpoint.html"
+    - title: 연결을 테스트합니다
+      url: "/tenant/testing-connection-for-platform-services-endpoint.html"
+    - title: 끝점 편집
+      url: "/tenant/editing-platform-services-endpoint.html"
+    - title: 끝점을 삭제합니다
+      url: "/tenant/deleting-platform-services-endpoint.html"
+    - title: 플랫폼 서비스 오류 문제 해결
+      url: "/tenant/troubleshooting-platform-services-endpoint-errors.html"
+  - title: CloudMirror 복제를 구성합니다
+    url: "/tenant/configuring-cloudmirror-replication.html"
+  - title: 이벤트 알림을 구성합니다
+    url: "/tenant/configuring-event-notifications.html"
+  - title: 검색 통합 서비스를 구성합니다
+    url: "/tenant/configuring-search-integration-service.html"

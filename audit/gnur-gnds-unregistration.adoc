@@ -1,0 +1,42 @@
+---
+permalink: audit/gnur-gnds-unregistration.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, GNUR, GNDS Unregistration 
+summary: CMN 서비스는 StorageGRID 시스템에서 서비스에 대한 자체 정보가 등록되지 않은 경우 이 감사 메시지를 생성합니다. 
+---
+= GNUR:GNDS 등록 취소
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+CMN 서비스는 StorageGRID 시스템에서 서비스에 대한 자체 정보가 등록되지 않은 경우 이 감사 메시지를 생성합니다.
+
+[cols="1a,1a,4a"]
+|===
+| 코드 | 필드에 입력합니다 | 설명 
+
+
+ a| 
+RSLT
+ a| 
+결과
+ a| 
+업데이트 요청의 결과:
+
+* SUCS: 성공했습니다
+* SUNV: 서비스를 사용할 수 없습니다
+* GERR: 기타 오류입니다
+
+
+
+
+ a| 
+GNID입니다
+ a| 
+노드 ID
+ a| 
+업데이트 요청을 시작한 서비스의 노드 ID입니다.
+
+|===

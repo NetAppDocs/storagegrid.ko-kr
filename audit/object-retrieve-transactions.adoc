@@ -1,0 +1,103 @@
+---
+permalink: audit/object-retrieve-transactions.html 
+sidebar: sidebar 
+keywords: object retrieve, transactions, SGET, WGET 
+summary: S3 API별 감사 메시지를 찾아 감사 로그에서 오브젝트를 검색하여 트랜잭션을 식별할 수 있습니다. 
+---
+= 객체 검색 트랜잭션입니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+S3 API별 감사 메시지를 찾아 감사 로그에서 오브젝트를 검색하여 트랜잭션을 식별할 수 있습니다.
+
+다음 표에는 검색 트랜잭션 중에 생성된 모든 감사 메시지가 나와 있지 않습니다. 조회 트랜잭션을 추적하는 데 필요한 메시지만 포함됩니다.
+
+
+
+== S3 검색 감사 메시지
+
+[cols="1a,1a,2a,1a,1a"]
+|===
+| 코드 | 이름 | 설명 | 트레이스 | 을 참조하십시오 
+
+
+ a| 
+SGET
+ a| 
+S3 가져오기
+ a| 
+버킷에서 오브젝트를 검색하도록 요청했습니다.
+ a| 
+CBID, S3BK, S3KY
+ a| 
+link:sget-s3-get.html["SGET: S3 GET"]
+
+|===
+
+
+== SWIFT 검색 감사 메시지
+
+[cols="1a,1a,2a,1a,1a"]
+|===
+| 코드 | 이름 | 설명 | 트레이스 | 을 참조하십시오 
+
+
+ a| 
+윙입니다
+ a| 
+신속한 지원
+ a| 
+컨테이너에서 개체를 검색하도록 요청했습니다.
+ a| 
+CBID, WCON, WOBJ
+ a| 
+link:wget-swift-get.html["wget: Swift get"]
+
+|===
+
+
+== 예: S3 오브젝트 검색
+
+S3 클라이언트가 스토리지 노드(LDR 서비스)에서 오브젝트를 검색할 때 감사 메시지가 생성되고 감사 로그에 저장됩니다.
+
+아래 예에서는 트랜잭션 중에 생성된 모든 감사 메시지가 나열되지 않습니다. S3 검색 트랜잭션(SGET)과 관련된 항목만 나열됩니다.
+
+
+
+=== SGET: S3 GET
+
+클라이언트가 GetObject 요청을 LDR 서비스로 보내면 개체 검색이 시작됩니다. 메시지에는 오브젝트를 검색할 버킷과 오브젝트를 식별하는 데 사용되는 오브젝트의 S3 키를 포함합니다.
+
+[listing, subs="specialcharacters,quotes"]
+----
+2017-09-20T22:53:08.782605 [AUDT:[RSLT(FC32):SUCS][TIME(UI64):47807][SAIP(IPAD):"10.96.112.26"][S3AI(CSTR):"43979298178977966408"][SACC(CSTR):"s3-account-a"][S3AK(CSTR):"SGKHt7GzEcu0yXhFhT_rL5mep4nJt1w75GBh-O_FEw=="][SUSR(CSTR):"urn:sgws:identity::43979298178977966408:root"][SBAI(CSTR):"43979298178977966408"][SBAC(CSTR):"s3-account-a"]\[S3BK\(CSTR\):"bucket-anonymous"\]\[S3KY\(CSTR\):"Hello.txt"\][CBID(UI64):0x83D70C6F1F662B02][CSIZ(UI64):12][AVER(UI32):10][ATIM(UI64):1505947988782605]\[ATYP\(FC32\):SGET\][ANID(UI32):12272050][AMID(FC32):S3RQ][ATID(UI64):17742374343649889669]]
+----
+버킷 정책이 허용하는 경우 클라이언트는 익명으로 오브젝트를 검색하거나 다른 테넌트 계정이 소유한 버킷에서 오브젝트를 검색할 수 있습니다. 감사 메시지에는 이러한 익명 및 교차 계정 요청을 추적할 수 있도록 버킷 소유자의 테넌트 계정에 대한 정보가 포함되어 있습니다.
+
+다음 예제 메시지에서 클라이언트는 자신이 소유하지 않은 버킷에 저장된 개체에 대해 GetObject 요청을 보냅니다. SBAI 및 SBAC의 값은 버킷 소유자의 테넌트 계정 ID 및 이름을 기록합니다. 이 ID는 S3AI 및 SACC에 기록된 클라이언트의 테넌트 계정 ID 및 이름과 다릅니다.
+
+[listing, subs="specialcharacters,quotes"]
+----
+2017-09-20T22:53:15.876415 [AUDT:[RSLT(FC32):SUCS][TIME(UI64):53244][SAIP(IPAD):"10.96.112.26"]\[S3AI\(CSTR\):"17915054115450519830"\]\[SACC\(CSTR\):"s3-account-b"\][S3AK(CSTR):"SGKHpoblWlP_kBkqSCbTi754Ls8lBUog67I2LlSiUg=="][SUSR(CSTR):"urn:sgws:identity::17915054115450519830:root"]\[SBAI\(CSTR\):"43979298178977966408"\]\[SBAC\(CSTR\):"s3-account-a"\][S3BK(CSTR):"bucket-anonymous"][S3KY(CSTR):"Hello.txt"][CBID(UI64):0x83D70C6F1F662B02][CSIZ(UI64):12][AVER(UI32):10][ATIM(UI64):1505947995876415][ATYP(FC32):SGET][ANID(UI32):12272050][AMID(FC32):S3RQ][ATID(UI64):6888780247515624902]]
+----
+
+
+== 예: S3 오브젝트에서 선택합니다
+
+S3 클라이언트가 개체에서 S3 Select 쿼리를 실행하면 감사 메시지가 생성되고 감사 로그에 저장됩니다.
+
+아래 예에서는 트랜잭션 중에 생성된 모든 감사 메시지가 나열되지 않습니다. S3 선택 트랜잭션(SelectObjectContent)과 관련된 항목만 나열됩니다.
+
+각 쿼리는 S3 Select 요청의 승인(S3SR 필드는 "선택"으로 설정됨)을 수행하는 감사 메시지와 처리 중에 스토리지에서 데이터를 검색하는 후속 표준 GET 작업이라는 두 가지 감사 메시지를 생성합니다.
+
+[listing, subs="specialcharacters,quotes"]
+----
+2021-11-08T15:35:30.750038 [AUDT:[RSLT(FC32):SUCS][CNID(UI64):1636385730715700][TIME(UI64):29173][SAIP(IPAD):"192.168.7.44"][S3AI(CSTR):"63147909414576125820"][SACC(CSTR):"Tenant1636027116"][S3AK(CSTR):"AUFD1XNVZ905F3TW7KSU"][SUSR(CSTR):"urn:sgws:identity::63147909414576125820:root"][SBAI(CSTR):"63147909414576125820"][SBAC(CSTR):"Tenant1636027116"][S3BK(CSTR):"619c0755-9e38-42e0-a614-05064f74126d"][S3KY(CSTR):"SUB-EST2020_ALL.csv"][CBID(UI64):0x0496F0408A721171][UUID(CSTR):"D64B1A4A-9F01-4EE7-B133-08842A099628"][CSIZ(UI64):0][S3SR(CSTR):"select"][AVER(UI32):10][ATIM(UI64):1636385730750038][ATYP(FC32):SPOS][ANID(UI32):12601166][AMID(FC32):S3RQ][ATID(UI64):1363009709396895985]]
+----
+[listing, subs="specialcharacters,quotes"]
+----
+2021-11-08T15:35:32.604886 [AUDT:[RSLT(FC32):SUCS][CNID(UI64):1636383069486504][TIME(UI64):430690][SAIP(IPAD):"192.168.7.44"][HTRH(CSTR):"{\"x-forwarded-for\":\"unix:\"}"][S3AI(CSTR):"63147909414576125820"][SACC(CSTR):"Tenant1636027116"][S3AK(CSTR):"AUFD1XNVZ905F3TW7KSU"][SUSR(CSTR):"urn:sgws:identity::63147909414576125820:root"][SBAI(CSTR):"63147909414576125820"][SBAC(CSTR):"Tenant1636027116"][S3BK(CSTR):"619c0755-9e38-42e0-a614-05064f74126d"][S3KY(CSTR):"SUB-EST2020_ALL.csv"][CBID(UI64):0x0496F0408A721171][UUID(CSTR):"D64B1A4A-9F01-4EE7-B133-08842A099628"][CSIZ(UI64):10185581][MTME(UI64):1636380348695262][AVER(UI32):10][ATIM(UI64):1636385732604886][ATYP(FC32):SGET][ANID(UI32):12733063][AMID(FC32):S3RQ][ATID(UI64):16562288121152341130]]
+----

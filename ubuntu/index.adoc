@@ -1,0 +1,59 @@
+---
+permalink: ubuntu/index.html 
+sidebar: sidebar 
+keywords: about ubuntu, ubuntu overview 
+summary: 다음 상위 단계에 따라 Ubuntu 또는 Debian StorageGRID 노드를 설치합니다. 
+---
+= Ubuntu 또는 Debian에 StorageGRID를 설치하기 위한 빠른 시작
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+다음 상위 단계에 따라 Ubuntu 또는 Debian StorageGRID 노드를 설치합니다.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"] 준비
+[role="quick-margin-list"]
+* 에 대해 자세히 link:../primer/storagegrid-architecture-and-network-topology.html["StorageGRID 아키텍처 및 네트워크 토폴로지"]알아보십시오.
+* 에 대해 자세히 link:../network/index.html["StorageGRID 네트워킹"]알아보십시오.
+* 를 수집하고 link:required-materials.html["필요한 정보 및 자료"]준비합니다.
+* 필요한 를 link:cpu-and-ram-requirements.html["CPU 및 RAM"]준비합니다.
+* 에 대해 를 link:storage-and-performance-requirements.html["스토리지 및 성능 요구사항"]제공합니다.
+* link:how-host-wide-settings-change.html["Linux 서버를 준비합니다"] 그러면 StorageGRID 노드가 호스팅됩니다.
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"] 구축
+[role="quick-margin-para"]
+그리드 노드 구축 그리드 노드를 구축하면 StorageGRID 시스템의 일부로 생성되고 하나 이상의 네트워크에 연결됩니다.
+
+[role="quick-margin-list"]
+* 1단계에서 준비한 호스트에 소프트웨어 기반 그리드 노드를 배포하려면 Linux 명령줄과 를 link:creating-node-configuration-files.html["노드 구성 파일"]사용합니다.
+* StorageGRID 어플라이언스 노드를 배포하려면 를 https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["하드웨어 설치를 빠르게 시작합니다"^]따르십시오.
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["세 가지"] 구성
+[role="quick-margin-para"]
+모든 노드가 배포되면 Grid Manager를 사용하여 를 link:navigating-to-grid-manager.html["그리드를 구성하고 설치를 완료합니다"]수행합니다.
+
+
+
+== 설치를 자동화합니다
+
+StorageGRID 호스트 서비스 설치 및 그리드 노드 구성을 자동화하여 시간을 절약하고 일관성을 제공할 수 있습니다.
+
+* Ansible, Puppet, Chef와 같은 표준 오케스트레이션 프레임워크를 사용하여 다음을 자동화합니다.
++
+** Ubuntu 또는 Debian 설치
+** 네트워킹 및 스토리지 구성
+** 컨테이너 엔진 및 StorageGRID 호스트 서비스 설치
+** 가상 그리드 노드 구축
+
+
++
+을 link:automating-installation.html#automate-the-installation-and-configuration-of-the-storagegrid-host-service["StorageGRID 호스트 서비스의 설치 및 구성을 자동화합니다"]참조하십시오.
+
+* 그리드 노드를 배포한 후 link:automating-installation.html#automate-the-configuration-of-storagegrid["StorageGRID 시스템의 구성을 자동화합니다"]설치 아카이브에 제공된 Python 구성 스크립트를 사용합니다.
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/automating-appliance-installation-and-configuration.html["어플라이언스 그리드 노드의 설치 및 구성을 자동화합니다"^]
+* StorageGRID 구축의 고급 개발자인 경우 를 사용하여 그리드 노드 설치를 link:overview-of-installation-rest-api.html["REST API 설치"]자동화합니다.
+

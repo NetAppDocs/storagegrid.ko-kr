@@ -1,0 +1,31 @@
+---
+permalink: maintain/assess-hotfix-requirement-during-primary-admin-node-recovery.html 
+sidebar: sidebar 
+keywords: storagegrid, primary admin node, hotfix 
+summary: 기본 관리 노드를 복구한 후 핫픽스를 적용해야 하는지 확인합니다. 
+---
+= 기본 관리자 노드에 대한 핫픽스 요구 사항을 결정합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기본 관리 노드를 복구한 후 핫픽스를 적용해야 하는지 확인합니다.
+
+.시작하기 전에
+기본 관리 노드 복구가 완료되었습니다.
+
+.단계
+. 을 사용하여 그리드 관리자에 link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]로그인합니다.
+. 노드 * 를 선택합니다.
+. 왼쪽 목록에서 기본 관리 노드를 선택합니다.
+. 개요 탭의 * 소프트웨어 버전 * 필드에 표시된 버전을 확인합니다.
+. 다른 그리드 노드를 선택합니다.
+. 개요 탭의 * 소프트웨어 버전 * 필드에 표시된 버전을 확인합니다.
++
+** 소프트웨어 버전* 필드에 표시된 버전이 같으면 핫픽스를 적용할 필요가 없습니다.
+** 소프트웨어 버전 * 필드에 표시된 버전이 다른 경우 복구된 기본 관리자 노드를 동일한 버전으로 업데이트해야 link:storagegrid-hotfix-procedure.html["핫픽스를 적용합니다"]합니다.
+
+
+

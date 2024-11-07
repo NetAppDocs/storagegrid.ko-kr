@@ -1,0 +1,31 @@
+= 
+:allow-uri-read: 
+
+
+[cols="1a,3a"]
+|===
+| 권한 | 선택한 경우... 
+
+
+ a| 
+플랫폼 서비스를 허용합니다
+ a| 
+테넌트는 CloudMirror와 같은 S3 플랫폼 서비스를 사용할 수 있습니다. 을 link:../admin/manage-platform-services-for-tenants.html["S3 테넌트 계정에 대한 플랫폼 서비스 관리"]참조하십시오.
+
+
+
+ a| 
+고유 ID 소스를 사용합니다
+ a| 
+테넌트는 통합 그룹 및 사용자에 대한 자체 ID 소스를 구성하고 관리할 수 있습니다. 이 옵션은 StorageGRID 시스템에 대해 비활성화되어 link:../admin/configuring-sso.html["SSO를 구성했습니다"]있습니다.
+
+
+
+ a| 
+S3 선택 허용
+ a| 
+테넌트는 오브젝트 데이터를 필터링하고 검색하기 위해 S3 SelectObjectContent API 요청을 실행할 수 있습니다. 을 link:../admin/manage-s3-select-for-tenant-accounts.html["관리 S3 테넌트 계정에 대해 선택"]참조하십시오.
+
+* 중요 *: SelectObjectContent 요청은 모든 S3 클라이언트 및 모든 테넌트의 로드 밸런서 성능을 감소시킬 수 있습니다. 신뢰할 수 있는 테넌트에만 필요한 경우에만 이 기능을 사용하도록 설정합니다.
+
+|===

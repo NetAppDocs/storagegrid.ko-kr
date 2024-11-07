@@ -1,0 +1,47 @@
+---
+indexpage:
+  title: StorageGRID 시스템을 모니터링하고 문제 해결
+  summary: 시스템이 가동되어 실행 중인 경우 정기적으로 해당 작업을 모니터링하고 모든 경고를 문제 해결 및 해결해야 합니다. 또한 외부 syslog
+    서버를 구성하거나 SNMP 모니터링을 사용하거나 추가 데이터를 수집할 수도 있습니다.
+  keywords: monitor, troubleshoot
+  lead: 시스템이 가동되어 실행 중인 경우 정기적으로 해당 작업을 모니터링하고 모든 경고를 문제 해결 및 해결해야 합니다. 또한 외부 syslog
+    서버를 구성하거나 SNMP 모니터링을 사용하거나 추가 데이터를 수집할 수도 있습니다.
+  tiles:
+  - title: 시스템을 모니터링합니다
+    links:
+    - title: 대시보드를 관리합니다
+      url: "../monitor/viewing-dashboard.html"
+    - title: 노드 보기 페이지
+      url: "../monitor/viewing-nodes-page.html"
+    - title: 시스템 상태를 모니터링합니다
+      url: "../monitor/monitoring-system-health.html"
+    - title: 스토리지 용량을 모니터링합니다
+      url: "../monitor/monitoring-storage-capacity.html"
+  - title: 알림 및 알림을 관리합니다
+    links:
+    - title: 알림을 관리합니다
+      url: "../monitor/managing-alerts.html"
+    - title: 사용자 지정 알림을 생성합니다
+      url: "../monitor/creating-custom-alert-rules.html"
+    - title: 경고 이메일을 관리합니다
+      url: "../monitor/email-alert-notifications.html"
+    - title: SNMP 모니터링을 사용합니다
+      url: "../monitor/using-snmp-monitoring.html"
+  - title: 감사 메시지 및 기타 로그를 사용합니다
+    links:
+    - title: 감사 메시지를 구성합니다
+      url: "../monitor/configure-audit-messages.html"
+    - title: 외부 syslog 서버를 사용합니다
+      url: "../monitor/considerations-for-external-syslog-server.html"
+    - title: 감사 로그를 검토합니다
+      url: "../audit/index.html"
+    - title: 로그 파일 참조
+      url: "../monitor/logs-files-reference.html"
+  - title: 진단하고 문제를 해결합니다
+    links:
+    - title: 지원 메트릭을 검토합니다
+      url: "../monitor/reviewing-support-metrics.html"
+    - title: 진단 유틸리티를 실행합니다
+      url: "../monitor/running-diagnostics.html"
+    - title: 일반적인 문제를 해결합니다
+      url: "../troubleshoot/index.html"

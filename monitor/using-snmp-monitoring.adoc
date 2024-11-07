@@ -1,0 +1,122 @@
+---
+permalink: monitor/using-snmp-monitoring.html 
+sidebar: sidebar 
+keywords: snmp, monitoring 
+summary: 'SNMP(Simple Network Management Protocol)\ 를 사용하여 StorageGRID를 모니터링하려면 StorageGRID에 포함된 SNMP 에이전트를 구성해야 합니다.' 
+---
+= SNMP 모니터링을 사용합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SNMP(Simple Network Management Protocol)를 사용하여 StorageGRID를 모니터링하려면 StorageGRID에 포함된 SNMP 에이전트를 구성해야 합니다.
+
+* link:configuring-snmp-agent.html["SNMP 에이전트를 구성합니다"]
+* link:updating-snmp-agent.html["SNMP 에이전트를 업데이트합니다"]
+
+
+
+
+== 제공합니다
+
+각 StorageGRID 노드는 MIB를 제공하는 SNMP 에이전트 또는 데몬을 실행합니다. StorageGRID MIB에는 경고에 대한 테이블 및 알림 정의가 포함되어 있습니다. MIB에는 각 노드의 플랫폼 및 모델 번호와 같은 시스템 설명 정보도 포함되어 있습니다. 각 StorageGRID 노드는 MIB-II 객체의 하위 세트도 지원합니다.
+
+
+NOTE: 그리드 노드에 MIB 파일을 다운로드할지 여부를 확인하십시오link:access-snmp-mib.html["MIB 파일에 액세스합니다"].
+
+처음에는 모든 노드에서 SNMP가 사용되지 않습니다. SNMP 에이전트를 구성할 때 모든 StorageGRID 노드는 동일한 구성을 받습니다.
+
+StorageGRID SNMP 에이전트는 세 가지 버전의 SNMP 프로토콜을 모두 지원합니다. 쿼리에 대한 읽기 전용 MIB 액세스를 제공하며 관리 시스템에 두 가지 유형의 이벤트 기반 알림을 보낼 수 있습니다.
+
+트랩:: 트랩은 관리 시스템에서 확인이 필요하지 않은 SNMP 에이전트가 보낸 알림입니다. 트랩은 알림이 트리거되는 등 StorageGRID 내에 발생한 사항을 관리 시스템에 알리는 역할을 합니다.
++
+--
+트랩은 SNMP의 세 가지 버전에서 모두 지원됩니다.
+
+--
+알림:: 는 트랩과 유사하지만 관리 시스템에서 확인을 필요로 합니다. SNMP 에이전트가 일정 시간 내에 승인을 받지 못하면 승인을 받거나 최대 재시도 값에 도달할 때까지 알림을 다시 보냅니다.
++
+--
+SNMPv2c 및 SNMPv3에서 알림이 지원됩니다.
+
+--
+
+
+다음과 같은 경우 트랩 및 알림 알림이 전송됩니다.
+
+* 기본 또는 사용자 지정 알림은 모든 심각도 수준에서 트리거됩니다. 알림에 대한 SNMP 알림을 표시하지 않으려면 해당 알림에 대해 설정해야 link:silencing-alert-notifications.html["무음을 구성합니다"]합니다. 경고 알림은 에서 link:../primer/what-admin-node-is.html["기본 설정 보낸 사람 관리자 노드"]보냅니다.
++
+각 알림은 알림의 심각도 수준, activeMinorAlert, activeMajorAlert 및 activeCriticalAlert 중 하나를 기준으로 세 가지 트랩 유형 중 하나에 매핑됩니다. 이러한 트랩을 트리거할 수 있는 경고 목록은 을 참조하십시오link:alerts-reference.html["경고 참조"].
+
+
+
+
+
+== SNMP 버전 지원
+
+이 표에는 각 SNMP 버전에서 지원되는 항목에 대한 자세한 요약 정보가 나와 있습니다.
+
+[cols="1a,2a,2a,2a"]
+|===
+|  | SNMPv1을 참조하십시오 | SNMPv2c | SNMPv3를 참조하십시오 
+
+
+ a| 
+쿼리
+
+(Get and GetNext)(가져오기 및 GetNext)
+ a| 
+읽기 전용 MIB 쿼리
+ a| 
+읽기 전용 MIB 쿼리
+ a| 
+읽기 전용 MIB 쿼리
+
+
+
+ a| 
+쿼리 인증
+ a| 
+커뮤니티 문자열
+ a| 
+커뮤니티 문자열
+ a| 
+USM(사용자 기반 보안 모델) 사용자
+
+
+
+ a| 
+알림
+
+(트랩 및 정보 제공)
+ a| 
+트랩만
+ a| 
+함정 및 통보
+ a| 
+함정 및 통보
+
+
+
+ a| 
+알림 인증
+ a| 
+각 트랩 대상에 대한 기본 트랩 커뮤니티 또는 사용자 지정 커뮤니티 문자열입니다
+ a| 
+각 트랩 대상에 대한 기본 트랩 커뮤니티 또는 사용자 지정 커뮤니티 문자열입니다
+ a| 
+각 트랩 대상에 대한 USM 사용자입니다
+
+|===
+
+
+== 제한 사항
+
+* StorageGRID는 읽기 전용 MIB 액세스를 지원합니다. 읽기-쓰기 액세스는 지원되지 않습니다.
+* 그리드의 모든 노드는 동일한 구성을 받습니다.
+* SNMPv3: StorageGRID는 전송 지원 모드(TSM)를 지원하지 않습니다.
+* SNMPv3: 지원되는 유일한 인증 프로토콜은 SHA(HMAC-SHA-96)입니다.
+* SNMPv3: 지원되는 유일한 개인 정보 보호 프로토콜은 AES입니다.
+

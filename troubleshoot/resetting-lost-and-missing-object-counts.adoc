@@ -1,0 +1,58 @@
+---
+permalink: troubleshoot/resetting-lost-and-missing-object-counts.html 
+sidebar: sidebar 
+keywords: how to reset lost object count, how to reset missing object count 
+summary: StorageGRID 시스템을 조사하고 기록된 손실된 개체가 모두 영구적으로 손실되거나 잘못된 알람인지 확인한 후 손실된 개체 속성의 값을 0으로 다시 설정할 수 있습니다. 
+---
+= 분실 및 누락된 개체 수를 재설정합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 시스템을 조사하고 기록된 손실된 개체가 모두 영구적으로 손실되거나 잘못된 알람인지 확인한 후 손실된 개체 속성의 값을 0으로 다시 설정할 수 있습니다.
+
+.시작하기 전에
+* 을 사용하여 그리드 관리자에 로그인해야 link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]합니다.
+* 있습니다. link:../admin/admin-group-permissions.html["특정 액세스 권한"]
+
+
+.이 작업에 대해
+다음 페이지 중 하나에서 Lost Objects 카운터를 재설정할 수 있습니다.
+
+* * 지원 * > * 툴 * > * 그리드 토폴로지 * > * _Site_ * > * _Storage Node_ * > * LDR * > * 데이터 저장소 * > * 개요 * > * Main *
+* * 지원 * > * 툴 * > * 그리드 토폴로지 * > * _Site_ * > * _Storage Node_ * > * DDS * > * 데이터 저장소 * > * 개요 * > * Main *
+
+
+다음 지침은 * LDR * > * 데이터 저장소 * 페이지에서 카운터를 재설정하는 방법을 보여줍니다.
+
+.단계
+. 지원 * > * 도구 * > * 그리드 토폴로지 * 를 선택합니다.
+. Objects Lost * 알림 또는 손실 경보가 있는 스토리지 노드에 대해 *_Site_ * > *_Storage Node_ * > * LDR * > * Data Store * > * Configuration * 을 선택합니다.
+. 손실된 개체 수 재설정 * 을 선택합니다.
++
+image::../media/reset_ldr_lost_object_count.gif[LDR 손실된 개체 재설정 횟수 스크린샷]
+
+. 변경 내용 적용 * 을 클릭합니다.
++
+Lost Objects 속성은 0으로 재설정되고 * Objects Lost * 알림과 손실된 알람 지우기는 몇 분 정도 걸릴 수 있습니다.
+
+. 필요에 따라 손실된 개체를 식별하는 과정에서 증가했을 수 있는 다른 관련 특성 값을 재설정합니다.
++
+.. Site_ * > * _Storage Node_ * > * LDR * > * 삭제 코딩 * > * 구성 * 을 선택합니다.
+.. Reset Reads Failure Count * 및 * Reset Corrupt Copies Detected Count * 를 선택합니다.
+.. 변경 내용 적용 * 을 클릭합니다.
+.. Site_ * > *_Storage Node_ * > * LDR * > * Verification * > * Configuration * 을 선택합니다.
+.. 누락된 개체 수 재설정 * 및 * 손상된 개체 수 재설정 * 을 선택합니다.
+.. 격리된 개체가 필요하지 않은 경우 * 격리된 개체 삭제 * 를 선택할 수 있습니다.
++
+백그라운드 검증이 손상된 복제된 객체 복사본을 식별하면 격리된 객체가 생성됩니다. 대부분의 경우 StorageGRID는 손상된 개체를 자동으로 대체하므로 격리된 개체를 삭제하는 것이 안전합니다. 그러나 * Objects Lost * 경고 또는 분실 경보가 트리거되면 기술 지원 부서에서 격리된 개체에 액세스하려고 할 수 있습니다.
+
+.. 변경 내용 적용 * 을 클릭합니다.
+
+
++
+[변경 내용 적용]을 클릭한 후 속성을 다시 설정하는 데 몇 분 정도 걸릴 수 있습니다.
+
+

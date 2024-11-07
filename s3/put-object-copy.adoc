@@ -1,0 +1,185 @@
+---
+permalink: s3/put-object-copy.html 
+sidebar: sidebar 
+keywords: put object copy, CopyObject 
+summary: S3 CopyObject 요청을 사용하여 이미 S3에 저장된 개체의 복사본을 만들 수 있습니다. CopyObject 작업은 Get 을 수행한 다음 Put 을 수행하는 작업과 같습니다. 
+---
+= CopyObject 를 선택합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+S3 CopyObject 요청을 사용하여 이미 S3에 저장된 개체의 복사본을 만들 수 있습니다. CopyObject 작업은 GetObject 를 수행한 다음 PutObject 를 수행하는 작업과 같습니다.
+
+
+
+== 충돌 해결
+
+동일한 키에 쓰는 두 클라이언트 등의 충돌하는 클라이언트 요청은 "최신 성공" 기준으로 해결됩니다. "Latest-WINS" 평가 시기는 S3 클라이언트가 작업을 시작할 때가 아니라 StorageGRID 시스템이 지정된 요청을 완료하는 시점을 기준으로 합니다.
+
+
+
+== 개체 크기
+
+단일 PutObject 작업의 maximum_recommended_size는 5GiB(5,368,709,120바이트)입니다. 5GiB보다 큰 오브젝트가 있는 경우 대신 를 link:operations-for-multipart-uploads.html["멀티파트 업로드"]사용하십시오.
+
+단일 PutObject 작업의 maximum_supported_size는 5TiB(5,497,558,138,880바이트)입니다.
+
+
+NOTE: StorageGRID 11.6 이하에서 업그레이드한 경우 5GiB를 초과하는 객체를 업로드하려고 하면 S3 PUT 개체 크기가 너무 큼 경고가 트리거됩니다. StorageGRID 11.7 또는 11.8을 새로 설치한 경우 경고가 트리거되지 않습니다. 하지만 StorageGRID의 향후 릴리즈에서는 AWS S3 표준에 맞춰 5GiB보다 큰 오브젝트 업로드를 지원하지 않습니다.
+
+
+
+== 사용자 메타데이터의 UTF-8 문자
+
+요청에 사용자 정의 메타데이터의 키 이름이나 값에 UTF-8 값이 포함되어 있으면 StorageGRID 동작이 정의되지 않습니다.
+
+StorageGRID는 사용자 정의 메타데이터의 키 이름이나 값에 포함된 이스케이프된 UTF-8 문자를 구문 분석하거나 해석하지 않습니다. 이스케이프된 UTF-8 문자는 ASCII 문자로 처리됩니다.
+
+* 사용자 정의 메타데이터에 이스케이프된 UTF-8 문자가 포함된 경우 요청이 성공합니다.
+* 키 이름 또는 값의 해석된 값에 인쇄할 수 없는 문자가 포함된 경우 StorageGRID는 헤더를 반환하지 `x-amz-missing-meta` 않습니다.
+
+
+
+
+== 지원되는 요청 헤더입니다
+
+지원되는 요청 헤더는 다음과 같습니다.
+
+* `Content-Type`
+* `x-amz-copy-source`
+* `x-amz-copy-source-if-match`
+* `x-amz-copy-source-if-none-match`
+* `x-amz-copy-source-if-unmodified-since`
+* `x-amz-copy-source-if-modified-since`
+* `x-amz-meta-`, 그 뒤에 사용자 정의 메타데이터를 포함하는 이름-값 쌍이 옵니다
+* `x-amz-metadata-directive`: 기본값은 로 `COPY`, 개체 및 관련 메타데이터를 복사할 수 있습니다.
++
+개체를 복사할 때 기존 메타데이터를 덮어쓰도록 지정하거나 개체 메타데이터를 업데이트하도록 지정할 수 `REPLACE` 있습니다.
+
+* `x-amz-storage-class`
+* `x-amz-tagging-directive`: 기본값은 로 `COPY`, 개체 및 모든 태그를 복사할 수 있습니다.
++
+개체를 복사할 때 기존 태그를 덮어쓰도록 지정하거나 태그를 업데이트하도록 지정할 수 `REPLACE` 있습니다.
+
+* S3 오브젝트 잠금 요청 헤더:
++
+** `x-amz-object-lock-mode`
+** `x-amz-object-lock-retain-until-date`
+** `x-amz-object-lock-legal-hold`
++
+이러한 헤더 없이 요청이 이루어지면 버킷 기본 보존 설정을 사용하여 오브젝트 버전 모드와 보존 기간을 계산합니다. 을 link:use-s3-api-for-s3-object-lock.html["S3 REST API를 사용하여 S3 오브젝트 잠금을 구성합니다"]참조하십시오.
+
+
+
+* SSE 요청 헤더:
++
+** `x-amz-copy-source​-server-side​-encryption​-customer-algorithm`
+** `x-amz-copy-source​-server-side-encryption-customer-key`
+** `x-amz-copy-source​-server-side-encryption-customer-key-MD5`
+** `x-amz-server-side-encryption`
+** `x-amz-server-side-encryption-customer-key-MD5`
+** `x-amz-server-side-encryption-customer-key`
+** `x-amz-server-side-encryption-customer-algorithm`
++
+을 참조하십시오 <<서버측 암호화에 대한 요청 헤더>>
+
+
+
+
+
+
+
+== 지원되지 않는 요청 헤더입니다
+
+다음 요청 헤더는 지원되지 않습니다.
+
+* `Cache-Control`
+* `Content-Disposition`
+* `Content-Encoding`
+* `Content-Language`
+* `Expires`
+* `x-amz-checksum-algorithm`
++
+개체를 복사할 때 소스 개체에 체크섬이 있으면 StorageGRID에서 해당 체크섬 값을 새 개체에 복사하지 않습니다. 이 동작은 개체 요청에서 을 사용하려고 하는지 여부에 관계없이 `x-amz-checksum-algorithm` 적용됩니다.
+
+* `x-amz-website-redirect-location`
+
+
+
+
+== 스토리지 클래스 옵션
+
+ `x-amz-storage-class`요청 헤더가 지원되며 일치하는 ILM 규칙이 Dual Commit 또는 Balanced를 사용할 경우 StorageGRID에서 생성하는 객체 복제본 수에 영향을 link:../ilm/data-protection-options-for-ingest.html["수집 옵션"]줍니다.
+
+* `STANDARD`
++
+(기본값) ILM 규칙이 이중 커밋 옵션을 사용하거나 균형 옵션이 중간 복사본 생성으로 돌아올 때 이중 커밋 수집 작업을 지정합니다.
+
+* `REDUCED_REDUNDANCY`
++
+ILM 규칙이 이중 커밋 옵션을 사용하거나 균형 옵션이 중간 복사본 생성으로 돌아올 때 단일 커밋 수집 작업을 지정합니다.
+
++
+
+NOTE: S3 오브젝트 잠금이 설정된 상태에서 오브젝트를 버킷에 수집하면 `REDUCED_REDUNDANCY` 옵션이 무시됩니다. 오브젝트를 레거시 준수 버킷에 수집하는 경우 `REDUCED_REDUNDANCY` 옵션은 오류를 반환합니다. StorageGRID은 규정 준수 요구 사항이 충족될 수 있도록 항상 이중 커밋 수집을 수행합니다.
+
+
+
+
+
+== CopyObject에서 x-amz-copy-source 사용
+
+헤더에 지정된 소스 버킷 및 키가 대상 버킷 및 키와 다른 경우 `x-amz-copy-source` 소스 오브젝트 데이터의 복사본이 대상에 기록됩니다.
+
+소스와 대상이 일치하고 헤더가 로 지정된 `REPLACE` 경우 `x-amz-metadata-directive` 객체의 메타데이터는 요청에 제공된 메타데이터 값으로 업데이트됩니다. 이 경우 StorageGRID는 오브젝트를 다시 수집하지 않습니다. 여기에는 두 가지 중요한 결과가 있습니다.
+
+* 기존 개체를 현재 위치에서 암호화하거나 기존 개체의 암호화를 변경하는 데 CopyObject 를 사용할 수 없습니다. 헤더나 `x-amz-server-side-encryption-customer-algorithm` 헤더를 제공하면 `x-amz-server-side-encryption` StorageGRID는 요청을 거부하고 반환합니다 `XNotImplemented`.
+* 일치하는 ILM 규칙에 지정된 Ingest 동작 옵션은 사용되지 않습니다. ILM이 정상적인 백그라운드 ILM 프로세스에 의해 다시 평가될 때 업데이트로 인해 트리거되는 개체 배치에 대한 모든 변경 사항이 발생합니다.
++
+즉, ILM 규칙이 수집 동작에 Strict 옵션을 사용하는 경우 필요한 개체 배치를 만들 수 없는 경우(예: 새로 필요한 위치를 사용할 수 없음) 작업이 수행되지 않습니다. 업데이트된 오브젝트는 필요한 배치가 가능할 때까지 현재 위치를 유지합니다.
+
+
+
+
+
+== 서버측 암호화에 대한 요청 헤더
+
+사용자가 link:using-server-side-encryption.html["서버측 암호화를 사용합니다"]제공하는 요청 헤더는 소스 개체가 암호화되어 있는지 여부와 대상 개체를 암호화할 계획인지에 따라 달라집니다.
+
+* 소스 객체가 SSE-C(고객 제공 키)를 사용하여 암호화되는 경우 CopyObject 요청에 다음 세 개의 헤더를 포함해야 객체를 해독한 후 복사할 수 있습니다.
++
+** `x-amz-copy-source​-server-side​-encryption​-customer-algorithm`: `AES256` 지정합니다.
+** `x-amz-copy-source​-server-side-encryption-customer-key`: 원본 개체를 만들 때 제공한 암호화 키를 지정합니다.
+** `x-amz-copy-source​-server-side-encryption-customer-key-MD5`: 원본 개체를 만들 때 제공한 MD5 다이제스트를 지정합니다.
+
+
+* 제공 및 관리하는 고유 키를 사용하여 대상 개체(복사본)를 암호화하려면 다음 세 개의 머리글을 포함합니다.
++
+** `x-amz-server-side-encryption-customer-algorithm`: `AES256` 지정합니다.
+** `x-amz-server-side-encryption-customer-key`: 대상 객체에 대한 새 암호화 키를 지정합니다.
+** `x-amz-server-side-encryption-customer-key-MD5`: 새 암호화 키의 MD5 다이제스트를 지정합니다.
+
+
++
+
+CAUTION: 제공한 암호화 키는 저장되지 않습니다. 암호화 키를 분실하면 해당 개체가 손실됩니다. 고객이 제공한 키를 사용하여 개체 데이터를 보호하기 전에 에 대한 고려 사항을 link:using-server-side-encryption.html["서버 측 암호화 사용"]검토하십시오.
+
+* SSE(StorageGRID)에서 관리하는 고유 키를 사용하여 대상 개체(복사본)를 암호화하려는 경우 CopyObject 요청에 다음 헤더를 포함합니다.
++
+** `x-amz-server-side-encryption`
++
+
+NOTE:  `server-side-encryption`개체 값을 업데이트할 수 없습니다. 대신 다음을 사용하여 새 값으로 `x-amz-metadata-directive` 복사본을 `server-side-encryption` 만듭니다 `REPLACE`.
+
+
+
+
+
+
+
+== 버전 관리
+
+소스 버킷의 버전이 관리되는 경우 헤더를 사용하여 개체의 최신 버전을 복사할 수 `x-amz-copy-source` 있습니다. 개체의 특정 버전을 복사하려면 하위 리소스를 사용하여 복사할 버전을 명시적으로 지정해야 `versionId` 합니다. 대상 버킷의 버전이 지정된 경우 생성된 버전이 `x-amz-version-id` 응답 헤더에 반환됩니다. 대상 버킷에 대한 버전 관리가 일시 중단된 경우 `x-amz-version-id` "null" 값이 반환됩니다.

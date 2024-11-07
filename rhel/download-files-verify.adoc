@@ -1,0 +1,71 @@
+---
+permalink: rhel/download-files-verify.html 
+sidebar: sidebar 
+keywords: red hat linux installation files, how to verify files 
+summary: 필요한 경우 StorageGRID 설치 아카이브의 파일을 수동으로 확인할 수 있습니다. 
+---
+= 설치 파일 수동 확인(선택 사항)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+필요한 경우 StorageGRID 설치 아카이브의 파일을 수동으로 확인할 수 있습니다.
+
+.시작하기 전에
+에서 https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["StorageGRID용 NetApp 다운로드 페이지"^] 가져온 link:../rhel/downloading-and-extracting-storagegrid-installation-files.html#rhel-download-verification-package["검증 패키지를 다운로드했습니다"]것입니다.
+
+.단계
+. 검증 패키지에서 아티팩트를 추출합니다.
++
+`tar -xf StorageGRID_11.9.0_Code_Signature_Verification_Package.tar.gz`
+
+. 이러한 아티팩트가 추출되었는지 확인합니다.
++
+** Leaf 인증서: `Leaf-Cert.pem`
+** 인증서 체인: `CA-Int-Cert.pem`
+** 타임 스탬프 응답 체인: `TS-Cert.pem`
+** 체크섬 파일: `sha256sum`
+** 체크섬 서명: `sha256sum.sig`
+** 타임 스탬프 응답 파일: `sha256sum.sig.tsr`
+
+
+. 체인을 사용하여 리프 인증서가 유효한지 확인합니다.
++
+* 예 *: `openssl verify -CAfile CA-Int-Cert.pem Leaf-Cert.pem`
+
++
+* 예상 출력 *: `Leaf-Cert.pem: OK`
+
+. leaf 인증서가 만료되어 step_2_에 실패한 경우 파일을 사용하여 `tsr` 확인합니다.
++
+* 예 *: `openssl ts -CAfile CA-Int-Cert.pem -untrusted TS-Cert.pem -verify -data sha256sum.sig -in sha256sum.sig.tsr`
+
++
+* 예상 출력 포함 *: `Verification: OK`
+
+. 리프 인증서에서 공용 키 파일을 만듭니다.
++
+* 예 *: `openssl x509 -pubkey -noout -in Leaf-Cert.pem > Leaf-Cert.pub`
+
++
+* 예상 출력 *:_none_
+
+. 공개 키를 사용하여 `sha256sum` 에 대해 파일을 `sha256sum.sig` 확인합니다.
++
+* 예 *: `openssl dgst -sha256 -verify Leaf-Cert.pub -signature sha256sum.sig sha256sum`
+
++
+* 예상 출력 *: `Verified OK`
+
+.  `sha256sum`새로 생성된 체크섬을 기준으로 파일 내용을 확인합니다.
++
+* 예 *: `sha256sum -c sha256sum`
+
++
+*예상 출력 * `_<filename>_: OK`:+는
+`_<filename>_` 다운로드한 아카이브 파일의 이름입니다.
+
+. link:../rhel/downloading-and-extracting-storagegrid-installation-files.html["나머지 단계를 완료합니다"] 를 눌러 설치 아카이브에서 적절한 파일을 추출하고 선택합니다.
+

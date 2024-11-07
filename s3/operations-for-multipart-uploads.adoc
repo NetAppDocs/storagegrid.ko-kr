@@ -1,0 +1,92 @@
+---
+permalink: s3/operations-for-multipart-uploads.html 
+sidebar: sidebar 
+keywords: operations, multipart uploads, uploads, rest API 
+summary: 이 섹션에서는 StorageGRID가 멀티파트 업로드 작업을 지원하는 방법에 대해 설명합니다. 
+---
+= 멀티파트 업로드 작업
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 섹션에서는 StorageGRID가 멀티파트 업로드 작업을 지원하는 방법에 대해 설명합니다.
+
+다음 조건 및 참고 사항은 모든 다중 파트 업로드 작업에 적용됩니다.
+
+* 해당 버킷에 대한 ListMultipartUploads 쿼리의 결과가 불완전한 결과를 반환할 수 있으므로 단일 버킷에 대한 동시 다중 파트 업로드가 1,000개를 초과해서는 안 됩니다.
+* StorageGRID는 여러 파트에 대해 AWS 크기 제한을 적용합니다. S3 클라이언트는 다음 지침을 따라야 합니다.
++
+** 멀티파트 업로드의 각 파트는 5MiB(5,242,880바이트)와 5GiB(5,368,709,120바이트) 사이여야 합니다.
+** 마지막 부분은 5MiB(5,242,880바이트)보다 작을 수 있습니다.
+** 일반적으로 파트 크기는 가능한 한 커야합니다. 예를 들어, 100GiB 개체의 경우 5GiB의 파트 크기를 사용합니다. 각 파트는 고유한 개체로 간주되므로 큰 파트 크기를 사용하면 StorageGRID 메타데이터 오버헤드가 줄어듭니다.
+** 5GiB보다 작은 오브젝트의 경우 대신 비다중 파트 업로드를 사용하는 것이 좋습니다.
+
+
+* ILM 규칙이 Balanced 또는 Strict를 사용하는 경우, ILM은 수집 시 멀티파트 개체의 각 부분과 다중 파트 업로드가 완료될 때 개체 전체에 대해 평가됩니다.link:../ilm/data-protection-options-for-ingest.html["수집 옵션"] 이 사항이 개체 및 파트 배치에 미치는 영향에 대해 알고 있어야 합니다.
++
+** S3 다중 파트 업로드가 진행되는 동안 ILM이 변경되면 다중 파트 업로드가 완료될 때 개체의 일부 부분이 현재 ILM 요구사항을 충족하지 못할 수 있습니다. 올바르게 배치되지 않은 모든 부품은 ILM 재평가를 위해 대기열에 추가되고 나중에 올바른 위치로 이동됩니다.
+** 파트에 대한 ILM을 평가할 때 StorageGRID은 개체의 크기가 아닌 파트 크기를 필터링합니다. 즉, 개체의 일부를 개체에 대한 ILM 요구 사항을 전체가 충족하지 않는 위치에 저장할 수 있습니다. 예를 들어, 모든 작은 오브젝트가 DC2에 저장되지만 10GB 이상의 오브젝트는 모두 DC1에 저장되도록 규칙이 지정된 경우 10부분 다중 부분 업로드의 각 1GB 부분은 인제스트 시 DC2에 저장됩니다. 그러나 개체 전체에 대해 ILM을 평가하면 개체의 모든 부분이 DC1로 이동됩니다.
+
+
+* 모든 멀티 파트 업로드 작업은 StorageGRID를 link:consistency-controls.html["일관성 값"]지원합니다.
+* 멀티파트 업로드를 사용하여 개체를 수집하는 경우 이 link:../admin/what-object-segmentation-is.html["객체 분할 임계값(1GiB)"]적용되지 않습니다.
+* 필요에 따라 멀티파트 업로드와 함께 을 사용할 수 link:using-server-side-encryption.html["서버 측 암호화"]있습니다. SSE(StorageGRID 관리 키가 있는 서버측 암호화)를 사용하려면 CreateMultipartUpload 요청에만 요청 헤더를 포함합니다 `x-amz-server-side-encryption`. SSE-C(고객 제공 키를 사용한 서버측 암호화)를 사용하려면 CreateMultipartUpload 요청과 이후의 각 UploadPart 요청에서 동일한 3개의 암호화 키 요청 헤더를 지정합니다.
+
+
+[cols="2a,3a"]
+|===
+| 작동 | 구축 
+
+
+ a| 
+AbortMultipartUpload 를 클릭합니다
+ a| 
+모든 Amazon S3 REST API 동작으로 구현됩니다. 예고 없이 변경될 수 있습니다.
+
+
+
+ a| 
+CompleteMultipartUpload를 클릭합니다
+ a| 
+을 참조하십시오 link:complete-multipart-upload.html["CompleteMultipartUpload를 클릭합니다"]
+
+
+
+ a| 
+CreateMultptUpload 를 클릭합니다
+
+(이전에 명명된 다중 파트 업로드 시작)
+ a| 
+을 참조하십시오 link:initiate-multipart-upload.html["CreateMultptUpload 를 클릭합니다"]
+
+
+
+ a| 
+ListMultipartUploads 를 참조하십시오
+ a| 
+을 참조하십시오 link:list-multipart-uploads.html["ListMultipartUploads 를 참조하십시오"]
+
+
+
+ a| 
+목록 파트
+ a| 
+모든 Amazon S3 REST API 동작으로 구현됩니다. 예고 없이 변경될 수 있습니다.
+
+
+
+ a| 
+업로드 파트
+ a| 
+을 참조하십시오 link:upload-part.html["업로드 파트"]
+
+
+
+ a| 
+업로드파트 복사
+ a| 
+을 참조하십시오 link:upload-part-copy.html["업로드파트 복사"]
+
+|===

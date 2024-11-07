@@ -1,0 +1,42 @@
+---
+permalink: audit/gtst-grid-task-started.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, GTST, Grid Task Started 
+summary: 이 감사 메시지는 CMN 서비스가 지정된 그리드 작업 처리를 시작했음을 나타냅니다. 감사 메시지는 내부 Grid Task Submission 서비스에서 시작하고 자동 활성화를 위해 선택된 그리드 작업에 대해 Grid Task Submitted 메시지 바로 다음에 표시됩니다. 보류 테이블에 제출된 그리드 작업의 경우 사용자가 그리드 작업을 시작할 때 이 메시지가 생성됩니다. 
+---
+= GTSt: 그리드 작업이 시작되었습니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 감사 메시지는 CMN 서비스가 지정된 그리드 작업 처리를 시작했음을 나타냅니다. 감사 메시지는 내부 Grid Task Submission 서비스에서 시작하고 자동 활성화를 위해 선택된 그리드 작업에 대해 Grid Task Submitted 메시지 바로 다음에 표시됩니다. 보류 테이블에 제출된 그리드 작업의 경우 사용자가 그리드 작업을 시작할 때 이 메시지가 생성됩니다.
+
+[cols="1a,1a,4a"]
+|===
+| 코드 | 필드에 입력합니다 | 설명 
+
+
+ a| 
+TSID
+ a| 
+태스크 ID입니다
+ a| 
+이 필드는 생성된 그리드 작업을 고유하게 식별하며 해당 수명 주기 동안 작업을 관리할 수 있도록 합니다.
+
+* 참고: * 작업 ID는 그리드 작업이 생성될 때 할당되며, 전송 시간이 아닙니다. 지정된 그리드 작업을 여러 번 제출할 수 있으며, 이 경우 작업 ID 필드만으로는 제출됨, 시작됨 및 종료된 감사 메시지를 고유하게 연결할 수 없습니다.
+
+
+
+ a| 
+RSLT
+ a| 
+결과
+ a| 
+결과. 이 필드에는 하나의 값만 있습니다.
+
+* SUCS: 그리드 작업이 시작되었습니다.
+
+
+|===

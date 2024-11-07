@@ -1,0 +1,33 @@
+---
+permalink: maintain/index.html 
+sidebar: sidebar 
+keywords: maintain overview, maintenance overview, about maintain, about maintenance 
+summary: 그리드 유지 관리 작업에는 노드 또는 사이트 사용 중단, 그리드, 노드 또는 사이트 이름 변경, 네트워크 유지 관리가 포함됩니다. 또한 호스트 및 미들웨어 절차와 그리드 노드 프로시저를 수행할 수 있습니다. 
+---
+= 그리드 유지 관리
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+그리드 유지 관리 작업에는 노드 또는 사이트 사용 중단, 그리드, 노드 또는 사이트 이름 변경, 네트워크 유지 관리가 포함됩니다. 또한 호스트 및 미들웨어 절차와 그리드 노드 프로시저를 수행할 수 있습니다.
+
+
+NOTE: 이 지침에서 "Linux"는 Red Hat ® Enterprise Linux ®, Ubuntu ® 또는 Debian ® 배포를 나타냅니다. 지원되는 버전 목록은 를 참조하십시오 https://imt.netapp.com/matrix/#welcome["NetApp 상호 운용성 매트릭스 툴"^].
+
+
+
+== 시작하기 전에
+
+* StorageGRID 시스템에 대한 폭넓은 지식을 갖추고 있습니다.
+* StorageGRID 시스템의 토폴로지를 검토했으며 그리드 구성을 이해했습니다.
+* 당신은 모든 지침을 정확하게 따르고 모든 경고에 주의를 기울여야 한다는 것을 이해합니다.
+* 설명되지 않은 유지보수 절차는 지원되지 않거나 서비스 계약이 필요하다는 것을 알고 있습니다.
+
+
+
+
+== 어플라이언스에 대한 유지보수 절차
+
+하드웨어 절차는 를 https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/index.html["StorageGRID 어플라이언스 유지보수 지침"^]참조하십시오.

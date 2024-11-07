@@ -1,0 +1,25 @@
+---
+permalink: admin/supported-ciphers-for-outgoing-tls-connections.html 
+sidebar: sidebar 
+keywords: tls cipher suites, transport layer security connections 
+summary: 'StorageGRID 시스템은 ID 페더레이션 및 클라우드 스토리지 풀에 사용되는 외부 시스템에 대한 TLS(Transport Layer Security) 연결을 위한 제한된 암호화 그룹 세트를 지원합니다.' 
+---
+= 발신 TLS 연결에 지원되는 암호
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 시스템은 ID 페더레이션 및 클라우드 스토리지 풀에 사용되는 외부 시스템에 대한 TLS(Transport Layer Security) 연결을 위한 제한된 암호화 그룹 세트를 지원합니다.
+
+
+
+== 지원되는 TLS 버전입니다
+
+StorageGRID는 ID 페더레이션 및 클라우드 스토리지 풀에 사용되는 외부 시스템에 대한 연결을 위해 TLS 1.2 및 TLS 1.3을 지원합니다.
+
+외부 시스템과 호환되도록 외부 시스템에 사용할 수 있도록 지원되는 TLS 암호가 선택되었습니다. 이 목록은 S3 클라이언트 애플리케이션에서 사용할 수 있도록 지원되는 암호화 목록보다 큽니다. 암호를 구성하려면 * 구성 * > * 보안 * > * 보안 설정 * 으로 이동하여 * TLS 및 SSH 정책 * 을 선택합니다.
+
+
+NOTE: 프로토콜 버전, 암호, 키 교환 알고리즘 및 MAC 알고리즘과 같은 TLS 구성 옵션은 StorageGRID에서 구성할 수 없습니다. 이러한 설정에 대한 구체적인 요청이 있을 경우 NetApp 어카운트 담당자에게 문의하십시오.

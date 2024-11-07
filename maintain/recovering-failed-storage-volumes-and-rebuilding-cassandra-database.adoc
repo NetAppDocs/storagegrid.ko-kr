@@ -1,0 +1,100 @@
+---
+permalink: maintain/recovering-failed-storage-volumes-and-rebuilding-cassandra-database.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, maintenance, maintain, failed storage volumes, failed volumes, cassandra, cassandra rebuild, rebuild cassandra, cassandra database 
+summary: 장애가 발생한 스토리지 볼륨에서 스토리지를 다시 포맷하고 다시 마운트하는 스크립트를 실행하고, 시스템에서 필요하다고 판단할 경우 스토리지 노드에서 Cassandra 데이터베이스를 재구성해야 합니다. 
+---
+= 장애가 발생한 스토리지 볼륨을 복구하고 Cassandra 데이터베이스를 재구축합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+장애가 발생한 스토리지 볼륨에서 스토리지를 다시 포맷하고 다시 마운트하는 스크립트를 실행하고, 시스템에서 필요하다고 판단할 경우 스토리지 노드에서 Cassandra 데이터베이스를 재구성해야 합니다.
+
+.시작하기 전에
+*  `Passwords.txt`파일이 있습니다.
+* 서버의 시스템 드라이브가 손상되지 않았습니다.
+* 실패의 원인이 확인되었으며, 필요한 경우 교체 스토리지 하드웨어를 이미 확보했습니다.
+* 교체 스토리지의 총 크기는 원본과 동일합니다.
+* 스토리지 노드 사용 중지가 진행 중이 아니거나 노드 사용 중단 절차를 일시 중지했습니다. (Grid Manager에서 * 유지보수 * > * 작업 * > * 서비스 해제 * 를 선택합니다.)
+* 확장이 진행 중이 아닌 것을 확인했습니다. (Grid Manager에서 * 유지보수 * > * 작업 * > * 확장 * 을 선택합니다.)
+* 있습니다. link:reviewing-warnings-about-storage-volume-recovery.html["스토리지 볼륨 복구에 대한 경고를 검토했습니다"]
+
+
+.단계
+. 필요에 따라 이전에 확인 및 마운트 해제한 실패한 스토리지 볼륨과 연결된 장애가 발생한 물리적 또는 가상 스토리지를 교체하십시오.
++
+이 단계에서 볼륨을 다시 마운트하지 마십시오. 스토리지가 다시 마운트되고 이후 단계에서 에 `/etc/fstab` 추가됩니다.
+
+. 그리드 관리자에서 * nodes * >> * Hardware * 로 이동합니다 `*appliance Storage Node*`. 페이지의 StorageGRID 어플라이언스 섹션에서 스토리지 RAID 모드가 정상인지 확인합니다.
+. 장애가 발생한 스토리지 노드에 로그인:
++
+.. 다음 명령을 입력합니다. `ssh admin@_grid_node_IP_`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
+.. 다음 명령을 입력하여 루트로 전환합니다. `su -`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
++
+루트로 로그인하면 프롬프트가 에서 `$` 로 `#`변경됩니다.
+
+
+
+. 텍스트 편집기(vi 또는 vim)를 사용하여 파일에서 실패한 볼륨을 삭제한 `/etc/fstab` 다음 파일을 저장합니다.
++
+
+NOTE: 파일에서 실패한 볼륨에 주석을 다는 `/etc/fstab` 것은 충분하지 않습니다. 복구 프로세스에서 파일의 모든 행이 마운트된 파일 시스템과 일치하는지 확인하므로 `fstab` 볼륨을 에서 삭제해야 `fstab` 합니다.
+
+. 장애가 발생한 스토리지 볼륨을 다시 포맷하고 필요한 경우 Cassandra 데이터베이스를 재구축합니다. 다음을 입력합니다. `reformat_storage_block_devices.rb`
++
+** 스토리지 볼륨 0이 마운트 해제되면 프롬프트 및 메시지는 Cassandra 서비스가 중지 중임을 나타냅니다.
+** 필요한 경우 Cassandra 데이터베이스를 재구축하라는 메시지가 표시됩니다.
++
+*** 경고를 검토합니다. 적용되는 데이터베이스가 없는 경우 Cassandra 데이터베이스를 재구축합니다. 입력: * y *
+*** 둘 이상의 스토리지 노드가 오프라인이거나 지난 15일 동안 다른 스토리지 노드가 재구축된 경우 입력: * n *
++
+스크립트는 Cassandra를 다시 빌드하지 않고 종료됩니다. 기술 지원 부서에 문의하십시오.
+
+
+
+** 스토리지 노드의 각 rangedb 드라이브에 대해 다음과 같은 메시지가 표시되면 다음 응답 중 하나를 입력합니다. `Reformat the rangedb drive _<name>_ (device _<major number>:<minor number>_)? [y/n]?`
++
+*** 오류가 있는 드라이브를 다시 포맷하려면 * y * 를 누릅니다. 그러면 저장소 볼륨이 다시 포맷되고 다시 포맷된 저장소 볼륨이 `/etc/fstab` 파일에 추가됩니다.
+*** * n * 드라이브에 오류가 없고 다시 포맷하지 않으려는 경우.
++
+
+NOTE: n * 을 선택하면 스크립트가 종료됩니다. 드라이브를 마운트하거나(드라이브의 데이터가 보존되어야 하고 드라이브가 잘못 마운트 해제된 경우) 드라이브를 제거하십시오. 그런 다음 `reformat_storage_block_devices.rb` 명령을 다시 실행합니다.
+
++
+
+NOTE: 일부 StorageGRID 복구 절차에서는 리퍼를 사용하여 Cassandra 수리를 처리합니다. 관련 또는 필수 서비스가 시작되는 즉시 수리가 자동으로 이루어집니다. "Reaper" 또는 "Cassandra repair"라는 스크립트 출력을 확인할 수 있습니다. 복구가 실패했음을 나타내는 오류 메시지가 표시되면 오류 메시지에 표시된 명령을 실행합니다.
+
++
+다음 출력 예에서는 드라이브를 `/dev/sdf` 다시 포맷해야 하며 Cassandra를 재구축할 필요가 없습니다.
+
++
+[listing]
+----
+root@DC1-S1:~ # reformat_storage_block_devices.rb
+Formatting devices that are not in use...
+Skipping in use device /dev/sdc
+Skipping in use device /dev/sdd
+Skipping in use device /dev/sde
+Reformat the rangedb drive /dev/sdf (device 8:64)? [Y/n]? y
+Successfully formatted /dev/sdf with UUID b951bfcb-4804-41ad-b490-805dfd8df16c
+All devices processed
+Running: /usr/local/ldr/setup_rangedb.sh 12368435
+Cassandra does not need rebuilding.
+Starting services.
+Informing storage services of new volume
+
+Reformatting done.  Now do manual steps to
+restore copies of data.
+----
+
+
+
+
+
+
+스토리지 볼륨을 다시 포맷하고 다시 마운트하고 필요한 Cassandra 작업이 완료된 후에 작업을 link:../maintain/restoring-volume.html["Grid Manager를 사용하여 개체 데이터를 복원합니다"]수행할 수 있습니다.

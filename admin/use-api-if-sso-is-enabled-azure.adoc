@@ -1,0 +1,74 @@
+---
+permalink: admin/use-api-if-sso-is-enabled-azure.html 
+sidebar: sidebar 
+keywords: how to access storagegrid API if SSO is enabled with Azure 
+summary: 'SSO(Single Sign-On)를 구성 및 사용하고 Azure를 SSO 공급자로 사용하는 경우, 두 개의 예제 스크립트를 사용하여 Grid Management API 또는 Tenant Management API에 유효한 인증 토큰을 얻을 수 있습니다.' 
+---
+= SSO(Single Sign-On)가 활성화된 경우 API 사용(Azure)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이  있고 Azure를 SSO 공급자로 사용하는 경우 link:../admin/configuring-sso.html["SSO(Single Sign-On) 구성 및 활성화"]두 가지 예제 스크립트를 사용하여 그리드 관리 API 또는 테넌트 관리 API에 유효한 인증 토큰을 얻을 수 있습니다.
+
+
+
+== Azure Single Sign-On이 활성화된 경우 API에 로그인합니다
+
+Azure를 SSO ID 공급자로 사용하는 경우 다음 지침이 적용됩니다
+
+.시작하기 전에
+* StorageGRID 사용자 그룹에 속한 페더레이션 사용자의 SSO 전자 메일 주소와 암호를 알고 있습니다.
+* 테넌트 관리 API에 액세스하려면 테넌트 계정 ID를 알고 있어야 합니다.
+
+
+.이 작업에 대해
+인증 토큰을 얻으려면 다음 예제 스크립트를 사용할 수 있습니다.
+
+*  `storagegrid-ssoauth-azure.py`Python 스크립트
+*  `storagegrid-ssoauth-azure.js`Node.js 스크립트
+
+
+두 스크립트 모두 Red Hat Enterprise Linux, `./debs` Ubuntu 또는 Debian 및 VMware용 `./vsphere` StorageGRID 설치 파일 디렉토리에 (`./rpms`있습니다.
+
+Azure와 자체 API 통합을 작성하려면 스크립트를 참조하십시오 `storagegrid-ssoauth-azure.py`. Python 스크립트는 StorageGRID에 직접 두 개의 요청을 하고(먼저 SAMLRequest를 받고 나중에 인증 토큰을 얻기 위해) Node.js 스크립트를 호출하여 Azure와 상호 작용하여 SSO 작업을 수행합니다.
+
+SSO 작업은 일련의 API 요청을 사용하여 실행할 수 있지만, 그렇게 하는 것은 간단하지 않습니다. Puppeteer Node.js 모듈은 Azure SSO 인터페이스를 스크레핑하는 데 사용됩니다.
+
+URL 인코딩 문제가 있는 경우 다음 오류가 표시될 수 있습니다 `Unsupported SAML version`.
+
+.단계
+. 다음과 같이 필요한 종속성을 설치합니다.
++
+.. Node.js를 설치합니다(참조 https://nodejs.org/en/download/["https://nodejs.org/en/download/"^]).
+.. 필요한 Node.js 모듈(puppeteer 및 jsdom)을 설치합니다.
++
+`npm install -g <module>`
+
+
+
+. Python 스크립트를 Python 인터프리터로 전달하여 스크립트를 실행합니다.
++
+그런 다음 Python 스크립트는 해당 Node.js 스크립트를 호출하여 Azure SSO 상호 작용을 수행합니다.
+
+. 프롬프트가 표시되면 다음 인수에 대한 값을 입력하거나 매개 변수를 사용하여 전달합니다.
++
+** Azure에 로그인하는 데 사용되는 SSO 이메일 주소입니다
+** StorageGRID의 주소입니다
+** 테넌트 관리 API에 액세스하려는 경우 테넌트 계정 ID입니다
+
+
+. 메시지가 표시되면 암호를 입력하고 요청 시 Azure에 MFA 권한을 제공할 준비를 합니다.
++
+image::../media/sso_api_password_mfa.png[암호 및 MFA 입력 프롬프트]
+
++
+
+NOTE: 이 스크립트는 MFA가 Microsoft Authenticator를 사용하여 수행된 것으로 가정합니다. 다른 형태의 MFA를 지원하도록 스크립트를 수정해야 할 수도 있습니다(예: 텍스트 메시지에 수신된 코드 입력).
+
++
+StorageGRID 인증 토큰은 출력에 제공됩니다. 이제 SSO가 사용되지 않는 경우 API를 사용하는 방법과 유사하게 다른 요청에 토큰을 사용할 수 있습니다.
+
+

@@ -1,0 +1,68 @@
+---
+permalink: admin/confirming-federated-users-can-sign-in.html 
+sidebar: sidebar 
+keywords: sso configuration 
+summary: 'SSO(Single Sign-On)\(SSO\)를 활성화하기 전에 하나 이상의 통합 사용자가 Grid Manager에 로그인하고 기존 테넌트 계정에 대한 테넌트 관리자에 로그인할 수 있는지 확인해야 합니다.' 
+---
+= 페더레이션 사용자가 로그인할 수 있는지 확인합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SSO(Single Sign-On)를 활성화하기 전에 하나 이상의 통합 사용자가 Grid Manager에 로그인하고 기존 테넌트 계정에 대한 테넌트 관리자에 로그인할 수 있는지 확인해야 합니다.
+
+.시작하기 전에
+* 을 사용하여 그리드 관리자에 로그인되어 있습니다.link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]
+* 있습니다. link:admin-group-permissions.html["특정 액세스 권한"]
+* ID 페더레이션을 이미 구성했습니다.
+
+
+.단계
+. 기존 테넌트 계정이 있는 경우 해당 테넌트가 자신의 ID 소스를 사용하고 있지 않은지 확인합니다.
++
+
+TIP: SSO를 활성화하면 테넌트 관리자에 구성된 ID 소스가 그리드 관리자에 구성된 ID 소스에 의해 재정의됩니다. 테넌트의 ID 소스에 속하는 사용자는 Grid Manager ID 소스의 계정이 없으면 더 이상 로그인할 수 없습니다.
+
++
+.. 각 테넌트 계정의 테넌트 관리자에 로그인합니다.
+.. 액세스 관리 * > * ID 페더레이션 * 을 선택합니다.
+.. ID 페더레이션 사용 * 확인란이 선택되지 않았는지 확인합니다.
+.. 이 경우 이 테넌트 계정에 사용 중인 모든 통합 그룹이 더 이상 필요하지 않은지 확인하고 확인란을 선택 취소하고 * Save * 를 선택합니다.
+
+
+. 통합 사용자가 Grid Manager에 액세스할 수 있는지 확인합니다.
++
+.. Grid Manager에서 * 구성 * > * 액세스 제어 * > * 관리 그룹 * 을 선택합니다.
+.. Active Directory ID 소스에서 하나 이상의 통합 그룹을 가져오고 루트 액세스 권한이 할당되었는지 확인합니다.
+.. 로그아웃합니다.
+.. 통합 그룹의 사용자로 그리드 관리자에 다시 로그인할 수 있는지 확인합니다.
+
+
+. 기존 테넌트 계정이 있는 경우 루트 액세스 권한이 있는 페더레이션 사용자가 로그인할 수 있는지 확인합니다.
++
+.. Grid Manager에서 * Tenants * 를 선택합니다.
+.. 테넌트 계정을 선택하고 * 작업 * > * 편집 * 을 선택합니다.
+.. 세부 정보 입력 탭에서 * 계속 * 을 선택합니다.
+.. Use own identity source * (고유 ID 소스 사용 *) 확인란을 선택한 경우, 상자의 선택을 취소하고 * Save * (저장 *)를 선택합니다.
++
+image::../media/sso_uses_own_identity_source_for_tenant.png[Edit Tenant Account > Use own identity source 확인란이 선택되지 않았습니다]
+
++
+테넌트 페이지가 나타납니다.
+
+.. 테넌트 계정을 선택하고 * 로그인 * 을 선택한 다음 테넌트 계정에 로컬 루트 사용자로 로그인합니다.
+.. 테넌트 관리자에서 * 액세스 관리 * > * 그룹 * 을 선택합니다.
+.. Grid Manager에서 하나 이상의 통합 그룹에 이 테넌트에 대한 루트 액세스 권한이 할당되었는지 확인합니다.
+.. 로그아웃합니다.
+.. 통합 그룹의 사용자로 테넌트에 다시 로그인할 수 있는지 확인합니다.
+
+
+
+
+.관련 정보
+* link:requirements-for-sso.html["SSO(Single Sign-On)에 대한 요구 사항 및 고려 사항"]
+* link:managing-admin-groups.html["관리 그룹을 관리합니다"]
+* link:../tenant/index.html["테넌트 계정을 사용합니다"]
+

@@ -1,0 +1,82 @@
+---
+permalink: maintain/monitoring-services-appliance-installation.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, appliance 
+summary: StorageGRID 어플라이언스 설치 프로그램은 설치가 완료될 때까지 상태를 제공합니다. 소프트웨어 설치가 완료되면 어플라이언스가 재부팅됩니다. 
+---
+= 서비스 어플라이언스 설치를 모니터링합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 어플라이언스 설치 프로그램은 설치가 완료될 때까지 상태를 제공합니다. 소프트웨어 설치가 완료되면 어플라이언스가 재부팅됩니다.
+
+.단계
+. 설치 진행률을 모니터링하려면 메뉴 표시줄에서 * 모니터 설치 * 를 클릭합니다.
++
+Monitor Installation(모니터 설치) 페이지에 설치 진행률이 표시됩니다.
+
++
+image::../media/monitor_installation_services_appl.png[모니터 설치 - 서비스 앱]
+
++
+파란색 상태 표시줄은 현재 진행 중인 작업을 나타냅니다. 녹색 상태 표시줄은 성공적으로 완료된 작업을 나타냅니다.
+
++
+
+NOTE: 설치 프로그램은 이전 설치에서 완료된 작업이 다시 실행되지 않도록 합니다. 설치를 다시 실행하는 경우 다시 실행할 필요가 없는 작업은 녹색 상태 표시줄과 "건너뜀"으로 표시됩니다.
+
+. 처음 두 설치 단계의 진행 상황을 검토합니다.
++
+** * 1. 스토리지 구성 *
++
+이 단계에서 설치 관리자는 드라이브에서 기존 구성을 지우고 호스트 설정을 구성합니다.
+
+** * 2. OS * 를 설치합니다
++
+이 단계에서 설치 관리자는 기본 관리 노드에서 기본 관리 노드로 StorageGRID의 기본 운영 체제 이미지를 복사하거나 기본 관리 노드의 설치 패키지에서 기본 운영 체제를 설치합니다.
+
+
+
+. 다음 중 하나가 발생할 때까지 설치 진행 상태를 계속 모니터링합니다.
++
+** 어플라이언스 게이트웨이 노드 또는 비기본 어플라이언스 관리 노드의 경우 * StorageGRID * 설치 단계가 일시 중지되고 그리드 관리자를 사용하여 관리 노드에서 이 노드를 승인하라는 메시지가 포함된 콘솔에 나타납니다.
++
+image::../media/monitor_installation_install_sgws.gif[이미지는 주변 텍스트로 설명됩니다]
+
+** 어플라이언스 기본 관리 노드의 경우 다섯 번째 단계(StorageGRID 설치 프로그램 로드)가 나타납니다. 5단계가 10분 이상 진행 중인 경우 페이지를 수동으로 새로 고칩니다.
++
+image::../media/monitor_reinstallation_primary_admin.png[기본 관리자 노드 재설치에 대한 5단계 스크린샷]
+
+
+
+. 복구 중인 어플라이언스 그리드 노드 유형에 대한 복구 프로세스의 다음 단계로 이동합니다.
++
+[cols="1a,2a"]
+|===
+| 복구 유형입니다 | 참조하십시오 
+
+
+ a| 
+게이트웨이 노드
+ a| 
+link:selecting-start-recovery-to-configure-gateway-node.html["Start Recovery(복구 시작) 를 선택하여 게이트웨이 노드를 구성합니다"]
+
+
+
+ a| 
+운영 관리자 노드가 아닌 노드
+ a| 
+link:selecting-start-recovery-to-configure-non-primary-admin-node.html["복구 시작 을 선택하여 비 기본 관리 노드를 구성합니다"]
+
+
+
+ a| 
+기본 관리자 노드
+ a| 
+link:configuring-replacement-primary-admin-node.html["대체 운영 관리자 노드를 구성합니다"]
+
+|===
+

@@ -1,0 +1,126 @@
+---
+permalink: maintain/powering-down-host.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, stop services, power down host, power off host 
+summary: 호스트의 전원을 끄기 전에 해당 호스트의 모든 그리드 노드에서 서비스를 중지해야 합니다. 
+---
+= 호스트 전원을 끕니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+호스트의 전원을 끄기 전에 해당 호스트의 모든 그리드 노드에서 서비스를 중지해야 합니다.
+
+.단계
+. 그리드 노드에 로그인합니다.
++
+.. 다음 명령을 입력합니다. `ssh admin@_grid_node_IP_`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
+.. 다음 명령을 입력하여 루트로 전환합니다. `su -`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
+
+
++
+루트로 로그인하면 프롬프트가 에서 `$` 로 `#`변경됩니다.
+
+. 노드에서 실행 중인 모든 서비스를 중지합니다. `service servermanager stop`
++
+서비스를 종료하는 데 최대 15분이 걸릴 수 있으며, 종료 프로세스를 모니터링하기 위해 시스템에 원격으로 로그인하기를 원할 수 있습니다.
+
+. 호스트의 각 노드에 대해 1단계와 2단계를 반복합니다.
+. Linux 호스트가 있는 경우:
++
+.. 호스트 운영 체제에 로그인합니다.
+.. 노드를 중지합니다. `storagegrid node stop`
+.. 호스트 운영 체제를 종료합니다.
+
+
+. 노드가 VMware 가상 머신에서 실행 중이거나 어플라이언스 노드인 경우 shutdown 명령을 실행합니다. `shutdown -h now`
++
+명령 결과에 관계없이 이 단계를 `service servermanager stop` 수행합니다.
+
++
+
+NOTE: 어플라이언스 노드에서 명령을 실행한 후에는 `shutdown -h now` 어플라이언스의 전원을 껐다가 켜서 노드를 다시 시작해야 합니다.
+
++
+제품의 경우, 이 명령은 컨트롤러를 종료하지만 제품의 전원은 계속 켜져 있습니다. 다음 단계를 완료해야 합니다.
+
+. 어플라이언스 노드의 전원을 끄는 경우 어플라이언스 단계를 따르십시오.
++
+[role="tabbed-block"]
+====
+.SG6160
+--
+.. SG6100-CN 스토리지 컨트롤러의 전원을 끕니다.
+.. SG6100-CN 스토리지 컨트롤러의 파란색 전원 LED가 꺼질 때까지 기다립니다.
+
+
+--
+.SGF6112를 참조하십시오
+--
+.. 제품의 전원을 끕니다.
+.. 파란색 전원 LED가 꺼질 때까지 기다립니다.
+
+
+--
+.SG6000 을 참조하십시오
+--
+.. 스토리지 컨트롤러 후면의 녹색 캐시 활성 LED가 꺼질 때까지 기다립니다.
++
+캐싱된 데이터를 드라이브에 기록해야 하는 경우 이 LED가 켜집니다. 전원을 끄기 전에 이 LED가 꺼질 때까지 기다려야 합니다.
+
+.. 제품의 전원을 끄고 파란색 전원 LED가 꺼질 때까지 기다리십시오.
+
+
+--
+.SG5800을 참조하십시오
+--
+.. 스토리지 컨트롤러 후면의 녹색 캐시 활성 LED가 꺼질 때까지 기다립니다.
++
+캐싱된 데이터를 드라이브에 기록해야 하는 경우 이 LED가 켜집니다. 전원을 끄기 전에 이 LED가 꺼질 때까지 기다려야 합니다.
+
+.. SANtricity 시스템 관리자의 홈 페이지에서 * 진행 중인 작업 보기 * 를 선택합니다.
+.. 다음 단계를 계속하기 전에 모든 작업이 완료되었는지 확인하십시오.
+.. 컨트롤러 쉘프의 두 전원 스위치를 끄고 컨트롤러 쉘프의 모든 LED가 꺼질 때까지 기다립니다.
+
+
+--
+.SG5700입니다
+--
+.. 스토리지 컨트롤러 후면의 녹색 캐시 활성 LED가 꺼질 때까지 기다립니다.
++
+캐싱된 데이터를 드라이브에 기록해야 하는 경우 이 LED가 켜집니다. 전원을 끄기 전에 이 LED가 꺼질 때까지 기다려야 합니다.
+
+.. 제품의 전원을 끄고 모든 LED 및 7세그먼트 디스플레이 작동이 멈출 때까지 기다리십시오.
+
+
+--
+.SG110 또는 SG1100
+--
+.. 제품의 전원을 끕니다.
+.. 파란색 전원 LED가 꺼질 때까지 기다립니다.
+
+
+--
+.SG100 또는 SG1000
+--
+.. 제품의 전원을 끕니다.
+.. 파란색 전원 LED가 꺼질 때까지 기다립니다.
+
+
+--
+====
+. 명령 셸에서 로그아웃합니다. `exit`
+
+
+.관련 정보
+* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/index.html["SGF6112 및 SG6160 스토리지 어플라이언스"^]
+* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/index.html["SG6000 스토리지 어플라이언스"^]
+* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg5700/index.html["SG5700 스토리지 어플라이언스"^]
+* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg5800/index.html["SG5800 스토리지 어플라이언스"^]
+* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg110-1100/index.html["SG110 및 SG1100 서비스 어플라이언스"^]
+* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg100-1000/index.html["SG100 및 SG1000 서비스 어플라이언스"^]
+

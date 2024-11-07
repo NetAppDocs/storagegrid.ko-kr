@@ -1,0 +1,72 @@
+---
+permalink: audit/audit-message-examples.html 
+sidebar: sidebar 
+keywords: audit message examples, audit.log, atyp, sput, s3 put 
+summary: 각 감사 메시지에서 자세한 정보를 찾을 수 있습니다. 모든 감사 메시지는 동일한 형식을 사용합니다. 
+---
+= 감사 메시지 예
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+각 감사 메시지에서 자세한 정보를 찾을 수 있습니다. 모든 감사 메시지는 동일한 형식을 사용합니다.
+
+다음은 파일에 나타날 수 있는 감사 메시지의 예입니다 `audit.log`.
+
+[listing]
+----
+2014-07-17T21:17:58.959669
+[AUDT:[RSLT(FC32):SUCS][TIME(UI64):246979][S3AI(CSTR):"bc644d
+381a87d6cc216adcd963fb6f95dd25a38aa2cb8c9a358e8c5087a6af5f"][
+S3AK(CSTR):"UJXDKKQOXB7YARDS71Q2"][S3BK(CSTR):"s3small1"][S3K
+Y(CSTR):"hello1"][CBID(UI64):0x50C4F7AC2BC8EDF7][CSIZ(UI64):0
+][AVER(UI32):10][ATIM(UI64):1405631878959669][ATYP(FC32):SPUT
+][ANID(UI32):12872812][AMID(FC32):S3RQ][ATID(UI64):1579224144
+102530435]]
+----
+감사 메시지에는 기록되는 이벤트에 대한 정보와 감사 메시지 자체에 대한 정보가 포함되어 있습니다.
+
+감사 메시지에 의해 기록되는 이벤트를 식별하려면 ATYP 속성(아래에 강조 표시됨)을 찾습니다.
+
+[listing, subs="specialcharacters,quotes"]
+----
+2014-07-17T21:17:58.959669
+[AUDT:[RSLT(FC32):SUCS][TIME(UI64):246979][S3AI(CSTR):"bc644d
+381a87d6cc216adcd963fb6f95dd25a38aa2cb8c9a358e8c5087a6af5f"][
+S3AK(CSTR):"UJXDKKQOXB7YARDS71Q2"][S3BK(CSTR):"s3small1"][S3K
+Y(CSTR):"hello1"][CBID(UI64):0x50C4F7AC2BC8EDF7][CSIZ(UI64):0
+][AVER(UI32):10][ATIM(UI64):1405631878959669][*ATYP(FC32):SP*
+*UT*][ANID(UI32):12872812][AMID(FC32):S3RQ][ATID(UI64):1579224
+144102530435]]
+----
+ATYP 특성의 값은 SPUT입니다. link:sput-s3-put.html["SPUT"] 오브젝트 수집을 버킷에 기록하는 S3 PUT 트랜잭션을 나타냅니다.
+
+다음 감사 메시지는 객체가 연결된 버킷도 표시합니다.
+
+[listing, subs="specialcharacters,quotes"]
+----
+2014-07-17T21:17:58.959669
+[AUDT:[RSLT(FC32):SUCS][TIME(UI64):246979][S3AI(CSTR):"bc644d
+381a87d6cc216adcd963fb6f95dd25a38aa2cb8c9a358e8c5087a6af5f"][
+S3AK(CSTR):"UJXDKKQOXB7YARDS71Q2"][*S3BK\(CSTR\):"s3small1"*][S3
+KY(CSTR):"hello1"][CBID(UI64):0x50C4F7AC2BC8EDF7][CSIZ(UI64):
+0][AVER(UI32):10][ATIM(UI64):1405631878959669][ATYP(FC32):SPU
+T][ANID(UI32):12872812][AMID(FC32):S3RQ][ATID(UI64):157922414
+4102530435]]
+----
+PUT 이벤트가 발생한 시기를 확인하려면 감사 메시지 시작 부분에 UTC(Universal Coordinated Time) 타임스탬프를 기록합니다. 이 값은 감사 메시지 자체의 ATIM 특성의 사람이 읽을 수 있는 버전입니다.
+
+[listing, subs="specialcharacters,quotes"]
+----
+*2014-07-17T21:17:58.959669*
+[AUDT:[RSLT(FC32):SUCS][TIME(UI64):246979][S3AI(CSTR):"bc644d
+381a87d6cc216adcd963fb6f95dd25a38aa2cb8c9a358e8c5087a6af5f"][
+S3AK(CSTR):"UJXDKKQOXB7YARDS71Q2"][S3BK(CSTR):"s3small1"][S3K
+Y(CSTR):"hello1"][CBID(UI64):0x50C4F7AC2BC8EDF7][CSIZ(UI64):0
+][AVER(UI32):10][*ATIM\(UI64\):1405631878959669*][ATYP(FC32):SP
+UT][ANID(UI32):12872812][AMID(FC32):S3RQ][ATID(UI64):15792241
+44102530435]]
+----
+ATIM은 UNIX epoch 시작 이후 시간(단위: 마이크로초)을 기록합니다. 이 예에서 값은 `1405631878959669` 2014년 7월 17일 목요일 21:17:59 UTC로 변환됩니다.

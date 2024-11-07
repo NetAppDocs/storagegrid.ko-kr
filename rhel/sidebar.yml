@@ -1,0 +1,81 @@
+---
+section: rhel
+title: Red Hat Enterprise Linux에 StorageGRID를 설치합니다
+entries:
+- title: 빠른 시작
+  pdf-filename: Red Hat Enterprise Linux에 StorageGRID를 설치합니다
+  url: "/rhel/index.html"
+- title: Red Hat에서 설치 계획 및 준비
+  entries:
+  - title: 필요한 정보 및 자료
+    url: "/rhel/required-materials.html"
+  - title: StorageGRID 설치 파일을 다운로드하고 압축을 풉니다
+    url: "/rhel/downloading-and-extracting-storagegrid-installation-files.html"
+  - title: 설치 파일을 수동으로 확인합니다
+    url: "/rhel/download-files-verify.html"
+  - title: 소프트웨어 요구 사항
+    url: "/rhel/software-requirements.html"
+  - title: CPU 및 RAM 요구 사항
+    url: "/rhel/cpu-and-ram-requirements.html"
+  - title: 요구사항을 충족해야 합니다
+    url: "/rhel/storage-and-performance-requirements.html"
+  - title: 노드 컨테이너 마이그레이션 요구사항
+    url: "/rhel/node-container-migration-requirements.html"
+  - title: 호스트 준비(Red Hat)
+    entries:
+    - title: 호스트 전체의 설정 변경 방법
+      url: "/rhel/how-host-wide-settings-change.html"
+    - title: Linux를 설치합니다
+      url: "/rhel/installing-linux.html"
+    - title: 호스트 네트워크 구성(Red Hat)
+      url: "/rhel/configuring-host-network.html"
+    - title: 호스트 스토리지를 구성합니다
+      url: "/rhel/configuring-host-storage.html"
+    - title: 컨테이너 엔진 저장소 볼륨을 구성합니다
+      url: "/rhel/configuring-docker-storage-volume.html"
+    - title: StorageGRID 호스트 서비스를 설치합니다
+      url: "/rhel/installing-storagegrid-webscale-host-service.html"
+- title: 설치 자동화(Red Hat)
+  url: "/rhel/automating-installation.html"
+- title: 가상 그리드 노드 배포(Red Hat)
+  entries:
+  - title: Red Hat 배포를 위한 노드 구성 파일을 생성합니다
+    url: "/rhel/creating-node-configuration-files.html"
+  - title: 그리드 노드가 기본 관리자 노드를 검색하는 방법
+    url: "/rhel/how-grid-nodes-discover-primary-admin-node.html"
+  - title: 노드 구성 파일의 예
+    url: "/rhel/example-node-configuration-files.html"
+  - title: StorageGRID 구성을 검증합니다
+    url: "/rhel/validating-storagegrid-configuration.html"
+  - title: StorageGRID 호스트 서비스를 시작합니다
+    url: "/rhel/starting-storagegrid-host-service.html"
+- title: 그리드 구성 및 전체 설치(Red Hat)
+  entries:
+  - title: 그리드 관리자로 이동합니다
+    url: "/rhel/navigating-to-grid-manager.html"
+  - title: 라이센스 정보를 지정합니다
+    url: "/rhel/specifying-storagegrid-license-information.html"
+  - title: 사이트를 추가합니다
+    url: "/rhel/adding-sites.html"
+  - title: 그리드 네트워크 서브넷을 지정합니다
+    url: "/rhel/specifying-grid-network-subnets.html"
+  - title: 보류 중인 그리드 노드를 승인합니다
+    url: "/rhel/approving-pending-grid-nodes.html"
+  - title: NTP 서버 정보를 지정합니다
+    url: "/rhel/specifying-network-time-protocol-server-information.html"
+  - title: DNS 서버 정보를 지정합니다
+    url: "/rhel/specifying-domain-name-system-server-information.html"
+  - title: 시스템 암호를 지정합니다
+    url: "/rhel/specifying-storagegrid-system-passwords.html"
+  - title: 구성을 검토하고 설치를 완료합니다
+    url: "/rhel/reviewing-your-configuration-and-completing-installation.html"
+  - title: 설치 후 지침
+    url: "/rhel/post-installation-guidelines.html"
+- title: REST API 설치
+  url: "/rhel/overview-of-installation-rest-api.html"
+- title: 다음 단계로 넘어갑니다
+  url: "/rhel/where-to-go-next.html"
+- title: 설치 문제를 해결합니다
+  url: "/rhel/troubleshooting-installation-issues.html"
+- title: 예 /etc/sysconfig/network-scripts
+  url: "/rhel/example-etc-sysconfig-network-scripts.html"

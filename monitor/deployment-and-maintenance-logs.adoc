@@ -1,0 +1,75 @@
+---
+permalink: monitor/deployment-and-maintenance-logs.html 
+sidebar: sidebar 
+keywords: deployment, logs, Maintenance 
+summary: 배포 및 유지 관리 로그를 사용하여 문제를 해결할 수 있습니다. 
+---
+= 배포 및 유지 관리 로그
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+배포 및 유지 관리 로그를 사용하여 문제를 해결할 수 있습니다.
+
+[cols="1a,3a,1a"]
+|===
+| 파일 이름입니다 | 참고 | 에 있습니다 
+
+
+| /var/local/log/install.log 를 참조하십시오  a| 
+소프트웨어 설치 중에 생성됩니다. 설치 이벤트 기록을 포함합니다.
+ a| 
+모든 노드
+
+
+
+| /var/local/log/expansion-progress.log 를 참조하십시오  a| 
+확장 작업 중에 생성됩니다. 확장 이벤트의 레코드를 포함합니다.
+ a| 
+스토리지 노드
+
+
+
+| /var/local/log/pa-move.log 를 참조하십시오  a| 
+스크립트를 실행하는 동안 `pa-move.sh` 생성됩니다.
+ a| 
+기본 관리자 노드
+
+
+
+| /var/local/log/pa-move-new_pa.log 를 참조하십시오  a| 
+스크립트를 실행하는 동안 `pa-move.sh` 생성됩니다.
+ a| 
+기본 관리자 노드
+
+
+
+| /var/local/log/pa-move-old_pa.log 를 참조하십시오  a| 
+스크립트를 실행하는 동안 `pa-move.sh` 생성됩니다.
+ a| 
+기본 관리자 노드
+
+
+
+| /var/local/log/gdu-server.log 를 참조하십시오  a| 
+GDU 서비스에 의해 생성됩니다. 기본 관리 노드에서 관리하는 프로비저닝 및 유지 보수 절차와 관련된 이벤트를 포함합니다.
+ a| 
+기본 관리자 노드
+
+
+
+| /var/local/log/send_admin_hw.log 를 참조하십시오  a| 
+설치 중에 생성됩니다. 기본 관리 노드와의 노드 통신과 관련된 디버깅 정보를 포함합니다.
+ a| 
+모든 노드
+
+
+
+| /var/local/log/upgrade.log 를 참조하십시오  a| 
+소프트웨어 업그레이드 중에 생성됩니다. 소프트웨어 업데이트 이벤트 기록을 포함합니다.
+ a| 
+모든 노드
+
+|===

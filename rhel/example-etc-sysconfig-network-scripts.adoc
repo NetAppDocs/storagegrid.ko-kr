@@ -1,0 +1,130 @@
+---
+permalink: rhel/example-etc-sysconfig-network-scripts.html 
+sidebar: sidebar 
+keywords: how to aggregate red hat linux interface, LACP bond, network scripts 
+summary: 예제 파일을 사용하여 4개의 Linux 물리적 인터페이스를 단일 LACP 결합으로 집계한 다음 StorageGRID 그리드, 관리 및 클라이언트 네트워크 인터페이스로 사용할 본드를 포함하는 3개의 VLAN 인터페이스를 설정할 수 있습니다. 
+---
+= 예 /etc/sysconfig/network-scripts
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+예제 파일을 사용하여 4개의 Linux 물리적 인터페이스를 단일 LACP 결합으로 집계한 다음 StorageGRID 그리드, 관리 및 클라이언트 네트워크 인터페이스로 사용할 본드를 포함하는 3개의 VLAN 인터페이스를 설정할 수 있습니다.
+
+
+
+== 물리적 인터페이스
+
+링크의 다른 쪽 끝에 있는 스위치도 4개의 포트를 단일 LACP 트렁크 또는 포트 채널로 처리해야 하며, 태그가 있는 3개 이상의 참조된 VLAN을 통과해야 합니다.
+
+`*/etc/sysconfig/network-scripts/ifcfg-ens160*`
+
+[listing]
+----
+TYPE=Ethernet
+NAME=ens160
+UUID=011b17dd-642a-4bb9-acae-d71f7e6c8720
+DEVICE=ens160
+ONBOOT=yes
+MASTER=bond0
+SLAVE=yes
+----
+`*/etc/sysconfig/network-scripts/ifcfg-ens192*`
+
+[listing]
+----
+TYPE=Ethernet
+NAME=ens192
+UUID=e28eb15f-76de-4e5f-9a01-c9200b58d19c
+DEVICE=ens192
+ONBOOT=yes
+MASTER=bond0
+SLAVE=yes
+----
+`*/etc/sysconfig/network-scripts/ifcfg-ens224*`
+
+[listing]
+----
+TYPE=Ethernet
+NAME=ens224
+UUID=b0e3d3ef-7472-4cde-902c-ef4f3248044b
+DEVICE=ens224
+ONBOOT=yes
+MASTER=bond0
+SLAVE=yes
+----
+`*/etc/sysconfig/network-scripts/ifcfg-ens256*`
+
+[listing]
+----
+TYPE=Ethernet
+NAME=ens256
+UUID=7cf7aabc-3e4b-43d0-809a-1e2378faa4cd
+DEVICE=ens256
+ONBOOT=yes
+MASTER=bond0
+SLAVE=yes
+----
+
+
+== 본드 인터페이스
+
+`*/etc/sysconfig/network-scripts/ifcfg-bond0*`
+
+[listing]
+----
+DEVICE=bond0
+TYPE=Bond
+BONDING_MASTER=yes
+NAME=bond0
+ONBOOT=yes
+BONDING_OPTS=mode=802.3ad
+----
+
+
+== VLAN 인터페이스
+
+`*/etc/sysconfig/network-scripts/ifcfg-bond0.1001*`
+
+[listing]
+----
+VLAN=yes
+TYPE=Vlan
+DEVICE=bond0.1001
+PHYSDEV=bond0
+VLAN_ID=1001
+REORDER_HDR=0
+BOOTPROTO=none
+UUID=296435de-8282-413b-8d33-c4dd40fca24a
+ONBOOT=yes
+----
+`*/etc/sysconfig/network-scripts/ifcfg-bond0.1002*`
+
+[listing]
+----
+VLAN=yes
+TYPE=Vlan
+DEVICE=bond0.1002
+PHYSDEV=bond0
+VLAN_ID=1002
+REORDER_HDR=0
+BOOTPROTO=none
+UUID=dbaaec72-0690-491c-973a-57b7dd00c581
+ONBOOT=yes
+----
+`*/etc/sysconfig/network-scripts/ifcfg-bond0.1003*`
+
+[listing]
+----
+VLAN=yes
+TYPE=Vlan
+DEVICE=bond0.1003
+PHYSDEV=bond0
+VLAN_ID=1003
+REORDER_HDR=0
+BOOTPROTO=none
+UUID=d1af4b30-32f5-40b4-8bb9-71a2fbf809a1
+ONBOOT=yes
+----

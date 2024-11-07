@@ -1,0 +1,96 @@
+---
+permalink: maintain/monitor-repairs.html 
+sidebar: sidebar 
+keywords: restore replicated data, restore erasure-coded data, recover appliance storage node, recover storage volume 
+summary: '명령줄의 스크립트를 사용하여 복구 작업의 상태를 모니터링할 수 `repair-data` 있습니다.' 
+---
+= 수리 - 데이터 작업을 모니터링합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+명령줄의 스크립트를 사용하여 복구 작업의 상태를 모니터링할 수 `repair-data` 있습니다.
+
+여기에는 수동으로 시작한 작업 또는 서비스 해제 절차의 일부로 StorageGRID가 자동으로 시작한 작업이 포함됩니다.
+
+
+NOTE: 볼륨 복원 작업을 실행하는 경우 link:../maintain/restoring-volume.html["진행 상황을 모니터링하고 Grid Manager에서 해당 작업의 기록을 확인합니다"]대신
+
+복제된 데이터 *, * 삭제 코딩(EC) 데이터 * 또는 둘 모두를 사용하는지 여부에 따라 작업 상태를 `repair-data` 모니터링합니다.
+
+[role="tabbed-block"]
+====
+.복제된 데이터
+--
+* 복제된 복구의 예상 완료율을 얻으려면 repair-data 명령에 옵션을 추가합니다 `show-replicated-repair-status`.
++
+`repair-data show-replicated-repair-status`
+
+* 수리가 완료되었는지 확인하려면:
++
+.. 노드 * > * _ 복구되는 스토리지 노드 _ * > * ILM * 을 선택합니다.
+.. 평가 섹션의 속성을 검토합니다. 복구가 완료되면 * Awaiting-all * 속성이 0 개체를 나타냅니다.
+
+
+* 수리를 더 자세히 모니터링하려면:
++
+.. 지원 * > * 도구 * > * 그리드 토폴로지 * 를 선택합니다.
+.. 복구되는 *_GRID_ * > *_Storage Node _ * > * LDR * > * Data Store * 를 선택합니다.
+.. 복제된 수리가 완료된 경우 다음 특성을 조합하여 가능한 한 결정합니다.
++
+
+NOTE: Cassandra의 일관성이 없을 수 있으며, 복구 실패를 추적하지 않습니다.
+
++
+*** * 시도된 복구(XRPA) *: 이 속성을 사용하여 복제된 복구 진행률을 추적합니다. 이 속성은 스토리지 노드가 고위험 객체를 복구하려고 할 때마다 증가합니다. 이 속성이 현재 스캔 기간(* Scan Period -- Estimated* 속성 제공)보다 더 긴 기간 동안 증가하지 않으면 ILM 스캐닝에서 모든 노드에서 복구해야 할 고위험 개체를 찾지 못한 것입니다.
++
+
+NOTE: 고위험 개체는 완전히 손실될 위험이 있는 개체입니다. ILM 구성을 충족하지 않는 개체는 포함되지 않습니다.
+
+*** * 스캔 기간 -- 예상(XSCM) *: 이 속성을 사용하여 이전에 수집된 개체에 정책 변경이 적용되는 시점을 추정합니다. 복구 시도 * 속성이 현재 스캔 기간보다 긴 기간 동안 증가하지 않으면 복제된 수리가 수행될 수 있습니다. 스캔 기간은 변경될 수 있습니다. 스캔 기간 -- 예상(XSCM) * 속성은 전체 그리드에 적용되며 모든 노드 스캔 기간의 최대값입니다. 그리드에 대한 * Scan Period -- Estimated * 속성 기록을 조회하여 적절한 기간을 결정할 수 있습니다.
+
+
+
+
+
+
+--
+.삭제 코딩(EC) 데이터
+--
+삭제 코딩 데이터의 복구를 모니터링하고 실패한 요청을 다시 시도하려면 다음을 수행하십시오.
+
+. 삭제 코딩 데이터 복구 상태를 확인합니다.
++
+** 현재 작업의 예상 완료 시간과 완료 비율을 보려면 * 지원 * > * 도구 * > * 메트릭 * 을 선택합니다. 그런 다음 Grafana 섹션에서 * EC 개요 * 를 선택합니다. Grid EC Job Ec Job Estimated Time to Completion * 및 * Grid EC Job Percentage Completed * 대시보드를 확인합니다.
+** 다음 명령을 사용하여 특정 작업의 상태를 `repair-data` 확인합니다.
++
+`repair-data show-ec-repair-status --repair-id repair ID`
+
+** 이 명령을 사용하여 모든 수리를 나열합니다.
++
+`repair-data show-ec-repair-status`
+
++
+출력에는 이전 및 현재 실행 중인 모든 수리에 대한 정보가 `repair ID` 표시됩니다.
+
+
+
+. 출력에 복구 작업이 실패했다고 표시되는 경우 옵션을 사용하여 `--repair-id` 복구를 재시도합니다.
++
+이 명령은 복구 ID 6949309319275667690을 사용하여 실패한 노드 복구를 재시도합니다.
+
++
+`repair-data start-ec-node-repair --repair-id 6949309319275667690`
+
++
+이 명령은 복구 ID 6949309319275667690을 사용하여 실패한 볼륨 복구를 다시 시도합니다.
+
++
+`repair-data start-ec-volume-repair --repair-id 6949309319275667690`
+
+
+
+--
+====

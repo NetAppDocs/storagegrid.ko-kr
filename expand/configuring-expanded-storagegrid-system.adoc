@@ -1,0 +1,65 @@
+---
+permalink: expand/configuring-expanded-storagegrid-system.html 
+sidebar: sidebar 
+keywords: expansion, configuration 
+summary: 확장을 완료한 후에는 추가 통합 및 구성 단계를 수행해야 합니다. 
+---
+= 확장 후 구성 단계
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+확장을 완료한 후에는 추가 통합 및 구성 단계를 수행해야 합니다.
+
+.이 작업에 대해
+확장 시 추가하는 그리드 노드 또는 사이트에 대해 아래 나열된 구성 작업을 완료해야 합니다. 시스템 설치 및 관리 시 선택한 옵션과 확장 중에 추가한 노드 및 사이트를 구성하는 방법에 따라 일부 작업은 선택 사항일 수 있습니다.
+
+.단계
+. 사이트를 추가한 경우:
++
+** link:../ilm/creating-storage-pool.html["스토리지 풀을 생성합니다"] 새 스토리지 노드에 대해 선택한 사이트 및 각 스토리지 등급에 대해
+** ILM 정책이 새로운 요구 사항을 충족하는지 확인합니다. 규칙 변경이 필요한 경우, link:../ilm/access-create-ilm-rule-wizard.html["새 규칙을 만듭니다"] 및link:../ilm/creating-ilm-policy.html["ILM 정책을 업데이트합니다"]. 규칙이 이미 올바른 경우 link:../ilm/creating-ilm-policy.html#activate-ilm-policy["새 정책을 활성화합니다"]StorageGRID가 새 노드를 사용하도록 하기 위해 규칙이 변경되지 않습니다.
+** 해당 사이트에서 NTP(Network Time Protocol) 서버에 액세스할 수 있는지 확인합니다. 을 link:../maintain/configuring-ntp-servers.html["NTP 서버를 관리합니다"]참조하십시오.
++
+
+CAUTION: 각 사이트에서 최소 2개의 노드가 4개 이상의 외부 NTP 소스에 액세스할 수 있는지 확인합니다. 사이트에서 하나의 노드만 NTP 소스에 연결할 수 있는 경우 해당 노드가 중단되면 타이밍 문제가 발생합니다. 또한 사이트당 두 노드를 기본 NTP 소스로 지정하면 사이트가 나머지 그리드에서 격리될 경우 정확한 시간을 보장할 수 있습니다.
+
+
+
+. 기존 사이트에 하나 이상의 스토리지 노드를 추가한 경우:
++
+** link:../ilm/viewing-storage-pool-details.html["스토리지 풀 세부 정보를 봅니다"] 추가한 각 노드가 예상 스토리지 풀에 포함되어 있고 예상 ILM 규칙에 사용되는지 확인합니다.
+** ILM 정책이 새로운 요구 사항을 충족하는지 확인합니다. 규칙 변경이 필요한 경우, link:../ilm/access-create-ilm-rule-wizard.html["새 규칙을 만듭니다"] 및link:../ilm/creating-ilm-policy.html["ILM 정책을 업데이트합니다"]. 규칙이 이미 올바른 경우 link:../ilm/creating-ilm-policy.html#activate-ilm-policy["새 정책을 활성화합니다"]StorageGRID가 새 노드를 사용하도록 하기 위해 규칙이 변경되지 않습니다.
+** link:verifying-storage-node-is-active.html["스토리지 노드가 활성 상태인지 확인합니다"] 또한, 오브젝트를 수집할 수 있습니다.
+** 권장 스토리지 노드 수를 추가할 수 없는 경우 삭제 코딩 데이터의 균형을 재조정합니다. 을 link:rebalancing-erasure-coded-data-after-adding-storage-nodes.html["스토리지 노드를 추가한 후 삭제 코딩 데이터의 균형을 재조정합니다"]참조하십시오.
+
+
+. 게이트웨이 노드를 추가한 경우:
++
+** 클라이언트 연결에 고가용성(HA) 그룹을 사용하는 경우 필요에 따라 게이트웨이 노드를 HA 그룹에 추가합니다. 구성 * > * 네트워크 * > * 고가용성 그룹 * 을 선택하여 기존 HA 그룹 목록을 검토하고 새 노드를 추가합니다. 을 link:../admin/configure-high-availability-group.html["고가용성 그룹을 구성합니다"]참조하십시오.
+
+
+. 관리 노드를 추가한 경우:
++
+.. StorageGRID 시스템에 SSO(Single Sign-On)가 활성화된 경우 새 관리 노드에 대한 신뢰할 수 있는 상대 트러스트를 만듭니다. 이 신뢰할 수 있는 상대 트러스트를 만들 때까지 노드에 로그인할 수 없습니다. 을 link:../admin/configuring-sso.html["Single Sign-On 구성"]참조하십시오.
+.. 관리 노드에서 로드 밸런서 서비스를 사용하려는 경우 필요에 따라 새 관리 노드를 HA 그룹에 추가합니다. 구성 * > * 네트워크 * > * 고가용성 그룹 * 을 선택하여 기존 HA 그룹 목록을 검토하고 새 노드를 추가합니다. 을 link:../admin/configure-high-availability-group.html["고가용성 그룹을 구성합니다"]참조하십시오.
+.. 필요에 따라 각 관리 노드에서 속성과 감사 정보를 일관되게 유지하려면 운영 관리 노드에서 확장 관리 노드로 관리 노드 데이터베이스를 복사합니다. 을 link:copying-admin-node-database.html["관리 노드 데이터베이스를 복사합니다"]참조하십시오.
+.. 필요에 따라 각 관리 노드에서 기간별 메트릭을 일관되게 유지하려면 Prometheus 데이터베이스를 기본 관리 노드에서 확장 관리 노드로 복사합니다. 을 link:copying-prometheus-metrics.html["Prometheus 메트릭을 복사합니다"]참조하십시오.
+.. 필요에 따라 각 관리 노드에서 기록 로그 정보를 일관되게 유지하려면 기존 감사 로그를 기본 관리 노드에서 확장 관리 노드로 복사합니다. 을 link:copying-audit-logs.html["감사 로그를 복사합니다"]참조하십시오.
+
+
+. 신뢰할 수 없는 클라이언트 네트워크로 확장 노드가 추가되었는지 확인하거나 노드의 클라이언트 네트워크가 신뢰할 수 없는 것인지 여부를 변경하려면 * 구성 * > * 보안 * > * 방화벽 제어 * 로 이동하십시오.
++
+확장 노드의 클라이언트 네트워크를 신뢰할 수 없는 경우 로드 밸런서 끝점을 사용하여 클라이언트 네트워크의 노드에 연결해야 합니다. link:../admin/configuring-load-balancer-endpoints.html["로드 밸런서 엔드포인트를 구성합니다"]및 을 link:../admin/manage-firewall-controls.html["방화벽 제어 관리"]참조하십시오.
+
+. DNS를 구성합니다.
++
+각 그리드 노드에 대해 DNS 설정을 별도로 지정한 경우 새 노드에 대해 노드별 DNS 설정을 사용자 지정해야 합니다. 을 link:../maintain/modifying-dns-configuration-for-single-grid-node.html["단일 그리드 노드에 대한 DNS 구성을 수정합니다"]참조하십시오.
+
+
+
+제대로 작동하려면 DNS 서버를 두 대 또는 세 대 지정합니다. 3개 이상을 지정하면 일부 플랫폼의 알려진 OS 제한 때문에 3개만 사용할 수 있습니다. 사용자 환경에 라우팅 제한이 있는 경우 개별 노드(일반적으로 사이트의 모든 노드)에서 최대 3개의 DNS 서버로 구성된 다른 세트를 사용할 수 link:../maintain/modifying-dns-configuration-for-single-grid-node.html["DNS 서버 목록을 사용자 지정합니다"]있습니다.
+
+가능한 경우 각 사이트에서 로컬로 액세스할 수 있는 DNS 서버를 사용하여 isfan 사이트가 외부 대상의 FQDN을 확인할 수 있도록 합니다.

@@ -1,0 +1,45 @@
+---
+permalink: vmware/software-requirements.html 
+sidebar: sidebar 
+keywords: software requirements 
+summary: 가상 머신을 사용하여 모든 유형의 StorageGRID 노드를 호스팅할 수 있습니다. 각 그리드 노드에 대해 하나의 가상 머신이 필요합니다. 
+---
+= VMware 소프트웨어 요구 사항
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+가상 머신을 사용하여 모든 유형의 StorageGRID 노드를 호스팅할 수 있습니다. 각 그리드 노드에 대해 하나의 가상 머신이 필요합니다.
+
+
+
+== VMware vSphere 하이퍼바이저
+
+준비된 물리적 서버에 VMware vSphere 하이퍼바이저를 설치해야 합니다. VMware 소프트웨어를 설치하기 전에 하드웨어를 올바르게 구성해야 합니다(펌웨어 버전 및 BIOS 설정 포함).
+
+* 설치할 StorageGRID 시스템에 대한 네트워킹을 지원하기 위해 필요에 따라 하이퍼바이저에서 네트워킹을 구성합니다.
++
+link:../network/index.html["네트워킹 지침"]
+
+* 데이터 저장소가 그리드 노드를 호스팅하는 데 필요한 가상 머신 및 가상 디스크에 충분히 큰지 확인합니다.
+* 둘 이상의 데이터 저장소를 생성하는 경우 가상 머신을 생성할 때 각 그리드 노드에 사용할 데이터 저장소를 쉽게 식별할 수 있도록 각 데이터 저장소의 이름을 지정합니다.
+
+
+
+
+== ESX 호스트 구성 요구 사항
+
+
+CAUTION: 각 ESX 호스트에서 NTP(네트워크 시간 프로토콜)를 적절히 구성해야 합니다. 호스트 시간이 올바르지 않으면 데이터 손실을 비롯한 부정적인 영향이 발생할 수 있습니다.
+
+
+
+== VMware 구성 요구 사항
+
+StorageGRID 노드를 구축하기 전에 VMware vSphere 및 vCenter를 설치하고 구성해야 합니다.
+
+지원되는 VMware vSphere Hypervisor 및 VMware vCenter Server 소프트웨어 버전은 를 참조하십시오 https://imt.netapp.com/matrix/#welcome["NetApp 상호 운용성 매트릭스 툴"^].
+
+이러한 VMware 제품을 설치하는 데 필요한 단계는 VMware 설명서를 참조하십시오.

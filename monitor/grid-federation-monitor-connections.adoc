@@ -1,0 +1,120 @@
+---
+permalink: monitor/grid-federation-monitor-connections.html 
+sidebar: sidebar 
+keywords: grid federation, monitor connection, cross grid replication metrics 
+summary: 모든 그리드 페더레이션 연결에 대한 기본 정보, 특정 연결에 대한 자세한 정보 또는 교차 그리드 복제 작업에 대한 Prometheus 메트릭을 모니터링할 수 있습니다. 두 그리드 중 하나에서 연결을 모니터링할 수 있습니다. 
+---
+= 그리드 페더레이션 연결을 모니터링합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+모든 기본 정보link:../admin/grid-federation-overview.html["그리드 페더레이션 연결"], 특정 연결에 대한 세부 정보 또는 교차 그리드 복제 작업에 대한 Prometheus 메트릭을 모니터링할 수 있습니다. 두 그리드 중 하나에서 연결을 모니터링할 수 있습니다.
+
+.시작하기 전에
+* 를 사용하여 그리드 관리자에 로그인되어 link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]있습니다.
+* 로그인한 그리드에 대한 가 link:../admin/admin-group-permissions.html["루트 액세스 권한"]있습니다.
+
+
+
+
+== 모든 연결을 봅니다
+
+그리드 페더레이션 페이지에는 모든 그리드 페더레이션 연결과 그리드 페더레이션 연결을 사용하도록 허용된 모든 테넌트 계정에 대한 기본 정보가 표시됩니다.
+
+.단계
+. 구성 * > * 시스템 * > * 그리드 페더레이션 * 을 선택합니다.
++
+그리드 페더레이션 페이지가 나타납니다.
+
+. 이 그리드의 모든 연결에 대한 기본 정보를 보려면 * 연결 * 탭을 선택합니다.
++
+이 탭에서 다음을 수행할 수 있습니다.
+
++
+** link:../admin/grid-federation-create-connection.html["새 연결을 만듭니다"]..
+** 에 대한 기존 연결을 link:../admin/grid-federation-manage-connection.html["편집 또는 테스트"]선택합니다.
+
+
++
+image::../media/grid-federation-connections-tab.png[Grid Federation connections(그리드 페더레이션 연결) 탭]
+
+. 그리드 페더레이션 연결 사용 * 권한이 있는 이 그리드의 모든 테넌트 계정에 대한 기본 정보를 보려면 * 허용된 테넌트 * 탭을 선택합니다.
++
+이 탭에서 다음을 수행할 수 있습니다.
+
++
+** link:../monitor/monitoring-tenant-activity.html["허용된 각 테넌트의 세부 정보 페이지를 봅니다"]..
+** 각 연결에 대한 세부 정보 페이지를 봅니다. 을 <<view-specific-connection,특정 연결을 봅니다>>참조하십시오.
+** 허용된 테넌트를 선택하고 link:../admin/grid-federation-manage-tenants.html["권한을 제거합니다"]을 선택합니다.
+** 교차 그리드 복제 오류가 있는지 확인하고 마지막 오류가 있으면 지웁니다. 을 link:../admin/grid-federation-troubleshoot.html["그리드 통합 오류 문제 해결"]참조하십시오.
++
+image::../media/grid-federation-permitted-tenants-tab.png[Grid Federation permitted Tenants 탭]
+
+
+
+
+
+
+
+== [[view-specific-connection]] 특정 연결을 봅니다
+
+특정 그리드 페더레이션 연결에 대한 세부 정보를 볼 수 있습니다.
+
+.단계
+. Grid Federation(그리드 통합) 페이지에서 탭 중 하나를 선택한 다음 테이블에서 연결 이름을 선택합니다.
++
+연결에 대한 세부 정보 페이지에서 다음을 수행할 수 있습니다.
+
++
+** 로컬 및 원격 호스트 이름, 포트 및 연결 상태를 포함하여 연결에 대한 기본 상태 정보를 참조하십시오.
+** 에 대한 연결을 link:../admin/grid-federation-manage-connection.html["편집, 테스트 또는 제거"]선택합니다.
+
+
+. 특정 연결을 볼 때 * 허용된 테넌트 * 탭을 선택하여 연결에 대해 허용된 테넌트에 대한 세부 정보를 봅니다.
++
+이 탭에서 다음을 수행할 수 있습니다.
+
++
+** link:../monitor/monitoring-tenant-activity.html["허용된 각 테넌트의 세부 정보 페이지를 봅니다"]..
+** link:../admin/grid-federation-manage-tenants.html["테넌트의 권한을 제거합니다"] 연결을 사용합니다.
+** 교차 그리드 복제 오류를 확인하고 마지막 오류를 지웁니다. 을 link:../admin/grid-federation-troubleshoot.html["그리드 통합 오류 문제 해결"]참조하십시오.
++
+image::../media/grid-federation-permitted-tenants-tab-for-connection.png[Grid-federation-permitted-tenant-tab-for-connection]
+
+
+
+. 특정 연결을 볼 때 이 연결에 대한 시스템 생성 서버 및 클라이언트 인증서를 보려면 * 인증서 * 탭을 선택합니다.
++
+이 탭에서 다음을 수행할 수 있습니다.
+
++
+** link:../admin/grid-federation-manage-connection.html["연결 인증서를 회전합니다"]..
+** 연결된 인증서를 보거나 다운로드하거나 인증서 PEM을 복사하려면 * 서버 * 또는 * 클라이언트 * 를 선택합니다.
++
+image::../media/grid-federation-certificates-tab.png[grid-federation-certificates-tab]
+
+
+
+
+
+
+
+== 교차 그리드 복제 메트릭을 검토합니다
+
+Grafana의 Cross-Grid Replication 대시보드를 사용하여 그리드의 교차 그리드 복제 작업에 대한 Prometheus 메트릭을 볼 수 있습니다.
+
+.단계
+. Grid Manager에서 * 지원 * > * 도구 * > * 메트릭 * 을 선택합니다.
++
+
+NOTE: 메트릭 페이지에서 사용할 수 있는 도구는 기술 지원 부서에서 사용하기 위한 것입니다. 이러한 도구 내의 일부 기능 및 메뉴 항목은 의도적으로 작동하지 않으며 변경될 수 있습니다. 의 목록을 link:../monitor/commonly-used-prometheus-metrics.html["일반적으로 사용되는 Prometheus 메트릭입니다"]참조하십시오.
+
+. 페이지의 Grafana 섹션에서 * Cross Grid Replication * 을 선택합니다.
++
+자세한 지침은 을 참조하십시오link:../monitor/reviewing-support-metrics.html["지원 메트릭을 검토합니다"].
+
+. 복제에 실패한 개체의 복제를 다시 시도하려면 을 참조하십시오link:../admin/grid-federation-retry-failed-replication.html["실패한 복제 작업을 식별하고 다시 시도하십시오"].
+

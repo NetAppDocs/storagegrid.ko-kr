@@ -1,0 +1,136 @@
+---
+section: monitor
+title: StorageGRID 시스템을 모니터링합니다
+entries:
+- title: 모니터링 작업
+  pdf-filename: StorageGRID 시스템을 모니터링합니다
+  url: "/monitor/index.html"
+- title: 대시보드를 보고 관리합니다
+  url: "/monitor/viewing-dashboard.html"
+- title: 노드 페이지를 봅니다
+  entries:
+  - title: 노드 페이지 내용
+    pdf-filename: 노드 페이지를 봅니다
+    url: "/monitor/viewing-nodes-page.html"
+  - title: 개요 탭을 봅니다
+    url: "/monitor/viewing-overview-tab.html"
+  - title: 하드웨어 탭을 봅니다
+    url: "/monitor/viewing-hardware-tab.html"
+  - title: 네트워크 탭을 봅니다
+    url: "/monitor/viewing-network-tab.html"
+  - title: Storage 탭을 봅니다
+    url: "/monitor/viewing-storage-tab.html"
+  - title: 개체 탭을 봅니다
+    url: "/monitor/viewing-objects-tab.html"
+  - title: ILM 탭을 봅니다
+    url: "/monitor/viewing-ilm-tab.html"
+  - title: 작업 탭을 사용합니다
+    url: "/monitor/using-task-tab-to-reboot-grid-node.html"
+  - title: 부하 분산 장치 탭을 봅니다
+    url: "/monitor/viewing-load-balancer-tab.html"
+  - title: 플랫폼 서비스 탭을 봅니다
+    url: "/monitor/viewing-platform-services-tab.html"
+  - title: 드라이브 관리 탭을 봅니다
+    url: "/monitor/viewing-manage-drives-tab.html"
+  - title: SANtricity 탭 보기(E-Series만 해당)
+    url: "/monitor/viewing-santricity-system-manager-tab.html"
+- title: 정기적으로 모니터링할 정보
+  entries:
+  - title: 모니터링 대상 및 시기
+    url: "/monitor/information-you-should-monitor-regularly.html"
+  - title: 시스템 상태를 모니터링합니다
+    url: "/monitor/monitoring-system-health.html"
+  - title: 스토리지 용량을 모니터링합니다
+    url: "/monitor/monitoring-storage-capacity.html"
+  - title: 정보 수명 주기 관리를 모니터링합니다
+    url: "/monitor/monitoring-information-lifecycle-management.html"
+  - title: 네트워킹 및 시스템 리소스를 모니터링합니다
+    url: "/monitor/monitoring-network-connections-and-performance.html"
+  - title: 테넌트 작업을 모니터링합니다
+    url: "/monitor/monitoring-tenant-activity.html"
+  - title: S3 클라이언트 작업 모니터링
+    url: "/monitor/monitoring-object-ingest-and-retrieval-rates.html"
+  - title: 로드 밸런싱 작업을 모니터링합니다
+    url: "/monitor/monitoring-load-balancing-operations.html"
+  - title: 그리드 페더레이션 연결을 모니터링합니다
+    url: "/monitor/grid-federation-monitor-connections.html"
+- title: 알림을 관리합니다
+  entries:
+  - title: 경고 시스템
+    url: "/monitor/managing-alerts.html"
+  - title: 경고 규칙을 봅니다
+    url: "/monitor/view-alert-rules.html"
+  - title: 사용자 지정 알림 규칙을 생성합니다
+    url: "/monitor/creating-custom-alert-rules.html"
+  - title: 알림 규칙을 편집합니다
+    url: "/monitor/editing-alert-rules.html"
+  - title: 경고 규칙을 비활성화합니다
+    url: "/monitor/disabling-alert-rules.html"
+  - title: 사용자 지정 경고 규칙을 제거합니다
+    url: "/monitor/removing-custom-alert-rules.html"
+  - title: 경고 알림을 관리합니다
+    entries:
+    - title: SNMP 알림을 설정합니다
+      url: "/monitor/snmp-alert-notifications.html"
+    - title: 이메일 알림을 설정합니다
+      url: "/monitor/email-alert-notifications.html"
+    - title: 알림 메시지를 해제합니다
+      url: "/monitor/silencing-alert-notifications.html"
+  - title: 경고 참조
+    url: "/monitor/alerts-reference.html"
+  - title: 일반적으로 사용되는 Prometheus 메트릭입니다
+    url: "/monitor/commonly-used-prometheus-metrics.html"
+- title: 로그 파일 참조
+  entries:
+  - title: 로그 파일에 액세스합니다
+    pdf-filename: 로그 파일 참조
+    url: "/monitor/logs-files-reference.html"
+  - title: StorageGRID 소프트웨어 로그
+    url: "/monitor/storagegrid-software-logs.html"
+  - title: 배포 및 유지 관리 로그
+    url: "/monitor/deployment-and-maintenance-logs.html"
+  - title: bycast.log 정보
+    url: "/monitor/about-bycast-log.html"
+- title: 감사 메시지 및 로그 대상을 구성합니다
+  entries:
+  - title: 외부 syslog 서버에 대한 고려 사항
+    url: "/monitor/considerations-for-external-syslog-server.html"
+  - title: 감사 메시지 및 외부 syslog 서버를 구성합니다
+    url: "/monitor/configure-audit-messages.html"
+- title: SNMP 모니터링을 사용합니다
+  entries:
+  - title: SNMP 모니터링
+    pdf-filename: SNMP 모니터링을 사용합니다
+    url: "/monitor/using-snmp-monitoring.html"
+  - title: SNMP 에이전트를 구성합니다
+    url: "/monitor/configuring-snmp-agent.html"
+  - title: SNMP 에이전트를 업데이트합니다
+    url: "/monitor/updating-snmp-agent.html"
+  - title: MIB 파일에 액세스합니다
+    url: "/monitor/access-snmp-mib.html"
+- title: 추가 StorageGRID 데이터를 수집합니다
+  entries:
+  - title: 차트와 그래프를 사용합니다
+    url: "/monitor/using-charts-and-reports.html"
+  - title: 텍스트 보고서를 사용합니다
+    url: "/monitor/types-of-text-reports.html"
+  - title: PUT 모니터링 및 성능 확보
+    url: "/monitor/monitoring-put-and-get-performance.html"
+  - title: 개체 검증 작업을 모니터링합니다
+    url: "/monitor/monitoring-object-verification-operations.html"
+  - title: 이벤트를 모니터링합니다
+    url: "/monitor/monitoring-events.html"
+  - title: 감사 메시지를 검토합니다
+    url: "/monitor/reviewing-audit-messages.html"
+  - title: 로그 파일 및 시스템 데이터를 수집합니다
+    url: "/monitor/collecting-log-files-and-system-data.html"
+  - title: AutoSupport 패키지를 수동으로 트리거합니다
+    url: "/monitor/manually-triggering-autosupport-message.html"
+  - title: 그리드 토폴로지 트리를 봅니다
+    url: "/monitor/viewing-grid-topology-tree.html"
+  - title: 지원 메트릭을 검토합니다
+    url: "/monitor/reviewing-support-metrics.html"
+  - title: 진단 유틸리티를 실행합니다
+    url: "/monitor/running-diagnostics.html"
+  - title: 맞춤형 모니터링 애플리케이션을 생성합니다
+    url: "/monitor/creating-custom-monitoring-applications.html"

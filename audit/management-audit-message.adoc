@@ -1,0 +1,28 @@
+---
+permalink: audit/management-audit-message.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, management, user request, user requests 
+summary: 관리 범주는 사용자 요청을 관리 API에 기록합니다. 
+---
+= 관리 감사 메시지입니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+관리 범주는 사용자 요청을 관리 API에 기록합니다.
+
+[cols="1a,3a,1a"]
+|===
+| 코드 | 메시지 제목 및 설명입니다 | 을 참조하십시오 
+
+
+ a| 
+MGAU
+ a| 
+관리 API 감사 메시지: 사용자 요청 로그입니다.
+ a| 
+link:mgau-management-audit-message.html["MGAU: 관리 감사 메시지"]
+
+|===

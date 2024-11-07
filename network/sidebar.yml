@@ -1,0 +1,41 @@
+---
+section: network
+title: 네트워킹 지침
+entries:
+- title: StorageGRID 네트워킹
+  pdf-filename: StorageGRID 네트워킹 지침
+  url: "/network/index.html"
+- title: StorageGRID 네트워크 유형입니다
+  url: "/network/storagegrid-network-types.html"
+- title: 네트워크 토폴로지 예
+  entries:
+  - title: 그리드 네트워크 토폴로지
+    url: "/network/grid-network-topology.html"
+  - title: 관리 네트워크 토폴로지
+    url: "/network/admin-network-topology.html"
+  - title: 클라이언트 네트워크 토폴로지
+    url: "/network/client-network-topology.html"
+  - title: 3개의 네트워크를 모두 위한 토폴로지
+    url: "/network/topology-for-all-three-networks.html"
+- title: 네트워킹 요구 사항
+  url: "/network/networking-requirements-and-guidelines.html"
+- title: 네트워크 특정 요구 사항
+  url: "/network/network-specific-requirements.html"
+- title: 배포별 네트워킹 고려 사항
+  entries:
+  - title: Linux 배포
+    url: "/network/linux-deployments.html"
+  - title: 플랫폼 서비스 및 클라우드 스토리지 풀을 위한 네트워킹 및 포트
+    url: "/network/networking-and-ports-for-platform-services-and-cloud-storage-pools.html"
+  - title: 어플라이언스 노드
+    url: "/network/appliance-nodes.html"
+- title: 네트워크 설치 및 프로비저닝
+  url: "/network/network-installation-and-provisioning.html"
+- title: 설치 후 지침
+  url: "/network/post-installation-guidelines.html"
+- title: 네트워크 포트 참조
+  entries:
+  - title: 내부 그리드 노드 통신
+    url: "/network/internal-grid-node-communications.html"
+  - title: 외부 통신
+    url: "/network/external-communications.html"

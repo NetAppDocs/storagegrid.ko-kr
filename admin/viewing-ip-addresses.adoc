@@ -1,0 +1,31 @@
+---
+permalink: admin/viewing-ip-addresses.html 
+sidebar: sidebar 
+keywords: ip address, view ip addresses for nodes, what is node ip address 
+summary: StorageGRID 시스템의 각 그리드 노드에 대한 IP 주소를 볼 수 있습니다. 그런 다음 이 IP 주소를 사용하여 명령줄에서 그리드 노드에 로그인하고 다양한 유지보수 절차를 수행할 수 있습니다. 
+---
+= IP 주소를 봅니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 시스템의 각 그리드 노드에 대한 IP 주소를 볼 수 있습니다. 그런 다음 이 IP 주소를 사용하여 명령줄에서 그리드 노드에 로그인하고 다양한 유지보수 절차를 수행할 수 있습니다.
+
+.시작하기 전에
+을 사용하여 그리드 관리자에 로그인되어 있습니다.link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]
+
+.이 작업에 대해
+IP 주소 변경에 대한 자세한 내용은 를 link:../maintain/configuring-ip-addresses.html["IP 주소를 구성합니다"]참조하십시오.
+
+.단계
+. nodes * > *_GRID node_ * > * Overview * 를 선택합니다.
+. IP 주소 제목 오른쪽에 있는 * 더 보기 * 를 선택합니다.
++
+해당 그리드 노드의 IP 주소가 테이블에 나열됩니다.
+
++
+image::../media/nodes_page_overview_tab_extended.png[노드 페이지 IP 주소]
+
+

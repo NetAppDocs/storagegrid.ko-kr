@@ -1,0 +1,30 @@
+= MemberOf 및 구체화 오버레이
+:allow-uri-read: 
+
+
+OpenLDAP 서버를 ID 페더레이션에 사용하려면 OpenLDAP 서버에서 특정 설정을 구성해야 합니다.
+
+
+CAUTION: ActiveDirectory 또는 Azure가 아닌 ID 소스의 경우 StorageGRID는 외부에서 비활성화된 사용자에 대한 S3 액세스를 자동으로 차단하지 않습니다. S3 액세스를 차단하려면 사용자의 S3 키를 삭제하거나 모든 그룹에서 사용자를 제거합니다.
+
+
+
+=== MemberOf 및 구체화 오버레이
+
+MemberOf 및 구체화 오버레이를 활성화해야 합니다. 자세한 내용은 에서 역방향 그룹 구성원 유지 관리에 대한 지침을 참조하십시오http://www.openldap.org/doc/admin24/index.html["OpenLDAP 설명서: 버전 2.4 관리자 가이드"^].
+
+
+
+=== 인덱싱
+
+지정된 인덱스 키워드를 사용하여 다음 OpenLDAP 속성을 구성해야 합니다.
+
+* `olcDbIndex: objectClass eq`
+* `olcDbIndex: uid eq,pres,sub`
+* `olcDbIndex: cn eq,pres,sub`
+* `olcDbIndex: entryUUID eq`
+
+
+또한 최적의 성능을 위해 사용자 이름 도움말에 언급된 필드를 인덱싱해야 합니다.
+
+에서 역방향 그룹 구성원 유지 관리에 대한 정보를 http://www.openldap.org/doc/admin24/index.html["OpenLDAP 설명서: 버전 2.4 관리자 가이드"^]참조하십시오.

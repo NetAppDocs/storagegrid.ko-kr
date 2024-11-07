@@ -1,0 +1,29 @@
+---
+permalink: maintain/recovering-storagegrid-appliance-storage-node.html 
+sidebar: sidebar 
+keywords: recover, appliance storage node failure, workflow 
+summary: 장애가 발생한 StorageGRID 어플라이언스 스토리지 노드를 복구하는 절차는 시스템 드라이브 손실 또는 스토리지 볼륨 손실에서 복구하든 동일합니다. 
+---
+= 어플라이언스 스토리지 노드 복구에 대한 경고
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+장애가 발생한 StorageGRID 어플라이언스 스토리지 노드를 복구하는 절차는 시스템 드라이브 손실 또는 스토리지 볼륨 손실에서 복구하든 동일합니다.
+
+
+CAUTION: 둘 이상의 스토리지 노드에 장애가 있거나 오프라인 상태인 경우 기술 지원 부서에 문의하십시오. 다음 복구 절차를 수행하지 마십시오. 데이터가 손실될 수 있습니다.
+
+
+CAUTION: 스토리지 노드 장애 또는 복구 후 15일 이내에 두 번째 스토리지 노드 오류인 경우 기술 지원 부서에 문의하십시오. 15일 이내에 두 개 이상의 스토리지 노드에서 Cassandra를 재구축하면 데이터가 손실될 수 있습니다.
+
+
+NOTE: 한 사이트에 둘 이상의 스토리지 노드에 장애가 발생한 경우 사이트 복구 절차가 필요할 수 있습니다. 을 link:how-site-recovery-is-performed-by-technical-support.html["기술 지원 부서에서 사이트를 복구하는 방법"]참조하십시오.
+
+
+CAUTION: ILM 규칙이 복제된 복사본을 하나만 저장하도록 구성되어 있고 해당 복사본이 실패한 스토리지 볼륨에 있으면 개체를 복구할 수 없습니다.
+
+
+NOTE: 컨트롤러 교체 또는 SANtricity OS 재설치 지침과 같은 하드웨어 유지 관리 절차는 를 참조하십시오 https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/index.html["보관 어플라이언스 유지보수 지침"^].

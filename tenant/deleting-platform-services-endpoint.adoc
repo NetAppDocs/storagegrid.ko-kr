@@ -1,0 +1,36 @@
+---
+permalink: tenant/deleting-platform-services-endpoint.html 
+sidebar: sidebar 
+keywords: how to delete tenant platform services endpoint 
+summary: 연결된 플랫폼 서비스를 더 이상 사용하지 않으려면 끝점을 삭제할 수 있습니다. 
+---
+= 플랫폼 서비스 끝점을 삭제합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+연결된 플랫폼 서비스를 더 이상 사용하지 않으려면 끝점을 삭제할 수 있습니다.
+
+.시작하기 전에
+* 를 사용하여 테넌트 관리자에 로그인되어 link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]있습니다.
+* 이 있는 사용자 그룹에 속해 link:tenant-management-permissions.html["끝점 또는 루트 액세스 권한을 관리합니다"]있습니다.
+
+
+.단계
+. 스토리지(S3) * > * 플랫폼 서비스 엔드포인트 * 를 선택합니다.
++
+플랫폼 서비스 끝점 페이지가 나타나고 이미 구성된 플랫폼 서비스 끝점 목록이 표시됩니다.
+
+. 삭제할 각 끝점의 확인란을 선택합니다.
++
+
+NOTE: 사용 중인 플랫폼 서비스 끝점을 삭제하면 해당 끝점을 사용하는 모든 버킷에 대해 연결된 플랫폼 서비스가 비활성화됩니다. 아직 완료되지 않은 요청은 삭제됩니다. 삭제된 URN을 더 이상 참조하지 않도록 버킷 구성을 변경할 때까지 새 요청은 계속 생성됩니다. StorageGRID는 이러한 요청을 복구할 수 없는 오류로 보고합니다.
+
+. 작업 * > * 끝점 삭제 * 를 선택합니다.
++
+확인 메시지가 나타납니다.
+
+. 끝점 삭제 * 를 선택합니다.
+

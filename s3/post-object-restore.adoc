@@ -1,0 +1,83 @@
+---
+permalink: s3/post-object-restore.html 
+sidebar: sidebar 
+keywords: post, RestoreObject, object 
+summary: S3 RestoreObject 요청을 사용하여 클라우드 스토리지 풀에 저장된 개체를 복원할 수 있습니다. 
+---
+= RestoreObject 를 선택합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+S3 RestoreObject 요청을 사용하여 클라우드 스토리지 풀에 저장된 개체를 복원할 수 있습니다.
+
+
+
+== 지원되는 요청 유형입니다
+
+StorageGRID에서는 객체를 복원하기 위한 RestoreObject 요청만 지원합니다. 복원 유형을 지원하지 `SELECT` 않습니다. 요청 반환 을 선택합니다 `XNotImplemented`.
+
+
+
+== 버전 관리
+
+선택적으로 `versionId` 버전 지정된 버킷에서 특정 버전의 개체를 복원하도록 지정합니다. 을 지정하지 `versionId`않으면 개체의 최신 버전이 복원됩니다
+
+
+
+== 클라우드 스토리지 풀 객체에서 RestoreObject의 동작입니다
+
+개체가 에 저장된 경우 link:../ilm/what-cloud-storage-pool-is.html["클라우드 스토리지 풀"]RestoreObject 요청에는 개체의 상태에 따라 다음과 같은 동작이 발생합니다. 자세한 내용은 을 link:head-object.html["HeadObject 를 선택합니다"]참조하십시오.
+
+
+NOTE: 객체가 클라우드 스토리지 풀에 저장되어 있고 하나 이상의 객체 복제본도 그리드에 있는 경우 RestoreObject 요청을 실행하여 객체를 복구할 필요가 없습니다. 대신 GetObject 요청을 사용하여 로컬 복사본을 직접 검색할 수 있습니다.
+
+[cols="1a,2a"]
+|===
+| 개체의 상태입니다 | RestoreObject의 동작입니다 
+
+
+ a| 
+StorageGRID로 수집되었지만 ILM에서 아직 평가되지 않은 오브젝트 또는 클라우드 스토리지 풀에 없는 오브젝트
+ a| 
+`403 Forbidden`, `InvalidObjectState`
+
+
+
+ a| 
+Cloud Storage Pool의 개체이지만 아직 검색할 수 없는 상태로 전환되지 않았습니다
+ a| 
+`200 OK` 변경되지 않았습니다.
+
+* 참고 * : 개체가 검색 불가능한 상태로 전환되기 전에 개체를 변경할 수 `expiry-date` 없습니다.
+
+
+
+ a| 
+개체가 검색할 수 없는 상태로 전환되었습니다
+ a| 
+`202 Accepted` 요청 본문에 지정된 일 수 동안 객체의 검색 가능한 복제본을 클라우드 스토리지 풀에 복구합니다. 이 기간이 끝나면 객체는 복구할 수 없는 상태로 돌아갑니다.
+
+필요한 경우, request 요소를 사용하여 `Tier` 복원 작업이 완료되는 데 걸리는 시간을 (`Expedited` `Standard`결정합니다, 또는 `Bulk`). 지정하지 않으면 `Tier` `Standard` 계층이 사용됩니다.
+
+* 중요 *: 개체가 S3 Glacier Deep Archive로 전환되었거나 클라우드 스토리지 풀이 Azure Blob 스토리지를 사용하는 경우 계층을 사용하여 복원할 수 없습니다 `Expedited`. 다음 오류가 `403 Forbidden` 반환됩니다 `InvalidTier` `Retrieval option is not supported by this storage class`.
+
+
+
+ a| 
+복구할 수 없는 상태에서 복원 중인 개체입니다
+ a| 
+`409 Conflict`, `RestoreAlreadyInProgress`
+
+
+
+ a| 
+객체가 클라우드 스토리지 풀에 완전히 복구되었습니다
+ a| 
+`200 OK`
+
+* 참고: * 오브젝트가 검색 가능한 상태로 복원된 경우 에 대한 새 값으로 RestoreObject 요청을 다시 실행하여 오브젝트를 `Days` 변경할 수 `expiry-date` 있습니다. 복원 날짜는 요청 시간을 기준으로 업데이트됩니다.
+
+|===

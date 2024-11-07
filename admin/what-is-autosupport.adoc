@@ -1,0 +1,236 @@
+---
+permalink: admin/what-is-autosupport.html 
+sidebar: sidebar 
+keywords: autosupport, technical support, storagegrid health, system status, Active IQ 
+summary: AutoSupport 기능을 사용하면 StorageGRID에서 상태 패키지를 NetApp 기술 지원으로 보낼 수 있습니다. 
+---
+= AutoSupport란 무엇입니까?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+AutoSupport 기능을 사용하면 StorageGRID에서 상태 패키지를 NetApp 기술 지원으로 보낼 수 있습니다.
+
+AutoSupport를 사용하면 문제를 훨씬 빠르게 확인하고 해결할 수 있습니다. 기술 지원 부서에서는 시스템의 스토리지 요구 사항을 모니터링하여 새 노드나 사이트를 추가해야 하는지 여부를 결정할 수 있습니다. 선택적으로 하나의 추가 대상으로 AutoSupport 패키지를 보내도록 구성할 수 있습니다.
+
+StorageGRID에는 두 가지 유형의 AutoSupport가 있습니다.
+
+* * StorageGRID AutoSupport * 는 StorageGRID 소프트웨어 문제를 보고합니다. StorageGRID를 처음 설치할 때 기본적으로 사용됩니다. 필요한 경우 수행할 수 link:configure-autosupport-grid-manager.html["기본 AutoSupport 구성을 변경합니다"]있습니다.
++
+
+NOTE: StorageGRID AutoSupport가 활성화되어 있지 않으면 그리드 관리자 대시보드에 메시지가 나타납니다. 이 메시지에는 AutoSupport 구성 페이지에 대한 링크가 포함되어 있습니다. 메시지를 닫으면 AutoSupport가 비활성화된 경우에도 브라우저 캐시가 지워질 때까지 메시지가 다시 표시되지 않습니다.
+
+* * 어플라이언스 하드웨어 AutoSupport * 는 StorageGRID 어플라이언스 문제를 보고합니다. 반드시 해야 link:configure-autosupport-grid-manager.html#autosupport-for-appliances["각 어플라이언스에 하드웨어 AutoSupport를 구성합니다"]합니다.
+
+
+
+
+== Active IQ란 무엇입니까?
+
+Active IQ는 NetApp 설치 기반에서 예측 분석 및 커뮤니티 지혜를 활용하는 클라우드 기반 디지털 자문업체입니다. 지속적인 위험 평가, 예측 경고, 규범적 지침 및 자동화된 작업을 통해 문제가 발생하기 전에 이를 방지함으로써 시스템 상태를 개선하고 시스템 가용성을 높일 수 있습니다.
+
+NetApp Support 사이트에서 Active IQ 대시보드 및 기능을 사용하려면 AutoSupport를 사용하도록 설정해야 합니다.
+
+https://docs.netapp.com/us-en/active-iq/index.html["Active IQ 디지털 자문 문서"^]
+
+
+
+== AutoSupport 패키지에 포함된 정보입니다
+
+AutoSupport 패키지에는 다음과 같은 파일과 세부 정보가 들어 있습니다.
+
+[cols="2a,2a,3a"]
+|===
+| 파일 이름입니다 | 필드를 선택합니다 | 설명 
+
+
+ a| 
+autosupport-history.xml
+ a| 
+이 AutoSupport에 대한 AutoSupport 시퀀스 번호 + 대상 + 전달 상태 + 전송 시도 + AutoSupport 제목 + 전송 URI + 마지막 오류 + AutoSupport 파일 이름 + 생성 시간 + AutoSupport 압축 크기 + AutoSupport 압축 해제 크기 + 총 수집 시간(ms)
+ a| 
+AutoSupport 기록 파일.
+
+
+
+ a| 
+AutoSupport.xml을 참조하십시오
+ a| 
+지원 문의 지원 + HTTP/HTTPS에 대한 지원 URL + 지원 주소 + AutoSupport OnDemand 상태 + AutoSupport OnDemand 서버 URL + AutoSupport OnDemand 폴링 간격
+ a| 
+AutoSupport 상태 파일. 사용된 프로토콜, 기술 지원 URL 및 주소, 폴링 간격 및 활성화 또는 비활성화한 경우 OnDemand AutoSupport에 대한 자세한 내용은 에 나와 있습니다.
+
+
+
+ a| 
+버킷.xml
+ a| 
+버킷 ID + 계정 ID + 빌드 버전 + 위치 제약 구성 + 규정 준수 활성화 + 규정 준수 구성 + S3 오브젝트 잠금 활성화 + S3 오브젝트 잠금 구성 + 일관성 구성 + CORS 활성화 + CORS 구성 + 마지막 액세스 시간 활성화 + 정책 활성화 + 정책 구성 + 알림 설정 + 클라우드 미러 구성 + 활성화 검색 + 검색 구성 + 버킷 태깅 지원
+ a| 
+버킷 수준의 구성 세부 정보 및 통계를 제공합니다. 버킷 구성의 예로는 플랫폼 서비스, 규정 준수 및 버킷 일관성이 있습니다.
+
+
+
+ a| 
+그리드-설정.xml
+ a| 
+특성 ID + 특성 이름 + 값 + 인덱스 + 테이블 ID + 테이블 이름
+ a| 
+그리드 전체의 구성 정보 파일입니다. 그리드 인증서, 메타데이터 예약 공간, 그리드 전체 구성 설정(규정 준수, S3 오브젝트 잠금, 오브젝트 압축, 경고, syslog 및 ILM 구성), 삭제 코딩 프로필 세부 정보, DNS 이름 및 ILM 구성 등에 대한 정보가 포함되어 있습니다link:../primer/nodes-and-services.html#storagegrid-services["NMS 이름"].
+
+
+
+ a| 
+그리드 사양 XML
+ a| 
+그리드 사양, 원시 XML
+ a| 
+StorageGRID 구성 및 배포에 사용됩니다. 그리드 사양, NTP 서버 IP, DNS 서버 IP, 네트워크 토폴로지 및 노드의 하드웨어 프로필을 포함합니다.
+
+
+
+ a| 
+그리드 - tasks.xml
+ a| 
+노드 + 서비스 경로 + 특성 ID + 특성 이름 + 값 + 인덱스 + 테이블 ID + 테이블 이름
+ a| 
+그리드 작업(유지보수 절차) 상태 파일입니다. 그리드의 활성, 종료, 완료, 실패 및 보류 중인 작업에 대한 세부 정보를 제공합니다.
+
+
+
+ a| 
+그리드.JSON
+ a| 
+그리드 + 개정 + 소프트웨어 버전 + 설명 + 라이센스 + 암호 + DNS + NTP + 사이트 + 노드
+ a| 
+그리드 정보
+
+
+
+ a| 
+ILM-configuration.xml을 참조하십시오
+ a| 
+특성 ID + 특성 이름 + 값 + 인덱스 + 테이블 ID + 테이블 이름
+ a| 
+ILM 구성에 대한 특성 목록입니다.
+
+
+
+ a| 
+ILM-STATUS.xml입니다
+ a| 
+노드 + 서비스 경로 + 특성 ID + 특성 이름 + 값 + 인덱스 + 테이블 ID + 테이블 이름
+ a| 
+ILM 메트릭 정보 파일 각 노드에 대한 ILM 평가율과 그리드 전체 메트릭에 대한 ILM 평가율이 포함되어 있습니다.
+
+
+
+ a| 
+ILM.xml을 참조하십시오
+ a| 
+ILM 원시 XML
+ a| 
+ILM 활성 정책 파일 스토리지 풀 ID, 수집 동작, 필터, 규칙 및 설명과 같은 활성 ILM 정책에 대한 세부 정보를 제공합니다.
+
+
+
+ a| 
+Log.TGZ(로그 TGZ
+ a| 
+_n/a_
+ a| 
+로그 파일을 다운로드할 수 있습니다. 각 노드에서 및 `servermanager.log` 을 `bycast-err.log` 포함합니다.
+
+
+
+ a| 
+매니페스트.xml
+ a| 
+이 데이터에 대한 수집 순서 + AutoSupport 콘텐츠 파일 이름 + 이 데이터 항목에 대한 설명 + 수집된 바이트 수 + 수집에 소요된 시간 + 이 데이터 항목의 상태 + 이 데이터에 대한 AutoSupport 콘텐츠 형식 설명 +
+ a| 
+AutoSupport 메타데이터와 모든 AutoSupport 파일에 대한 간략한 설명을 포함합니다.
+
+
+
+ a| 
+nms-entities.xml입니다
+ a| 
+속성 인덱스 + 엔터티 OID + 노드 ID + 장치 모델 ID + 장치 모델 버전 + 엔터티 이름
+ a| 
+의 그룹 및 서비스 엔티티link:../primer/nodes-and-services.html#storagegrid-services["NMS 트리"] 그리드 토폴로지 세부 정보를 제공합니다. 노드는 노드에서 실행되는 서비스를 기반으로 확인할 수 있습니다.
+
+
+
+ a| 
+개체 - 상태 .xml
+ a| 
+노드 + 서비스 경로 + 특성 ID + 특성 이름 + 값 + 인덱스 + 테이블 ID + 테이블 이름
+ a| 
+배경 스캔 상태, 활성 전송, 전송 속도, 총 전송, 삭제 속도, 손상된 조각, 손실된 개체, 누락된 개체, 복구 시도, 스캔 속도, 예상 스캔 기간 및 복구 완료 상태를 포함한 개체 상태.
+
+
+
+ a| 
+서버 상태 .xml
+ a| 
+노드 + 서비스 경로 + 특성 ID + 특성 이름 + 값 + 인덱스 + 테이블 ID + 테이블 이름
+ a| 
+서버 구성. 각 노드에 대한 세부 정보가 포함됩니다. 플랫폼 유형, 운영 체제, 설치된 메모리, 사용 가능한 메모리, 스토리지 연결, 스토리지 어플라이언스 섀시 일련 번호, 스토리지 컨트롤러 오류 드라이브 수, 컴퓨팅 컨트롤러 섀시 온도, 컴퓨팅 하드웨어, 컴퓨팅 컨트롤러 일련 번호, 전원 공급 장치, 드라이브 크기, 드라이브 유형.
+
+
+
+ a| 
+서비스 상태 .xml
+ a| 
+노드 + 서비스 경로 + 특성 ID + 특성 이름 + 값 + 인덱스 + 테이블 ID + 테이블 이름
+ a| 
+서비스 노드 정보 파일입니다. 할당된 테이블 공간, 사용 가능한 테이블 공간, 데이터베이스의 Reaper 메트릭, 세그먼트 복구 기간, 복구 작업 기간, 자동 작업 재시작 및 자동 작업 종료와 같은 세부 정보가 포함됩니다.
+
+
+
+ a| 
+저장 - 등급 .xml
+ a| 
+스토리지 등급 ID + 스토리지 등급 이름 + 스토리지 노드 ID + 스토리지 노드 경로입니다
+ a| 
+각 스토리지 노드에 대한 스토리지 등급 정의 파일입니다.
+
+
+
+ a| 
+요약 - attributes.xml
+ a| 
+그룹 OID + 그룹 경로 + 요약 속성 ID + 요약 속성 이름 + 값 + 인덱스 + 테이블 ID + 테이블 이름
+ a| 
+StorageGRID 사용 정보를 요약하는 상위 수준의 시스템 상태 데이터입니다. 그리드 이름, 사이트 이름, 그리드당 및 사이트당 스토리지 노드 수, 라이센스 유형, 라이센스 용량 및 사용, 소프트웨어 지원 조건, S3 작업 세부 정보와 같은 세부 정보를 제공합니다.
+
+
+
+ a| 
+System-alerts.xml을 참조하십시오
+ a| 
+이름 + 심각도 + 노드 이름 + 경고 상태 + 사이트 이름 + 경고 트리거 시간 + 경고 해결 시간 + 규칙 ID + 노드 ID + 사이트 ID + 해제 + 기타 주석 + 기타 레이블
+ a| 
+StorageGRID 시스템의 잠재적 문제를 나타내는 현재 시스템 알림입니다.
+
+
+
+ a| 
+USERAGENTS.xml을 참조하십시오
+ a| 
+사용자 에이전트 + 일 수 + 총 HTTP 요청 수 + 수집된 총 바이트 수 + 검색된 총 바이트 수 + 검색된 총 바이트 수 + 요청 가져오기 + 요청 가져오기 + 헤더 요청 + POST 요청 + 옵션 요청 + 평균 요청 시간(ms) + 평균 수신 요청 시간(ms) + 평균 삭제 요청 시간(ms) + 평균 헤드 요청 시간(ms) + 평균 POST 요청 시간(ms) + 평균 POST 요청 시간(ms) + 평균 요청 시간(ms)
+ a| 
+애플리케이션 사용자 에이전트를 기준으로 한 통계입니다. 예를 들어, 사용자 에이전트당 Put/get/delete/head 작업 수와 각 작업의 총 바이트 크기입니다.
+
+
+
+ a| 
+X-헤더-데이터
+ a| 
+X-NetApp-ASUP-Generated-on+X-NetApp-ASUP-hostname+X-NetApp-ASUP-OS-버전+X-NetApp-ASUP-serial-num+X-NetApp-ASUP-subject+X-NetApp-ASUP-system-id+X-NetApp-ASUP-MODEL-NAME+
+ a| 
+AutoSupport 헤더 데이터
+
+|===

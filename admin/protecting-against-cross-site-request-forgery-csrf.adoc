@@ -1,0 +1,42 @@
+---
+permalink: admin/protecting-against-cross-site-request-forgery-csrf.html 
+sidebar: sidebar 
+keywords: csrf, cross site request forgery, token 
+summary: 'CSRF 토큰을 사용하여 쿠키를 사용하는 인증을 강화하면 StorageGRID에 대한 CSRF(사이트 간 요청 위조) 공격으로부터 보호할 수 있습니다. Grid Manager 및 Tenant Manager는 이 보안 기능을 자동으로 활성화합니다. 다른 API 클라이언트는 로그인할 때 활성화 여부를 선택할 수 있습니다.' 
+---
+= 사이트 간 요청 위조(CSRF)로부터 보호
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+CSRF 토큰을 사용하여 쿠키를 사용하는 인증을 강화하면 StorageGRID에 대한 CSRF(사이트 간 요청 위조) 공격으로부터 보호할 수 있습니다. Grid Manager 및 Tenant Manager는 이 보안 기능을 자동으로 활성화합니다. 다른 API 클라이언트는 로그인할 때 활성화 여부를 선택할 수 있습니다.
+
+HTTP 양식 POST와 같이 다른 사이트에 대한 요청을 트리거할 수 있는 공격자는 로그인한 사용자의 쿠키를 사용하여 특정 요청을 만들 수 있습니다.
+
+StorageGRID는 CSRF 토큰을 사용하여 CSRF 공격으로부터 보호합니다. 활성화된 경우 특정 쿠키의 내용은 특정 헤더 또는 특정 POST 본문 매개 변수의 내용과 일치해야 합니다.
+
+이 기능을 활성화하려면 `csrfToken` 인증 중에 매개 변수를 로 `true` 설정합니다. 기본값은 입니다 `false`.
+
+[listing]
+----
+curl -X POST --header "Content-Type: application/json" --header "Accept: application/json" -d "{
+  \"username\": \"MyUserName\",
+  \"password\": \"MyPassword\",
+  \"cookie\": true,
+  \"csrfToken\": true
+}" "https://example.com/api/v3/authorize"
+----
+true 인 경우, `GridCsrfToken` 쿠키는 Grid Manager 로그인에 대한 임의 값으로 설정되고 `AccountCsrfToken` 쿠키는 Tenant Manager에 로그인하기 위한 임의 값으로 설정됩니다.
+
+쿠키가 있는 경우 시스템 상태(POST, PUT, 패치, 삭제)를 수정할 수 있는 모든 요청에 다음 중 하나가 포함되어야 합니다.
+
+*  `X-Csrf-Token`헤더 값이 CSRF 토큰 쿠키의 값으로 설정된 헤더입니다.
+* 폼으로 인코딩된 본문을 수락하는 끝점의 경우: `csrfToken` 폼으로 인코딩된 요청 본문 매개 변수입니다.
+
+
+추가 예제 및 세부 정보는 온라인 API 설명서를 참조하십시오.
+
+
+NOTE: CSRF 토큰 쿠키 세트가 있는 요청은 CSRF 공격에 대한 추가 보호로서 JSON 요청 본문을 기대하는 모든 요청에 대해 "Content-Type: application/json" 헤더를 적용합니다.

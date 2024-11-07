@@ -1,0 +1,30 @@
+---
+permalink: s3/delete-bucket-metadata-notification-configuration-request.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, DELETE Bucket metadata notification configuration request 
+summary: Delete Bucket 메타데이터 알림 구성 요청을 사용하면 구성 XML을 삭제하여 개별 버킷에 대한 검색 통합 서비스를 비활성화할 수 있습니다. 
+---
+= 버킷 메타데이터 알림 구성을 삭제합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Delete Bucket 메타데이터 알림 구성 요청을 사용하면 구성 XML을 삭제하여 개별 버킷에 대한 검색 통합 서비스를 비활성화할 수 있습니다.
+
+이 작업을 완료하려면 버킷에 대한 S3:DeleteBucketMetadataNotification 권한이 있거나 계정 루트여야 합니다.
+
+
+
+== 요청 예
+
+이 예제에서는 버킷에 대한 검색 통합 서비스를 비활성화하는 방법을 보여 줍니다.
+
+[listing, subs="specialcharacters,quotes"]
+----
+DELETE /test1?x-ntap-sg-metadata-notification HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----

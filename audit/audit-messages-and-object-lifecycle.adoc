@@ -1,0 +1,47 @@
+---
+permalink: audit/audit-messages-and-object-lifecycle.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, log, object lifecycle, ingest, retrieve, delete, s3, timing, ILM, Information lifecycle management 
+summary: 감사 메시지는 개체가 수집되거나 검색되거나 삭제될 때마다 생성됩니다. S3 API별 감사 메시지를 찾아 감사 로그에서 이러한 트랜잭션을 식별할 수 있습니다. 
+---
+= 감사 메시지는 언제 생성됩니까?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+감사 메시지는 개체가 수집되거나 검색되거나 삭제될 때마다 생성됩니다. S3 API별 감사 메시지를 찾아 감사 로그에서 이러한 트랜잭션을 식별할 수 있습니다.
+
+감사 메시지는 각 프로토콜에 특정한 식별자를 통해 연결됩니다.
+
+[cols="1a,1a"]
+|===
+| 프로토콜 | 코드 
+
+
+ a| 
+S3 작업 연결
+ a| 
+S3BK(버킷), S3KY(키) 또는 둘 다
+
+
+
+ a| 
+Swift 작업 연결
+ a| 
+WCON(컨테이너), WOBJ(오브젝트) 또는 둘 다
+
+
+
+ a| 
+내부 작업 연결
+ a| 
+CBID(객체의 내부 식별자)
+
+|===
+
+
+== 감사 메시지 타이밍
+
+그리드 노드 간 타이밍 차이, 개체 크기 및 네트워크 지연 등의 요인으로 인해 서로 다른 서비스에서 생성된 감사 메시지의 순서는 이 섹션의 예제에 표시된 순서와 다를 수 있습니다.

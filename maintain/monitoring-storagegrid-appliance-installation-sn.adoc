@@ -1,0 +1,48 @@
+---
+permalink: maintain/monitoring-storagegrid-appliance-installation-sn.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, appliance 
+summary: StorageGRID 어플라이언스 설치 프로그램은 설치가 완료될 때까지 상태를 제공합니다. 소프트웨어 설치가 완료되면 어플라이언스가 재부팅됩니다. 
+---
+= StorageGRID 어플라이언스 설치를 모니터링합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 어플라이언스 설치 프로그램은 설치가 완료될 때까지 상태를 제공합니다. 소프트웨어 설치가 완료되면 어플라이언스가 재부팅됩니다.
+
+.단계
+. 설치 진행률을 모니터링하려면 메뉴 표시줄에서 * 모니터 설치 * 를 클릭합니다.
++
+Monitor Installation(모니터 설치) 페이지에 설치 진행률이 표시됩니다.
+
++
+image::../media/monitor_installation_configure_storage.gif[이 이미지는 주변 텍스트로 설명됩니다.]
+
++
+파란색 상태 표시줄은 현재 진행 중인 작업을 나타냅니다. 녹색 상태 표시줄은 성공적으로 완료된 작업을 나타냅니다.
+
++
+
+NOTE: 설치 프로그램은 이전 설치에서 완료된 작업이 다시 실행되지 않도록 합니다. 설치를 다시 실행하는 경우 다시 실행할 필요가 없는 작업은 녹색 상태 표시줄과 "건너뜀"으로 표시됩니다.
+
+. 처음 두 설치 단계의 진행 상황을 검토합니다.
++
+** * 1. 스토리지 구성 *
++
+이 단계에서 설치 관리자는 스토리지 컨트롤러에 연결하고, 기존 구성을 지우고, SANtricity OS와 통신하여 볼륨을 구성하고, 호스트 설정을 구성합니다.
+
+** * 2. OS * 를 설치합니다
++
+이 단계에서 설치 프로그램은 StorageGRID의 기본 운영 체제 이미지를 어플라이언스에 복사합니다.
+
+
+
+. StorageGRID* 설치 단계가 일시 중지되고 그리드 관리자를 사용하여 관리 노드에서 이 노드를 승인하라는 메시지가 포함된 콘솔에 표시될 때까지 설치 진행 상태를 계속 모니터링합니다.
++
+image::../media/monitor_installation_install_sgws.gif[이 이미지는 주변 텍스트로 설명됩니다.]
+
+. 로 이동합니다. link:selecting-start-recovery-to-configure-appliance-storage-node.html["Start Recovery(복구 시작) 를 선택하여 어플라이언스 스토리지 노드를 구성합니다"]
+

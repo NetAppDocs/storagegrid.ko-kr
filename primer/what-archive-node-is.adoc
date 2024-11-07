@@ -1,0 +1,16 @@
+---
+permalink: primer/what-archive-node-is.html 
+sidebar: sidebar 
+keywords: archive node 
+summary: 아카이브 노드에 대한 지원이 제거되었습니다. 
+---
+= 아카이브 노드란 무엇입니까?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+아카이브 노드에 대한 지원이 제거되었습니다.
+
+아카이브 노드에 대한 자세한 내용은 을 https://docs.netapp.com/us-en/storagegrid-118/primer/what-archive-node-is.html["아카이브 노드란 무엇입니까(StorageGRID 11.8 문서 사이트)"^]참조하십시오.

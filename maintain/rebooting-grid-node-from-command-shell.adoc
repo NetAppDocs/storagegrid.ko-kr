@@ -1,0 +1,37 @@
+---
+permalink: maintain/rebooting-grid-node-from-command-shell.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, reboot node, command shell reboot 
+summary: 재부팅 작업을 보다 자세히 모니터링해야 하거나 Grid Manager에 액세스할 수 없는 경우 GRID 노드에 로그인하여 명령 셸에서 Server Manager 재부팅 명령을 실행할 수 있습니다. 
+---
+= 명령 셸에서 그리드 노드를 재부팅합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+재부팅 작업을 보다 자세히 모니터링해야 하거나 Grid Manager에 액세스할 수 없는 경우 GRID 노드에 로그인하여 명령 셸에서 Server Manager 재부팅 명령을 실행할 수 있습니다.
+
+.시작하기 전에
+ `Passwords.txt`파일이 있습니다.
+
+.단계
+. 그리드 노드에 로그인합니다.
++
+.. 다음 명령을 입력합니다. `ssh admin@_grid_node_IP_`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
+.. 다음 명령을 입력하여 루트로 전환합니다. `su -`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
+
+
++
+루트로 로그인하면 프롬프트가 에서 `$` 로 `#`변경됩니다.
+
+. 선택적으로 서비스를 중지합니다. `service servermanager stop`
++
+서비스를 중지하는 것은 선택 사항이지만 권장되는 단계입니다. 서비스를 종료하는 데 최대 15분이 걸릴 수 있으며, 다음 단계에서 노드를 재부팅하기 전에 시스템에 원격으로 로그인하여 종료 프로세스를 모니터링할 수 있습니다.
+
+. 그리드 노드를 재부팅합니다. `reboot`
+. 명령 셸에서 로그아웃합니다. `exit`
+

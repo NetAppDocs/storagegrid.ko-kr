@@ -1,0 +1,62 @@
+---
+section: expand
+title: 그리드를 확장합니다
+url: "/landing-expand/index.html"
+entries:
+- title: 확장 유형
+  pdf-filename: StorageGRID 시스템을 확장합니다
+  url: "/expand/index.html"
+- title: StorageGRID 확장 계획
+  entries:
+  - title: 스토리지 용량을 추가합니다
+    entries:
+    - title: '지침: 개체 용량 추가'
+      url: "/expand/guidelines-for-adding-object-capacity.html"
+    - title: 복제된 객체에 대한 스토리지 용량을 추가합니다
+      url: "/expand/adding-storage-capacity-for-replicated-objects.html"
+    - title: 삭제 코딩 오브젝트를 위한 스토리지 용량을 추가합니다
+      url: "/expand/adding-storage-capacity-for-erasure-coded-objects.html"
+    - title: 삭제 코딩 데이터의 재조정에 대한 고려사항
+      url: "/expand/considerations-for-rebalancing-erasure-coded-data.html"
+  - title: 메타데이터 용량을 추가합니다
+    url: "/expand/adding-metadata-capacity.html"
+  - title: 중복성 또는 새로운 기능 추가
+    url: "/expand/adding-grid-nodes-to-add-capabilities.html"
+  - title: 새 사이트를 추가합니다
+    url: "/expand/adding-new-site.html"
+- title: 필요한 자료를 수집합니다
+  url: "/expand/gather-required-materials.html"
+- title: 스토리지 볼륨을 추가합니다
+  entries:
+  - title: 스토리지 노드에 스토리지 볼륨을 추가합니다
+    url: "/expand/adding-storage-volumes-to-storage-nodes.html"
+  - title: 'VMware: 스토리지 노드에 스토리지 볼륨을 추가합니다'
+    url: "/expand/vmware-adding-storage-volumes-to-storage-node.html"
+  - title: 'Linux: 스토리지 노드에 직접 연결 또는 SAN 볼륨을 추가합니다'
+    url: "/expand/linux-adding-direct-attached-or-san-volumes-to-storage-node.html"
+- title: 그리드 노드 또는 사이트를 추가합니다
+  entries:
+  - title: 기존 사이트에 그리드 노드를 추가하거나 새 사이트를 추가합니다
+    url: "/expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html"
+  - title: 그리드 네트워크에 대한 서브넷을 업데이트합니다
+    url: "/expand/updating-subnets-for-grid-network.html"
+  - title: 새 그리드 노드를 배포합니다
+    url: "/expand/deploying-new-grid-nodes.html"
+  - title: 확장을 수행합니다
+    url: "/expand/performing-expansion.html"
+- title: 확장된 시스템을 구성합니다
+  entries:
+  - title: 구성 단계
+    url: "/expand/configuring-expanded-storagegrid-system.html"
+  - title: 스토리지 노드가 활성 상태인지 확인합니다
+    url: "/expand/verifying-storage-node-is-active.html"
+  - title: 관리 노드 데이터베이스를 복사합니다
+    url: "/expand/copying-admin-node-database.html"
+  - title: Prometheus 메트릭을 복사합니다
+    url: "/expand/copying-prometheus-metrics.html"
+  - title: 감사 로그를 복사합니다
+    url: "/expand/copying-audit-logs.html"
+  - title: 스토리지 노드를 추가한 후 삭제 코딩 데이터의 균형을 재조정합니다
+    url: "/expand/rebalancing-erasure-coded-data-after-adding-storage-nodes.html"
+- title: 확장 문제 해결
+  url: "/expand/contacting-technical-support.html"

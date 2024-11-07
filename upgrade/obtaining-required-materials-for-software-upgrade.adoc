@@ -1,0 +1,67 @@
+---
+permalink: upgrade/obtaining-required-materials-for-software-upgrade.html 
+sidebar: sidebar 
+keywords: upgrade, requirements, rhel, red hat, linux, ubuntu, debian 
+summary: 소프트웨어 업그레이드를 시작하기 전에 필요한 모든 자료를 구하십시오. 
+---
+= 소프트웨어 업그레이드에 필요한 자료를 확보합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+소프트웨어 업그레이드를 시작하기 전에 필요한 모든 자료를 구하십시오.
+
+[cols="1a,3a"]
+|===
+| 항목 | 참고 
+
+
+ a| 
+서비스 노트북
+ a| 
+서비스 랩톱의 구성 요소:
+
+* 네트워크 포트
+* SSH 클라이언트(예: PuTTY)
+
+
+
+
+ a| 
+link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]
+ a| 
+브라우저 지원은 일반적으로 각 StorageGRID 릴리스에 대한 변경 사항을 적용합니다. 브라우저가 새 StorageGRID 버전과 호환되는지 확인합니다.
+
+
+
+ a| 
+프로비저닝 암호
+ a| 
+StorageGRID 시스템을 처음 설치할 때 암호가 생성되고 문서화됩니다. 프로비저닝 암호가 파일에 나열되지 `Passwords.txt` 않습니다.
+
+
+
+ a| 
+Linux RPM 또는 DEB 아카이브
+ a| 
+Linux 호스트에 배포된 노드가 있는 경우 업그레이드를 시작하기 전에 먼저 해야 link:linux-installing-rpm-or-deb-package-on-all-hosts.html["RPM 또는 DEB 패키지를 모든 호스트에 다운로드하고 설치합니다"]합니다.
+
+운영 체제가 StorageGRID의 최소 커널 버전 요구 사항을 충족하는지 확인합니다.
+
+* link:../rhel/installing-linux.html["Red Hat Enterprise Linux 호스트에 StorageGRID를 설치합니다"]
+* link:../ubuntu/installing-linux.html["Ubuntu 또는 Debian 호스트에 StorageGRID를 설치합니다"]
+
+
+
+
+ a| 
+StorageGRID 설명서
+ a| 
+* link:../release-notes/index.html["릴리스 정보"] StorageGRID 11.9의 경우(로그인 필요). 업그레이드를 시작하기 전에 이 내용을 주의 깊게 읽으십시오.
+* https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_11.9_software_upgrade_resolution_guide["StorageGRID 소프트웨어 업그레이드 해결 가이드"^] 업그레이드 중인 주 버전의 경우(로그인 필요)
+* 기타 https://docs.netapp.com/us-en/storagegrid-family/index.html["StorageGRID 설명서"^](필요한 경우)
+
+
+|===

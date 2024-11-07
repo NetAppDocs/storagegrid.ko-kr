@@ -1,0 +1,31 @@
+---
+permalink: expand/adding-grid-nodes-to-add-capabilities.html 
+sidebar: sidebar 
+keywords: grid nodes, expand, expansion, site, add 
+summary: 기존 사이트에 새 그리드 노드를 추가하여 StorageGRID 시스템에 중복성 또는 추가 기능을 추가할 수 있습니다. 
+---
+= 그리드 노드를 추가하여 시스템에 기능을 추가합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기존 사이트에 새 그리드 노드를 추가하여 StorageGRID 시스템에 중복성 또는 추가 기능을 추가할 수 있습니다.
+
+예를 들어 고가용성(HA) 그룹에서 사용할 게이트웨이 노드를 추가하거나 원격 사이트에 관리 노드를 추가하여 로컬 노드를 사용한 모니터링을 허용할 수 있습니다.
+
+다음 노드 유형 중 하나 이상을 단일 확장 작업에서 하나 이상의 기존 사이트에 추가할 수 있습니다.
+
+* 운영 관리자 노드가 아닌 노드
+* 스토리지 노드
+* 게이트웨이 노드
+
+
+그리드 노드 추가를 준비하는 경우 다음 제한 사항을 유의하십시오.
+
+* 기본 관리 노드는 초기 설치 중에 배포됩니다. 확장 중에는 운영 관리자 노드를 추가할 수 없습니다.
+* 스토리지 노드 및 다른 유형의 노드를 동일한 확장에서 추가할 수 있습니다.
+* 스토리지 노드를 추가할 때는 새 노드의 수와 위치를 신중하게 계획해야 합니다. 을 link:../expand/guidelines-for-adding-object-capacity.html["오브젝트 용량 추가 지침"]참조하십시오.
+* 방화벽 제어 페이지의 신뢰할 수 없는 클라이언트 네트워크 탭에서 * 새 노드 기본값 설정 * 옵션이 * 신뢰할 수 없음 * 인 경우 클라이언트 네트워크를 사용하여 확장 노드에 연결하는 클라이언트 응용 프로그램은 로드 밸런서 끝점 포트(* 구성 * > * 보안 * > * 방화벽 제어 *)를 사용하여 연결해야 합니다. 및 의 지침을 link:../admin/configure-firewall-controls.html["새 노드의 보안 설정을 변경합니다"]link:../admin/configuring-load-balancer-endpoints.html["로드 밸런서 엔드포인트를 구성합니다"]참조하십시오.
+

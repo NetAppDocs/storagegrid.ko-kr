@@ -1,0 +1,174 @@
+---
+permalink: upgrade/whats-new.html 
+sidebar: sidebar 
+keywords: what is new in StorageGRID 11.9 
+summary: 이번 StorageGRID 릴리즈에는 다음과 같은 기능이 도입되었습니다. 
+---
+= StorageGRID 11.9의 새로운 기능
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 StorageGRID 릴리스는 다음과 같은 기능 및 기능 변경 사항을 소개합니다.
+
+
+
+== 확장성
+
+
+
+=== 데이터 전용 스토리지 노드
+
+이제 를 설치하여 보다 세분화된 확장을 link:../primer/what-storage-node-is.html#types-of-storage-nodes["데이터 전용 스토리지 노드"]수행할 수 있습니다. 메타데이터 처리가 중요하지 않은 경우 인프라를 비용 효율적으로 최적화할 수 있습니다. 이러한 유연성 덕분에 다양한 워크로드와 성장 패턴을 수용할 수 있습니다.
+
+
+
+== 클라우드 스토리지 풀 개선
+
+
+
+=== 어디서나 IAM 역할 수행
+
+StorageGRID에서는 이제 를 사용하여 단기 자격 증명을 link:../ilm/creating-cloud-storage-pool.html["클라우드 스토리지 풀용 Amazon S3의 모든 위치에서 IAM 역할"]지원합니다.
+
+장기 자격 증명을 사용하여 S3 버킷에 액세스하면 이러한 자격 증명이 손상되는 경우 보안 위험이 발생합니다. 단기 자격 증명의 수명은 제한되어 있어 무단 액세스의 위험이 줄어듭니다.
+
+
+
+=== S3 오브젝트 잠금 버킷
+
+이제 할 수 link:../ilm/creating-cloud-storage-pool.html["Amazon S3 엔드포인트를 사용하여 클라우드 스토리지 풀을 구성합니다"]있습니다. S3 오브젝트 잠금을 통해 오브젝트가 실수로 또는 악의적으로 삭제되지 않도록 방지합니다. StorageGRID에서 Amazon S3로 데이터를 계층화하는 경우 두 시스템 모두에서 오브젝트 잠금이 설정되어 있으면 데이터 라이프사이클 전체에서 데이터 보호가 향상됩니다.
+
+
+
+== 멀티 테넌시
+
+
+
+=== 버킷 제한
+
+link:../tenant/creating-s3-bucket.html["S3 버킷에 대한 설정 제한"]에서는 테넌트가 용량을 독점하지 못하도록 할 수 있습니다. 또한, 폭발적인 증가는 예상치 못한 비용을 초래할 수 있습니다. 제한을 정의하면 테넌트 스토리지 비용을 보다 효율적으로 예측할 수 있습니다.
+
+
+
+=== 테넌트당 5,000개의 버킷
+
+확장성 향상을 위해 StorageGRID는 현재 까지 link:../s3/operations-on-buckets.html["테넌트당 5,000개의 S3 버킷"]지원합니다. 각 그리드에는 최대 100,000개의 버킷을 포함할 수 있습니다.
+
+5,000개의 버킷을 지원하려면 그리드의 각 스토리지 노드에 최소 64GB의 RAM이 있어야 합니다.
+
+
+
+== S3 오브젝트 잠금 개선 사항
+
+테넌트별 구성 기능은 유연성과 데이터 보안의 적절한 균형을 제공합니다. 이제 테넌트별 보존 설정을 다음과 같이 구성할 수 있습니다.
+
+* 준수 모드를 허용하거나 허용하지 않습니다
+* 최대 보존 기간을 설정합니다
+
+
+참조:
+
+* link:../ilm/managing-objects-with-s3-object-lock.html["S3 오브젝트 잠금으로 오브젝트 관리"]
+* link:../ilm/how-object-retention-is-determined.html#how-grid-administrators-control-object-retention["그리드 관리자가 개체 보존을 제어하는 방법"]
+* link:../admin/creating-tenant-account.html["테넌트 계정을 생성합니다"]
+
+
+
+
+== S3 호환성
+
+
+
+=== X-amz-checksum - SHA256 체크섬
+
+* 이제 S3 REST API에서 다음 링크를 지원합니다.../S3/operations-on-objects.html[`x-amz-checksum-sha256` checksum].
+* StorageGRID는 이제 PUT, GET 및 HEAD 작업에 SHA-256 체크섬 지원을 제공합니다. 이러한 체크섬은 데이터 무결성을 향상시킵니다.
+
+
+
+
+=== S3 프로토콜 지원으로 변경합니다
+
+* Amazon S3에 대한 마운트 지점 지원을 추가하여 애플리케이션을 로컬 파일 시스템처럼 S3 버킷에 직접 연결할 수 있음 이제 더 많은 애플리케이션과 더 많은 사용 사례에 StorageGRID를 사용할 수 있습니다.
+* 마운트 지점에 대한 지원을 추가하기 위해 StorageGRID 11.9에는 이 link:../s3/index.html#updates-to-rest-api-support["S3 프로토콜 지원에 대한 추가 변경 사항"]포함되어 있습니다.
+
+
+
+
+== 유지 관리 및 지원 가능성
+
+
+
+=== AutoSupport
+
+link:../admin/what-is-autosupport.html["AutoSupport"] 이제 기존 어플라이언스에 대한 하드웨어 장애 사례가 자동으로 생성됩니다.
+
+
+
+=== 확장된 노드 클론 작업
+
+노드 클론 사용 편의성이 확장되어 더 큰 스토리지 노드를 지원할 수 있게 되었습니다.
+
+
+
+=== 만료된 삭제 마커의 ILM 처리가 개선되었습니다
+
+기간이 며칠인 ILM 수집 시간 규칙으로 인해 만료된 오브젝트 삭제 표시자도 제거됩니다. 삭제 표시자는 기간이 경과하고 현재 삭제 작성기가 만료되었을 때만 제거됩니다(현재 버전이 아닌 경우).
+
+link:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["S3 버전 오브젝트 삭제 방법"]및 link:../ilm/example-8-priorities-for-s3-bucket-lifecycle-and-ilm-policy.html#example-of-bucket-lifecycle-taking-priority-over-ilm-policy["ILM 정책보다 우선 순위가 높은 버킷 라이프사이클의 예"]을 참조하십시오.
+
+
+
+=== 노드 서비스 해제 개선
+
+StorageGRID 차세대 하드웨어로 원활하고 효율적으로 전환할 수 있도록 이 link:../maintain/grid-node-decommissioning.html["노드 폐기"]개선되었습니다.
+
+
+
+=== 로드 밸런서 엔드포인트를 위한 syslog
+
+부하 분산 장치 끝점 액세스 로그에는 HTTP 상태 코드와 같은 문제 해결 정보가 포함되어 있습니다. StorageGRID가 이제 link:../monitor/configure-audit-messages.html["이러한 로그를 외부 syslog 서버로 내보냅니다"]지원합니다. 이 향상된 기능을 통해 로그를 보다 효율적으로 관리하고 기존 모니터링 및 알림 시스템과의 통합을 수행할 수 있습니다.
+
+
+
+=== 유지 관리 및 지원 기능을 위한 추가 개선 사항
+
+* 메트릭 UI 업데이트
+* 새 운영 체제 자격 평가
+* 새로운 타사 구성 요소 지원
+
+
+
+
+== 보안
+
+
+
+=== SSH 액세스 키 순환
+
+이제 그리드 관리자가 수행할 수 link:../admin/change-ssh-access-passwords.html["SSH 키를 업데이트하고 회전합니다"]있습니다. SSH 키를 회전하는 기능은 보안 모범 사례이자 사전 방어 메커니즘입니다.
+
+
+
+=== 루트 로그인에 대한 경고
+
+알 수 없는 엔티티가 그리드 관리자에 루트로 로그인할 때link:../monitor/alerts-reference.html["알림이 트리거됩니다"]. 루트 SSH 로그인 모니터링은 인프라를 보호하기 위한 사전 예방적인 단계입니다.
+
+
+
+== Grid Manager의 향상된 기능
+
+
+
+=== 삭제 코딩 프로필 페이지가 이동되었습니다
+
+삭제 코딩 프로필 페이지는 이제 * configuration * > * System * > * Erasure coding * 에 있습니다. ILM 메뉴에 있었습니다.
+
+
+
+=== 검색 기능 향상
+
+이제 에는 link:../primer/exploring-grid-manager.html#search-field["그리드 관리자의 검색 필드"]더 나은 일치 논리가 포함되어 있어 페이지 내에서 일반적인 약어와 특정 설정의 이름을 검색하여 페이지를 찾을 수 있습니다. 또한 노드, 사용자 및 테넌트 계정과 같은 더 많은 유형의 항목을 검색할 수도 있습니다.

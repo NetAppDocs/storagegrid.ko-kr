@@ -1,0 +1,18 @@
+---
+permalink: monitor/viewing-objects-tab.html 
+sidebar: sidebar 
+keywords: objects tab 
+summary: Objects 탭은 S3 수집 및 검색 속도에 대한 정보를 제공합니다. 
+---
+= 개체 탭을 봅니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+에 대한 자세한 내용은 개체 탭에 link:../s3/index.html["S3 수집 및 검색 속도"]나와 있습니다.
+
+객체 탭은 각 스토리지 노드, 각 사이트 및 전체 그리드에 대해 표시됩니다. 스토리지 노드의 경우 오브젝트 탭에서는 메타데이터 쿼리 및 백그라운드 검증에 대한 개체 수와 정보도 제공합니다.
+
+image::../media/nodes_page_objects_tab.png[노드 페이지 오브젝트 탭]

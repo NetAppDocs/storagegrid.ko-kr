@@ -1,0 +1,61 @@
+---
+permalink: maintain/vmware-adding-trunk-or-access-interfaces-to-node.html 
+sidebar: sidebar 
+keywords: add extra interface to node, access interface, VM interface 
+summary: VM 노드를 설치한 후 추가 트렁크 또는 액세스 인터페이스를 VM 노드에 추가할 수 있습니다. 추가한 인터페이스는 VLAN 인터페이스 페이지와 HA 그룹 페이지에 표시됩니다. 
+---
+= VMware: 노드에 트렁크 또는 액세스 인터페이스를 추가합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+노드가 설치된 후 VM 노드에 트렁크 또는 액세스 인터페이스를 추가할 수 있습니다. 추가한 인터페이스는 VLAN 인터페이스 페이지와 HA 그룹 페이지에 표시됩니다.
+
+.시작하기 전에
+* 의 지침에 액세스할 수 link:../vmware/index.html["VMware 플랫폼에 StorageGRID 설치"]있습니다.
+* 관리 노드 및 게이트웨이 노드 VMware 가상 시스템이 있습니다.
+* 그리드, 관리자 또는 클라이언트 네트워크로 사용되지 않는 네트워크 서브넷이 있습니다.
+*  `Passwords.txt`파일이 있습니다.
+* 있습니다. link:../admin/admin-group-permissions.html["특정 액세스 권한"]
+
+
+
+CAUTION: 소프트웨어 업그레이드, 복구 절차 또는 확장 절차가 활성 상태인 동안에는 노드에 인터페이스를 추가하지 마십시오.
+
+.이 작업에 대해
+노드를 설치한 후 VMware 노드에 인터페이스를 하나 이상 추가하려면 다음 단계를 수행합니다. 예를 들어, 관리 또는 게이트웨이 노드에 트렁크 인터페이스를 추가하여 VLAN 인터페이스를 사용하여 다른 애플리케이션이나 테넌트에 속한 트래픽을 분리할 수 있습니다. 또는 고가용성(HA) 그룹에서 사용할 액세스 인터페이스를 추가할 수도 있습니다.
+
+트렁크 인터페이스를 추가하는 경우 StorageGRID에서 VLAN 인터페이스를 구성해야 합니다. 액세스 인터페이스를 추가할 경우 인터페이스를 HA 그룹에 직접 추가할 수 있으며, VLAN 인터페이스를 구성할 필요가 없습니다.
+
+인터페이스를 추가할 때 노드를 잠시 동안 사용할 수 없을 수도 있습니다.
+
+.단계
+. vCenter에서 관리 노드 및 게이트웨이 노드 VM에 새 네트워크 어댑터(VMXNET3 입력)를 추가합니다. Connected * 및 * Connect at Power On * 확인란을 선택합니다.
++
+image::../media/vcenter.png[vCenter 를 참조하십시오]
+
+. SSH를 사용하여 관리자 노드 또는 게이트웨이 노드에 로그인합니다.
+. 를 사용하여 `ip link show` 새 네트워크 인터페이스 ens256이 감지되는지 확인합니다.
++
+[listing]
+----
+ip link show
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1400 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether 00:50:56:a0:4e:5b brd ff:ff:ff:ff:ff:ff
+3: eth1: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/ether 00:50:56:a0:fa:ce brd ff:ff:ff:ff:ff:ff
+4: eth2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1400 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether 00:50:56:a0:d6:87 brd ff:ff:ff:ff:ff:ff
+5: ens256: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq master ens256vrf state UP mode DEFAULT group default qlen 1000
+    link/ether 00:50:56:a0:ea:88 brd ff:ff:ff:ff:ff:ff
+----
+
+
+.작업을 마친 후
+* 트렁크 인터페이스를 하나 이상 추가한 경우 로 link:../admin/configure-vlan-interfaces.html["VLAN 인터페이스를 구성합니다"] 이동하여 각 새 상위 인터페이스에 대해 하나 이상의 VLAN 인터페이스를 구성합니다.
+* 하나 이상의 액세스 인터페이스를 추가한 경우, 로 link:../admin/configure-high-availability-group.html["고가용성 그룹을 구성합니다"] 이동하여 새 인터페이스를 HA 그룹에 직접 추가합니다.
+

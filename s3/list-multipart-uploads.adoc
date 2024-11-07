@@ -1,0 +1,32 @@
+---
+permalink: s3/list-multipart-uploads.html 
+sidebar: sidebar 
+keywords: ListMultipartUploads, uploads, multipart uploads, bucket 
+summary: ListMultipartUploads 작업은 버킷에 대해 진행 중인 다중 파트 업로드를 나열합니다. 
+---
+= ListMultipartUploads 를 참조하십시오
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ListMultipartUploads 작업은 버킷에 대해 진행 중인 다중 파트 업로드를 나열합니다.
+
+지원되는 요청 매개 변수는 다음과 같습니다.
+
+* `encoding-type`
+* `key-marker`
+* `max-uploads`
+* `prefix`
+* `upload-id-marker`
+* `Host`
+* `Date`
+* `Authorization`
+
+
+
+
+== 버전 관리
+
+멀티파트 업로드는 업로드 시작, 리스팅 업로드, 파트 업로드, 업로드된 파트 조립 및 업로드 완료를 위한 별도의 작업으로 구성됩니다. CompleteMultipartUpload 작업이 수행될 때 객체가 생성되고 해당되는 경우 버전이 지정됩니다.

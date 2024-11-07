@@ -1,0 +1,24 @@
+---
+permalink: maintain/decommission-procedure.html 
+sidebar: sidebar 
+keywords: how to decommission 
+summary: 서비스 해제 절차를 수행하여 그리드 노드 또는 전체 사이트를 StorageGRID 시스템에서 영구적으로 제거할 수 있습니다. 
+---
+= 노드 또는 사이트를 해제합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+서비스 해제 절차를 수행하여 그리드 노드 또는 전체 사이트를 StorageGRID 시스템에서 영구적으로 제거할 수 있습니다.
+
+그리드 노드 또는 사이트를 제거하려면 다음 서비스 해제 절차 중 하나를 수행합니다.
+
+* 를 link:grid-node-decommissioning.html["그리드 노드 해제"] 수행하여 하나 이상의 사이트에 있는 하나 이상의 노드를 제거합니다. 제거하는 노드는 온라인 상태일 수 있으며 StorageGRID 시스템에 연결되어 있을 수도 있고 오프라인일 수도 있고 연결이 끊어질 수도 있습니다.
+* 를 link:considerations-for-removing-site.html["사이트 파기"] 수행하여 사이트를 제거합니다. 모든 노드가 StorageGRID에 연결되어 있는 경우 * 연결된 사이트 파기 * 를 수행합니다. 모든 노드가 StorageGRID에서 분리되어 있는 경우 * 연결 해제된 사이트 서비스 해제 * 를 수행합니다. 사이트에 연결된 노드와 연결되지 않은 노드가 혼합되어 있는 경우 모든 오프라인 노드를 다시 온라인 상태로 전환해야 합니다.
++
+
+CAUTION: 연결이 끊긴 사이트 해제를 수행하기 전에 NetApp 계정 담당자에게 문의하십시오. NetApp은 서비스 해제 사이트 마법사의 모든 단계를 활성화하기 전에 요구사항을 검토합니다. 연결이 끊긴 사이트 서비스 해제를 시도해서는 안 됩니다. 사이트를 복구하거나 사이트에서 오브젝트 데이터를 복구할 수 있다고 생각되면 사이트 서비스 해제를 시도해서는 안 됩니다.
+
+

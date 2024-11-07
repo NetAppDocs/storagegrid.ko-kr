@@ -1,0 +1,73 @@
+---
+permalink: audit/olst-system-detected-lost-object.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, OLST, System Detected Lost Object 
+summary: 이 메시지는 DDS 서비스가 StorageGRID 시스템 내에서 개체의 복제본을 찾을 수 없을 때 생성됩니다. 
+---
+= OLST: 시스템에서 손실된 개체를 감지했습니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 메시지는 DDS 서비스가 StorageGRID 시스템 내에서 개체의 복제본을 찾을 수 없을 때 생성됩니다.
+
+[cols="1a,1a,4a"]
+|===
+| 코드 | 필드에 입력합니다 | 설명 
+
+
+ a| 
+CBID
+ a| 
+콘텐츠 블록 식별자
+ a| 
+손실된 개체의 CBID입니다.
+
+
+
+ a| 
+귀도
+ a| 
+노드 ID
+ a| 
+사용 가능한 경우 손실된 개체의 마지막으로 알려진 직접 또는 니어라인 위치입니다. 볼륨 정보를 사용할 수 없는 경우 볼륨 ID 없이 노드 ID만 가질 수 있습니다.
+
+
+
+ a| 
+경로
+ a| 
+S3 버킷/키
+ a| 
+사용 가능한 경우 S3 버킷 이름 및 S3 키 이름입니다.
+
+
+
+ a| 
+RSLT
+ a| 
+결과
+ a| 
+이 필드에 값이 없습니다. RSLT는 필수 메시지 필드이지만 이 메시지와 관련이 없습니다. 이 메시지가 필터링되지 않도록 SUCS 대신 사용되지 않습니다.
+
+
+
+ a| 
+UUID입니다
+ a| 
+범용 고유 ID입니다
+ a| 
+StorageGRID 시스템 내의 손실된 개체의 식별자입니다.
+
+
+
+ a| 
+볼리
+ a| 
+볼륨 ID입니다
+ a| 
+가능한 경우 손실된 객체의 마지막으로 알려진 위치에 대한 스토리지 노드의 볼륨 ID입니다.
+
+|===

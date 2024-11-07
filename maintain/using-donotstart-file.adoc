@@ -1,0 +1,94 @@
+---
+permalink: maintain/using-donotstart-file.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, donotstart, do not start, donotstart file, do not start file 
+summary: 기술 지원 부서의 지시에 따라 다양한 유지 관리 또는 구성 절차를 수행하는 경우 DoNotStart 파일을 사용하여 Server Manager를 시작하거나 다시 시작할 때 서비스가 시작되지 않도록 해야 할 수 있습니다. 
+---
+= DoNotStart 파일을 사용합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기술 지원 부서의 지시에 따라 다양한 유지 관리 또는 구성 절차를 수행하는 경우 DoNotStart 파일을 사용하여 Server Manager를 시작하거나 다시 시작할 때 서비스가 시작되지 않도록 해야 할 수 있습니다.
+
+
+CAUTION: 기술 지원 부서에서 지시한 경우에만 DoNotStart 파일을 추가하거나 제거해야 합니다.
+
+서비스가 시작되지 않도록 하려면 시작할 수 없도록 하려는 서비스 디렉터리에 DoNotStart 파일을 배치합니다. 서버 관리자는 시작할 때 DoNotStart 파일을 찾습니다. 파일이 있으면 서비스(및 서비스에 종속된 모든 서비스)를 시작할 수 없습니다. DoNotStart 파일이 제거되면 이전에 중지된 서비스는 다음 서버 관리자를 시작하거나 다시 시작할 때 시작됩니다. DoNotStart 파일이 제거되면 서비스가 자동으로 시작되지 않습니다.
+
+모든 서비스가 다시 시작되지 않도록 하는 가장 효율적인 방법은 NTP 서비스가 시작되지 않도록 하는 것입니다. 모든 서비스는 NTP 서비스에 종속되며 NTP 서비스가 실행되고 있지 않으면 실행할 수 없습니다.
+
+
+
+== 서비스에 대한 DoNotStart 파일을 추가합니다
+
+그리드 노드의 해당 서비스 디렉터리에 DoNotStart 파일을 추가하여 개별 서비스가 시작되지 않도록 할 수 있습니다.
+
+.시작하기 전에
+ `Passwords.txt`파일이 있습니다.
+
+.단계
+. 그리드 노드에 로그인합니다.
++
+.. 다음 명령을 입력합니다. `ssh admin@_grid_node_IP_`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
+.. 다음 명령을 입력하여 루트로 전환합니다. `su -`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
+
+
++
+루트로 로그인하면 프롬프트가 에서 `$` 로 `#`변경됩니다.
+
+. DoNotStart 파일 추가: `touch /etc/sv/_service_/DoNotStart`
++
+여기서 `service` 는 시작을 금지할 서비스의 이름입니다. 예를 들면, 다음과 같습니다.
+
++
+[listing]
+----
+touch /etc/sv/ldr/DoNotStart
+----
++
+DoNotStart 파일이 만들어집니다. 파일 콘텐츠가 필요하지 않습니다.
+
++
+서버 관리자 또는 그리드 노드가 다시 시작되면 서버 관리자가 다시 시작되지만 서비스는 다시 시작되지 않습니다.
+
+. 명령 셸에서 로그아웃합니다. `exit`
+
+
+
+
+== 서비스에 대한 DoNotStart 파일을 제거합니다
+
+서비스 시작을 방해하는 DoNotStart 파일을 제거할 경우 해당 서비스를 시작해야 합니다.
+
+.시작하기 전에
+ `Passwords.txt`파일이 있습니다.
+
+.단계
+. 그리드 노드에 로그인합니다.
++
+.. 다음 명령을 입력합니다. `ssh admin@_grid_node_IP_`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
+.. 다음 명령을 입력하여 루트로 전환합니다. `su -`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
+
+
++
+루트로 로그인하면 프롬프트가 에서 `$` 로 `#`변경됩니다.
+
+. 서비스 디렉터리에서 DoNotStart 파일을 제거합니다. `rm /etc/sv/_service_/DoNotStart`
++
+여기서 `service` 는 서비스 이름입니다. 예를 들면, 다음과 같습니다.
+
++
+[listing]
+----
+rm /etc/sv/ldr/DoNotStart
+----
+. 서비스를 시작합니다. `service _servicename_ start`
+. 명령 셸에서 로그아웃합니다. `exit`
+

@@ -1,0 +1,107 @@
+---
+permalink: troubleshoot/troubleshoot-s3-put-object-size-too-large-alert.html 
+sidebar: sidebar 
+keywords: how to troubleshoot S3 PUT Object size too large alert, S3 PutObject size 
+summary: 테넌트가 S3 크기 제한인 5GiB를 초과하는 다중 부품 PutObject가 아닌 작업을 시도하면 S3 Put Object 크기가 너무 큼 알림이 트리거됩니다. 
+---
+= S3 Put Object size too large 경고 문제 해결
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+테넌트가 S3 크기 제한인 5GiB를 초과하는 다중 부품 PutObject가 아닌 작업을 시도하면 S3 Put Object 크기가 너무 큼 알림이 트리거됩니다.
+
+.시작하기 전에
+* 을 사용하여 그리드 관리자에 로그인되어 있습니다.link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]
+* 있습니다. link:../admin/admin-group-permissions.html["특정 액세스 권한"]
+
+
+5GiB보다 큰 객체를 사용하는 테넌트를 확인하여 이를 알릴 수 있습니다.
+
+.단계
+. 구성 * > * 모니터링 * > * 감사 및 syslog 서버 * 로 이동합니다.
+. Client Writes가 Normal인 경우 감사 로그에 액세스합니다.
++
+.. 를 입력합니다 `ssh admin@_primary_Admin_Node_IP_`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
+.. 다음 명령을 입력하여 루트로 전환합니다. `su -`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
++
+루트로 로그인하면 프롬프트가 에서 `$` 로 `#`변경됩니다.
+
+.. 를 입력합니다 `cd /var/local/log`
++
+[NOTE]
+====
+link:../monitor/configure-audit-messages.html#select-audit-information-destinations["감사 정보의 대상에 대해 자세히 알아봅니다"]..
+
+====
+.. 5GiB보다 큰 객체를 사용하는 테넌트를 식별합니다.
++
+... 를 입력합니다 `zgrep SPUT * | egrep "CSIZ\(UI64\):([5-9]|[1-9][0-9]+)[0-9]{9}"`
+... 결과의 각 감사 메시지에 대해 필드를 보고 `S3AI` 테넌트 계정 ID를 확인합니다. 메시지의 다른 필드를 사용하여 클라이언트, 버킷 및 개체에서 사용된 IP 주소를 확인합니다.
++
+[cols="1a,2a"]
+|===
+| 코드 | 설명 
+
+
+| SAIP  a| 
+소스 IP
+
+
+
+| 에스쓰리아이주식회사  a| 
+테넌트 ID입니다
+
+
+
+| 에스쓰리비케이주식회사  a| 
+버킷
+
+
+
+| 에스3KY  a| 
+오브젝트
+
+
+
+| CSRZ  a| 
+크기(바이트)
+
+|===
++
+* 감사 로그 결과의 예 *
+
++
+[listing]
+----
+audit.log:2023-01-05T18:47:05.525999 [AUDT:[RSLT(FC32):SUCS][CNID(UI64):1672943621106262][TIME(UI64):804317333][SAIP(IPAD):"10.96.99.127"][S3AI(CSTR):"93390849266154004343"][SACC(CSTR):"bhavna"][S3AK(CSTR):"06OX85M40Q90Y280B7YT"][SUSR(CSTR):"urn:sgws:identity::93390849266154004343:root"][SBAI(CSTR):"93390849266154004343"][SBAC(CSTR):"bhavna"][S3BK(CSTR):"test"][S3KY(CSTR):"large-object"][CBID(UI64):0x077EA25F3B36C69A][UUID(CSTR):"A80219A2-CD1E-466F-9094-B9C0FDE2FFA3"][CSIZ(UI64):6040000000][MTME(UI64):1672943621338958][AVER(UI32):10][ATIM(UI64):1672944425525999][ATYP(FC32):SPUT][ANID(UI32):12220829][AMID(FC32):S3RQ][ATID(UI64):4333283179807659119]]
+----
+
+
+
+
+. 클라이언트 쓰기가 정상이 아닌 경우 알림의 테넌트 ID를 사용하여 테넌트를 식별합니다.
++
+.. 지원 * > * 도구 * > * 로그 * 로 이동합니다. 알림에 있는 스토리지 노드에 대한 애플리케이션 로그를 수집합니다. 알림 전후 15분을 지정합니다.
+.. 파일 압축을 풀고 다음으로 이동합니다 `bycast.log`.
++
+`/GID<grid_id>_<time_stamp>/<site_node>/<time_stamp>/grid/bycast.log`
+
+.. 로그에서 `method=PUT` 클라이언트를 검색하고 필드에서 클라이언트를 `clientIP` 식별합니다.
++
+* bycast.log의 예 *
+
++
+[listing]
+----
+Jan  5 18:33:41 BHAVNAJ-DC1-S1-2-65 ADE: |12220829 1870864574 S3RQ %CEA 2023-01-05T18:33:41.208790| NOTICE   1404 af23cb66b7e3efa5 S3RQ: EVENT_PROCESS_CREATE - connection=1672943621106262 method=PUT name=</test/4MiB-0> auth=<V4> clientIP=<10.96.99.127>
+----
+
+
+. 최대 PutObject 크기가 5GiB이고 5GiB보다 큰 오브젝트에 대해 다중 파트 업로드를 사용하도록 테넌트에 알립니다.
+. 응용 프로그램이 변경된 경우 1주일 동안 경고를 무시하십시오.
+

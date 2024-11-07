@@ -1,0 +1,24 @@
+---
+permalink: maintain/recovering-from-non-primary-admin-node-failures.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, non-primary admin node failure 
+summary: '운영 관리자 노드가 아닌 노드에서 복구하려면 다음 작업을 완료해야 합니다. 하나의 관리 노드는 구성 관리 노드\(CMN\) 서비스를 호스팅하며 기본 관리 노드라고 합니다. 여러 개의 관리 노드를 사용할 수 있지만 각 StorageGRID 시스템에는 하나의 기본 관리 노드만 포함됩니다. 다른 모든 관리 노드는 비 기본 관리 노드입니다.' 
+---
+= 운영 관리자 노드가 아닌 노드에서 복구합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+운영 관리자 노드가 아닌 노드에서 복구하려면 다음 작업을 완료해야 합니다. 하나의 관리 노드는 CMN(Configuration Management Node) 서비스를 호스팅하며 기본 관리 노드라고 합니다. 여러 개의 관리 노드를 사용할 수 있지만 각 StorageGRID 시스템에는 하나의 기본 관리 노드만 포함됩니다. 다른 모든 관리 노드는 비 기본 관리 노드입니다.
+
+기본 관리자 노드가 아닌 노드를 복구하려면 다음 상위 단계를 따르십시오.
+
+. link:copying-audit-logs-from-failed-non-primary-admin-node.html["장애가 발생한 비기본 관리자 노드에서 감사 로그를 복사합니다"]
+. link:replacing-non-primary-admin-node.html["기본 관리자 노드가 아닌 관리자 노드를 교체합니다"]
+. link:selecting-start-recovery-to-configure-non-primary-admin-node.html["복구 시작 을 선택하여 비 기본 관리자 노드를 구성합니다"]
+. link:restoring-audit-log-on-recovered-non-primary-admin-node.html["복구된 비기본 관리자 노드에서 감사 로그를 복원합니다"]
+. link:restoring-admin-node-database-non-primary-admin-node.html["비기본 관리자 노드를 복구할 때 관리자 노드 데이터베이스를 복구합니다"]
+. link:restoring-prometheus-metrics-non-primary-admin-node.html["비기본 관리자 노드를 복구할 때 Prometheus 메트릭을 복원합니다"]
+

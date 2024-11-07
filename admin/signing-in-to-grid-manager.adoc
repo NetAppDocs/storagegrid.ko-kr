@@ -1,0 +1,140 @@
+---
+permalink: admin/signing-in-to-grid-manager.html 
+sidebar: sidebar 
+keywords: grid manager, sign in, log in 
+summary: '지원되는 웹 브라우저의 주소 표시줄에 정규화된 도메인 이름\(FQDN\) 또는 관리 노드의 IP 주소를 입력하여 그리드 관리자 로그인 페이지에 액세스합니다.' 
+---
+= Grid Manager에 로그인합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+지원되는 웹 브라우저의 주소 표시줄에 FQDN(정규화된 도메인 이름) 또는 관리 노드의 IP 주소를 입력하여 Grid Manager 로그인 페이지에 액세스합니다.
+
+각 StorageGRID 시스템에는 1개의 기본 관리 노드와 1차 관리자가 아닌 노드 수가 포함되어 있습니다. 관리자 노드의 그리드 관리자에 로그인하여 StorageGRID 시스템을 관리할 수 있습니다. 그러나 일부 유지 보수 절차는 기본 관리자 노드에서만 수행할 수 있습니다.
+
+
+
+=== HA 그룹에 연결합니다
+
+HA(고가용성) 그룹에 관리 노드가 포함된 경우 HA 그룹의 가상 IP 주소 또는 가상 IP 주소에 매핑되는 정규화된 도메인 이름을 사용하여 연결합니다. 기본 관리 노드를 그룹의 기본 인터페이스로 선택해야 그리드 관리자에 액세스할 때 기본 관리 노드를 사용할 수 없는 경우를 제외하고 기본 관리 노드에서 액세스할 수 있습니다. 을 link:managing-high-availability-groups.html["고가용성 그룹을 관리합니다"]참조하십시오.
+
+
+
+=== SSO를 사용합니다
+
+의 경우 로그인 단계가 약간 link:configuring-sso.html["SSO(Single Sign-On)가 구성되었습니다"]다릅니다.
+
+
+
+== 첫 번째 관리 노드에서 그리드 관리자에 로그인합니다
+
+.시작하기 전에
+* 로그인 자격 증명이 있습니다.
+* 을 사용하고 link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]있습니다.
+* 쿠키는 웹 브라우저에서 활성화됩니다.
+* 하나 이상의 권한이 있는 사용자 그룹에 속해 있습니다.
+* Grid Manager에 대한 URL이 있습니다.
++
+`https://_FQDN_or_Admin_Node_IP_/`
+
++
+정규화된 도메인 이름, 관리 노드의 IP 주소 또는 관리 노드의 HA 그룹의 가상 IP 주소를 사용할 수 있습니다.
+
++
+HTTPS의 기본 포트(443)가 아닌 포트에서 Grid Manager에 액세스하려면 URL에 포트 번호를 포함시킵니다.
+
++
+`https://_FQDN_or_Admin_Node_IP:port_/`
+
++
+
+NOTE: SSO는 제한된 Grid Manager 포트에서 사용할 수 없습니다. 포트 443을 사용해야 합니다.
+
+
+
+.단계
+. 지원되는 웹 브라우저를 실행합니다.
+. 브라우저의 주소 표시줄에 Grid Manager의 URL을 입력합니다.
+. 보안 경고 메시지가 나타나면 브라우저의 설치 마법사를 사용하여 인증서를 설치합니다. 을 link:using-storagegrid-security-certificates.html["보안 인증서를 관리합니다"]참조하십시오.
+. Grid Manager에 로그인합니다.
++
+표시되는 로그인 화면은 SSO(Single Sign-On)가 StorageGRID에 대해 구성되었는지 여부에 따라 달라집니다.
+
++
+[role="tabbed-block"]
+====
+.SSO를 사용하지 않습니다
+--
+.. Grid Manager의 사용자 이름과 암호를 입력합니다.
+.. 로그인 * 을 선택합니다.
++
+image::../media/sign_in_grid_manager_no_sso.png[로그인 페이지]
+
+
+
+--
+.SSO 사용
+--
+** StorageGRID가 SSO를 사용하고 있고 이 브라우저에서 URL에 처음 액세스한 경우:
++
+... 로그인 * 을 선택합니다. 계정 필드에 0을 그대로 둘 수 있습니다.
++
+image::../media/sso_sign_in_first_time.png[SSO가 활성화되어 있고 쿠키가 없는 경우 로그인 화면으로 로그인합니다]
+
+... 조직의 SSO 로그인 페이지에 표준 SSO 자격 증명을 입력합니다. 예를 들면 다음과 같습니다.
++
+image::../media/sso_organization_page.gif[SSO에 대한 조직 로그인 페이지의 예]
+
+
+
+** StorageGRID가 SSO를 사용하고 있고 이전에 그리드 관리자 또는 테넌트 계정에 액세스한 경우:
++
+... 최신 계정 목록에 * 0 * (Grid Manager의 계정 ID)을 입력하거나 * Grid Manager * 를 선택합니다.
++
+image::../media/sign_in_grid_manager_sso.png[SSO가 활성화된 경우 최근 계정 목록에서 Grid Manager를 선택합니다]
+
+... 로그인 * 을 선택합니다.
+... 조직의 SSO 로그인 페이지에서 표준 SSO 자격 증명을 사용하여 로그인합니다.
+
+
+
+
+--
+====
+
+
+로그인하면 대시보드가 포함된 그리드 관리자의 홈 페이지가 나타납니다. 제공되는 정보에 대한 자세한 내용은 을 참조하십시오link:../monitor/viewing-dashboard.html["대시보드를 보고 관리합니다"].
+
+image::../media/grid_manager_dashboard.png[대시보드]
+
+
+
+== 다른 관리자 노드에 로그인합니다
+
+다음 단계에 따라 다른 관리자 노드에 로그인합니다.
+
+[role="tabbed-block"]
+====
+.SSO를 사용하지 않습니다
+--
+.단계
+. 브라우저의 주소 표시줄에 다른 관리 노드의 정규화된 도메인 이름 또는 IP 주소를 입력합니다. 필요에 따라 포트 번호를 포함시킵니다.
+. Grid Manager의 사용자 이름과 암호를 입력합니다.
+. 로그인 * 을 선택합니다.
+
+
+--
+.SSO 사용
+--
+StorageGRID가 SSO를 사용하고 있고 하나의 관리 노드에 로그인한 경우 다시 로그인하지 않고도 다른 관리 노드에 액세스할 수 있습니다.
+
+.단계
+. 브라우저의 주소 표시줄에 다른 관리 노드의 정규화된 도메인 이름 또는 IP 주소를 입력합니다.
+. SSO 세션이 만료된 경우 자격 증명을 다시 입력하십시오.
+
+
+--
+====

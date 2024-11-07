@@ -1,0 +1,38 @@
+---
+permalink: monitor/removing-custom-alert-rules.html 
+sidebar: sidebar 
+keywords: how to disable alert rules, how to remove a custom alert rule 
+summary: 사용자 지정 알림 규칙을 더 이상 사용하지 않으려는 경우 제거할 수 있습니다. 
+---
+= 사용자 지정 경고 규칙을 제거합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+사용자 지정 알림 규칙을 더 이상 사용하지 않으려는 경우 제거할 수 있습니다.
+
+.시작하기 전에
+* 을 사용하여 그리드 관리자에 로그인되어 있습니다.link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]
+* 이 link:../admin/admin-group-permissions.html["알림 또는 루트 액세스 권한을 관리합니다"]있습니다.
+
+
+.단계
+. 알림 * > * 규칙 * 을 선택합니다.
++
+경고 규칙 페이지가 나타납니다.
+
+. 제거할 사용자 지정 알림 규칙의 라디오 버튼을 선택합니다.
++
+기본 경고 규칙을 제거할 수 없습니다.
+
+. 사용자 지정 규칙 제거 * 를 선택합니다.
++
+확인 대화 상자가 나타납니다.
+
+. 경고 규칙을 제거하려면 * OK * 를 선택합니다.
++
+알림의 활성 인스턴스는 10분 이내에 해결됩니다.
+
+

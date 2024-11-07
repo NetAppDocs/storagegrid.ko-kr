@@ -1,0 +1,50 @@
+---
+permalink: ilm/enabling-s3-object-lock-globally.html 
+sidebar: sidebar 
+keywords: enable s3 object lock, object lock 
+summary: 오브젝트 데이터를 저장할 때 S3 테넌트 계정이 규정 요구사항을 준수해야 하는 경우 전체 StorageGRID 시스템에 대해 S3 오브젝트 잠금을 활성화해야 합니다. 글로벌 S3 오브젝트 잠금 설정을 활성화하면 모든 S3 테넌트 사용자가 S3 오브젝트 잠금을 통해 버킷과 오브젝트를 생성하고 관리할 수 있습니다. 
+---
+= S3 오브젝트 잠금을 전역적으로 활성화합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+오브젝트 데이터를 저장할 때 S3 테넌트 계정이 규정 요구사항을 준수해야 하는 경우 전체 StorageGRID 시스템에 대해 S3 오브젝트 잠금을 활성화해야 합니다. 글로벌 S3 오브젝트 잠금 설정을 활성화하면 모든 S3 테넌트 사용자가 S3 오브젝트 잠금을 통해 버킷과 오브젝트를 생성하고 관리할 수 있습니다.
+
+.시작하기 전에
+* 이 link:../admin/admin-group-permissions.html["루트 액세스 권한"]있습니다.
+* 을 사용하여 그리드 관리자에 로그인되어 있습니다.link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]
+* S3 오브젝트 잠금 워크플로우를 검토하고 고려 사항을 이해합니다.
+* 활성 ILM 정책의 기본 규칙이 준수된다는 것을 확인했습니다. 자세한 내용은 을 link:creating-default-ilm-rule.html["기본 ILM 규칙을 생성합니다"] 참조하십시오.
+
+
+.이 작업에 대해
+그리드 관리자는 글로벌 S3 오브젝트 잠금 설정을 활성화하여 테넌트 사용자가 S3 오브젝트 잠금이 활성화된 새 버킷을 생성할 수 있도록 해야 합니다. 이 설정을 사용하도록 설정한 후에는 비활성화할 수 없습니다.
+
+글로벌 S3 Object Lock 설정을 활성화한 후 기존 테넌트의 규정 준수 설정을 검토하십시오. 이 설정을 활성화하면 테넌트가 생성된 시점의 StorageGRID 릴리스에 따라 S3 오브젝트 잠금 설정이 달라집니다.
+
+
+NOTE: 글로벌 규정 준수 설정은 더 이상 사용되지 않습니다. 이전 버전의 StorageGRID를 사용하여 이 설정을 활성화하면 S3 오브젝트 잠금 설정이 자동으로 활성화됩니다. StorageGRID를 계속 사용하여 기존 준수 버킷의 설정을 관리할 수 있지만 새로운 준수 버킷을 생성할 수는 없습니다. 자세한 내용은 을 참조하십시오 https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["NetApp 기술 자료: StorageGRID 11.5에서 레거시 준수 버킷을 관리하는 방법"^].
+
+.단계
+. 구성 * > * 시스템 * > * S3 오브젝트 잠금 * 을 선택합니다.
++
+S3 오브젝트 잠금 설정 페이지가 나타납니다.
+
+. S3 오브젝트 잠금 활성화 * 를 선택합니다.
+. Apply * 를 선택합니다.
++
+S3 오브젝트 잠금을 사용하도록 설정한 후 해제할 수 없다는 확인 대화 상자가 나타납니다.
+
+. 전체 시스템에 대해 S3 오브젝트 잠금을 영구적으로 활성화하려면 * OK * 를 선택합니다.
++
+OK * 를 선택한 경우:
+
++
+** 활성 ILM 정책의 기본 규칙이 호환되는 경우 S3 오브젝트 잠금이 전체 그리드에 대해 활성화되며 비활성화할 수 없습니다.
+** 기본 규칙을 준수하지 않으면 오류가 나타납니다. 규정 준수 규칙을 기본 규칙으로 포함하는 새 ILM 정책을 만들고 활성화해야 합니다. OK * 를 선택합니다. 그런 다음 새 정책을 생성하고 시뮬레이션한 다음 활성화합니다. 자세한 내용은 을 link:creating-ilm-policy.html["ILM 정책을 생성합니다"] 참조하십시오.
+
+
+

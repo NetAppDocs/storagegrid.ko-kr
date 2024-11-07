@@ -1,0 +1,46 @@
+---
+permalink: audit/ilm-audit-messages.html 
+sidebar: sidebar 
+keywords: audit messages, ILM, IDEL, LKCU, ORLM 
+summary: ILM 감사 범주에 속하는 감사 메시지는 정보 수명 주기 작업과 관련된 이벤트에 사용됩니다. 
+---
+= ILM 감사 메시지
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ILM 감사 범주에 속하는 감사 메시지는 ILM(정보 수명 주기 관리) 작업과 관련된 이벤트에 사용됩니다.
+
+[cols="1a,3a,1a"]
+|===
+| 코드 | 메시지 제목 및 설명입니다 | 을 참조하십시오 
+
+
+ a| 
+IDEL
+ a| 
+ILM 시작 삭제: ILM이 개체 삭제 프로세스를 시작할 때 이 감사 메시지가 생성됩니다.
+ a| 
+link:idel-ilm-initiated-delete.html["IDEL: ILM 삭제 시작"]
+
+
+
+ a| 
+LKCU
+ a| 
+덮어쓴 개체 정리. 이 감사 메시지는 덮어쓴 개체를 자동으로 제거하여 저장 공간을 확보할 때 생성됩니다.
+ a| 
+link:lkcu-overwritten-object-cleanup.html["LKCU: 덮어쓴 개체 정리"]
+
+
+
+ a| 
+ORLM
+ a| 
+개체 규칙 충족: 이 감사 메시지는 ILM 규칙에 지정된 대로 개체 데이터가 저장될 때 생성됩니다.
+ a| 
+link:orlm-object-rules-met.html["ORLM: 개체 규칙이 충족되었습니다"]
+
+|===

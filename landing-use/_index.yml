@@ -1,0 +1,64 @@
+---
+indexpage:
+  title: StorageGRID 테넌트 및 클라이언트 사용
+  summary: 초기 구성이 완료된 후 StorageGRID 테넌트 계정은 버킷을 생성하고 S3 클라이언트 애플리케이션을 사용하여 오브젝트를 수집,
+    검색 및 삭제할 수 있습니다.
+  keywords: use tenant, manage tenant group, manage tenant user, manage s3 access
+    key, manage s3 bucket, use tenant features, use s3 rest api
+  lead: 초기 구성이 완료된 후 StorageGRID 테넌트 계정은 버킷을 생성하고 S3 클라이언트 애플리케이션을 사용하여 오브젝트를 수집,
+    검색 및 삭제할 수 있습니다.
+  tiles:
+  - title: 테넌트에 대해 자세히 알아보십시오
+    links:
+    - title: 테넌트란?
+      url: "../tenant/index.html"
+    - title: Tenant Manager에 로그인합니다
+      url: "../tenant/signing-in-to-tenant-manager.html"
+    - title: 테넌트 계정을 모니터링합니다
+      url: "../tenant/understanding-tenant-manager-dashboard.html"
+    - title: 테넌트 관리 API를 사용합니다
+      url: "../tenant/understanding-tenant-management-api.html"
+  - title: 테넌트 그룹 및 사용자를 관리합니다
+    links:
+    - title: ID 페더레이션을 사용합니다
+      url: "../tenant/using-identity-federation.html"
+    - title: S3 그룹을 생성합니다
+      url: "../tenant/creating-groups-for-s3-tenant.html"
+    - title: 테넌트 관리 권한
+      url: "../tenant/tenant-management-permissions.html"
+    - title: 로컬 사용자를 관리합니다
+      url: "../tenant/managing-local-users.html"
+  - title: S3 액세스 키 및 버킷 관리
+    links:
+    - title: S3 액세스 키를 관리합니다
+      url: "../tenant/managing-s3-access-keys.html"
+    - title: 버킷을 생성합니다
+      url: "../tenant/creating-s3-bucket.html"
+    - title: 버킷 세부 정보를 봅니다
+      url: "../tenant/viewing-s3-bucket-details.html"
+    - title: 버킷을 삭제합니다
+      url: "../tenant/deleting-s3-bucket.html"
+  - title: 테넌트 기능을 사용합니다
+    links:
+    - title: 계정 클론
+      url: "../tenant/grid-federation-account-clone.html"
+    - title: 교차 그리드 복제
+      url: "../tenant/grid-federation-manage-cross-grid-replication.html"
+    - title: 플랫폼 서비스
+      url: "../tenant/considerations-for-platform-services.html"
+    - title: S3 오브젝트 잠금
+      url: "../tenant/using-s3-object-lock.html"
+  - title: S3 REST API 사용
+    links:
+    - title: '빠른 참조: 지원되는 S3 API 요청'
+      url: "../s3/quick-reference-support-for-aws-apis.html"
+    - title: 버킷 작업
+      url: "../s3/operations-on-buckets.html"
+    - title: 객체에 대한 작업
+      url: "../s3/operations-on-objects.html"
+    - title: 버킷 및 그룹 액세스 정책
+      url: "../s3/bucket-and-group-access-policies.html"
+  - title: Swift REST API 사용(지원 종료)
+    links:
+    - title: Swift를 사용합니다
+      url: "../swift/index.html"

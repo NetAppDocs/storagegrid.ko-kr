@@ -1,0 +1,72 @@
+---
+permalink: fabricpool/creating-s3-bucket-and-access-key.html 
+sidebar: sidebar 
+keywords: fabricPool, S3 bucket, bucket, access key, secret access key 
+summary: FabricPool 워크로드에 StorageGRID를 사용하기 전에 FabricPool 데이터용 S3 버킷을 생성해야 합니다. 또한 FabricPool에 사용할 테넌트 계정에 대한 액세스 키와 비밀 액세스 키를 얻어야 합니다. 
+---
+= S3 버킷을 생성하고 접근 키를 얻습니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FabricPool 워크로드에 StorageGRID를 사용하기 전에 FabricPool 데이터용 S3 버킷을 생성해야 합니다. 또한 FabricPool에 사용할 테넌트 계정에 대한 액세스 키와 비밀 액세스 키를 얻어야 합니다.
+
+이 작업에 대한 자세한 내용은 link:../tenant/creating-s3-bucket.html["S3 버킷을 생성합니다"] 및 link:../tenant/creating-your-own-s3-access-keys.html["자체 S3 액세스 키를 생성합니다"]을 참조하십시오. FabricPool 설정 마법사를 사용하여 이 작업을 완료하려면 로 이동합니다link:use-fabricpool-setup-wizard-steps.html["FabricPool 설정 마법사를 액세스하고 완료합니다"].
+
+.시작하기 전에
+* FabricPool 사용을 위해 테넌트 계정을 만들었습니다.
+* 테넌트 계정에 대한 루트 액세스 권한이 있습니다.
+
+
+.단계
+. 테넌트 관리자에 로그인합니다.
++
+다음 중 하나를 수행할 수 있습니다.
+
++
+** Grid Manager의 Tenant Accounts 페이지에서 테넌트의 * Sign In * 링크를 선택하고 자격 증명을 입력합니다.
+** 웹 브라우저에 테넌트 계정의 URL을 입력하고 자격 증명을 입력합니다.
+
+
+. FabricPool 데이터용 S3 버킷을 생성합니다.
++
+사용하려는 각 ONTAP 클러스터에 대해 고유한 버킷을 생성해야 합니다.
+
++
+.. 대시보드에서 * 버킷 보기 * 를 선택하거나 * 스토리지(S3) * > * 버킷 * 을 선택합니다.
+.. Create bucket * 을 선택합니다.
+.. FabricPool에 사용할 StorageGRID 버킷의 이름을 입력합니다.  `fabricpool-bucket`예를 들어,
++
+
+TIP: 버킷을 생성한 후에는 버킷 이름을 변경할 수 없습니다.
+
+.. 이 버킷의 영역을 선택합니다.
++
+기본적으로 모든 버킷은 해당 `us-east-1` 지역에서 생성됩니다.
+
+.. Continue * 를 선택합니다.
+.. Create bucket * 을 선택합니다.
++
+
+NOTE: FabricPool 버킷에 대해 * 개체 버전 관리 사용 * 을 선택하지 마십시오. 마찬가지로, * 사용 가능 * 또는 기본값이 아닌 일관성을 사용하도록 FabricPool 버킷을 편집하지 마십시오. FabricPool 버킷에 권장되는 버킷 일관성은 새 버킷의 기본 정합성 보장인 * 새 버킷에 대한 Read-after-new-write * 입니다.
+
+
+
+. 액세스 키와 비밀 액세스 키를 생성합니다.
++
+.. 스토리지(S3) * > * 내 액세스 키 * 를 선택합니다.
+.. Create key * 를 선택합니다.
+.. Create access key * 를 선택합니다.
+.. 액세스 키 ID와 비밀 액세스 키를 안전한 위치에 복사하거나 * Download.csv * 를 선택하여 액세스 키 ID와 비밀 액세스 키가 포함된 스프레드시트 파일을 저장합니다.
++
+StorageGRID를 FabricPool 클라우드 계층으로 구성할 때 ONTAP에 이러한 값을 입력합니다.
+
++
+
+TIP: 나중에 StorageGRID에서 새 액세스 키와 비밀 액세스 키를 생성하는 경우 StorageGRID에서 이전 값을 삭제하기 전에 새 키를 ONTAP에 입력합니다. 그렇지 않으면 ONTAP에서 일시적으로 StorageGRID에 액세스하지 못할 수 있습니다.
+
+
+
+

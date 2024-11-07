@@ -1,0 +1,35 @@
+---
+permalink: maintain/replacing-failed-node-with-services-appliance.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, replace failed node, services appliance 
+summary: 서비스 어플라이언스를 사용하여 장애가 발생한 게이트웨이 노드, 장애가 발생한 기본 관리자 노드 또는 VMware, Linux 호스트 또는 서비스 어플라이언스에서 호스팅되었던 장애가 발생한 기본 관리자 노드를 복구할 수 있습니다. 이 절차는 그리드 노드 복구 절차의 한 단계입니다. 
+---
+= 장애가 발생한 노드를 서비스 어플라이언스로 교체합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+서비스 어플라이언스를 사용하여 장애가 발생한 게이트웨이 노드, 장애가 발생한 기본 관리자 노드 또는 VMware, Linux 호스트 또는 서비스 어플라이언스에서 호스팅되었던 장애가 발생한 기본 관리자 노드를 복구할 수 있습니다. 이 절차는 그리드 노드 복구 절차의 한 단계입니다.
+
+.시작하기 전에
+* 다음 상황 중 하나가 참인 것으로 판단했습니다.
++
+** 노드를 호스팅하는 가상 머신을 복구할 수 없습니다.
+** 그리드 노드의 물리적 또는 가상 Linux 호스트에 장애가 발생하여 교체해야 합니다.
+** 그리드 노드를 호스팅하는 서비스 어플라이언스를 교체해야 합니다.
+
+
+* 서비스 어플라이언스의 StorageGRID 어플라이언스 설치 프로그램 버전이 StorageGRID 시스템의 소프트웨어 버전과 일치하는지 확인했습니다. 을 https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/verifying-and-upgrading-storagegrid-appliance-installer-version.html["StorageGRID 어플라이언스 설치 프로그램 버전을 확인하고 업그레이드합니다"^]참조하십시오.
+
+
+
+NOTE: SG110과 SG1100 서비스 어플라이언스 또는 SG100 및 SG1000 서비스 어플라이언스를 같은 사이트에 배포하지 마십시오. 성능을 예측할 수 없습니다.
+
+.이 작업에 대해
+다음과 같은 경우 서비스 어플라이언스를 사용하여 장애가 발생한 그리드 노드를 복구할 수 있습니다.
+
+* 장애가 발생한 노드가 VMware 또는 Linux에서 호스팅됨link:installing-services-appliance-platform-change-only.html["플랫폼 변경"]()
+* 장애가 발생한 노드가 서비스 어플라이언스에서 호스팅되었습니다link:preparing-appliance-for-reinstallation-platform-replacement-only.html["플랫폼 교체"]().
+

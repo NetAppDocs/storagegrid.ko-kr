@@ -1,0 +1,90 @@
+= 현재 릴리즈에서 지원되는 API 버전을 확인합니다
+:allow-uri-read: 
+
+
+예를 들어, 이 요청 URL은 API 버전 4를 지정합니다.
+
+`https://_hostname_or_ip_address_/api/v4/authorize`
+
+이전 버전과 호환되지 않는 변경 사항이 발생하면 API의 주 버전이 범핑됩니다. API의 부 버전은 이전 버전과 _ 호환 _ 을(를) 변경할 때 범핑됩니다. 호환 가능한 변경 사항에는 새 끝점 또는 새 속성 추가가 포함됩니다.
+
+다음 예제에서는 변경 유형에 따라 API 버전을 충돌하는 방법을 보여 줍니다.
+
+[cols="1a,1a,1a"]
+|===
+| API 변경 유형입니다 | 이전 버전 | 새 버전 
+
+
+ a| 
+이전 버전과 호환 가능합니다
+ a| 
+2.1
+ a| 
+2.2
+
+
+
+ a| 
+이전 버전과 호환되지 않습니다
+ a| 
+2.1
+ a| 
+3.0
+
+
+
+ a| 
+3.0
+ a| 
+4.0
+
+|===
+StorageGRID 소프트웨어를 처음 설치하면 최신 버전의 API만 활성화됩니다. 그러나 StorageGRID의 새 기능 릴리즈로 업그레이드하면 하나 이상의 StorageGRID 기능 릴리즈에 대한 이전 API 버전에 계속 액세스할 수 있습니다.
+
+
+NOTE: 지원되는 버전을 구성할 수 있습니다. 자세한 내용은 Swagger API 설명서의 * config * 섹션을 참조하십시오link:../admin/using-grid-management-api.html["Grid Management API를 참조하십시오"]. 최신 버전을 사용하려면 모든 API 클라이언트를 업데이트한 후 이전 버전에 대한 지원을 비활성화해야 합니다.
+
+오래된 요청은 다음과 같은 방법으로 더 이상 사용되지 않는 것으로 표시됩니다.
+
+* 응답 헤더가 "DEPRECATED:TRUE"입니다.
+* JSON 응답 본문에는 "DEPRECATED"가 포함됩니다. TRUE
+* 더 이상 사용되지 않는 경고가 NMS.log에 추가됩니다. 예를 들면 다음과 같습니다.
++
+[listing]
+----
+Received call to deprecated v2 API at POST "/api/v2/authorize"
+----
+
+
+
+
+== 현재 릴리즈에서 지원되는 API 버전을 확인합니다
+
+API 요청을 사용하여 `GET /versions` 지원되는 API 주요 버전 목록을 반환합니다. 이 요청은 Swagger API 설명서의 * config * 섹션에 있습니다.
+
+[listing]
+----
+GET https://{{IP-Address}}/api/versions
+{
+  "responseTime": "2023-06-27T22:13:50.750Z",
+  "status": "success",
+  "apiVersion": "4.0",
+  "data": [
+    2,
+    3,
+    4
+  ]
+}
+----
+
+
+== 요청에 대한 API 버전을 지정합니다
+
+경로 매개 변수(`/api/v4`) 또는 헤더를 사용하여 API 버전을 지정할 수 (`Api-Version: 4`있습니다. 두 값을 모두 제공하면 헤더 값이 경로 값을 재정의합니다.
+
+[listing]
+----
+curl https://[IP-Address]/api/v4/grid/accounts
+
+curl -H "Api-Version: 4" https://[IP-Address]/api/grid/accounts
+----

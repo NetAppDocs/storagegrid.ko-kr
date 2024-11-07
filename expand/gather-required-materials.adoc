@@ -1,0 +1,438 @@
+---
+permalink: expand/gather-required-materials.html 
+sidebar: sidebar 
+keywords: expand, expansion, planning, storagrid files 
+summary: 확장 작업을 수행하기 전에 자료를 수집하고 새 하드웨어 및 네트워크를 설치하고 구성합니다. 
+---
+= 필요한 자료를 수집합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+확장 작업을 수행하기 전에 자료를 수집하고 새 하드웨어 및 네트워크를 설치하고 구성합니다.
+
+[cols="1a,2a"]
+|===
+| 항목 | 참고 
+
+
+ a| 
+StorageGRID 설치 아카이브
+ a| 
+새 그리드 노드 또는 새 사이트를 추가하는 경우 StorageGRID 설치 아카이브를 다운로드하여 추출해야 합니다. 그리드에서 현재 실행 중인 버전과 동일한 버전을 사용해야 합니다.
+
+자세한 내용은 의 지침을 <<download-and-extract-install-files,StorageGRID 설치 파일 다운로드 및 추출>>참조하십시오.
+
+* 참고: * 기존 스토리지 노드에 새 스토리지 볼륨을 추가하거나 새 StorageGRID 어플라이언스를 설치하는 경우 파일을 다운로드할 필요가 없습니다.
+
+
+
+ a| 
+서비스 노트북
+ a| 
+서비스 랩톱의 특징은 다음과 같습니다.
+
+* 네트워크 포트
+* SSH 클라이언트(예: PuTTY)
+* link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]
+
+
+
+
+ a| 
+`Passwords.txt` 파일
+ a| 
+명령줄에서 그리드 노드에 액세스하는 데 필요한 암호를 포함합니다. 복구 패키지에 포함되어 있습니다.
+
+
+
+ a| 
+프로비저닝 암호
+ a| 
+StorageGRID 시스템을 처음 설치할 때 암호가 생성되고 문서화됩니다. 프로비저닝 암호가 `Passwords.txt` 파일에 없습니다.
+
+
+
+ a| 
+StorageGRID 설명서
+ a| 
+* link:../admin/index.html["StorageGRID 관리"]
+* link:../release-notes/index.html["릴리스 정보"]
+* 플랫폼에 대한 설치 지침
++
+** link:../rhel/index.html["Red Hat Enterprise Linux에 StorageGRID를 설치합니다"]
+** link:../ubuntu/index.html["Ubuntu 또는 Debian에 StorageGRID를 설치합니다"]
+** link:../vmware/index.html["VMware에 StorageGRID를 설치합니다"]
+
+
+
+
+
+
+ a| 
+현재 사용 중인 플랫폼에 대한 설명서입니다
+ a| 
+지원되는 버전은 를 https://imt.netapp.com/matrix/#welcome["상호 운용성 매트릭스 툴(IMT)"^]참조하십시오.
+
+|===
+
+
+== StorageGRID 설치 파일을 다운로드하고 압축을 풉니다
+
+.[[download-and-extract-install-files]]([다운로드 및 추출-설치 파일])
+새 그리드 노드 또는 새 사이트를 추가하려면 먼저 적절한 StorageGRID 설치 아카이브를 다운로드하고 파일을 추출해야 합니다.
+
+.이 작업에 대해
+현재 그리드에서 실행 중인 StorageGRID 버전을 사용하여 확장 작업을 수행해야 합니다.
+
+.단계
+. 로 이동합니다. https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["NetApp 다운로드: StorageGRID"^]
+. 그리드에서 현재 실행 중인 StorageGRID 버전을 선택합니다.
+. NetApp 계정의 사용자 이름과 암호를 사용하여 로그인합니다.
+. 최종 사용자 사용권 계약을 읽고 확인란을 선택한 다음 * 동의 및 계속 * 을 선택합니다.
+. 다운로드 페이지의 * StorageGRID 설치 * 열에서 `.tgz` 플랫폼에 대한 또는 `.zip` 파일을 선택합니다.
++
+설치 아카이브 파일에 표시된 버전이 현재 설치된 소프트웨어 버전과 일치해야 합니다.
+
++
+서비스 랩톱에서 Windows를 실행하는 경우 이 `.zip` 파일을 사용합니다.
+
++
+[cols="1a,2a"]
+|===
+| 플랫폼 | 설치 아카이브 
+
+
+ a| 
+Red Hat Enterprise Linux
+| `StorageGRID-Webscale-_version_-RPM-_uniqueID_.zip` 
+`StorageGRID-Webscale-_version_-RPM-_uniqueID_.tgz` 
+
+
+ a| 
+Ubuntu 또는 Debian 또는 어플라이언스
+| `StorageGRID-Webscale-_version_-DEB-_uniqueID_.zip` 
+`StorageGRID-Webscale-_version_-DEB-_uniqueID_.tgz` 
+
+
+ a| 
+VMware
+| `StorageGRID-Webscale-_version_-VMware-_uniqueID_.zip` 
+`StorageGRID-Webscale-_version_-VMware-_uniqueID_.tgz` 
+
+
+ a| 
+OpenStack 및 기타 하이퍼바이저
+ a| 
+OpenStack에서 기존 구축을 확장하려면 위에 나열된 지원되는 Linux 배포 중 하나를 실행하는 가상 시스템을 구축하고 Linux에 대한 적절한 지침을 따라야 합니다.
+
+|===
+. 아카이브 파일을 다운로드하고 압축을 풉니다.
+. 플랫폼에 적합한 단계에 따라 플랫폼, 계획된 그리드 토폴로지 및 StorageGRID 시스템을 확장하는 방법에 따라 필요한 파일을 선택합니다.
++
+각 플랫폼의 단계에 나열된 경로는 아카이브 파일에 의해 설치된 최상위 디렉토리를 기준으로 합니다.
+
+. Red Hat Enterprise Linux 시스템을 확장하는 경우 적절한 파일을 선택합니다.
+
+
+[cols="1a,1a"]
+|===
+| 경로 및 파일 이름입니다 | 설명 
+
+
+| ./rpms/README  a| 
+StorageGRID 다운로드 파일에 포함된 모든 파일을 설명하는 텍스트 파일입니다.
+
+
+
+| ./rpms/NLF000000.txt  a| 
+제품에 대한 지원 권한을 제공하지 않는 무료 라이센스입니다.
+
+
+
+| ./rpms/StorageGRID-Webscale-Images-_version_-SHA.rpm  a| 
+RHEL 호스트에 StorageGRID 노드 이미지를 설치하기 위한 rpm 패키지입니다.
+
+
+
+| ./rpms/StorageGRID-Webscale-Service-_version_-SHA.rpm  a| 
+RHEL 호스트에 StorageGRID 호스트 서비스를 설치하기 위한 rpm 패키지입니다.
+
+
+
+| 배포 스크립팅 도구 | 설명 
+
+
+| ./rpms/configure-storagegrid.py  a| 
+StorageGRID 시스템 구성을 자동화하는 데 사용되는 Python 스크립트입니다.
+
+
+
+| ./rpms/configure-sga.py  a| 
+StorageGRID 어플라이언스 구성을 자동화하는 데 사용되는 Python 스크립트입니다.
+
+
+
+| /rpms/configure -StorageGrid.sample.json  a| 
+스크립트와 함께 사용할 예제 구성 파일 `configure-storagegrid.py`
+
+
+
+| ./rpms/storagegrid-ssoauth.py  a| 
+SSO(Single Sign-On)가 활성화된 경우 Grid Management API에 로그인하는 데 사용할 수 있는 Python 스크립트 예제 이 스크립트를 Ping 연합 통합에 사용할 수도 있습니다.
+
+
+
+| /rpms/configure -StorageGrid.blank.json을 지정합니다  a| 
+스크립트와 함께 사용할 빈 구성 `configure-storagegrid.py` 파일입니다.
+
+
+
+| ./rpms/Extras/Ansible  a| 
+StorageGRID 컨테이너 배포를 위해 RHEL 호스트를 구성하기 위한 Ansible 역할 및 플레이북 예 필요에 따라 역할 또는 플레이북을 사용자 지정할 수 있습니다.
+
+
+
+| ./rpms/storagegrid-ssoauth-azure.py  a| 
+Active Directory 또는 Ping 연방을 사용하여 SSO(Single Sign-On)를 사용하도록 설정한 경우 Grid Management API에 로그인하는 데 사용할 수 있는 Python 스크립트 예제
+
+
+
+| /rpms/StorageGrid-ssoauth-Azure.js  a| 
+Azure와의 SSO 상호 작용을 수행하기 위해 Python 스크립트에 의해 호출되는 도우미 스크립트입니다. `storagegrid-ssoauth-azure.py`
+
+
+
+| /rpms/Extras/API-schemas  a| 
+StorageGRID에 대한 API 스키마입니다.
+
+* 참고 *: 업그레이드를 수행하기 전에 이러한 스키마를 사용하여 StorageGRID 관리 API를 사용하도록 작성한 코드가 업그레이드 호환성 테스트를 위한 비프로덕션 StorageGRID 환경이 없는 경우 새 StorageGRID 릴리스와 호환되는지 확인할 수 있습니다.
+
+|===
+. Ubuntu 또는 Debian 시스템을 확장하는 경우 적절한 파일을 선택합니다.
+
+
+[cols="1a,1a"]
+|===
+| 경로 및 파일 이름입니다 | 설명 
+
+
+| ./debs/README  a| 
+StorageGRID 다운로드 파일에 포함된 모든 파일을 설명하는 텍스트 파일입니다.
+
+
+
+| /debs/NLF000000.txt 를 참조하십시오  a| 
+테스트 및 개념 증명 배포에 사용할 수 있는 비프로덕션 NetApp 라이센스 파일.
+
+
+
+| /debs/storagegrid-webscale-images-version-SHA.deb 를 참조하십시오  a| 
+StorageGRID 노드 이미지를 Ubuntu 또는 Debian 호스트에 설치하기 위한 DEB 패키지.
+
+
+
+| /debs/storagegrid-webscale-images-version-SHA.deb.md5 를 참조하십시오  a| 
+파일의 MD5 체크섬 `/debs/storagegrid-webscale-images-version-SHA.deb`.
+
+
+
+| /debs/storagegrid-webscale-service-version-SHA.deb 를 참조하십시오  a| 
+Ubuntu 또는 Debian 호스트에 StorageGRID 호스트 서비스를 설치하기 위한 DEB 패키지.
+
+
+
+| 배포 스크립팅 도구 | 설명 
+
+
+| /debs/configure-storagegrid.py 를 참조하십시오  a| 
+StorageGRID 시스템 구성을 자동화하는 데 사용되는 Python 스크립트입니다.
+
+
+
+| /debs/configure-sga.py 를 참조하십시오  a| 
+StorageGRID 어플라이언스 구성을 자동화하는 데 사용되는 Python 스크립트입니다.
+
+
+
+| /debs/storagegrid-ssoauth.py 를 참조하십시오  a| 
+SSO(Single Sign-On)가 활성화된 경우 Grid Management API에 로그인하는 데 사용할 수 있는 Python 스크립트 예제 이 스크립트를 Ping 연합 통합에 사용할 수도 있습니다.
+
+
+
+| /debs/configure -StorageGrid.sample.json 을 참조하십시오  a| 
+스크립트와 함께 사용할 예제 구성 파일 `configure-storagegrid.py`
+
+
+
+| /debs/configure -StorageGrid.blank.json 을 참조하십시오  a| 
+스크립트와 함께 사용할 빈 구성 `configure-storagegrid.py` 파일입니다.
+
+
+
+| ./debs/Extras/Ansible  a| 
+StorageGRID 컨테이너 배포를 위한 Ubuntu 또는 Debian 호스트 구성을 위한 Ansible 역할 및 플레이북 예 필요에 따라 역할 또는 플레이북을 사용자 지정할 수 있습니다.
+
+
+
+| ./debs/storagegrid-ssoauth-azure.py  a| 
+Active Directory 또는 Ping 연방을 사용하여 SSO(Single Sign-On)를 사용하도록 설정한 경우 Grid Management API에 로그인하는 데 사용할 수 있는 Python 스크립트 예제
+
+
+
+| /debs/StorageGrid-ssoauth-Azure.js를 입력합니다  a| 
+Azure와의 SSO 상호 작용을 수행하기 위해 Python 스크립트에 의해 호출되는 도우미 스크립트입니다. `storagegrid-ssoauth-azure.py`
+
+
+
+| /debs/Extras/API-schemas  a| 
+StorageGRID에 대한 API 스키마입니다.
+
+* 참고 *: 업그레이드를 수행하기 전에 이러한 스키마를 사용하여 StorageGRID 관리 API를 사용하도록 작성한 코드가 업그레이드 호환성 테스트를 위한 비프로덕션 StorageGRID 환경이 없는 경우 새 StorageGRID 릴리스와 호환되는지 확인할 수 있습니다.
+
+|===
+. VMware 시스템을 확장하는 경우 해당 파일을 선택합니다.
+
+
+[cols="1a,1a"]
+|===
+| 경로 및 파일 이름입니다 | 설명 
+
+
+| ./vSphere/README  a| 
+StorageGRID 다운로드 파일에 포함된 모든 파일을 설명하는 텍스트 파일입니다.
+
+
+
+| ./vSphere/NLF000000.txt  a| 
+제품에 대한 지원 권한을 제공하지 않는 무료 라이센스입니다.
+
+
+
+| ./vSphere/NetApp-SG-version-SHA.vmdk입니다  a| 
+그리드 노드 가상 머신을 생성하기 위한 템플릿으로 사용되는 가상 머신 디스크 파일입니다.
+
+
+
+| ./vSphere/vSphere-primary-admin.ovf./vSphere/vSphere-primary-admin.mf  a| 
+Open Virtualization Format 템플릿 파일(`.ovf`) 및 매니페스트 파일(`.mf`)을 사용하여 기본 관리자 노드를 배포할 수 있습니다.
+
+
+
+| ./vSphere/vSphere-non-primary-admin.ovf./vSphere/vSphere-non-primary-admin.mf  a| 
+템플릿 파일(`.ovf`) 및 매니페스트 파일(`.mf`)을 사용하여 비기본 관리 노드를 배포합니다.
+
+
+
+| ./vSphere/vSphere-gateway.ovf./vSphere/vSphere-gateway.mf  a| 
+템플릿 파일(`.ovf`) 및 매니페스트 파일(`.mf`)을 사용하여 게이트웨이 노드를 배포할 수 있습니다.
+
+
+
+| ./vSphere/vSphere-storage.ovf./vSphere/vSphere-storage.mf  a| 
+템플릿 파일(`.ovf`) 및 매니페스트 파일(`.mf`)을 사용하여 가상 머신 기반 스토리지 노드를 구축합니다.
+
+
+
+| 배포 스크립팅 도구 | 설명 
+
+
+| ./vSphere/deploy-vsphere-ovftool.sh  a| 
+가상 그리드 노드의 배포를 자동화하는 데 사용되는 Bash 쉘 스크립트입니다.
+
+
+
+| ./vSphere/deploy-vsphere-ovftool-sample.ini  a| 
+스크립트와 함께 사용할 예제 구성 파일 `deploy-vsphere-ovftool.sh`
+
+
+
+| ./vSphere/configure-storagegrid.py  a| 
+StorageGRID 시스템 구성을 자동화하는 데 사용되는 Python 스크립트입니다.
+
+
+
+| ./vSphere/configure-sga.py  a| 
+StorageGRID 어플라이언스 구성을 자동화하는 데 사용되는 Python 스크립트입니다.
+
+
+
+| ./vSphere/storagegrid-ssoauth.py  a| 
+SSO(Single Sign-On)가 활성화된 경우 Grid Management API에 로그인하는 데 사용할 수 있는 Python 스크립트의 예 이 스크립트를 Ping 연합 통합에 사용할 수도 있습니다.
+
+
+
+| /vSphere/configure -StorageGrid.sample.json을 참조하십시오  a| 
+스크립트와 함께 사용할 예제 구성 파일 `configure-storagegrid.py`
+
+
+
+| /vSphere/configure -StorageGrid.blank.json 을 참조하십시오  a| 
+스크립트와 함께 사용할 빈 구성 `configure-storagegrid.py` 파일입니다.
+
+
+
+| ./vSphere/storagegrid-ssoauth-azure.py  a| 
+Active Directory 또는 Ping 연방을 사용하여 SSO(Single Sign-On)를 사용하도록 설정한 경우 Grid Management API에 로그인하는 데 사용할 수 있는 Python 스크립트 예제
+
+
+
+| /vSphere/StorageGrid-ssoauth-Azure.js  a| 
+Azure와의 SSO 상호 작용을 수행하기 위해 Python 스크립트에 의해 호출되는 도우미 스크립트입니다. `storagegrid-ssoauth-azure.py`
+
+
+
+| /vSphere/Extras/API-schemas  a| 
+StorageGRID에 대한 API 스키마입니다.
+
+* 참고 *: 업그레이드를 수행하기 전에 이러한 스키마를 사용하여 StorageGRID 관리 API를 사용하도록 작성한 코드가 업그레이드 호환성 테스트를 위한 비프로덕션 StorageGRID 환경이 없는 경우 새 StorageGRID 릴리스와 호환되는지 확인할 수 있습니다.
+
+|===
+. StorageGRID 어플라이언스 기반 시스템을 확장하는 경우 해당 파일을 선택합니다.
+
+
+[cols="1a,1a"]
+|===
+| 경로 및 파일 이름입니다 | 설명 
+
+
+| /debs/storagegrid-webscale-images-version-SHA.deb 를 참조하십시오  a| 
+어플라이언스에 StorageGRID 노드 이미지를 설치하기 위한 DEB 패키지.
+
+
+
+| /debs/storagegrid-webscale-images-version-SHA.deb.md5 를 참조하십시오  a| 
+파일의 MD5 체크섬 `/debs/storagegridwebscale-
+images-version-SHA.deb`.
+
+|===
+
+NOTE: 어플라이언스 설치의 경우, 이러한 파일은 네트워크 트래픽을 방지해야 하는 경우에만 필요합니다. 어플라이언스는 기본 관리 노드에서 필요한 파일을 다운로드할 수 있습니다.
+
+
+
+== 하드웨어 및 네트워킹을 확인합니다
+
+StorageGRID 시스템 확장을 시작하기 전에 다음 사항을 확인하십시오.
+
+* 새 그리드 노드 또는 새 사이트를 지원하는 데 필요한 하드웨어가 설치 및 구성되었습니다.
+* 모든 새 노드에는 기존 노드와 새 노드 모두에 대한 양방향 통신 경로가 있습니다(그리드 네트워크에 대한 요구 사항). 특히, 확장에서 추가하는 새 노드와 기본 관리 노드 사이에 다음 TCP 포트가 열려 있는지 확인합니다.
++
+** 1055
+** 7443
+** 8011
+** 10342를 참조하십시오
+
+
++
+을 link:../network/internal-grid-node-communications.html["내부 그리드 노드 통신"]참조하십시오.
+
+* 기본 관리 노드는 StorageGRID 시스템을 호스트하기 위한 모든 확장 서버와 통신할 수 있습니다.
+* 새 노드 중 이전에 사용되지 않은 서브넷에 그리드 네트워크 IP 주소가 있는 노드가 있으면 그리드 네트워크 서브넷 목록에 이미 있는 link:updating-subnets-for-grid-network.html["새 서브넷을 추가했습니다"]것입니다. 그렇지 않으면 확장을 취소하고 새 서브넷을 추가한 다음 절차를 다시 시작해야 합니다.
+* 그리드 네트워크에서 그리드 노드 간 또는 StorageGRID 사이트 간에 NAT(네트워크 주소 변환)를 사용하지 않습니다. Grid Network에 전용 IPv4 주소를 사용하는 경우, 이러한 주소는 모든 사이트의 모든 그리드 노드에서 직접 라우팅할 수 있어야 합니다. NAT를 사용하여 공용 네트워크 세그먼트에서 그리드 네트워크를 연결하는 것은 그리드의 모든 노드에 투명한 터널링 애플리케이션을 사용하는 경우에만 지원됩니다. 즉, 그리드 노드는 공용 IP 주소를 알 필요가 없습니다.
++
+이 NAT 제한은 그리드 노드 및 그리드 네트워크에 특정합니다. 필요한 경우 게이트웨이 노드에 대한 공용 IP 주소를 제공하는 등 외부 클라이언트와 그리드 노드 간에 NAT를 사용할 수 있습니다.
+
+

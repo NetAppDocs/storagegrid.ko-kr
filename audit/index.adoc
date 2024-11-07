@@ -1,0 +1,20 @@
+---
+permalink: audit/index.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, log, structure, content 
+summary: 이 지침에는 StorageGRID 감사 메시지 및 감사 로그의 구조 및 내용에 대한 정보가 포함되어 있습니다. 이 정보를 사용하여 시스템 활동의 감사 추적을 읽고 분석할 수 있습니다. 
+---
+= 감사 메시지 및 로그
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 지침에는 StorageGRID 감사 메시지 및 감사 로그의 구조 및 내용에 대한 정보가 포함되어 있습니다. 이 정보를 사용하여 시스템 활동의 감사 추적을 읽고 분석할 수 있습니다.
+
+이 지침은 StorageGRID 시스템의 감사 메시지를 분석해야 하는 시스템 활동 및 사용 보고서를 작성하는 관리자를 위한 것입니다.
+
+텍스트 로그 파일을 사용하려면 관리자 노드에서 구성된 감사 공유에 액세스할 수 있어야 합니다.
+
+감사 메시지 수준 구성 및 외부 syslog 서버 사용에 대한 자세한 내용은 을 참조하십시오.link:../monitor/configure-audit-messages.html["감사 메시지 및 로그 대상을 구성합니다"]

@@ -1,0 +1,215 @@
+---
+permalink: tenant/considerations-for-platform-services.html 
+sidebar: sidebar 
+keywords: considerations for using platform services 
+summary: 플랫폼 서비스를 구현하기 전에 이러한 서비스 사용에 대한 개요 및 고려 사항을 검토하십시오. 
+---
+= 플랫폼 서비스 개요 및 고려 사항
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+플랫폼 서비스를 구현하기 전에 이러한 서비스 사용에 대한 개요 및 고려 사항을 검토하십시오.
+
+S3에 대한 자세한 내용은 을 link:../s3/index.html["S3 REST API 사용"]참조하십시오.
+
+
+
+== 플랫폼 서비스 개요
+
+StorageGRID 플랫폼 서비스를 사용하면 S3 오브젝트 및 오브젝트 메타데이터의 이벤트 알림과 복사본을 외부 대상에 보낼 수 있으므로 하이브리드 클라우드 전략을 구현할 수 있습니다.
+
+플랫폼 서비스의 대상 위치는 일반적으로 StorageGRID 구축과 외부적이기 때문에 플랫폼 서비스는 데이터에 대한 외부 스토리지 리소스, 알림 서비스 및 검색 또는 분석 서비스를 사용하여 얻을 수 있는 성능과 유연성을 제공합니다.
+
+단일 S3 버킷에 대해 모든 플랫폼 서비스 조합을 구성할 수 있습니다. 예를 들어, 및 link:../tenant/understanding-notifications-for-buckets.html["알림"]StorageGRID S3 버킷에서 특정 오브젝트를 Amazon S3(Simple Storage Service)에 미러링하는 동시에 각 오브젝트에 대한 알림을 타사 모니터링 애플리케이션에 전송하여 AWS 비용을 추적할 수 있도록 할 link:../tenant/understanding-cloudmirror-replication-service.html["CloudMirror 서비스"]수 있습니다.
+
+
+TIP: 그리드 관리자 또는 그리드 관리 API를 사용하여 StorageGRID 관리자가 각 테넌트 계정에 대해 플랫폼 서비스 사용을 활성화해야 합니다.
+
+
+
+== 플랫폼 서비스 구성 방법
+
+플랫폼 서비스는 또는 를 사용하여 구성한 외부 끝점과 통신합니다.link:configuring-platform-services-endpoints.html["테넌트 관리자"]link:understanding-tenant-management-api.html["테넌트 관리 API"] 각 엔드포인트는 StorageGRID S3 버킷, Amazon Web Services 버킷, Amazon SNS 주제 또는 로컬이나 AWS 등에 호스팅된 Elasticsearch 클러스터와 같은 외부 대상을 나타냅니다.
+
+외부 끝점을 만든 후 버킷에 XML 구성을 추가하여 버킷에 대한 플랫폼 서비스를 활성화할 수 있습니다. XML 구성은 버킷이 작업해야 하는 오브젝트, 버킷이 취해야 하는 조치 및 버킷이 서비스에 사용해야 하는 엔드포인트를 식별합니다.
+
+구성할 각 플랫폼 서비스에 대해 별도의 XML 구성을 추가해야 합니다. 예를 들면 다음과 같습니다.
+
+* 키가 로 시작하는 모든 오브젝트를 Amazon S3 버킷에 복제하려면 복제 구성을 소스 버킷에 추가해야 합니다. `/images`
+* 이러한 객체가 버킷에 저장될 때 알림을 보내려면 알림 구성을 추가해야 합니다.
+* 이러한 개체의 메타데이터를 인덱싱하려면 검색 통합을 구현하는 데 사용되는 메타데이터 알림 구성을 추가해야 합니다.
+
+
+구성 XML의 형식은 StorageGRID 플랫폼 서비스를 구현하는 데 사용되는 S3 REST API를 통해 제어됩니다.
+
+[cols="1a,2a,1a"]
+|===
+| 플랫폼 서비스 | S3 REST API | 을 참조하십시오 
+
+
+ a| 
+CloudMirror 복제
+ a| 
+* GetBucketReplication 을 참조하십시오
+* PutBucketReplication을 참조하십시오
+
+ a| 
+* link:configuring-cloudmirror-replication.html["CloudMirror 복제"]
+* link:../s3/operations-on-buckets.html["버킷 작업"]
+
+
+
+
+ a| 
+알림
+ a| 
+* GetBuckNotificationConfiguration 을 참조하십시오
+* PutBucketNotificationConfiguration을 참조하십시오
+
+ a| 
+* link:configuring-event-notifications.html["알림"]
+* link:../s3/operations-on-buckets.html["버킷 작업"]
+
+
+
+
+ a| 
+검색 통합
+ a| 
+* Bucket 메타데이터 알림 구성 가져오기
+* Put Bucket 메타데이터 알림 구성
+
+ a| 
+* link:configuring-search-integration-service.html["검색 통합"]
+* link:../s3/custom-operations-on-buckets.html["StorageGRID 사용자 정의 작업"]
+
+
+|===
+
+
+== 플랫폼 서비스 사용에 대한 고려 사항
+
+[cols="1a,3a"]
+|===
+| 고려 사항 | 세부 정보 
+
+
+ a| 
+대상 엔드포인트 모니터링
+ a| 
+각 대상 끝점의 가용성을 모니터링해야 합니다. 대상 끝점에 대한 연결이 오랜 시간 동안 손실되고 요청의 백로그가 많은 경우 StorageGRID에 대한 추가 클라이언트 요청(예: PUT 요청)이 실패합니다. 엔드포인트에 연결할 수 있게 되면 실패한 요청을 다시 시도해야 합니다.
+
+
+
+ a| 
+대상 끝점 임계치 조절
+ a| 
+요청이 전송되는 속도가 대상 엔드포인트에서 요청을 수신할 수 있는 속도를 초과하는 경우 StorageGRID 소프트웨어는 버킷에 대한 수신 S3 요청을 스로틀할 수 있습니다. 임계치 조절은 대상 끝점으로 보내려고 기다리는 요청의 백로그가 있는 경우에만 발생합니다.
+
+단, 들어오는 S3 요청의 실행 시간이 더 오래 걸린다는 점을 알 수 있습니다. 속도가 현저히 느린 성능을 감지하기 시작하는 경우 수집 속도를 줄이거나 용량이 더 큰 엔드포인트를 사용해야 합니다. 요청 백로그가 계속 증가하는 경우 PUT 요청과 같은 클라이언트 S3 작업이 결국 실패합니다.
+
+CloudMirror 요청은 일반적으로 검색 통합 또는 이벤트 알림 요청보다 더 많은 데이터 전송을 포함하므로 대상 엔드포인트의 성능에 영향을 받을 가능성이 더 높습니다.
+
+
+
+ a| 
+주문 보증
+ a| 
+StorageGRID은 사이트 내의 개체에 대한 작업을 주문할 수 있도록 보장합니다. 객체에 대한 모든 작업이 동일한 사이트 내에 있는 한 최종 객체 상태(복제의 경우)는 항상 StorageGRID의 상태와 동일합니다.
+
+StorageGRID는 StorageGRID 사이트 전체에서 작업이 수행되는 경우 요청을 주문하기 위해 최선의 노력을 다하고 있습니다. 예를 들어 처음에 사이트 A에 오브젝트를 작성한 다음 나중에 사이트 B에서 동일한 오브젝트를 덮어쓰는 경우 CloudMirror에서 대상 버킷에 복제한 최종 오브젝트는 새로운 오브젝트일 수 없습니다.
+
+
+
+ a| 
+ILM 기반 오브젝트 삭제
+ a| 
+AWS CRR 및 Amazon Simple Notification Service의 삭제 동작과 일치시키기 위해 StorageGRID ILM 규칙으로 인해 소스 버킷의 오브젝트가 삭제될 때 CloudMirror 및 이벤트 알림 요청이 전송되지 않습니다. 예를 들어 ILM 규칙이 14일 후에 개체를 삭제하는 경우 CloudMirror 또는 이벤트 알림 요청이 전송되지 않습니다.
+
+반면, 검색 통합 요청은 ILM로 인해 객체가 삭제될 때 전송됩니다.
+
+
+
+ a| 
+Kafka 엔드포인트 사용
+ a| 
+Kafka 엔드포인트의 경우 상호 TLS는 지원되지 않습니다. 그 결과, Kafka 브로커 구성에서 로 설정한 `required` 경우 `ssl.client.auth` Kafka 엔드포인트 구성 문제가 발생할 수 있습니다.
+
+Kafka 엔드포인트 인증은 다음과 같은 인증 유형을 사용합니다. 이러한 유형은 Amazon SNS와 같은 다른 엔드포인트의 인증에 사용되는 유형과는 다르며 사용자 이름 및 암호 자격 증명이 필요합니다.
+
+* SASL/일반
+* SASL/SCRAM-SHA-256
+* SASL/SCRAM-SHA-512
+
+
+* 참고: * 구성된 스토리지 프록시 설정은 Kafka 플랫폼 서비스 엔드포인트에 적용되지 않습니다.
+
+|===
+
+
+== CloudMirror 복제 서비스 사용에 대한 고려 사항
+
+[cols="1a,3a"]
+|===
+| 고려 사항 | 세부 정보 
+
+
+ a| 
+복제 상태입니다
+ a| 
+StorageGRID는 헤더를 지원하지 `x-amz-replication-status` 않습니다.
+
+
+
+ a| 
+개체 크기
+ a| 
+CloudMirror 복제 서비스를 통해 대상 버킷에 복제할 수 있는 개체의 최대 크기는 5TiB이며, 이는 maximum_supported_object 크기와 같습니다.
+
+* 참고 *: 단일 PutObject 작업의 maximum_recommended_size는 5GiB(5,368,709,120바이트)입니다. 5GiB보다 큰 객체가 있는 경우 대신 멀티파트 업로드를 사용합니다.
+
+
+
+ a| 
+버킷 버전 관리 및 버전 ID
+ a| 
+StorageGRID의 소스 S3 버킷에서 버전 관리가 활성화된 경우 대상 버킷의 버전 관리도 활성화해야 합니다.
+
+버전 관리를 사용할 때는 S3 프로토콜의 제한으로 인해 대상 버킷에서 오브젝트 버전 순서가 CloudMirror 서비스에 의해 보장되지 않는 것이 가장 좋습니다.
+
+* 참고 *: StorageGRID의 소스 버킷에 대한 버전 ID는 대상 버킷의 버전 ID와 관련이 없습니다.
+
+
+
+ a| 
+개체 버전에 태그 달기
+ a| 
+CloudMirror 서비스는 S3 프로토콜의 제한으로 인해 버전 ID를 제공하는 PutObjectTagging 또는 DeleteObjectTagging 요청을 복제하지 않습니다. 소스 및 대상의 버전 ID는 관련이 없으므로 특정 버전 ID에 대한 태그 업데이트를 복제할 수 없습니다.
+
+반면, CloudMirror 서비스는 버전 ID를 지정하지 않는 PutObjectTagging 요청이나 DeleteObjectTagging 요청을 복제합니다. 이러한 요청은 최신 키의 태그(또는 버킷의 버전이 지정된 경우 최신 버전)를 업데이트합니다. 태그가 있는 일반 베스트(업데이트 태그 지정 안 함)도 복제됩니다.
+
+
+
+ a| 
+멀티 파트 업로드 및 `ETag` 값
+ a| 
+여러 부분 업로드를 사용하여 업로드한 개체를 미러링할 때 CloudMirror 서비스는 해당 파트를 보존하지 않습니다. 따라서 `ETag` 대칭 복사된 개체의 값은 `ETag` 원래 개체의 값과 다릅니다.
+
+
+
+ a| 
+SSE-C로 암호화된 오브젝트(고객이 제공한 키를 사용한 서버측 암호화)
+ a| 
+CloudMirror 서비스는 SSE-C로 암호화된 객체를 지원하지 않습니다. CloudMirror 복제를 위해 소스 버킷으로 객체를 수집하려고 할 때 SSE-C 요청 헤더를 포함하면 작업이 실패합니다.
+
+
+
+ a| 
+S3 오브젝트 잠금이 활성화된 버킷
+ a| 
+S3 오브젝트 잠금이 활성화된 소스 또는 대상 버킷에는 복제가 지원되지 않습니다.
+
+|===

@@ -1,0 +1,53 @@
+---
+permalink: fabricpool/remove-fabricpool-data.html 
+sidebar: sidebar 
+keywords: fabricPool, ontap, remove data from storagegrid 
+summary: 현재 StorageGRID에 저장되어 있는 FabricPool 데이터를 제거해야 하는 경우 다음 단계를 수행하십시오. 
+---
+= StorageGRID에서 FabricPool 데이터를 제거합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+현재 StorageGRID에 저장된 FabricPool 데이터를 제거해야 하는 경우 ONTAP를 사용하여 FabricPool 볼륨에 대한 모든 데이터를 검색하고 성능 계층으로 상향 이동시켜야 합니다.
+
+.시작하기 전에
+* 의 지침과 고려 사항을 검토했습니다. https://docs.netapp.com/us-en/ontap/fabricpool/promote-data-performance-tier-task.html["데이터를 성능 계층으로 상향 이동"^]
+* ONTAP 9.8 이상을 사용하고 있습니다.
+* 을 사용하고 link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]있습니다.
+* 가 있는 FabricPool 테넌트 계정의 StorageGRID 사용자 그룹에 속해 link:../tenant/tenant-management-permissions.html["모든 버킷 또는 루트 액세스 권한을 관리합니다"]있습니다.
+
+
+.이 작업에 대해
+다음 지침은 StorageGRID에서 FabricPool로 데이터를 다시 이동하는 방법을 설명합니다. ONTAP 및 StorageGRID 테넌트 관리자를 사용하여 이 절차를 수행합니다.
+
+.단계
+. ONTAP에서 명령을 `volume modify` 실행합니다.
++
+ `tiering-policy`를 로 `none` 설정하여 새로운 계층화를 중지하고 `cloud-retrieval-policy` `promote` 이전에 StorageGRID에 계층화된 모든 데이터를 반환하도록 설정합니다.
+
++
+을 https://docs.netapp.com/us-en/ontap/fabricpool/promote-all-data-performance-tier-task.html["FabricPool 볼륨의 모든 데이터를 성능 계층으로 상향 이동합니다"^]참조하십시오.
+
+. 작업이 완료될 때까지 기다립니다.
++
+명령을 옵션과 함께 `tiering` 사용하여 을 수행할 https://docs.netapp.com/us-en/ontap/fabricpool/check-status-performance-tier-promotion-task.html["성능 계층 프로모션의 상태를 확인합니다"^] 수 `volume object-store` 있습니다.
+
+. 상향 이동 작업이 완료되면 FabricPool 테넌트 계정에 대한 StorageGRID 테넌트 관리자에 로그인합니다.
+. 대시보드에서 * 버킷 보기 * 를 선택하거나 * 스토리지(S3) * > * 버킷 * 을 선택합니다.
+. FabricPool 버킷이 비어 있는지 확인합니다.
+. 버킷이 비어 있는 경우link:../tenant/deleting-s3-bucket.html["버킷을 삭제합니다"].
+
+
+.작업을 마친 후
+버킷을 삭제하면 FabricPool에서 StorageGRID로의 계층화를 더 이상 계속할 수 없습니다. 하지만 로컬 계층이 StorageGRID 클라우드 계층에 아직 연결되어 있으므로 ONTAP 시스템 관리자는 버킷에 액세스할 수 없음을 나타내는 오류 메시지를 반환합니다.
+
+이러한 오류 메시지를 방지하려면 다음 중 하나를 수행하십시오.
+
+* FabricPool 미러를 사용하여 애그리게이트에 다른 클라우드 계층을 연결할 수 있습니다.
+* FabricPool 애그리게이트에서 비 FabricPool 애그리게이트로 데이터를 이동한 다음 사용되지 않은 애그리게이트를 삭제합니다.
+
+
+자세한 내용은 를 https://docs.netapp.com/us-en/ontap/fabricpool/index.html["FabricPool에 대한 ONTAP 설명서"^] 참조하십시오.

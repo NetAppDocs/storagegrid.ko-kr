@@ -1,0 +1,52 @@
+---
+permalink: primer/hybrid-clouds-with-storagegrid.html 
+sidebar: sidebar 
+keywords: hybrid cloud, cloud storage pool, platform services, fabricpool, ontap 
+summary: 정책 기반의 데이터 관리를 구현하여 하이브리드 클라우드 구성에서 StorageGRID를 사용하고, 클라우드 스토리지 풀에 오브젝트를 저장하고, StorageGRID 플랫폼 서비스를 활용하고, ONTAP에서 NetApp FabricPool를 통해 StorageGRID로 데이터를 계층화합니다. 
+---
+= StorageGRID 하이브리드 클라우드
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+정책 기반의 데이터 관리를 구현하여 하이브리드 클라우드 구성에서 StorageGRID를 사용하고, 클라우드 스토리지 풀에 오브젝트를 저장하고, StorageGRID 플랫폼 서비스를 활용하고, ONTAP에서 NetApp FabricPool를 통해 StorageGRID로 데이터를 계층화합니다.
+
+
+
+== 클라우드 스토리지 풀
+
+클라우드 스토리지 풀을 사용하면 StorageGRID 시스템 외부에 오브젝트를 저장할 수 있습니다. 예를 들어, 자주 액세스하지 않는 오브젝트를 Microsoft Azure Blob 스토리지의 Amazon S3 Glacier, S3 Glacier Deep Archive, Google Cloud 또는 Archive 액세스 계층과 같은 저비용 클라우드 스토리지로 이동할 수 있습니다. 또는 스토리지 볼륨 또는 스토리지 노드 장애로 인해 손실된 데이터를 복구하는 데 사용할 수 있는 StorageGRID 개체의 클라우드 백업을 유지 관리할 수도 있습니다.
+
+디스크 및 테이프 스토리지를 비롯한 타사 파트너 스토리지도 지원됩니다.
+
+
+NOTE: FabricPool에서 클라우드 스토리지 풀 타겟의 객체를 검색하는 지연 시간이 추가되었기 때문에 클라우드 스토리지 풀을 사용할 수 없습니다.
+
+
+
+== S3 플랫폼 서비스
+
+S3 플랫폼 서비스를 사용하면 원격 서비스를 오브젝트 복제, 이벤트 알림 또는 검색 통합을 위한 엔드포인트로 사용할 수 있습니다. 플랫폼 서비스는 그리드의 ILM 규칙과 독립적으로 작동하며 개별 S3 버킷에 대해 활성화됩니다. 지원되는 서비스는 다음과 같습니다.
+
+* CloudMirror 복제 서비스는 지정된 오브젝트를 Amazon S3 또는 두 번째 StorageGRID 시스템에 있는 타겟 S3 버킷에 자동으로 미러링합니다.
+* 이벤트 알림 서비스는 지정된 작업에 대한 메시지를 아마존 SNS(Simple Notification Service) 이벤트 수신을 지원하는 외부 엔드포인트로 보냅니다.
+* 검색 통합 서비스는 외부 Elasticsearch 서비스에 개체 메타데이터를 전송하여 타사 도구를 사용하여 메타데이터를 검색, 시각화 및 분석할 수 있도록 합니다.
+
+
+예를 들어, CloudMirror 복제를 사용하여 특정 고객 레코드를 Amazon S3에 미러링한 다음 AWS 서비스를 활용하여 데이터에 대한 분석을 수행할 수 있습니다.
+
+
+
+== FabricPool를 사용한 ONTAP 데이터 계층화
+
+FabricPool를 사용하여 데이터를 StorageGRID로 계층화하여 ONTAP 스토리지 비용을 절감할 수 있습니다. FabricPool를 사용하면 사내 또는 사외에서 데이터를 저비용 오브젝트 스토리지 계층으로 자동 계층화할 수 있습니다.
+
+수동 계층화 솔루션과 달리 FabricPool는 데이터 계층화를 자동화하여 스토리지 비용을 줄임으로써 총 소유 비용을 절감합니다. StorageGRID를 비롯한 퍼블릭 클라우드와 프라이빗 클라우드로 계층화하여 클라우드 경제성의 이점을 제공합니다.
+
+.관련 정보
+* link:../ilm/what-cloud-storage-pool-is.html["Cloud Storage Pool이란?"]
+* link:../tenant/what-platform-services-are.html["플랫폼 서비스 관리"]
+* link:../fabricpool/index.html["FabricPool용 StorageGRID를 구성합니다"]
+

@@ -1,0 +1,581 @@
+---
+permalink: network/external-communications.html 
+sidebar: sidebar 
+keywords: storagegrid, network port, external communications, ports, TCP, UDP, client communications 
+summary: 클라이언트는 콘텐츠를 수집하고 검색하기 위해 그리드 노드와 통신해야 합니다. 사용되는 포트는 선택한 오브젝트 스토리지 프로토콜에 따라 다릅니다. 이러한 포트는 클라이언트에서 액세스할 수 있어야 합니다. 
+---
+= 외부 통신
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클라이언트는 콘텐츠를 수집하고 검색하기 위해 그리드 노드와 통신해야 합니다. 사용되는 포트는 선택한 오브젝트 스토리지 프로토콜에 따라 다릅니다. 이러한 포트는 클라이언트에서 액세스할 수 있어야 합니다.
+
+
+
+== 포트에 대한 액세스가 제한되어 있습니다
+
+엔터프라이즈 네트워킹 정책이 포트 중 하나에 대한 액세스를 제한하는 경우 다음 중 하나를 수행할 수 있습니다.
+
+* link:../admin/configuring-load-balancer-endpoints.html["부하 분산 장치 엔드포인트"]사용자 정의 포트에 대한 액세스를 허용하는 데 사용됩니다.
+* 노드를 구축할 때 포트를 다시 매핑합니다. 하지만 로드 밸런서 끝점을 다시 매핑하면 안 됩니다. StorageGRID 노드의 포트 재매핑에 대한 정보를 참조하십시오.
++
+** link:../rhel/creating-node-configuration-files.html#port-remap-keys["Red Hat Enterprise Linux에서 StorageGRID에 대한 포트 재매핑 키"]
+** link:../ubuntu/creating-node-configuration-files.html#port-remap-keys["Ubuntu 또는 Debian에서 StorageGRID에 대한 포트 재매핑 키"]
+** link:../vmware/deploying-storagegrid-node-as-virtual-machine.html#vmware-remap-ports["VMware에서 StorageGRID에 대한 포트를 재매핑합니다"]
+** https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-remapping-network-ports-for-appliance.html["옵션: 어플라이언스인 네트워크 포트를 재활용합니다"^]
+
+
+
+
+
+
+== 외부 통신에 사용되는 포트
+
+다음 표는 노드로의 트래픽에 사용되는 포트를 보여줍니다.
+
+
+NOTE: 이 목록에는 로 구성될 수 있는 포트가 link:../admin/configuring-load-balancer-endpoints.html["부하 분산 장치 엔드포인트"]포함되어 있지 않습니다.
+
+[cols="1a,1a,1a,1a,1a,4a"]
+|===
+| 포트 | TCP 또는 UDP입니다 | 프로토콜 | 보낸 사람 | 를 선택합니다 | 세부 정보 
+
+
+ a| 
+22
+ a| 
+TCP
+ a| 
+SSH를 클릭합니다
+ a| 
+서비스 노트북
+ a| 
+모든 노드
+ a| 
+콘솔 단계를 사용하는 절차를 수행하려면 SSH 또는 콘솔 액세스가 필요합니다. 선택적으로 22 대신 포트 2022를 사용할 수 있습니다.
+
+
+
+ a| 
+25
+ a| 
+TCP
+ a| 
+SMTP
+ a| 
+관리자 노드
+ a| 
+이메일 서버
+ a| 
+알림 및 이메일 기반 AutoSupport에 사용됩니다. 이메일 서버 페이지를 사용하여 기본 포트 설정 25를 재정의할 수 있습니다.
+
+
+
+ a| 
+53
+ a| 
+TCP/UDP
+ a| 
+DNS
+ a| 
+모든 노드
+ a| 
+DNS 서버
+ a| 
+DNS에 사용됩니다.
+
+
+
+ a| 
+67
+ a| 
+UDP입니다
+ a| 
+DHCP를 선택합니다
+ a| 
+모든 노드
+ a| 
+DHCP 서비스
+ a| 
+DHCP 기반 네트워크 구성을 지원하는 데 선택적으로 사용됩니다. dhclient 서비스는 정적으로 구성된 그리드에 대해 실행되지 않습니다.
+
+
+
+ a| 
+68
+ a| 
+UDP입니다
+ a| 
+DHCP를 선택합니다
+ a| 
+DHCP 서비스
+ a| 
+모든 노드
+ a| 
+DHCP 기반 네트워크 구성을 지원하는 데 선택적으로 사용됩니다. dhclient 서비스는 고정 IP 주소를 사용하는 그리드에 대해서는 실행되지 않습니다.
+
+
+
+ a| 
+80
+ a| 
+TCP
+ a| 
+HTTP
+ a| 
+브라우저
+ a| 
+관리자 노드
+ a| 
+포트 80은 관리 노드 사용자 인터페이스를 위해 포트 443으로 리디렉션합니다.
+
+
+
+ a| 
+80
+ a| 
+TCP
+ a| 
+HTTP
+ a| 
+브라우저
+ a| 
+어플라이언스
+ a| 
+포트 80이 StorageGRID 어플라이언스 설치 프로그램의 포트 8443으로 리디렉션됩니다.
+
+
+
+ a| 
+80
+ a| 
+TCP
+ a| 
+HTTP
+ a| 
+ADC가 있는 스토리지 노드
+ a| 
+설치하고
+ a| 
+AWS로 전송된 플랫폼 서비스 메시지 또는 HTTP를 사용하는 기타 외부 서비스에 사용됩니다. 테넌트는 끝점을 만들 때 기본 HTTP 포트 설정인 80을 재정의할 수 있습니다.
+
+
+
+ a| 
+80
+ a| 
+TCP
+ a| 
+HTTP
+ a| 
+스토리지 노드
+ a| 
+설치하고
+ a| 
+클라우드 스토리지 풀에서는 HTTP를 사용하는 AWS 타겟으로 전송된 요청을 풀링합니다. 그리드 관리자는 클라우드 스토리지 풀을 구성할 때 기본 HTTP 포트 설정 80을 재정의할 수 있습니다.
+
+
+
+ a| 
+111
+ a| 
+TCP/UDP
+ a| 
+rpcbind
+ a| 
+NFS 클라이언트
+ a| 
+관리자 노드
+ a| 
+NFS 기반 감사 내보내기(portmap)에서 사용됩니다.
+
+* 참고: * 이 포트는 NFS 기반 감사 내보내기가 활성화된 경우에만 필요합니다.
+
+* 참고: * NFS에 대한 지원은 더 이상 사용되지 않으며 향후 릴리스에서 제거될 예정입니다.
+
+
+
+ a| 
+123
+ a| 
+UDP입니다
+ a| 
+NTP
+ a| 
+기본 NTP 노드입니다
+ a| 
+외부 NTP
+ a| 
+네트워크 시간 프로토콜 서비스. 또한 주 NTP 소스로 선택된 노드는 외부 NTP 시간 소스와 클록 시간을 동기화합니다.
+
+
+
+ a| 
+161
+ a| 
+TCP/UDP
+ a| 
+SNMP를 선택합니다
+ a| 
+SNMP 클라이언트
+ a| 
+모든 노드
+ a| 
+SNMP 폴링에 사용됩니다. 모든 노드는 기본 정보를 제공하고 관리 노드도 경고 데이터를 제공합니다. 구성 시 기본적으로 UDP 포트 161이 사용됩니다.
+
+* 참고: * 이 포트는 필요한 경우에만 필요하며 SNMP가 구성된 경우에만 노드 방화벽에서 열립니다. SNMP를 사용하려는 경우 대체 포트를 구성할 수 있습니다.
+
+* 참고: * StorageGRID와 함께 SNMP를 사용하는 방법에 대한 자세한 내용은 NetApp 어카운트 담당자에게 문의하십시오.
+
+
+
+ a| 
+162
+ a| 
+TCP/UDP
+ a| 
+SNMP 알림
+ a| 
+모든 노드
+ a| 
+통지 대상
+ a| 
+아웃바운드 SNMP 알림 및 트랩은 기본적으로 UDP 포트 162로 설정됩니다.
+
+* 참고: * 이 포트는 SNMP가 활성화되고 알림 대상이 구성된 경우에만 필요합니다. SNMP를 사용하려는 경우 대체 포트를 구성할 수 있습니다.
+
+* 참고: * StorageGRID와 함께 SNMP를 사용하는 방법에 대한 자세한 내용은 NetApp 어카운트 담당자에게 문의하십시오.
+
+
+
+ a| 
+389
+ a| 
+TCP/UDP
+ a| 
+LDAP를 지원합니다
+ a| 
+ADC가 있는 스토리지 노드
+ a| 
+Active Directory/LDAP를 선택합니다
+ a| 
+ID 페더레이션을 위해 Active Directory 또는 LDAP 서버에 연결하는 데 사용됩니다.
+
+
+
+ a| 
+443
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+브라우저
+ a| 
+관리자 노드
+ a| 
+그리드 관리자 및 테넌트 관리자에 액세스하기 위해 웹 브라우저 및 관리 API 클라이언트에서 사용됩니다.
+
+* 참고 *: Grid Manager 포트 443 또는 8443을 닫으면 사용자를 포함하여 차단된 포트에 현재 연결되어 있는 모든 사용자는 권한이 있는 주소 목록에 IP 주소가 추가되지 않으면 Grid Manager에 액세스할 수 없습니다. 권한 있는 IP 주소를 구성하려면 를 link:../admin/configure-firewall-controls.html["방화벽 제어를 구성합니다"]참조하십시오.
+
+
+
+ a| 
+443
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+관리자 노드
+ a| 
+Active Directory를 클릭합니다
+ a| 
+SSO(Single Sign-On)가 활성화된 경우 Active Directory에 연결하는 관리 노드에서 사용됩니다.
+
+
+
+ a| 
+443
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+ADC가 있는 스토리지 노드
+ a| 
+설치하고
+ a| 
+AWS로 전송된 플랫폼 서비스 메시지 또는 HTTPS를 사용하는 기타 외부 서비스에 사용됩니다. 테넌트는 끝점을 만들 때 기본 HTTP 포트 설정인 443을 재정의할 수 있습니다.
+
+
+
+ a| 
+443
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+스토리지 노드
+ a| 
+설치하고
+ a| 
+클라우드 스토리지 풀에서는 HTTPS를 사용하는 AWS 타겟으로 전송된 요청을 풀링합니다. 그리드 관리자는 클라우드 스토리지 풀을 구성할 때 기본 HTTPS 포트 설정 443을 재정의할 수 있습니다.
+
+
+
+ a| 
+903
+ a| 
+TCP
+ a| 
+NFS 를 참조하십시오
+ a| 
+NFS 클라이언트
+ a| 
+관리자 노드
+ a| 
+NFS 기반 감사 내보내기에 (`rpc.mountd`사용됨).
+
+* 참고: * 이 포트는 NFS 기반 감사 내보내기가 활성화된 경우에만 필요합니다.
+
+* 참고: * NFS에 대한 지원은 더 이상 사용되지 않으며 향후 릴리스에서 제거될 예정입니다.
+
+
+
+ a| 
+2022년
+ a| 
+TCP
+ a| 
+SSH를 클릭합니다
+ a| 
+서비스 노트북
+ a| 
+모든 노드
+ a| 
+콘솔 단계를 사용하는 절차를 수행하려면 SSH 또는 콘솔 액세스가 필요합니다. 선택적으로 2022 대신 포트 22를 사용할 수 있습니다.
+
+
+
+ a| 
+2049
+ a| 
+TCP
+ a| 
+NFS 를 참조하십시오
+ a| 
+NFS 클라이언트
+ a| 
+관리자 노드
+ a| 
+NFS 기반 감사 내보내기(NFS)에서 사용됩니다.
+
+* 참고: * 이 포트는 NFS 기반 감사 내보내기가 활성화된 경우에만 필요합니다.
+
+* 참고: * NFS에 대한 지원은 더 이상 사용되지 않으며 향후 릴리스에서 제거될 예정입니다.
+
+
+
+ a| 
+5353
+ a| 
+UDP입니다
+ a| 
+mDNS
+ a| 
+모든 노드
+ a| 
+모든 노드
+ a| 
+전체 그리드 IP 변경 및 설치, 확장 및 복구 중에 기본 관리 노드 검색에 사용되는 멀티캐스트 DNS(mDNS) 서비스를 제공합니다.
+
+
+
+ a| 
+5696
+ a| 
+TCP
+ a| 
+KMIP
+ a| 
+어플라이언스
+ a| 
+킬로미터
+ a| 
+KMIP(Key Management Interoperability Protocol) 노드 암호화를 위해 구성된 어플라이언스에서 KMS(Key Management Server)로의 외부 트래픽(StorageGRID 어플라이언스 설치 프로그램의 KMS 구성 페이지에 다른 포트가 지정되지 않은 경우)
+
+
+
+ a| 
+8022
+ a| 
+TCP
+ a| 
+SSH를 클릭합니다
+ a| 
+서비스 노트북
+ a| 
+모든 노드
+ a| 
+포트 8022의 SSH는 지원 및 문제 해결을 위해 어플라이언스 및 가상 노드 플랫폼에서 기본 운영 체제에 대한 액세스 권한을 부여합니다. 이 포트는 Linux 기반(베어 메탈) 노드에 사용되지 않으며 그리드 노드 간에 또는 정상 운영 중에 액세스할 필요가 없습니다.
+
+
+
+ a| 
+8443
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+브라우저
+ a| 
+관리자 노드
+ a| 
+선택 사항. 웹 브라우저 및 관리 API 클라이언트에서 Grid Manager에 액세스하는 데 사용됩니다. Grid Manager와 Tenant Manager 통신을 구분하는 데 사용할 수 있습니다.
+
+* 참고 *: Grid Manager 포트 443 또는 8443을 닫으면 사용자를 포함하여 차단된 포트에 현재 연결되어 있는 모든 사용자는 권한이 있는 주소 목록에 IP 주소가 추가되지 않으면 Grid Manager에 액세스할 수 없습니다. 권한 있는 IP 주소를 구성하려면 를 link:../admin/configure-firewall-controls.html["방화벽 제어를 구성합니다"]참조하십시오.
+
+
+
+ a| 
+9022
+ a| 
+TCP
+ a| 
+SSH를 클릭합니다
+ a| 
+서비스 노트북
+ a| 
+어플라이언스
+ a| 
+지원 및 문제 해결을 위해 사전 구성 모드에서 StorageGRID 어플라이언스에 대한 액세스 권한을 부여합니다. 이 포트는 그리드 노드 간 또는 정상 작업 중에 액세스할 필요가 없습니다.
+
+
+
+ a| 
+9091
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+외부 Grafana 서비스
+ a| 
+관리자 노드
+ a| 
+외부 Grafana 서비스에서 StorageGRID Prometheus 서비스에 안전하게 액세스하는 데 사용됩니다.
+
+* 참고: * 이 포트는 인증서 기반 Prometheus 액세스가 활성화된 경우에만 필요합니다.
+
+
+
+ a| 
+9092
+ a| 
+TCP
+ a| 
+카프카
+ a| 
+ADC가 있는 스토리지 노드
+ a| 
+Kafka 클러스터
+ a| 
+Kafka 클러스터로 전송되는 플랫폼 서비스 메시지에 사용됩니다. 테넌트는 엔드포인트를 생성할 때 기본 Kafka 포트 설정인 9092를 재정의할 수 있습니다.
+
+
+
+ a| 
+9443
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+브라우저
+ a| 
+관리자 노드
+ a| 
+선택 사항. 테넌트 관리자를 액세스하기 위해 웹 브라우저 및 관리 API 클라이언트에서 사용됩니다. Grid Manager와 Tenant Manager 통신을 구분하는 데 사용할 수 있습니다.
+
+
+
+ a| 
+18082
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+S3 클라이언트
+ a| 
+스토리지 노드
+ a| 
+S3 클라이언트 트래픽이 스토리지 노드(HTTPS)로 직접 연결됩니다.
+
+
+
+ a| 
+18083
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+SWIFT 클라이언트
+ a| 
+스토리지 노드
+ a| 
+Swift 클라이언트 트래픽이 스토리지 노드(HTTPS)로 직접 연결됩니다.
+
+
+
+ a| 
+18084
+ a| 
+TCP
+ a| 
+HTTP
+ a| 
+S3 클라이언트
+ a| 
+스토리지 노드
+ a| 
+S3 클라이언트 트래픽이 스토리지 노드(HTTP)로 직접 연결됩니다.
+
+
+
+ a| 
+18085
+ a| 
+TCP
+ a| 
+HTTP
+ a| 
+SWIFT 클라이언트
+ a| 
+스토리지 노드
+ a| 
+Swift 클라이언트 트래픽이 스토리지 노드(HTTP)로 직접 연결됩니다.
+
+
+
+ a| 
+23000-23999 을 참조하십시오
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+그리드 간 복제를 위한 소스 그리드의 모든 노드
+ a| 
+교차 그리드 복제를 위한 대상 그리드의 관리 노드 및 게이트웨이 노드
+ a| 
+이 포트 범위는 그리드 페더레이션 연결용으로 예약되어 있습니다. 지정된 접속의 두 그리드는 동일한 포트를 사용합니다.
+
+|===

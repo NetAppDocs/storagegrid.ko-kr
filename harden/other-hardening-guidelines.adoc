@@ -1,0 +1,70 @@
+---
+permalink: harden/other-hardening-guidelines.html 
+sidebar: sidebar 
+keywords: Hardening guidelines, security 
+summary: StorageGRID 네트워크 및 노드에 대한 강화 지침을 따르는 것 외에도 StorageGRID 시스템의 다른 영역에 대한 강화 지침을 따라야 합니다. 
+---
+= 기타 강화 지침
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 네트워크 및 노드에 대한 강화 지침을 따르는 것 외에도 StorageGRID 시스템의 다른 영역에 대한 강화 지침을 따라야 합니다.
+
+
+
+== 임시 설치 암호
+
+설치 중에 StorageGRID 시스템을 보호하려면 StorageGRID 설치 UI 또는 설치 API의 임시 설치 관리자 암호 페이지에서 암호를 설정합니다. 이 암호를 설정하면 사용자 인터페이스, 설치 API 및 스크립트를 포함하여 StorageGRID를 설치하는 모든 방법에 이 암호가 `configure-storagegrid.py` 적용됩니다.
+
+자세한 내용은 다음을 참조하십시오.
+
+* link:../rhel/index.html["Red Hat Enterprise Linux에 StorageGRID를 설치합니다"]
+* link:../ubuntu/index.html["Ubuntu 또는 Debian에 StorageGRID를 설치합니다"]
+* link:../vmware/index.html["VMware에 StorageGRID를 설치합니다"]
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["StorageGRID 어플라이언스를 설치합니다"^]
+
+
+
+
+== 로그 및 감사 메시지
+
+항상 안전한 방법으로 StorageGRID 로그 및 감사 메시지 출력을 보호합니다. StorageGRID 로그 및 감사 메시지는 지원 및 시스템 가용성의 관점에서 중요한 정보를 제공합니다. 또한 StorageGRID 로그 및 감사 메시지 출력에 포함된 정보와 세부 정보는 일반적으로 민감한 특성을 가지고 있습니다.
+
+보안 이벤트를 외부 syslog 서버로 보내도록 StorageGRID를 구성합니다. syslog 내보내기를 사용하는 경우 전송 프로토콜에 대해 TLS 및 RELP/TLS를 선택합니다.
+
+StorageGRID 로그에 대한 자세한 내용은 를 link:../monitor/logs-files-reference.html["로그 파일 참조"]참조하십시오. StorageGRID 감사 메시지에 대한 자세한 내용은 을 link:../audit/audit-messages-main.html["감사 메시지"]참조하십시오.
+
+
+
+== NetApp AutoSupport를 참조하십시오
+
+StorageGRID의 AutoSupport 기능을 사용하면 시스템의 상태를 사전에 모니터링하고 패키지를 NetApp Support 사이트, 조직의 내부 지원 팀 또는 지원 파트너에게 자동으로 보낼 수 있습니다. 기본적으로 AutoSupport 패키지를 NetApp로 보내는 기능은 StorageGRID를 처음 구성할 때 사용됩니다.
+
+AutoSupport 기능을 비활성화할 수 있습니다. 하지만 AutoSupport는 StorageGRID 시스템에서 문제가 발생할 경우 문제를 빠르게 식별하고 해결할 수 있도록 하므로 NetApp에서 이 기능을 사용하도록 권장합니다.
+
+AutoSupport는 전송 프로토콜을 위해 HTTPS, HTTP 및 SMTP를 지원합니다. AutoSupport 패키지는 매우 민감하므로 NetApp에서 AutoSupport 패키지를 NetApp에 전송하기 위한 기본 전송 프로토콜로 HTTPS를 사용하는 것이 좋습니다.
+
+
+
+== CORS(Cross-Origin Resource Sharing)
+
+다른 도메인의 웹 애플리케이션에서 해당 버킷의 버킷 및 오브젝트에 액세스할 수 있도록 하려면 S3 버킷에 대해 CORS(Cross-Origin Resource Sharing)를 구성할 수 있습니다. 일반적으로 CORS가 필요한 경우가 아니면 활성화하지 마십시오. CORS가 필요한 경우 신뢰할 수 있는 오리진으로 제한합니다.
+
+의 단계를 link:../tenant/configuring-cross-origin-resource-sharing-cors.html["CORS(Cross-Origin Resource Sharing) 구성"]참조하십시오.
+
+
+
+== 외부 보안 장치
+
+완벽한 강화 솔루션은 StorageGRID 외부의 보안 메커니즘을 해결해야 합니다. StorageGRID에 대한 액세스를 필터링하고 제한하는 데 추가 인프라 장치를 사용하는 것은 엄격한 보안 상태를 설정하고 유지하는 효과적인 방법입니다. 이러한 외부 보안 장치에는 방화벽, IPS(침입 방지 시스템) 및 기타 보안 장치가 포함됩니다.
+
+신뢰할 수 없는 클라이언트 트래픽에는 타사 로드 밸런서가 권장됩니다. 타사 로드 밸런싱은 더 많은 제어 기능과 공격에 대한 추가적인 보호 계층을 제공합니다.
+
+
+
+== 랜섬웨어 완화
+
+의 권장 사항을 따라 랜섬웨어 공격으로부터 오브젝트 데이터를 보호합니다 https://www.netapp.com/media/69498-tr-4921.pdf["StorageGRID를 통한 랜섬웨어 방어"^].

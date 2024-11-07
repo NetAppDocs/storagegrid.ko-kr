@@ -1,0 +1,52 @@
+---
+permalink: admin/editing-traffic-classification-policy.html 
+sidebar: sidebar 
+keywords: edit traffic classification policy 
+summary: 트래픽 분류 정책을 편집하여 이름 또는 설명을 변경하거나 정책에 대한 규칙 또는 제한을 생성, 편집 또는 삭제할 수 있습니다. 
+---
+= 트래픽 분류 정책을 편집합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+트래픽 분류 정책을 편집하여 이름 또는 설명을 변경하거나 정책에 대한 규칙 또는 제한을 생성, 편집 또는 삭제할 수 있습니다.
+
+.시작하기 전에
+* 을 사용하여 그리드 관리자에 로그인되어 있습니다.link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]
+* 이 link:admin-group-permissions.html["루트 액세스 권한"]있습니다.
+
+
+.단계
+. 구성 * > * 네트워크 * > * 트래픽 분류 * 를 선택합니다.
++
+트래픽 분류 정책 페이지가 나타나고 기존 정책이 표에 나열됩니다.
+
+. 작업 메뉴 또는 세부 정보 페이지를 사용하여 정책을 편집합니다. 입력할 항목은 을 link:../admin/creating-traffic-classification-policies.html["트래픽 분류 정책을 생성합니다"]참조하십시오.
++
+[role="tabbed-block"]
+====
+.작업 메뉴
+--
+.. 정책 확인란을 선택합니다.
+.. Actions * > * Edit * 를 선택합니다.
+
+
+--
+.세부 정보 페이지
+--
+.. 정책 이름을 선택합니다.
+.. 정책 이름 옆의 * Edit * 버튼을 선택합니다.
+
+
+--
+====
+. Enter policy name(정책 이름 입력) 단계에서 필요에 따라 정책 이름 또는 설명을 편집하고 * Continue *(계속 *)를 선택합니다.
+. 일치하는 규칙 추가 단계에서는 필요에 따라 규칙을 추가하거나 기존 규칙의 * 유형 * 및 * 일치 값 * 을 편집하고 * 계속 * 을 선택합니다.
+. Set limits(제한 설정) 단계에서 필요에 따라 제한을 추가, 편집 또는 삭제하고 * Continue *(계속 *)를 선택합니다.
+. 업데이트된 정책을 검토하고 * Save and continue * 를 선택합니다.
++
+정책 변경 사항이 저장되고 이제 트래픽 분류 정책에 따라 네트워크 트래픽이 처리됩니다. 트래픽 차트를 보고 정책이 기대하는 트래픽 제한을 적용하고 있는지 확인할 수 있습니다.
+
+

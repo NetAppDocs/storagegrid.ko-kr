@@ -1,0 +1,50 @@
+---
+permalink: maintain/viewing-server-manager-status-and-version.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, server manager, status, version 
+summary: 각 그리드 노드에 대해 해당 그리드 노드에서 실행 중인 서버 관리자의 현재 상태와 버전을 볼 수 있습니다. 또한 해당 그리드 노드에서 실행 중인 모든 서비스의 현재 상태를 얻을 수 있습니다. 
+---
+= 서버 관리자 상태 및 버전을 봅니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+각 그리드 노드에 대해 해당 그리드 노드에서 실행 중인 서버 관리자의 현재 상태와 버전을 볼 수 있습니다. 또한 해당 그리드 노드에서 실행 중인 모든 서비스의 현재 상태를 얻을 수 있습니다.
+
+.시작하기 전에
+ `Passwords.txt`파일이 있습니다.
+
+.단계
+. 그리드 노드에 로그인합니다.
++
+.. 다음 명령을 입력합니다. `ssh admin@_grid_node_IP_`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
+.. 다음 명령을 입력하여 루트로 전환합니다. `su -`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
+
+
++
+루트로 로그인하면 프롬프트가 에서 `$` 로 `#`변경됩니다.
+
+. 그리드 노드에서 실행 중인 서버 관리자의 현재 상태를 봅니다. `*service servermanager status*`
++
+그리드 노드에서 실행 중인 Server Manager의 현재 상태가 보고됩니다(실행 여부). 서버 관리자의 상태가 인 경우 `running` 마지막으로 시작한 이후 실행된 시간이 나열됩니다. 예를 들면 다음과 같습니다.
+
++
+[listing]
+----
+servermanager running for 1d, 13h, 0m, 30s
+----
+. 그리드 노드에서 실행 중인 서버 관리자의 현재 버전을 봅니다. `*service servermanager version*`
++
+현재 버전이 나열됩니다. 예를 들면 다음과 같습니다.
+
++
+[listing]
+----
+11.1.0-20180425.1905.39c9493
+----
+. 명령 셸에서 로그아웃합니다. `*exit*`
+

@@ -1,0 +1,100 @@
+---
+permalink: audit/client-write-audit-messages.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, messages, client write, OVWR, SDEL, SPOS, SPUT, SUPD, WDEL, WPUT, S3 
+summary: 클라이언트 쓰기 감사 메시지는 S3 클라이언트 애플리케이션이 오브젝트를 생성하거나 수정하도록 요청할 때 기록됩니다. 
+---
+= 클라이언트가 감사 메시지를 기록합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클라이언트 쓰기 감사 메시지는 S3 클라이언트 애플리케이션이 오브젝트를 생성하거나 수정하도록 요청할 때 기록됩니다.
+
+[cols="1a,3a,1a,1a"]
+|===
+| 코드 | 설명 | 사용자 | 을 참조하십시오 
+
+
+ a| 
+OVWR
+ a| 
+오브젝트 덮어쓰기: 트랜잭션을 로그하여 한 오브젝트를 다른 오브젝트로 덮어씁니다.
+ a| 
+S3 및 Swift 클라이언트
+ a| 
+link:ovwr-object-overwrite.html["OVWR: 개체 덮어쓰기"]
+
+
+
+ a| 
+SDEL
+ a| 
+S3 삭제: 오브젝트 또는 버킷을 삭제하기 위해 트랜잭션을 성공적으로 기록합니다.
+
+* 참고: * 트랜잭션이 하위 리소스에서 작동하는 경우 감사 메시지에는 S3SR 필드가 포함됩니다.
+ a| 
+S3 클라이언트
+ a| 
+link:sdel-s3-delete.html["SDEL: S3 삭제"]
+
+
+
+ a| 
+Spos
+ a| 
+S3 POST: 성공적인 트랜잭션을 로그하여 AWS Glacier 스토리지에서 클라우드 스토리지 풀로 오브젝트를 복원합니다.
+ a| 
+S3 클라이언트
+ a| 
+link:spos-s3-post.html["Spos: S3 POST"]
+
+
+
+ a| 
+SPUT
+ a| 
+S3 PUT: 새 오브젝트 또는 버킷을 생성하기 위한 성공적인 트랜잭션을 기록합니다.
+
+* 참고: * 트랜잭션이 하위 리소스에서 작동하는 경우 감사 메시지에는 S3SR 필드가 포함됩니다.
+ a| 
+S3 클라이언트
+ a| 
+link:sput-s3-put.html["SPUT: S3 PUT"]
+
+
+
+ a| 
+SUPD
+ a| 
+S3 메타데이터 업데이트됨: 트랜잭션이 성공하여 기존 오브젝트 또는 버킷의 메타데이터를 업데이트합니다.
+ a| 
+S3 클라이언트
+ a| 
+link:supd-s3-metadata-updated.html["SUPD:S3 메타데이터가 업데이트되었습니다"]
+
+
+
+ a| 
+WDEL
+ a| 
+SwiFT DELETE(빠른 삭제): 성공한 트랜잭션을 로그하여 오브젝트 또는 컨테이너를 삭제합니다.
+ a| 
+SWIFT 클라이언트
+ a| 
+link:wdel-swift-delete.html["WDEL: Swift 삭제"]
+
+
+
+ a| 
+WPUT
+ a| 
+SwiFT PUT: 새 개체 또는 컨테이너를 생성하기 위해 트랜잭션을 성공적으로 기록합니다.
+ a| 
+SWIFT 클라이언트
+ a| 
+link:wput-swift-put.html["WPUT: Swift Put"]
+
+|===

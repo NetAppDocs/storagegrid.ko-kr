@@ -1,0 +1,46 @@
+---
+permalink: audit/ecmc-missing-erasure-coded-data-fragment.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, ECMC, Missing Erasure-Coded Data Fragment 
+summary: 이 감사 메시지는 시스템에서 누락된 삭제 코딩 데이터 조각을 감지했음을 나타냅니다. 
+---
+= ECMC: 삭제 누락 - 코드 데이터 조각
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 감사 메시지는 시스템에서 누락된 삭제 코딩 데이터 조각을 감지했음을 나타냅니다.
+
+[cols="1a,1a,4a"]
+|===
+| 코드 | 필드에 입력합니다 | 설명 
+
+
+ a| 
+VCMC
+ a| 
+VCS ID입니다
+ a| 
+누락된 청크가 포함된 VCS의 이름입니다.
+
+
+
+ a| 
+MCID
+ a| 
+청크 ID입니다
+ a| 
+누락된 삭제 코딩 조각의 식별자입니다.
+
+
+
+ a| 
+RSLT
+ a| 
+결과
+ a| 
+이 필드에는 '없음' 값이 있습니다. RSLT는 필수 메시지 필드이지만 이 특정 메시지와 관련이 없습니다. 이 메시지가 필터링되지 않도록 'UCS' 대신 '없음'이 사용됩니다.
+
+|===

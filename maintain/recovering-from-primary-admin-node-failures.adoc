@@ -1,0 +1,30 @@
+---
+permalink: maintain/recovering-from-primary-admin-node-failures.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, primary admin node failure 
+summary: '기본 관리 노드 오류에서 복구하려면 특정 작업 세트를 완료해야 합니다. 기본 관리 노드는 그리드에 대한 CMN(Configuration Management Node)\ 서비스를 호스팅합니다.' 
+---
+= 운영 관리 노드 오류에서 복구
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기본 관리 노드 오류에서 복구하려면 특정 작업 세트를 완료해야 합니다. 기본 관리 노드는 그리드에 대한 CMN(Configuration Management Node) 서비스를 호스팅합니다.
+
+
+CAUTION: 장애가 발생한 운영 관리자 노드를 즉시 복구하거나 교체해야 합니다. 그렇지 않으면 그리드에서 새 오브젝트를 수집하는 기능이 상실될 수 있습니다. 정확한 기간은 개체 수집 속도에 따라 다릅니다. 그리드에 대한 기간을 더 정확하게 평가하려면 기술 지원 부서에 문의하십시오.
+
+기본 관리 노드의 CMN(구성 관리 노드) 서비스는 그리드에 대한 객체 식별자 블록을 발행합니다. 이러한 식별자는 인제스트될 때 오브젝트에 할당됩니다. 사용 가능한 식별자가 없으면 새 개체를 인제스트할 수 없습니다. 약 한 달 동안 ID가 그리드에 캐시되기 때문에 CMN을 사용할 수 없는 동안 객체 인제스트를 계속할 수 있습니다. 그러나 캐시된 식별자를 모두 사용한 후에는 새 개체를 추가할 수 없습니다.
+
+기본 관리자 노드를 복구하려면 다음 상위 단계를 따르십시오.
+
+. link:copying-audit-logs-from-failed-primary-admin-node.html["실패한 기본 관리 노드에서 감사 로그를 복사합니다"]
+. link:replacing-primary-admin-node.html["기본 관리자 노드를 교체합니다"]
+. link:configuring-replacement-primary-admin-node.html["교체용 기본 관리자 노드를 구성합니다"]
+. link:assess-hotfix-requirement-during-primary-admin-node-recovery.html["복구된 기본 관리자 노드에 대한 핫픽스 요구 사항이 있는지 확인합니다"]
+. link:restoring-audit-log-on-recovered-primary-admin-node.html["복구된 기본 관리자 노드에서 감사 로그를 복원합니다"]
+. link:restoring-admin-node-database-primary-admin-node.html["기본 관리자 노드를 복구할 때 관리자 노드 데이터베이스를 복구합니다"]
+. link:restoring-prometheus-metrics-primary-admin-node.html["기본 관리자 노드를 복구할 때 Prometheus 메트릭을 복원합니다"]
+

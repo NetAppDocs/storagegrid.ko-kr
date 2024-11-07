@@ -1,0 +1,37 @@
+---
+section: upgrade
+title: StorageGRID 소프트웨어를 업그레이드합니다
+entries:
+- title: 시작하기 전에
+  pdf-filename: StorageGRID 소프트웨어를 업그레이드합니다
+  url: "/upgrade/index.html"
+- title: StorageGRID 11.9의 새로운 기능
+  url: "/upgrade/whats-new.html"
+- title: 제거되거나 사용되지 않는 기능
+  url: "/upgrade/removed-or-deprecated-features.html"
+- title: Grid Management API 변경
+  url: "/upgrade/changes-to-grid-management-api.html"
+- title: 테넌트 관리 API의 변경 사항
+  url: "/upgrade/changes-to-tenant-management-api.html"
+- title: 업그레이드를 계획하고 준비합니다
+  entries:
+  - title: 업그레이드를 완료하는 데 걸리는 예상 시간입니다
+    url: "/upgrade/estimating-time-to-complete-upgrade.html"
+  - title: 업그레이드 중 시스템에 미치는 영향
+    url: "/upgrade/how-your-system-is-affected-during-upgrade.html"
+  - title: 설치된 StorageGRID 버전을 확인합니다
+    url: "/upgrade/verifying-installed-version-of-storagegrid.html"
+  - title: 필요한 자료를 확보합니다
+    url: "/upgrade/obtaining-required-materials-for-software-upgrade.html"
+  - title: 시스템을 확인하십시오
+    url: "/upgrade/checking-systems-condition-before-upgrading-software.html"
+- title: 소프트웨어 업그레이드
+  entries:
+  - title: 업그레이드 빠른 시작
+    url: "/upgrade/upgrade-workflow.html"
+  - title: 'Linux: RPM 또는 DEB 패키지를 다운로드하여 설치합니다'
+    url: "/upgrade/linux-installing-rpm-or-deb-package-on-all-hosts.html"
+  - title: 업그레이드를 수행합니다
+    url: "/upgrade/performing-upgrade.html"
+- title: 업그레이드 문제를 해결합니다
+  url: "/upgrade/troubleshooting-upgrade-issues.html"

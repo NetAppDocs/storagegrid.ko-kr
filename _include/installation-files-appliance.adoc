@@ -1,0 +1,21 @@
+= 
+:allow-uri-read: 
+
+
+[cols="1a,1a"]
+|===
+| 경로 및 파일 이름입니다 | 설명 
+
+
+| /debs/storagegrid-webscale-images-version-SHA.deb 를 참조하십시오  a| 
+어플라이언스에 StorageGRID 노드 이미지를 설치하기 위한 DEB 패키지.
+
+
+
+| /debs/storagegrid-webscale-images-version-SHA.deb.md5 를 참조하십시오  a| 
+파일의 MD5 체크섬 `/debs/storagegridwebscale-
+images-version-SHA.deb`.
+
+|===
+
+NOTE: 어플라이언스 설치의 경우, 이러한 파일은 네트워크 트래픽을 방지해야 하는 경우에만 필요합니다. 어플라이언스는 기본 관리 노드에서 필요한 파일을 다운로드할 수 있습니다.

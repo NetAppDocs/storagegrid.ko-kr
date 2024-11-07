@@ -1,0 +1,98 @@
+---
+permalink: ilm/lifecycle-of-cloud-storage-pool-object.html 
+sidebar: sidebar 
+keywords: lifecycle of cloud storage pool object 
+summary: 클라우드 스토리지 풀을 구현하기 전에 각 유형의 클라우드 스토리지 풀에 저장된 개체의 라이프사이클을 검토하십시오. 
+---
+= Cloud Storage Pool 개체의 수명주기입니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클라우드 스토리지 풀을 구현하기 전에 각 유형의 클라우드 스토리지 풀에 저장된 개체의 라이프사이클을 검토하십시오.
+
+
+
+== S3: 클라우드 스토리지 풀 오브젝트의 수명 주기
+
+S3 Cloud Storage Pool에 저장된 오브젝트의 라이프사이클 단계를 설명합니다.
+
+
+NOTE: "Glacier"는 Glacier 스토리지 클래스와 Glacier Deep Archive 스토리지 클래스를 모두 지칭합니다. 단, Glacier Deep Archive 스토리지 클래스는 Expedited 복원 계층을 지원하지 않습니다. 대량 또는 표준 검색만 지원됩니다.
+
+
+NOTE: Google Cloud Platform(GCP)은 POST 복원 작업 없이 장기 저장소에서 개체 검색을 지원합니다.
+
+. * StorageGRID * 에 저장된 개체
++
+수명 주기를 시작하기 위해 클라이언트 응용 프로그램은 StorageGRID에 개체를 저장합니다.
+
+. * 오브젝트가 S3 클라우드 스토리지 풀로 이동됨 *
++
+** 오브젝트가 S3 클라우드 스토리지 풀을 사용하여 배치 위치로 사용되는 ILM 규칙에 따라 대응되면 StorageGRID은 오브젝트를 클라우드 스토리지 풀에 지정된 외부 S3 버킷으로 이동합니다.
+** 오브젝트가 S3 클라우드 스토리지 풀로 이동된 경우 오브젝트를 Glacier 스토리지로 전환하지 않은 한 클라이언트 애플리케이션은 StorageGRID의 S3 GetObject 요청을 사용하여 오브젝트를 검색할 수 있습니다.
+
+
+. * 객체가 Glacier로 전환됨(검색할 수 없는 상태) *
++
+** 필요에 따라 오브젝트를 Glacier 스토리지로 전환할 수 있습니다. 예를 들어, 외부 S3 버킷은 라이프사이클 구성을 사용하여 오브젝트를 Glacier 스토리지로 즉시 또는 며칠 후 전환할 수 있습니다.
++
+
+NOTE: 오브젝트를 전환하려면 외부 S3 버킷에 대한 라이프사이클 구성을 생성해야 하며 Glacier 스토리지 클래스를 구현하고 S3 RestoreObject API를 지원하는 스토리지 솔루션을 사용해야 합니다.
+
+** 전환 중에 클라이언트 애플리케이션은 S3 HeadObject 요청을 사용하여 객체의 상태를 모니터링할 수 있습니다.
+
+
+. * Glacier 스토리지에서 개체 복원 *
++
+오브젝트가 Glacier 스토리지로 전환된 경우 클라이언트 애플리케이션은 S3 RestoreObject 요청을 실행하여 검색 가능한 복사본을 S3 클라우드 스토리지 풀에 복원할 수 있습니다. 요청은 클라우드 스토리지 풀 및 복구 작업에 사용할 데이터 액세스 계층(빠른 참조, 표준 또는 대량)에서 복제본을 사용할 수 있는 기간을 지정합니다. 복구할 수 있는 복사본의 만료 날짜에 도달하면 복사본은 자동으로 복구할 수 없는 상태로 돌아갑니다.
+
++
+
+NOTE: StorageGRID 내의 스토리지 노드에 하나 이상의 객체 복제본이 있는 경우 RestoreObject 요청을 실행하여 Glacier에서 객체를 복원할 필요가 없습니다. 대신 GetObject 요청을 사용하여 로컬 복사본을 직접 검색할 수 있습니다.
+
+. * 객체 검색됨 *
++
+개체가 복원되면 클라이언트 응용 프로그램에서 복원된 개체를 검색하기 위한 GetObject 요청을 실행할 수 있습니다.
+
+
+
+
+
+== Azure: Cloud Storage Pool 개체의 수명 주기
+
+이 단계에서는 Azure Cloud Storage Pool에 저장된 개체의 라이프사이클 단계를 설명합니다.
+
+. * StorageGRID * 에 저장된 개체
++
+수명 주기를 시작하기 위해 클라이언트 응용 프로그램은 StorageGRID에 개체를 저장합니다.
+
+. * Azure 클라우드 스토리지 풀로 이동된 객체 *
++
+Azure 클라우드 스토리지 풀을 배치 위치로 사용하는 ILM 규칙과 일치하는 오브젝트가 있는 경우 StorageGRID는 해당 오브젝트를 클라우드 스토리지 풀에 의해 지정된 외부 Azure Blob 스토리지 컨테이너로 이동합니다.
+
+. * 객체가 아카이브 계층으로 전환됨(검색할 수 없는 상태) *
++
+오브젝트를 Azure 클라우드 스토리지 풀로 이동한 직후 StorageGRID은 오브젝트를 Azure Blob 스토리지 아카이브 계층으로 자동으로 전환합니다.
+
+. * 아카이브 계층에서 객체 복원 *
++
+오브젝트가 아카이브 계층으로 이전된 경우 클라이언트 애플리케이션은 S3 RestoreObject 요청을 실행하여 검색 가능한 복사본을 Azure Cloud Storage Pool에 복원할 수 있습니다.
+
++
+StorageGRID가 RestoreObject를 수신하면 일시적으로 개체를 Azure Blob 스토리지 냉각 계층으로 전환합니다. RestoreObject 요청의 만료 날짜에 도달하면 StorageGRID는 객체를 다시 아카이브 계층으로 전환합니다.
+
++
+
+NOTE: StorageGRID 내의 스토리지 노드에 하나 이상의 객체 복제본이 있는 경우 RestoreObject 요청을 실행하여 아카이브 액세스 계층에서 객체를 복구할 필요가 없습니다. 대신 GetObject 요청을 사용하여 로컬 복사본을 직접 검색할 수 있습니다.
+
+. * 객체 검색됨 *
++
+개체가 Azure 클라우드 스토리지 풀에 복원되면 클라이언트 응용 프로그램에서 복원된 개체를 검색하기 위한 GetObject 요청을 실행할 수 있습니다.
+
+
+
+.관련 정보
+link:../s3/index.html["S3 REST API 사용"]

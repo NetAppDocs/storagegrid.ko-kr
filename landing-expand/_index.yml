@@ -1,0 +1,49 @@
+---
+indexpage:
+  title: 그리드를 확장합니다
+  summary: 시스템 운영을 중단하지 않고 StorageGRID 시스템의 용량이나 기능을 확장할 수 있습니다.
+  keywords: expand grid, add volume, add node, add site
+  lead: 시스템 운영을 중단하지 않고 StorageGRID 시스템의 용량이나 기능을 확장할 수 있습니다.
+  tiles:
+  - title: 시작하십시오
+    links:
+    - title: 확장 유형
+      url: "../expand/index.html"
+    - title: '지침: 개체 용량 추가'
+      url: "../expand/guidelines-for-adding-object-capacity.html"
+    - title: '지침: 메타데이터 용량을 추가합니다'
+      url: "../expand/adding-metadata-capacity.html"
+    - title: '지침: 중복성 또는 새 기능을 추가합니다'
+      url: "../expand/adding-grid-nodes-to-add-capabilities.html"
+    - title: '지침: 사이트 추가'
+      url: "../expand/adding-new-site.html"
+    - title: 필요한 자료를 수집합니다
+      url: "../expand/gather-required-materials.html"
+  - title: 스토리지 볼륨을 추가합니다
+    links:
+    - title: 스토리지 노드에 스토리지 볼륨을 추가합니다
+      url: "../expand/adding-storage-volumes-to-storage-nodes.html"
+    - title: 'VMware: 스토리지 노드에 스토리지 볼륨을 추가합니다'
+      url: "../expand/vmware-adding-storage-volumes-to-storage-node.html"
+    - title: 'Linux: 스토리지 노드에 직접 연결 또는 SAN 볼륨을 추가합니다'
+      url: "../expand/linux-adding-direct-attached-or-san-volumes-to-storage-node.html"
+  - title: 그리드 노드 또는 사이트를 추가합니다
+    links:
+    - title: 기존 사이트에 그리드 노드를 추가합니다
+      url: "../expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html"
+    - title: 새 사이트를 추가합니다
+      url: "../expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html"
+    - title: 그리드 네트워크에 대한 서브넷을 업데이트합니다
+      url: "../expand/updating-subnets-for-grid-network.html"
+    - title: 새 그리드 노드를 배포합니다
+      url: "../expand/deploying-new-grid-nodes.html"
+    - title: 확장을 수행합니다
+      url: "../expand/performing-expansion.html"
+  - title: 구성하고 문제를 해결합니다
+    links:
+    - title: 구성 단계
+      url: "../expand/configuring-expanded-storagegrid-system.html"
+    - title: 스토리지 노드를 추가한 후 삭제 코딩 데이터의 균형을 재조정합니다
+      url: "../expand/rebalancing-erasure-coded-data-after-adding-storage-nodes.html"
+    - title: '문제 해결: 로그 파일을 수집합니다'
+      url: "../expand/contacting-technical-support.html"

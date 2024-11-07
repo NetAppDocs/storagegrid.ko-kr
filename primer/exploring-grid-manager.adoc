@@ -1,0 +1,263 @@
+---
+permalink: primer/exploring-grid-manager.html 
+sidebar: sidebar 
+keywords: what is the grid manager, grid manager dashboard 
+summary: 그리드 관리자는 StorageGRID 시스템을 구성, 관리 및 모니터링할 수 있는 브라우저 기반 그래픽 인터페이스입니다. 
+---
+= Grid Manager를 살펴봅니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+그리드 관리자는 StorageGRID 시스템을 구성, 관리 및 모니터링할 수 있는 브라우저 기반 그래픽 인터페이스입니다.
+
+
+NOTE: Grid Manager는 각 릴리스와 함께 업데이트되며 이 페이지의 예제 스크린샷과 일치하지 않을 수 있습니다.
+
+Grid Manager에 로그인하면 관리 노드에 연결됩니다. 각 StorageGRID 시스템에는 1개의 기본 관리 노드와 1차 관리자가 아닌 노드 수가 포함되어 있습니다. 모든 관리 노드에 연결할 수 있으며 각 관리 노드에는 StorageGRID 시스템의 유사한 보기가 표시됩니다.
+
+을 사용하여 그리드 관리자에 액세스할 수 link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]있습니다.
+
+
+
+== Grid Manager 대시보드
+
+그리드 관리자에 처음 로그인할 때 대시보드를 사용하여 한 눈에 볼 수 link:../monitor/viewing-dashboard.html["시스템 활동을 모니터링합니다"]있습니다.
+
+대시보드에는 시스템 상태 및 성능, 스토리지 사용, ILM 프로세스, S3 작업 및 그리드 노드의 정보가 포함되어 있습니다. 시스템을 효과적으로 모니터링하는 데 필요한 정보가 포함된 카드 모음에서 선택할 수 link:../monitor/viewing-dashboard.html["대시보드를 구성합니다"]있습니다.
+
+image::../media/grid_manager_dashboard_and_menu.png[그리드 관리자의 대시보드]
+
+각 카드에 표시된 정보에 대한 설명을 보려면 해당 카드의 도움말 아이콘을 image:../media/icon_nms_question.png["물음표 아이콘"]선택하십시오.
+
+
+
+== 검색 필드
+
+머리글 표시줄의 * 검색 * 필드를 사용하면 그리드 관리자 내의 특정 페이지로 빠르게 이동할 수 있습니다. 예를 들어, KMS(키 관리 서버) 페이지에 액세스하기 위해 * km * 를 입력할 수 있습니다.
+
+* 검색 * 을 사용하여 Grid Manager의 측면 표시줄 및 구성, 유지 관리 및 지원 메뉴에서 항목을 찾을 수 있습니다. 그리드 노드 및 테넌트 계정과 같은 항목의 이름별로 검색할 수도 있습니다.
+
+
+
+== 도움말 메뉴
+
+도움말 메뉴를 image:../media/icon-help-menu-bar.png["메뉴 모음의 도움말 아이콘"] 통해 다음 항목에 액세스할 수 있습니다.
+
+* link:../fabricpool/use-fabricpool-setup-wizard.html["FabricPool"]및 link:../admin/use-s3-setup-wizard.html["S3 설정"] 마법사
+* 현재 릴리즈에 대한 StorageGRID 문서 센터
+* link:../admin/using-grid-management-api.html["API 설명서"]
+* 현재 설치되어 있는 StorageGRID 버전에 대한 정보입니다
+
+
+
+
+== 알림 메뉴
+
+경고 메뉴는 StorageGRID 작동 중에 발생할 수 있는 문제를 감지, 평가 및 해결하는 사용하기 쉬운 인터페이스를 제공합니다.
+
+경고 메뉴에서 다음을 수행할 수 있습니다link:../monitor/managing-alerts.html["알림을 관리합니다"].
+
+* 현재 경고를 검토합니다
+* 해결된 경고를 검토합니다
+* 알림 알림을 표시하지 않도록 설정을 구성합니다
+* 알림을 트리거하는 조건에 대한 경고 규칙을 정의합니다
+* 경고 알림을 위한 e-메일 서버를 구성합니다
+
+
+
+
+== 노드 페이지
+
+에는 link:../monitor/viewing-nodes-page.html["노드 페이지"]전체 그리드, 그리드의 각 사이트 및 사이트의 각 노드에 대한 정보가 표시됩니다.
+
+노드 홈 페이지에는 전체 그리드에 대한 결합된 메트릭이 표시됩니다. 특정 사이트 또는 노드에 대한 정보를 보려면 사이트 또는 노드를 선택합니다.
+
+image::../media/nodes_page.png[노드 페이지 메인]
+
+
+
+== Tenants 페이지
+
+를 link:../admin/managing-tenants.html["Tenants 페이지"] 사용하면 link:../tenant/index.html["스토리지 테넌트 계정을 생성하고 모니터링합니다"]StorageGRID 시스템을 사용할 수 있습니다. 객체를 저장 및 검색할 수 있는 사람과 객체를 사용할 수 있는 기능을 지정하려면 하나 이상의 테넌트 계정을 생성해야 합니다.
+
+또한 테넌트 페이지에는 사용된 스토리지 양과 객체 수를 비롯한 각 테넌트의 사용 세부 정보도 제공됩니다. 테넌트를 생성할 때 할당량을 설정하면 해당 할당량이 얼마나 사용되었는지 확인할 수 있습니다.
+
+image::../media/tenants_page.png[Tenants 메뉴 및 페이지]
+
+
+
+== ILM 메뉴
+
+을 link:using-information-lifecycle-management.html["ILM 메뉴"] 사용하여 데이터 내구성 및 가용성을 제어할 수 link:../ilm/index.html["정보 라이프사이클 관리(ILM) 규칙 및 정책을 구성합니다"]있습니다. 개체 식별자를 입력하여 해당 개체의 메타데이터를 볼 수도 있습니다.
+
+ILM 메뉴에서 ILM을 보고 관리할 수 있습니다.
+
+* 규칙
+* 정책
+* 정책 태그
+* 지원합니다
+* 보관 등급
+* 지역
+* 개체 메타데이터 조회
+
+
+
+
+== 구성 메뉴
+
+구성 메뉴를 사용하여 네트워크 설정, 보안 설정, 시스템 설정, 모니터링 옵션 및 액세스 제어 옵션을 지정할 수 있습니다.
+
+
+
+=== 네트워크 작업
+
+네트워크 작업은 다음과 같습니다.
+
+* link:../admin/managing-high-availability-groups.html["고가용성 그룹 관리"]
+* link:../admin/managing-load-balancing.html["로드 밸런서 엔드포인트 관리"]
+* link:../admin/configuring-s3-api-endpoint-domain-names.html["S3 엔드포인트 도메인 이름 구성 중"]
+* link:../admin/managing-traffic-classification-policies.html["트래픽 분류 정책 관리"]
+* link:../admin/configure-vlan-interfaces.html["VLAN 인터페이스 구성"]
+
+
+
+
+=== 보안 작업
+
+보안 작업에는 다음이 포함됩니다.
+
+* link:../admin/using-storagegrid-security-certificates.html["보안 인증서 관리"]
+* link:../admin/manage-firewall-controls.html["내부 방화벽 제어 관리"]
+* link:../admin/kms-configuring.html["키 관리 서버 구성"]
+* link:../admin/manage-tls-ssh-policy.html["TLS 및 SSH 정책"]link:../admin/changing-network-options-object-encryption.html["네트워크 및 개체 보안 옵션"], 및 를 포함한 보안 설정 구성link:../admin/changing-browser-session-timeout-interface.html["인터페이스 보안 설정"]
+* 또는 에 대한 설정 구성 link:../admin/configuring-storage-proxy-settings.html["스토리지 프록시"]link:../admin/configuring-admin-proxy-settings.html["관리 프록시"]
+
+
+
+
+=== 시스템 작업
+
+시스템 작업은 다음과 같습니다.
+
+* 를 사용하여 link:../admin/grid-federation-overview.html["그리드 통합"]테넌트 계정 정보를 클론 복제하고 두 StorageGRID 시스템 간에 오브젝트 데이터를 복제합니다.
+* 옵션을 활성화합니다(선택 사항)link:../admin/configuring-stored-object-compression.html["저장된 객체를 압축합니다"].
+* link:../ilm/managing-objects-with-s3-object-lock.html["S3 오브젝트 잠금 관리"]
+* 및 등의 스토리지 옵션 이해link:../admin/what-object-segmentation-is.html["개체 분할"]link:../admin/what-storage-volume-watermarks-are.html["스토리지 볼륨 워터마크입니다"]
+* link:../ilm/manage-erasure-coding-profiles.html["삭제 코딩 프로필을 관리합니다"]..
+
+
+
+
+=== 모니터링 작업
+
+모니터링 작업에는 다음이 포함됩니다.
+
+* link:../monitor/configure-audit-messages.html["감사 메시지 및 로그 대상 구성"]
+* link:../monitor/using-snmp-monitoring.html["SNMP 모니터링을 사용합니다"]
+
+
+
+
+=== 액세스 제어 작업
+
+액세스 제어 작업에는 다음이 포함됩니다.
+
+* link:../admin/managing-admin-groups.html["관리 그룹 관리"]
+* link:../admin/managing-users.html["관리자 사용자 관리"]
+* link:../admin/changing-provisioning-passphrase.html["프로비저닝 암호"]또는 변경 link:../admin/change-node-console-password.html["노드 콘솔 암호"]
+* link:../admin/using-identity-federation.html["ID 페더레이션 사용"]
+* link:../admin/configuring-sso.html["SSO 구성"]
+
+
+
+
+== 유지 관리 메뉴
+
+유지 관리 메뉴를 사용하면 유지 관리 작업, 시스템 유지 관리 및 네트워크 유지 관리를 수행할 수 있습니다.
+
+
+
+=== 작업
+
+유지보수 태스크는 다음과 같습니다.
+
+* link:../maintain/decommission-procedure.html["서비스 해제 작업"] 사용하지 않는 그리드 노드 및 사이트를 제거합니다
+* link:../expand/index.html["확장 작업"] 새 그리드 노드 및 사이트를 추가합니다
+* link:../maintain/warnings-and-considerations-for-grid-node-recovery.html["그리드 노드 복구 절차"] 장애가 발생한 노드를 교체하고 데이터를 복원합니다
+* link:../maintain/rename-grid-site-node-overview.html["절차 이름 바꾸기"] 그리드, 사이트 및 노드의 표시 이름을 변경합니다
+* link:../troubleshoot/verifying-object-integrity.html["개체 존재 확인 작업"] 개체 데이터의 존재 여부(정확도는 아님)를 확인합니다
+* 를 link:../maintain/rolling-reboot-procedure.html["재부팅 롤링 중"] 수행하여 여러 그리드 노드를 재시작합니다
+* link:../maintain/restoring-volume.html["볼륨 복원 작업"]
+
+
+
+
+=== 시스템
+
+수행할 수 있는 시스템 유지보수 작업은 다음과 같습니다.
+
+* link:../admin/viewing-storagegrid-license-information.html["StorageGRID 라이센스 정보 보기"] 또는 link:../admin/updating-storagegrid-license-information.html["라이센스 정보를 업데이트하는 중입니다"]
+* 생성 및 다운로드 link:../maintain/downloading-recovery-package.html["복구 패키지"]
+* 선택한 어플라이언스에서 SANtricity OS 소프트웨어에 대한 소프트웨어 업그레이드, 핫픽스 및 업데이트를 포함한 StorageGRID 소프트웨어 업데이트 수행
++
+** link:../upgrade/index.html["업그레이드 절차"]
+** link:../maintain/storagegrid-hotfix-procedure.html["핫픽스 절차"]
+** https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/upgrading-santricity-os-on-storage-controllers-using-grid-manager-sg6000.html["Grid Manager를 사용하여 SG6000 스토리지 컨트롤러에서 SANtricity OS를 업그레이드합니다"^]
+** https://docs.netapp.com/us-en/storagegrid-appliances/sg5700/upgrading-santricity-os-on-storage-controllers-using-grid-manager-sg5700.html["Grid Manager를 사용하여 SG5700 스토리지 컨트롤러에서 SANtricity OS를 업그레이드합니다"^]
+
+
+
+
+
+
+=== 네트워크
+
+수행할 수 있는 네트워크 유지 보수 작업은 다음과 같습니다.
+
+* link:../maintain/configuring-dns-servers.html["DNS 서버 구성"]
+* link:../maintain/updating-subnets-for-grid-network.html["그리드 네트워크 서브넷을 업데이트하는 중입니다"]
+* link:../maintain/configuring-ntp-servers.html["NTP 서버 관리"]
+
+
+
+
+== 지원 메뉴
+
+지원 메뉴는 기술 지원 부서에서 시스템을 분석하고 문제를 해결하는 데 도움이 되는 옵션을 제공합니다.
+
+
+
+=== 도구
+
+지원 메뉴의 도구 섹션에서 다음을 수행할 수 있습니다.
+
+* link:../admin/configure-autosupport-grid-manager.html["AutoSupport를 구성합니다"]
+* link:../monitor/running-diagnostics.html["진단 유틸리티를 실행합니다"] 그리드의 현재 상태
+* link:../monitor/viewing-grid-topology-tree.html["그리드 토폴로지 트리에 액세스합니다"] 그리드 노드, 서비스 및 속성에 대한 자세한 정보를 보려면
+* link:../monitor/collecting-log-files-and-system-data.html["로그 파일 및 시스템 데이터를 수집합니다"]
+* link:../monitor/reviewing-support-metrics.html["지원 메트릭을 검토합니다"]
++
+
+NOTE: 메트릭* 옵션에서 사용할 수 있는 도구는 기술 지원 부서에서 사용하도록 설계되었습니다. 이러한 도구 내의 일부 기능 및 메뉴 항목은 의도적으로 작동하지 않습니다.
+
+
+
+
+
+=== 알람(레거시)
+
+기존 알람에 대한 정보는 이 버전의 설명서에서 제거되었습니다. 을 https://docs.netapp.com/us-en/storagegrid-118/monitor/managing-alerts-and-alarms.html["경고 및 알람 관리(StorageGRID 11.8 설명서)"^]참조하십시오.
+
+
+
+=== 기타
+
+지원 메뉴의 기타 섹션에서 다음을 수행할 수 있습니다.
+
+* 관리 link:../admin/manage-link-costs.html["링크 비용"]
+* link:../admin/viewing-notification-status-and-queues.html["네트워크 관리 시스템(NMS)"]항목을 봅니다
+* 관리 link:../admin/what-storage-volume-watermarks-are.html["스토리지 워터마크"]
+

@@ -1,0 +1,172 @@
+---
+permalink: audit/system-audit-messages.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, messages, system, ECOC, ETAF, GNRG, GNUR, GTED, GTST, GTSU, LLST, OLST, SADD, SADE, SVRF, SVRU, SYSD, SYST, SYSU, VLST 
+summary: '시스템 감사 범주에 속하는 감사 메시지는 감사 시스템 자체, 그리드 노드 상태, 시스템 전체 작업 활동\(그리드 작업\) 및 서비스 백업 작업과 관련된 이벤트에 사용됩니다.' 
+---
+= 시스템 감사 메시지
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+시스템 감사 범주에 속하는 감사 메시지는 감사 시스템 자체, 그리드 노드 상태, 시스템 전체 작업(그리드 작업) 및 서비스 백업 작업과 관련된 이벤트에 사용됩니다.
+
+[cols="1a,2a,1a"]
+|===
+| 코드 | 메시지 제목 및 설명입니다 | 을 참조하십시오 
+
+
+ a| 
+ECMC
+ a| 
+Missing Erasure - Coded Data Fragment: 누락된 삭제 코딩 데이터 조각이 감지되었음을 나타냅니다.
+ a| 
+link:ecmc-missing-erasure-coded-data-fragment.html["ECMC: 삭제 누락 - 코드 데이터 조각"]
+
+
+
+ a| 
+ECOC
+ a| 
+손상된 삭제 - 코딩된 데이터 조각: 손상된 삭제 코딩 데이터 조각이 감지되었음을 나타냅니다.
+ a| 
+link:ecoc-corrupt-erasure-coded-data-fragment.html["ECOC: 손상된 삭제 - 코드화된 데이터 조각"]
+
+
+
+ a| 
+ETAF
+ a| 
+보안 인증 실패: 전송 계층 보안(TLS)을 사용한 연결 시도가 실패했습니다.
+ a| 
+link:etaf-security-authentication-failed.html["ETAF: 보안 인증 실패"]
+
+
+
+ a| 
+GNRG
+ a| 
+GNDS 등록: StorageGRID 시스템에서 자체적으로 갱신되거나 등록된 서비스.
+ a| 
+link:gnrg-gnds-registration.html["GNRG: GNDS 등록"]
+
+
+
+ a| 
+GNUR
+ a| 
+GNDS 등록 취소: StorageGRID 시스템에서 서비스 등록이 취소되었습니다.
+ a| 
+link:gnur-gnds-unregistration.html["GNUR:GNDS 등록 취소"]
+
+
+
+ a| 
+GTED
+ a| 
+그리드 작업 종료: CMN 서비스가 그리드 작업 처리를 완료했습니다.
+ a| 
+link:gted-grid-task-ended.html["GTED: 그리드 작업이 종료되었습니다"]
+
+
+
+ a| 
+GTSt
+ a| 
+그리드 작업 시작됨: CMN 서비스가 그리드 작업 처리를 시작했습니다.
+ a| 
+link:gtst-grid-task-started.html["GTSt: 그리드 작업이 시작되었습니다"]
+
+
+
+ a| 
+GTSU
+ a| 
+Grid Task Submitted(그리드 작업 제출됨): CMN 서비스로 GRID 작업이 제출되었습니다.
+ a| 
+link:gtsu-grid-task-submitted.html["GTSU: 그리드 작업 제출됨"]
+
+
+
+ a| 
+LLST
+ a| 
+위치 손실: 이 감사 메시지는 위치가 손실될 때 생성됩니다.
+ a| 
+link:llst-location-lost.html["LLST: 위치가 손실되었습니다"]
+
+
+
+ a| 
+OLST
+ a| 
+개체 손실: 요청된 개체를 StorageGRID 시스템 내에 찾을 수 없습니다.
+ a| 
+link:olst-system-detected-lost-object.html["OLST: 시스템에서 손실된 개체를 감지했습니다"]
+
+
+
+ a| 
+추가
+ a| 
+보안 감사 비활성화: 감사 메시지 로깅이 꺼졌습니다.
+ a| 
+link:sadd-security-audit-disable.html["추가: 보안 감사 비활성화"]
+
+
+
+ a| 
+사드
+ a| 
+보안 감사 활성화: 감사 메시지 로깅이 복원되었습니다.
+ a| 
+link:sade-security-audit-enable.html["Sade: 보안 감사 활성화"]
+
+
+
+ a| 
+SVRF
+ a| 
+오브젝트 저장소 확인 실패: 콘텐츠 블록이 확인 검사에 실패했습니다.
+ a| 
+link:svrf-object-store-verify-fail.html["SVRF: Object Store Verify Fail(SVRF: 오브젝트 저장소 확인 실패)"]
+
+
+
+ a| 
+SVRU
+ a| 
+오브젝트 저장소 알 수 없음 확인: 오브젝트 저장소에서 예기치 않은 오브젝트 데이터가 감지되었습니다.
+ a| 
+link:svru-object-store-verify-unknown.html["SVRU: Object Store Verify Unknown"]
+
+
+
+ a| 
+시스템
+ a| 
+노드 중지: 종료가 요청되었습니다.
+ a| 
+link:sysd-node-stop.html["SYSD:노드 중지"]
+
+
+
+ a| 
+시스템
+ a| 
+노드 중지: 서비스가 정상 중지를 시작했습니다.
+ a| 
+link:syst-node-stopping.html["시스템:노드 중지 중"]
+
+
+
+ a| 
+시스템
+ a| 
+노드 시작: 서비스가 시작되었고 이전 종료의 특성이 메시지에 표시됩니다.
+ a| 
+link:sysu-node-start.html["SYSU: 노드 시작"]
+
+|===

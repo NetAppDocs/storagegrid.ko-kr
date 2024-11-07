@@ -1,0 +1,142 @@
+---
+permalink: s3/changes-to-s3-rest-api-support.html 
+sidebar: sidebar 
+keywords: s3 rest api support changes 
+summary: S3 REST API에 대한 StorageGRID 시스템의 지원 변경 사항을 숙지해야 합니다. 
+---
+= S3 REST API 지원으로 변경
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+S3 REST API에 대한 StorageGRID 시스템의 지원 변경사항을 알고 있어야 합니다.
+
+[cols="1a,4a"]
+|===
+| 놓습니다 | 설명 
+
+
+ a| 
+11.8
+ a| 
+* 만료된 개체 삭제 마커를 삭제하는 PutBucketLifecycleConfiguration 작업에 대한 지원이 추가되었습니다 `ExpiredObjectDeleteMarker`.
+* 기존 개체에 특정 태그 키와 값이 있어야 하는 정책 조건 키에 대한 지원이 추가되었습니다 `s3:ExistingObjectTag/<tag-key>`.
+* 개체 요청에 태그 지정이 포함된 경우 특정 태그 및 키 값이 필요한 정책 조건 키에 대한 지원이 `s3:RequestObjectTag/<tag-key>` 추가되었습니다.
+
+
+
+
+ a| 
+11.7
+ a| 
+* S3 Object Lock을 통한 거버넌스 모드 사용을 지원합니다.
+* GetObject 및 HeadObject 요청에 대한 StorageGRID 관련 응답 헤더에 대한 지원이 추가되었습니다 `x-ntap-sg-cgr-replication-status`. 이 헤더는 크로스 그리드 복제를 위한 객체의 복제 상태를 제공합니다.
+* SelectObjectContent 요청이 이제 Parquet 객체를 지원합니다.
+
+
+
+
+ a| 
+11.6
+ a| 
+* GetObject 및 HeadObject 요청에서 request 매개 변수 사용에 대한 지원이 추가되었습니다 `partNumber`.
+* S3 오브젝트 잠금의 버킷 레벨에서 기본 보존 모드 및 기본 보존 기간에 대한 지원이 추가되었습니다.
+* 객체에 대해 허용되는 보존 기간의 범위를 설정하기 위해 정책 조건 키에 대한 지원이 추가되었습니다 `s3:object-lock-remaining-retention-days`.
+* 단일 PutObject 작업의 maximum_recommended_size를 5GiB(5,368,709,120바이트)로 변경했습니다. 5GiB보다 큰 객체가 있는 경우 대신 멀티파트 업로드를 사용합니다.
+
+
+
+
+ a| 
+11.5
+ a| 
+* 버킷 암호화 관리에 대한 지원이 추가되었습니다.
+* S3 오브젝트 잠금 및 더 이상 사용되지 않는 레거시 규정 준수 요청에 대한 지원 추가
+* 버전 지정된 버킷에서 DeleteObjects 사용에 대한 지원이 추가되었습니다.
+*  `Content-MD5`이제 요청 헤더가 올바르게 지원됩니다.
+
+
+
+
+ a| 
+11.4
+ a| 
+* DeleteBucketTagging, GetBucketTagging 및 PutBucketTagging에 대한 지원이 추가되었습니다. 비용 할당 태그는 지원되지 않습니다.
+* StorageGRID 11.4에서 만든 버킷의 경우 성능 모범 사례에 맞게 개체 키 이름을 제한하는 것이 더 이상 필요하지 않습니다.
+* 이벤트 유형에 버킷 알림에 대한 지원이 `s3:ObjectRestore:Post` 추가되었습니다.
+* 이제 여러 파트에 대한 AWS 크기 제한이 적용됩니다. 멀티파트 업로드의 각 파트는 5MiB에서 5GiB 사이여야 합니다. 마지막 부분은 5MiB보다 작을 수 있습니다.
+* TLS 1.3에 대한 지원이 추가되었습니다
+
+
+
+
+ a| 
+11.3
+ a| 
+* 고객이 제공한 키(SSE-C)를 사용하여 오브젝트 데이터의 서버측 암호화에 대한 지원이 추가되었습니다.
+* DeleteBucketLifecycle, GetBucketLifecycleConfiguration 및 PutBucketLifecycleConfiguration 작업(만료 작업에만 해당) 및 응답 헤더에 대한 지원이 추가되었습니다 `x-amz-expiration`.
+* 인제스트 시 동기식 배치를 사용하는 ILM 규칙의 영향을 설명하기 위해 PutObject, CopyObject 및 MultipartUpload가 업데이트되었습니다.
+* TLS 1.1 암호가 더 이상 지원되지 않습니다.
+
+
+
+
+ a| 
+11.2
+ a| 
+클라우드 스토리지 풀과 함께 사용할 RestoreObject에 대한 지원이 추가되었습니다. 그룹 및 버킷 정책에서 ARN, 정책 조건 키 및 정책 변수에 대해 AWS 구문 사용을 지원합니다. StorageGRID 구문을 사용하는 기존 그룹 및 버킷 정책은 계속 지원됩니다.
+
+* 참고: * 사용자 지정 StorageGRID 기능에 사용되는 것을 포함하여 다른 구성 JSON/XML에서 ARN/URN을 사용하는 것은 변경되지 않았습니다.
+
+
+
+ a| 
+11.1
+ a| 
+CORS(Cross-Origin Resource Sharing), 그리드 노드에 대한 S3 클라이언트 연결을 위한 HTTP 및 버킷에 대한 규정 준수 설정에 대한 지원이 추가되었습니다.
+
+
+
+ a| 
+11.0
+ a| 
+버킷에 대한 플랫폼 서비스(CloudMirror 복제, 알림 및 Elasticsearch 검색 통합) 구성 지원 추가 또한 버킷에 대한 객체 태그 위치 제약 조건 및 사용 가능한 정합성 보장에 대한 지원이 추가되었습니다.
+
+
+
+ a| 
+10.4
+ a| 
+버전 관리, 끝점 도메인 이름 페이지 업데이트, 정책, 정책 예제 및 PutOverwriteObject 권한에 대한 ILM 검색 변경 사항에 대한 지원이 추가되었습니다.
+
+
+
+ a| 
+10.3
+ a| 
+버전 관리 지원 추가.
+
+
+
+ a| 
+10.2
+ a| 
+그룹 및 버킷 액세스 정책 및 다중 파트 복사(UploadPartCopy)에 대한 지원이 추가되었습니다.
+
+
+
+ a| 
+10.1
+ a| 
+멀티파트 업로드, 가상 호스팅 스타일 요청 및 v4 인증에 대한 지원이 추가되었습니다.
+
+
+
+ a| 
+10.0
+ a| 
+StorageGRID 시스템에서 S3 REST API의 초기 지원. 현재 지원되는 _Simple Storage Service API Reference_는 2006-03-01입니다.
+
+|===

@@ -1,0 +1,67 @@
+---
+permalink: fabricpool/creating-traffic-classification-policy-for-fabricpool.html 
+sidebar: sidebar 
+keywords: fabricPool, traffic classification, traffic policy, QoS, quality of service 
+summary: FabricPool 워크로드에 대한 서비스 품질을 최적화하기 위해 StorageGRID 트래픽 분류 정책을 선택적으로 설계할 수 있습니다. 
+---
+= FabricPool에 대한 트래픽 분류 정책을 생성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FabricPool 워크로드에 대한 서비스 품질을 최적화하기 위해 StorageGRID 트래픽 분류 정책을 선택적으로 설계할 수 있습니다.
+
+이 작업에 대한 자세한 내용은 을 link:../admin/managing-traffic-classification-policies.html["트래픽 분류 정책을 관리합니다"]참조하십시오. FabricPool 설정 마법사를 사용하여 이 작업을 완료하려면 로 이동합니다link:use-fabricpool-setup-wizard-steps.html["FabricPool 설정 마법사를 액세스하고 완료합니다"].
+
+.시작하기 전에
+* 을 사용하여 그리드 관리자에 로그인되어 있습니다.link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]
+* 이 link:../admin/admin-group-permissions.html["루트 액세스 권한"]있습니다.
+
+
+.이 작업에 대해
+FabricPool에 대한 트래픽 분류 정책을 생성하는 모범 사례는 다음과 같이 워크로드에 따라 달라집니다.
+
+* FabricPool 운영 워크로드 데이터를 StorageGRID에 계층화하려는 경우 FabricPool 워크로드에 대부분의 대역폭이 있는지 확인해야 합니다. 트래픽 분류 정책을 생성하여 다른 모든 워크로드를 제한할 수 있습니다.
++
+
+NOTE: 일반적으로 FabricPool 읽기 작업은 쓰기 작업보다 우선 순위를 지정하는 것이 더 중요합니다.
+
++
+예를 들어, 다른 S3 클라이언트가 이 StorageGRID 시스템을 사용하는 경우 트래픽 분류 정책을 생성해야 합니다. 다른 버킷, 테넌트, IP 서브넷 또는 로드 밸런서 끝점에 대한 네트워크 트래픽을 제한할 수 있습니다.
+
+* 일반적으로 FabricPool 워크로드에 서비스 품질 제한을 두지 않아야 하며 다른 워크로드만 제한해야 합니다.
+* 다른 워크로드에 대한 제한에는 이러한 워크로드의 동작이 고려되어야 합니다. 또한 그리드 크기 조정 및 기능과 예상되는 활용률에 따라 제한이 달라집니다.
+
+
+.단계
+. 구성 * > * 네트워크 * > * 트래픽 분류 * 를 선택합니다.
+. Create * 를 선택합니다.
+. 정책의 이름과 설명(선택 사항)을 입력하고 * Continue * 를 선택합니다.
+. 일치하는 규칙 추가 단계에 대해 하나 이상의 규칙을 추가합니다.
++
+.. 규칙 추가 * 를 선택합니다
+.. 유형 에서 * 로드 밸런서 끝점 * 을 선택하고 FabricPool용으로 생성한 로드 밸런서 끝점을 선택합니다.
++
+FabricPool 테넌트 계정 또는 버킷을 선택할 수도 있습니다.
+
+.. 이 트래픽 정책이 다른 끝점의 트래픽을 제한하도록 하려면 * 역일치 * 를 선택합니다.
+
+
+. 필요에 따라 규칙에 일치하는 네트워크 트래픽을 제어하기 위해 하나 이상의 제한을 추가합니다.
++
+
+NOTE: StorageGRID는 제한을 추가하지 않아도 메트릭을 수집하므로 트래픽 추세를 파악할 수 있습니다.
+
++
+.. 제한 추가 * 를 선택합니다.
+.. 제한할 트래픽 유형과 적용할 제한을 선택합니다.
+
+
+. Continue * 를 선택합니다.
+. 트래픽 분류 정책을 읽고 검토하십시오. Previous * (이전 *) 버튼을 사용하여 돌아가서 필요에 따라 변경합니다. 정책에 만족하면 * Save and continue * 를 선택합니다.
+
+
+.작업을 마친 후
+link:../admin/viewing-network-traffic-metrics.html["네트워크 트래픽 메트릭을 확인합니다"] 정책이 예상한 트래픽 제한을 적용하고 있는지 확인합니다.

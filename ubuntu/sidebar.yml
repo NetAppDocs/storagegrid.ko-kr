@@ -1,0 +1,85 @@
+---
+section: ubuntu
+title: Ubuntu 또는 Debian에 StorageGRID를 설치합니다
+entries:
+- title: 빠른 시작
+  pdf-filename: Ubuntu 또는 Debian에 StorageGRID를 설치합니다
+  url: "/ubuntu/index.html"
+- title: Ubuntu 또는 Debian에서 설치를 계획하고 준비합니다
+  entries:
+  - title: 필요한 정보 및 자료
+    url: "/ubuntu/required-materials.html"
+  - title: StorageGRID 설치 파일을 다운로드하고 압축을 풉니다
+    url: "/ubuntu/downloading-and-extracting-storagegrid-installation-files.html"
+  - title: 설치 파일을 수동으로 확인합니다
+    url: "/ubuntu/download-files-verify.html"
+  - title: 소프트웨어 요구 사항
+    url: "/ubuntu/software-requirements.html"
+  - title: CPU 및 RAM 요구 사항
+    url: "/ubuntu/cpu-and-ram-requirements.html"
+  - title: 요구사항을 충족해야 합니다
+    url: "/ubuntu/storage-and-performance-requirements.html"
+  - title: 노드 컨테이너 마이그레이션 요구사항
+    url: "/ubuntu/node-container-migration-requirements.html"
+  - title: 호스트 준비(Ubuntu 또는 Debian)
+    entries:
+    - title: 호스트 전체의 설정 변경 방법
+      url: "/ubuntu/how-host-wide-settings-change.html"
+    - title: Linux를 설치합니다
+      url: "/ubuntu/installing-linux.html"
+    - title: AppArmor 프로필 설치
+      url: "/ubuntu/understanding-apparmor-profile-installation.html"
+    - title: 호스트 네트워크 구성(Ubuntu 또는 Debian)
+      url: "/ubuntu/configuring-host-network.html"
+    - title: 호스트 스토리지를 구성합니다
+      url: "/ubuntu/configuring-host-storage.html"
+    - title: Docker 스토리지 볼륨을 구성합니다
+      url: "/ubuntu/configuring-docker-storage-volume.html"
+    - title: Docker를 설치합니다
+      url: "/ubuntu/installing-docker.html"
+    - title: StorageGRID 호스트 서비스를 설치합니다
+      url: "/ubuntu/installing-storagegrid-webscale-host-services.html"
+- title: 설치 자동화(Ubuntu 또는 Debian)
+  url: "/ubuntu/automating-installation.html"
+- title: 가상 그리드 노드 배포(Ubuntu 또는 Debian)
+  entries:
+  - title: Ubuntu 또는 Debian 배포용 노드 구성 파일을 만듭니다
+    url: "/ubuntu/creating-node-configuration-files.html"
+  - title: 그리드 노드가 기본 관리자 노드를 검색하는 방법
+    url: "/ubuntu/how-grid-nodes-discover-primary-admin-node.html"
+  - title: 노드 구성 파일의 예
+    url: "/ubuntu/example-node-configuration-files.html"
+  - title: StorageGRID 구성을 검증합니다
+    url: "/ubuntu/validating-storagegrid-configuration.html"
+  - title: StorageGRID 호스트 서비스를 시작합니다
+    url: "/ubuntu/starting-storagegrid-host-service.html"
+- title: 그리드 구성 및 전체 설치(Ubuntu 또는 Debian)
+  entries:
+  - title: 그리드 관리자로 이동합니다
+    url: "/ubuntu/navigating-to-grid-manager.html"
+  - title: 라이센스 정보를 지정합니다
+    url: "/ubuntu/specifying-storagegrid-license-information.html"
+  - title: 사이트를 추가합니다
+    url: "/ubuntu/adding-sites.html"
+  - title: 그리드 네트워크 서브넷을 지정합니다
+    url: "/ubuntu/specifying-grid-network-subnets.html"
+  - title: 보류 중인 그리드 노드를 승인합니다
+    url: "/ubuntu/approving-pending-grid-nodes.html"
+  - title: NTP 서버 정보를 지정합니다
+    url: "/ubuntu/specifying-network-time-protocol-server-information.html"
+  - title: DNS 서버 정보를 지정합니다
+    url: "/ubuntu/specifying-domain-name-system-server-information.html"
+  - title: 시스템 암호를 지정합니다
+    url: "/ubuntu/specifying-storagegrid-system-passwords.html"
+  - title: 구성을 검토하고 설치를 완료합니다
+    url: "/ubuntu/reviewing-your-configuration-and-completing-installation.html"
+  - title: 설치 후 지침
+    url: "/ubuntu/post-installation-guidelines.html"
+- title: REST API 설치
+  url: "/ubuntu/overview-of-installation-rest-api.html"
+- title: 다음 단계로 넘어갑니다
+  url: "/ubuntu/where-to-go-next.html"
+- title: 설치 문제를 해결합니다
+  url: "/ubuntu/troubleshooting-installation-issues.html"
+- title: 예 /etc/network/interfaces
+  url: "/ubuntu/example-etc-network-interfaces.html"

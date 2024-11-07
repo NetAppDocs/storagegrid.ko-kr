@@ -1,0 +1,111 @@
+---
+permalink: s3/deprecated-put-bucket-compliance-request.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, PUT deprecated compliance requests 
+summary: Put Bucket 준수 요청은 더 이상 사용되지 않습니다. 그러나 이 요청을 계속 사용하여 기존 레거시 준수 버킷의 준수 설정을 수정할 수 있습니다. 
+---
+= 폐기됨: 버킷 준수 요청을 넣으십시오
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Put Bucket 준수 요청은 더 이상 사용되지 않습니다. 그러나 이 요청을 계속 사용하여 기존 레거시 준수 버킷의 준수 설정을 수정할 수 있습니다. 예를 들어, 기존 버킷을 법적 보존 상태로 놓거나 보존 기간을 늘릴 수 있습니다.
+
+[NOTE]
+====
+이전 StorageGRID 버전에서 사용할 수 있었던 StorageGRID 규정 준수 기능은 더 이상 사용되지 않으며 S3 오브젝트 잠금으로 대체되었습니다. 자세한 내용은 다음을 참조하십시오.
+
+* link:../s3/use-s3-api-for-s3-object-lock.html["S3 REST API를 사용하여 S3 오브젝트 잠금을 구성합니다"]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["NetApp 기술 자료: StorageGRID 11.5에서 레거시 준수 버킷을 관리하는 방법"^]
+
+
+====
+이 작업을 완료하려면 S3:PutBucketCompliance 권한이 있거나 계정 루트 권한이 있어야 합니다.
+
+PUT 버킷 준수 요청을 발행할 때 준수 설정의 모든 필드에 값을 지정해야 합니다.
+
+
+
+== 요청 예
+
+이 예제 요청은 이름이 인 버킷의 준수 설정을 `mybucket` 수정합니다. 이 예에서 의 객체는 이제 1년이 아닌 2년 동안(1,051,200분) 보존되며, 이는 객체가 `mybucket` 그리드로 유입되는 시점부터 시작됩니다. 이 버킷에는 법적 구속이 없습니다. 각 개체는 2년 후에 자동으로 삭제됩니다.
+
+[listing, subs="specialcharacters,quotes"]
+----
+PUT /mybucket/?x-ntap-sg-compliance HTTP/1.1
+Date: _date_
+Authorization: _authorization name_
+Host: _host_
+Content-Length: 152
+
+<SGCompliance>
+  <RetentionPeriodMinutes>1051200</RetentionPeriodMinutes>
+  <LegalHold>false</LegalHold>
+  <AutoDelete>true</AutoDelete>
+</SGCompliance>
+----
+[cols="1a,2a"]
+|===
+| 이름 | 설명 
+
+
+ a| 
+RetenionPeriodMinutes(주기적 지연 시간)
+ a| 
+이 버킷에 추가된 객체의 보존 기간(분)입니다. 보존 기간은 객체가 그리드에 수집될 때 시작됩니다.
+
+* 중요 * RetentionPeriodMinutes 에 새 값을 지정할 때는 버킷의 현재 보존 기간과 같거나 큰 값을 지정해야 합니다. 버킷의 보존 기간이 설정된 후에는 해당 값을 줄일 수 없으며 증가만 가능합니다.
+
+
+
+ a| 
+LegalHold
+ a| 
+* 참: 이 버킷은 현재 법적 증거 자료 보관 중입니다. 이 버킷의 오브젝트는 보존 기간이 만료된 경우에도 법적 보류가 해제될 때까지 삭제할 수 없습니다.
+* 거짓: 이 버킷은 현재 법적 증거 자료 보관 중이 아닙니다. 이 버킷의 오브젝트는 보존 기간이 만료되면 삭제할 수 있습니다.
+
+
+
+
+ a| 
+자동 삭제
+ a| 
+* 참: 버킷이 법적 보존 상태에 있지 않는 한, 보존 기간이 만료되면 이 버킷의 객체가 자동으로 삭제됩니다.
+* False: 보존 기간이 만료되면 이 버킷의 객체가 자동으로 삭제되지 않습니다. 이러한 개체를 삭제하려면 해당 개체를 수동으로 삭제해야 합니다.
+
+
+|===
+
+
+== 규정 준수 설정에 대한 일관성
+
+PUT 버킷 준수 요청으로 S3 버킷의 준수 설정을 업데이트하면 StorageGRID는 그리드 전체에서 버킷의 메타데이터를 업데이트하려고 시도합니다. 기본적으로 StorageGRID은 * 강력한 글로벌 * 일관성을 사용하여 버킷 메타데이터가 포함된 모든 데이터 센터 사이트와 모든 스토리지 노드에서 변경된 규정 준수 설정에 대해 쓰기 후 읽기 정합성을 보장합니다.
+
+데이터 센터 사이트 또는 사이트의 여러 스토리지 노드를 사용할 수 없기 때문에 StorageGRID에서 * 강력한 글로벌 * 일관성을 달성할 수 없는 경우 응답에 대한 HTTP 상태 코드는 입니다 `503 Service Unavailable.`
+
+이 응답을 받으면 그리드 관리자에게 문의하여 필요한 스토리지 서비스를 가능한 빨리 사용할 수 있도록 해야 합니다. 그리드 관리자가 각 사이트에서 스토리지 노드를 충분히 사용할 수 없는 경우 기술 지원 부서에서 * 강력한 사이트 * 일관성을 적용하여 실패한 요청을 다시 시도하도록 지시할 수 있습니다.
+
+
+CAUTION: 기술 지원 부서의 지시가 있거나 이 레벨을 사용할 때 발생할 수 있는 결과를 이해하지 않는 한, Put Bucket 준수를 위해 *Strong-site * 일관성을 강제로 적용하지 마십시오.
+
+일관성이 * 강력한 사이트 * 로 감소하면 StorageGRID는 업데이트된 규정 준수 설정이 사이트 내 클라이언트 요청에 대해서만 쓰기 후 읽기 일관성을 유지할 수 있도록 보장합니다. 즉, 모든 사이트 및 스토리지 노드를 사용할 수 있을 때까지 StorageGRID 시스템에 이 버킷에 대한 여러 개의 일관되지 않은 설정이 일시적으로 있을 수 있습니다. 설정이 일치하지 않으면 예기치 않거나 원치 않는 동작이 발생할 수 있습니다. 예를 들어, 버킷을 법적 증거 자료 보관 중에 두고 일관성을 더 낮게 설정하면 일부 데이터 센터 사이트에서 버킷의 이전 규정 준수 설정(즉, 법적 증거 자료 보관)이 계속 적용될 수 있습니다. 따라서 보존 기간이 만료되면 사용자나 자동 삭제(활성화된 경우)에 의해 법적 보류라고 생각하는 개체가 삭제될 수 있습니다.
+
+Strong-site * 일관성을 강제로 사용하려면 다음과 같이 Put Bucket 준수 요청을 다시 발행하고 HTTP 요청 헤더를 포함시킵니다. `Consistency-Control`
+
+[listing]
+----
+PUT /mybucket/?x-ntap-sg-compliance HTTP/1.1
+Consistency-Control: strong-site
+----
+
+
+== 오류 응답
+
+* 버킷이 규정을 준수하도록 생성되지 않은 경우 응답에 대한 HTTP 상태 코드는 입니다 `404 Not Found`.
+* 요청에서 버킷의 현재 보존 기간보다 작은 경우 `RetentionPeriodMinutes` HTTP 상태 코드는 입니다 `400 Bad Request`.
+
+
+.관련 정보
+link:deprecated-put-bucket-request-modifications-for-compliance.html["사용되지 않음: 규정 준수를 위해 버킷 요청 수정을 배치합니다"]

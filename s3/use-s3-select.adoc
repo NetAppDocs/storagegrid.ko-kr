@@ -1,0 +1,152 @@
+---
+permalink: s3/use-s3-select.html 
+sidebar: sidebar 
+keywords: use S3 Select, S3 Select 
+summary: StorageGRID는 SelectObjectContent 명령에 대해 다음과 같은 Amazon S3 Select 절, 데이터 형식, 연산자 및 예약된 키워드를 지원합니다. 
+---
+= S3 Select를 사용합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID는 에 대해 다음과 같은 Amazon S3 Select 절, 데이터 형식 및 연산자를 link:select-object-content.html["SelectObjectContent 명령"]지원합니다.
+
+
+NOTE: 목록에 없는 항목은 지원되지 않습니다.
+
+구문은 을 참조하십시오link:select-object-content.html["SelectObjectContent 를 선택합니다"]. S3 Select에 대한 자세한 내용은 를 https://docs.aws.amazon.com/AmazonS3/latest/userguide/selecting-content-from-objects.html["S3 Select용 AWS 문서"^] 참조하십시오.
+
+S3 Select가 활성화된 테넌트 계정만 SelectObjectContent 쿼리를 실행할 수 있습니다. 를 link:../admin/manage-s3-select-for-tenant-accounts.html["S3 Select 사용에 대한 고려 사항 및 요구 사항"]참조하십시오.
+
+
+
+== 절을 참조하십시오
+
+* 목록을 선택합니다
+* FROM 절
+* WHERE 절
+* Limit 절
+
+
+
+
+== 데이터 유형
+
+* 불입니다
+* 정수
+* 문자열
+* 부동
+* 십진수, 숫자
+* 타임 스탬프입니다
+
+
+
+
+== 연산자
+
+
+
+=== 논리 연산자
+
+* 및
+* 아닙니다
+* 또는
+
+
+
+
+=== 비교 연산자
+
+* 를 누릅니다
+* 를 누릅니다
+* lt;=.(&L
+* GT;=.(&G
+* =
+* =
+* 를 누릅니다
+* !=
+* 사이
+* 인치
+
+
+
+
+=== 패턴 일치 연산자
+
+* 좋아요
+* _
+* %
+
+
+
+
+=== 단일 작업자
+
+* NULL입니다
+* NULL이 아닙니다
+
+
+
+
+=== 수학 연산자
+
+* 를 누릅니다
+* -
+* *
+* /
+* %
+
+
+StorageGRID는 Amazon S3 Select 운영자 우선권을 따릅니다.
+
+
+
+== 집계 함수
+
+* 평균()
+* 개수(*)
+* 최대()
+* 최소()
+* 합계()
+
+
+
+
+== 조건부 함수
+
+* 케이스
+* 합체
+* 노LIF
+
+
+
+
+== 변환 함수
+
+* 캐스트(지원되는 데이터 형식용)
+
+
+
+
+== 날짜 함수
+
+* date_add
+* Date_DIFF(날짜/시간
+* 압축 풀기
+* to_string(대상 문자열)
+* 를 _TIMESTAMP로 설정합니다
+* UTCNOW
+
+
+
+
+== 문자열 함수
+
+* char_length, character_length
+* 낮음
+* 부분 문자열
+* 잘라내기
+* 위쪽
+

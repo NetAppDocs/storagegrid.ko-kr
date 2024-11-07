@@ -1,0 +1,156 @@
+---
+section: audit
+title: 감사 로그를 검토합니다
+entries:
+- title: 감사 메시지 및 로그
+  pdf-filename: StorageGRID 감사 로그를 검토합니다
+  url: "/audit/index.html"
+- title: 감사 메시지 흐름 및 보존
+  url: "/audit/audit-message-flow-and-retention.html"
+- title: 감사 로그 파일에 액세스합니다
+  url: "/audit/accessing-audit-log-file.html"
+- title: 로그 파일 회전을 감사합니다
+  url: "/audit/audit-log-file-rotation.html"
+- title: 감사 로그 파일 형식
+  entries:
+  - title: 감사 로그 형식의 예
+    pdf-filename: 감사 로그 파일 형식
+    url: "/audit/audit-log-file-format.html"
+  - title: 감사 설명 도구를 사용합니다
+    url: "/audit/using-audit-explain-tool.html"
+  - title: 감사 합계 도구를 사용합니다
+    url: "/audit/using-audit-sum-tool.html"
+- title: 감사 메시지 형식
+  entries:
+  - title: 감사 메시지의 예
+    pdf-filename: 감사 메시지 형식
+    url: "/audit/audit-message-format.html"
+  - title: 데이터 유형
+    url: "/audit/data-types.html"
+  - title: 이벤트 관련 데이터
+    url: "/audit/event-specific-data.html"
+  - title: 감사 메시지의 공통 요소
+    url: "/audit/common-elements-in-audit-messages.html"
+  - title: 감사 메시지 예
+    url: "/audit/audit-message-examples.html"
+- title: 감사 메시지 및 개체 수명 주기
+  entries:
+  - title: 감사 메시지는 언제 생성됩니까?
+    url: "/audit/audit-messages-and-object-lifecycle.html"
+  - title: 오브젝트 수집 트랜잭션
+    url: "/audit/object-ingest-transactions.html"
+  - title: 객체 삭제 트랜잭션입니다
+    url: "/audit/object-delete-transactions.html"
+  - title: 객체 검색 트랜잭션입니다
+    url: "/audit/object-retrieve-transactions.html"
+  - title: 메타데이터 업데이트 메시지
+    url: "/audit/metadata-update-messages.html"
+- title: 감사 메시지
+  entries:
+  - title: 메시지 설명
+    pdf-filename: 감사 메시지
+    url: "/audit/audit-messages-main.html"
+  - title: 감사 메시지 범주
+    entries:
+    - title: 시스템 감사 메시지
+      url: "/audit/system-audit-messages.html"
+    - title: 오브젝트 스토리지 감사 메시지
+      url: "/audit/object-storage-audit-messages.html"
+    - title: 클라이언트가 감사 메시지를 읽습니다
+      url: "/audit/client-read-audit-messages.html"
+    - title: 클라이언트가 감사 메시지를 기록합니다
+      url: "/audit/client-write-audit-messages.html"
+    - title: 관리 감사 메시지입니다
+      url: "/audit/management-audit-message.html"
+    - title: ILM 감사 메시지
+      url: "/audit/ilm-audit-messages.html"
+  - title: 감사 메시지 참조
+    entries:
+    - title: 'BROR: 버킷 읽기 전용 요청'
+      url: "/audit/bror-bucket-read-only-request.html"
+    - title: 'CBRB: 객체 수신 시작'
+      url: "/audit/cbrb-object-receive-begin.html"
+    - title: 'CBRE: 객체 수신 종료'
+      url: "/audit/cbre-object-receive-end.html"
+    - title: 'CBSB: 개체 보내기 시작'
+      url: "/audit/cbsb-object-send-begin.html"
+    - title: 'CBSE: 객체 보내기 종료'
+      url: "/audit/cbse-object-send-end.html"
+    - title: 'CGRR: 교차 그리드 복제 요청'
+      url: "/audit/cgrr-cross-grid-replication-request.html"
+    - title: 'EBDL: 빈 버킷 삭제'
+      url: "/audit/ebdl-empty-bucket-delete.html"
+    - title: 'EBKR: 빈 버킷 요청'
+      url: "/audit/ebkr-empty-bucket-request.html"
+    - title: 'ECMC: 삭제 누락 - 코드 데이터 조각'
+      url: "/audit/ecmc-missing-erasure-coded-data-fragment.html"
+    - title: 'ECOC: 손상된 삭제 - 코드화된 데이터 조각'
+      url: "/audit/ecoc-corrupt-erasure-coded-data-fragment.html"
+    - title: 'ETAF: 보안 인증 실패'
+      url: "/audit/etaf-security-authentication-failed.html"
+    - title: 'GNRG: GNDS 등록'
+      url: "/audit/gnrg-gnds-registration.html"
+    - title: GNUR:GNDS 등록 취소
+      url: "/audit/gnur-gnds-unregistration.html"
+    - title: 'GTED: 그리드 작업이 종료되었습니다'
+      url: "/audit/gted-grid-task-ended.html"
+    - title: 'GTSt: 그리드 작업이 시작되었습니다'
+      url: "/audit/gtst-grid-task-started.html"
+    - title: 'GTSU: 그리드 작업 제출됨'
+      url: "/audit/gtsu-grid-task-submitted.html"
+    - title: 'IDEL: ILM 삭제 시작'
+      url: "/audit/idel-ilm-initiated-delete.html"
+    - title: 'LKCU: 덮어쓴 개체 정리'
+      url: "/audit/lkcu-overwritten-object-cleanup.html"
+    - title: 'LKDM: 유출된 개체 정리'
+      url: "/audit/lkdm-leaked-object-cleanup.html"
+    - title: 'LLST: 위치가 손실되었습니다'
+      url: "/audit/llst-location-lost.html"
+    - title: 'MGAU: 관리 감사 메시지'
+      url: "/audit/mgau-management-audit-message.html"
+    - title: 'OLST: 시스템에서 손실된 개체를 감지했습니다'
+      url: "/audit/olst-system-detected-lost-object.html"
+    - title: 'ORLM: 개체 규칙이 충족되었습니다'
+      url: "/audit/orlm-object-rules-met.html"
+    - title: 'OVWR: 개체 덮어쓰기'
+      url: "/audit/ovwr-object-overwrite.html"
+    - title: S3SL:S3 선택 요청
+      url: "/audit/s3-select-request.html"
+    - title: '추가: 보안 감사 비활성화'
+      url: "/audit/sadd-security-audit-disable.html"
+    - title: 'Sade: 보안 감사 활성화'
+      url: "/audit/sade-security-audit-enable.html"
+    - title: 'SCMT: 오브젝트 저장소 커밋'
+      url: "/audit/scmt-object-store-commit.html"
+    - title: 'SDEL: S3 삭제'
+      url: "/audit/sdel-s3-delete.html"
+    - title: 'SGET: S3 GET'
+      url: "/audit/sget-s3-get.html"
+    - title: 'Shea: S3 헤드'
+      url: "/audit/shea-s3-head.html"
+    - title: 'Spos: S3 POST'
+      url: "/audit/spos-s3-post.html"
+    - title: 'SPUT: S3 PUT'
+      url: "/audit/sput-s3-put.html"
+    - title: 'SREM: 오브젝트 저장소 제거'
+      url: "/audit/srem-object-store-remove.html"
+    - title: SUPD:S3 메타데이터가 업데이트되었습니다
+      url: "/audit/supd-s3-metadata-updated.html"
+    - title: 'SVRF: Object Store Verify Fail(SVRF: 오브젝트 저장소 확인 실패)'
+      url: "/audit/svrf-object-store-verify-fail.html"
+    - title: 'SVRU: Object Store Verify Unknown'
+      url: "/audit/svru-object-store-verify-unknown.html"
+    - title: SYSD:노드 중지
+      url: "/audit/sysd-node-stop.html"
+    - title: 시스템:노드 중지 중
+      url: "/audit/syst-node-stopping.html"
+    - title: 'SYSU: 노드 시작'
+      url: "/audit/sysu-node-start.html"
+    - title: 'WDEL: Swift 삭제'
+      url: "/audit/wdel-swift-delete.html"
+    - title: 'wget: Swift get'
+      url: "/audit/wget-swift-get.html"
+    - title: 'WHEA: 스위프트 헤드'
+      url: "/audit/whea-swift-head.html"
+    - title: 'WPUT: Swift Put'
+      url: "/audit/wput-swift-put.html"

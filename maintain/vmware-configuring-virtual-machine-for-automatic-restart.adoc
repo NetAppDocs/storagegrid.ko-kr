@@ -1,0 +1,22 @@
+---
+permalink: maintain/vmware-configuring-virtual-machine-for-automatic-restart.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, vmware, automatic restart, auto restart, configure automatic restart, configure auto restart 
+summary: VMware vSphere Hypervisor를 다시 시작한 후 가상 머신을 다시 시작하지 않으면 가상 머신을 자동 다시 시작하도록 구성해야 할 수 있습니다. 
+---
+= VMware: 자동 재시작을 위해 가상 머신을 구성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VMware vSphere Hypervisor를 다시 시작한 후 가상 머신을 다시 시작하지 않으면 가상 머신을 자동 다시 시작하도록 구성해야 할 수 있습니다.
+
+그리드 노드를 복구하거나 다른 유지 보수 절차를 수행하는 동안 가상 시스템이 다시 시작되지 않는 경우 이 절차를 수행해야 합니다.
+
+.단계
+. VMware vSphere Client 트리에서 시작되지 않은 가상 머신을 선택합니다.
+. 가상 머신을 마우스 오른쪽 버튼으로 클릭하고 * Power On * 을 선택합니다.
+. 나중에 가상 머신을 자동으로 재시작하도록 VMware vSphere 하이퍼바이저를 구성합니다.
+

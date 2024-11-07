@@ -1,0 +1,82 @@
+---
+permalink: ubuntu/example-etc-network-interfaces.html 
+sidebar: sidebar 
+keywords: example etc network interfaces 
+summary: /etc/network/interfaces 파일에는 물리적 인터페이스, 연결 인터페이스 및 VLAN 인터페이스를 정의하는 세 개의 섹션이 포함되어 있습니다. 3개의 예제 섹션을 단일 파일로 결합하여 4개의 Linux 물리적 인터페이스를 단일 LACP 결합으로 통합한 다음 StorageGRID 그리드, 관리 및 클라이언트 네트워크 인터페이스로 사용할 수 있는 결합을 형성하는 3개의 VLAN 인터페이스를 설정합니다. 
+---
+= 예 /etc/network/interfaces
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 `/etc/network/interfaces` 파일에는 물리적 인터페이스, 본드 인터페이스 및 VLAN 인터페이스를 정의하는 세 개의 섹션이 포함되어 있습니다. 3개의 예제 섹션을 단일 파일로 결합하여 4개의 Linux 물리적 인터페이스를 단일 LACP 결합으로 통합한 다음 StorageGRID 그리드, 관리 및 클라이언트 네트워크 인터페이스로 사용할 수 있는 결합을 형성하는 3개의 VLAN 인터페이스를 설정합니다.
+
+
+
+== 물리적 인터페이스
+
+링크의 다른 쪽 끝에 있는 스위치도 4개의 포트를 단일 LACP 트렁크 또는 포트 채널로 처리해야 하며, 태그가 있는 3개 이상의 참조된 VLAN을 통과해야 합니다.
+
+[listing]
+----
+# loopback interface
+auto lo
+iface lo inet loopback
+
+# ens160 interface
+auto ens160
+iface ens160 inet manual
+    bond-master bond0
+    bond-primary en160
+
+# ens192 interface
+auto ens192
+iface ens192 inet manual
+    bond-master bond0
+
+# ens224 interface
+auto ens224
+iface ens224 inet manual
+    bond-master bond0
+
+# ens256 interface
+auto ens256
+iface ens256 inet manual
+    bond-master bond0
+----
+
+
+== 본드 인터페이스
+
+[listing]
+----
+# bond0 interface
+auto bond0
+iface bond0 inet manual
+    bond-mode 4
+    bond-miimon 100
+    bond-slaves ens160 ens192 end224 ens256
+----
+
+
+== VLAN 인터페이스
+
+[listing]
+----
+# 1001 vlan
+auto bond0.1001
+iface bond0.1001 inet manual
+vlan-raw-device bond0
+
+# 1002 vlan
+auto bond0.1002
+iface bond0.1002 inet manual
+vlan-raw-device bond0
+
+# 1003 vlan
+auto bond0.1003
+iface bond0.1003 inet manual
+vlan-raw-device bond0
+----

@@ -1,0 +1,134 @@
+---
+permalink: audit/mgau-management-audit-message.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, MGAU, Management audit message 
+summary: 관리 범주는 사용자 요청을 관리 API에 기록합니다. API에 대한 GET 또는 HEAD 요청이 아닌 모든 요청은 API에 대한 사용자 이름, IP 및 요청 유형을 사용하여 응답을 기록합니다. 
+---
+= MGAU: 관리 감사 메시지
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+관리 범주는 사용자 요청을 관리 API에 기록합니다. 유효한 API URI에 대한 GET 또는 HEAD 요청이 아닌 모든 HTTP 요청은 API에 대한 사용자 이름, IP 및 요청 유형을 포함하는 응답을 기록합니다. 잘못된 API URI(예: /api/v3-authorize) 및 유효한 API URI에 대한 잘못된 요청은 기록되지 않습니다.
+
+[cols="1a,1a,4a"]
+|===
+| 코드 | 필드에 입력합니다 | 설명 
+
+
+ a| 
+MDIP
+ a| 
+대상 IP 주소입니다
+ a| 
+서버(대상) IP 주소입니다.
+
+
+
+ a| 
+MDNA
+ a| 
+도메인 이름
+ a| 
+호스트 도메인 이름입니다.
+
+
+
+ a| 
+MPAT
+ a| 
+요청 경로
+ a| 
+요청 경로입니다.
+
+
+
+ a| 
+MPQP
+ a| 
+쿼리 매개 변수를 요청합니다
+ a| 
+요청에 대한 쿼리 매개 변수입니다.
+
+
+
+ a| 
+MRBD
+ a| 
+요청 본문
+ a| 
+요청 본문의 내용 응답 본문이 기본적으로 기록되지만 응답 본문이 비어 있을 때 요청 본문이 특정 경우에 기록됩니다. 응답 본문에서 다음 정보를 사용할 수 없으므로 다음과 같은 POST 방법에 대한 요청 본문에서 가져옵니다.
+
+* POST authorize * 의 사용자 이름 및 계정 ID
+* POST/GRID/GRID-NETWORKS/UPDATE * 에 새로운 서브넷 구성
+* POST/GRID/NTP-서버/업데이트 * 의 새로운 NTP 서버
+* POST/GRID/SERVER/서비스 해제 * 에서 서비스 해제된 서버 ID
+
+
+* 참고: * 중요한 정보는 삭제(예: S3 액세스 키)되거나 별표로 가려집니다(예: 암호).
+
+
+
+ a| 
+MRMD
+ a| 
+요청 방법
+ a| 
+HTTP 요청 방법:
+
+* 게시
+* 를 누릅니다
+* 삭제
+* 패치
+
+
+
+
+ a| 
+MRSC
+ a| 
+응답 코드
+ a| 
+응답 코드입니다.
+
+
+
+ a| 
+MRSP
+ a| 
+응답 바디
+ a| 
+응답 내용(응답 본문)은 기본적으로 기록됩니다.
+
+* 참고: * 중요한 정보는 삭제(예: S3 액세스 키)되거나 별표로 가려집니다(예: 암호).
+
+
+
+ a| 
+MSIP
+ a| 
+소스 IP 주소입니다
+ a| 
+클라이언트(소스) IP 주소입니다.
+
+
+
+ a| 
+뮌헨
+ a| 
+사용자 URN
+ a| 
+요청을 보낸 사용자의 URN(Uniform Resource Name)입니다.
+
+
+
+ a| 
+RSLT
+ a| 
+결과
+ a| 
+성공(SUCS) 또는 백엔드에서 보고된 오류를 반환합니다.
+
+|===

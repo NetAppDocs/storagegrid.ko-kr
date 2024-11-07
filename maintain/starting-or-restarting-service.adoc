@@ -1,0 +1,58 @@
+---
+permalink: maintain/starting-or-restarting-service.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, service, start service, restart service 
+summary: 중지된 서비스를 시작해야 하거나 서비스를 중지했다가 다시 시작해야 할 수 있습니다. 
+---
+= 서비스를 시작하거나 다시 시작합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+중지된 서비스를 시작해야 하거나 서비스를 중지했다가 다시 시작해야 할 수 있습니다.
+
+.시작하기 전에
+ `Passwords.txt`파일이 있습니다.
+
+.단계
+. 그리드 노드에 로그인합니다.
++
+.. 다음 명령을 입력합니다. `ssh admin@_grid_node_IP_`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
+.. 다음 명령을 입력하여 루트로 전환합니다. `su -`
+.. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
+
+
++
+루트로 로그인하면 프롬프트가 에서 `$` 로 `#`변경됩니다.
+
+. 서비스가 현재 실행 중인지 또는 중지되었는지 여부에 따라 실행할 명령을 결정합니다.
++
+** 서비스가 현재 중지된 경우 명령을 사용하여 `start` 서비스를 수동으로 시작합니다. `service _servicename_ start`
++
+예를 들면 다음과 같습니다.
+
++
+[listing]
+----
+service ldr start
+----
+** 서비스가 현재 실행 중인 경우 명령을 사용하여 `restart` 서비스를 중지한 다음 다시 시작합니다. `service _servicename_ restart`
++
+예를 들면 다음과 같습니다.
+
++
+[listing]
+----
+service ldr restart
+----
++
+
+NOTE: 명령 사용은 `restart` 명령 다음에 `start` 명령을 사용하는 것과 `stop` 같습니다. 서비스가 현재 중지된 경우에도 발급할 수 `restart` 있습니다.
+
+
+
+. 명령 셸에서 로그아웃합니다. `exit`
+

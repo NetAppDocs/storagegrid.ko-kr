@@ -1,0 +1,84 @@
+---
+permalink: s3/configuring-tenant-accounts-and-connections.html 
+sidebar: sidebar 
+keywords: aws cli, test s3 client connection 
+summary: 'AWS CLI(Amazon Web Services 명령줄 인터페이스)를 사용하여 시스템에 대한 연결을 테스트하고 개체를 읽고 쓸 수 있는지 확인할 수 있습니다.' 
+---
+= S3 REST API 구성을 테스트합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+AWS CLI(Amazon Web Services 명령줄 인터페이스)를 사용하여 시스템에 대한 연결을 테스트하고 개체를 읽고 쓸 수 있는지 확인할 수 있습니다.
+
+.시작하기 전에
+* 에서 AWS CLI를 다운로드하여 https://aws.amazon.com/cli["aws.amazon.com/cli"^] 설치했습니다.
+* 필요한 경우 가 link:../admin/configuring-load-balancer-endpoints.html["로드 밸런서 끝점을 생성했습니다"]있습니다. 그렇지 않으면 연결할 스토리지 노드의 IP 주소와 사용할 포트 번호를 알 수 있습니다. 을 link:../admin/summary-ip-addresses-and-ports-for-client-connections.html["클라이언트 연결용 IP 주소 및 포트"]참조하십시오.
+* 있습니다. link:../admin/creating-tenant-account.html["S3 테넌트 계정을 생성했습니다"]
+* 테넌트 및 에 로그인했습니다link:../tenant/creating-your-own-s3-access-keys.html["선택키를 만들었습니다"].
+
+
+이러한 단계에 대한 자세한 내용은 을 link:../admin/configuring-client-connections.html["클라이언트 연결을 구성합니다"]참조하십시오.
+
+.단계
+. StorageGRID 시스템에서 생성한 계정을 사용하도록 AWS CLI 설정을 구성합니다.
++
+.. 구성 모드로 전환: `aws configure`
+.. 생성한 계정의 액세스 키 ID를 입력합니다.
+.. 생성한 계정의 암호 액세스 키를 입력합니다.
+.. 사용할 기본 영역을 입력합니다.  `us-east-1`예를 들어,
+.. 사용할 기본 출력 형식을 입력하거나 * Enter * 를 눌러 JSON을 선택합니다.
+
+
+. 버킷을 만듭니다.
++
+이 예에서는 IP 주소 10.96.101.17 및 포트 10443을 사용하도록 로드 밸런서 끝점을 구성했다고 가정합니다.
+
++
+[listing]
+----
+aws s3api --endpoint-url https://10.96.101.17:10443
+--no-verify-ssl create-bucket --bucket testbucket
+----
++
+버킷이 성공적으로 생성되면 다음 예와 같이 버킷의 위치가 반환됩니다.
+
++
+[listing]
+----
+"Location": "/testbucket"
+----
+. 개체를 업로드합니다.
++
+[listing]
+----
+aws s3api --endpoint-url https://10.96.101.17:10443 --no-verify-ssl
+put-object --bucket testbucket --key s3.pdf --body C:\s3-test\upload\s3.pdf
+----
++
+객체가 성공적으로 업로드되면 객체 데이터의 해시인 Etag가 반환됩니다.
+
+. 버킷의 내용을 나열하여 객체가 업로드되었는지 확인합니다.
++
+[listing]
+----
+aws s3api --endpoint-url https://10.96.101.17:10443 --no-verify-ssl
+list-objects --bucket testbucket
+----
+. 개체를 삭제합니다.
++
+[listing]
+----
+aws s3api --endpoint-url https://10.96.101.17:10443 --no-verify-ssl
+delete-object --bucket testbucket --key s3.pdf
+----
+. 버킷을 삭제합니다.
++
+[listing]
+----
+aws s3api --endpoint-url https://10.96.101.17:10443 --no-verify-ssl
+delete-bucket --bucket testbucket
+----
+

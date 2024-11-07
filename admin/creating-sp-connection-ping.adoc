@@ -1,0 +1,224 @@
+---
+permalink: admin/creating-sp-connection-ping.html 
+sidebar: sidebar 
+keywords: service provider, sp connection, pingfederate, ping, single sign on, sso 
+summary: 'PingFederate를 사용하여 시스템의 각 관리 노드에 대한 서비스 공급자(SP) 연결을 만듭니다. 프로세스 속도를 높이기 위해 StorageGRID에서 SAML 메타데이터를 가져옵니다.' 
+---
+= PingFederate에서 서비스 공급자(SP) 연결을 생성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+PingFederate를 사용하여 시스템의 각 관리 노드에 대한 서비스 공급자(SP) 연결을 만듭니다. 프로세스 속도를 높이기 위해 StorageGRID에서 SAML 메타데이터를 가져옵니다.
+
+.시작하기 전에
+* StorageGRID에 대한 SSO(Single Sign-On)를 구성하고 SSO 유형으로 * Ping 남부연합을 선택했습니다.
+* * Sandbox 모드 * 는 Grid Manager의 Single Sign-On 페이지에서 선택됩니다. 을 link:../admin/using-sandbox-mode.html["sandbox 모드를 사용합니다"]참조하십시오.
+* 시스템의 각 관리 노드에 대해 * SP 접속 ID * 가 있습니다. 이러한 값은 StorageGRID 단일 사인온 페이지의 관리 노드 세부 정보 테이블에서 찾을 수 있습니다.
+* 시스템의 각 관리 노드에 대해 * SAML 메타데이터 * 를 다운로드했습니다.
+* PingFederate Server에서 SP 연결을 생성하는 경험이 있습니다.
+* PingFederate Server용 이 https://docs.pingidentity.com/pingfederate/latest/administrators_reference_guide/pf_administrators_reference_guide.html["관리자 참조 안내서"^]있습니다. PingFederate 설명서는 자세한 단계별 지침과 설명을 제공합니다.
+* PingFederate Server용 이 link:admin-group-permissions.html["관리자 권한"]있습니다.
+
+
+.이 작업에 대해
+이 지침은 PingFederate Server 버전 10.3을 StorageGRID의 SSO 공급자로 구성하는 방법을 요약합니다. 다른 버전의 PingFederate를 사용하는 경우 이 지침을 조정해야 할 수 있습니다. 릴리스에 대한 자세한 지침은 PingFederate Server 설명서를 참조하십시오.
+
+
+
+== PingFederate에서 필수 구성 요소를 완료합니다
+
+StorageGRID에 사용할 SP 연결을 생성하려면 PingFederate에서 사전 요구 작업을 완료해야 합니다. SP 접속을 구성할 때 이러한 사전 요구 사항의 정보를 사용합니다.
+
+
+
+=== 데이터 저장소 생성 [[data-store]]
+
+아직 연결하지 않은 경우 데이터 저장소를 생성하여 PingFederate를 AD FS LDAP 서버에 연결합니다. StorageGRID에서 사용한 값을 link:../admin/using-identity-federation.html["ID 페더레이션을 구성하는 중입니다"]사용합니다.
+
+* * 유형 *: 디렉토리(LDAP)
+* * LDAP 유형 *: Active Directory
+* * 바이너리 특성 이름 *: LDAP 바이너리 특성 탭의 * objectGUID * 를 그림과 같이 정확하게 입력합니다.
+
+
+
+
+=== 암호 자격 증명 유효성 검사기 [[암호 유효성 검사기]] 만들기
+
+아직 설치하지 않은 경우 암호 자격 증명 유효성 검사기를 만듭니다.
+
+* * 유형 *: LDAP 사용자 이름 암호 자격 증명 검사기
+* * 데이터 저장소 *: 만든 데이터 저장소를 선택합니다.
+* * 검색 기준 *: LDAP의 정보를 입력합니다(예: DC=SAML, DC=SGWs).
+* * 검색 필터 *: sAMAccountName=${username}
+* * 범위 *: 하위 트리
+
+
+
+
+=== IDP 어댑터 인스턴스 만들기 [[adapter-instance]]
+
+아직 IDP 어댑터 인스턴스를 만들지 않은 경우 생성합니다.
+
+.단계
+. 인증 * > * 통합 * > * IDP 어댑터 * 로 이동합니다.
+. 새 인스턴스 만들기 * 를 선택합니다.
+. 유형 탭에서 * HTML 양식 IDP 어댑터 * 를 선택합니다.
+. IDP Adapter 탭에서 * Add a new row to 'Credential Validators' * 를 선택합니다.
+. 작성한 을 <<password-validator,암호 자격 증명 유효성 검사기가 있습니다>>선택합니다.
+. 어댑터 특성 탭에서 * 가명 * 에 대한 * 사용자 이름 * 속성을 선택합니다.
+. 저장 * 을 선택합니다.
+
+
+
+
+=== 서명 인증서 만들기 또는 가져오기 [[signing-certificate]]
+
+서명 인증서를 아직 만들지 않은 경우 서명 인증서를 만들거나 가져옵니다.
+
+.단계
+. 보안 * > * 서명 및 암호 해독 키 및 인증서 * 로 이동합니다.
+. 서명 인증서를 만들거나 가져옵니다.
+
+
+
+
+== PingFederate에서 SP 접속을 생성합니다
+
+PingFederate에서 SP 연결을 생성할 때 StorageGRID에서 다운로드한 SAML 메타데이터를 관리자 노드에 대해 가져옵니다. 메타데이터 파일에는 필요한 많은 특정 값이 들어 있습니다.
+
+
+TIP: 사용자가 모든 노드에 안전하게 로그인할 수 있도록 StorageGRID 시스템의 각 관리 노드에 대해 SP 접속을 생성해야 합니다. 이 지침에 따라 첫 번째 SP 접속을 생성합니다. 그런 다음 로 <<추가 SP 접속을 생성합니다>> 이동하여 필요한 추가 연결을 만듭니다.
+
+
+
+=== SP 접속 유형을 선택합니다
+
+.단계
+. 응용 프로그램 * > * 통합 * > * SP 연결 * 으로 이동합니다.
+. Create Connection * 을 선택합니다.
+. 이 연결에 템플릿을 사용하지 않음 * 을 선택합니다.
+. 프로토콜로 * Browser SSO Profiles * 및 * SAML 2.0 * 을 선택합니다.
+
+
+
+
+=== SP 메타데이터를 가져옵니다
+
+.단계
+. 메타데이터 가져오기 탭에서 * 파일 * 을 선택합니다.
+. 관리자 노드의 StorageGRID Single Sign-On 페이지에서 다운로드한 SAML 메타데이터 파일을 선택합니다.
+. 메타데이터 요약 및 일반 정보 탭에 제공된 정보를 검토합니다.
++
+파트너의 엔티티 ID와 연결 이름은 StorageGRID SP 연결 ID로 설정됩니다. (예: 10.96.105.200-DC1-ADM1-105-200). 기본 URL은 StorageGRID 관리 노드의 IP입니다.
+
+. 다음 * 을 선택합니다.
+
+
+
+
+=== IDP 브라우저 SSO를 구성합니다
+
+.단계
+. Browser SSO(브라우저 SSO) 탭에서 * Configure Browser SSO *(브라우저 SSO * 구성) 를 선택합니다.
+. SAML 프로필 탭에서 * SP 시작 SSO *, * SP 초기 SLO *, * IDP 시작 SSO * 및 * IDP 시작 SLO * 옵션을 선택합니다.
+. 다음 * 을 선택합니다.
+. 어설션 수명 탭에서 변경하지 않습니다.
+. 어설션 작성 탭에서 * 어설션 작성 설정 * 을 선택합니다.
++
+.. ID 매핑 탭에서 * 표준 * 을 선택합니다.
+.. [속성 계약] 탭에서 [속성 계약] 및 가져온 지정되지 않은 이름 형식으로 * SAML_subject * 를 사용합니다.
+
+
+. 계약 연장 에서 * 삭제 * 를 선택하여 사용하지 않는 를 제거합니다 `urn:oid`.
+
+
+
+
+=== 어댑터 인스턴스를 매핑합니다
+
+.단계
+. 인증 소스 매핑 탭에서 * 새 어댑터 인스턴스 매핑 * 을 선택합니다.
+. 어댑터 인스턴스 탭에서 작성한 을 <<adapter-instance,어댑터 인스턴스>>선택합니다.
+. 매핑 방법 탭에서 * 데이터 저장소에서 추가 특성 검색 * 을 선택합니다.
+. 특성 원본 및 사용자 조회 탭에서 * 특성 원본 추가 * 를 선택합니다.
+. 데이터 저장소 탭에서 설명을 입력하고 추가한 을 <<data-store,데이터 저장소>>선택합니다.
+. LDAP 디렉토리 검색 탭에서 다음을 수행합니다.
++
+** 기본 DN * 을 입력합니다. 이 값은 LDAP 서버에 대해 StorageGRID에 입력한 값과 정확히 일치해야 합니다.
+** 검색 범위 에서 * 하위 트리 * 를 선택합니다.
+** 루트 개체 클래스의 경우 * objectGUID * 또는 * userPrincipalName * 속성 중 하나를 검색하여 추가합니다.
+
+
+. LDAP 바이너리 특성 인코딩 형식 탭에서 * objectGUID * 특성에 대해 * Base64 * 를 선택합니다.
+. LDAP 필터 탭에서 * sAMAccountName=${username} * 을 입력합니다.
+. 특성 계약 이행 탭의 소스 드롭다운에서 * LDAP (attribute) * 를 선택하고 값 드롭다운에서 * objectGUID * 또는 * userPrincipalName * 을 선택합니다.
+. 특성 소스를 검토한 후 저장합니다.
+. Failsave 특성 소스 탭에서 * SSO 트랜잭션 중단 * 을 선택합니다.
+. 요약을 검토하고 * 완료 * 를 선택합니다.
+. 완료 * 를 선택합니다.
+
+
+
+
+=== 프로토콜 설정을 구성합니다
+
+.단계
+. SP Connection * > * Browser SSO * > * Protocol Settings * 탭에서 * Configure Protocol Settings * 를 선택합니다.
+. 어설션 소비자 서비스 URL 탭에서 StorageGRID SAML 메타데이터(* 바인딩 및 끝점 URL의 경우 * POST * )에서 가져온 기본값을 수락합니다. `/api/saml-response`
+. SLO 서비스 URL 탭에서 StorageGRID SAML 메타데이터(* 바인딩 및 끝점 URL의 경우 * 리디렉션 *)에서 가져온 기본값을 그대로 `/api/saml-logout` 사용합니다.
+. 허용 가능한 SAML 바인딩 탭에서 * Artifact * 및 * SOAP * 를 지웁니다. POST * 및 * REDIRECT * 만 필요합니다.
+. 서명 정책 탭에서 * Authn 요청 서명 필요 * 및 * 항상 설정 서명 * 확인란을 선택된 상태로 둡니다.
+. 암호화 정책 탭에서 * 없음 * 을 선택합니다.
+. 요약을 검토하고 * Done * (완료 *)을 선택하여 프로토콜 설정을 저장합니다.
+. 요약을 검토하고 * 완료 * 를 선택하여 브라우저 SSO 설정을 저장합니다.
+
+
+
+
+=== 자격 증명을 구성합니다
+
+.단계
+. SP 연결 탭에서 * 자격 증명 * 을 선택합니다.
+. 자격 증명 탭에서 * 자격 증명 구성 * 을 선택합니다.
+. 만들거나 가져온 을 <<signing-certificate,서명 인증서>>선택합니다.
+. 다음 * 을 선택하여 * 서명 확인 설정 관리 * 로 이동합니다.
++
+.. 보안 모델 탭에서 * 앵커 지정되지 않음 * 을 선택합니다.
+.. 서명 확인 인증서 탭에서 StorageGRID SAML 메타데이터에서 가져온 서명 인증서 정보를 검토합니다.
+
+
+. 요약 화면을 검토하고 * 저장 * 을 선택하여 SP 접속을 저장합니다.
+
+
+
+
+=== 추가 SP 접속을 생성합니다
+
+첫 번째 SP 접속을 복제하여 그리드의 각 관리 노드에 필요한 SP 접속을 생성할 수 있습니다. 각 복사본에 대한 새 메타데이터를 업로드합니다.
+
+
+NOTE: 파트너의 엔티티 ID, 기본 URL, 연결 ID, 연결 이름, 서명 확인을 제외하고 서로 다른 관리 노드의 SP 연결은 동일한 설정을 사용합니다. SLO 응답 URL이 있습니다.
+
+.단계
+. 각 추가 관리 노드에 대한 초기 SP 연결의 복제본을 생성하려면 * Action * > * Copy * 를 선택합니다.
+. 복사본의 연결 ID와 연결 이름을 입력하고 * 저장 * 을 선택합니다.
+. 관리 노드에 해당하는 메타데이터 파일을 선택합니다.
++
+.. 작업 * > * 메타데이터 업데이트 * 를 선택합니다.
+.. 파일 선택 * 을 선택하고 메타데이터를 업로드합니다.
+.. 다음 * 을 선택합니다.
+.. 저장 * 을 선택합니다.
+
+
+. 미사용 속성으로 인한 오류를 해결합니다.
++
+.. 새 연결을 선택합니다.
+.. Configure Browser SSO > Configure Assertion Creation > Attribute Contract * 를 선택합니다.
+.. urn:OID*에 대한 항목을 삭제합니다.
+.. 저장 * 을 선택합니다.
+
+
+

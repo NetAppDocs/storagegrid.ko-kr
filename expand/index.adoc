@@ -1,0 +1,74 @@
+---
+permalink: expand/index.html 
+sidebar: sidebar 
+keywords: expand grid 
+summary: 시스템 운영을 중단하지 않고 StorageGRID 시스템의 용량이나 기능을 확장할 수 있습니다. 
+---
+= 확장 유형
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+시스템 운영을 중단하지 않고 StorageGRID 시스템의 용량이나 기능을 확장할 수 있습니다.
+
+StorageGRID 확장을 통해 다음을 추가할 수 있습니다.
+
+* 스토리지 노드에서 스토리지 볼륨으로 이동합니다
+* 기존 사이트에 대한 새 그리드 노드
+* 완전히 새로운 사이트
+
+
+확장을 수행하는 이유는 추가해야 하는 각 유형의 새 노드 수와 새 노드의 위치를 결정합니다. 예를 들어 스토리지 용량을 늘리거나, 메타데이터 용량을 추가하거나, 중복성 또는 새로운 기능을 추가하기 위해 확장을 수행하는 경우에는 노드 요구 사항이 다릅니다.
+
+수행 중인 확장 유형에 대한 단계를 따릅니다.
+
+[role="tabbed-block"]
+====
+.스토리지 볼륨을 추가합니다
+--
+의 단계를 link:adding-storage-volumes-to-storage-nodes.html["스토리지 노드에 스토리지 볼륨을 추가하는 중입니다"]따릅니다.
+
+--
+.그리드 노드를 추가합니다
+--
+. 의 단계를 link:adding-grid-nodes-to-existing-site-or-adding-new-site.html["기존 사이트에 그리드 노드 추가"]따릅니다.
+. link:updating-subnets-for-grid-network.html["서브넷을 업데이트합니다"]..
+. 그리드 노드 구축:
++
+** link:deploying-new-grid-nodes.html#appliances-deploying-storage-gateway-or-non-primary-admin-nodes["어플라이언스"]
+** link:deploying-new-grid-nodes.html#vmware-deploy-grid-nodes["VMware"]
+** link:deploying-new-grid-nodes.html#linux-deploy-grid-nodes["리눅스"]
++
+
+NOTE: "Linux"는 Red Hat Enterprise Linux, Ubuntu 또는 Debian 배포를 의미합니다. 지원되는 버전 목록은 를 참조하십시오 https://imt.netapp.com/matrix/#welcome["NetApp 상호 운용성 매트릭스 툴(IMT)"^].
+
+
+
+. link:performing-expansion.html["확장을 수행합니다"]..
+. link:configuring-expanded-storagegrid-system.html["확장된 시스템을 구성합니다"]..
+
+
+--
+.새 사이트를 추가합니다
+--
+. 의 단계를 link:adding-grid-nodes-to-existing-site-or-adding-new-site.html["새 사이트 추가"]따릅니다.
+. link:updating-subnets-for-grid-network.html["서브넷을 업데이트합니다"]..
+. 그리드 노드 구축:
++
+** link:deploying-new-grid-nodes.html#appliances-deploying-storage-gateway-or-non-primary-admin-nodes["어플라이언스"]
+** link:deploying-new-grid-nodes.html#vmware-deploy-grid-nodes["VMware"]
+** link:deploying-new-grid-nodes.html#linux-deploy-grid-nodes["리눅스"]
++
+
+NOTE: "Linux"는 Red Hat Enterprise Linux, Ubuntu 또는 Debian 배포를 의미합니다. 지원되는 버전 목록은 를 참조하십시오 https://imt.netapp.com/matrix/#welcome["NetApp 상호 운용성 매트릭스 툴(IMT)"^].
+
+
+
+. link:performing-expansion.html["확장을 수행합니다"]..
+. link:configuring-expanded-storagegrid-system.html["확장된 시스템을 구성합니다"]..
+
+
+--
+====

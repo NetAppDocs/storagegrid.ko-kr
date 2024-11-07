@@ -1,0 +1,40 @@
+---
+permalink: ubuntu/configuring-docker-storage-volume.html 
+sidebar: sidebar 
+keywords: how to configure Docker storage volume 
+summary: Docker를 설치하기 전에 Docker 스토리지 볼륨을 포맷하고 /var/lib/docker에 마운트해야 할 수 있습니다. 
+---
+= 컨테이너 엔진 저장소 볼륨을 구성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+컨테이너 엔진(Docker 또는 Podman)을 설치하기 전에 스토리지 볼륨을 포맷하고 마운트해야 할 수 있습니다.
+
+
+NOTE: 소프트웨어 전용 배포를 위한 컨테이너 엔진으로 Docker에 대한 지원은 더 이상 사용되지 않습니다. Docker는 향후 릴리즈에서 다른 컨테이너 엔진으로 대체될 예정입니다.
+
+.이 작업에 대해
+Docker 저장소 볼륨에 로컬 스토리지를 사용할 계획이고 이 포함된 호스트 파티션에 사용 가능한 공간이 충분하다면 이 단계를 건너뛸 수 있습니다 `/var/lib`.
+
+.단계
+. Docker 스토리지 볼륨에 파일 시스템을 생성합니다.
++
+[listing]
+----
+sudo mkfs.ext4 docker-storage-volume-device
+----
+. Docker 스토리지 볼륨을 마운트합니다.
++
+[listing]
+----
+sudo mkdir -p /var/lib/docker
+sudo mount docker-storage-volume-device /var/lib/docker
+----
+. /etc/fstab에 Docker-storage-volume-device 항목을 추가합니다.
++
+이 단계를 수행하면 호스트가 재부팅된 후 스토리지 볼륨이 자동으로 다시 마운트됩니다.
+
+

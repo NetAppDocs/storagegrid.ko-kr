@@ -1,0 +1,268 @@
+---
+permalink: s3/use-s3-api-for-s3-object-lock.html 
+sidebar: sidebar 
+keywords: how to configure S3 object lock, object lock, default bucket retention, governance, compliance, retain-until-date, legal hold 
+summary: StorageGRID 시스템에서 글로벌 S3 오브젝트 잠금 설정이 활성화된 경우 S3 오브젝트 잠금이 활성화된 버킷을 생성할 수 있습니다. 각 오브젝트 버전에 대해 각 버킷의 기본 보존 또는 보존 설정을 지정할 수 있습니다. 
+---
+= S3 REST API를 사용하여 S3 오브젝트 잠금을 구성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 시스템에서 글로벌 S3 오브젝트 잠금 설정이 활성화된 경우 S3 오브젝트 잠금이 활성화된 버킷을 생성할 수 있습니다. 각 오브젝트 버전에 대해 각 버킷의 기본 보존 또는 보존 설정을 지정할 수 있습니다.
+
+
+
+== 버킷에 대해 S3 오브젝트 잠금을 활성화하는 방법
+
+StorageGRID 시스템에 대해 글로벌 S3 오브젝트 잠금 설정이 활성화된 경우 각 버킷을 생성할 때 선택적으로 S3 오브젝트 잠금을 활성화할 수 있습니다.
+
+S3 오브젝트 잠금은 버킷을 생성할 때만 활성화할 수 있는 영구 설정입니다. 버킷을 생성한 후에는 S3 오브젝트 잠금을 추가하거나 비활성화할 수 없습니다.
+
+버킷에 대해 S3 오브젝트 잠금을 설정하려면 다음 방법 중 하나를 사용하십시오.
+
+* 테넌트 관리자를 사용하여 버킷을 생성합니다. 을 link:../tenant/creating-s3-bucket.html["S3 버킷을 생성합니다"]참조하십시오.
+* 요청 헤더가 있는 CreateBucket 요청을 사용하여 버킷을 `x-amz-bucket-object-lock-enabled` 만듭니다. 을 link:operations-on-buckets.html["버킷 작업"]참조하십시오.
+
+
+S3 오브젝트 잠금에서는 버킷 버전 관리가 필요하며, 이 버전은 버킷을 생성할 때 자동으로 활성화됩니다. 버킷의 버전 관리는 일시 중단할 수 없습니다. 을 link:object-versioning.html["오브젝트 버전 관리"]참조하십시오.
+
+
+
+== 버킷의 기본 보존 설정입니다
+
+버킷에 대해 S3 오브젝트 잠금이 활성화된 경우 버킷에 대한 기본 보존을 선택적으로 설정하고 기본 보존 모드 및 기본 보존 기간을 지정할 수 있습니다.
+
+
+
+=== 기본 보존 모드
+
+* 규정 준수 모드:
++
+** 보존 기한 에 도달할 때까지 개체를 삭제할 수 없습니다.
+** 오브젝트의 보존 기한 을 늘릴 수 있지만 줄일 수는 없습니다.
+** 개체의 보존 기한 은 해당 날짜에 도달할 때까지 제거할 수 없습니다.
+
+
+* 거버넌스 모드:
++
+**  있는 사용자는 `s3:BypassGovernanceRetention`권한이 요청 헤더를 사용하여 보존 설정을 무시할 수 `x-amz-bypass-governance-retention: true` 있습니다.
+** 이러한 사용자는 보존 기한이 되기 전에 개체 버전을 삭제할 수 있습니다.
+** 이러한 사용자는 개체의 보존 기간(Retain-until-date)을 증가, 감소 또는 제거할 수 있습니다.
+
+
+
+
+
+
+=== 기본 보존 기간
+
+각 버킷에는 년 또는 일 단위로 지정된 기본 보존 기간이 있을 수 있습니다.
+
+
+
+== 버킷의 기본 보존 설정 방법
+
+버킷의 기본 보존을 설정하려면 다음 방법 중 하나를 사용합니다.
+
+* 테넌트 관리자에서 버킷 설정을 관리합니다. link:../tenant/creating-s3-bucket.html["S3 버킷을 생성합니다"]및 을 link:../tenant/update-default-retention-settings.html["S3 오브젝트 잠금 기본 보존 업데이트"]참조하십시오.
+* 버킷에 대한 PutObjectLockConfiguration 요청을 실행하여 기본 모드와 기본 일 또는 년 수를 지정합니다.
+
+
+
+
+=== PutObjectLockConfiguration 을 참조하십시오
+
+PutObjectLockConfiguration 요청을 사용하면 S3 오브젝트 잠금이 설정된 버킷의 기본 보존 모드 및 기본 보존 기간을 설정하고 수정할 수 있습니다. 이전에 구성한 기본 보존 설정을 제거할 수도 있습니다.
+
+새 오브젝트 버전이 버킷에 수집되면 및 `x-amz-object-lock-retain-until-date` 이 지정되지 않은 경우 기본 보존 모드가 `x-amz-object-lock-mode` 적용됩니다. 이 지정되지 않은 경우 기본 보존 기간은 유지 종료 날짜를 계산하는 데 `x-amz-object-lock-retain-until-date` 사용됩니다.
+
+오브젝트 버전을 수집한 후 기본 보존 기간을 수정하면 오브젝트 버전의 보존 기한은 그대로 유지되고 새 기본 보존 기간을 사용하여 다시 계산되지 않습니다.
+
+이 작업을 완료하려면 권한이 있거나 계정 루트여야 `s3:PutBucketObjectLockConfiguration` 합니다.
+
+ `Content-MD5`PUT 요청에 요청 헤더를 지정해야 합니다.
+
+
+
+==== 요청 예
+
+이 예에서는 버킷에 대해 S3 Object Lock을 설정하고 기본 보존 모드를 규정 준수 로 설정하고 기본 보존 기간을 6년으로 설정합니다.
+
+[listing, subs="specialcharacters,quotes"]
+----
+PUT /bucket?object-lock HTTP/1.1
+Accept-Encoding: identity
+Content-Length: 308
+Host: _host_
+Content-MD5: _request header_
+User-Agent: s3sign/1.0.0 requests/2.24.0 python/3.8.2
+X-Amz-Date: _date_
+X-Amz-Content-SHA256: _authorization-string_
+Authorization: _authorization-string_
+
+<ObjectLockConfiguration>
+    <ObjectLockEnabled>Enabled</ObjectLockEnabled>
+    <Rule>
+        <DefaultRetention>
+            <Mode>COMPLIANCE</Mode>
+            <Years>6</Years>
+        </DefaultRetention>
+    </Rule>
+</ObjectLockConfiguration>
+----
+
+
+== 버킷의 기본 보존 결정 방법
+
+버킷에 대해 S3 오브젝트 잠금이 설정되었는지 확인하고 기본 보존 모드 및 보존 기간을 확인하려면 다음 방법 중 하나를 사용하십시오.
+
+* 테넌트 관리자에서 버킷을 확인합니다. 을 link:../tenant/viewing-s3-bucket-details.html["S3 버킷을 봅니다"]참조하십시오.
+* GetObjectLockConfiguration 요청을 실행합니다.
+
+
+
+
+=== GetObjectLockConfiguration 을 참조하십시오
+
+GetObjectLockConfiguration 요청을 사용하면 버킷에 대해 S3 오브젝트 잠금이 설정되어 있는지 확인하고, 사용하도록 설정되어 있는 경우 버킷에 대해 구성된 기본 보존 모드 및 보존 기간이 있는지 확인할 수 있습니다.
+
+새 오브젝트 버전이 버킷에 수집되면 이 지정되지 않은 경우 기본 보존 모드가 `x-amz-object-lock-mode` 적용됩니다. 이 지정되지 않은 경우 기본 보존 기간은 유지 종료 날짜를 계산하는 데 `x-amz-object-lock-retain-until-date` 사용됩니다.
+
+이 작업을 완료하려면 권한이 있거나 계정 루트여야 `s3:GetBucketObjectLockConfiguration` 합니다.
+
+
+
+==== 요청 예
+
+[listing, subs="specialcharacters,quotes"]
+----
+GET /bucket?object-lock HTTP/1.1
+Host: _host_
+Accept-Encoding: identity
+User-Agent: aws-cli/1.18.106 Python/3.8.2 Linux/4.4.0-18362-Microsoft botocore/1.17.29
+x-amz-date: _date_
+x-amz-content-sha256: _authorization-string_
+Authorization: _authorization-string_
+----
+
+
+==== 응답 예
+
+[listing]
+----
+HTTP/1.1 200 OK
+x-amz-id-2: iVmcB7OXXJRkRH1FiVq1151/T24gRfpwpuZrEG11Bb9ImOMAAe98oxSpXlknabA0LTvBYJpSIXk=
+x-amz-request-id: B34E94CACB2CEF6D
+Date: Fri, 04 Sep 2020 22:47:09 GMT
+Transfer-Encoding: chunked
+Server: AmazonS3
+
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectLockConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+    <ObjectLockEnabled>Enabled</ObjectLockEnabled>
+    <Rule>
+        <DefaultRetention>
+            <Mode>COMPLIANCE</Mode>
+            <Years>6</Years>
+        </DefaultRetention>
+    </Rule>
+</ObjectLockConfiguration>
+----
+
+
+== 개체의 보존 설정을 지정하는 방법
+
+S3 오브젝트 잠금이 활성화된 버킷에는 S3 오브젝트 잠금 보존 설정이 있는 오브젝트와 없는 오브젝트의 조합이 포함될 수 있습니다.
+
+오브젝트 레벨의 보존 설정은 S3 REST API를 사용하여 지정됩니다. 객체에 대한 보존 설정은 버킷의 기본 보존 설정보다 우선합니다.
+
+각 개체에 대해 다음 설정을 지정할 수 있습니다.
+
+* * 보존 모드 *: 규정 준수 또는 거버넌스 중 하나입니다.
+* * Retain-until-date *: StorageGRID에서 개체 버전을 유지해야 하는 기간을 지정하는 날짜입니다.
++
+** 준수 모드에서 보존 기한이 미래인 경우 오브젝트를 검색할 수 있지만 수정하거나 삭제할 수 없습니다. 보관 기한 을 늘릴 수 있지만 이 날짜는 감소 또는 제거할 수 없습니다.
+** 거버넌스 모드에서 특별 권한이 있는 사용자는 보존 기한 설정을 무시할 수 있습니다. 보존 기간이 경과하기 전에 객체 버전을 삭제할 수 있습니다. 또한 보존 기간을 늘리거나 줄이거나 제거할 수도 있습니다.
+
+
+* * 법적 증거 자료 보관 *: 개체 버전에 법적 증거 자료 보관 기능을 적용하면 해당 개체가 즉시 잠깁니다. 예를 들어 조사 또는 법적 분쟁과 관련된 객체에 법적 보류를 지정해야 할 수 있습니다. 법적 보류는 만료 날짜가 없지만 명시적으로 제거될 때까지 유지됩니다.
++
+개체에 대한 법적 보류 설정은 보존 모드 및 보존 기한 과 무관합니다. 개체 버전이 법적 증거 자료 보관 중인 경우 해당 버전을 삭제할 수 없습니다.
+
+
+
+오브젝트 버전을 버킷에 추가할 때 S3 오브젝트 잠금 설정을 지정하려면link:put-object.html["PutObject 를 선택합니다"], 를 실행하거나 link:put-object-copy.html["CopyObject 를 선택합니다"] link:initiate-multipart-upload.html["CreateMultptUpload 를 클릭합니다"]요청을 실행하십시오.
+
+다음을 사용할 수 있습니다.
+
+* `x-amz-object-lock-mode`규정 준수 또는 거버넌스일 수 있습니다(대소문자 구분).
++
+
+NOTE: 을 지정한 `x-amz-object-lock-mode` 경우에는 도 지정해야 `x-amz-object-lock-retain-until-date`합니다.
+
+* `x-amz-object-lock-retain-until-date`
++
+** 유지 기한 값은 형식이어야 `2020-08-10T21:46:00Z`합니다. 소수 자릿수는 허용되지만 소수점 이하 자릿수는 3자리만 유지됩니다(밀리초 단위). 다른 ISO 8601 형식은 허용되지 않습니다.
+** 보존 종료 날짜는 미래여야 합니다.
+
+
+* `x-amz-object-lock-legal-hold`
++
+법적 증거 자료 보관(대소문자 구분)이 켜져 있는 경우, 해당 물체는 법적 증거 자료 보관 하에 배치됩니다. 법적 증거 자료 보관 기능이 꺼져 있는 경우 법적 증거 자료 보관 작업이 없습니다. 다른 값을 사용하면 400개의 잘못된 요청(InvalidArgument) 오류가 발생합니다.
+
+
+
+이러한 요청 헤더를 사용하는 경우 다음과 같은 제한 사항에 유의하십시오.
+
+*  `Content-MD5`요청 헤더가 PutObject 요청에 있는 경우 요청 `x-amz-object-lock-*` 헤더가 필요합니다. `Content-MD5` CopyObject 또는 CreateMultipartUpload에는 필요하지 않습니다.
+* 버킷에 S3 오브젝트 잠금이 설정되어 있지 않고 요청 헤더가 있는 경우 `x-amz-object-lock-*` 400 Bad Request(InvalidRequest) 오류가 반환됩니다.
+* PutObject 요청에서는 AWS 동작을 일치시키기 위해 의 사용을 `x-amz-storage-class: REDUCED_REDUNDANCY` 지원합니다. 하지만 오브젝트가 S3 오브젝트 잠금이 설정된 버킷으로 수집되면 StorageGRID는 항상 이중 커밋 수집을 수행합니다.
+* 이후의 Get 또는 HeadObject 버전 응답에는 헤더 `x-amz-object-lock-mode`, `x-amz-object-lock-retain-until-date` 및 `x-amz-object-lock-legal-hold`, 구성된 경우 요청 보낸 사람에게 올바른 권한이 있는지 여부가 `s3:Get*` 포함됩니다.
+
+
+정책 조건 키를 사용하여 개체에 대해 허용되는 최소 및 최대 보존 기간을 제한할 수 `s3:object-lock-remaining-retention-days` 있습니다.
+
+
+
+== 개체의 보존 설정을 업데이트하는 방법
+
+기존 개체 버전에 대한 법적 증거 자료 보관 또는 보존 설정을 업데이트해야 하는 경우 다음 개체 하위 리소스 작업을 수행할 수 있습니다.
+
+* `PutObjectLegalHold`
++
+새 법적 증거 자료 보관 값이 켜져 있으면 해당 개체는 법적 증거 자료 보관 아래에 배치됩니다. 법적 증거 자료 보관 가치가 없는 경우 법적 구속이 해제됩니다.
+
+* `PutObjectRetention`
++
+** 모드 값은 규정 준수 또는 거버넌스(대/소문자 구분)일 수 있습니다.
+** 유지 기한 값은 형식이어야 `2020-08-10T21:46:00Z`합니다. 소수 자릿수는 허용되지만 소수점 이하 자릿수는 3자리만 유지됩니다(밀리초 단위). 다른 ISO 8601 형식은 허용되지 않습니다.
+** 개체 버전에 기존 보존 기한이 있는 경우 개체 버전을 늘릴 수만 있습니다. 새 값은 미래여야 합니다.
+
+
+
+
+
+
+== 거버넌스 모드 사용 방법
+
+권한이 있는 사용자는 `s3:BypassGovernanceRetention` 거버넌스 모드를 사용하는 개체의 활성 보존 설정을 무시할 수 있습니다. 삭제 또는 PutObjectRetention 작업은 요청 헤더를 포함해야 `x-amz-bypass-governance-retention:true` 합니다. 이러한 사용자는 다음과 같은 추가 작업을 수행할 수 있습니다.
+
+* DeleteObject 또는 DeleteObjects 작업을 수행하여 보존 기간이 경과하기 전에 개체 버전을 삭제합니다.
++
+법적 증거 자료 보관 중인 객체는 삭제할 수 없습니다. 법적 증거 자료 보관 기능을 해제해야 합니다.
+
+* 개체의 보존 기간이 경과하기 전에 개체 버전의 모드를 거버넌스에서 규정 준수로 변경하는 PutObjectRetention 작업을 수행합니다.
++
+규정 준수 모드를 거버넌스로 변경하는 것은 허용되지 않습니다.
+
+* PutObjectRetention 작업을 수행하여 개체 버전의 보존 기간을 증가, 감소 또는 제거합니다.
+
+
+.관련 정보
+* link:../ilm/managing-objects-with-s3-object-lock.html["S3 오브젝트 잠금으로 오브젝트 관리"]
+* link:../tenant/using-s3-object-lock.html["S3 오브젝트 잠금을 사용하여 오브젝트를 보존합니다"]
+* https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html["Amazon Simple Storage Service 사용자 가이드: 오브젝트 잠금"^]
+

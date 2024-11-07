@@ -1,0 +1,39 @@
+---
+permalink: audit/svru-object-store-verify-unknown.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, SVRU, Object Store Verify Unknown 
+summary: LDR 서비스의 저장소 구성 요소는 개체 저장소에 있는 복제된 개체 데이터의 모든 복사본을 지속적으로 검사합니다. 이 메시지는 객체 저장소에서 알 수 없거나 예상치 못한 복제된 객체 데이터 복제본이 발견되어 격리 디렉토리로 이동될 때 발행됩니다. 
+---
+= SVRU: Object Store Verify Unknown
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+LDR 서비스의 스토리지 구성 요소는 개체 저장소에서 복제된 개체 데이터의 모든 복사본을 지속적으로 검사합니다. 이 메시지는 객체 저장소에서 알 수 없거나 예상치 못한 복제된 객체 데이터 복제본이 발견되어 격리 디렉토리로 이동될 때 발행됩니다.
+
+[cols="1a,1a,4a"]
+|===
+| 코드 | 필드에 입력합니다 | 설명 
+
+
+ a| 
+FPTH
+ a| 
+파일 경로
+ a| 
+예기치 않은 개체 복사의 파일 경로입니다.
+
+
+
+ a| 
+RSLT
+ a| 
+결과
+ a| 
+이 필드에는 '없음' 값이 있습니다. RSLT는 필수 메시지 필드이지만 이 메시지와 관련이 없습니다. 이 메시지가 필터링되지 않도록 'UCS' 대신 '없음'이 사용됩니다.
+
+|===
+
+NOTE: SVRU:Object Store Verify Unknown audit 메시지는 면밀하게 모니터링되어야 합니다. 오브젝트 저장소에서 예기치 않은 오브젝트 데이터 복사본이 감지되었음을 의미합니다. 이러한 상황은 즉각적인 조사를 통해 이러한 복사본이 어떻게 생성되었는지 확인해야 합니다. 이는 곧 하드웨어 오류가 발생할 수 있기 때문입니다.

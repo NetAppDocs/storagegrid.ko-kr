@@ -1,0 +1,80 @@
+---
+permalink: maintain/restoring-network-connectivity-for-isolated-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, network connection, restore network connection, isolated node, restore isolated node connection 
+summary: 특정 상황에서는 하나 이상의 노드 그룹이 그리드의 나머지 부분과 접촉하지 못할 수 있습니다. 예를 들어 사이트 또는 그리드 전체 IP 주소를 변경하면 노드가 격리될 수 있습니다. 
+---
+= 격리된 노드의 네트워크 연결을 복구합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+특정 상황에서는 하나 이상의 노드 그룹이 그리드의 나머지 부분과 접촉하지 못할 수 있습니다. 예를 들어 사이트 또는 그리드 전체 IP 주소를 변경하면 노드가 격리될 수 있습니다.
+
+.이 작업에 대해
+노드 격리는 다음과 같이 표시됩니다.
+
+* 노드와 통신할 수 없음 * (* 경고 * > * 현재 *)
+* 연결 관련 진단(* 지원 * > * 툴 * > * 진단 *)
+
+
+분리된 노드가 있을 경우 다음과 같은 결과가 발생할 수 있습니다.
+
+* 여러 노드가 격리된 경우 에 로그인하거나 Grid Manager에 액세스하지 못할 수 있습니다.
+* 여러 노드가 격리된 경우 테넌트 관리자의 대시보드에 표시되는 스토리지 사용량 및 할당량 값이 최신 상태가 아닐 수 있습니다. 네트워크 연결이 복원되면 합계가 업데이트됩니다.
+
+
+격리 문제를 해결하려면 격자에서 격리된 각 격리된 노드나 그룹의 한 노드(기본 관리 노드를 포함하지 않는 서브넷의 모든 노드)에서 명령줄 유틸리티를 실행합니다. 이 유틸리티는 노드가 격자에서 격리되지 않은 노드의 IP 주소를 제공하여 격리된 노드 또는 노드 그룹이 전체 그리드에 다시 접속하도록 합니다.
+
+
+NOTE: 네트워크에서 mDNS(Multicast Domain Name System)를 사용할 수 없는 경우 격리된 각 노드에서 명령줄 유틸리티를 실행해야 할 수 있습니다.
+
+.단계
+일부 서비스만 오프라인 상태이거나 통신 오류를 보고하는 경우에는 이 절차가 적용되지 않습니다.
+
+. 노드에 액세스하여 `/var/local/log/dynip.log` 격리 메시지를 확인합니다.
++
+예를 들면 다음과 같습니다.
+
++
+[listing]
+----
+[2018-01-09T19:11:00.545] UpdateQueue - WARNING -- Possible isolation, no contact with other nodes.
+If this warning persists, manual action might be required.
+----
++
+VMware 콘솔을 사용 중인 경우 노드를 격리할 수 있다는 메시지가 표시됩니다.
+
++
+Linux 배포에서는 격리 메시지가 `/var/log/storagegrid/node/<nodename>.log` 파일에 나타납니다.
+
+. 격리 메시지가 반복되고 영구인 경우 다음 명령을 실행합니다.
++
+`add_node_ip.py <address>`
+
++
+여기서 `<address>` 는 그리드에 연결된 원격 노드의 IP 주소입니다.
+
++
+[listing]
+----
+# /usr/sbin/add_node_ip.py  10.224.4.210
+
+Retrieving local host information
+Validating remote node at address 10.224.4.210
+Sending node IP hint for 10.224.4.210 to local node
+Local node found on remote node. Update complete.
+----
+. 이전에 격리된 각 노드에 대해 다음을 확인합니다.
++
+** 노드의 서비스가 시작되었습니다.
+** 명령을 실행한 후 동적 IP 서비스의 상태가 "실행 중" `storagegrid-status`입니다.
+** 노드 페이지에서 노드가 더 이상 그리드의 나머지 부분과 연결되지 않은 상태로 표시되지 않습니다.
+
+
+
+
+
+NOTE: 명령을 실행해도 문제가 해결되지 않으면 `add_node_ip.py` 해결해야 하는 다른 네트워킹 문제가 있을 수 있습니다.

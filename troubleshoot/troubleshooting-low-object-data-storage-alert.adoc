@@ -1,0 +1,84 @@
+---
+permalink: troubleshoot/troubleshooting-low-object-data-storage-alert.html 
+sidebar: sidebar 
+keywords: how to troubleshoot the Low object data storage alert 
+summary: Low object data storage * 알림은 각 스토리지 노드에 오브젝트 데이터를 저장하는 데 사용할 수 있는 공간의 양을 모니터링합니다. 
+---
+= 오브젝트 부족 데이터 스토리지 경고 문제를 해결합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Low object data storage * 알림은 각 스토리지 노드에 오브젝트 데이터를 저장하는 데 사용할 수 있는 공간의 양을 모니터링합니다.
+
+.시작하기 전에
+* 을 사용하여 그리드 관리자에 로그인되어 있습니다.link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]
+* 있습니다. link:../admin/admin-group-permissions.html["특정 액세스 권한"]
+
+
+.이 작업에 대해
+스토리지 노드에서 복제되고 삭제 코딩된 객체 데이터의 총 양이 알림 규칙에 구성된 조건 중 하나를 충족할 때 * Low object data storage * 경고가 트리거됩니다.
+
+기본적으로 이 조건이 true로 평가되면 주 경고가 트리거됩니다.
+
+[listing]
+----
+(storagegrid_storage_utilization_data_bytes/
+(storagegrid_storage_utilization_data_bytes + storagegrid_storage_utilization_usable_space_bytes)) >=0.90
+----
+이 경우:
+
+* `storagegrid_storage_utilization_data_bytes` 스토리지 노드에 대해 복제된 오브젝트 및 삭제 코딩된 오브젝트 데이터의 총 크기에 대한 추정치입니다.
+* `storagegrid_storage_utilization_usable_space_bytes` 스토리지 노드에 대해 남은 총 개체 스토리지 공간입니다.
+
+
+Major 또는 Minor * Low object data storage * 경고가 트리거되면 가능한 한 빨리 확장 절차를 수행해야 합니다.
+
+.단계
+. alerts * > * current * 를 선택합니다.
++
+경고 페이지가 나타납니다.
+
+. 알림 표에서 * Low object data storage * 알림 그룹을 확장하고 필요한 경우 보려는 경고를 선택합니다.
++
+
+NOTE: 알림 그룹의 제목이 아닌 알림을 선택합니다.
+
+. 대화 상자에서 세부 정보를 검토하고 다음 사항을 확인합니다.
++
+** 시간 트리거됨
+** 사이트 및 노드의 이름입니다
+** 이 알림에 대한 메트릭의 현재 값입니다
+
+
+. nodes * > *_Storage Node 또는 Site_ * > * Storage * 를 선택합니다.
+. 커서를 Storage Used - Object Data 그래프 위에 놓습니다.
++
+다음 값이 표시됩니다.
+
++
+** * 사용됨(%) *: 오브젝트 데이터에 사용된 총 사용 가능 공간의 비율입니다.
+** * 사용됨 *: 오브젝트 데이터에 사용된 총 사용 가능 공간의 양입니다.
+** * 복제된 데이터 *: 이 노드, 사이트 또는 그리드에 복제된 객체 데이터의 양을 추정하는 것입니다.
+** * 삭제 코딩 데이터 *: 이 노드, 사이트 또는 그리드에 삭제 코딩 처리된 오브젝트 데이터의 양을 예측합니다.
+** * 총 *: 이 노드, 사이트 또는 그리드에서 사용 가능한 총 공간입니다. 사용된 값은 `storagegrid_storage_utilization_data_bytes` 메트릭입니다.
+
+
++
+image::../media/nodes_page_storage_used_object_data.png[노드 페이지 스토리지 사용된 오브젝트 데이터]
+
+. 그래프 위에서 시간 컨트롤을 선택하여 다른 기간에 대한 스토리지 사용량을 표시합니다.
++
+시간이 지남에 따라 스토리지를 사용하는 것을 보면 알림이 트리거되기 전과 후에 사용된 스토리지의 양을 파악하고 노드의 남은 공간이 가득 차는 데 걸리는 시간을 예측하는 데 도움이 됩니다.
+
+. 가능한 한 빨리 link:../expand/guidelines-for-adding-object-capacity.html["스토리지 용량을 추가합니다"]그리드로 이동합니다.
++
+기존 스토리지 노드에 스토리지 볼륨(LUN)을 추가하거나 새 스토리지 노드를 추가할 수 있습니다.
+
++
+
+NOTE: 자세한 내용은 을 link:../admin/managing-full-storage-nodes.html["전체 스토리지 노드 관리"]참조하십시오.
+
+

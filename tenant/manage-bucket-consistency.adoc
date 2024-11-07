@@ -1,0 +1,84 @@
+---
+permalink: tenant/manage-bucket-consistency.html 
+sidebar: sidebar 
+keywords: how to manage bucket consistency, how to change bucket consistency, read after new write, read-after-new-write, strong site, strong-site, strong global, strong-global 
+summary: 일관성 값을 사용하여 버킷 설정 변경의 가용성을 지정하고 버킷 내의 오브젝트 가용성과 서로 다른 스토리지 노드 및 사이트에서 이러한 오브젝트의 일관성 간에 균형을 유지할 수 있습니다. 정합성 보장 값을 기본값과 다르게 변경하여 클라이언트 애플리케이션이 운영 요구사항을 충족할 수 있도록 할 수 있습니다. 
+---
+= 버킷 일관성 관리
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+일관성 값을 사용하여 버킷 설정 변경의 가용성을 지정하고 버킷 내의 오브젝트 가용성과 서로 다른 스토리지 노드 및 사이트에서 이러한 오브젝트의 일관성 간에 균형을 유지할 수 있습니다. 정합성 보장 값을 기본값과 다르게 변경하여 클라이언트 애플리케이션이 운영 요구사항을 충족할 수 있도록 할 수 있습니다.
+
+.시작하기 전에
+* 를 사용하여 테넌트 관리자에 로그인되어 link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]있습니다.
+* 이 있는 사용자 그룹에 속해 link:tenant-management-permissions.html["모든 버킷 또는 루트 액세스 권한을 관리합니다"]있습니다. 이러한 권한은 그룹 또는 버킷 정책의 사용 권한 설정을 재정의합니다.
+
+
+
+
+== 버킷 일관성 지침
+
+버킷 정합성 보장은 해당 S3 버킷 내의 오브젝트에 영향을 주는 클라이언트 애플리케이션의 정합성을 결정하는 데 사용됩니다. 일반적으로 버킷에는 * Read-after-new-write * 일관성을 사용해야 합니다.
+
+
+
+== [[change-bucket-consistency]] 버킷 일관성을 변경합니다
+
+Read-after-new-write * 일관성이 클라이언트 애플리케이션의 요구 사항을 충족하지 않는 경우 버킷 일관성을 설정하거나 헤더를 사용하여 일관성을 변경할 수 `Consistency-Control` 있습니다.  `Consistency-Control`헤더가 버킷 일관성을 재정의합니다.
+
+
+NOTE: 버킷의 일관성을 변경하면 변경 후 수집되는 객체만 수정된 설정을 충족할 수 있습니다.
+
+.단계
+. 대시보드에서 * 버킷 보기 * 를 선택하거나 * 스토리지(S3) * > * 버킷 * 을 선택합니다.
+. 테이블에서 버킷 이름을 선택합니다.
++
+버킷 세부 정보 페이지가 나타납니다.
+
+. Bucket options * 탭에서 ** 아코디언을 선택합니다.
+. 이 버킷의 객체에서 수행되는 작업에 대한 일관성을 선택합니다.
++
+** * 모두 *: 최고 수준의 일관성을 제공합니다. 모든 노드가 데이터를 즉시 수신하거나 요청이 실패합니다.
+** * 강력한 글로벌 *: 모든 사이트에서 모든 클라이언트 요청에 대해 쓰기 후 읽기 일관성을 보장합니다.
+** * 강력한 사이트 *: 사이트 내의 모든 클라이언트 요청에 대해 쓰기 후 읽기 일관성을 보장합니다.
+** * Read-After-new-write * (기본값): 새 객체에 대해 읽기-쓰기 후 정합성을 보장하고 객체 업데이트에 대한 최종 일관성을 제공합니다. 고가용성 및 데이터 보호 보장 제공 대부분의 경우에 권장됩니다.
+** * 사용 가능 *: 새 객체 및 객체 업데이트 모두에 대한 최종 일관성을 제공합니다. S3 버킷의 경우 필요한 경우에만 사용하십시오(예: 거의 읽지 않는 로그 값이 포함된 버킷의 경우 또는 존재하지 않는 키의 헤드 또는 GET 작업의 경우). S3 FabricPool 버킷은 지원되지 않습니다.
+
+
+. 변경 내용 저장 * 을 선택합니다.
+
+
+
+
+== 버킷 설정을 변경하면 어떻게 됩니까
+
+버킷에는 버킷 및 해당 버킷 내의 객체의 동작에 영향을 주는 여러 설정이 있습니다.
+
+다음 버킷 설정은 기본적으로 * 강한 * 일관성을 사용합니다. 사이트 내에서 두 개 이상의 스토리지 노드를 사용할 수 없거나 사이트를 사용할 수 없는 경우 이러한 설정을 변경하지 못할 수 있습니다.
+
+* link:deleting-s3-bucket-objects.html["배경이 비어 있는 버킷 삭제"]
+* link:enabling-or-disabling-last-access-time-updates.html["마지막 액세스 시간입니다"]
+* link:../s3/create-s3-lifecycle-configuration.html["버킷 수명 주기"]
+* link:../s3/bucket-and-group-access-policies.html["버킷 정책"]
+* link:../s3/operations-on-buckets.html["버킷 태그 지정"]
+* link:changing-bucket-versioning.html["버킷 버전 관리"]
+* link:using-s3-object-lock.html["S3 오브젝트 잠금"]
+* link:../admin/reviewing-storagegrid-encryption-methods.html#bucket-encryption-table["버킷 암호화"]
+
+
+
+NOTE: 버킷 버전 관리, S3 오브젝트 잠금 및 버킷 암호화에 대한 정합성 보장 값을 강력하게 일치하지 않는 값으로 설정할 수 없습니다.
+
+다음 버킷 설정은 강력한 일관성을 사용하지 않으며 변경에 대한 가용성이 높습니다. 이러한 설정을 변경하는 데 시간이 걸릴 수 있습니다.
+
+* link:considerations-for-platform-services.html["플랫폼 서비스 구성: 알림, 복제 또는 검색 통합"]
+* link:configuring-cross-origin-resource-sharing-cors.html["CORS 구성"]
+* <<change-bucket-consistency,버킷 일관성을 변경합니다>>
+
+
+
+TIP: 버킷 설정 변경 시 사용되는 기본 일관성이 클라이언트 애플리케이션의 요구 사항을 충족하지 않는 경우 의 헤더를 link:../s3/put-bucket-consistency-request.html["S3 REST API"]사용하거나 의 또는 `force` 옵션을 사용하여 `reducedConsistency` 일관성을 변경할 수 있습니다 `Consistency-Control`link:understanding-tenant-management-api.html["테넌트 관리 API"].

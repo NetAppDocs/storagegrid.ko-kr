@@ -1,0 +1,53 @@
+---
+permalink: s3/upload-part-copy.html 
+sidebar: sidebar 
+keywords: UploadPart, UploadPartCopy, multipart uploads, uploads, 
+summary: UploadPartCopy 작업은 기존 개체의 데이터를 데이터 소스로 복사하여 개체의 일부를 업로드합니다. 
+---
+= 업로드파트 복사
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+UploadPartCopy 작업은 기존 개체의 데이터를 데이터 소스로 복사하여 개체의 일부를 업로드합니다.
+
+UploadPartCopy 작업은 모든 Amazon S3 REST API 동작으로 구현됩니다. 예고 없이 변경될 수 있습니다.
+
+이 요청은 StorageGRID 시스템 내에 지정된 오브젝트 데이터를 읽고 `x-amz-copy-source-range` 씁니다.
+
+지원되는 요청 헤더는 다음과 같습니다.
+
+* `x-amz-copy-source-if-match`
+* `x-amz-copy-source-if-none-match`
+* `x-amz-copy-source-if-unmodified-since`
+* `x-amz-copy-source-if-modified-since`
+
+
+
+
+== 서버측 암호화에 대한 요청 헤더
+
+CreateMultipartUpload 요청에 대해 SSE-C 암호화를 지정한 경우 각 UploadPartCopy 요청에 다음 요청 머리글도 포함해야 합니다.
+
+* `x-amz-server-side-encryption-customer-algorithm`: `AES256` 지정합니다.
+* `x-amz-server-side-encryption-customer-key`: CreateMultipartUpload 요청에서 제공한 것과 동일한 암호화 키를 지정합니다.
+* `x-amz-server-side-encryption-customer-key-MD5`: CreateMultipartUpload 요청에 제공한 것과 동일한 MD5 다이제스트를 지정합니다.
+
+
+소스 객체가 SSE-C(고객 제공 키)를 사용하여 암호화되는 경우 UploadPartCopy 요청에 다음 세 개의 헤더를 포함해야 객체를 해독한 후 복사할 수 있습니다.
+
+* `x-amz-copy-source​-server-side​-encryption​-customer-algorithm`: `AES256` 지정합니다.
+* `x-amz-copy-source​-server-side-encryption-customer-key`: 원본 개체를 만들 때 제공한 암호화 키를 지정합니다.
+* `x-amz-copy-source​-server-side-encryption-customer-key-MD5`: 원본 개체를 만들 때 제공한 MD5 다이제스트를 지정합니다.
+
+
+
+CAUTION: 제공한 암호화 키는 저장되지 않습니다. 암호화 키를 분실하면 해당 개체가 손실됩니다. 고객이 제공한 키를 사용하여 개체 데이터를 보호하기 전에 의 고려 사항을 검토하십시오link:using-server-side-encryption.html["서버측 암호화를 사용합니다"].
+
+
+
+== 버전 관리
+
+멀티파트 업로드는 업로드 시작, 리스팅 업로드, 파트 업로드, 업로드된 파트 조립 및 업로드 완료를 위한 별도의 작업으로 구성됩니다. CompleteMultipartUpload 작업이 수행될 때 객체가 생성되고 해당되는 경우 버전이 지정됩니다.

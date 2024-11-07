@@ -1,0 +1,53 @@
+---
+permalink: s3/s3-operations-tracked-in-audit-logs.html 
+sidebar: sidebar 
+keywords: audit log, auditing bucket and object operations, S3 audit messages 
+summary: 감사 메시지는 StorageGRID 서비스에서 생성되고 텍스트 로그 파일에 저장됩니다. 감사 로그에서 S3별 감사 메시지를 검토하여 버킷 및 오브젝트 작업에 대한 세부 정보를 확인할 수 있습니다. 
+---
+= 감사 로그에서 S3 작업을 추적했습니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+감사 메시지는 StorageGRID 서비스에서 생성되고 텍스트 로그 파일에 저장됩니다. 감사 로그에서 S3별 감사 메시지를 검토하여 버킷 및 오브젝트 작업에 대한 세부 정보를 확인할 수 있습니다.
+
+
+
+== 감사 로그에서 버킷 작업을 추적했습니다
+
+* CreateBucket
+* 삭제 버킷
+* 삭제 BucketTagging
+* DeleteObjects 를 클릭합니다
+* GetBucketTagging
+* 머리버킷
+* ListObjects 를 선택합니다
+* ListObjectVersions 를 선택합니다
+* 버킷 규정 준수
+* BucketTagging
+* PutBucketVersioning을 참조하십시오
+
+
+
+
+== 감사 로그에서 추적된 객체 작업입니다
+
+* CompleteMultipartUpload를 클릭합니다
+* CopyObject 를 선택합니다
+* DeleteObject 를 클릭합니다
+* GetObject 를 참조하십시오
+* HeadObject 를 선택합니다
+* PutObject 를 선택합니다
+* RestoreObject 를 선택합니다
+* 개체 를 선택합니다
+* UploadPart(ILM 규칙이 Balanced 또는 Strict 수집을 사용하는 경우)
+* UploadPartCopy(ILM 규칙이 Balanced 또는 Strict 수집을 사용하는 경우)
+
+
+.관련 정보
+* link:../audit/accessing-audit-log-file.html["감사 로그 파일에 액세스합니다"]
+* link:../audit/client-write-audit-messages.html["클라이언트가 감사 메시지를 기록합니다"]
+* link:../audit/client-read-audit-messages.html["클라이언트가 감사 메시지를 읽습니다"]
+

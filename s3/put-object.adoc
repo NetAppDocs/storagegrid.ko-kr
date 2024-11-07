@@ -1,0 +1,247 @@
+---
+permalink: s3/put-object.html 
+sidebar: sidebar 
+keywords: object, add object, put, PutObject request 
+summary: S3 PutObject 요청을 사용하여 객체를 버킷에 추가할 수 있습니다. 
+---
+= PutObject 를 선택합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+S3 PutObject 요청을 사용하여 객체를 버킷에 추가할 수 있습니다.
+
+
+
+== 충돌 해결
+
+동일한 키에 쓰는 두 클라이언트 등의 충돌하는 클라이언트 요청은 "최신 성공" 기준으로 해결됩니다. "Latest-WINS" 평가 시기는 S3 클라이언트가 작업을 시작할 때가 아니라 StorageGRID 시스템이 지정된 요청을 완료하는 시점을 기준으로 합니다.
+
+
+
+== 개체 크기
+
+단일 PutObject 작업의 maximum_recommended_size는 5GiB(5,368,709,120바이트)입니다. 5GiB보다 큰 오브젝트가 있는 경우 대신 를 link:operations-for-multipart-uploads.html["멀티파트 업로드"]사용하십시오.
+
+단일 PutObject 작업의 maximum_supported_size는 5TiB(5,497,558,138,880바이트)입니다.
+
+
+NOTE: StorageGRID 11.6 이하에서 업그레이드한 경우 5GiB를 초과하는 객체를 업로드하려고 하면 S3 PUT 개체 크기가 너무 큼 경고가 트리거됩니다. StorageGRID 11.7 또는 11.8을 새로 설치한 경우 경고가 트리거되지 않습니다. 하지만 StorageGRID의 향후 릴리즈에서는 AWS S3 표준에 맞춰 5GiB보다 큰 오브젝트 업로드를 지원하지 않습니다.
+
+
+
+== 사용자 메타데이터 크기입니다
+
+Amazon S3는 각 PUT 요청 헤더 내의 사용자 정의 메타데이터 크기를 2KB로 제한합니다. StorageGRID는 사용자 메타데이터를 24KiB로 제한합니다. 사용자 정의 메타데이터의 크기는 각 키와 값의 UTF-8 인코딩에서 바이트 수의 합계를 구하여 측정됩니다.
+
+
+
+== 사용자 메타데이터의 UTF-8 문자
+
+요청에 사용자 정의 메타데이터의 키 이름이나 값에 UTF-8 값이 포함되어 있으면 StorageGRID 동작이 정의되지 않습니다.
+
+StorageGRID는 사용자 정의 메타데이터의 키 이름이나 값에 포함된 이스케이프된 UTF-8 문자를 구문 분석하거나 해석하지 않습니다. 이스케이프된 UTF-8 문자는 ASCII 문자로 처리됩니다.
+
+* 사용자 정의 메타데이터에 이스케이프된 UTF-8 문자가 포함된 경우 PutObject, CopyObject, GetObject 및 HeadObject 요청이 성공합니다.
+* 키 이름 또는 값의 해석된 값에 인쇄할 수 없는 문자가 포함된 경우 StorageGRID는 헤더를 반환하지 `x-amz-missing-meta` 않습니다.
+
+
+
+
+== 개체 태그 제한
+
+새 개체를 업로드할 때 태그를 추가하거나 기존 개체에 태그를 추가할 수 있습니다. StorageGRID 및 Amazon S3 모두 각 오브젝트에 대해 최대 10개의 태그를 지원합니다. 개체와 관련된 태그에는 고유한 태그 키가 있어야 합니다. 태그 키의 길이는 최대 128자의 유니코드 문자이고 태그 값의 길이는 최대 256자의 유니코드 문자일 수 있습니다. 키와 값은 대/소문자를 구분합니다.
+
+
+
+== 개체 소유권
+
+StorageGRID에서는 소유자가 아닌 계정 또는 익명 사용자가 만든 개체를 포함하여 모든 개체가 버킷 소유자 계정에 의해 소유됩니다.
+
+
+
+== 지원되는 요청 헤더입니다
+
+지원되는 요청 헤더는 다음과 같습니다.
+
+* `Cache-Control`
+* `Content-Disposition`
+* `Content-Encoding`
++
+``Content-Encoding``StorageGRID에 대해 를 `aws-chunked` 지정하면 다음 항목이 검증되지 않습니다.
+
++
+** StorageGRID는 청크 데이터에 대해 를 확인하지 `chunk-signature` 않습니다.
+** StorageGRID는 사용자가 개체에 대해 제공한 값을 확인하지 `x-amz-decoded-content-length` 않습니다.
+
+
+* `Content-Language`
+* `Content-Length`
+* `Content-MD5`
+* `Content-Type`
+* `Expires`
+* `Transfer-Encoding`
++
+페이로드 서명도 사용되는 경우 청크 전송 인코딩이 `aws-chunked` 지원됩니다.
+
+* `x-amz-checksum-sha256`
+* `x-amz-meta-`, 그 뒤에 사용자 정의 메타데이터를 포함하는 이름-값 쌍이 옵니다.
++
+사용자 정의 메타데이터에 대한 이름 값 쌍을 지정할 때 다음 일반 형식을 사용합니다.
+
++
+[listing, subs="specialcharacters,quotes"]
+----
+x-amz-meta-_name_: _value_
+----
++
+사용자 정의 생성 시간 * 옵션을 ILM 규칙의 참조 시간으로 사용하려면 객체를 생성할 때 기록하는 메타데이터의 이름으로 를 사용해야 `creation-time` 합니다. 예를 들면 다음과 같습니다.
+
++
+[listing]
+----
+x-amz-meta-creation-time: 1443399726
+----
++
+의 값은 `creation-time` 1970년 1월 1일 이후 초로 계산됩니다.
+
++
+
+NOTE: ILM 규칙은 참조 시간에 * 사용자 정의 생성 시간 * 과 Balanced 또는 Strict 수집 옵션을 모두 사용할 수 없습니다. ILM 규칙을 만들면 오류가 반환됩니다.
+
+* `x-amz-tagging`
+* S3 오브젝트 잠금 요청 헤더
++
+** `x-amz-object-lock-mode`
+** `x-amz-object-lock-retain-until-date`
+** `x-amz-object-lock-legal-hold`
++
+이러한 헤더 없이 요청이 이루어지면 버킷 기본 보존 설정을 사용하여 오브젝트 버전 모드와 보존 기간을 계산합니다. 을 link:../s3/use-s3-api-for-s3-object-lock.html["S3 REST API를 사용하여 S3 오브젝트 잠금을 구성합니다"]참조하십시오.
+
+
+
+* SSE 요청 헤더:
++
+** `x-amz-server-side-encryption`
+** `x-amz-server-side-encryption-customer-key-MD5`
+** `x-amz-server-side-encryption-customer-key`
+** `x-amz-server-side-encryption-customer-algorithm`
++
+을 참조하십시오 <<서버측 암호화에 대한 요청 헤더>>
+
+
+
+
+
+
+
+== 지원되지 않는 요청 헤더입니다
+
+다음 요청 헤더는 지원되지 않습니다.
+
+* `x-amz-acl`
+* `x-amz-sdk-checksum-algorithm`
+* `x-amz-trailer`
+* `x-amz-website-redirect-location`
++
+ `x-amz-website-redirect-location`헤더가 를 `XNotImplemented`반환합니다.
+
+
+
+
+
+== 스토리지 클래스 옵션
+
+ `x-amz-storage-class`요청 헤더가 지원됩니다. 에 제출된 `x-amz-storage-class` 값은 StorageGRID 시스템(ILM에 의해 결정됨)에 저장되는 오브젝트의 영구 사본의 수가 아니라 수집 중에 StorageGRID가 오브젝트 데이터를 보호하는 방법에 영향을 줍니다.
+
+수집된 객체와 일치하는 ILM 규칙이 Strict 수집 옵션을 사용하는 경우 `x-amz-storage-class` 헤더는 영향을 미치지 않습니다.
+
+다음 값을 사용할 수 `x-amz-storage-class` 있습니다.
+
+* `STANDARD` (기본값)
++
+** * 이중 커밋 *: ILM 규칙이 Ingest 동작에 대한 이중 커밋 옵션을 지정하는 경우, 개체가 수집되는 즉시 해당 개체의 두 번째 복사본이 생성되어 다른 스토리지 노드(이중 커밋)에 배포됩니다. ILM을 평가할 때 StorageGRID는 이러한 초기 중간 복사본이 규칙의 배치 지침을 충족하는지 여부를 결정합니다. 그렇지 않으면 새 오브젝트 복사본을 다른 위치에 만들어야 하고 초기 중간 복사본을 삭제해야 할 수 있습니다.
+** * 균형 *: ILM 규칙이 균형 옵션을 지정하고 StorageGRID이 규칙에 지정된 모든 복사본을 즉시 만들 수 없는 경우 StorageGRID은 다른 스토리지 노드에 두 개의 임시 복사본을 만듭니다.
++
+StorageGRID가 ILM 규칙(동기식 배치)에 지정된 모든 오브젝트 복사본을 즉시 생성할 수 있다면 `x-amz-storage-class` 헤더는 효과가 없습니다.
+
+
+
+* `REDUCED_REDUNDANCY`
++
+** * 이중 커밋 *: ILM 규칙이 Ingest 동작에 대한 이중 커밋 옵션을 지정하는 경우 StorageGRID는 오브젝트가 수집될 때(단일 커밋) 단일 임시 복사본을 만듭니다.
+** * 균형 *: ILM 규칙이 균형 옵션을 지정하는 경우 StorageGRID은 시스템에서 규칙에 지정된 모든 사본을 즉시 만들 수 없는 경우에만 단일 중간 복사본을 만듭니다. StorageGRID에서 동기 배치를 수행할 수 있는 경우 이 머리글은 영향을 주지 않습니다. 이 `REDUCED_REDUNDANCY` 옵션은 오브젝트와 일치하는 ILM 규칙이 복제된 단일 복사본을 생성할 때 가장 적합합니다. 이 경우 를 `REDUCED_REDUNDANCY` 사용하면 모든 수집 작업에서 불필요한 추가 오브젝트 복사본을 생성하여 삭제할 필요가 없습니다.
+
+
++
+다른 상황에서는 이 옵션을 사용하지 `REDUCED_REDUNDANCY` 않는 것이 좋습니다. `REDUCED_REDUNDANCY` 수집 중 오브젝트 데이터가 손실될 위험이 증가함 예를 들어, ILM 평가가 발생하기 전에 실패한 스토리지 노드에 단일 복사본이 처음 저장되는 경우 데이터가 손실될 수 있습니다.
+
+
+
+
+CAUTION: 복제된 복사본이 항상 하나만 있으면 데이터가 영구적으로 손실될 위험이 있습니다. 복제된 객체 복제본이 하나만 있는 경우 스토리지 노드에 장애가 발생하거나 심각한 오류가 발생한 경우 해당 객체가 손실됩니다. 또한 업그레이드와 같은 유지보수 절차 중에는 개체에 대한 액세스가 일시적으로 중단됩니다.
+
+ `REDUCED_REDUNDANCY`지정하면 오브젝트를 처음 수집할 때 생성되는 복사본의 개수만 영향을 줍니다. 활성 ILM 정책에 따라 오브젝트를 평가할 때 생성되는 오브젝트 복사본 수에 영향을 미치지 않으며 StorageGRID 시스템에서 더 낮은 수준의 이중화로 데이터가 저장되지는 않습니다.
+
+
+NOTE: S3 오브젝트 잠금이 설정된 상태에서 오브젝트를 버킷에 수집하면 `REDUCED_REDUNDANCY` 옵션이 무시됩니다. 오브젝트를 레거시 준수 버킷에 수집하는 경우 `REDUCED_REDUNDANCY` 옵션은 오류를 반환합니다. StorageGRID은 규정 준수 요구 사항이 충족될 수 있도록 항상 이중 커밋 수집을 수행합니다.
+
+
+
+== 서버측 암호화에 대한 요청 헤더
+
+다음 요청 헤더를 사용하여 서버측 암호화를 사용하여 개체를 암호화할 수 있습니다. SSE 및 SSE-C 옵션은 상호 배타적입니다.
+
+* * SSE *: StorageGRID에서 관리하는 고유 키를 사용하여 오브젝트를 암호화하려면 다음 헤더를 사용하십시오.
++
+** `x-amz-server-side-encryption`
++
+머리글이 PutObject 요청에 포함되어 있지 않으면 `x-amz-server-side-encryption` PutObject 응답에서 그리드 전체의 머리글이 link:../admin/changing-network-options-object-encryption.html["저장된 개체 암호화 설정입니다"]생략됩니다.
+
+
+
+* * SSE-C *: 사용자가 제공 및 관리하는 고유 키로 객체를 암호화하려면 이 헤더 세 개를 모두 사용합니다.
++
+** `x-amz-server-side-encryption-customer-algorithm`: `AES256` 지정합니다.
+** `x-amz-server-side-encryption-customer-key`: 새 개체에 대한 암호화 키를 지정합니다.
+** `x-amz-server-side-encryption-customer-key-MD5`: 새 개체의 암호화 키의 MD5 다이제스트를 지정합니다.
+
+
+
+
+
+CAUTION: 제공한 암호화 키는 저장되지 않습니다. 암호화 키를 분실하면 해당 개체가 손실됩니다. 고객이 제공한 키를 사용하여 개체 데이터를 보호하기 전에 에 대한 고려 사항을 link:using-server-side-encryption.html["서버 측 암호화 사용"]검토하십시오.
+
+
+NOTE: 개체가 SSE 또는 SSE-C로 암호화된 경우 버킷 수준 또는 그리드 수준 암호화 설정은 무시됩니다.
+
+
+
+== 버전 관리
+
+버킷에 대해 버전 관리를 사용하도록 설정하면 저장되는 오브젝트 버전에 대해 고유한 `versionId` 버전이 자동으로 생성됩니다.  `versionId`응답 헤더를 사용하여 응답에서도 `x-amz-version-id` 반환됩니다.
+
+버전 관리가 일시 중단되면 개체 버전이 null로 저장되고 null 버전이 이미 있는 경우 해당 버전을 `versionId` 덮어씁니다.
+
+
+
+== 승인 헤더의 서명 계산
+
+헤더를 사용하여 요청을 인증하는 경우 `Authorization` StorageGRID는 다음과 같은 점에서 AWS와 다릅니다.
+
+* StorageGRID에서는 머리글이 에 포함될 `CanonicalHeaders` 필요가 `host` 없습니다.
+* StorageGRID는 `Content-Type` 에 포함되지 `CanonicalHeaders` 않아도 됩니다.
+* StorageGRID에서는 머리글이 에 포함될 `CanonicalHeaders` 필요가 `x-amz-*` 없습니다.
+
+
+
+NOTE: 일반적으로 이러한 헤더를 항상 포함시켜 유효성을 확인하지만 이러한 헤더를 `CanonicalHeaders` 제외하면 StorageGRID에서 오류를 반환하지 않습니다.
+
+자세한 내용은 을 https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-header-based-auth.html["승인 헤더에 대한 서명 계산:단일 청크(AWS 서명 버전 4)로 페이로드 전송"^]참조하십시오.
+
+.관련 정보
+* link:../ilm/index.html["ILM을 사용하여 개체를 관리합니다"]
+* link:https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html["Amazon Simple Storage Service API 참조: PutObject"^]
+

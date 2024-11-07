@@ -1,0 +1,31 @@
+---
+permalink: admin/manually-triggering-autosupport-message.html 
+sidebar: sidebar 
+keywords: autosupport, how to send asup message 
+summary: StorageGRID 시스템 관련 문제 해결에 대한 기술 지원을 지원하기 위해 AutoSupport 패키지를 수동으로 전송할 수 있습니다. 
+---
+= AutoSupport 패키지를 수동으로 트리거합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 시스템 관련 문제 해결에 대한 기술 지원을 지원하기 위해 AutoSupport 패키지를 수동으로 전송할 수 있습니다.
+
+.시작하기 전에
+* 을 사용하여 그리드 관리자에 로그인해야 link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]합니다.
+* 루트 액세스 권한 또는 기타 그리드 구성 권한이 있어야 합니다.
+
+
+.단계
+. 지원 * > * 도구 * > * AutoSupport * 를 선택합니다.
+. 작업 * 탭에서 * 사용자 트리거 AutoSupport 전송 * 을 선택합니다.
++
+StorageGRID에서 NetApp Support 사이트로 AutoSupport 패키지 보내기를 시도합니다. 시도가 성공하면 * Results * 탭의 * Most Recent Result * 및 * Last Successful Time * 값이 업데이트됩니다. 문제가 발생하면 * Most latest result * 값이 "Failed"로 업데이트되고 StorageGRID는 AutoSupport 패키지를 다시 보내지 않습니다.
+
++
+
+TIP: 사용자가 트리거한 AutoSupport 패키지를 보낸 후 1분 후에 브라우저에서 AutoSupport 페이지를 새로 고쳐 최신 결과에 액세스합니다.
+
+

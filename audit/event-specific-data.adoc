@@ -1,0 +1,23 @@
+---
+permalink: audit/event-specific-data.html 
+sidebar: sidebar 
+keywords: audit message, event, shea, s3 head 
+summary: 감사 로그의 각 감사 메시지는 시스템 이벤트와 관련된 데이터를 기록합니다. 
+---
+= 이벤트 관련 데이터
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+감사 로그의 각 감사 메시지는 시스템 이벤트와 관련된 데이터를 기록합니다.
+
+메시지 자체를 식별하는 열린 컨테이너 다음에 `[AUDT:` 다음 속성 집합은 감사 메시지에서 설명하는 이벤트 또는 작업에 대한 정보를 제공합니다. 이러한 특성은 다음 예제에서 강조됩니다.
+
+[]
+====
+2018-12-05T08:24:45.921845 [AUDT: * \[RSLT\(FC32\):SUCS\] * \[TIME\(UI64\):11454\] \[SAIP\(iPad\):"10.224.0.100"\]\[S3SStr\S31124562C642S562S564C6100C4S562S564CW5100C6100C6100C4C4S564C4C4C4C4C4C4C4CW4S5100C4S562S564S564CW5100C4CW4S562S5100C4S5100C4C4C4C4C4CW5100C4C4C4C4C6100C6100C6100CWs\S564C4C6100C4C4C4C4CWs\S564C4C4C4CWs\S564CWs\S564C4C4S
+
+====
+이 `ATYP` 예제에서는 밑줄이 그어진 요소를 사용하여 메시지를 생성한 이벤트를 식별합니다. 이 예제 메시지에는 메시지 코드([ATYP(FC32):Shea])가 포함되어 link:shea-s3-head.html["셰어"]있으며, 이는 S3 헤드 요청이 성공적으로 생성되었음을 나타냅니다.

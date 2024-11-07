@@ -1,0 +1,30 @@
+---
+permalink: admin/using-multiple-admin-nodes.html 
+sidebar: sidebar 
+keywords: admin nodes, more than one admin node, multiple admin nodes 
+summary: StorageGRID 시스템에는 여러 관리 노드가 포함되어 있어 하나의 관리 노드에 장애가 발생하더라도 StorageGRID 시스템을 지속적으로 모니터링하고 구성할 수 있습니다. 
+---
+= 여러 관리자 노드 사용
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 시스템에는 여러 관리 노드가 포함되어 있어 하나의 관리 노드에 장애가 발생하더라도 StorageGRID 시스템을 지속적으로 모니터링하고 구성할 수 있습니다.
+
+관리자 노드를 사용할 수 없게 되면 속성 처리가 계속되고 알림이 계속 트리거되며 이메일 알림 및 AutoSupport 패키지가 계속 전송됩니다. 그러나 관리 노드가 여러 개인 경우에는 알림 및 AutoSupport 패키지를 제외한 페일오버 보호 기능을 제공하지 않습니다.
+
+image::../media/admin_node_redundancy.png[관리자 노드 이중화 다이어그램]
+
+관리 노드에 장애가 발생할 경우 StorageGRID 시스템을 계속 보고 구성할 수 있는 두 가지 옵션이 있습니다.
+
+* 웹 클라이언트는 사용 가능한 다른 관리 노드에 다시 연결할 수 있습니다.
+* 시스템 관리자가 고가용성 관리 노드 그룹을 구성한 경우 웹 클라이언트는 HA 그룹의 가상 IP 주소를 사용하여 그리드 관리자 또는 테넌트 관리자에 계속 액세스할 수 있습니다. 을 link:managing-high-availability-groups.html["고가용성 그룹을 관리합니다"]참조하십시오.
++
+
+NOTE: HA 그룹을 사용하는 경우 활성 관리 노드에 장애가 발생하면 액세스가 중단됩니다. 사용자는 HA 그룹의 가상 IP 주소가 그룹의 다른 관리 노드로 페일오버된 후 다시 로그인해야 합니다.
+
+
+
+일부 유지 보수 작업은 기본 관리 노드를 통해서만 수행할 수 있습니다. 기본 관리 노드에 장애가 발생할 경우 StorageGRID 시스템이 다시 정상적으로 작동하기 전에 해당 노드를 복구해야 합니다.

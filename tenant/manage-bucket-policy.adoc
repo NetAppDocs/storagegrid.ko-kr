@@ -1,0 +1,37 @@
+---
+permalink: tenant/manage-bucket-policy.html 
+sidebar: sidebar 
+keywords: how to create S3 tenant groups, federated group, local group 
+summary: S3 버킷 및 해당 버킷의 오브젝트에 대한 사용자 액세스를 제어할 수 있습니다. 
+---
+= 버킷 정책을 관리합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+S3 버킷 및 해당 버킷의 오브젝트에 대한 사용자 액세스를 제어할 수 있습니다.
+
+.시작하기 전에
+* 를 사용하여 테넌트 관리자에 로그인되어 link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]있습니다.
+* 이 있는 사용자 그룹에 속해 link:tenant-management-permissions.html["루트 액세스 권한"]있습니다. 모든 버킷 보기 및 모든 버킷 관리 권한만 볼 수 있습니다.
+* 필요한 수의 스토리지 노드 및 사이트를 사용할 수 있는지 확인했습니다. 사이트 내에서 두 개 이상의 스토리지 노드를 사용할 수 없거나 사이트를 사용할 수 없는 경우 이러한 설정을 변경하지 못할 수 있습니다.
+
+
+.단계
+. Bucket * 을 선택한 다음 관리하려는 버킷을 선택합니다.
+. 버킷 세부 정보 페이지에서 * Bucket access * > * Bucket policy * 를 선택합니다.
+. 다음 중 하나를 수행합니다.
++
+** Enable policy * 확인란을 선택하여 버킷 정책을 입력합니다. 그런 다음 유효한 JSON 형식 문자열을 입력하십시오.
++
+각 버킷 정책의 크기 제한은 20,480바이트입니다.
+
+** 문자열을 편집하여 기존 정책을 수정합니다.
+** 정책 활성화 * 를 선택 취소하여 정책을 비활성화합니다.
+
+
+
+
+언어 구문 및 예제를 포함한 버킷 정책에 대한 자세한 내용은 를 참조하십시오link:../s3/example-bucket-policies.html["버킷 정책의 예"].

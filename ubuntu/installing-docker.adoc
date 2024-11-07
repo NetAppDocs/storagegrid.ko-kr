@@ -1,0 +1,48 @@
+---
+permalink: ubuntu/installing-docker.html 
+sidebar: sidebar 
+keywords: how to install Docker 
+summary: StorageGRID 시스템은 Linux에서 Docker 컨테이너 모음으로 실행됩니다. StorageGRID를 설치하기 전에 Docker를 설치해야 합니다. 
+---
+= Docker를 설치합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 시스템은 Linux에서 Docker 컨테이너 모음으로 실행됩니다. StorageGRID를 설치하기 전에 Docker를 설치해야 합니다.
+
+
+NOTE: 소프트웨어 전용 배포를 위한 컨테이너 엔진으로 Docker에 대한 지원은 더 이상 사용되지 않습니다. Docker는 향후 릴리즈에서 다른 컨테이너 엔진으로 대체될 예정입니다.
+
+.단계
+. Linux 배포에 대한 지침에 따라 Docker를 설치합니다.
++
+
+NOTE: Docker가 Linux 배포판에 포함되어 있지 않은 경우 Docker 웹 사이트에서 다운로드할 수 있습니다.
+
+. 다음 두 명령을 실행하여 Docker를 활성화하고 시작했는지 확인합니다.
++
+[listing]
+----
+sudo systemctl enable docker
+----
++
+[listing]
+----
+sudo systemctl start docker
+----
+. 다음을 입력하여 예상 버전의 Docker를 설치했는지 확인합니다.
++
+[listing]
+----
+sudo docker version
+----
++
+클라이언트 및 서버 버전은 1.11.0 이상이어야 합니다.
+
+
+
+.관련 정보
+link:configuring-host-storage.html["호스트 스토리지를 구성합니다"]

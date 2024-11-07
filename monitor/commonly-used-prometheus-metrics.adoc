@@ -1,0 +1,158 @@
+---
+permalink: monitor/commonly-used-prometheus-metrics.html 
+sidebar: sidebar 
+keywords: prometheus, Prometheus metrics, metrics 
+summary: 기본 알림 규칙의 조건을 더 잘 이해하거나 사용자 지정 알림 규칙의 조건을 구성하려면 일반적으로 사용되는 Prometheus 메트릭의 목록을 참조하십시오. 
+---
+= 일반적으로 사용되는 Prometheus 메트릭입니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기본 알림 규칙의 조건을 더 잘 이해하거나 사용자 지정 알림 규칙의 조건을 구성하려면 일반적으로 사용되는 Prometheus 메트릭의 목록을 참조하십시오.
+
+할 수도 <<obtain-all-metrics,모든 메트릭의 전체 목록을 얻습니다>>있습니다.
+
+Prometheus 쿼리 구문에 대한 자세한 내용은 을 참조하십시오 https://prometheus.io/docs/prometheus/latest/querying/basics/["Prometheus 쿼리"^].
+
+
+
+== Prometheus 메트릭이란 무엇입니까?
+
+Prometheus 메트릭은 시계열 측정입니다. 관리 노드의 Prometheus 서비스는 모든 노드의 서비스에서 이러한 메트릭을 수집합니다. 메트릭은 Prometheus 데이터에 예약된 공간이 가득 찰 때까지 각 관리 노드에 저장됩니다. 볼륨이 용량에 도달하면 `/var/local/mysql_ibdata/` 가장 오래된 메트릭이 먼저 삭제됩니다.
+
+
+
+== Prometheus 메트릭은 어디에 사용됩니까?
+
+Prometheus에서 수집한 메트릭은 Grid Manager의 여러 위치에서 사용됩니다.
+
+* * 노드 페이지 *: 노드 페이지에서 사용할 수 있는 탭의 그래프와 차트 Grafana 시각화 도구를 사용하여 Prometheus에서 수집한 시계열 메트릭을 표시합니다. Grafana는 시계열 데이터를 그래프 및 차트 형식으로 표시하며, Prometheus는 백엔드 데이터 소스로 사용됩니다.
++
+image::../media/nodes_page_network_traffic_graph.png[Prometheus 그래프]
+
+* * 알림 *: Prometheus 메트릭을 사용하는 알림 규칙 조건이 true로 평가되면 특정 심각도 수준에서 경고가 트리거됩니다.
+* * 그리드 관리 API *: 사용자 지정 경고 규칙이나 외부 자동화 도구에서 Prometheus 메트릭을 사용하여 StorageGRID 시스템을 모니터링할 수 있습니다. Grid Management API에서 Prometheus 메트릭의 전체 목록을 확인할 수 있습니다. (그리드 관리자 상단에서 도움말 아이콘을 선택하고 * api documentation * > * metrics * 를 선택합니다.) 1,000개 이상의 메트릭을 사용할 수 있지만 가장 중요한 StorageGRID 작업을 모니터링하는 데 상대적으로 적은 수의 메트릭만 필요합니다.
++
+
+NOTE: 이름에 _private_이 포함된 메트릭은 내부 전용이며 StorageGRID 릴리스 간에 예고 없이 변경될 수 있습니다.
+
+* 지원 * > * 도구 * > * 진단 * 페이지 및 * 지원 * > * 도구 * > * 메트릭 * 페이지: 이 페이지는 주로 기술 지원 부서에서 사용하기 위한 것으로 Prometheus 메트릭의 값을 사용하는 여러 가지 도구 및 차트를 제공합니다.
++
+
+NOTE: 메트릭 페이지의 일부 기능 및 메뉴 항목은 의도적으로 작동하지 않으며 변경될 수 있습니다.
+
+
+
+
+
+== 가장 일반적인 메트릭의 목록입니다
+
+다음 목록에는 가장 일반적으로 사용되는 Prometheus 메트릭이 포함되어 있습니다.
+
+
+NOTE: 이름에 _private_이 포함된 메트릭은 내부 전용이며 StorageGRID 릴리즈 간에 예고 없이 변경될 수 있습니다.
+
+alertmanager_notifications_failed_total:: 실패한 총 경고 알림 수입니다.
+node_filesystem_AVAIL_bytes를 나타냅니다:: 루트가 아닌 사용자가 사용할 수 있는 파일 시스템 공간의 크기(바이트)입니다.
+node_memory_MemAvailable_bytes입니다:: 메모리 정보 필드 MemAvailable_Bytes
+node_network_carrier 를 선택합니다:: 의 캐리어 값 `/sys/class/net/_iface_`.
+node_network_Receive_errs_total:: 네트워크 장치 통계입니다. `receive_errs`
+node_network_transmit_errs_total:: 네트워크 장치 통계입니다. `transmit_errs`
+StorageGRID_관리_다운:: 노드가 예상 이유로 그리드에 연결되어 있지 않습니다. 예를 들어, 노드의 노드 또는 서비스가 정상적으로 종료되었거나 노드가 재부팅 중이거나 소프트웨어가 업그레이드 중입니다.
+StorageGRID_appliance_compute_controller_hardware_status입니다:: 어플라이언스에서 컴퓨팅 컨트롤러 하드웨어의 상태입니다.
+StorageGRID_appliance_failed_disks입니다:: 어플라이언스의 스토리지 컨트롤러의 경우 최적화되지 않은 드라이브 수가 있습니다.
+StorageGRID_어플라이언스_스토리지_컨트롤러_하드웨어_상태입니다:: 어플라이언스에 있는 스토리지 컨트롤러 하드웨어의 전체 상태입니다.
+StorageGRID_content_버킷 및_컨테이너:: 이 스토리지 노드에서 알려진 S3 버킷 및 Swift 컨테이너의 총 수입니다.
+StorageGRID_content_objects:: 이 스토리지 노드에서 알려진 S3 및 Swift 데이터 오브젝트의 총 수 Count는 S3를 통해 시스템과 상호 작용하는 클라이언트 애플리케이션에서 생성된 데이터 오브젝트에만 유효합니다.
+StorageGRID_content_objects_lost:: 이 서비스가 StorageGRID 시스템에서 누락된 것으로 감지한 총 오브젝트 수입니다. 손실 원인을 파악하고 복구가 가능한지 여부를 판단하기 위한 조치를 취해야 합니다.
++
+--
+link:../troubleshoot/troubleshooting-lost-and-missing-object-data.html["분실하거나 누락된 오브젝트 데이터 문제를 해결합니다"]
+
+--
+StorageGRID_http_sessions_incoming_attempted입니다:: 스토리지 노드에 대해 시도된 총 HTTP 세션 수입니다.
+StorageGRID_http_sessions_incoming_currently_설정됨:: 스토리지 노드에서 현재 활성(열린) 상태의 HTTP 세션 수입니다.
+StorageGRID_http_sessions_incoming_failed 를 참조하십시오:: 조작된 HTTP 요청 또는 작업 처리 중 오류로 인해 성공적으로 완료되지 못한 총 HTTP 세션 수입니다.
+StorageGRID_http_sessions_incoming_successful입니다:: 성공적으로 완료된 총 HTTP 세션 수입니다.
+StorageGRID_ILM_waiting_background_objects:: 이 노드의 총 개체 수가 스캔에서 ILM 평가를 대기 중입니다.
+StorageGRID_ILM_클라이언트_평가_개체_초당_대기 중:: 이 노드의 ILM 정책에 따라 객체가 평가되는 현재 속도입니다.
+StorageGRID_ILM_클라이언트_개체 대기 중:: 클라이언트 작업(예: 수집)에서 ILM 평가를 대기 중인 이 노드의 총 오브젝트 수
+StorageGRID_ILM_TOTAL_OBJECURS_TOTAL_OB:: ILM 평가를 대기 중인 총 개체 수입니다.
+StorageGRID_ILM_스캔_개체_초당_입니다:: 이 노드가 소유한 오브젝트가 스캔되어 ILM을 위해 대기되는 속도입니다.
+StorageGRID_ILM_SCAN_PERIOD_Estimated_minutes입니다:: 이 노드에서 전체 ILM 스캔을 완료하는 데 걸리는 예상 시간입니다.
++
+--
+* 참고: * 전체 스캔은 ILM이 이 노드가 소유한 모든 개체에 적용되었다고 보장하지 않습니다.
+
+--
+StorageGRID_load_balancer_endpoint_cert_expiry_time:: epoch 이후 초 단위의 로드 밸런서 끝점 인증서 만료 시간.
+StorageGRID_metadata_query_average_latency_milliseconds:: 이 서비스를 통해 메타데이터 저장소에 대해 쿼리를 실행하는 데 필요한 평균 시간입니다.
+StorageGRID_NETWORK_Received_Bytes를 나타냅니다:: 설치 후 수신된 총 데이터 양입니다.
+StorageGRID_NETWORK_TAINED_BATED:: 설치 후 전송된 총 데이터 양입니다.
+StorageGRID_노드_CPU_활용률_백분율:: 이 서비스에서 현재 사용 중인 사용 가능한 CPU 시간의 백분율입니다. 서비스 사용 중인 상태를 나타냅니다. 사용 가능한 CPU 시간은 서버의 CPU 수에 따라 다릅니다.
+StorageGRID_NTP_선택됨_시간_소스_오프셋_밀리초:: 선택한 시간 소스에서 제공하는 시간의 체계적 오프셋. 시간 소스에 도달하는 지연 시간이 시간 소스가 NTP 클라이언트에 도달하는 데 필요한 시간과 같지 않으면 오프셋이 발생합니다.
+StorageGRID_NTP_잠김:: 노드가 NTP(Network Time Protocol) 서버에 잠기지 않습니다.
+StorageGRID_S3_data_transfers_bytes_ingested입니다:: 속성이 마지막으로 재설정된 이후 S3 클라이언트에서 이 스토리지 노드로 수집된 총 데이터 양입니다.
+StorageGRID_S3_data_transfers_bytes_retrieved입니다:: 속성이 마지막으로 재설정된 이후 이 스토리지 노드에서 S3 클라이언트가 검색한 총 데이터 양입니다.
+StorageGRID_S3_OPERATIONS_FAILED:: S3 승인 실패로 인해 발생한 작업을 제외한 총 S3 작업 실패 횟수(HTTP 상태 코드 4xx 및 5xx).
+StorageGRID_S3_OPERATIONS_SUCCESS입니다:: 성공한 S3 작업의 총 수(HTTP 상태 코드 2xx).
+StorageGRID_S3_OPERATIONS_UNABLED:: 인증 실패로 인한 총 실패한 S3 작업 수.
+StorageGRID_servercertificate_management_interface_cert_expiry_days입니다:: 관리 인터페이스 인증서가 만료되기 전의 일 수입니다.
+StorageGRID_servercertificate_storage_api_endpoints_cert_expiry_days를 지정합니다:: 객체 스토리지 API 인증서가 만료되기 전의 일 수입니다.
+StorageGRID_SERVICE_CPU_초:: 설치 후 이 서비스에서 CPU를 사용한 누적 시간입니다.
+StorageGRID_SERVICE_MEMORY_USAGE_Bytes:: 이 서비스에서 현재 사용 중인 메모리(RAM)의 양입니다. 이 값은 Linux 상위 유틸리티가 RES로 표시하는 값과 동일합니다.
+StorageGRID_SERVICE_NETWORK_Received_Bytes를 나타냅니다:: 설치 후 이 서비스에서 수신한 총 데이터 양입니다.
+StorageGRID_SERVICE_NETWORK_TAINED_BATED:: 이 서비스에서 보낸 총 데이터 양입니다.
+StorageGRID_Service_Restarts:: 서비스가 다시 시작된 총 횟수입니다.
+StorageGRID_SERVICE_RUNTIME_초:: 설치 후 서비스가 실행된 총 시간입니다.
+StorageGRID_SERVICE_Uptime_초:: 서비스가 마지막으로 다시 시작된 이후 실행된 총 시간입니다.
+StorageGRID_스토리지_상태_현재:: 스토리지 서비스의 현재 상태입니다. 속성 값은 다음과 같습니다.
++
+--
+* 10 = 오프라인
+* 15 = 유지 보수
+* 20 = 읽기 전용
+* 30 = 온라인
+
+
+--
+StorageGRID_스토리지_상태입니다:: 스토리지 서비스의 현재 상태입니다. 속성 값은 다음과 같습니다.
++
+--
+* 0 = 오류 없음
+* 10 = 전환 중
+* 20 = 사용 가능한 공간이 부족합니다
+* 30 = 볼륨을 사용할 수 없습니다
+* 40 = 오류
+
+
+--
+StorageGRID_스토리지_활용률_데이터_바이트:: 스토리지 노드에서 복제 및 삭제 코딩된 오브젝트 데이터의 총 크기에 대한 추정치입니다.
+StorageGRID_스토리지_활용률_메타데이터_허용됨_바이트:: 객체 메타데이터에 허용되는 각 스토리지 노드의 볼륨 0의 총 공간입니다. 이 값은 항상 노드의 메타데이터에 예약된 실제 공간보다 작습니다. 왜냐하면 예약된 공간의 일부는 필수 데이터베이스 작업(예: 컴팩션 및 복구) 및 향후 하드웨어 및 소프트웨어 업그레이드에 필요하기 때문입니다. 오브젝트 메타데이터에 허용되는 공간은 전체 오브젝트 용량을 제어합니다.
+StorageGRID_스토리지_활용률_메타데이터_바이트:: 스토리지 볼륨 0의 오브젝트 메타데이터 크기(바이트)입니다.
+StorageGRID_스토리지_활용률_총_공간_바이트:: 모든 오브젝트 저장소에 할당된 총 스토리지 공간입니다.
+StorageGRID_스토리지_활용률_가용_공간_바이트:: 남은 총 오브젝트 스토리지 공간 크기입니다. 스토리지 노드의 모든 오브젝트 저장소에 사용할 수 있는 공간을 합산하여 계산합니다.
+StorageGRID_Swift_데이터_전송_바이트_수집되었습니다:: 속성을 마지막으로 재설정한 이후 Swift 클라이언트에서 이 스토리지 노드로 수집된 총 데이터 양입니다.
+StorageGRID_SwiFT_DATA_transfers_bytes_검색됨:: 속성이 마지막으로 재설정된 이후 이 스토리지 노드에서 Swift 클라이언트가 검색한 총 데이터 양입니다.
+StorageGRID_SwiFT_operations_failed 를 참조하십시오:: Swift 인증 실패에 의해 발생한 것을 제외한 Swift 작업의 총 실패 수(HTTP 상태 코드 4xx 및 5xx).
+StorageGRID_Swift_operations_successful입니다:: 성공적인 Swift 작업의 총 수(HTTP 상태 코드 2xx).
+StorageGRID_SwiFT_operations_unauthorized를 지정합니다:: 인증 실패로 인해 실패한 Swift 작업의 총 수(HTTP 상태 코드 401, 403, 405).
+StorageGRID_tenant_usage_data_bytes를 나타냅니다:: 테넌트의 모든 객체의 논리적 크기입니다.
+StorageGRID_tenant_usage_object_count:: 테넌트의 객체 수입니다.
+StorageGRID_tenant_usage_quota_bytes를 나타냅니다:: 테넌트 객체에 사용할 수 있는 최대 논리 공간 크기입니다. 할당량 메트릭을 제공하지 않으면 무제한 공간을 사용할 수 있습니다.
+
+
+
+
+== 모든 메트릭의 목록을 가져옵니다
+
+[[Obtain-all-metrics]] 메트릭의 전체 목록을 보려면 Grid Management API를 사용하십시오.
+
+. Grid Manager 상단에서 도움말 아이콘을 선택하고 * API documentation * 을 선택합니다.
+. 메트릭 * 작업을 찾습니다.
+.  `GET /grid/metric-names`작업을 실행합니다.
+. 결과를 다운로드합니다.
+

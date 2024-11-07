@@ -1,0 +1,26 @@
+---
+permalink: maintain/recovering-from-storage-volume-failure-where-system-drive-is-intact.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, storage volume failure, volume failure, system drive intact 
+summary: 스토리지 노드의 하나 이상의 스토리지 볼륨이 실패했지만 시스템 드라이브가 손상되지 않은 소프트웨어 기반 스토리지 노드를 복구하려면 일련의 작업을 완료해야 합니다. 스토리지 볼륨만 장애가 발생한 경우에도 StorageGRID 시스템에서 스토리지 노드를 계속 사용할 수 있습니다. 
+---
+= 시스템 드라이브가 손상되지 않은 스토리지 볼륨 장애로부터 복구합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스토리지 노드의 하나 이상의 스토리지 볼륨이 실패했지만 시스템 드라이브가 손상되지 않은 소프트웨어 기반 스토리지 노드를 복구하려면 일련의 작업을 완료해야 합니다. 스토리지 볼륨만 장애가 발생한 경우에도 StorageGRID 시스템에서 스토리지 노드를 계속 사용할 수 있습니다.
+
+
+NOTE: 이 복구 절차는 소프트웨어 기반 스토리지 노드에만 적용됩니다. 어플라이언스 스토리지 노드에서 스토리지 볼륨에 장애가 발생한 경우 어플라이언스 절차를 대신 사용하십시오link:recovering-storagegrid-appliance-storage-node.html["어플라이언스 스토리지 노드를 복구합니다"].
+
+이 복구 절차에는 다음 작업이 포함됩니다.
+
+* link:reviewing-warnings-about-storage-volume-recovery.html["스토리지 볼륨 복구에 대한 경고를 검토합니다"]
+* link:identifying-and-unmounting-failed-storage-volumes.html["장애가 발생한 스토리지 볼륨을 식별하고 마운트 해제합니다"]
+* link:recovering-failed-storage-volumes-and-rebuilding-cassandra-database.html["볼륨을 복구하고 Cassandra 데이터베이스를 재구성합니다"]
+* link:restoring-object-data-to-storage-volume-where-system-drive-is-intact.html["객체 데이터를 복원합니다"]
+* link:checking-storage-state-after-recovering-storage-volumes.html["스토리지 상태를 확인합니다"]
+

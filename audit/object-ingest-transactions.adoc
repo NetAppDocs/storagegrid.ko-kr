@@ -1,0 +1,132 @@
+---
+permalink: audit/object-ingest-transactions.html 
+sidebar: sidebar 
+keywords: object ingest transaction, S3 ingest, SPUT, ORLM, WPUT 
+summary: S3 API 관련 감사 메시지를 찾아 감사 로그에서 클라이언트 수집 트랜잭션을 식별할 수 있습니다. 
+---
+= 오브젝트 수집 트랜잭션
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+S3 API 관련 감사 메시지를 찾아 감사 로그에서 클라이언트 수집 트랜잭션을 식별할 수 있습니다.
+
+수집 트랜잭션 중에 생성된 모든 감사 메시지가 다음 표에 나와 있지 않습니다. 수집 트랜잭션을 추적하는 데 필요한 메시지만 포함됩니다.
+
+
+
+== S3 수집 감사 메시지
+
+[cols="1a,1a,2a,1a,2a"]
+|===
+| 코드 | 이름 | 설명 | 트레이스 | 을 참조하십시오 
+
+
+ a| 
+SPUT
+ a| 
+S3 PUT 트랜잭션
+ a| 
+S3 PUT 수집 트랜잭션이 성공적으로 완료되었습니다.
+ a| 
+CBID, S3BK, S3KY
+ a| 
+link:sput-s3-put.html["SPUT: S3 PUT"]
+
+
+
+ a| 
+ORLM
+ a| 
+개체 규칙이 충족되었습니다
+ a| 
+이 개체에 대한 ILM 정책이 충족되었습니다.
+ a| 
+CBID
+ a| 
+link:orlm-object-rules-met.html["ORLM: 개체 규칙이 충족되었습니다"]
+
+|===
+
+
+== SWIFT 수집 감사 메시지
+
+[cols="1a,1a,2a,1a,2a"]
+|===
+| 코드 | 이름 | 설명 | 트레이스 | 을 참조하십시오 
+
+
+ a| 
+WPUT
+ a| 
+스위프트 PUT 트랜잭션
+ a| 
+Swift Put 수집 트랜잭션이 성공적으로 완료되었습니다.
+ a| 
+CBID, WCON, WOBJ
+ a| 
+link:wput-swift-put.html["WPUT: Swift Put"]
+
+
+
+ a| 
+ORLM
+ a| 
+개체 규칙이 충족되었습니다
+ a| 
+이 개체에 대한 ILM 정책이 충족되었습니다.
+ a| 
+CBID
+ a| 
+link:orlm-object-rules-met.html["ORLM: 개체 규칙이 충족되었습니다"]
+
+|===
+
+
+== 예: S3 오브젝트 수집
+
+아래의 감사 메시지 시리즈는 S3 클라이언트가 스토리지 노드(LDR 서비스)에 개체를 인제스트할 때 감사 로그에 생성되고 저장되는 감사 메시지의 예입니다.
+
+이 예에서 활성 ILM 정책에는 Make 2 Copies ILM 규칙이 포함되어 있습니다.
+
+
+NOTE: 아래 예에서는 트랜잭션 중에 생성된 모든 감사 메시지가 나와 있지 않습니다. S3 수집 트랜잭션(SPUT)과 관련된 항목만 나열됩니다.
+
+이 예에서는 S3 버킷을 이전에 생성했다고 가정합니다.
+
+
+
+=== SPUT: S3 PUT
+
+SPUT 메시지는 특정 버킷에 오브젝트를 만들기 위해 S3 PUT 트랜잭션이 실행되었음을 나타내기 위해 생성됩니다.
+
+[listing, subs="specialcharacters,quotes"]
+----
+2017-07-17T21:17:58.959669[AUDT:[RSLT(FC32):SUCS][TIME(UI64):25771][SAIP(IPAD):"10.96.112.29"][S3AI(CSTR):"70899244468554783528"][SACC(CSTR):"test"][S3AK(CSTR):"SGKHyalRU_5cLflqajtaFmxJn946lAWRJfBF33gAOg=="][SUSR(CSTR):"urn:sgws:identity::70899244468554783528:root"][SBAI(CSTR):"70899244468554783528"][SBAC(CSTR):"test"][S3BK(CSTR):"example"][S3KY(CSTR):"testobject-0-3"][CBID\(UI64\):0x8EF52DF8025E63A8][CSIZ(UI64):30720][AVER(UI32):10][ATIM(UI64):150032627859669][ATYP\(FC32\):SPUT][ANID(UI32):12086324][AMID(FC32):S3RQ][ATID(UI64):14399932238768197038]]
+----
+
+
+=== ORLM: 개체 규칙이 충족되었습니다
+
+ORLM 메시지는 이 개체에 대한 ILM 정책이 충족되었음을 나타냅니다. 메시지에는 객체의 CBID와 적용된 ILM 규칙 이름이 포함됩니다.
+
+복제된 개체의 경우 Locs 필드에는 개체 위치의 LDR 노드 ID 및 볼륨 ID가 포함됩니다.
+
+[listing, subs="specialcharacters,quotes"]
+----
+2019-07-17T21:18:31.230669[AUDT:[CBID\(UI64\):0x50C4F7AC2BC8EDF7][RULE(CSTR):"Make 2 Copies"][STAT(FC32):DONE][CSIZ(UI64):0][UUID(CSTR):"0B344E18-98ED-4F22-A6C8-A93ED68F8D3F"][LOCS(CSTR):"CLDI 12828634 2148730112, CLDI 12745543 2147552014"][RSLT(FC32):SUCS][AVER(UI32):10][ATYP\(FC32\):ORLM][ATIM(UI64):1563398230669][ATID(UI64):15494889725796157557][ANID(UI32):13100453][AMID(FC32):BCMS]]
+----
+삭제 코딩 개체의 경우 Locs 필드에는 삭제 코딩 프로필 ID와 삭제 코딩 그룹 ID가 포함됩니다
+
+[listing, subs="specialcharacters,quotes"]
+----
+2019-02-23T01:52:54.647537 [AUDT:[CBID(UI64):0xFA8ABE5B5001F7E2][RULE(CSTR):"EC_2_plus_1"][STAT(FC32):DONE][CSIZ(UI64):10000][UUID(CSTR):"E291E456-D11A-4701-8F51-D2F7CC9AFECA"][LOCS(CSTR):"CLEC 1 A471E45D-A400-47C7-86AC-12E77F229831"][RSLT(FC32):SUCS][AVER(UI32):10][ATIM(UI64):1550929974537]\[ATYP\(FC32\):ORLM\][ANID(UI32):12355278][AMID(FC32):ILMX][ATID(UI64):4168559046473725560]]
+----
+경로 필드에는 사용된 API에 따라 S3 버킷과 키 정보, Swift 컨테이너 및 오브젝트 정보가 포함됩니다.
+
+[listing]
+----
+2019-09-15.txt:2018-01-24T13:52:54.131559 [AUDT:[CBID(UI64):0x82704DFA4C9674F4][RULE(CSTR):"Make 2 Copies"][STAT(FC32):DONE][CSIZ(UI64):3145729][UUID(CSTR):"8C1C9CAC-22BB-4880-9115-CE604F8CE687"][PATH(CSTR):"frisbee_Bucket1/GridDataTests151683676324774_1_1vf9d"][LOCS(CSTR):"CLDI 12525468, CLDI 12222978"][RSLT(FC32):SUCS][AVER(UI32):10][ATIM(UI64):1568555574559][ATYP(FC32):ORLM][ANID(UI32):12525468][AMID(FC32):OBDI][ATID(UI64):344833886538369336]]
+----

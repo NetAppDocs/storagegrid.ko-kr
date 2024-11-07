@@ -1,0 +1,102 @@
+---
+permalink: ilm/what-cloud-storage-pool-is.html 
+sidebar: sidebar 
+keywords: what is a cloud storage pool 
+summary: 클라우드 스토리지 풀을 사용하면 ILM을 사용하여 StorageGRID 시스템 외부로 오브젝트 데이터를 이동할 수 있습니다. 예를 들어, 자주 액세스하지 않는 오브젝트를 Microsoft Azure Blob 스토리지의 Amazon S3 Glacier, S3 Glacier Deep Archive, Google Cloud 또는 Archive 액세스 계층과 같은 저비용 클라우드 스토리지로 이동할 수 있습니다. 또는 StorageGRID 오브젝트의 클라우드 백업을 유지하여 재해 복구를 강화하는 경우도 있습니다. 
+---
+= 클라우드 스토리지 풀이란 무엇입니까?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클라우드 스토리지 풀을 사용하면 ILM을 사용하여 StorageGRID 시스템 외부로 오브젝트 데이터를 이동할 수 있습니다. 예를 들어, 자주 액세스하지 않는 오브젝트를 Microsoft Azure Blob 스토리지의 Amazon S3 Glacier, S3 Glacier Deep Archive, Google Cloud 또는 Archive 액세스 계층과 같은 저비용 클라우드 스토리지로 이동할 수 있습니다. 또는 StorageGRID 오브젝트의 클라우드 백업을 유지하여 재해 복구를 강화하는 경우도 있습니다.
+
+ILM 관점에서 Cloud Storage Pool은 스토리지 풀과 유사합니다. 두 위치 중 하나에 오브젝트를 저장하려면 ILM 규칙에 대한 배치 지침을 생성할 때 풀을 선택합니다. 그러나 스토리지 풀은 StorageGRID 시스템 내의 스토리지 노드로 구성되지만 클라우드 스토리지 풀은 외부 버킷(S3) 또는 컨테이너(Azure Blob 스토리지)로 구성됩니다.
+
+이 표에서는 스토리지 풀을 클라우드 스토리지 풀과 비교하여 개괄적인 유사점과 차이점을 보여 줍니다.
+
+[cols="1a,2a,5a"]
+|===
+|  | 스토리지 풀 | 클라우드 스토리지 풀 
+
+
+ a| 
+어떻게 만들어집니까?
+ a| 
+Grid Manager에서 * ILM * > * 스토리지 풀 * 옵션 사용
+ a| 
+Grid Manager에서 * ILM * > * 스토리지 풀 * > * 클라우드 스토리지 풀 * 옵션 사용
+
+클라우드 스토리지 풀을 생성하려면 먼저 외부 버킷 또는 컨테이너를 설정해야 합니다.
+
+
+
+ a| 
+풀을 몇 개나 생성할 수 있습니까?
+ a| 
+무제한.
+ a| 
+최대 10개까지 가능합니다.
+
+
+
+ a| 
+오브젝트는 어디에 저장됩니까?
+ a| 
+StorageGRID 내 하나 이상의 스토리지 노드에 있습니다.
+ a| 
+StorageGRID 시스템 외부의 Amazon S3 버킷, Azure Blob 스토리지 컨테이너 또는 Google Cloud에 액세스할 수 있습니다.
+
+Cloud Storage Pool이 Amazon S3 버킷인 경우:
+
+* 원하는 경우 버킷 라이프사이클을 구성하여 Amazon S3 Glacier 또는 S3 Glacier Deep Archive와 같은 저비용, 장기 스토리지로 오브젝트를 전환할 수 있습니다. 외부 스토리지 시스템은 Glacier 스토리지 클래스 및 S3 RestoreObject API를 지원해야 합니다.
+* AWS C2S(Commercial Cloud Services)와 함께 사용할 클라우드 스토리지 풀을 생성할 수 있습니다. C2S는 AWS Secret Region을 지원합니다.
+
+
+클라우드 스토리지 풀이 Azure Blob 스토리지 컨테이너인 경우 StorageGRID는 개체를 아카이브 계층으로 전환합니다.
+
+* 참고: * 일반적으로 Cloud Storage Pool에 사용되는 컨테이너에 대한 Azure Blob 저장소 수명 주기 관리를 구성하지 않습니다. 클라우드 스토리지 풀에 있는 객체에 대한 RestoreObject 작업은 구성된 수명주기의 영향을 받을 수 있습니다.
+
+
+
+ a| 
+개체 배치를 제어하는 것은 무엇입니까?
+ a| 
+활성 ILM 정책의 ILM 규칙
+ a| 
+활성 ILM 정책의 ILM 규칙
+
+
+
+ a| 
+어떤 데이터 보호 방법을 사용합니까?
+ a| 
+복제 또는 삭제 코딩.
+ a| 
+복제:
+
+
+
+ a| 
+각 오브젝트의 복사본을 몇 개 허용할 수 있습니까?
+ a| 
+다중.
+ a| 
+클라우드 스토리지 풀에 복사본 1개, StorageGRID에 복사본 1개 이상(선택 사항)
+
+* 참고: * 한 번에 둘 이상의 클라우드 스토리지 풀에 개체를 저장할 수 없습니다.
+
+
+
+ a| 
+이점은 무엇입니까?
+ a| 
+개체는 언제든지 신속하게 액세스할 수 있습니다.
+ a| 
+저렴한 스토리지:
+
+* 참고 *: FabricPool 데이터는 클라우드 스토리지 풀로 계층화할 수 없습니다.
+
+|===
