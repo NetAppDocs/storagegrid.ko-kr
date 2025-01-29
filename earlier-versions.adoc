@@ -20,6 +20,5 @@ summary: 다른 버전의 NetApp StorageGRID 소프트웨어에 대한 설명서
 * https://docs.netapp.com/us-en/storagegrid-117/index.html["StorageGRID 11.7 설명서"^]
 * https://docs.netapp.com/us-en/storagegrid-116/index.html["StorageGRID 11.6 설명서"^]
 * https://docs.netapp.com/us-en/storagegrid-115/index.html["StorageGRID 11.5 설명서"^]
-* https://docs.netapp.com/sgws-114/index.jsp["StorageGRID 11.4 설명서 센터"^]
-* https://docs.netapp.com/sgws-113/index.jsp["StorageGRID 11.3 설명서 센터"^]
+* https://mysupport.netapp.com/documentation/docweb/index.html?productID=63374["StorageGRID 11.4 설명서 센터"^]
 
