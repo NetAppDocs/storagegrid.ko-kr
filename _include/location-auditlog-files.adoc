@@ -2,4 +2,35 @@
 :allow-uri-read: 
 
 
-link:../monitor/configure-audit-messages.html#select-audit-information-destinations["감사 정보의 대상에 대해 자세히 알아봅니다"]..
+감사 로그 디렉터리 및 적용 가능한 노드는 감사 대상 설정에 따라 다릅니다.
+
+[cols="1a,2a"]
+|===
+| 옵션을 선택합니다 | 목적지 
+
+
+ a| 
+로컬 노드(기본값)
+ a| 
+`/var/local/log/localaudit.log`
+
+
+
+ a| 
+관리 노드/로컬 노드
+ a| 
+* 관리 노드(운영 및 비운영): `/var/local/audit/export/audit.log`
+* All nodes(모든 노드): `/var/local/log/localaudit.log` 이 모드에서는 일반적으로 파일이 비어 있거나 없습니다.
+
+
+
+
+ a| 
+외부 syslog 서버
+ a| 
+`/var/local/log/localaudit.log`
+
+|===
+감사 대상 설정에 따라, 또는 `/var/local/audit/export/` 를 입력합니다 `cd /var/local/log`
+
+자세한 내용은 을 link:../monitor/configure-audit-messages.html#select-audit-information-destinations["감사 정보 대상을 선택합니다"]참조하십시오.
