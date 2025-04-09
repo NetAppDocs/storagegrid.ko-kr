@@ -847,6 +847,7 @@ StorageGRID는 이 요청에 대한 모든 <<common-params,공통 매개 변수 
 * `Content-Disposition`
 * `Content-Encoding`
 * `Content-Language`
+* `Expires`
 * `x-amz-checksum-sha256`
 * `x-amz-server-side-encryption`
 * `x-amz-storage-class`
