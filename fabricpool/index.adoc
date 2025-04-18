@@ -50,7 +50,7 @@ link:information-needed-to-attach-storagegrid-as-cloud-tier.html["StorageGRID를
 
 
 [role="quick-margin-para"]
-필요에 따라 link:../admin/using-identity-federation.html["ID 제휴"]및 를 link:../admin/how-sso-works.html["SSO(Single Sign-On)"]구성합니다.
+필요에 따라 link:../admin/using-identity-federation.html["ID 제휴"]및 를 link:../admin/configuring-sso.html["SSO(Single Sign-On)"]구성합니다.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["세 가지"] StorageGRID 설정을 구성합니다
 [role="quick-margin-para"]

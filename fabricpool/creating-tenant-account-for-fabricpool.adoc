@@ -73,7 +73,7 @@ FabricPool 테넌트는 일반적으로 S3 Select를 사용할 필요가 없습�
 .. 필요에 따라 * Use GRID Federation connection * 을 선택하여 테넌트가 계정 클론 및 교차 그리드 복제에 를 사용할 수 있도록 link:../admin/grid-federation-overview.html["그리드 페더레이션 연결"]합니다. 그런 다음 사용할 그리드 페더레이션 연결을 선택합니다.
 
 
-. 루트 액세스 정의 단계의 경우 StorageGRID 시스템에서link:../admin/using-identity-federation.html["ID 제휴"], link:../admin/how-sso-works.html["SSO(Single Sign-On)"]또는 둘 모두를 사용하는지 여부에 따라 테넌트 계정에 대한 초기 루트 액세스 권한을 가질 사용자를 지정합니다.
+. 루트 액세스 정의 단계의 경우 StorageGRID 시스템에서link:../admin/using-identity-federation.html["ID 제휴"], link:../admin/configuring-sso.html["SSO(Single Sign-On)"]또는 둘 모두를 사용하는지 여부에 따라 테넌트 계정에 대한 초기 루트 액세스 권한을 가질 사용자를 지정합니다.
 +
 [cols="1a,2a"]
 |===

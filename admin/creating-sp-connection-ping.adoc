@@ -15,12 +15,12 @@ PingFederate를 사용하여 시스템의 각 관리 노드에 대한 서비스 
 
 .시작하기 전에
 * StorageGRID에 대한 SSO(Single Sign-On)를 구성하고 SSO 유형으로 * Ping 남부연합을 선택했습니다.
-* link:../admin/configure-sso.html#enter-sandbox-mode["sandbox 모드로 들어갔습니다"]Grid Manager에 있습니다.
-* 시스템의 각 관리 노드에 대해 * SP 접속 ID * 가 있습니다. 이러한 값은 SSO 구성 페이지의 관리 노드 세부 정보 테이블에서 찾을 수 있습니다.
+* * Sandbox 모드 * 는 Grid Manager의 Single Sign-On 페이지에서 선택됩니다. 을 link:../admin/using-sandbox-mode.html["sandbox 모드를 사용합니다"]참조하십시오.
+* 시스템의 각 관리 노드에 대해 * SP 접속 ID * 가 있습니다. 이러한 값은 StorageGRID 단일 사인온 페이지의 관리 노드 세부 정보 테이블에서 찾을 수 있습니다.
 * 시스템의 각 관리 노드에 대해 * SAML 메타데이터 * 를 다운로드했습니다.
 * PingFederate Server에서 SP 연결을 생성하는 경험이 있습니다.
 * PingFederate Server용 이 https://docs.pingidentity.com/pingfederate/latest/administrators_reference_guide/pf_administrators_reference_guide.html["관리자 참조 안내서"^]있습니다. PingFederate 설명서는 자세한 단계별 지침과 설명을 제공합니다.
-* PingFederate Server용 이 link:../admin/admin-group-permissions.html["관리자 권한"]있습니다.
+* PingFederate Server용 이 link:admin-group-permissions.html["관리자 권한"]있습니다.
 
 
 .이 작업에 대해
@@ -109,7 +109,7 @@ TIP: 사용자가 모든 노드에 안전하게 로그인할 수 있도록 Stora
 
 .단계
 . 메타데이터 가져오기 탭에서 * 파일 * 을 선택합니다.
-. 관리자 노드에 대한 SSO 구성 페이지에서 다운로드한 SAML 메타데이터 파일을 선택합니다.
+. 관리자 노드의 StorageGRID Single Sign-On 페이지에서 다운로드한 SAML 메타데이터 파일을 선택합니다.
 . 메타데이터 요약 및 일반 정보 탭에 제공된 정보를 검토합니다.
 +
 파트너의 엔티티 ID와 연결 이름은 StorageGRID SP 연결 ID로 설정됩니다. (예: 10.96.105.200-DC1-ADM1-105-200). 기본 URL은 StorageGRID 관리 노드의 IP입니다.

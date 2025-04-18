@@ -16,7 +16,7 @@ summary: 교체 노드는 StorageGRID 시스템의 기본 관리 노드로 구�
 .시작하기 전에
 * 가상 시스템에서 호스팅되는 운영 관리 노드의 경우 가상 머신이 구축, 전원 켜기 및 초기화되었습니다.
 * 서비스 어플라이언스에서 호스팅되는 운영 관리 노드의 경우 어플라이언스를 교체하고 소프트웨어를 설치했습니다. 를 https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["어플라이언스에 대한 설치 지침"^]참조하십시오.
-* 복구 패키지 파일의 최신 백업이 (`sgws-recovery-package-_id-revision_.zip`있습니다.)
+* 복구 패키지 파일의 최신 백업이 있는 (`sgws-recovery-package-_id-revision_.zip`경우).
 * 프로비저닝 암호가 있습니다.
 
 
@@ -38,7 +38,7 @@ summary: 교체 노드는 StorageGRID 시스템의 기본 관리 노드로 구�
 +
 image::../media/install_or_recover_primary_admin_node.png[운영 관리자 노드를 설치 또는 복구합니다]
 
-. 복구 패키지의 최신 백업을 업로드합니다.
+. 복구 패키지의 최신 백업 업로드:
 +
 .. 찾아보기 * 를 클릭합니다.
 .. StorageGRID 시스템에 대한 최신 복구 패키지 파일을 찾아 * 열기 * 를 클릭합니다.
@@ -52,7 +52,7 @@ image::../media/install_or_recover_primary_admin_node.png[운영 관리자 노�
 . StorageGRID 시스템에 SSO(Single Sign-On)가 설정되어 있고 복구된 관리자 노드에 대한 기반 당사자 트러스트가 기본 관리 인터페이스 인증서를 사용하도록 구성된 경우 AD FS(Active Directory Federation Services)에서 노드의 기반 당사자 트러스트를 업데이트(또는 삭제 및 다시 생성)합니다. 관리 노드 복구 프로세스 중에 생성된 새 기본 서버 인증서를 사용합니다.
 +
 
-NOTE: 종속 당사자 트러스트를 구성하려면 을 참조하십시오link:../admin/configure-sso.html["Single Sign-On 구성"]. 기본 서버 인증서에 액세스하려면 관리 노드의 명령 셸에 로그인합니다. 디렉터리로 `server.crt` 이동하여 `/var/local/mgmt-api` 파일을 선택합니다.
+NOTE: 종속 당사자 트러스트를 구성하려면 을 참조하십시오link:../admin/configuring-sso.html["Single Sign-On 구성"]. 기본 서버 인증서에 액세스하려면 관리 노드의 명령 셸에 로그인합니다. 디렉터리로 `server.crt` 이동하여 `/var/local/mgmt-api` 파일을 선택합니다.
 
 
 

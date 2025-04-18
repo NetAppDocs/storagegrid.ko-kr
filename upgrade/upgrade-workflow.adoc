@@ -35,7 +35,7 @@ StorageGRID 노드가 Linux 호스트에 배포된 경우 link:linux-installing-
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["6개"] 복구 패키지를 다운로드합니다
 [role="quick-margin-para"]
-기본 관리자 노드가 업그레이드된 후 새 복구 패키지를 다운로드합니다.
+기본 관리 노드를 업그레이드한 후 새 복구 패키지를 다운로드합니다.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["7번"] 노드 승인
 [role="quick-margin-para"]

@@ -11,7 +11,7 @@ summary: 'SSO(Single Sign-On)를 구성 및 사용하고 PingFederate를 SSO 공
 
 
 [role="lead"]
-PingFederate를 SSO 공급자로 사용하는 경우link:../admin/how-sso-works.html["SSO(Single Sign-On) 구성 및 활성화"], 그리드 관리 API 또는 테넌트 관리 API에 유효한 인증 토큰을 얻기 위해 일련의 API 요청을 실행해야 합니다.
+PingFederate를 SSO 공급자로 사용하는 경우link:../admin/configuring-sso.html["SSO(Single Sign-On) 구성 및 활성화"], 그리드 관리 API 또는 테넌트 관리 API에 유효한 인증 토큰을 얻기 위해 일련의 API 요청을 실행해야 합니다.
 
 
 

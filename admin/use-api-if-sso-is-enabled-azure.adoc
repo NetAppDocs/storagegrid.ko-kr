@@ -11,7 +11,7 @@ summary: 'SSO(Single Sign-On)를 구성 및 사용하고 Azure를 SSO 공급자�
 
 
 [role="lead"]
-이  있고 Azure를 SSO 공급자로 사용하는 경우 link:../admin/how-sso-works.html["SSO(Single Sign-On) 구성 및 활성화"]두 가지 예제 스크립트를 사용하여 그리드 관리 API 또는 테넌트 관리 API에 유효한 인증 토큰을 얻을 수 있습니다.
+이  있고 Azure를 SSO 공급자로 사용하는 경우 link:../admin/configuring-sso.html["SSO(Single Sign-On) 구성 및 활성화"]두 가지 예제 스크립트를 사용하여 그리드 관리 API 또는 테넌트 관리 API에 유효한 인증 토큰을 얻을 수 있습니다.
 
 
 

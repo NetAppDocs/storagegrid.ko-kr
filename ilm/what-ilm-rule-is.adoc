@@ -107,7 +107,7 @@ image::../media/ilm_rule_multiple_placements_in_single_time_period.png[Grid Mana
 .관련 정보
 * link:data-protection-options-for-ingest.html["수집 옵션"]
 * link:advantages-disadvantages-of-ingest-options.html["수집 옵션의 장점, 단점 및 제한 사항"]
-* link:../s3/consistency.html#how-consistency-and-ILM-rules-interact["일관성과 ILM 규칙이 데이터 보호에 영향을 미치는 방식"]
+* link:../s3/consistency-controls.html#how-consistency-controls-and-ILM-rules-interact["일관성과 ILM 규칙이 데이터 보호에 영향을 미치는 방식"]
 
 
 

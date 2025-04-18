@@ -26,7 +26,7 @@ indexpage:
     - title: 관리자 그룹 권한
       url: "../admin/admin-group-permissions.html"
     - title: Single Sign-On 구성
-      url: "../admin/how-sso-works.html"
+      url: "../admin/configuring-sso.html"
   - title: 그리드 페더레이션을 사용합니다
     links:
     - title: 그리드 페더레이션은 무엇입니까?

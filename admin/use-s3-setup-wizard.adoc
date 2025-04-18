@@ -33,7 +33,7 @@ IP 주소를 얻고 VLAN 인터페이스를 설정합니다:: 고가용성(HA) �
 가상 LAN을 사용하여 S3 애플리케이션의 트래픽을 분리할 계획이라면 이미 VLAN 인터페이스를 구성한 것입니다. 을 link:../admin/configure-vlan-interfaces.html["VLAN 인터페이스를 구성합니다"]참조하십시오.
 
 --
-ID 페더레이션 및 SSO를 구성합니다:: StorageGRID 시스템에 대해 ID 페더레이션 또는 SSO(Single Sign-On)를 사용하려는 경우 이러한 기능을 활성화했습니다. 또한 S3 애플리케이션에서 사용할 테넌트 계정에 대한 루트 액세스 권한이 있어야 하는 통합 그룹도 알고 있습니다. link:../admin/using-identity-federation.html["ID 페더레이션을 사용합니다"]및 을 link:../admin/how-sso-works.html["Single Sign-On 구성"]참조하십시오.
+ID 페더레이션 및 SSO를 구성합니다:: StorageGRID 시스템에 대해 ID 페더레이션 또는 SSO(Single Sign-On)를 사용하려는 경우 이러한 기능을 활성화했습니다. 또한 S3 애플리케이션에서 사용할 테넌트 계정에 대한 루트 액세스 권한이 있어야 하는 통합 그룹도 알고 있습니다. link:../admin/using-identity-federation.html["ID 페더레이션을 사용합니다"]및 을 link:../admin/configuring-sso.html["Single Sign-On 구성"]참조하십시오.
 도메인 이름 가져오기 및 구성:: StorageGRID에 사용할 FQDN(정규화된 도메인 이름)을 알고 있습니다. DNS(Domain Name Server) 항목은 이 FQDN을 마법사를 사용하여 생성한 HA 그룹의 가상 IP(VIP) 주소에 매핑합니다.
 +
 --

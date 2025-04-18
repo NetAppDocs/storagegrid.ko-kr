@@ -63,7 +63,7 @@ NOTE: 이름에 포함된 메트릭은 ``_private_``내부용으로만 사용할
 * * NTP-서버 *: 외부 NTP(Network Time Protocol) 서버를 나열하거나 업데이트하는 작업.
 * * 오브젝트 *: 오브젝트 및 오브젝트 메타데이터의 작동
 * * 복구 *: 복구 절차를 위한 작업.
-* *recovery-package*: 복구 패키지를 다운로드하는 작업입니다.
+* * recovery-package *: 복구 패키지를 다운로드하기 위한 작업.
 * * 지역 *: 영역을 보고 만드는 작업.
 * * S3 오브젝트 잠금 *: 글로벌 S3 오브젝트 잠금 설정 시 작업.
 * * server-certificate *: Grid Manager 서버 인증서를 보고 업데이트하는 작업.

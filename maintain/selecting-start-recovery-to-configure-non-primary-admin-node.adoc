@@ -51,6 +51,6 @@ image::../media/recovery_reset_warning.gif[복구 경고 재설정 대화 상자
 . StorageGRID 시스템에 SSO(Single Sign-On)가 설정되어 있고 복구된 관리자 노드에 대한 기반 당사자 트러스트가 기본 관리 인터페이스 인증서를 사용하도록 구성된 경우 AD FS(Active Directory Federation Services)에서 노드의 기반 당사자 트러스트를 업데이트(또는 삭제 및 다시 생성)합니다. 관리 노드 복구 프로세스 중에 생성된 새 기본 서버 인증서를 사용합니다.
 +
 
-NOTE: 종속 당사자 트러스트를 구성하려면 을 참조하십시오link:../admin/configure-sso.html["Single Sign-On 구성"]. 기본 서버 인증서에 액세스하려면 관리 노드의 명령 셸에 로그인합니다. 디렉터리로 `server.crt` 이동하여 `/var/local/mgmt-api` 파일을 선택합니다.
+NOTE: 종속 당사자 트러스트를 구성하려면 을 참조하십시오link:../admin/configuring-sso.html["Single Sign-On 구성"]. 기본 서버 인증서에 액세스하려면 관리 노드의 명령 셸에 로그인합니다. 디렉터리로 `server.crt` 이동하여 `/var/local/mgmt-api` 파일을 선택합니다.
 
 

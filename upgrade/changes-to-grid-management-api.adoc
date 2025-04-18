@@ -2,7 +2,7 @@
 permalink: upgrade/changes-to-grid-management-api.html 
 sidebar: sidebar 
 keywords: grid management api, api, api version, swagger, rest api, usageCacheDuration 
-summary: StorageGRID 12.0은 그리드 관리 API 버전 4를 사용합니다. 버전 4는 버전 3을 사용하지 않지만 버전 1, 2 및 3은 계속 지원됩니다. 
+summary: StorageGRID 11.9은 그리드 관리 API 버전 4를 사용합니다. 버전 4는 버전 3을 사용하지 않지만 버전 1, 2 및 3은 계속 지원됩니다. 
 ---
 = Grid Management API 변경
 :allow-uri-read: 
@@ -11,21 +11,42 @@ summary: StorageGRID 12.0은 그리드 관리 API 버전 4를 사용합니다. �
 
 
 [role="lead"]
-StorageGRID 12.0은 그리드 관리 API 버전 4를 사용합니다. 버전 4는 버전 3을 사용하지 않지만 버전 1, 2 및 3은 계속 지원됩니다.
+StorageGRID 11.9은 그리드 관리 API 버전 4를 사용합니다. 버전 4는 버전 3을 사용하지 않지만 버전 1, 2 및 3은 계속 지원됩니다.
 
 
-NOTE: StorageGRID 12.0에서는 더 이상 사용되지 않는 관리 API 버전을 계속 사용할 수 있지만, 이러한 API 버전에 대한 지원은 향후 StorageGRID 릴리즈에서 제거될 예정입니다. StorageGRID 12.0로 업그레이드한 후 API를 사용하여 더 이상 사용되지 않는 API를 비활성화할 수 `PUT /grid/config/management` 있습니다.
+NOTE: StorageGRID 11.9에서는 더 이상 사용되지 않는 관리 API 버전을 계속 사용할 수 있지만, 이러한 API 버전에 대한 지원은 향후 StorageGRID 릴리즈에서 제거될 예정입니다. StorageGRID 11.9로 업그레이드한 후 API를 사용하여 더 이상 사용되지 않는 API를 비활성화할 수 `PUT /grid/config/management` 있습니다.
 
 자세한 내용은 을 link:../admin/using-grid-management-api.html["Grid Management API를 사용합니다"]참조하십시오.
 
 
 
-== Move ADC에 대한 새 개인 엔드포인트입니다
+== 글로벌 S3 오브젝트 잠금을 활성화한 후 규정 준수 설정을 검토합니다
 
-다음 전용 엔드포인트를 추가하여 동일한 사이트에 있는 스토리지 노드 간에 전환할 수 link:../maintain/move-adc-service.html["ADC 서비스를 이동합니다"]있습니다.
+글로벌 S3 Object Lock 설정을 활성화한 후 기존 테넌트의 규정 준수 설정을 검토하십시오. 이 설정을 활성화하면 테넌트가 생성된 시점의 StorageGRID 릴리스에 따라 S3 오브젝트 잠금 설정이 달라집니다.
 
-`/private/move-adc`
 
-`/private/move-adc/start`
 
-`/private/move-adc/retry`
+== 레거시 관리 API 요청이 제거되었습니다
+
+이러한 레거시 요청이 제거되었습니다.
+
+`/grid/server-types`
+
+`/grid/ntp-roles`
+
+
+
+== API 변경 `GET /private/storage-usage`
+
+* 응답 본문에 새 속성, `usageCacheDuration`이 추가되었습니다. 이 속성은 사용 조회 캐시가 유효한 상태로 유지되는 기간(초)을 지정합니다. 이 값은 테넌트 스토리지 할당량 및 버킷 용량 제한에 대한 사용량을 확인할 때 적용됩니다.
+*  `GET /api/v4/private/storage-usage`스키마의 중첩과 일치하도록 동작이 수정되었습니다.
+* 이러한 변경 사항은 전용 API에만 적용됩니다.
+
+
+
+
+== API 변경 `GET cross-grid-replication`
+
+/org/containers/:name/cross-grid-replication * get API에는 더 이상 루트 액세스(`rootAccess`) (`viewAllContainers`권한이 필요하지 않습니다. 그러나 모든 (`manageAllContainers`버킷 관리 또는 모든 버킷 보기 권한이 있는 사용자 그룹에 속해야 합니다.
+
+/org/containers/:name/cross-grid-replication * PUT API는 변경되지 않으며 루트 액세스 (`rootAccess`권한이 필요합니다.

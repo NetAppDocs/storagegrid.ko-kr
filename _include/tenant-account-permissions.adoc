@@ -17,7 +17,7 @@
  a| 
 고유 ID 소스를 사용합니다
  a| 
-테넌트는 통합 그룹 및 사용자에 대한 자체 ID 소스를 구성하고 관리할 수 있습니다. 이 옵션은 StorageGRID 시스템에 대해 비활성화되어 link:../admin/how-sso-works.html["SSO를 구성했습니다"]있습니다.
+테넌트는 통합 그룹 및 사용자에 대한 자체 ID 소스를 구성하고 관리할 수 있습니다. 이 옵션은 StorageGRID 시스템에 대해 비활성화되어 link:../admin/configuring-sso.html["SSO를 구성했습니다"]있습니다.
 
 
 

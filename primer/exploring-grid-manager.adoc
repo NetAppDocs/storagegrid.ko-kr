@@ -75,6 +75,8 @@ image::../media/grid_manager_dashboard_and_menu.png[그리드 관리자의 대�
 
 노드 홈 페이지에는 전체 그리드에 대한 결합된 메트릭이 표시됩니다. 특정 사이트 또는 노드에 대한 정보를 보려면 사이트 또는 노드를 선택합니다.
 
+image::../media/nodes_page.png[노드 페이지 메인]
+
 
 
 == Tenants 페이지
@@ -82,6 +84,8 @@ image::../media/grid_manager_dashboard_and_menu.png[그리드 관리자의 대�
 를 link:../admin/managing-tenants.html["Tenants 페이지"] 사용하면 link:../tenant/index.html["스토리지 테넌트 계정을 생성하고 모니터링합니다"]StorageGRID 시스템을 사용할 수 있습니다. 객체를 저장 및 검색할 수 있는 사람과 객체를 사용할 수 있는 기능을 지정하려면 하나 이상의 테넌트 계정을 생성해야 합니다.
 
 또한 테넌트 페이지에는 사용된 스토리지 양과 객체 수를 비롯한 각 테넌트의 사용 세부 정보도 제공됩니다. 테넌트를 생성할 때 할당량을 설정하면 해당 할당량이 얼마나 사용되었는지 확인할 수 있습니다.
+
+image::../media/tenants_page.png[Tenants 메뉴 및 페이지]
 
 
 
@@ -141,7 +145,7 @@ ILM 메뉴에서 ILM을 보고 관리할 수 있습니다.
 * 를 사용하여 link:../admin/grid-federation-overview.html["그리드 통합"]테넌트 계정 정보를 클론 복제하고 두 StorageGRID 시스템 간에 오브젝트 데이터를 복제합니다.
 * 옵션을 활성화합니다(선택 사항)link:../admin/configuring-stored-object-compression.html["저장된 객체를 압축합니다"].
 * link:../ilm/managing-objects-with-s3-object-lock.html["S3 오브젝트 잠금 관리"]
-* 및 등의 저장소 설정 이해link:../admin/what-object-segmentation-is.html["개체 분할"]link:../admin/what-storage-volume-watermarks-are.html["스토리지 볼륨 워터마크입니다"]
+* 및 등의 스토리지 옵션 이해link:../admin/what-object-segmentation-is.html["개체 분할"]link:../admin/what-storage-volume-watermarks-are.html["스토리지 볼륨 워터마크입니다"]
 * link:../ilm/manage-erasure-coding-profiles.html["삭제 코딩 프로필을 관리합니다"]..
 
 
@@ -165,7 +169,7 @@ ILM 메뉴에서 ILM을 보고 관리할 수 있습니다.
 * link:../admin/managing-users.html["관리자 사용자 관리"]
 * link:../admin/changing-provisioning-passphrase.html["프로비저닝 암호"]또는 변경 link:../admin/change-node-console-password.html["노드 콘솔 암호"]
 * link:../admin/using-identity-federation.html["ID 페더레이션 사용"]
-* link:../admin/how-sso-works.html["SSO를 구성합니다"]
+* link:../admin/configuring-sso.html["SSO 구성"]
 
 
 

@@ -23,7 +23,7 @@ settings:
   langs: ko-kr,us-en,de-de,es-es,fr-fr,it-it,pt-br,ja-jp,zh-cn,zh-tw
 sidebar:
   entries:
-  - title: StorageGRID 12.0 문서
+  - title: StorageGRID 11.9 문서
     url: "/index.html"
   - title: StorageGRID 어플라이언스
     url: "/storagegrid-hardware.html"
@@ -102,10 +102,6 @@ sidebar:
             url: "/maintain/considerations-for-decommissioning-storage-nodes.html"
           - title: ADC 쿼럼
             url: "/maintain/understanding-adc-service-quorum.html"
-          - title: ADC 서비스를 이동합니다
-            url: "/maintain/move-adc-service.html"
-          - title: 데이터 전용 노드로 변환합니다
-            url: "/maintain/convert-to-data-only-node.html"
           - title: ILM 정책 및 스토리지 구성을 검토합니다
             url: "/maintain/reviewing-ilm-policy-and-storage-configuration.html"
           - title: 스토리지 노드 통합

@@ -83,6 +83,9 @@ StorageGRID 어플라이언스 설치 관리자는 기본 관리 노드 또는 a
 
 . StorageGRID 어플라이언스 설치 관리자 홈 페이지에서 * 설치 시작 * 을 클릭합니다.
 +
+image::../media/appliance_installer_home_start_installation_enabled.gif[이 그림은 주변 텍스트로 설명됩니다.]
+
++
 현재 상태가 "Installation is in progress(설치 진행 중)"로 변경되고 Monitor Installation(모니터 설치) 페이지가 표시됩니다.
 
 +
