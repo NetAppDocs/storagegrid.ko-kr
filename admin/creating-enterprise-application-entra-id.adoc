@@ -1,38 +1,38 @@
 ---
-permalink: admin/creating-enterprise-application-azure.html 
+permalink: admin/creating-enterprise-application-entra-id.html 
 sidebar: sidebar 
-keywords: enterprise application, azure ad, single sign on, sso 
-summary: Azure AD를 사용하여 시스템의 각 관리 노드에 대한 엔터프라이즈 애플리케이션을 생성합니다. 
+keywords: enterprise application, entra id, single sign on, sso 
+summary: Entra ID를 사용하여 시스템의 각 관리자 노드에 대한 엔터프라이즈 애플리케이션을 생성합니다. 
 ---
-= Azure AD에서 엔터프라이즈 애플리케이션을 생성합니다
+= Entra ID에서 엔터프라이즈 애플리케이션을 생성합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Azure AD를 사용하여 시스템의 각 관리 노드에 대한 엔터프라이즈 애플리케이션을 생성합니다.
+Entra ID를 사용하여 시스템의 각 관리자 노드에 대한 엔터프라이즈 애플리케이션을 생성합니다.
 
 .시작하기 전에
-* StorageGRID에 대한 SSO(Single Sign-On) 구성을 시작했으며 SSO 유형으로 * Azure * 를 선택했습니다.
-* * Sandbox 모드 * 는 Grid Manager의 Single Sign-On 페이지에서 선택됩니다. 을 link:../admin/using-sandbox-mode.html["sandbox 모드를 사용합니다"]참조하십시오.
-* 시스템의 각 관리 노드에 대해 * 엔터프라이즈 애플리케이션 이름 * 이 있습니다. 이러한 값은 StorageGRID 단일 사인온 페이지의 관리 노드 세부 정보 테이블에서 복사할 수 있습니다.
+* StorageGRID에 대한 Single Sign-On 구성을 시작했으며 SSO 유형으로 * Entra ID * 를 선택했습니다.
+* link:../admin/configure-sso.html#enter-sandbox-mode["sandbox 모드로 들어갔습니다"]Grid Manager에 있습니다.
+* 시스템의 각 관리 노드에 대해 * 엔터프라이즈 애플리케이션 이름 * 이 있습니다. SSO 구성 페이지의 관리자 노드 세부 정보 테이블에서 이러한 값을 복사할 수 있습니다.
 +
 
 NOTE: StorageGRID 시스템의 각 관리 노드에 대해 엔터프라이즈 애플리케이션을 만들어야 합니다. 각 관리 노드에 엔터프라이즈 애플리케이션을 사용하면 사용자가 관리자 노드에 안전하게 로그인할 수 있습니다.
 
-* Azure Active Directory에서 엔터프라이즈 응용 프로그램을 만든 경험이 있습니다.
+* Entra ID에서 엔터프라이즈 애플리케이션을 생성한 경험이 있습니다.
 * Azure 계정에 활성 구독이 있습니다.
-* Azure 계정에는 글로벌 관리자, 클라우드 응용 프로그램 관리자, 응용 프로그램 관리자 또는 서비스 보안 주체의 소유자인 다음 역할 중 하나가 있습니다.
+* Entra ID 계정에는 글로벌 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 관리자 또는 서비스 주체 소유자와 같은 역할 중 하나가 있습니다.
 
 
 
 
-== Azure AD에 액세스합니다
+== Entra ID에 액세스합니다
 
 .단계
 . 에 https://portal.azure.com["Azure 포털"^]로그인합니다.
-. 로 이동합니다 https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade["Azure Active Directory를 클릭합니다"^].
+. 로 이동합니다 https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade["내부 ID"^].
 . 을 https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview/menuId/["엔터프라이즈 애플리케이션"^]선택합니다.
 
 
@@ -40,23 +40,23 @@ NOTE: StorageGRID 시스템의 각 관리 노드에 대해 엔터프라이즈 �
 
 == 엔터프라이즈 애플리케이션을 생성하고 StorageGRID SSO 구성을 저장합니다
 
-StorageGRID에서 Azure에 대한 SSO 구성을 저장하려면 Azure를 사용하여 각 관리 노드에 대한 엔터프라이즈 애플리케이션을 만들어야 합니다. Azure에서 페더레이션 메타데이터 URL을 복사하여 StorageGRID 단일 사인온 페이지의 해당 * 페더레이션 메타데이터 URL * 필드에 붙여 넣습니다.
+StorageGRID에서 Entra ID에 대한 SSO 구성을 저장하려면 Entra ID를 사용하여 각 관리자 노드에 대한 엔터프라이즈 애플리케이션을 생성해야 합니다. Entra ID에서 페더레이션 메타데이터 URL을 복사하여 SSO 구성 페이지의 해당 * 페더레이션 메타데이터 URL * 필드에 붙여 넣습니다.
 
 .단계
 . 각 관리 노드에 대해 다음 단계를 반복합니다.
 +
-.. Azure Enterprise 응용 프로그램 창에서 * 새 응용 프로그램 * 을 선택합니다.
+.. Entra ID Enterprise Applications 창에서 * New application * 을 선택합니다.
 .. 사용자 정의 응용 프로그램 만들기 * 를 선택합니다.
-.. 이름으로 StorageGRID 단일 사인온 페이지의 관리 노드 세부 정보 테이블에서 복사한 * 엔터프라이즈 응용 프로그램 이름 * 을 입력합니다.
+.. 이름으로 SSO 구성 페이지의 관리자 노드 세부 정보 테이블에서 복사한 * 엔터프라이즈 애플리케이션 이름 * 을 입력합니다.
 .. 갤러리에서 찾을 수 없는 * 다른 응용 프로그램 통합(갤러리 외) * 라디오 버튼을 선택된 상태로 둡니다.
 .. Create * 를 선택합니다.
 .. 2에서 * 시작하기 * 링크를 선택합니다. Single Sign On * 상자를 설정하거나 왼쪽 여백에서 * Single Sign-On * 링크를 선택합니다.
 .. SAML * 상자를 선택합니다.
 .. 앱 페더레이션 메타데이터 URL * 을 복사합니다. * 3단계 SAML 서명 인증서 * 에서 찾을 수 있습니다.
-.. StorageGRID 단일 사인온 페이지로 이동하여 사용한 * 엔터프라이즈 응용 프로그램 이름 * 에 해당하는 * 통합 메타데이터 URL * 필드에 URL을 붙여 넣습니다.
+.. SSO 구성 페이지로 이동하여 사용된 * 엔터프라이즈 응용 프로그램 이름 * 에 해당하는 * 페더레이션 메타데이터 URL * 필드에 URL을 붙여 넣습니다.
 
 
-. 각 관리 노드에 대한 페더레이션 메타데이터 URL을 붙여 넣고 SSO 구성에 필요한 다른 모든 변경 사항을 적용한 후 StorageGRID 단일 사인온 페이지에서 * 저장 * 을 선택합니다.
+. 각 관리자 노드에 대한 페더레이션 메타데이터 URL을 붙여넣고 SSO 구성에 필요한 다른 모든 변경을 수행한 후 SSO 구성 페이지에서 * 저장 * 을 선택합니다.
 
 
 
@@ -71,7 +71,7 @@ SSO 구성을 저장한 후 StorageGRID 시스템의 각 관리 노드에 대해
 .. 관리자 노드에서 StorageGRID에 로그인합니다.
 .. 구성 * > * 액세스 제어 * > * 단일 사인온 * 을 선택합니다.
 .. 버튼을 선택하여 해당 Admin Node에 대한 SAML 메타데이터를 다운로드합니다.
-.. Azure AD에 업로드할 파일을 저장합니다.
+.. Entra ID에 업로드할 파일을 저장합니다.
 
 
 
@@ -80,7 +80,7 @@ SSO 구성을 저장한 후 StorageGRID 시스템의 각 관리 노드에 대해
 
 == 각 엔터프라이즈 애플리케이션에 SAML 메타데이터를 업로드합니다
 
-각 StorageGRID 관리 노드에 대해 SAML 메타데이터 파일을 다운로드한 후 Azure AD에서 다음 단계를 수행하십시오.
+각 StorageGRID 관리자 노드에 대한 SAML 메타데이터 파일을 다운로드한 후 Entra ID에서 다음 단계를 수행하십시오.
 
 .단계
 . Azure 포털로 돌아갑니다.
@@ -98,5 +98,5 @@ NOTE: 이전에 목록에 추가한 응용 프로그램을 보려면 엔터프�
 .. 파일을 로드한 후 * Save * 를 선택하고 * X * 를 선택하여 창을 닫습니다. SAML로 단일 사인온 설정 페이지로 돌아갑니다.
 
 
-. 의 단계에 따라 link:../admin/using-sandbox-mode.html["sandbox 모드를 사용합니다"]각 응용 프로그램을 테스트합니다.
+. link:../admin/configure-sso.html#test-sso["각 응용 프로그램을 테스트합니다"]..
 

@@ -15,7 +15,7 @@ summary: 이 섹션에서는 StorageGRID 시스템이 객체에 대해 S3 REST A
 
 다음 조건은 모든 개체 작업에 적용됩니다.
 
-* StorageGRIDlink:consistency-controls.html["일관성 값"]는 다음과 같은 경우를 제외하고 개체의 모든 작업에서 지원됩니다.
+* StorageGRIDlink:consistency.html["일관성 값"]는 다음과 같은 경우를 제외하고 개체의 모든 작업에서 지원됩니다.
 +
 ** GetObjectAcl
 ** `OPTIONS /`

@@ -30,6 +30,7 @@ StorageGRID AutoSupport의 구성을 변경하려면 기본 관리자 노드에�
 * * 이벤트 트리거 *: 매 시간마다 또는 중요한 시스템 이벤트가 발생할 때 자동으로 AutoSupport 패키지를 전송합니다. 기본 설정: 사용.
 * * 온디맨드 *: 기술 지원 부서에서 StorageGRID 시스템에서 AutoSupport 패키지를 자동으로 보내도록 요청하도록 허용합니다. 이는 문제가 활발하게 발생할 때 유용합니다(HTTPS AutoSupport 전송 프로토콜 필요). 기본 설정: 사용 안 함
 * * 사용자 트리거 * : 언제든지 수동으로 AutoSupport 패키지를 보내십시오.
+* * 로그 수집 *link:../monitor/collecting-log-files-and-system-data.html["로그 파일과 시스템 데이터를 수동으로 수집하고 AutoSupport 패키지를 보냅니다"]:.
 
 
 

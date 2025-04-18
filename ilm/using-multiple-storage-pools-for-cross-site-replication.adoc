@@ -20,7 +20,7 @@ StorageGRID 구축에 사이트가 두 개 이상 포함된 경우 적절하게 
 
 
 
-CAUTION: 사이트 손실 방지를 위해 StorageGRID 배포를 구성할 때는 및 의 영향도 고려해야 link:data-protection-options-for-ingest.html["수집 옵션"]합니다.link:../s3/consistency-controls.html["정합성"]
+CAUTION: 사이트 손실 방지를 위해 StorageGRID 배포를 구성할 때는 및 의 영향도 고려해야 link:data-protection-options-for-ingest.html["수집 옵션"]합니다.link:../s3/consistency.html["정합성"]
 
 
 

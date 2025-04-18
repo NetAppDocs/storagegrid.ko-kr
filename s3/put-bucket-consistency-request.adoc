@@ -77,4 +77,4 @@ Authorization: _authorization string_
 Host: _host_
 ----
 .관련 정보
-link:consistency-controls.html["일관성 값"]
+link:consistency.html["정합성"]

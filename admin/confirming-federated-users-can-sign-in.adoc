@@ -46,12 +46,12 @@ TIP: SSO를 활성화하면 테넌트 관리자에 구성된 ID 소스가 그리
 .. 테넌트 계정을 선택하고 * 작업 * > * 편집 * 을 선택합니다.
 .. 세부 정보 입력 탭에서 * 계속 * 을 선택합니다.
 .. Use own identity source * (고유 ID 소스 사용 *) 확인란을 선택한 경우, 상자의 선택을 취소하고 * Save * (저장 *)를 선택합니다.
-+
-image::../media/sso_uses_own_identity_source_for_tenant.png[Edit Tenant Account > Use own identity source 확인란이 선택되지 않았습니다]
+
 
 +
 테넌트 페이지가 나타납니다.
 
++
 .. 테넌트 계정을 선택하고 * 로그인 * 을 선택한 다음 테넌트 계정에 로컬 루트 사용자로 로그인합니다.
 .. 테넌트 관리자에서 * 액세스 관리 * > * 그룹 * 을 선택합니다.
 .. Grid Manager에서 하나 이상의 통합 그룹에 이 테넌트에 대한 루트 액세스 권한이 할당되었는지 확인합니다.

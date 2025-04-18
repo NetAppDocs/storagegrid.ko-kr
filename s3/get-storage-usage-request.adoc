@@ -72,4 +72,4 @@ Content-Type: application/xml
 저장된 모든 개체 버전은 응답의 및 `DataBytes` 값에 영향을 `ObjectCount` 줍니다. 표식 삭제는 합계에 추가되지 `ObjectCount` 않습니다.
 
 .관련 정보
-link:consistency-controls.html["일관성 값"]
+link:consistency.html["정합성"]

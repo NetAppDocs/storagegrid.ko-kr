@@ -39,7 +39,7 @@ NOTE: Grid Manager에 표시된 스토리지 값의 단위를 변경하려면 Gr
 
 * link:managing-alerts.html["알림을 관리합니다"]
 * link:logs-files-reference.html["로그 파일을 봅니다"]
-* link:configure-audit-messages.html["감사 메시지 및 로그 대상을 구성합니다"]
+* link:configure-audit-messages.html["감사 메시지 및 외부 syslog 서버를 구성합니다"]
 * link:considerations-for-external-syslog-server.html["외부 syslog 서버를 사용합니다"] 감사 정보를 수집합니다
 * link:using-snmp-monitoring.html["모니터링에 SNMP를 사용합니다"]
 * link:using-charts-and-reports.html["추가 StorageGRID 데이터를 가져옵니다"]측정 지표 및 진단 포함

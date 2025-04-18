@@ -996,6 +996,13 @@ null입니다
  a| 
 현재 요청 컨텍스트에 조건 키가 있는지 확인합니다.
 
+
+
+ a| 
+IfExists입니다
+ a| 
+Null 조건을 제외한 모든 조건 연산자에 추가되어 해당 조건 키가 없는지 확인합니다. 조건 키가 없으면 TRUE를 반환합니다.
+
 |===
 
 
@@ -1082,6 +1089,24 @@ S3: ListBuckketVersions 권한
 
 
  a| 
+S3: 오브젝트 잠금 모드
+ a| 
+S3:PutObject
+ a| 
+PutObject, CopyObject 및 CreateMultipartUpload 요청의 요청 헤더에서 확장된 값과 `object-lock-mode` 비교합니다.
+
+
+
+ a| 
+S3: 오브젝트 잠금 모드
+ a| 
+S3:PutObjectRetention
+ a| 
+PutObjectRetention 요청의 XML 본문에서 확장된 것과 `object-lock-mode` 비교합니다.
+
+
+
+ a| 
 S3: 오브젝트 잠금 장치 - 남은 보존 기간(일)
  a| 
 S3:PutObject
@@ -1125,6 +1150,15 @@ S3:PutObjectTagging
 S3:PutObjectVersionTagging
  a| 
 개체 요청에 태그가 포함된 경우 특정 태그 키와 값이 필요합니다.
+
+
+
+ a| 
+S3: x-amz-서버 측 암호화-고객 알고리즘
+ a| 
+S3:PutObject
+ a| 
+PutObject, CopyObject, CreateMultipartUpload, UploadPart, UploadPartCopy 및 CompleteMultipartUpload 요청의 요청 헤더에서 확장된 또는 `copy-source-sse-customer-algorithm` 와 `sse-customer-algorithm` 비교합니다.
 
 |===
 

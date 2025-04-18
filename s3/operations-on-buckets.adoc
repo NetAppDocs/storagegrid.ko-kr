@@ -25,7 +25,7 @@ StorageGRID 시스템은 각 S3 테넌트 계정에 대해 최대 5,000개의 �
 * link:../admin/configuring-s3-api-endpoint-domain-names.html["S3 끝점 도메인 이름을 구성합니다"]
 
 
-ListObjects(Get Bucket) 및 ListObjectVersions(Get Bucket 개체 버전) 작업은 StorageGRID를 link:consistency-controls.html["일관성 값"]지원합니다.
+ListObjects(Get Bucket) 및 ListObjectVersions(Get Bucket 개체 버전) 작업은 StorageGRID를 link:consistency.html["일관성 값"]지원합니다.
 
 개별 버킷에 대해 마지막 액세스 시간에 대한 업데이트가 설정되었는지 여부를 확인할 수 있습니다. 을 link:get-bucket-last-access-time-request.html["버킷 최종 액세스 시간 가져오기"]참조하십시오.
 
@@ -290,7 +290,7 @@ PutBucketNotificationConfiguration을 참조하십시오
  a| 
 요청 본문에 포함된 알림 구성 XML을 사용하여 버킷에 대한 알림을 구성합니다. 다음과 같은 구현 세부 사항에 유의해야 합니다.
 
-* StorageGRID는 Amazon SNS(Simple Notification Service) 또는 Kafka 토픽을 대상으로 지원합니다. SQS(Simple Queue Service) 또는 Amazon Lambda 엔드포인트는 지원되지 않습니다.
+* StorageGRID는 Amazon SNS(Simple Notification Service) 주제, Kafka 토픽 또는 Webhook 엔드포인트를 대상으로 지원합니다. SQS(Simple Queue Service) 또는 AWS Lambda 엔드포인트는 지원되지 않습니다.
 * 알림 대상은 StorageGRID 엔드포인트의 URN으로 지정해야 합니다. 테넌트 관리자 또는 테넌트 관리 API를 사용하여 엔드포인트를 생성할 수 있습니다.
 +
 알림 설정을 성공적으로 하려면 끝점이 있어야 합니다. 끝점이 없으면 `400 Bad Request` 코드와 함께 오류가 `InvalidArgument` 반환됩니다.

@@ -68,7 +68,7 @@ S3 오브젝트 잠금:: 버킷에 대해 S3 오브젝트 잠금이 설정되었
 . 특정 버킷의 세부 정보를 보려면 테이블에서 버킷 이름을 선택합니다.
 +
 .. 웹 페이지 상단에 있는 요약 정보를 확인하여 지역 및 오브젝트 수와 같은 버킷의 세부 정보를 확인합니다.
-.. 용량 제한 사용 막대를 봅니다. 사용량이 100% 또는 100%에 가까운 경우 제한을 늘리거나 일부 개체를 삭제하는 것이 좋습니다.
+.. 용량 제한 사용량 및 개체 수 제한 사용량 막대를 봅니다. 사용량이 100% 또는 100%에 가까울 경우 제한을 늘리거나 일부 개체를 삭제하는 것이 좋습니다.
 .. 필요에 따라 * Delete objects in bucket * 과 * Delete bucket * 을 선택합니다.
 +
 [CAUTION]
@@ -88,6 +88,7 @@ S3 오브젝트 잠금:: 버킷에 대해 S3 오브젝트 잠금이 설정되었
 **** link:manage-bucket-consistency.html["버킷 일관성 관리"]
 **** link:enabling-or-disabling-last-access-time-updates.html["마지막 액세스 시간 업데이트"]
 **** link:../tenant/creating-s3-bucket.html#capacity-limit["용량 제한"]
+**** link:../tenant/creating-s3-bucket.html#object-count-limit["개체 수 제한"]
 **** link:changing-bucket-versioning.html["오브젝트 버전 관리"]
 **** link:using-s3-object-lock.html["S3 오브젝트 잠금"]
 **** link:update-default-retention-settings.html["기본 버킷 보유"]
@@ -97,10 +98,11 @@ S3 오브젝트 잠금:: 버킷에 대해 S3 오브젝트 잠금이 설정되었
 *** * 플랫폼 서비스 *link:considerations-for-platform-services.html["플랫폼 서비스 관리"]: (테넌트에 대해 허용되는 경우)
 *** * 버킷 액세스 * : 옵션 설정을 보거나 변경합니다. 특정 액세스 권한이 있어야 합니다.
 +
-**** link:configuring-cross-origin-resource-sharing-cors.html["CORS(Cross-Origin Resource Sharing)"]버킷의 버킷과 객체가 다른 도메인의 웹 애플리케이션에 액세스할 수 있도록 구성합니다.
+**** link:configuring-cross-origin-resource-sharing-for-buckets-and-objects.html["버킷 및 객체용 CORS"]버킷의 버킷과 객체가 다른 도메인의 웹 애플리케이션에 액세스할 수 있도록 구성합니다.
 **** link:../tenant/manage-bucket-policy.html["사용자 액세스를 제어합니다"] S3 버킷과 해당 버킷의 오브젝트용.
 
 
+*** * branches * : 버킷의 분기 버킷 목록을 봅니다. link:../tenant/manage-branch-buckets.html["새 분기 버킷을 생성하거나 분기 버킷을 관리합니다"]..
 
 
 

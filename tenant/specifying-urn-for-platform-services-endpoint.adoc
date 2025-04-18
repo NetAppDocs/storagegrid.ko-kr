@@ -45,7 +45,7 @@ CloudMirror 복제
  a| 
 알림
  a| 
-`sns` 또는 `kafka`
+`sns` `kafka`, 또는 `webhook`
 
 
 
@@ -57,7 +57,9 @@ CloudMirror 복제
 |===
 예를 들어, StorageGRID에서 호스팅되는 CloudMirror 끝점에 대해 URN을 계속 지정하려면 GET에 `urn:sgws:s3` 을 추가합니다 `s3`.
 
-URN의 마지막 요소는 대상 URI에서 특정 대상 리소스를 식별합니다.
+대부분의 끝점에서 URN의 최종 요소는 대상 URI에서 특정 대상 리소스를 식별합니다(예:) `sns-topic-name`.
+
+Webhook 끝점의 경우 대상 리소스는 대상 URI 자체입니다.
 
 [cols="1a,2a"]
 |===
@@ -75,6 +77,8 @@ CloudMirror 복제
 알림
  a| 
 `sns-topic-name` 또는 `kafka-topic-name`
+
+* 참고: * Webhook 끝점의 경우 끝점의 URN이 고유하면 URN의 최종 요소는 모든 문자열이 될 수 있습니다.
 
 
 
@@ -152,6 +156,14 @@ Kafka 끝점 지정:
 [listing]
 ----
 urn:mysite:kafka:optional:optional:kafka-topic-name
+----
++
+Webhook 끝점을 지정합니다.
+
++
+[listing]
+----
+urn:mysite:webhook:optional:optional:webhook-name
 ----
 * 검색 통합:
 +

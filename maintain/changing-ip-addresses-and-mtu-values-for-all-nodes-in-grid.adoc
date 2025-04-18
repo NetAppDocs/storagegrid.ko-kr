@@ -36,7 +36,7 @@ NOTE: 새 IP 주소의 그리드에서 기존 DNS 서버에 액세스할 수 없
 
 +
 
-NOTE: StorageGRID 시스템에 SSO가 설정되어 있고 모든 기반 당사자 트러스트가 관리자 노드 IP 주소(권장되는 경우 정규화된 도메인 이름 대신)를 사용하여 구성된 경우 AD FS(Active Directory Federation Services)에서 이러한 기반 당사자 트러스트를 업데이트하거나 재구성할 준비를 해야 합니다. IP 주소를 변경한 직후 을 link:../admin/configuring-sso.html["Single Sign-On 구성"]참조하십시오.
+NOTE: StorageGRID 시스템에 SSO가 설정되어 있고 모든 기반 당사자 트러스트가 관리자 노드 IP 주소(권장되는 경우 정규화된 도메인 이름 대신)를 사용하여 구성된 경우 AD FS(Active Directory Federation Services)에서 이러한 기반 당사자 트러스트를 업데이트하거나 재구성할 준비를 해야 합니다. IP 주소를 변경한 직후 을 link:../admin/configure-sso.html["Single Sign-On 구성"]참조하십시오.
 
 +
 

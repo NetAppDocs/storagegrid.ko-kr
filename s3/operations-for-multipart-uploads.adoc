@@ -30,9 +30,10 @@ summary: 이 섹션에서는 StorageGRID가 멀티파트 업로드 작업을 지
 ** 파트에 대한 ILM을 평가할 때 StorageGRID은 개체의 크기가 아닌 파트 크기를 필터링합니다. 즉, 개체의 일부를 개체에 대한 ILM 요구 사항을 전체가 충족하지 않는 위치에 저장할 수 있습니다. 예를 들어, 모든 작은 오브젝트가 DC2에 저장되지만 10GB 이상의 오브젝트는 모두 DC1에 저장되도록 규칙이 지정된 경우 10부분 다중 부분 업로드의 각 1GB 부분은 인제스트 시 DC2에 저장됩니다. 그러나 개체 전체에 대해 ILM을 평가하면 개체의 모든 부분이 DC1로 이동됩니다.
 
 
-* 모든 멀티 파트 업로드 작업은 StorageGRID를 link:consistency-controls.html["일관성 값"]지원합니다.
+* 모든 멀티 파트 업로드 작업은 StorageGRID를 link:consistency.html["일관성 값"]지원합니다.
 * 멀티파트 업로드를 사용하여 개체를 수집하는 경우 이 link:../admin/what-object-segmentation-is.html["객체 분할 임계값(1GiB)"]적용되지 않습니다.
 * 필요에 따라 멀티파트 업로드와 함께 을 사용할 수 link:using-server-side-encryption.html["서버 측 암호화"]있습니다. SSE(StorageGRID 관리 키가 있는 서버측 암호화)를 사용하려면 CreateMultipartUpload 요청에만 요청 헤더를 포함합니다 `x-amz-server-side-encryption`. SSE-C(고객 제공 키를 사용한 서버측 암호화)를 사용하려면 CreateMultipartUpload 요청과 이후의 각 UploadPart 요청에서 동일한 3개의 암호화 키 요청 헤더를 지정합니다.
+* 멀티파트 업로드 객체는 업로드가 완료된 시점과 관계없이 기본 버킷의 타임스탬프 전에 수집이 시작된 경우 에 link:../tenant/manage-branch-buckets.html["분기 버킷"]포함됩니다.
 
 
 [cols="2a,3a"]

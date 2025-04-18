@@ -70,6 +70,8 @@ entries:
     url: "/tenant/creating-s3-bucket.html"
   - title: 버킷 세부 정보를 봅니다
     url: "/tenant/viewing-s3-bucket-details.html"
+  - title: 분기 버킷을 관리합니다
+    url: "/tenant/manage-branch-buckets.html"
   - title: 버킷에 ILM 정책 태그를 적용합니다
     url: "/tenant/ilm-policy-tags.html"
   - title: 버킷 정책을 관리합니다
@@ -84,8 +86,10 @@ entries:
     url: "/tenant/using-s3-object-lock.html"
   - title: S3 오브젝트 잠금 기본 보존 업데이트
     url: "/tenant/update-default-retention-settings.html"
-  - title: CORS(Cross-Origin Resource Sharing) 구성
-    url: "/tenant/configuring-cross-origin-resource-sharing-cors.html"
+  - title: 버킷 및 객체에 대한 CORS를 구성합니다
+    url: "/tenant/configuring-cross-origin-resource-sharing-for-buckets-and-objects.html"
+  - title: 관리 인터페이스에 대해 CORS를 사용하도록 설정합니다
+    url: "/tenant/enable-cross-origin-resource-sharing-for-management-interface.html"
   - title: 버킷에서 오브젝트를 삭제합니다
     url: "/tenant/deleting-s3-bucket-objects.html"
   - title: 버킷을 삭제합니다

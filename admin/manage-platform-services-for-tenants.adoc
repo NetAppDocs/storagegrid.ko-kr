@@ -15,6 +15,8 @@ summary: 플랫폼 서비스에는 CloudMirror 복제, 이벤트 알림 및 검�
 
 S3 테넌트 계정에 대해 플랫폼 서비스를 설정하는 경우 테넌트가 이러한 서비스를 사용하는 데 필요한 외부 리소스에 액세스할 수 있도록 그리드를 구성해야 합니다.
 
+에서는 플랫폼 서비스가 link:../tenant/manage-branch-buckets.html["분기 버킷"]지원되지 않습니다.
+
 
 
 == CloudMirror 복제
@@ -23,17 +25,16 @@ StorageGRID CloudMirror 복제 서비스는 StorageGRID 버킷에서 지정된 �
 
 예를 들어, CloudMirror 복제를 사용하여 특정 고객 레코드를 Amazon S3에 미러링한 다음 AWS 서비스를 활용하여 데이터에 대한 분석을 수행할 수 있습니다.
 
+CloudMirror 복제는 교차 그리드 복제 기능과 몇 가지 중요한 유사점과 차이점이 있습니다. 자세한 내용은 을 참조하십시오link:../admin/grid-federation-compare-cgr-to-cloudmirror.html["교차 그리드 복제와 CloudMirror 복제를 비교합니다"].
 
-NOTE: CloudMirror 복제는 교차 그리드 복제 기능과 몇 가지 중요한 유사점과 차이점이 있습니다. 자세한 내용은 을 참조하십시오link:../admin/grid-federation-compare-cgr-to-cloudmirror.html["교차 그리드 복제와 CloudMirror 복제를 비교합니다"].
 
-
-NOTE: 소스 버킷에 S3 오브젝트 잠금이 설정된 경우 CloudMirror 복제가 지원되지 않습니다.
+NOTE: 소스 버킷에 S3 오브젝트 잠금이 설정된 경우 CloudMirror 복제는 지원되지 않습니다.
 
 
 
 == 알림
 
-버킷별 이벤트 알림은 오브젝트에 대해 수행된 특정 작업에 대한 알림을 지정된 외부 Kafka 클러스터 또는 Amazon Simple Notification Service로 전송하는 데 사용됩니다.
+버킷별 이벤트 알림은 오브젝트에 대해 수행된 특정 작업에 대한 알림을 지정된 외부 Kafka 클러스터, Webhook 끝점 또는 Amazon Simple Notification Service로 보내는 데 사용됩니다.
 
 예를 들어, 버킷에 추가된 각 오브젝트에 대해 관리자에게 경고가 전송되도록 구성할 수 있습니다. 여기서 객체는 중요한 시스템 이벤트와 연결된 로그 파일을 나타냅니다.
 

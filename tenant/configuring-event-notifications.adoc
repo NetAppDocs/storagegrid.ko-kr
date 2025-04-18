@@ -21,7 +21,7 @@ summary: 알림 구성 XML을 생성하고 테넌트 관리자를 사용하여 X
 
 
 .이 작업에 대해
-알림 구성 XML을 소스 버킷과 연결하여 이벤트 알림을 구성합니다. 알림 구성 XML은 끝점 URN으로 지정된 대상 Kafka 또는 Amazon SNS 항목과 함께 버킷 알림을 구성하는 S3 규칙을 따릅니다.
+알림 구성 XML을 소스 버킷과 연결하여 이벤트 알림을 구성합니다. 알림 구성 XML은 끝점 URN으로 지정된 대상 Amazon SNS 주제, Kafka 주제 또는 Webhook 끝점과 함께 버킷 알림을 구성하기 위한 S3 규칙을 따릅니다.
 
 이벤트 알림에 대한 일반적인 정보와 이벤트 알림을 구성하는 방법은 을 https://docs.aws.amazon.com/s3/["아마존 문서"^]참조하십시오. StorageGRID에서 S3 버킷 알림 구성 API를 구현하는 방법에 대한 자세한 내용은 를 link:../s3/index.html["S3 클라이언트 애플리케이션 구현 지침"]참조하십시오.
 
@@ -29,7 +29,7 @@ summary: 알림 구성 XML을 생성하고 테넌트 관리자를 사용하여 X
 
 * 유효한 알림 구성 XML을 만들고 적용할 때 각 대상에 대한 이벤트 알림 끝점의 URN을 사용해야 합니다.
 * S3 오브젝트 잠금이 설정된 버킷에서 이벤트 알림을 구성할 수 있지만, 오브젝트의 S3 오브젝트 잠금 메타데이터(보존 기한 및 법적 증거 자료 보관 상태 포함)는 알림 메시지에 포함되지 않습니다.
-* 이벤트 알림을 구성한 후 소스 버킷의 오브젝트에 대해 지정된 이벤트가 발생할 때마다 알림이 생성되어 대상 끝점으로 사용되는 Amazon SNS 또는 Kafka 토픽으로 전송됩니다.
+* 이벤트 알림을 구성한 후 소스 버킷의 오브젝트에 대해 지정된 이벤트가 발생할 때마다 알림이 생성되어 대상으로 사용되는 Amazon SNS 주제, Kafka 주제 또는 Webhook 끝점으로 전송됩니다.
 * 객체가 포함된 버킷에 대해 이벤트 알림을 활성화하면 알림 구성이 저장된 후 수행되는 작업에 대해서만 알림이 전송됩니다.
 
 
@@ -77,7 +77,7 @@ NOTE: 그리드 관리자 또는 그리드 관리 API를 사용하여 StorageGRI
 +
 이 예제에서는 접두사를 사용하여 개체를 만들 때마다 이벤트 알림이 `images/` 전송됩니다.
 
-.. 알림이 대상 Amazon SNS 또는 Kafka 토픽에 전달되었는지 확인합니다.
+.. 알림이 대상 Amazon SNS 주제, Kafka 토픽 또는 Webhook 끝점에 전달되었는지 확인합니다.
 +
 예를 들어 대상 주제가 Amazon SNS에 호스팅되어 있는 경우 알림이 배달될 때 이메일을 보내도록 서비스를 구성할 수 있습니다.
 
@@ -129,8 +129,7 @@ NOTE: 그리드 관리자 또는 그리드 관리 API를 사용하여 StorageGRI
 
 
 .관련 정보
-link:understanding-notifications-for-buckets.html["버킷에 대한 알림을 이해합니다"]
+* link:understanding-notifications-for-buckets.html["버킷에 대한 알림을 이해합니다"]
+* link:../s3/index.html["S3 REST API 사용"]
+* link:creating-platform-services-endpoint.html["플랫폼 서비스 끝점을 만듭니다"]
 
-link:../s3/index.html["S3 REST API 사용"]
-
-link:creating-platform-services-endpoint.html["플랫폼 서비스 끝점을 만듭니다"]

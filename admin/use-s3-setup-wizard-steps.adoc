@@ -347,7 +347,7 @@ S3 애플리케이션이 외부 로드 밸런서에 연결하는 데 사용할 �
 +
 테넌트 이름은 고유해야 할 필요가 없습니다. 테넌트 계정이 생성되면 고유한 숫자 계정 ID를 받습니다.
 
-. StorageGRID 시스템에서link:using-identity-federation.html["ID 제휴"], link:configuring-sso.html["SSO(Single Sign-On)"]또는 둘 모두를 사용하는지 여부에 따라 테넌트 계정에 대한 루트 액세스를 정의합니다.
+. StorageGRID 시스템에서link:using-identity-federation.html["ID 제휴"], link:how-sso-works.html["SSO(Single Sign-On)"]또는 둘 모두를 사용하는지 여부에 따라 테넌트 계정에 대한 루트 액세스를 정의합니다.
 +
 [cols="1a,2a"]
 |===

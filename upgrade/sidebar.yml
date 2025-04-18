@@ -5,7 +5,7 @@ entries:
 - title: 시작하기 전에
   pdf-filename: StorageGRID 소프트웨어를 업그레이드합니다
   url: "/upgrade/index.html"
-- title: StorageGRID 11.9의 새로운 기능
+- title: StorageGRID 12.0의 새로운 기능
   url: "/upgrade/whats-new.html"
 - title: 제거되거나 사용되지 않는 기능
   url: "/upgrade/removed-or-deprecated-features.html"
