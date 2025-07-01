@@ -2,7 +2,7 @@
 permalink: expand/adding-storage-volumes-to-storage-nodes.html 
 sidebar: sidebar 
 keywords: storage volumes, expand, expansion, add, storage nodes, adding storage capacity 
-summary: 스토리지 볼륨을 추가하여 스토리지 볼륨이 16개 이하인 스토리지 노드의 스토리지 용량을 확장할 수 있습니다. 복제 또는 삭제 코딩 복사본에 대한 ILM 요구 사항을 충족하려면 스토리지 볼륨을 두 개 이상의 스토리지 노드에 추가해야 할 수 있습니다. 
+summary: 스토리지 볼륨을 추가하여 스토리지 볼륨이 48개 이하인 스토리지 노드의 스토리지 용량을 확장할 수 있습니다. 복제 또는 삭제 코딩 복사본에 대한 ILM 요구 사항을 충족하려면 스토리지 볼륨을 두 개 이상의 스토리지 노드에 추가해야 할 수 있습니다. 
 ---
 = 스토리지 노드에 스토리지 볼륨을 추가합니다
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 스토리지 볼륨을 추가하여 스토리지 볼륨이 16개 이하
 
 
 [role="lead"]
-스토리지 볼륨을 추가하여 스토리지 볼륨이 16개 이하인 스토리지 노드의 스토리지 용량을 확장할 수 있습니다. 복제 또는 삭제 코딩 복사본에 대한 ILM 요구 사항을 충족하려면 스토리지 볼륨을 두 개 이상의 스토리지 노드에 추가해야 할 수 있습니다.
+스토리지 볼륨을 추가하여 스토리지 볼륨이 48개 이하인 스토리지 노드의 스토리지 용량을 확장할 수 있습니다. 복제 또는 삭제 코딩 복사본에 대한 ILM 요구 사항을 충족하려면 스토리지 볼륨을 두 개 이상의 스토리지 노드에 추가해야 할 수 있습니다.
 
 .시작하기 전에
 스토리지 볼륨을 추가하기 전에 를 검토하여 link:guidelines-for-adding-object-capacity.html["오브젝트 용량 추가 지침"]ILM 정책의 요구 사항을 충족하기 위해 볼륨을 추가할 위치를 알고 있는지 확인합니다.
@@ -20,7 +20,7 @@ summary: 스토리지 볼륨을 추가하여 스토리지 볼륨이 16개 이하
 NOTE: 이 지침은 소프트웨어 기반 스토리지 노드에만 적용됩니다. 확장 셸프를 설치하여 스토리지 볼륨을 SG6060 또는 SG6160에 추가하는 방법은 또는 https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/adding-expansion-shelf-to-deployed-sg6160.html["배포된 SG6160에 확장 쉘프를 추가합니다"^] 를 참조하십시오 https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/adding-expansion-shelf-to-deployed-sg6060.html["배포된 SG6060에 확장 쉘프를 추가합니다"^]. 다른 어플라이언스 스토리지 노드를 확장할 수 없습니다.
 
 .이 작업에 대해
-스토리지 노드의 기본 스토리지는 스토리지 볼륨으로 분할됩니다. 스토리지 볼륨은 StorageGRID 시스템에서 포맷되고 객체를 저장하도록 마운트된 블록 기반 스토리지 디바이스입니다. 각 스토리지 노드는 그리드 관리자에서 _object store_라고 하는 최대 16개의 스토리지 볼륨을 지원할 수 있습니다.
+스토리지 노드의 기본 스토리지는 스토리지 볼륨으로 분할됩니다. 스토리지 볼륨은 StorageGRID 시스템에서 포맷되고 객체를 저장하도록 마운트된 블록 기반 스토리지 디바이스입니다. 각 스토리지 노드는 그리드 관리자에서 _object store_라고 하는 최대 48개의 스토리지 볼륨을 지원할 수 있습니다.
 
 
 NOTE: 오브젝트 메타데이터는 항상 오브젝트 저장소 0에 저장됩니다.

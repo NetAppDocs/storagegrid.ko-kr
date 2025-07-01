@@ -2,7 +2,7 @@
 permalink: expand/vmware-adding-storage-volumes-to-storage-node.html 
 sidebar: sidebar 
 keywords: expand, expansion, storage node, add storage volumes, VMware 
-summary: 스토리지 노드에 16개 미만의 스토리지 볼륨이 포함된 경우 VMware vSphere를 사용하여 볼륨을 추가하여 용량을 늘릴 수 있습니다. 
+summary: 스토리지 노드에 48개 미만의 스토리지 볼륨이 포함된 경우 VMware vSphere를 사용하여 볼륨을 추가하여 용량을 늘릴 수 있습니다. 
 ---
 = VMware: 스토리지 노드에 스토리지 볼륨을 추가합니다
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 스토리지 노드에 16개 미만의 스토리지 볼륨이 포함된
 
 
 [role="lead"]
-스토리지 노드에 16개 미만의 스토리지 볼륨이 포함된 경우 VMware vSphere를 사용하여 볼륨을 추가하여 용량을 늘릴 수 있습니다.
+스토리지 노드에 48개 미만의 스토리지 볼륨이 포함된 경우 VMware vSphere를 사용하여 볼륨을 추가하여 용량을 늘릴 수 있습니다.
 
 .시작하기 전에
 * VMware 배포용 StorageGRID 설치 지침을 액세스할 수 있습니다.
