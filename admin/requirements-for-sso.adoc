@@ -1,10 +1,10 @@
 ---
 permalink: admin/requirements-for-sso.html 
 sidebar: sidebar 
-keywords: sso requirements, single sign on requirements, identity federation requirements for sso, pingfederate, azure ad, ad fs 
+keywords: sso requirements, single sign on requirements, identity federation requirements for sso, pingfederate, entra id, ad fs 
 summary: StorageGRID 시스템에 대해 Single Sign-On을 설정하기 전에 요구 사항 및 고려 사항을 검토하십시오. 
 ---
-= SSO(Single Sign-On)에 대한 요구 사항 및 고려 사항
+= SSO에 대한 요구 사항 및 고려 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -20,7 +20,7 @@ StorageGRID 시스템에 대해 SSO(Single Sign-On)를 활성화하기 전에 �
 StorageGRID는 다음 SSO ID 공급자(IDP)를 지원합니다.
 
 * AD FS(Active Directory Federation Service)
-* Azure Active Directory(Azure AD)
+* 마이크로소프트 엔트라 ID
 * PingFederate(PingFederate)
 
 
@@ -35,16 +35,16 @@ SSO ID 공급자를 구성하려면 먼저 StorageGRID 시스템에 대한 ID �
 Active Directory를 클릭합니다
  a| 
 * Active Directory를 클릭합니다
-* Azure를 지원합니다
+* 엔트라 ID
 * PingFederate(PingFederate)
 
 
 
 
  a| 
-Azure를 지원합니다
+엔트라 ID
  a| 
-Azure를 지원합니다
+엔트라 ID
 
 |===
 
@@ -71,15 +71,15 @@ NOTE: Windows Server 2016은, 이상을 사용해야 https://support.microsoft.c
 
 
 
-=== Azure 고려 사항
+=== Entra ID에 대한 고려 사항
 
-Azure를 SSO 유형으로 사용하고 sAMAccountName을 접두사로 사용하지 않는 사용자 기본 이름이 있는 경우 StorageGRID와 LDAP 서버 간의 연결이 끊어지면 로그인 문제가 발생할 수 있습니다. 사용자가 로그인할 수 있도록 하려면 LDAP 서버에 대한 연결을 복원해야 합니다.
+SSO 유형으로 Entra ID를 사용하고 사용자의 사용자 주체 이름이 접두사로 sAMAccountName을 사용하지 않는 경우 StorageGRID LDAP 서버와 연결이 끊어지면 로그인 문제가 발생할 수 있습니다.  사용자가 로그인할 수 있도록 하려면 LDAP 서버에 대한 연결을 복원해야 합니다.
 
 
 
 == 서버 인증서 요구 사항
 
-기본적으로 StorageGRID는 각 관리 노드의 관리 인터페이스 인증서를 사용하여 그리드 관리자, 테넌트 관리자, 그리드 관리 API 및 테넌트 관리 API에 대한 액세스를 보호합니다. AD FS(사용자 트러스트), Azure(엔터프라이즈 응용 프로그램) 또는 StorageGRID에 대한 서비스 공급자 연결(PingFederate)을 구성하는 경우 서버 인증서를 StorageGRID 요청에 대한 서명 인증서로 사용합니다.
+기본적으로 StorageGRID 각 관리 노드에서 관리 인터페이스 인증서를 사용하여 Grid Manager, Tenant Manager, Grid Management API 및 Tenant Management API에 대한 액세스를 보호합니다.  StorageGRID 에 대한 신뢰 당사자 트러스트(AD FS), 엔터프라이즈 애플리케이션(Entra ID) 또는 서비스 공급자 연결(PingFederate)을 구성하는 경우 StorageGRID 요청에 대한 서명 인증서로 서버 인증서를 사용합니다.
 
 아직 하지 않았다면 link:configuring-custom-server-certificate-for-grid-manager-tenant-manager.html["관리 인터페이스에 대한 사용자 지정 인증서를 구성했습니다"]지금 그렇게 해야 합니다. 사용자 지정 서버 인증서는 모든 관리 노드에 사용되며 모든 StorageGRID 신뢰할 수 있는 당사자, 엔터프라이즈 응용 프로그램 또는 SP 연결에서 사용할 수 있습니다.
 

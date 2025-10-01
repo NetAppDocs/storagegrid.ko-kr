@@ -16,7 +16,7 @@ summary: 다음 표에는 외부 syslog 서버와 관련하여 발생할 수 있
 외부 syslog 서버로 감사 정보를 보내는 방법에 대한 자세한 내용은 다음을 참조하십시오.
 
 * link:../monitor/considerations-for-external-syslog-server.html["외부 syslog 서버 사용 시 고려 사항"]
-* link:../monitor/configure-audit-messages.html["감사 메시지 및 외부 syslog 서버를 구성합니다"]
+* link:../monitor/configure-log-management.html["로그 관리 및 외부 syslog 서버 구성"]
 
 
 [cols="1a,3a"]

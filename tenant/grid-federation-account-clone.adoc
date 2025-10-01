@@ -44,7 +44,7 @@ image::../media/grid-federation-account-clone-workflow-tm.png[계정 클론에 �
 
 
 [role="quick-margin-list"]
-* ID 페더레이션을 사용하지 않는 경우link:creating-groups-for-s3-tenant.html["새 로컬 그룹을 생성합니다"]link:managing-local-users.html["로컬 사용자를 생성합니다"]
+* ID 페더레이션을 사용하지 않는 경우link:creating-groups-for-s3-tenant.html["새 로컬 그룹을 생성합니다"] 그런 다음link:manage-users.html["로컬 사용자를 생성합니다"] .
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"] S3 액세스 키를 생성합니다
@@ -78,9 +78,9 @@ NOTE: 소스 그리드에 로컬 그룹을 생성할 때 선택한 사용자는 
 
 === 소스 그리드에 생성된 로컬 사용자의 클론이 생성됩니다
 
-소스 그리드에 새 로컬 사용자를 생성하면 StorageGRID는 해당 사용자를 대상 그리드에 자동으로 복제합니다. 원래 사용자와 해당 클론 모두에 동일한 전체 이름, 사용자 이름 및 * 액세스 거부 * 설정이 있습니다. 두 사용자 모두 동일한 그룹에 속해 있습니다. 자세한 내용은 을 link:managing-local-users.html["로컬 사용자를 관리합니다"]참조하십시오.
+소스 그리드에 새로운 로컬 사용자를 생성하면 StorageGRID 자동으로 해당 사용자를 대상 그리드에 복제합니다.  원래 사용자와 복제본 모두 동일한 전체 이름, 사용자 이름 및 *액세스 거부* 설정을 갖습니다.  두 사용자는 모두 같은 그룹에 속합니다. 지침은 다음을 참조하세요.link:manage-users.html["사용자 관리"] .
 
-보안상의 이유로 로컬 사용자 암호는 대상 그리드에 복제되지 않습니다. 로컬 사용자가 대상 그리드의 테넌트 관리자에 액세스해야 하는 경우 테넌트 계정의 루트 사용자는 대상 그리드에 해당 사용자의 암호를 추가해야 합니다. 자세한 내용은 을 link:managing-local-users.html["로컬 사용자를 관리합니다"]참조하십시오.
+보안상의 이유로 로컬 사용자 비밀번호는 대상 그리드에 복제되지 않습니다.  로컬 사용자가 대상 그리드에서 테넌트 관리자에 액세스해야 하는 경우 테넌트 계정의 루트 사용자는 대상 그리드에서 해당 사용자에 대한 비밀번호를 추가해야 합니다. 지침은 다음을 참조하세요.link:manage-users.html["사용자 관리"] .
 
 image::../media/grid-federation-local-user-clone.png[소스 그리드에서 대상 그리드로 로컬 사용자의 클론이 생성되었음을 보여 주는 이미지입니다]
 

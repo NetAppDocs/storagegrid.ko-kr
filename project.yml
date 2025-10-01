@@ -10,8 +10,10 @@ settings:
     harmony_enabled: false
     hide_language_selector: false
   versions:
-  - version-number: '11.9'
+  - version-number: '12.0'
     url: "/storagegrid"
+  - version-number: '11.9'
+    url: "/storagegrid-119"
   - version-number: '11.8'
     url: "/storagegrid-118"
   - version-number: '11.7'
@@ -23,7 +25,7 @@ settings:
   langs: ko-kr,us-en,de-de,es-es,fr-fr,it-it,pt-br,ja-jp,zh-cn,zh-tw
 sidebar:
   entries:
-  - title: StorageGRID 11.9 설명서
+  - title: StorageGRID 12.0 소프트웨어
     url: "/index.html"
   - title: StorageGRID 어플라이언스
     url: "/storagegrid-hardware.html"
@@ -39,11 +41,9 @@ sidebar:
   - title: 설치, 업그레이드 및 핫픽스
     url: "/landing-install-upgrade/index.html"
     entries:
-    - title: 어플라이언스를 설치합니다
+    - title: 어플라이언스 기반 노드 설치
       url: "/storagegrid-hardware.html"
-    - section: rhel
-    - section: ubuntu
-    - section: vmware
+    - section: swnodes
     - section: upgrade
     - title: StorageGRID 핫픽스를 적용합니다
       entries:
@@ -84,7 +84,7 @@ sidebar:
     entries:
     - title: 그리드 유지 관리
       url: "/maintain/index.html"
-    - title: 복구 패키지를 다운로드합니다
+    - title: 복구 패키지 다운로드
       url: "/maintain/downloading-recovery-package.html"
     - title: 노드 또는 사이트를 파기합니다
       entries:
@@ -149,6 +149,30 @@ sidebar:
       - title: 노드 유지 관리 절차
         pdf-filename: 노드 절차
         url: "/maintain/grid-node-procedures.html"
+      - title: ADC 서비스 이동
+        url: "/maintain/move-adc-service.html"
+      - title: 데이터 전용 노드로 변환
+        url: "/maintain/convert-to-data-only-node.html"
+      - title: 재부팅, 종료 및 전원 절차를 수행합니다
+        entries:
+        - title: 롤링 재부팅을 수행합니다
+          url: "/maintain/rolling-reboot-procedure.html"
+        - title: 작업 탭에서 노드를 재부팅합니다
+          url: "/maintain/rebooting-grid-node-from-grid-manager.html"
+        - title: 명령 셸에서 노드를 재부팅합니다
+          url: "/maintain/rebooting-grid-node-from-command-shell.html"
+        - title: 노드를 종료합니다
+          url: "/maintain/shutting-down-grid-node.html"
+        - title: 호스트 전원을 끕니다
+          url: "/maintain/powering-down-host.html"
+        - title: 모든 노드의 전원을 껐다가 켭니다
+          url: "/maintain/powering-off-and-on-all-nodes-in-grid.html"
+      - title: 포트 재매핑 절차
+        entries:
+        - title: StorageGRID 어플라이언스에서 포트 리맵 제거
+          url: "/maintain/removing-port-remaps.html"
+        - title: 베어 메탈 호스트에서 포트 재맵을 제거합니다
+          url: "/maintain/removing-port-remaps-on-bare-metal-hosts.html"
       - title: 서버 관리자 절차
         entries:
         - title: 서버 관리자 상태 및 버전을 봅니다
@@ -173,26 +197,6 @@ sidebar:
           url: "/maintain/using-donotstart-file.html"
         - title: 서버 관리자 문제를 해결합니다
           url: "/maintain/accessing-server-manager-log-file.html"
-      - title: 재부팅, 종료 및 전원 절차를 수행합니다
-        entries:
-        - title: 롤링 재부팅을 수행합니다
-          url: "/maintain/rolling-reboot-procedure.html"
-        - title: 작업 탭에서 노드를 재부팅합니다
-          url: "/maintain/rebooting-grid-node-from-grid-manager.html"
-        - title: 명령 셸에서 노드를 재부팅합니다
-          url: "/maintain/rebooting-grid-node-from-command-shell.html"
-        - title: 노드를 종료합니다
-          url: "/maintain/shutting-down-grid-node.html"
-        - title: 호스트 전원을 끕니다
-          url: "/maintain/powering-down-host.html"
-        - title: 모든 노드의 전원을 껐다가 켭니다
-          url: "/maintain/powering-off-and-on-all-nodes-in-grid.html"
-      - title: 포트 재매핑 절차
-        entries:
-        - title: 포트 재맵을 제거합니다
-          url: "/maintain/removing-port-remaps.html"
-        - title: 베어 메탈 호스트에서 포트 재맵을 제거합니다
-          url: "/maintain/removing-port-remaps-on-bare-metal-hosts.html"
     - title: 네트워크 절차
       entries:
       - title: 그리드 네트워크에 대한 서브넷을 업데이트합니다
@@ -376,7 +380,7 @@ sidebar:
         url: "/maintain/monitoring-services-appliance-installation.html"
     - title: 기술 지원 부서에서 사이트를 복구하는 방법
       url: "/maintain/how-site-recovery-is-performed-by-technical-support.html"
-  - title: StorageGRID를 활성화합니다
+  - title: StorageGRID 솔루션 및 리소스
     url: "/storagegrid-enable.html"
   - title: StorageGRID and BlueXP  를 참조하십시오
     url: "/storagegrid-bluexp.html"

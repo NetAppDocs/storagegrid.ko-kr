@@ -2,7 +2,7 @@
 permalink: upgrade/changes-to-tenant-management-api.html 
 sidebar: sidebar 
 keywords: tenant management api, api, api version, swagger, rest api 
-summary: StorageGRID 11.9에서는 테넌트 관리 API 버전 4를 사용합니다. 버전 4는 버전 3을 사용하지 않지만 버전 1, 2 및 3은 계속 지원됩니다. 
+summary: StorageGRID 12.0은 테넌트 관리 API 버전 4를 사용합니다.  버전 4에서는 버전 3이 더 이상 사용되지 않지만, 버전 1, 2, 3은 계속 지원됩니다. 
 ---
 = 테넌트 관리 API의 변경 사항
 :allow-uri-read: 
@@ -11,15 +11,15 @@ summary: StorageGRID 11.9에서는 테넌트 관리 API 버전 4를 사용합니
 
 
 [role="lead"]
-StorageGRID 11.9에서는 테넌트 관리 API 버전 4를 사용합니다. 버전 4는 버전 3을 사용하지 않지만 버전 1, 2 및 3은 계속 지원됩니다.
+StorageGRID 12.0은 테넌트 관리 API 버전 4를 사용합니다.  버전 4에서는 버전 3이 더 이상 사용되지 않지만, 버전 1, 2, 3은 계속 지원됩니다.
 
 
-NOTE: StorageGRID 11.9에서는 더 이상 사용되지 않는 버전의 테넌트 관리 API를 계속 사용할 수 있지만, 이러한 API 버전에 대한 지원은 향후 StorageGRID 릴리즈에서 제거될 예정입니다. StorageGRID 11.9로 업그레이드한 후 API를 사용하여 더 이상 사용되지 않는 API를 비활성화할 수 `PUT /grid/config/management` 있습니다.
+NOTE: StorageGRID 12.0에서는 더 이상 사용되지 않는 테넌트 관리 API 버전을 계속 사용할 수 있습니다. 그러나 이러한 버전의 API에 대한 지원은 StorageGRID 의 향후 릴리스에서 제거될 예정입니다.  StorageGRID 12.0으로 업그레이드한 후에는 다음을 사용하여 더 이상 사용되지 않는 API를 비활성화할 수 있습니다. `PUT /grid/config/management` API.
 
 자세한 내용은 을 link:../tenant/understanding-tenant-management-api.html["테넌트 관리 API 이해"]참조하십시오.
 
 
 
-== 버킷 용량 제한에 대한 새로운 API
+== 객체 복제를 위한 새로운 API
 
-API를 Get/Put 작업과 함께 사용하여 버킷의 스토리지 용량 제한을 가져오고 설정할 수 `/org/containers/{bucketName}/quota-object-bytes` 있습니다.
+당신은 사용할 수 있습니다 `/org/cross-grid-replication/{versionId}/replicate` 새로 구성된 크로스 그리드 복제가 있는 기존 버킷에서 객체를 수동으로 복제하기 위한 API입니다.

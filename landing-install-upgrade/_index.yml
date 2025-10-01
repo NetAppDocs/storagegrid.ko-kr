@@ -13,44 +13,22 @@ indexpage:
     links:
     - title: 어플라이언스 하드웨어
       url: https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html
-    - title: Red Hat Enterprise Linux
-      url: "../rhel/index.html"
-    - title: Ubuntu 또는 Debian
-      url: "../ubuntu/index.html"
-    - title: VMware
-      url: "../vmware/index.html"
-  - title: 재료를 준비합니다
+    - title: 소프트웨어 기반 노드
+      url: "../swnodes/index.html"
+  - title: 소프트웨어 기반 노드
     links:
-    - title: Red Hat Enterprise Linux
-      url: "../rhel/required-materials.html"
-    - title: Ubuntu 또는 Debian
-      url: "../ubuntu/required-materials.html"
-    - title: VMware
-      url: "../vmware/required-materials.html"
-  - title: 설치를 자동화합니다
-    links:
-    - title: Red Hat Enterprise Linux
-      url: "../rhel/automating-installation.html"
-    - title: Ubuntu 또는 Debian
-      url: "../ubuntu/automating-installation.html"
-    - title: VMware
-      url: "../vmware/automating-grid-node-deployment-in-vmware-vsphere.html"
-  - title: 노드 구축
-    links:
-    - title: Red Hat Enterprise Linux
-      url: "../rhel/creating-node-configuration-files.html"
-    - title: Ubuntu 또는 Debian
-      url: "../ubuntu/creating-node-configuration-files.html"
-    - title: VMware
-      url: "../vmware/collecting-information-about-your-deployment-environment.html"
-  - title: 노드 설치를 완료합니다
-    links:
-    - title: Red Hat Enterprise Linux
-      url: "../rhel/navigating-to-grid-manager.html"
-    - title: Ubuntu 또는 Debian
-      url: "../ubuntu/navigating-to-grid-manager.html"
-    - title: VMware
-      url: "../vmware/navigating-to-grid-manager.html"
+    - title: 재료를 준비합니다
+      url: "../swnodes/required-materials.html"
+    - title: Linux 설치 자동화
+      url: "../swnodes/automating-installation-linux.html"
+    - title: VMware 설치 자동화
+      url: "../swnodes/automating-grid-node-deployment-in-vmware-vsphere.html"
+    - title: Linux 배포
+      url: "../swnodes/creating-node-configuration-files.html"
+    - title: VMware 배포
+      url: "../swnodes/collecting-information-about-your-deployment-environment.html"
+    - title: 완전한 소프트웨어 기반 노드 설치
+      url: "../swnodes/navigating-to-grid-manager.html"
   - title: 업그레이드 또는 핫픽스
     links:
     - title: 새로운 소식

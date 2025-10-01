@@ -141,6 +141,8 @@ NOTE: ILM 규칙은 참조 시간에 * 사용자 정의 생성 시간 * 과 Bala
 
 다음 요청 헤더는 지원되지 않습니다.
 
+* `If-Match`
+* `If-None-Match`
 * `x-amz-acl`
 * `x-amz-sdk-checksum-algorithm`
 * `x-amz-trailer`

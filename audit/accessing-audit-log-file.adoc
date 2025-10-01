@@ -13,6 +13,8 @@ summary: 감사 공유는 활성 audit.log 파일과 압축된 감사 로그 파
 [role="lead"]
 감사 공유에는 활성 `audit.log` 파일과 압축된 감사 로그 파일이 포함됩니다. 관리자 노드의 명령줄에서 직접 감사 로그 파일에 액세스할 수 있습니다.
 
+그만큼 `audit.log` *관리 노드/로컬 노드* 또는 *관리 노드 및 외부 시스템 로그 서버*에 대해 StorageGRID 구성하지 않는 한 파일은 비어 있습니다. 자세한 내용은 다음을 참조하세요. link:../monitor/configure-log-management.html#select-log-location["로그 위치 선택"] .
+
 .시작하기 전에
 * 있습니다. link:../admin/admin-group-permissions.html["특정 액세스 권한"]
 * 파일이 있어야 `Passwords.txt` 합니다.
@@ -33,7 +35,7 @@ summary: 감사 공유는 활성 audit.log 파일과 압축된 감사 로그 파
 
 . 감사 로그 파일이 포함된 디렉토리로 이동합니다.
 +
-`cd /var/local/log`
+`cd  /var/local/audit/export/`
 
 . 필요에 따라 현재 또는 저장된 감사 로그 파일을 봅니다.
 

@@ -31,7 +31,7 @@ NOTE: FabricPool에서 클라우드 스토리지 풀 타겟의 객체를 검색�
 S3 플랫폼 서비스를 사용하면 원격 서비스를 오브젝트 복제, 이벤트 알림 또는 검색 통합을 위한 엔드포인트로 사용할 수 있습니다. 플랫폼 서비스는 그리드의 ILM 규칙과 독립적으로 작동하며 개별 S3 버킷에 대해 활성화됩니다. 지원되는 서비스는 다음과 같습니다.
 
 * CloudMirror 복제 서비스는 지정된 오브젝트를 Amazon S3 또는 두 번째 StorageGRID 시스템에 있는 타겟 S3 버킷에 자동으로 미러링합니다.
-* 이벤트 알림 서비스는 지정된 작업에 대한 메시지를 아마존 SNS(Simple Notification Service) 이벤트 수신을 지원하는 외부 엔드포인트로 보냅니다.
+* 이벤트 알림 서비스는 지정된 작업에 대한 메시지를 Simple Notification Service(Amazon SNS) 이벤트 수신을 지원하는 외부 엔드포인트로 전송합니다.
 * 검색 통합 서비스는 외부 Elasticsearch 서비스에 개체 메타데이터를 전송하여 타사 도구를 사용하여 메타데이터를 검색, 시각화 및 분석할 수 있도록 합니다.
 
 
@@ -43,10 +43,10 @@ S3 플랫폼 서비스를 사용하면 원격 서비스를 오브젝트 복제, 
 
 FabricPool를 사용하여 데이터를 StorageGRID로 계층화하여 ONTAP 스토리지 비용을 절감할 수 있습니다. FabricPool를 사용하면 사내 또는 사외에서 데이터를 저비용 오브젝트 스토리지 계층으로 자동 계층화할 수 있습니다.
 
-수동 계층화 솔루션과 달리 FabricPool는 데이터 계층화를 자동화하여 스토리지 비용을 줄임으로써 총 소유 비용을 절감합니다. StorageGRID를 비롯한 퍼블릭 클라우드와 프라이빗 클라우드로 계층화하여 클라우드 경제성의 이점을 제공합니다.
+수동 계층화 솔루션과 달리 FabricPool 데이터 계층화를 자동화하여 저장 비용을 낮춰 총 소유 비용을 줄여줍니다.  StorageGRID 포함하여 퍼블릭 및 프라이빗 클라우드로 계층화하여 클라우드 경제의 이점을 제공합니다.
 
 .관련 정보
-* link:../ilm/what-cloud-storage-pool-is.html["Cloud Storage Pool이란?"]
+* link:../ilm/what-cloud-storage-pool-is.html["클라우드 스토리지 풀이란 무엇입니까?"]
 * link:../tenant/what-platform-services-are.html["플랫폼 서비스 관리"]
 * link:../fabricpool/index.html["FabricPool용 StorageGRID를 구성합니다"]
 

@@ -1,0 +1,66 @@
+---
+permalink: swnodes/cpu-and-ram-requirements.html 
+sidebar: sidebar 
+keywords: cpu, ram, cpu cores 
+summary: StorageGRID 소프트웨어를 설치하기 전에 StorageGRID 시스템을 지원할 준비가 되도록 하드웨어를 확인 및 구성하십시오. 
+---
+= CPU 및 RAM 요구 사항
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 소프트웨어를 설치하기 전에 StorageGRID 시스템을 지원할 준비가 되도록 하드웨어를 확인 및 구성하십시오.
+
+각 StorageGRID 노드에는 다음과 같은 최소 리소스가 필요합니다.
+
+* CPU 코어: 노드당 8개
+* RAM: 사용 가능한 총 RAM과 시스템에서 실행되는 비 StorageGRID 소프트웨어의 양에 따라 다릅니다
++
+** 일반적으로 노드당 최소 24GB, 총 시스템 RAM보다 2 ~ 16GB 작습니다
+** 각 테넌트당 최소 64GB의 버킷이 약 5,000개 있습니다
+
+
+
+
+소프트웨어 기반 메타데이터 전용 노드 리소스는 기존 스토리지 노드 리소스와 일치해야 합니다. 예를 들면 다음과 같습니다.
+
+* 기존 StorageGRID 사이트에서 SG6000 또는 SG6100 어플라이언스를 사용 중인 경우 소프트웨어 기반 메타데이터 전용 노드가 다음과 같은 최소 요구사항을 충족해야 합니다.
++
+** 128GB RAM
+** 8코어 CPU
+** Cassandra 데이터베이스용 8TB SSD 또는 동급 스토리지(rangedb/0)
+
+
+* 기존 StorageGRID 사이트가 24GB RAM, 8코어 CPU, 3TB 또는 4TB의 메타데이터 스토리지를 갖춘 가상 스토리지 노드를 사용하는 경우, 소프트웨어 기반 메타데이터 전용 노드는 비슷한 리소스(24GB RAM, 8코어 CPU, 4TB의 메타데이터 스토리지(rangedb/0))를 사용해야 합니다.
+
+
+새 StorageGRID 사이트를 추가할 때 새 사이트의 총 메타데이터 용량은 최소한 기존 StorageGRID 사이트와 일치해야 하며 새 사이트 리소스는 기존 StorageGRID 사이트의 스토리지 노드와 일치해야 합니다.
+
+
+NOTE: "Linux"는 RHEL, Ubuntu 또는 Debian 배포를 의미합니다.  지원되는 버전 목록은 다음을 참조하세요. https://imt.netapp.com/matrix/#welcome["NetApp 상호 운용성 매트릭스 툴(IMT)"^] .
+
+[role="tabbed-block"]
+====
+.리눅스
+--
+각 물리적 또는 가상 호스트에서 실행하려는 StorageGRID 노드 수가 사용 가능한 CPU 코어 수 또는 물리적 RAM을 초과하지 않는지 확인합니다. 호스트가 StorageGRID 실행 전용이 아닌 경우(권장되지 않음) 다른 애플리케이션의 리소스 요구 사항을 고려해야 합니다.
+
+--
+.VMware
+--
+VMware는 가상 머신당 하나의 노드를 지원합니다. StorageGRID 노드가 사용 가능한 물리적 RAM을 초과하지 않는지 확인합니다. 각 가상 머신은 StorageGRID를 실행하기 위한 전용이어야 합니다.
+
+--
+====
+
+CAUTION: CPU 및 메모리 사용량을 정기적으로 모니터링하여 이러한 리소스가 작업 부하를 지속적으로 수용할 수 있도록 합니다. 예를 들어, 가상 스토리지 노드에 대한 RAM 및 CPU 할당을 두 배로 하면 StorageGRID 어플라이언스 노드에 제공되는 것과 유사한 리소스를 제공할 수 있습니다. 또한 노드당 메타데이터 양이 500GB를 초과하는 경우 노드당 RAM을 48GB 이상으로 늘리는 것이 좋습니다. 개체 메타데이터 스토리지 관리, 메타데이터 예약 공간 설정 증가, CPU 및 메모리 사용량 모니터링에 대한 자세한 내용은link:../admin/index.html["관리"] link:../monitor/index.html["모니터링"], 및 link:../upgrade/index.html["업그레이드 중"]StorageGRID에 대한 지침을 참조하십시오.
+
+하이퍼스레딩이 기본 물리적 호스트에서 활성화된 경우 노드당 8개의 가상 코어(4개의 물리적 코어)를 제공할 수 있습니다. 하이퍼스레딩이 기본 물리적 호스트에서 사용되지 않는 경우 노드당 8개의 물리적 코어를 제공해야 합니다.
+
+가상 시스템을 호스트로 사용하고 VM의 크기와 수를 제어하는 경우 각 StorageGRID 노드에 대해 단일 VM을 사용하고 그에 따라 VM 크기를 조정해야 합니다.
+
+(RHEL, Debian, Ubuntu에만 해당) 프로덕션 배포의 경우 동일한 물리적 스토리지 하드웨어 또는 가상 호스트에서 여러 스토리지 노드를 실행하면 안 됩니다.  단일 StorageGRID 배포에서 각 스토리지 노드는 자체적으로 격리된 장애 도메인에 있어야 합니다.  단일 하드웨어 장애가 단일 스토리지 노드에만 영향을 미치도록 하면 개체 데이터의 내구성과 가용성을 극대화할 수 있습니다.
+
+도 link:storage-and-performance-requirements.html["요구사항을 충족해야 합니다"]참조하십시오.

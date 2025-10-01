@@ -36,12 +36,13 @@ NOTE: 새 IP 주소의 그리드에서 기존 DNS 서버에 액세스할 수 없
 
 +
 
-NOTE: StorageGRID 시스템에 SSO가 설정되어 있고 모든 기반 당사자 트러스트가 관리자 노드 IP 주소(권장되는 경우 정규화된 도메인 이름 대신)를 사용하여 구성된 경우 AD FS(Active Directory Federation Services)에서 이러한 기반 당사자 트러스트를 업데이트하거나 재구성할 준비를 해야 합니다. IP 주소를 변경한 직후 을 link:../admin/configuring-sso.html["Single Sign-On 구성"]참조하십시오.
+NOTE: StorageGRID 시스템에서 SSO가 활성화되어 있고 모든 신뢰 당사자 트러스트가 권장되는 정규화된 도메인 이름 대신 관리자 노드 IP 주소를 사용하여 구성된 경우 IP 주소를 변경한 직후 AD FS(Active Directory Federation Services)에서 이러한 신뢰 당사자 트러스트를 업데이트하거나 재구성할 준비를 하세요. 보다 link:../admin/configure-sso.html["Single Sign-On 구성"] .
 
 +
 
 NOTE: 필요한 경우 새 IP 주소에 대한 새 서브넷을 추가합니다.
 
+. 기본적으로 외부 SSH 액세스는 차단됩니다.  필요한 경우,link:../admin/manage-external-ssh-access.html["일시적으로 접근 허용"] .
 . 기본 관리자 노드에 로그인합니다.
 +
 .. 다음 명령을 입력합니다. `ssh admin@_primary_Admin_Node_IP_`
@@ -130,12 +131,13 @@ NOTE: 모든 노드가 동시에 종료되도록 전체 그리드를 종료해�
 .. 새 DNS 서버를 추가한 경우 이전 DNS 서버 값을 삭제합니다.
 
 
-. Grid Manager에서 새 복구 패키지를 다운로드합니다.
+. Grid Manager에서 새로운 복구 패키지를 다운로드하세요.
 +
-.. 유지보수 * > * 시스템 * > * 복구 패키지 * 를 선택합니다.
+.. *유지관리* > *시스템* > *복구 패키지*를 선택하세요.
 .. 프로비저닝 암호를 입력합니다.
 
 
+. 외부 SSH 액세스를 허용한 경우link:../admin/manage-external-ssh-access.html["블록 접근"] IP 주소 변경을 마치면.
 
 
 .관련 정보

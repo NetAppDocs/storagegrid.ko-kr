@@ -1,0 +1,85 @@
+---
+permalink: swnodes/index.html 
+sidebar: sidebar 
+keywords: about ubuntu, ubuntu overview, vnware, red hat enterprise linux, rhel, quick start 
+summary: Linux 또는 VMware StorageGRID 노드를 설치하려면 다음의 고급 단계를 따르세요. 
+---
+= 소프트웨어 기반 노드에 StorageGRID 설치하기 위한 빠른 시작
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Linux 또는 VMware StorageGRID 노드를 설치하려면 다음의 고급 단계를 따르세요.
+
+
+NOTE: "Linux"는 RHEL, Ubuntu 또는 Debian 배포를 의미합니다.  지원되는 버전 목록은 다음을 참조하세요. https://imt.netapp.com/matrix/#welcome["NetApp 상호 운용성 매트릭스 툴(IMT)"^] .
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"] 준비
+[role="quick-margin-list"]
+* 에 대해 자세히 link:../primer/storagegrid-architecture-and-network-topology.html["StorageGRID 아키텍처 및 네트워크 토폴로지"]알아보십시오.
+* 에 대해 자세히 link:../network/index.html["StorageGRID 네트워킹"]알아보십시오.
+* 를 수집하고 link:required-materials.html["필요한 정보 및 자료"]준비합니다.
+* (VMware만 해당) 설치 및 구성link:software-requirements.html["VMware vSphere Hypervisor, vCenter 및 ESX 호스트"] .
+* 필요한 를 link:cpu-and-ram-requirements.html["CPU 및 RAM"]준비합니다.
+* 에 대해 를 link:storage-and-performance-requirements.html["스토리지 및 성능 요구사항"]제공합니다.
+* (리눅스만 해당)link:how-host-wide-settings-change.html["Linux 서버를 준비합니다"] StorageGRID 노드를 호스팅합니다.
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"] 구축
+[role="quick-margin-para"]
+그리드 노드 구축 그리드 노드를 구축하면 StorageGRID 시스템의 일부로 생성되고 하나 이상의 네트워크에 연결됩니다.
+
+[role="quick-margin-list"]
+* (Linux 전용) 1단계에서 준비한 호스트에 소프트웨어 기반 그리드 노드를 배포하려면 Linux 명령줄을 사용하십시오.link:creating-node-configuration-files.html["노드 구성 파일"] .
+* (VMware 전용) VMware vSphere Web Client, .vmdk 파일 및 .ovf 파일 템플릿 세트를 사용하여link:collecting-information-about-your-deployment-environment.html["소프트웨어 기반 노드를 가상 머신(VM)으로 구축"] 1단계에서 준비한 서버에서.
+* StorageGRID 어플라이언스 노드를 배포하려면 를 https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["하드웨어 설치를 빠르게 시작합니다"^]따르십시오.
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["세 가지"] 구성
+[role="quick-margin-para"]
+모든 노드가 배포되면 Grid Manager를 사용하여 를 link:navigating-to-grid-manager.html["그리드를 구성하고 설치를 완료합니다"]수행합니다.
+
+
+
+== 설치를 자동화합니다
+
+
+NOTE: "Linux"는 RHEL, Ubuntu 또는 Debian 배포를 의미합니다.  지원되는 버전 목록은 다음을 참조하세요. https://imt.netapp.com/matrix/#welcome["NetApp 상호 운용성 매트릭스 툴(IMT)"^] .
+
+[role="tabbed-block"]
+====
+.리눅스
+--
+StorageGRID 호스트 서비스 설치 및 그리드 노드 구성을 자동화하여 시간을 절약하고 일관성을 제공할 수 있습니다.
+
+* Ansible, Puppet, Chef와 같은 표준 오케스트레이션 프레임워크를 사용하여 다음을 자동화합니다.
++
+** 리눅스 설치
+** 네트워킹 및 스토리지 구성
+** 컨테이너 엔진 및 StorageGRID 호스트 서비스 설치
+** 가상 그리드 노드 구축
+
+
++
+보다 link:automating-installation-linux.html#automate-the-installation-and-configuration-of-the-storagegrid-host-service["StorageGRID 호스트 서비스의 설치 및 구성을 자동화합니다"] .
+
+* 그리드 노드를 배포한 후link:automating-installation-linux.html#automate-the-configuration-of-storagegrid["StorageGRID 시스템의 구성을 자동화합니다"] 설치 아카이브에 제공된 Python 구성 스크립트를 사용합니다.
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/automating-appliance-installation-and-configuration.html["어플라이언스 그리드 노드의 설치 및 구성을 자동화합니다"^]
+* StorageGRID 구축의 고급 개발자인 경우 를 사용하여 그리드 노드 설치를 link:overview-of-installation-rest-api.html["REST API 설치"]자동화합니다.
+
+
+--
+.VMware
+--
+시간을 절약하고 일관성을 제공하기 위해 그리드 노드의 구축과 구성 및 StorageGRID 시스템 구성을 자동화할 수 있습니다.
+
+* link:automating-grid-node-deployment-in-vmware-vsphere.html#automate-grid-node-deployment["VMware vSphere를 사용하여 그리드 노드 구축을 자동화합니다"]..
+* 그리드 노드를 배포한 후 link:automating-grid-node-deployment-in-vmware-vsphere.html#automate-the-configuration-of-storagegrid["StorageGRID 시스템의 구성을 자동화합니다"]설치 아카이브에 제공된 Python 구성 스크립트를 사용합니다.
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/automating-appliance-installation-and-configuration.html["어플라이언스 그리드 노드의 설치 및 구성을 자동화합니다"^]
+* StorageGRID 구축의 고급 개발자인 경우 를 사용하여 그리드 노드 설치를 link:overview-of-installation-rest-api.html["REST API 설치"]자동화합니다.
+
+
+--
+====

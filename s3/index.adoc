@@ -19,7 +19,7 @@ S3 REST API를 지원하므로 StorageGRID 시스템을 사용하는 사내 오�
 
 == 지원되는 버전
 
-StorageGRID는 다음과 같은 S3 및 HTTP 버전을 지원합니다.
+StorageGRID 다음과 같은 특정 버전의 STS, S3 및 HTTP를 지원합니다.
 
 [cols="1a,1a"]
 |===
@@ -27,9 +27,18 @@ StorageGRID는 다음과 같은 S3 및 HTTP 버전을 지원합니다.
 
 
  a| 
+STS AssumeRole API 사양
+ a| 
+https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html["Amazon Web Services(AWS) 설명서: Amazon Assumerole API 참조"^]
+
+AssumeRole에 대한 자세한 내용은 다음을 참조하세요.link:../tenant/manage-groups.html#set-up-assumerole["AssumeRole 설정"] .
+
+
+
+ a| 
 S3 API 사양
  a| 
-http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html["AWS(Amazon Web Services) 문서: Amazon Simple Storage Service API Reference 를 참조하십시오"^]
+http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html["AWS 설명서: Amazon Simple Storage Service API 참조"^]
 
 
 
@@ -52,6 +61,15 @@ https://datatracker.ietf.org/doc/html/rfc2616["IETF RFC 2616:HTTP/1.1(Hypertext 
 [cols="1a,4a"]
 |===
 | 놓습니다 | 설명 
+
+
+ a| 
+12.0
+ a| 
+* 관리 API를 사용하여 다른 도메인이 StorageGRID 의 데이터에 액세스할 수 있도록 하는 관리 인터페이스에 대한 CORS(교차 출처 리소스 공유) 지원이 추가되었습니다. link:../admin/enable-cross-origin-resource-sharing-for-management-interface.html["자세한 정보"] .
+* STS AssumeRole 및 세션 정책에 대한 지원이 추가되었습니다. 보다 link:example-session-policies.html["세션 정책의 예"] .  테넌트 그룹에서 AssumeRole을 설정할 수 있습니다.
+
+
 
 
  a| 
@@ -201,6 +219,6 @@ CORS(Cross-Origin Resource Sharing), 그리드 노드에 대한 S3 클라이언�
  a| 
 10.0
  a| 
-StorageGRID 시스템에서 S3 REST API의 초기 지원. 현재 지원되는 _Simple Storage Service API Reference_는 2006-03-01입니다.
+StorageGRID 시스템에서 S3 REST API를 처음 지원합니다.  현재 지원되는 _Simple Storage Service API Reference_ 버전은 2006-03-01입니다.
 
 |===

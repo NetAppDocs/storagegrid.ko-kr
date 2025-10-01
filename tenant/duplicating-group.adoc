@@ -19,9 +19,9 @@ summary: 기존 그룹을 복제하면 새 그룹을 더 빠르게 만들 수 �
 
 
 .단계
-. 액세스 관리 * > * 그룹 * 을 선택합니다.
+. *액세스 관리* > *그룹*을 선택합니다.
 . 복제할 그룹의 확인란을 선택합니다.
-. Duplicate group * 을 선택합니다. 그룹 만들기에 대한 자세한 내용은 또는 의 그룹 만들기에 대한 지침을 참조하십시오link:creating-groups-for-s3-tenant.html["S3 테넌트"]link:creating-groups-for-swift-tenant.html["Swift 테넌트입니다"].
+. *그룹 복제*를 선택하세요.  그룹 생성에 대한 추가 세부 사항은 그룹 생성 지침을 참조하세요.link:creating-groups-for-s3-tenant.html["S3 테넌트"] .
 . 로컬 그룹을 생성하려면 * Local group * 탭을 선택하고, 이전에 구성된 ID 소스에서 그룹을 가져오려면 * Federated group * 탭을 선택합니다.
 +
 StorageGRID 시스템에 SSO(Single Sign-On)가 활성화된 경우 로컬 그룹에 속한 사용자는 에 따라 클라이언트 응용 프로그램을 사용하여 테넌트의 리소스를 관리할 수 있지만 테넌트 관리자에 로그인할 수 link:tenant-management-permissions.html["그룹 권한"]없습니다.

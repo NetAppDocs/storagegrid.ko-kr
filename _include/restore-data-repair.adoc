@@ -6,7 +6,7 @@
 
 == 스토리지 노드의 호스트 이름을 찾습니다
 
-. 기본 관리자 노드에 로그인합니다.
+. 모든 관리 노드에 로그인하세요.
 +
 .. 다음 명령을 입력합니다. `ssh admin@_primary_Admin_Node_IP_`
 .. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
@@ -42,7 +42,7 @@ NOTE: 둘 이상의 노드에 대한 작업을 동시에 실행할 수 `repair-d
 `repair-data start-replicated-node-repair --nodes SG-DC-SN3`
 
 
-NOTE: 개체 데이터가 복원되면 StorageGRID 시스템에서 복제된 개체 데이터를 찾을 수 없는 경우 * 개체 손실 * 경고가 트리거됩니다. 시스템 전체의 스토리지 노드에서 경고가 트리거될 수 있습니다. 손실의 원인과 복구가 가능한지 확인해야 합니다. 을 link:../troubleshoot/investigating-lost-objects.html["손실된 개체를 조사합니다"]참조하십시오.
+NOTE: 개체 데이터가 복원되면 StorageGRID 시스템이 복제된 개체 데이터를 찾을 수 없는 경우 *개체 손실* 경고가 트리거됩니다.  시스템 전체의 스토리지 노드에서 경고가 발생할 수 있습니다.  손실의 원인을 파악하고 회복이 가능한지 확인해야 합니다. 보다 link:../troubleshoot/investigating-potentially-lost-objects.html["분실 가능성이 있는 물건을 조사하세요"] .
 
 --
 .삭제 코딩(EC) 데이터

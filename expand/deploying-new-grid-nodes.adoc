@@ -22,7 +22,7 @@ summary: 확장 시 새 그리드 노드를 구축하는 단계는 그리드를 
 확장에 추가할 각 VMware 노드에 대해 VMware vSphere에 가상 머신을 구축해야 합니다.
 
 .단계
-. link:../vmware/deploying-storagegrid-node-as-virtual-machine.html["새 노드를 가상 머신으로 구축합니다"] 하나 이상의 StorageGRID 네트워크에 연결합니다.
+. link:../swnodes/deploying-storagegrid-node-as-virtual-machine.html["새 노드를 가상 머신으로 구축합니다"]하나 이상의 StorageGRID 네트워크에 연결합니다.
 +
 노드를 배포할 때 선택적으로 노드 포트를 재매핑하거나 CPU 또는 메모리 설정을 늘릴 수 있습니다.
 
@@ -36,12 +36,7 @@ summary: 확장 시 새 그리드 노드를 구축하는 단계는 그리드를 
 그리드 노드는 새 Linux 호스트 또는 기존 Linux 호스트에 배포할 수 있습니다. 그리드에 추가하려는 StorageGRID 노드의 CPU, RAM 및 스토리지 요구 사항을 지원하기 위해 추가 Linux 호스트가 필요한 경우 호스트를 처음 설치할 때와 동일한 방법으로 준비합니다. 그런 다음 설치 중에 그리드 노드를 구축하는 것과 동일한 방식으로 확장 노드를 배포합니다.
 
 .시작하기 전에
-* 사용 중인 Linux 버전에 대한 StorageGRID 설치 지침이 있으며 하드웨어 및 스토리지 요구 사항을 검토했습니다.
-+
-** link:../rhel/index.html["Red Hat Enterprise Linux에 StorageGRID를 설치합니다"]
-** link:../ubuntu/index.html["Ubuntu 또는 Debian에 StorageGRID를 설치합니다"]
-
-
+* Linux 버전에 대한 StorageGRID 설치 지침이 있으며 다음을 검토했습니다.link:../swnodes/index.html["하드웨어 및 스토리지 요구 사항"] .
 * 기존 호스트에 새 그리드 노드를 배포하려는 경우 기존 호스트에 추가 노드에 대한 CPU, RAM 및 스토리지 용량이 충분한지 확인했습니다.
 * 장애 도메인을 최소화할 계획이 있습니다. 예를 들어, 단일 물리적 호스트에 모든 게이트웨이 노드를 배포해서는 안 됩니다.
 +
@@ -145,9 +140,6 @@ StorageGRID 어플라이언스 설치 관리자 홈 페이지가 나타납니다
 
 . StorageGRID 어플라이언스 설치 관리자 홈 페이지에서 * 설치 시작 * 을 선택합니다.
 +
-image::../media/appliance_installer_home_start_installation_enabled.gif[이 이미지는 주변 텍스트로 설명됩니다.]
-
-+
 현재 상태가 "Installation is in progress(설치 진행 중)"로 변경되고 Monitor Installation(모니터 설치) 페이지가 표시됩니다.
 
 . 확장에 여러 어플라이언스 노드가 포함된 경우 각 어플라이언스에 대해 이전 단계를 반복합니다.
@@ -158,9 +150,6 @@ NOTE: 여러 어플라이언스 스토리지 노드를 한 번에 배포해야 �
 . 모니터 설치 페이지에 수동으로 액세스해야 하는 경우 메뉴 모음에서 * 모니터 설치 * 를 선택합니다.
 +
 Monitor Installation(모니터 설치) 페이지에 설치 진행률이 표시됩니다.
-
-+
-image::../media/monitor_installation_configure_storage.gif[이 이미지는 주변 텍스트로 설명됩니다.]
 
 +
 파란색 상태 표시줄은 현재 진행 중인 작업을 나타냅니다. 녹색 상태 표시줄은 성공적으로 완료된 작업을 나타냅니다.
@@ -191,8 +180,5 @@ NOTE: 설치 프로그램은 이전 설치에서 완료된 작업이 다시 실�
 +
 
 NOTE: 이 확장에서 추가한 모든 노드가 승인을 받을 준비가 될 때까지 기다린 다음 그리드 관리자로 이동하여 노드를 승인합니다.
-
-+
-image::../media/monitor_installation_install_sgws.gif[이 이미지는 주변 텍스트로 설명됩니다.]
 
 

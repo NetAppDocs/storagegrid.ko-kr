@@ -117,11 +117,10 @@ image:../media/icon_alert_green_checkmark.png["아이콘 경고 녹색 확인 �
 
 * 해결된 경고 *: 해결된 경고 기록을 검색하고 볼 수 있습니다.
 
-비디오를 시청한 경우(선택 사항): https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2eea81c5-8323-417f-b0a0-b1ff008506c1["비디오: 경고 개요"^]
+선택적으로 비디오를 시청했습니다.
 
-[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2eea81c5-8323-417f-b0a0-b1ff008506c1]
-image::../media/video-screenshot-alert-overview-118.png[비디오: 경고 개요]
-
+.알림 개요
+video::2eea81c5-8323-417f-b0a0-b1ff008506c1[panopto]
 다음 표에서는 현재 및 해결된 경고에 대해 Grid Manager에 표시되는 정보를 설명합니다.
 
 [cols="1a,3a"]

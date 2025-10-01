@@ -1,0 +1,95 @@
+---
+section: swnodes
+title: 소프트웨어 기반 노드 설치
+entries:
+- title: 빠른 시작
+  pdf-filename: 소프트웨어 기반 노드에 StorageGRID 설치
+  url: "/swnodes/index.html"
+- title: 소프트웨어 기반 노드에 대한 설치를 계획하고 준비합니다.
+  entries:
+  - title: 필요한 정보 및 자료
+    url: "/swnodes/required-materials.html"
+  - title: StorageGRID 설치 파일을 다운로드하고 압축을 풉니다
+    url: "/swnodes/downloading-and-extracting-storagegrid-installation-files.html"
+  - title: 설치 파일을 수동으로 확인합니다
+    url: "/swnodes/download-files-verify.html"
+  - title: 소프트웨어 요구 사항
+    url: "/swnodes/software-requirements.html"
+  - title: CPU 및 RAM 요구 사항
+    url: "/swnodes/cpu-and-ram-requirements.html"
+  - title: 요구사항을 충족해야 합니다
+    url: "/swnodes/storage-and-performance-requirements.html"
+  - title: 노드 컨테이너 마이그레이션 요구 사항(Linux)
+    url: "/swnodes/node-container-migration-requirements.html"
+  - title: 호스트 준비(Linux)
+    entries:
+    - title: 호스트 전체의 설정 변경 방법
+      url: "/swnodes/how-host-wide-settings-change.html"
+    - title: Linux를 설치합니다
+      url: "/swnodes/installing-linux.html"
+    - title: AppArmor 프로필 설치(Ubuntu 및 Debian만 해당)
+      url: "/swnodes/understanding-apparmor-profile-installation.html"
+    - title: 호스트 네트워크를 구성합니다
+      url: "/swnodes/configuring-host-network.html"
+    - title: 호스트 스토리지를 구성합니다
+      url: "/swnodes/configuring-host-storage.html"
+    - title: 컨테이너 엔진 스토리지 볼륨 구성
+      url: "/swnodes/configuring-docker-storage-volume.html"
+    - title: StorageGRID 호스트 서비스를 설치합니다
+      url: "/swnodes/installing-storagegrid-webscale-host-services.html"
+- title: 설치를 자동화합니다
+  entries:
+  - title: 자동 설치(Linux)
+    url: "/swnodes/automating-installation-linux.html"
+  - title: 설치 자동화(VMware)
+    url: "/swnodes/automating-grid-node-deployment-in-vmware-vsphere.html"
+- title: 가상 그리드 노드 배포
+  entries:
+  - title: 배포 환경(VMware)에 대한 정보 수집
+    url: "/swnodes/collecting-information-about-your-deployment-environment.html"
+  - title: 배포를 위한 노드 구성 파일 생성(Linux)
+    url: "/swnodes/creating-node-configuration-files.html"
+  - title: 그리드 노드가 기본 관리자 노드를 검색하는 방법
+    url: "/swnodes/how-grid-nodes-discover-primary-admin-node.html"
+  - title: StorageGRID 노드를 가상 머신(VMware)으로 배포
+    url: "/swnodes/deploying-storagegrid-node-as-virtual-machine.html"
+  - title: 예제 노드 구성 파일(Linux)
+    url: "/swnodes/example-node-configuration-files.html"
+  - title: StorageGRID 구성 검증(Linux)
+    url: "/swnodes/validating-storagegrid-configuration.html"
+  - title: StorageGRID 호스트 서비스 시작(Linux)
+    url: "/swnodes/starting-storagegrid-host-service.html"
+- title: 그리드 구성 및 설치 완료
+  entries:
+  - title: 그리드 관리자로 이동합니다
+    url: "/swnodes/navigating-to-grid-manager.html"
+  - title: 라이센스 정보를 지정합니다
+    url: "/swnodes/specifying-storagegrid-license-information.html"
+  - title: 사이트를 추가합니다
+    url: "/swnodes/adding-sites.html"
+  - title: 그리드 네트워크 서브넷을 지정합니다
+    url: "/swnodes/specifying-grid-network-subnets.html"
+  - title: 보류 중인 그리드 노드를 승인합니다
+    url: "/swnodes/approving-pending-grid-nodes.html"
+  - title: NTP 서버 정보를 지정합니다
+    url: "/swnodes/specifying-network-time-protocol-server-information.html"
+  - title: DNS 서버 정보를 지정합니다
+    url: "/swnodes/specifying-domain-name-system-server-information.html"
+  - title: 시스템 암호를 지정합니다
+    url: "/swnodes/specifying-storagegrid-system-passwords.html"
+  - title: 구성을 검토하고 설치를 완료합니다
+    url: "/swnodes/reviewing-your-configuration-and-completing-installation.html"
+  - title: 설치 후 지침
+    url: "/swnodes/post-installation-guidelines.html"
+- title: REST API 설치
+  url: "/swnodes/overview-of-installation-rest-api.html"
+- title: 다음 단계로 넘어갑니다
+  url: "/swnodes/where-to-go-next.html"
+- title: 설치 문제를 해결합니다
+  url: "/swnodes/troubleshooting-installation-issues.html"
+- title: 스크립트 예제
+  entries:
+  - title: 예제 /etc/sysconfig/network-scripts(RHEL)
+    url: "/swnodes/example-etc-sysconfig-network-scripts.html"
+  - title: 예시 /etc/network/interfaces (Ubuntu 또는 Debian)
+    url: "/swnodes/example-etc-network-interfaces.html"

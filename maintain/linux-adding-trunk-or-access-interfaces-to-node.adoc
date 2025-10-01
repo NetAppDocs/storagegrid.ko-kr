@@ -14,12 +14,7 @@ summary: Linux 노드를 설치한 후 추가 트렁크 또는 액세스 인터�
 Linux 노드를 설치한 후 추가 트렁크 또는 액세스 인터페이스를 추가할 수 있습니다. 추가한 인터페이스는 VLAN 인터페이스 페이지와 HA 그룹 페이지에 표시됩니다.
 
 .시작하기 전에
-* Linux 플랫폼에 StorageGRID를 설치하는 지침을 액세스할 수 있습니다.
-+
-** link:../rhel/index.html["Red Hat Enterprise Linux에 StorageGRID를 설치합니다"]
-** link:../ubuntu/index.html["Ubuntu 또는 Debian에 StorageGRID를 설치합니다"]
-
-
+* 당신은에 액세스할 수 있습니다link:../swnodes/index.html["StorageGRID 설치 지침"] Linux 플랫폼에서.
 *  `Passwords.txt`파일이 있습니다.
 * 있습니다. link:../admin/admin-group-permissions.html["특정 액세스 권한"]
 

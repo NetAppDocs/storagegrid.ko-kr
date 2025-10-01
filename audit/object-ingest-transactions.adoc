@@ -13,7 +13,7 @@ summary: S3 API 관련 감사 메시지를 찾아 감사 로그에서 클라이�
 [role="lead"]
 S3 API 관련 감사 메시지를 찾아 감사 로그에서 클라이언트 수집 트랜잭션을 식별할 수 있습니다.
 
-수집 트랜잭션 중에 생성된 모든 감사 메시지가 다음 표에 나와 있지 않습니다. 수집 트랜잭션을 추적하는 데 필요한 메시지만 포함됩니다.
+수집 트랜잭션 중에 생성된 모든 감사 메시지가 다음 표에 나열되어 있는 것은 아닙니다.  수집된 트랜잭션을 추적하는 데 필요한 메시지만 포함됩니다.
 
 
 
@@ -34,40 +34,6 @@ S3 PUT 수집 트랜잭션이 성공적으로 완료되었습니다.
 CBID, S3BK, S3KY
  a| 
 link:sput-s3-put.html["SPUT: S3 PUT"]
-
-
-
- a| 
-ORLM
- a| 
-개체 규칙이 충족되었습니다
- a| 
-이 개체에 대한 ILM 정책이 충족되었습니다.
- a| 
-CBID
- a| 
-link:orlm-object-rules-met.html["ORLM: 개체 규칙이 충족되었습니다"]
-
-|===
-
-
-== SWIFT 수집 감사 메시지
-
-[cols="1a,1a,2a,1a,2a"]
-|===
-| 코드 | 이름 | 설명 | 트레이스 | 을 참조하십시오 
-
-
- a| 
-WPUT
- a| 
-스위프트 PUT 트랜잭션
- a| 
-Swift Put 수집 트랜잭션이 성공적으로 완료되었습니다.
- a| 
-CBID, WCON, WOBJ
- a| 
-link:wput-swift-put.html["WPUT: Swift Put"]
 
 
 
@@ -124,7 +90,7 @@ ORLM 메시지는 이 개체에 대한 ILM 정책이 충족되었음을 나타�
 ----
 2019-02-23T01:52:54.647537 [AUDT:[CBID(UI64):0xFA8ABE5B5001F7E2][RULE(CSTR):"EC_2_plus_1"][STAT(FC32):DONE][CSIZ(UI64):10000][UUID(CSTR):"E291E456-D11A-4701-8F51-D2F7CC9AFECA"][LOCS(CSTR):"CLEC 1 A471E45D-A400-47C7-86AC-12E77F229831"][RSLT(FC32):SUCS][AVER(UI32):10][ATIM(UI64):1550929974537]\[ATYP\(FC32\):ORLM\][ANID(UI32):12355278][AMID(FC32):ILMX][ATID(UI64):4168559046473725560]]
 ----
-경로 필드에는 사용된 API에 따라 S3 버킷과 키 정보, Swift 컨테이너 및 오브젝트 정보가 포함됩니다.
+PATH 필드에는 S3 버킷과 키 정보가 포함됩니다.
 
 [listing]
 ----

@@ -44,7 +44,7 @@ Tenant Management API는 Bearer Token Authentication Scheme을 지원합니다. 
 NOTE: StorageGRID 시스템에서 SSO(Single Sign-On)가 활성화된 경우 인증을 위해 다른 단계를 수행해야 합니다. 를 link:../admin/using-grid-management-api.html["Grid Management API 사용 지침"]참조하십시오.
 
 * * config *: 제품 릴리스 및 테넌트 관리 API 버전과 관련된 작업. 제품 릴리스 버전과 해당 릴리스에서 지원하는 API의 주요 버전을 나열할 수 있습니다.
-* * 컨테이너 *: S3 버킷 또는 Swift 컨테이너에서 작업
+* *컨테이너*: S3 버킷에 대한 작업입니다.
 * * 비활성화됨 - 기능 *: 비활성화된 기능을 보기 위한 작업.
 * * 엔드포인트 *: 엔드포인트를 관리하는 운영 엔드포인트는 S3 버킷이 StorageGRID CloudMirror 복제, 알림 또는 검색 통합에 외부 서비스를 사용할 수 있도록 합니다.
 * * 그리드 페더레이션 - 연결 *: 그리드 페더레이션 연결 및 교차 그리드 복제에서의 작업.

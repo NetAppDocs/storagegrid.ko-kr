@@ -73,7 +73,7 @@ entries:
     url: "/ilm/troubleshooting-cloud-storage-pools.html"
 - title: 삭제 코딩 프로필을 관리합니다
   url: "/ilm/manage-erasure-coding-profiles.html"
-- title: 영역 구성(옵션 및 S3만 해당)
+- title: S3 지역 구성
   url: "/ilm/configuring-regions-optional-and-s3-only.html"
 - title: ILM 규칙을 생성합니다
   entries:

@@ -53,13 +53,11 @@ NOTE: 의 경우 link:enabling-s3-object-lock-globally.html["전역 S3 오브젝
 
 --
 ====
-* 비디오를 시청한 경우(선택 사항): https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e768d4da-da88-413c-bbaa-b1ff00874d10["비디오: ILM 정책 개요"^]
-+
-[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e768d4da-da88-413c-bbaa-b1ff00874d10]
-image::../media/video-screenshot-ilm-policies-118.png[비디오: ILM 정책 개요]
+* 선택적으로 비디오를 시청했습니다.
 
 
-
+.ILM 정책 개요
+video::e768d4da-da88-413c-bbaa-b1ff00874d10[panopto]
 도 link:ilm-policy-overview.html["ILM 정책 사용"]참조하십시오.
 
 .단계
@@ -255,10 +253,10 @@ ILM 정책을 활성화하면 시스템은 새 정책을 모든 노드에 배포
 --
 .여러 정책을 활성화합니다
 --
-여러 정책을 활성화하려면 태그를 생성하고 각 태그에 정책을 할당해야 합니다.
+여러 정책을 활성화하려면 정책 태그를 만들고 각 태그에 정책을 할당해야 합니다.  그리드에 대해 최대 10개의 정책 태그를 만들 수 있습니다.
 
 
-TIP: 여러 태그를 사용하는 경우 테넌트가 정책 태그를 버킷에 자주 재할당하면 그리드 성능이 영향을 받을 수 있습니다. 신뢰할 수 없는 테넌트가 있는 경우 기본 태그만 사용하는 것이 좋습니다.
+TIP: 여러 정책 태그를 사용하는 경우 테넌트가 정책 태그를 버킷에 자주 다시 할당하면 그리드 성능에 영향을 줄 수 있습니다.  신뢰할 수 없는 테넌트가 있는 경우 기본 정책 태그만 사용하는 것이 좋습니다.
 
 . ILM * > * 정책 태그 * 를 선택합니다.
 . Create * 를 선택합니다.

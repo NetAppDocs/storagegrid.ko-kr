@@ -3,18 +3,18 @@
 
 
 .시작하기 전에
-* 을 사용하여 그리드 관리자에 로그인해야 link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]합니다.
-* 루트 액세스 권한 또는 기타 그리드 구성 권한이 있어야 합니다.
+* 을 사용하여 그리드 관리자에 로그인되어 있습니다.link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]
+* 루트 액세스 권한 또는 기타 그리드 구성 권한이 있습니다.
 
 
 .단계
-. 지원 * > * 도구 * > * AutoSupport * 를 선택합니다.
+. *지원* > *도구* > * AutoSupport*를 선택하세요.
 . 작업 * 탭에서 * 사용자 트리거 AutoSupport 전송 * 을 선택합니다.
 +
-StorageGRID에서 NetApp Support 사이트로 AutoSupport 패키지 보내기를 시도합니다. 시도가 성공하면 * Results * 탭의 * Most Recent Result * 및 * Last Successful Time * 값이 업데이트됩니다. 문제가 발생하면 * Most latest result * 값이 "Failed"로 업데이트되고 StorageGRID는 AutoSupport 패키지를 다시 보내지 않습니다.
+StorageGRID NetApp 지원 사이트로 AutoSupport 패키지를 보내려고 시도합니다.  시도가 성공하면 *결과* 탭의 *최근 결과* 및 *마지막 성공 시간* 값이 업데이트됩니다.  문제가 있는 경우 *최근 결과* 값이 "실패"로 업데이트되고 StorageGRID AutoSupport 패키지를 다시 보내지 않습니다.
 
-+
-
-TIP: 사용자가 트리거한 AutoSupport 패키지를 보낸 후 1분 후에 브라우저에서 AutoSupport 페이지를 새로 고쳐 최신 결과에 액세스합니다.
+. 1분 후, 브라우저에서 AutoSupport 페이지를 새로 고쳐 최신 결과에 액세스하세요.
 
 
+
+TIP: 또한, 당신은 할 수 있습니다link:../monitor/collecting-log-files-and-system-data.html["더 광범위한 로그 파일과 시스템 데이터를 수집합니다."] NetApp 지원 사이트로 보내주세요.

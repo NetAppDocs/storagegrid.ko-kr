@@ -22,7 +22,7 @@ summary: 실패한 기본 관리 노드에서 감사 로그를 복사할 수 있
 NOTE: 지금 실패한 관리 노드에서 감사 로그에 액세스할 수 없는 경우 호스트 복구 후 나중에 감사 로그에 액세스할 수 있습니다.
 
 .단계
-. 가능한 경우 실패한 관리 노드에 로그인합니다. 그렇지 않으면 기본 관리자 노드 또는 다른 관리자 노드(있는 경우)에 로그인합니다.
+. 가능하다면 실패한 기본 관리 노드에 로그인하세요.  그렇지 않은 경우, 사용 가능한 관리 노드에 로그인하세요.
 +
 .. 다음 명령을 입력합니다. `ssh admin@_grid_node_IP_`
 .. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
@@ -36,14 +36,28 @@ NOTE: 지금 실패한 관리 노드에서 감사 로그에 액세스할 수 없
 . AMS 서비스를 중지하면 새 로그 파일이 생성되지 않습니다.``service ams stop``
 . 감사 내보내기 디렉터리로 이동합니다.
 +
-`cd /var/local/log`
+`cd /var/local/audit/export`
 
-. 원본 파일의 이름을 `audit.log` 번호가 매겨진 고유한 파일 이름으로 바꿉니다. 예를 들어, audit.log 파일의 이름을 로 `2023-10-25.txt.1`변경합니다.
++
+(또는 `cd /var/local/log` (이전 시스템에서는)
+
+. 소스 로그 파일의 이름을 고유한 번호가 매겨진 파일 이름으로 변경합니다.
++
+[NOTE]
+====
+** 로그 파일이 있는 경우 `/var/local/audit/export` 디렉토리의 이름은 다음과 같습니다. `audit.log` .
+** 로그 파일이 있는 경우 `/var/local/log` 디렉토리의 이름은 다음과 같습니다. `localaudit.log` .
+
+
+====
++
+예를 들어, 이름을 바꾸세요 `localaudit.log` 파일로 `2025-10-22.txt.1` .
+
 +
 [listing]
 ----
 ls -l
-mv audit.log 2023-10-25.txt.1
+mv localaudit.log 2025-10-22.txt.1
 ----
 . AMS 서비스를 다시 시작합니다. `service ams start`
 . 디렉토리를 생성하여 모든 감사 로그 파일을 별도의 그리드 노드의 임시 위치에 복사합니다. `ssh admin@_grid_node_IP_ mkdir -p /var/local/tmp/saved-audit-logs`

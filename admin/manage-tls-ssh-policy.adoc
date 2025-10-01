@@ -28,56 +28,80 @@ NOTE: 이러한 정책에서 암호를 사용하도록 일부 StorageGRID 서비
 == 보안 정책을 선택합니다
 
 .단계
-. 구성 * > * 보안 * > * 보안 설정 * 을 선택합니다.
+. *구성* > *보안* > *보안 설정*을 선택합니다.
 +
 TLS 및 SSH 정책 * 탭에는 사용 가능한 정책이 표시됩니다. 현재 활성 정책은 정책 타일에 녹색 확인 표시로 표시됩니다.
 
 +
 image::../media/securitysettings_tls_ssh_policies_current.png[TLS 및 SSH 정책]
 
-. 타일을 검토하여 사용 가능한 정책에 대해 알아봅니다.
+. 사용 가능한 정책에 대해 알아보려면 탭을 검토하세요.
 +
-[cols="1a,2a"]
-|===
-| 정책 | 설명 
+[role="tabbed-block"]
+====
+.최신 호환성(기본값)
+--
+강력한 암호화가 필요하고 특별한 요구 사항이 없는 경우 기본 정책을 사용하세요.  이 정책은 대부분의 TLS 및 SSH 클라이언트와 호환됩니다.
+
+--
+.레거시 호환성
+--
+이전 클라이언트에 대한 추가 호환성 옵션이 필요한 경우 레거시 호환성 정책을 사용하세요.  이 정책의 추가 옵션으로 인해 최신 호환성 정책보다 보안성이 떨어질 수 있습니다.
+
+--
+.일반 조건
+--
+Common Criteria 인증이 필요한 경우 Common Criteria 정책을 사용하세요.
+
+--
+.FIPS 엄격한
+--
+Common Criteria 인증이 필요하고 외부 클라이언트가 로드 밸런서 엔드포인트, 테넌트 관리자 및 Grid Manager에 연결할 때 NetApp Cryptographic Security Module(NCSM) 3.0.8 또는 NetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64 모듈을 사용해야 하는 경우 FIPS 엄격한 정책을 사용하세요.  이 정책을 사용하면 성능이 저하될 수 있습니다.
+
+NCSM 3.0.8 및 NetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64 모듈은 다음 작업에 사용됩니다.
+
+** NCSM
++
+*** 다음 서비스 간 TLS 연결: ADC, AMS, CMN, DDS, LDR, SSM, NMS, mgmt-api, nginx, nginx-gw 및 cache-svc
+*** 클라이언트와 nginx-gw 서비스(로드 밸런서 엔드포인트) 간의 TLS 연결
+*** 클라이언트와 LDR 서비스 간 TLS 연결
+*** SSE-S3, SSE-C 및 저장된 개체 암호화 설정에 대한 개체 콘텐츠 암호화
+*** SSH 연결
 
 
- a| 
-최신 호환성(기본값)
- a| 
-강력한 암호화가 필요하거나 특별한 요구 사항이 없는 경우 기본 정책을 사용합니다. 이 정책은 대부분의 TLS 및 SSH 클라이언트와 호환됩니다.
++
+자세한 내용은 NIST 암호화 알고리즘 검증 프로그램을 참조하세요.link:https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4838["인증서 #4838"^] .
+
+** NetApp StorageGRID 커널 암호화 API 모듈
++
+NetApp StorageGRID Kernel Crypto API 모듈은 VM 및 StorageGRID 어플라이언스 플랫폼에만 있습니다.
+
++
+*** 엔트로피 수집
+*** 노드 암호화
+
+
++
+자세한 내용은 NIST 암호화 알고리즘 검증 프로그램을 참조하세요.link:https://csrc.nist.gov/projects/cryptographic-algorithm-validation-program/validation-search?searchMode=implementation&product=NetApp+StorageGRID+Kernel+Crypto+API&productType=-1&ipp=50["인증서 #A6242부터 #A6257까지"^] 그리고link:https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/223["엔트로피 인증서 #E223"^] .
 
 
 
- a| 
-레거시 호환성
- a| 
-이전 클라이언트에 대한 추가 호환성 옵션이 필요한 경우 이 정책을 사용합니다. 이 정책의 추가 옵션을 사용하면 최신 호환성 정책보다 보안이 덜 강화될 수 있습니다.
+*참고*: 이 정책을 선택한 후,link:../maintain/rolling-reboot-procedure.html["롤링 재부팅을 수행하다"] 모든 노드가 NCSM을 활성화합니다.  재부팅을 시작하고 모니터링하려면 *유지 관리* > *롤링 재부팅*을 사용하세요.
 
-
-
- a| 
-일반 조건
- a| 
-일반 조건 인증이 필요한 경우 이 정책을 사용합니다.
-
-
-
- a| 
-FIPS 엄격한
- a| 
-일반 조건 인증이 필요하고 로드 밸런서 끝점, 테넌트 관리자 및 그리드 관리자에 대한 외부 클라이언트 연결에 NetApp 암호화 보안 모듈 3.0.8을 사용해야 하는 경우 이 정책을 사용합니다. 이 정책을 사용하면 성능이 저하될 수 있습니다.
-
-*참고*: 이 정책을 선택한 후에는 모든 노드가 NetApp 암호화 보안 모듈을 활성화해야 link:../maintain/rolling-reboot-procedure.html["롤링 방식으로 재부팅했습니다"]합니다. 재부팅을 시작하고 모니터링하려면 * Maintenance * > * Rolling Reboot * 를 사용하십시오.
-
-
-
- a| 
-맞춤형
- a| 
+--
+.맞춤형
+--
 자신의 암호를 적용해야 하는 경우 사용자 지정 정책을 만듭니다.
 
-|===
+선택적으로 StorageGRID 에 FIPS 140 암호화 요구 사항이 있는 경우 FIPS 모드 기능을 활성화하여 NCSM 3.0.8 및 NetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64 모듈을 사용합니다.
+
+.. 설정하다 `fipsMode` 매개변수 `true` .
+.. 메시지가 표시되면,link:../maintain/rolling-reboot-procedure.html["롤링 재부팅을 수행하다"] 모든 노드가 암호화 모듈을 활성화합니다.  재부팅을 시작하고 모니터링하려면 *유지 관리* > *롤링 재부팅*을 사용하세요.
+.. *지원* > *진단*을 선택하여 활성 FIPS 모듈 버전을 확인하세요.
+
+
+--
+====
 . 각 정책의 암호화, 프로토콜 및 알고리즘에 대한 세부 정보를 보려면 * 상세 정보 보기 * 를 선택합니다.
 . 현재 정책을 변경하려면 * 정책 사용 * 을 선택합니다.
 +

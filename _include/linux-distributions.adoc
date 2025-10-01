@@ -1,0 +1,6 @@
+= 
+:allow-uri-read: 
+
+
+
+NOTE: "Linux"는 RHEL, Ubuntu 또는 Debian 배포를 의미합니다.  지원되는 버전 목록은 다음을 참조하세요. https://imt.netapp.com/matrix/#welcome["NetApp 상호 운용성 매트릭스 툴(IMT)"^] .

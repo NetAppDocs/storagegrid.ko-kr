@@ -29,7 +29,7 @@ summary: 오브젝트 데이터를 저장할 때 S3 테넌트 계정이 규정 �
 NOTE: 글로벌 규정 준수 설정은 더 이상 사용되지 않습니다. 이전 버전의 StorageGRID를 사용하여 이 설정을 활성화하면 S3 오브젝트 잠금 설정이 자동으로 활성화됩니다. StorageGRID를 계속 사용하여 기존 준수 버킷의 설정을 관리할 수 있지만 새로운 준수 버킷을 생성할 수는 없습니다. 자세한 내용은 을 참조하십시오 https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["NetApp 기술 자료: StorageGRID 11.5에서 레거시 준수 버킷을 관리하는 방법"^].
 
 .단계
-. 구성 * > * 시스템 * > * S3 오브젝트 잠금 * 을 선택합니다.
+. *구성* > *시스템* > *S3 개체 잠금*을 선택합니다.
 +
 S3 오브젝트 잠금 설정 페이지가 나타납니다.
 

@@ -11,7 +11,7 @@ summary: StorageGRID에서 지정된 이벤트에 대한 알림을 대상 Kafka 
 
 
 [role="lead"]
-StorageGRID에서 지정된 이벤트에 대한 알림을 대상 Kafka 클러스터 또는 Amazon Simple Notification Service로 보내려면 S3 버킷에 대한 이벤트 알림을 활성화할 수 있습니다.
+StorageGRID 지정된 이벤트에 대한 알림을 대상 Kafka 클러스터, 웹훅 엔드포인트 또는 Amazon Simple Notification Service로 보내도록 하려면 S3 버킷에 대한 이벤트 알림을 활성화할 수 있습니다.
 
 예를 들어, 버킷에 추가된 각 오브젝트에 대해 관리자에게 경고가 전송되도록 구성할 수 있습니다. 여기서 객체는 중요한 시스템 이벤트와 연결된 로그 파일을 나타냅니다.
 

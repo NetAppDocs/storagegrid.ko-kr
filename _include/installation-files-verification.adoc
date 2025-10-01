@@ -4,7 +4,7 @@
 
 . 검증 패키지에서 아티팩트를 추출합니다.
 +
-`tar -xf StorageGRID_11.9.0_Code_Signature_Verification_Package.tar.gz`
+`tar -xf StorageGRID_12.0.0_Code_Signature_Verification_Package.tar.gz`
 
 . 이러한 아티팩트가 추출되었는지 확인합니다.
 +

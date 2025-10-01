@@ -1,0 +1,33 @@
+---
+permalink: s3/example-session-policies.html 
+sidebar: sidebar 
+keywords: session policy example 
+summary: 이 섹션의 예를 사용하여 StorageGRID 세션 정책을 구축합니다. 
+---
+= 세션 정책 예
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+다음 예를 사용하여 StorageGRID 세션 정책을 구축하세요.
+
+
+
+== 예: 객체 검색을 허용하는 세션 정책 설정
+
+이 예에서 세션의 주체는 bucket1에서만 객체를 검색할 수 있습니다.  StorageGRID 관련 작업(예: StorageGRID 사용)을 제외한 다른 모든 작업은 암묵적으로 거부됩니다.link:use-access-policies/#use-putoverwriteobject-permission["S3:PutOverwriteObject"] 허가.  AssumeRole API를 호출하는 동안 세션 정책은 JSON 파일로 제공될 수 있습니다.
+
+[listing]
+----
+{
+  "Statement": [
+    {
+      "Action": "s3:GetObject",
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::bucket1/*"
+    }
+  ]
+}
+----

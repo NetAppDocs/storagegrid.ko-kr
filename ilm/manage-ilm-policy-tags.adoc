@@ -63,3 +63,6 @@ NOTE: Tenant에서 태그 이름과 설명을 볼 수 있습니다. 테넌트가
 
 . 태그를 삭제하려면 * Yes * 를 선택합니다.
 
+
+.관련 정보
+link:creating-ilm-policy.html#activate-ilm-policy["ILM 정책 태그 생성에 대해 알아보세요"]

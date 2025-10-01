@@ -21,9 +21,7 @@ StorageGRID 네트워크 및 노드에 대한 강화 지침을 따르는 것 외
 
 자세한 내용은 다음을 참조하십시오.
 
-* link:../rhel/index.html["Red Hat Enterprise Linux에 StorageGRID를 설치합니다"]
-* link:../ubuntu/index.html["Ubuntu 또는 Debian에 StorageGRID를 설치합니다"]
-* link:../vmware/index.html["VMware에 StorageGRID를 설치합니다"]
+* link:../swnodes/index.html["소프트웨어 기반 노드에 StorageGRID 설치"]
 * https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["StorageGRID 어플라이언스를 설치합니다"^]
 
 
@@ -53,7 +51,7 @@ AutoSupport는 전송 프로토콜을 위해 HTTPS, HTTP 및 SMTP를 지원합�
 
 다른 도메인의 웹 애플리케이션에서 해당 버킷의 버킷 및 오브젝트에 액세스할 수 있도록 하려면 S3 버킷에 대해 CORS(Cross-Origin Resource Sharing)를 구성할 수 있습니다. 일반적으로 CORS가 필요한 경우가 아니면 활성화하지 마십시오. CORS가 필요한 경우 신뢰할 수 있는 오리진으로 제한합니다.
 
-의 단계를 link:../tenant/configuring-cross-origin-resource-sharing-cors.html["CORS(Cross-Origin Resource Sharing) 구성"]참조하십시오.
+단계를 참조하세요link:../tenant/configuring-cross-origin-resource-sharing-for-buckets-and-objects.html["버킷 및 객체에 대한 CORS 구성"] .
 
 
 

@@ -63,7 +63,7 @@ NOTE: 버킷의 일관성을 변경하면 변경 후 수집되는 객체만 수�
 * link:deleting-s3-bucket-objects.html["배경이 비어 있는 버킷 삭제"]
 * link:enabling-or-disabling-last-access-time-updates.html["마지막 액세스 시간입니다"]
 * link:../s3/create-s3-lifecycle-configuration.html["버킷 수명 주기"]
-* link:../s3/bucket-and-group-access-policies.html["버킷 정책"]
+* link:../s3/use-access-policies.html["버킷 정책"]
 * link:../s3/operations-on-buckets.html["버킷 태그 지정"]
 * link:changing-bucket-versioning.html["버킷 버전 관리"]
 * link:using-s3-object-lock.html["S3 오브젝트 잠금"]
@@ -76,7 +76,7 @@ NOTE: 버킷 버전 관리, S3 오브젝트 잠금 및 버킷 암호화에 대�
 다음 버킷 설정은 강력한 일관성을 사용하지 않으며 변경에 대한 가용성이 높습니다. 이러한 설정을 변경하는 데 시간이 걸릴 수 있습니다.
 
 * link:considerations-for-platform-services.html["플랫폼 서비스 구성: 알림, 복제 또는 검색 통합"]
-* link:configuring-cross-origin-resource-sharing-cors.html["CORS 구성"]
+* link:configuring-cross-origin-resource-sharing-for-buckets-and-objects.html["버킷 및 객체에 대한 StorageGRID CORS 구성"]
 * <<change-bucket-consistency,버킷 일관성을 변경합니다>>
 
 

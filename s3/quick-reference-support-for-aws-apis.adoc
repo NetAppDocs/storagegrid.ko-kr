@@ -784,7 +784,7 @@ link:operations-on-buckets.html["버킷 작업"]
 StorageGRID는 이 요청에 대해 모두를 <<common-params,공통 매개 변수 및 머리글>>지원합니다.
 
 .요청 본문
-지원되는 JSON 본문 필드에 대한 자세한 내용은 을 link:bucket-and-group-access-policies.html["버킷 및 그룹 액세스 정책을 사용합니다"]참조하십시오.
+지원되는 JSON 본문 필드에 대한 자세한 내용은 다음을 참조하세요.link:use-access-policies.html["버킷 및 그룹 액세스 정책을 사용합니다"] .
 
 
 

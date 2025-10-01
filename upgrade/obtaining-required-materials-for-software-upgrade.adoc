@@ -48,19 +48,15 @@ Linux RPM 또는 DEB 아카이브
  a| 
 Linux 호스트에 배포된 노드가 있는 경우 업그레이드를 시작하기 전에 먼저 해야 link:linux-installing-rpm-or-deb-package-on-all-hosts.html["RPM 또는 DEB 패키지를 모든 호스트에 다운로드하고 설치합니다"]합니다.
 
-운영 체제가 StorageGRID의 최소 커널 버전 요구 사항을 충족하는지 확인합니다.
-
-* link:../rhel/installing-linux.html["Red Hat Enterprise Linux 호스트에 StorageGRID를 설치합니다"]
-* link:../ubuntu/installing-linux.html["Ubuntu 또는 Debian 호스트에 StorageGRID를 설치합니다"]
-
+Linux 운영 체제가 StorageGRID의 최소 커널 버전 요구 사항을 충족하는지 확인하세요. 보다 link:../swnodes/installing-linux.html["Linux 호스트에 StorageGRID 설치"] .
 
 
 
  a| 
 StorageGRID 설명서
  a| 
-* link:../release-notes/index.html["릴리스 정보"] StorageGRID 11.9의 경우(로그인 필요). 업그레이드를 시작하기 전에 이 내용을 주의 깊게 읽으십시오.
-* https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_11.9_software_upgrade_resolution_guide["StorageGRID 소프트웨어 업그레이드 해결 가이드"^] 업그레이드 중인 주 버전의 경우(로그인 필요)
+* link:../release-notes/index.html["릴리스 정보"]StorageGRID 12.0의 경우(로그인 필요).  업그레이드를 시작하기 전에 반드시 이 내용을 주의 깊게 읽어보세요.
+* https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_12.0_software_upgrade_resolution_guide["StorageGRID 소프트웨어 업그레이드 해결 가이드"^]업그레이드하려는 주요 버전에 대해 (로그인 필요)
 * 기타 https://docs.netapp.com/us-en/storagegrid-family/index.html["StorageGRID 설명서"^](필요한 경우)
 
 

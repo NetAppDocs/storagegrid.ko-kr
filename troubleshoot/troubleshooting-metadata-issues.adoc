@@ -48,7 +48,7 @@ CAUTION: 개체 메타데이터가 허용되는 메타데이터 공간의 90% �
 CAUTION: 볼륨 0의 크기가 Metadata Reserved Space Storage Option(예: 비운영 환경)보다 작은 경우 * Low Metadata Storage * 알림에 대한 계산이 부정확할 수 있습니다.
 
 .단계
-. alerts * > * current * 를 선택합니다.
+. *알림* > *현재*를 선택하세요.
 . 경고 표에서 * Low metadata storage * 알림 그룹을 확장하고 필요한 경우 보려는 특정 경고를 선택합니다.
 . 경고 대화 상자에서 세부 정보를 검토합니다.
 . Major 또는 Critical * Low Metadata Storage * 알림이 트리거된 경우 확장을 수행하여 스토리지 노드를 즉시 추가합니다.

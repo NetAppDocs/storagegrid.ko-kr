@@ -19,9 +19,6 @@ StorageGRID 어플라이언스 설치 프로그램은 설치가 완료될 때까
 Monitor Installation(모니터 설치) 페이지에 설치 진행률이 표시됩니다.
 
 +
-image::../media/monitor_installation_configure_storage.gif[이 이미지는 주변 텍스트로 설명됩니다.]
-
-+
 파란색 상태 표시줄은 현재 진행 중인 작업을 나타냅니다. 녹색 상태 표시줄은 성공적으로 완료된 작업을 나타냅니다.
 
 +
@@ -41,8 +38,5 @@ NOTE: 설치 프로그램은 이전 설치에서 완료된 작업이 다시 실�
 
 
 . StorageGRID* 설치 단계가 일시 중지되고 그리드 관리자를 사용하여 관리 노드에서 이 노드를 승인하라는 메시지가 포함된 콘솔에 표시될 때까지 설치 진행 상태를 계속 모니터링합니다.
-+
-image::../media/monitor_installation_install_sgws.gif[이 이미지는 주변 텍스트로 설명됩니다.]
-
 . 로 이동합니다. link:selecting-start-recovery-to-configure-appliance-storage-node.html["Start Recovery(복구 시작) 를 선택하여 어플라이언스 스토리지 노드를 구성합니다"]
 

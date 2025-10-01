@@ -1,7 +1,7 @@
 ---
 permalink: audit/client-read-audit-messages.html 
 sidebar: sidebar 
-keywords: storagegrid, audit, message, messages, client read, S3SL, SGET, SHEA, WGET, WHEA, S3, swift 
+keywords: storagegrid, audit, message, messages, client read, S3SL, SGET, SHEA, WGET, WHEA, S3 
 summary: 클라이언트 읽기 감사 메시지는 S3 클라이언트 애플리케이션이 객체 검색을 요청할 때 기록됩니다. 
 ---
 = 클라이언트가 감사 메시지를 읽습니다
@@ -50,27 +50,5 @@ S3 HEAD: 성공한 트랜잭션을 로그하여 오브젝트 또는 버킷의 �
 S3 클라이언트
  a| 
 link:shea-s3-head.html["Shea: S3 헤드"]
-
-
-
- a| 
-윙입니다
- a| 
-SwiFT GET: 성공한 트랜잭션을 로그하여 객체를 검색하거나 컨테이너의 객체를 나열합니다.
- a| 
-SWIFT 클라이언트
- a| 
-link:wget-swift-get.html["wget: Swift get"]
-
-
-
- a| 
-WHEA
- a| 
-SwiFT HEAD: 성공한 트랜잭션을 로그하여 오브젝트 또는 컨테이너의 존재를 확인합니다.
- a| 
-SWIFT 클라이언트
- a| 
-link:whea-swift-head.html["WHEA: 스위프트 헤드"]
 
 |===

@@ -73,4 +73,4 @@ CAUTION: SelectObjectContent 요청은 모든 S3 클라이언트 및 모든 테�
 
 를 link:../s3/use-s3-select.html["S3 Select 사용에 대한 지침"]참조하십시오.
 
-시간에 따른 S3 Select 작업을 보려면 link:../monitor/reviewing-support-metrics.html["Grafana 차트"]그리드 관리자에서 * 지원 * > * 툴 * > * 메트릭 * 을 선택합니다.
+보려면link:../monitor/reviewing-support-metrics.html["Grafana 차트"] S3 Select의 경우 시간 경과에 따른 작업을 확인하려면 그리드 관리자에서 *지원* > *도구* > *메트릭*을 선택하세요.

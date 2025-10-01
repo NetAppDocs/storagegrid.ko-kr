@@ -45,7 +45,7 @@ image::../media/dashboard_storage_over_time.png[시간별 스토리지 차트]
 
 . 사용된 스토리지 양과 오브젝트 데이터 및 오브젝트 메타데이터에 대해 그리드에 사용 가능한 스토리지 양에 대한 자세한 내용은 노드 페이지를 참조하십시오.
 +
-.. 노드 * 를 선택합니다.
+.. *노드*를 선택하세요.
 .. *_GRID_ * > * 스토리지 * 를 선택합니다.
 +
 image::../media/nodes_deployment_storage_tab.png[노드 배포 스토리지 탭]
@@ -82,7 +82,7 @@ NOTE: ILM 정책에서 삭제 코딩을 사용하는 경우 기존 스토리지 
 image::../media/calculating_watermarks.gif[사용 가능한 총 공간에 대한 개념적 도면]
 
 .단계
-. nodes * > *_Storage Node_ * > * Storage * 를 선택합니다.
+. *노드* > *_스토리지 노드_* > *스토리지*를 선택합니다.
 +
 노드에 대한 그래프와 표가 나타납니다.
 
@@ -140,7 +140,7 @@ StorageGRID는 이중화를 제공하고 오브젝트 메타데이터를 손실�
 메타데이터 사용량을 늘릴 수 있는 요인으로는 사용자 메타데이터 및 태그의 크기와 수량, 여러 부분 업로드의 총 부품 수, ILM 스토리지 위치의 변경 빈도 등이 있습니다.
 
 .단계
-. nodes * > *_Storage Node_ * > * Storage * 를 선택합니다.
+. *노드* > *_스토리지 노드_* > *스토리지*를 선택합니다.
 . 커서를 Storage Used-object 메타데이터 그래프 위에 놓으면 특정 시간의 값을 볼 수 있습니다.
 +
 image::../media/storage_used_object_metadata.png[사용된 스토리지 - 오브젝트 메타데이터]

@@ -125,7 +125,7 @@ NOTE: 현재 시간이 아닌 시간은 버전 관리가 활성화된 버킷의 
  a| 
 S3 버킷을 생성한 영역입니다. ILM * > * 지역 * 을 사용하여 표시된 영역을 정의합니다.
 
-* 참고: * us-east-1의 값은 us-east-1 지역에서 생성된 버킷의 오브젝트와 지정된 영역이 없는 버킷의 오브젝트와 일치합니다. 을 link:configuring-regions-optional-and-s3-only.html["영역 구성(옵션 및 S3만 해당)"]참조하십시오.
+*참고:* us-east-1 값은 us-east-1 지역에서 생성된 버킷의 객체와 지역이 지정되지 않은 버킷의 객체와 일치합니다. 보다 link:configuring-regions-optional-and-s3-only.html["S3 지역 구성"] .
 
 
 

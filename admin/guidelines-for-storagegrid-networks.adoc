@@ -91,9 +91,11 @@ eth1
 
 * * VMware(노드 설치 후) *: link:../maintain/vmware-adding-trunk-or-access-interfaces-to-node.html["VMware: 노드에 트렁크 또는 액세스 인터페이스를 추가합니다"]
 +
-** * Red Hat Enterprise Linux(노드 설치 전) *: link:../rhel/creating-node-configuration-files.html["노드 구성 파일을 생성합니다"]
-** * Ubuntu 또는 Debian (노드를 설치하기 전에) *: link:../ubuntu/creating-node-configuration-files.html["노드 구성 파일을 생성합니다"]
-** * RHEL, Ubuntu 또는 Debian(노드 설치 후) *: link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Linux: 노드에 트렁크 또는 액세스 인터페이스를 추가합니다"]
+** *Linux(노드 설치 전)*:link:../swnodes/creating-node-configuration-files.html["노드 구성 파일을 생성합니다"]
+** *Linux(노드 설치 후)*:link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["노드에 트렁크 또는 액세스 인터페이스 추가"]
 
 
 
+
+
+NOTE: "Linux"는 RHEL, Ubuntu 또는 Debian 배포를 의미합니다.  지원되는 버전 목록은 다음을 참조하세요. https://imt.netapp.com/matrix/#welcome["NetApp 상호 운용성 매트릭스 툴(IMT)"^] .

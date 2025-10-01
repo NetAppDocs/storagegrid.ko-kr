@@ -20,8 +20,6 @@ entries:
     url: "/primer/what-storage-node-is.html"
   - title: 게이트웨이 노드란 무엇입니까
     url: "/primer/what-gateway-node-is.html"
-  - title: 아카이브 노드란 무엇입니까
-    url: "/primer/what-archive-node-is.html"
 - title: StorageGRID의 데이터 관리 방법
   entries:
   - title: 개체란 무엇입니까

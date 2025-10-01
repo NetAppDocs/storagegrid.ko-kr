@@ -11,7 +11,7 @@ summary: AutoSupport 패키지 전송 시도가 실패하면 StorageGRID 시스�
 
 
 [role="lead"]
-AutoSupport 패키지 전송 시도가 실패하면 StorageGRID 시스템은 AutoSupport 패키지 유형에 따라 다른 작업을 수행합니다. AutoSupport 패키지의 상태는 * 지원 * > * 툴 * > * AutoSupport * > * 결과 * 를 선택하여 확인할 수 있습니다.
+AutoSupport 패키지를 보내려는 시도가 실패하면 StorageGRID 시스템은 AutoSupport 패키지 유형에 따라 다른 조치를 취합니다.  *지원* > *도구* > * AutoSupport * > *결과*를 선택하여 AutoSupport 패키지의 상태를 확인할 수 있습니다.
 
 AutoSupport 패키지를 전송하지 못했으면 * AutoSupport * 페이지의 * 결과 * 탭에 "실패"가 표시됩니다.
 
@@ -43,7 +43,7 @@ NOTE: AutoSupport 패키지를 NetApp에 전달하도록 프록시 서버를 구
 . 에 오류를 `nms.log` 기록합니다.
 
 
-오류가 발생하고 SMTP가 선택한 프로토콜인 경우 StorageGRID 시스템의 이메일 서버가 올바르게 구성되어 있고 이메일 서버가 실행 중인지(* 지원 * > * 알람(레거시) * > * 레거시 이메일 설정 *) 확인하십시오. AutoSupport 페이지에 다음과 같은 오류 메시지가 나타날 수 있습니다. `AutoSupport packages cannot be sent using SMTP protocol due to incorrect settings on the E-mail Server page.`
+오류가 발생하고 SMTP가 선택된 프로토콜인 경우 StorageGRID 시스템의 이메일 서버가 올바르게 구성되었고 이메일 서버가 실행 중인지 확인하세요(*지원* > *알람(레거시)* > *레거시 이메일 설정*).  AutoSupport 페이지에 다음과 같은 오류 메시지가 나타날 수 있습니다. `AutoSupport packages cannot be sent using SMTP protocol due to incorrect settings on the E-mail Server page.`
 
 의 방법을 link:../monitor/email-alert-notifications.html["이메일 서버 설정을 구성합니다"]알아보십시오.
 

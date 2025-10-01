@@ -21,24 +21,24 @@ summary: 지원되는 웹 브라우저를 사용해야 합니다.
  a| 
 Google Chrome
  a| 
-119
+138
 
 
 
  a| 
 Microsoft Edge를 참조하십시오
  a| 
-119
+138
 
 
 
  a| 
 Mozilla Firefox
  a| 
-119
+140
 
 |===
-브라우저 창을 권장 너비로 설정해야 합니다.
+브라우저 창을 권장 너비로 설정하세요.
 
 [cols="3a,1a"]
 |===

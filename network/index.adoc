@@ -51,9 +51,7 @@ StorageGRID 시스템에 대한 네트워킹을 구성하려면 이더넷 스위
 
 
 .소프트웨어 기반 노드 설치
-* link:../rhel/index.html["Red Hat Enterprise Linux에 StorageGRID를 설치합니다"]
-* link:../ubuntu/index.html["Ubuntu 또는 Debian에 StorageGRID를 설치합니다"]
-* link:../vmware/index.html["VMware에 StorageGRID를 설치합니다"]
+* link:../swnodes/index.html["소프트웨어 기반 노드에 StorageGRID 설치"]
 
 
 .StorageGRID 소프트웨어를 구성하고 관리합니다

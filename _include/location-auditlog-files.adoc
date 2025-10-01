@@ -19,7 +19,7 @@
  a| 
 관리 노드/로컬 노드
  a| 
-* 관리 노드(운영 및 비운영): `/var/local/audit/export/audit.log`
+* 관리 노드(기본 및 비기본): `/var/local/audit/export/audit.log`
 * All nodes(모든 노드): `/var/local/log/localaudit.log` 이 모드에서는 일반적으로 파일이 비어 있거나 없습니다.
 
 
@@ -33,4 +33,4 @@
 |===
 감사 대상 설정에 따라, 또는 `/var/local/audit/export/` 를 입력합니다 `cd /var/local/log`
 
-자세한 내용은 을 link:../monitor/configure-audit-messages.html#select-audit-information-destinations["감사 정보 대상을 선택합니다"]참조하십시오.
+자세한 내용은 다음을 참조하세요.link:../monitor/configure-log-management.html#select-log-location["로그 위치 선택"] .

@@ -13,4 +13,4 @@ summary: 해결된 문제 및 알려진 문제에 대한 릴리스 관련 정보
 [role="lead"]
 해결된 문제 및 알려진 문제에 대한 릴리스 관련 정보를 얻습니다.
 
-StorageGRID 11.9 릴리즈 노트가 포함된 NetApp 지원 사이트에 https://library.netapp.com/ecm/ecm_download_file/ECMLP3330064["PDF 파일을 보거나 다운로드합니다"^] 로그인합니다.
+NetApp 지원 사이트에 로그인하세요. https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["PDF 파일을 보거나 다운로드합니다"^] StorageGRID 12.0 릴리스 노트가 포함되어 있습니다.

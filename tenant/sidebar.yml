@@ -39,14 +39,12 @@ entries:
     entries:
     - title: S3 그룹을 생성합니다
       url: "/tenant/creating-groups-for-s3-tenant.html"
-    - title: Swift 그룹을 생성합니다
-      url: "/tenant/creating-groups-for-swift-tenant.html"
     - title: 테넌트 관리 권한
       url: "/tenant/tenant-management-permissions.html"
     - title: 그룹을 관리합니다
       url: "/tenant/manage-groups.html"
-  - title: 로컬 사용자를 관리합니다
-    url: "/tenant/managing-local-users.html"
+  - title: 사용자 관리
+    url: "/tenant/manage-users.html"
 - title: S3 액세스 키를 관리합니다
   entries:
   - title: 테넌트 액세스 키
@@ -70,6 +68,10 @@ entries:
     url: "/tenant/creating-s3-bucket.html"
   - title: 버킷 세부 정보를 봅니다
     url: "/tenant/viewing-s3-bucket-details.html"
+  - title: 브랜치 버킷이란 무엇입니까?
+    url: "/tenant/what-is-branch-bucket.html"
+  - title: 지점 버킷 관리
+    url: "/tenant/manage-branch-buckets.html"
   - title: 버킷에 ILM 정책 태그를 적용합니다
     url: "/tenant/ilm-policy-tags.html"
   - title: 버킷 정책을 관리합니다
@@ -84,8 +86,8 @@ entries:
     url: "/tenant/using-s3-object-lock.html"
   - title: S3 오브젝트 잠금 기본 보존 업데이트
     url: "/tenant/update-default-retention-settings.html"
-  - title: CORS(Cross-Origin Resource Sharing) 구성
-    url: "/tenant/configuring-cross-origin-resource-sharing-cors.html"
+  - title: 버킷 및 객체에 대한 CORS 구성
+    url: "/tenant/configuring-cross-origin-resource-sharing-for-buckets-and-objects.html"
   - title: 버킷에서 오브젝트를 삭제합니다
     url: "/tenant/deleting-s3-bucket-objects.html"
   - title: 버킷을 삭제합니다

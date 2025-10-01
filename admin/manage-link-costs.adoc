@@ -68,11 +68,11 @@ LAN으로 연결된 동일한 물리적 건물 또는 캠퍼스의 논리적 데
 
 .시작하기 전에
 * 을 사용하여 그리드 관리자에 로그인되어 있습니다.link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]
-* 이 link:admin-group-permissions.html["그리드 토폴로지 페이지 구성 권한"]있습니다.
+* 당신은 가지고있다link:admin-group-permissions.html["다른 그리드 구성 권한"] .
 
 
 .단계
-. 지원 * > * 기타 * > * 링크 비용 * 을 선택합니다.
+. *지원* > *기타* > *링크 비용*을 선택하세요.
 +
 image::../media/configuring_link_costs.png[링크 비용]
 

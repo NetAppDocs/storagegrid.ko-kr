@@ -365,7 +365,7 @@ FabricPool용 새 테넌트 및 버킷을 생성하거나 기존 테넌트와 �
 .새로운 테넌트 및 버킷
 --
 . 새 테넌트 및 버킷을 생성하려면 * 테넌트 이름 * 을 입력합니다.  `FabricPool tenant`예를 들어,
-. StorageGRID 시스템에서link:../admin/using-identity-federation.html["ID 제휴"], link:../admin/configuring-sso.html["SSO(Single Sign-On)"]또는 둘 모두를 사용하는지 여부에 따라 테넌트 계정에 대한 루트 액세스를 정의합니다.
+. StorageGRID 시스템에서 사용하는지 여부에 따라 테넌트 계정에 대한 루트 액세스를 정의합니다.link:../admin/using-identity-federation.html["ID 제휴"] ,link:../admin/how-sso-works.html["SSO(Single Sign-On)"] , 또는 둘 다.
 +
 [cols="1a,3a"]
 |===

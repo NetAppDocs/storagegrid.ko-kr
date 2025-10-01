@@ -29,8 +29,8 @@ indexpage:
       url: "../monitor/using-snmp-monitoring.html"
   - title: 감사 메시지 및 기타 로그를 사용합니다
     links:
-    - title: 감사 메시지를 구성합니다
-      url: "../monitor/configure-audit-messages.html"
+    - title: 로그 관리 구성
+      url: "../monitor/configure-log-management.html"
     - title: 외부 syslog 서버를 사용합니다
       url: "../monitor/considerations-for-external-syslog-server.html"
     - title: 감사 로그를 검토합니다
@@ -41,6 +41,8 @@ indexpage:
     links:
     - title: 지원 메트릭을 검토합니다
       url: "../monitor/reviewing-support-metrics.html"
+    - title: I/O 우선순위 변경
+      url: "../monitor/manage-io-prioritization.html"
     - title: 진단 유틸리티를 실행합니다
       url: "../monitor/running-diagnostics.html"
     - title: 일반적인 문제를 해결합니다

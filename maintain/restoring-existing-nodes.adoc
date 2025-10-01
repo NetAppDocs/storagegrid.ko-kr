@@ -33,11 +33,7 @@ summary: 장애가 발생한 그리드 노드를 새 Linux 호스트로 복원�
 
 그런 다음 그리드 구성 파일을 확인하고 StorageGRID를 다시 시작하기 전에 발생할 수 있는 네트워킹 또는 스토리지 문제를 해결해야 합니다. 노드에 대한 구성 파일을 다시 생성할 때 복구 중인 노드에 사용된 교체 노드에 대해 동일한 이름을 사용해야 합니다.
 
-노드의 볼륨 위치에 대한 자세한 내용은 설치 지침을 참조하십시오 `/var/local`.
-
-* link:../rhel/index.html["Red Hat Enterprise Linux에 StorageGRID를 설치합니다"]
-* link:../ubuntu/index.html["Ubuntu 또는 Debian에 StorageGRID를 설치합니다"]
-
+를 참조하십시오link:../swnodes/index.html["Linux 설치 지침"] 위치에 대한 자세한 내용은 `/var/local` 노드의 볼륨.
 
 .단계
 . 복구된 호스트의 명령줄에 현재 구성된 모든 StorageGRID 노드를 나열합니다.``sudo storagegrid node list``
@@ -76,10 +72,7 @@ NOTE: 플래그로 가져온 모든 노드는 `--force` 에 설명된 대로 그
 
 
 
-. 볼륨이 없는 그리드 노드의 경우 `/var/local` 노드의 구성 파일을 다시 생성하여 호스트에 복구합니다. 자세한 내용은 다음을 참조하십시오.
-+
-** link:../rhel/creating-node-configuration-files.html["Red Hat Enterprise Linux용 노드 구성 파일을 생성합니다"]
-** link:../ubuntu/creating-node-configuration-files.html["Ubuntu 또는 Debian용 노드 구성 파일을 만듭니다"]
+. 그리드 노드가 없는 경우 `/var/local` 볼륨을 복원하려면 노드의 구성 파일을 다시 만듭니다. 지침은 다음을 참조하세요.link:../swnodes/creating-node-configuration-files.html["노드 구성 파일을 생성합니다"] .
 +
 
 NOTE: 노드에 대한 구성 파일을 다시 생성할 때 복구 중인 노드에 사용된 교체 노드에 대해 동일한 이름을 사용해야 합니다. Linux 배포의 경우 구성 파일 이름에 노드 이름이 포함되어 있는지 확인합니다. 가능하면 동일한 네트워크 인터페이스, 블록 장치 매핑 및 IP 주소를 사용해야 합니다. 이러한 관행은 복구 중에 노드로 복사해야 하는 데이터 양을 최소화하여 복구 속도가 크게 향상되도록 합니다(경우에 따라 몇 주가 아닌 몇 분).
@@ -87,8 +80,6 @@ NOTE: 노드에 대한 구성 파일을 다시 생성할 때 복구 중인 노�
 +
 
 NOTE: 새 블록 디바이스(StorageGRID 노드가 이전에 사용하지 않은 디바이스)를 노드에 대한 구성 파일을 다시 생성할 때 로 시작하는 구성 변수의 값으로 사용하는 경우 의 지침을 따릅니다 `BLOCK_DEVICE_`<<fix-block-errors,누락된 블록 장치 오류를 수정합니다>>.
-
-
 
 . 복구된 호스트에서 다음 명령을 실행하여 모든 StorageGRID 노드를 나열합니다.
 +
@@ -145,17 +136,9 @@ ERROR: <node-name>: BLOCK_DEVICE_PURPOSE = <path-name>
 
 누락된 블록 디바이스 특수 파일을 복원하거나 다시 생성할 수 없는 경우 적절한 크기 및 스토리지 범주의 새 블록 디바이스를 할당하고 노드 구성 파일을 편집하여 의 값을 새 블록 디바이스 특수 파일을 가리키도록 변경할 수 `BLOCK_DEVICE_PURPOSE` 있습니다.
 
-Linux 운영 체제의 표를 사용하여 적절한 크기 및 스토리지 범주를 확인합니다.
+Linux 운영 체제에 맞는 표를 사용하여 적절한 크기와 저장 범주를 결정하세요. 보다 link:../swnodes/storage-and-performance-requirements.html["요구사항을 충족해야 합니다"] .
 
-* link:../rhel/storage-and-performance-requirements.html["Red Hat Enterprise Linux의 스토리지 및 성능 요구 사항"]
-* link:../ubuntu/storage-and-performance-requirements.html["Ubuntu 또는 Debian에 대한 스토리지 및 성능 요구 사항"]
-
-
-블록 디바이스 교체를 진행하기 전에 호스트 스토리지 구성에 대한 권장 사항을 검토하십시오.
-
-* link:../rhel/configuring-host-storage.html["Red Hat Enterprise Linux용 호스트 스토리지를 구성합니다"]
-* link:../ubuntu/configuring-host-storage.html["Ubuntu 또는 Debian용 호스트 스토리지를 구성합니다"]
-
+권장 사항을 검토하세요link:../swnodes/configuring-host-storage.html["호스트 스토리지 구성"] 블록 장치 교체를 진행하기 전에.
 
 
 NOTE: 장애가 발생한 호스트에서 원래 블록 디바이스가 손실되었기 때문에 로 시작하는 구성 파일 변수에 대해 새 블록 스토리지 디바이스를 제공해야 하는 `BLOCK_DEVICE_` 경우 추가 복구 절차를 시도하기 전에 새 블록 디바이스가 포맷되지 않았는지 확인하십시오. 공유 스토리지를 사용 중이고 새 볼륨을 생성한 경우 새 블록 디바이스의 포맷이 해제됩니다. 확실하지 않은 경우 새 블록 스토리지 디바이스 특수 파일에 대해 다음 명령을 실행합니다.

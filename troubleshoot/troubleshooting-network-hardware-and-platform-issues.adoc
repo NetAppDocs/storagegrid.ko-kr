@@ -85,6 +85,7 @@ TLS handshake failed
 MTU 설정의 차이는 일부(전기는 아님) eth0 네트워크가 점보 프레임에 맞게 구성되었다는 것을 나타낼 수 있습니다. MTU 크기가 1000보다 크면 네트워크 성능 문제가 발생할 수 있습니다.
 
 .단계
+. 기본적으로 외부 SSH 액세스는 차단됩니다.  필요한 경우,link:../admin/manage-external-ssh-access.html["일시적으로 접근 허용"] .
 . 모든 노드의 eth0에 대한 MTU 설정을 나열합니다.
 +
 ** Grid Manager에 제공된 쿼리를 사용합니다.
@@ -148,6 +149,7 @@ MTU를 적용할 네트워크입니다. 다음 네트워크 유형 중 하나 �
 |===
 
 
+. 외부 SSH 액세스를 허용한 경우link:../admin/manage-external-ssh-access.html["블록 접근"] 작업을 마쳤을 때.
 
 
 
@@ -257,12 +259,12 @@ Linux 호스트에서 호스팅되는 StorageGRID 노드의 네트워크 연결 
 
 === MAC 주소 복제
 
-경우에 따라 MAC 주소 클로닝을 사용하여 네트워크 문제를 해결할 수 있습니다. 가상 호스트를 사용하는 경우 노드 구성 파일에서 각 네트워크의 MAC 주소 클로닝 키 값을 "참"으로 설정합니다. 이 설정으로 인해 StorageGRID 컨테이너의 MAC 주소가 호스트의 MAC 주소를 사용하게 됩니다. 노드 구성 파일을 생성하려면 또는 의 지침을 참조하십시오link:../rhel/creating-node-configuration-files.html["Red Hat Enterprise Linux"]link:../ubuntu/creating-node-configuration-files.html["Ubuntu 또는 Debian"].
+어떤 경우에는 MAC 주소 복제를 사용하여 네트워크 문제를 해결할 수 있습니다.  가상 호스트를 사용하는 경우 노드 구성 파일에서 각 네트워크의 MAC 주소 복제 키 값을 "true"로 설정합니다.  이 설정을 사용하면 StorageGRID 컨테이너의 MAC 주소가 호스트의 MAC 주소를 사용하게 됩니다.  지침을 참조하세요link:../swnodes/creating-node-configuration-files.html["노드 구성 파일 생성"] .
 
 
 NOTE: Linux 호스트 OS에서 사용할 별도의 가상 네트워크 인터페이스를 생성합니다. Linux 호스트 OS 및 StorageGRID 컨테이너에 동일한 네트워크 인터페이스를 사용하면 하이퍼바이저에서 Promiscuous 모드가 활성화되지 않은 경우 호스트 OS에 연결할 수 없게 될 수 있습니다.
 
-MAC 클론 생성 활성화에 대한 자세한 내용은 또는 의 지침을 link:../rhel/configuring-host-network.html["Red Hat Enterprise Linux"]link:../ubuntu/configuring-host-network.html["Ubuntu 또는 Debian"]참조하십시오.
+자세한 내용은 지침을 참조하세요.link:../swnodes/configuring-host-network.html["MAC 복제 활성화"] .
 
 
 
@@ -270,7 +272,7 @@ MAC 클론 생성 활성화에 대한 자세한 내용은 또는 의 지침을 l
 
 MAC 주소 클로닝을 사용하지 않고 하이퍼바이저에 의해 할당된 것이 아닌 MAC 주소에 대한 데이터를 모든 인터페이스에서 수신 및 전송하도록 허용하려면 가상 스위치 및 포트 그룹 수준의 보안 속성이 Promiscuous Mode, MAC Address 변경 및 Forged 전송에 대해 * Accept * 로 설정되어 있는지 확인합니다. 가상 스위치에 설정된 값은 포트 그룹 수준의 값으로 재정의할 수 있으므로 두 위치에서 설정이 동일한지 확인합니다.
 
-무차별 모드 사용에 대한 자세한 내용은 또는 의 지침을 참조하십시오link:../rhel/configuring-host-network.html["Red Hat Enterprise Linux"]link:../ubuntu/configuring-host-network.html["Ubuntu 또는 Debian"].
+Promiscuous Mode 사용에 대한 자세한 내용은 다음 지침을 참조하세요.link:../swnodes/configuring-host-network.html["호스트 네트워크를 구성하는 방법"] .
 
 
 
@@ -327,7 +329,7 @@ Linux 호스트에 StorageGRID 노드를 설치한 경우 커널에서 IPv6 지�
 .이 작업에 대해
 그리드 노드에 할당된 IPv6 주소를 보려면
 
-. nodes * 를 선택하고 노드를 선택합니다.
+. *노드*를 선택하고 노드를 선택합니다.
 . 개요 탭에서 * IP 주소 * 옆에 있는 * 추가 IP 주소 표시 * 를 선택합니다.
 
 

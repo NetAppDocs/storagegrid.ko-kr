@@ -103,7 +103,7 @@ Docker 컨테이너 엔진
  a| 
 미정
  a| 
-소프트웨어 전용 배포를 위한 컨테이너 엔진으로 Docker에 대한 지원은 더 이상 사용되지 않습니다. Docker는 향후 릴리즈에서 다른 컨테이너 엔진으로 대체될 예정입니다. 을 link:../ubuntu/software-requirements.html#docker-versions-tested["현재 지원되는 Docker 버전 목록입니다"]참조하십시오.
+소프트웨어 전용 배포를 위한 컨테이너 엔진으로 Docker에 대한 지원이 더 이상 제공되지 않습니다.  Docker는 향후 릴리스에서 다른 컨테이너 엔진으로 대체될 예정입니다.  를 참조하세요link:../swnodes/software-requirements.html["소프트웨어 기반 노드에 대한 소프트웨어 요구 사항"] 현재 지원되는 Docker 버전 목록은 여기에서 확인하세요.
 
 
 
@@ -117,6 +117,18 @@ NFS 감사 엑스포트
 12.0
  a| 
 https://docs.netapp.com/us-en/storagegrid-118/admin/configuring-audit-client-access.html["NFS에 대한 감사 클라이언트 액세스 구성(StorageGRID 11.8)"^]
+
+
+
+ a| 
+포트 리맵
+ a| 
+12.0
+ a| 
+12.1
+ a| 
+12.2
+ a| 
 
 
 

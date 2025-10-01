@@ -1,53 +1,8 @@
 ---
 permalink: vmware/where-to-go-next.html 
-sidebar: sidebar 
-keywords: after installation 
-summary: 설치를 완료한 후 필요한 통합 및 구성 작업을 수행합니다. 필요에 따라 옵션 작업을 수행할 수 있습니다. 
+redirect: storagegrid/swnodes/where-to-go-next.html 
 ---
-= 다음 단계로 넘어갑니다
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
-
-[role="lead"]
-설치를 완료한 후 필요한 통합 및 구성 작업을 수행합니다. 필요에 따라 옵션 작업을 수행할 수 있습니다.
-
-
-
-== 필수 작업
-
-* 자동 재시작을 위해 VMware vSphere 하이퍼바이저를 구성합니다.
-+
-서버가 다시 시작될 때 가상 머신을 다시 시작하도록 하이퍼바이저를 구성해야 합니다. 자동 다시 시작이 없으면 서버가 다시 시작된 후에도 가상 머신과 그리드 노드는 계속 종료됩니다. 자세한 내용은 VMware vSphere 하이퍼바이저 설명서를 참조하십시오.
-
-
-
-* link:../admin/managing-tenants.html["테넌트 계정을 생성합니다"] StorageGRID 시스템에 오브젝트를 저장하는 데 사용되는 S3 클라이언트 프로토콜의 경우
-* link:../admin/controlling-storagegrid-access.html["시스템 액세스를 제어합니다"] 그룹 및 사용자 계정을 구성합니다. 선택적으로 Active Directory 또는 OpenLDAP와 같은 관리 그룹과 사용자를 가져올 수 link:../admin/using-identity-federation.html["통합 ID 소스를 구성합니다"]있습니다. 또는, 할 수 link:../admin/managing-users.html#create-a-local-user["로컬 그룹 및 사용자를 생성합니다"]있습니다.
-* 개체를 StorageGRID 시스템에 업로드하는 데 사용할 클라이언트 응용 프로그램을 통합하고 link:../s3/configuring-tenant-accounts-and-connections.html["S3 API를 사용합니다"]테스트합니다.
-* link:../ilm/index.html["ILM(정보 수명 주기 관리) 규칙 및 ILM 정책을 구성합니다"] 를 사용하여 오브젝트 데이터를 보호하려고 합니다.
-* 설치에 어플라이언스 스토리지 노드가 포함된 경우 SANtricity OS를 사용하여 다음 작업을 완료합니다.
-+
-** 각 StorageGRID 어플라이언스에 연결하십시오.
-** AutoSupport 데이터가 수신되었는지 확인합니다.
-+
-을 https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/configuring-hardware.html["하드웨어를 설정합니다"^]참조하십시오.
-
-
-
-* 을 검토하고 따라 link:../harden/index.html["StorageGRID 시스템 강화 지침"]보안 위험을 제거합니다.
-* link:../monitor/email-alert-notifications.html["시스템 경고에 대한 이메일 알림을 구성합니다"]..
-
-
-
-
-== 선택적 태스크입니다
-
-* link:../maintain/changing-ip-addresses-and-mtu-values-for-all-nodes-in-grid.html["그리드 노드 IP 주소를 업데이트합니다"] 배포를 계획하고 복구 패키지를 생성한 이후에 변경된 경우
-* link:../admin/changing-network-options-object-encryption.html["스토리지 암호화를 구성합니다"]필요한 경우.
-* link:../admin/configuring-stored-object-compression.html["스토리지 압축을 구성합니다"] 필요한 경우 저장된 개체의 크기를 줄입니다.
-* link:../admin/configure-vlan-interfaces.html["VLAN 인터페이스를 구성합니다"] 필요한 경우 네트워크 트래픽을 격리하고 분할합니다.
-* link:../admin/configure-high-availability-group.html["고가용성 그룹을 구성합니다"] 필요한 경우 Grid Manager, Tenant Manager 및 S3 클라이언트의 연결 가용성을 향상시킵니다.
-* link:../admin/configuring-load-balancer-endpoints.html["로드 밸런서 엔드포인트를 구성합니다"] 필요한 경우 S3 클라이언트 연결의 경우
 

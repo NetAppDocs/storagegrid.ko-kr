@@ -91,12 +91,12 @@ entries:
     url: "/monitor/deployment-and-maintenance-logs.html"
   - title: bycast.log 정보
     url: "/monitor/about-bycast-log.html"
-- title: 감사 메시지 및 로그 대상을 구성합니다
+- title: 로그 관리 및 외부 syslog 서버 구성
   entries:
   - title: 외부 syslog 서버에 대한 고려 사항
     url: "/monitor/considerations-for-external-syslog-server.html"
-  - title: 감사 메시지 및 외부 syslog 서버를 구성합니다
-    url: "/monitor/configure-audit-messages.html"
+  - title: 로그 관리 구성
+    url: "/monitor/configure-log-management.html"
 - title: SNMP 모니터링을 사용합니다
   entries:
   - title: SNMP 모니터링
@@ -110,26 +110,20 @@ entries:
     url: "/monitor/access-snmp-mib.html"
 - title: 추가 StorageGRID 데이터를 수집합니다
   entries:
-  - title: 차트와 그래프를 사용합니다
-    url: "/monitor/using-charts-and-reports.html"
-  - title: 텍스트 보고서를 사용합니다
-    url: "/monitor/types-of-text-reports.html"
   - title: PUT 모니터링 및 성능 확보
     url: "/monitor/monitoring-put-and-get-performance.html"
   - title: 개체 검증 작업을 모니터링합니다
     url: "/monitor/monitoring-object-verification-operations.html"
-  - title: 이벤트를 모니터링합니다
-    url: "/monitor/monitoring-events.html"
   - title: 감사 메시지를 검토합니다
     url: "/monitor/reviewing-audit-messages.html"
   - title: 로그 파일 및 시스템 데이터를 수집합니다
     url: "/monitor/collecting-log-files-and-system-data.html"
   - title: AutoSupport 패키지를 수동으로 트리거합니다
     url: "/monitor/manually-triggering-autosupport-message.html"
-  - title: 그리드 토폴로지 트리를 봅니다
-    url: "/monitor/viewing-grid-topology-tree.html"
   - title: 지원 메트릭을 검토합니다
     url: "/monitor/reviewing-support-metrics.html"
+  - title: I/O 우선순위 변경
+    url: "/monitor/manage-io-prioritization.html"
   - title: 진단 유틸리티를 실행합니다
     url: "/monitor/running-diagnostics.html"
   - title: 맞춤형 모니터링 애플리케이션을 생성합니다

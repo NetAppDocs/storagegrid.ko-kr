@@ -170,7 +170,7 @@ StorageGRID 로드 밸런서 서비스를 사용하려면 * StorageGRID 로드 �
  a| 
 로드 밸런싱에 사용할 StorageGRID 포트입니다. 이 필드는 처음 생성한 엔드포인트에 대해 기본적으로 10433으로 설정되지만 사용하지 않는 외부 포트는 입력할 수 있습니다. 80 또는 443을 입력하면 해당 포트가 관리 노드에 예약되기 때문에 끝점이 게이트웨이 노드에서만 구성됩니다.
 
-* 참고: * 다른 그리드 서비스에서 사용하는 포트는 허용되지 않습니다. 를 link:../network/network-port-reference.html["네트워크 포트 참조"]참조하십시오.
+*참고:* 다른 그리드 서비스에서 사용하는 포트는 허용되지 않습니다. 보다 link:../network/internal-grid-node-communications.html#storagegrid-internal-ports["StorageGRID 내부 포트"] .
 
 
 
@@ -347,7 +347,7 @@ S3 애플리케이션이 외부 로드 밸런서에 연결하는 데 사용할 �
 +
 테넌트 이름은 고유해야 할 필요가 없습니다. 테넌트 계정이 생성되면 고유한 숫자 계정 ID를 받습니다.
 
-. StorageGRID 시스템에서link:using-identity-federation.html["ID 제휴"], link:configuring-sso.html["SSO(Single Sign-On)"]또는 둘 모두를 사용하는지 여부에 따라 테넌트 계정에 대한 루트 액세스를 정의합니다.
+. StorageGRID 시스템에서 사용하는지 여부에 따라 테넌트 계정에 대한 루트 액세스를 정의합니다.link:using-identity-federation.html["ID 제휴"] ,link:how-sso-works.html["SSO(Single Sign-On)"] , 또는 둘 다.
 +
 [cols="1a,2a"]
 |===

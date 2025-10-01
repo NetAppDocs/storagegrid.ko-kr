@@ -14,7 +14,7 @@ summary: 그리드 유지 관리 작업에는 노드 또는 사이트 사용 중
 그리드 유지 관리 작업에는 노드 또는 사이트 사용 중단, 그리드, 노드 또는 사이트 이름 변경, 네트워크 유지 관리가 포함됩니다. 또한 호스트 및 미들웨어 절차와 그리드 노드 프로시저를 수행할 수 있습니다.
 
 
-NOTE: 이 지침에서 "Linux"는 Red Hat ® Enterprise Linux ®, Ubuntu ® 또는 Debian ® 배포를 나타냅니다. 지원되는 버전 목록은 를 참조하십시오 https://imt.netapp.com/matrix/#welcome["NetApp 상호 운용성 매트릭스 툴"^].
+NOTE: 이 지침에서 "Linux"는 Red Hat® Enterprise Linux®(RHEL), Ubuntu® 또는 Debian® 배포를 의미합니다.  지원되는 버전 목록은 다음을 참조하세요. https://imt.netapp.com/matrix/#welcome["NetApp 상호 운용성 매트릭스 툴"^] .
 
 
 

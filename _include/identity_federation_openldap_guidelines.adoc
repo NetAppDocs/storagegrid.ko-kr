@@ -5,7 +5,7 @@
 OpenLDAP 서버를 ID 페더레이션에 사용하려면 OpenLDAP 서버에서 특정 설정을 구성해야 합니다.
 
 
-CAUTION: ActiveDirectory 또는 Azure가 아닌 ID 소스의 경우 StorageGRID는 외부에서 비활성화된 사용자에 대한 S3 액세스를 자동으로 차단하지 않습니다. S3 액세스를 차단하려면 사용자의 S3 키를 삭제하거나 모든 그룹에서 사용자를 제거합니다.
+CAUTION: Active Directory 또는 Microsoft Entra ID가 아닌 ID 소스의 경우 StorageGRID 외부에서 비활성화된 사용자의 S3 액세스를 자동으로 차단하지 않습니다.  S3 액세스를 차단하려면 해당 사용자의 S3 키를 삭제하거나 모든 그룹에서 사용자를 제거하세요.
 
 
 

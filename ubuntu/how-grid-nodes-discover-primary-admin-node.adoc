@@ -1,32 +1,8 @@
 ---
 permalink: ubuntu/how-grid-nodes-discover-primary-admin-node.html 
-sidebar: sidebar 
-keywords: How grid nodes discover primary Admin Node 
-summary: 그리드 노드는 구성 및 관리를 위해 기본 관리 노드와 통신합니다. 각 그리드 노드는 그리드 네트워크에 있는 기본 관리 노드의 IP 주소를 알아야 합니다. 
+redirect: storagegrid/swnodes/how-grid-nodes-discover-primary-admin-node.html 
 ---
-= 그리드 노드가 기본 관리자 노드를 검색하는 방법
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
-그리드 노드는 구성 및 관리를 위해 기본 관리 노드와 통신합니다. 각 그리드 노드는 그리드 네트워크에 있는 기본 관리 노드의 IP 주소를 알아야 합니다.
-
-그리드 노드가 기본 관리 노드에 액세스할 수 있도록 노드를 배포할 때 다음 중 하나를 수행할 수 있습니다.
-
-* admin_ip 매개 변수를 사용하여 기본 관리 노드의 IP 주소를 수동으로 입력할 수 있습니다.
-* admin_ip 매개 변수를 생략하여 그리드 노드가 값을 자동으로 검색하도록 할 수 있습니다. 자동 검색은 그리드 네트워크가 DHCP를 사용하여 기본 관리 노드에 IP 주소를 할당할 때 특히 유용합니다.
-
-
-운영 관리자 노드의 자동 검색은 mDNS(multicast domain name system)를 사용하여 수행됩니다. 운영 관리 노드가 처음 시작되면 mDNS를 사용하여 해당 IP 주소를 게시합니다. 그런 다음 동일한 서브넷에 있는 다른 노드에서 IP 주소를 쿼리하고 자동으로 가져올 수 있습니다. 그러나 멀티캐스트 IP 트래픽은 일반적으로 서브넷 간에 라우팅할 수 없기 때문에 다른 서브넷의 노드는 기본 관리 노드의 IP 주소를 직접 획득할 수 없습니다.
-
-[NOTE]
-====
-자동 검색을 사용하는 경우:
-
-* 기본 관리 노드가 직접 연결되지 않은 서브넷에 있는 하나 이상의 그리드 노드에 대해 admin_IP 설정을 포함해야 합니다. 이 그리드 노드는 mDNS로 검색할 서브넷의 다른 노드에 대한 기본 관리 노드의 IP 주소를 게시합니다.
-* 네트워크 인프라스트럭처가 서브넷 내의 다중 캐스트 IP 트래픽 전달을 지원하는지 확인합니다.
-
-
-====

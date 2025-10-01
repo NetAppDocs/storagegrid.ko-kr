@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: signing in when sso is down, single sign on failure 
 summary: 'SSO(Single Sign-On) 시스템이 다운되면 Grid Manager에 로그인하지 못할 수 있습니다. 이 경우 한 관리 노드에 대해 SSO를 일시적으로 비활성화 및 다시 활성화할 수 있습니다. SSO를 비활성화한 다음 다시 활성화하려면 노드의 명령 셸에 액세스해야 합니다.' 
 ---
-= 하나의 관리 노드에 대해 SSO(Single Sign-On)를 일시적으로 비활성화 및 다시 활성화합니다
+= 한 관리 노드에 대해 SSO를 일시적으로 비활성화하고 다시 활성화합니다.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -52,7 +52,7 @@ TIP: 한 관리 노드에 대해 SSO를 비활성화해도 그리드의 다른 �
 . 사용자 이름 루트와 로컬 루트 사용자 암호를 사용하여 로그인합니다.
 . SSO 구성을 수정해야 하므로 SSO를 일시적으로 비활성화한 경우:
 +
-.. 구성 * > * 액세스 제어 * > * 단일 사인온 * 을 선택합니다.
+.. *구성* > *액세스 제어* > *단일 로그인*을 선택합니다.
 .. 잘못된 또는 오래된 SSO 설정을 변경합니다.
 .. 저장 * 을 선택합니다.
 +

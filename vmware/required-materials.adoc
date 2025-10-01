@@ -1,67 +1,8 @@
 ---
 permalink: vmware/required-materials.html 
-sidebar: sidebar 
-keywords: installation materials vmware 
-summary: StorageGRID를 설치하기 전에 필요한 정보와 자료를 수집하고 준비합니다. 
+redirect: storagegrid/swnodes/required-materials.html 
 ---
-= 필요한 정보 및 자료
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
-
-[role="lead"]
-StorageGRID를 설치하기 전에 필요한 정보와 자료를 수집하고 준비합니다.
-
-
-
-== 필수 정보입니다
-
-네트워크 계획:: 각 StorageGRID 노드에 연결할 네트워크 StorageGRID는 트래픽 분리, 보안 및 관리의 편의를 위해 여러 네트워크를 지원합니다.
-+
---
-StorageGRID 를 link:../network/index.html["네트워킹 지침"]참조하십시오.
-
---
-네트워크 정보:: 각 그리드 노드에 할당할 IP 주소와 DNS 및 NTP 서버의 IP 주소입니다.
-그리드 노드용 서버:: 구축할 StorageGRID 노드의 수와 유형을 지원하기에 충분한 리소스를 제공하는 물리적 서버 세트, 가상 서버 또는 둘 다 식별합니다.
-+
---
-
-NOTE: StorageGRID 설치에서 StorageGRID 어플라이언스(하드웨어) 스토리지 노드를 사용하지 않는 경우 BBWC(배터리 지원 쓰기 캐시)와 함께 하드웨어 RAID 스토리지를 사용해야 합니다. StorageGRID는 VSAN(Virtual Storage Area Network), 소프트웨어 RAID 또는 RAID 보호 사용을 지원하지 않습니다.
-
---
-관련 정보:: https://imt.netapp.com/matrix/#welcome["NetApp 상호 운용성 매트릭스 툴"^]
-
-
-
-
-== 필수 자료
-
-NetApp StorageGRID 라이센스:: 디지털 서명된 유효한 NetApp 라이센스가 있어야 합니다.
-
-
-
-NOTE: 테스트 및 개념 증명 그리드에 사용할 수 있는 비운영 라이센스가 StorageGRID 설치 아카이브에 포함되어 있습니다.
-
-StorageGRID 설치 아카이브:: link:downloading-and-extracting-storagegrid-installation-files.html["StorageGRID 설치 아카이브를 다운로드하고 파일 압축을 풉니다"]..
-서비스 노트북:: StorageGRID 시스템은 서비스 랩톱을 통해 설치됩니다.
-+
---
-서비스 랩톱의 구성 요소:
-
-* 네트워크 포트
-* SSH 클라이언트(예: PuTTY)
-* link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]
-
-
---
-StorageGRID 설명서::
-+
---
-* link:../release-notes/index.html["릴리스 정보"]
-* link:../admin/index.html["StorageGRID 관리 지침"]
-
-
---
 

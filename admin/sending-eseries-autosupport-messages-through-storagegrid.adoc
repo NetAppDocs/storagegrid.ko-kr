@@ -37,7 +37,7 @@ SANtricity 시스템 관리자에서 어플라이언스의 관리 포트를 사�
 NOTE: 이 절차는 E-Series AutoSupport 패키지용 StorageGRID 프록시 서버를 구성하는 경우에만 적용됩니다. E-Series AutoSupport 구성에 대한 자세한 내용은 을 참조하십시오 https://docs.netapp.com/us-en/e-series-family/index.html["NetApp E-Series 및 SANtricity 문서"^].
 
 .단계
-. Grid Manager에서 * nodes * 를 선택합니다.
+. 그리드 관리자에서 *노드*를 선택합니다.
 . 왼쪽의 노드 목록에서 구성할 스토리지 어플라이언스 노드를 선택합니다.
 . SANtricity 시스템 관리자 * 를 선택합니다.
 +
@@ -46,7 +46,7 @@ SANtricity 시스템 관리자 홈 페이지가 나타납니다.
 +
 image::../media/autosupport_santricity_home_page.png[AutoSupport SANtricity 홈 페이지]
 
-. 지원 * > * 지원 센터 * > * AutoSupport * 를 선택합니다.
+. *지원* > *지원 센터* > * AutoSupport*를 선택하세요.
 +
 AutoSupport 작업 페이지가 나타납니다.
 

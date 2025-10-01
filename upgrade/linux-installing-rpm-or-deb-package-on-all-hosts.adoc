@@ -36,8 +36,8 @@ StorageGRID 소프트웨어 버전의 형식은 11._x. y _ 입니다. StorageGRI
 ** 최신 릴리스에 대한 업그레이드 아카이브(이 파일은 * VMware, SG1000 또는 SG100 기본 관리 노드 * 라는 섹션에 있음) 이 파일은 업그레이드를 수행할 때까지 필요하지 않지만 지금 다운로드하면 시간이 절약됩니다.
 ** 또는 `.zip` 형식의 RPM 또는 DEB 아카이브입니다. `.tgz`  `.zip`서비스 랩톱에서 Windows를 실행하는 경우 파일을 선택합니다.
 +
-*** Red Hat Enterprise Linux+
-`StorageGRID-Webscale-_version_-RPM-_uniqueID_.zip`+
+*** RHEL +
+`StorageGRID-Webscale-_version_-RPM-_uniqueID_.zip` +
 `StorageGRID-Webscale-_version_-RPM-_uniqueID_.tgz`
 *** Ubuntu 또는 Debian+
 `StorageGRID-Webscale-_version_-DEB-_uniqueID_.zip`+
@@ -57,6 +57,12 @@ StorageGRID 소프트웨어 버전의 형식은 11._x. y _ 입니다. StorageGRI
 
 
 
+. Linux 노드에서는 코드 서명 검증이 수동으로 수행됩니다.  선택적으로 설치 아카이브를 확인하세요.
++
+.. StorageGRID 코드 서명 확인 패키지를 다운로드합니다. 이 패키지의 파일 이름은 StorageGRID 소프트웨어 버전의 형식을 `StorageGRID_<version-number>_Code_Signature_Verification_Package.tar.gz` 사용합니다. `<version-number>`
+.. 다음 단계를 따르세요link:../swnodes/download-files-verify.html["설치 파일을 수동으로 확인합니다"] .
+
+
 
 
 
@@ -69,12 +75,7 @@ StorageGRID 소프트웨어를 업그레이드하기 전에 다음 단계를 수
 . 설치 파일에서 RPM 또는 DEB 패키지를 추출합니다.
 . 모든 Linux 호스트에 RPM 또는 DEB 패키지를 설치합니다.
 +
-설치 지침은 StorageGRID 호스트 서비스 설치 단계를 참조하십시오.
-
-+
-** link:../rhel/installing-storagegrid-webscale-host-service.html["Red Hat Enterprise Linux: StorageGRID 호스트 서비스를 설치합니다"]
-** link:../ubuntu/installing-storagegrid-webscale-host-services.html["Ubuntu 또는 Debian: StorageGRID 호스트 서비스를 설치합니다"]
-
+Linux용 StorageGRID 호스트 서비스 설치 단계를 참조하세요.link:../swnodes/installing-storagegrid-webscale-host-services.html["StorageGRID 호스트 서비스를 설치합니다"] .
 
 +
 새 패키지는 추가 패키지로 설치됩니다.
@@ -93,7 +94,7 @@ Linux 호스트에서 공간을 확보하기 위해 더 이상 필요하지 않�
 
 [role="tabbed-block"]
 ====
-.Red Hat
+.RHEL
 --
 . 설치된 StorageGRID 패키지 목록을 캡처합니다 `dnf list | grep -i storagegrid`.
 +

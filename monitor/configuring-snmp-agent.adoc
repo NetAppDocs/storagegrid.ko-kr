@@ -30,7 +30,7 @@ StorageGRID SNMP 에이전트는 SNMPv1, SNMPv2c 및 SNMPv3를 지원합니다. 
 첫 번째 단계로 StorageGRID SMNP 에이전트를 활성화하고 기본 정보를 제공합니다.
 
 .단계
-. 구성 * > * 모니터링 * > * SNMP 에이전트 * 를 선택합니다.
+. *구성* > *모니터링* > *SNMP 에이전트*를 선택합니다.
 +
 SNMP 에이전트 페이지가 나타납니다.
 
@@ -347,6 +347,9 @@ SNMP 에이전트의 기본 UDP 포트는 161이지만 사용하지 않는 포�
 == [[create-USM-users]] USM 사용자를 생성합니다
 
 SNMPv3을 사용하는 경우 Other configurations 섹션의 USM users 탭을 사용하여 MIB를 쿼리하거나 트랩 및 알림을 받을 권한이 있는 USM 사용자를 정의합니다.
+
+
+NOTE: SNMPv3 _trap_ 대상의 경우 각 관리 노드에 대해 USM 사용자를 만드는 것이 좋습니다.  각 관리 노드에 USM 사용자가 없으면 기본 관리 노드가 다운되면 관리 시스템에서 알림을 받지 못할 수 있습니다.
 
 
 NOTE: SNMPv3_inform_destinations에 엔진 ID가 있는 사용자가 있어야 합니다. SNMPv3_trap_destination은 엔진 ID를 가진 사용자를 가질 수 없습니다.

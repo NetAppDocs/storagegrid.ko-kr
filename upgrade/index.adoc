@@ -16,12 +16,16 @@ summary: 다음 지침에 따라 StorageGRID 시스템을 새 릴리즈로 업�
 업그레이드를 수행하면 StorageGRID 시스템의 모든 노드가 업그레이드됩니다.
 
 
+CAUTION: 저장 용량을 늘리기 위해 긴급하게 저장 공간을 확장해야 하는 경우(저장 공간이 거의 가득 찬 경우) 업그레이드를 시작하지 마세요.  적절한 시기에 업그레이드 절차를 완료하세요.  복구가 필요한 경우 기술 지원팀에 문의하세요.
 
-== 시작하기 전에
 
-이 항목을 검토하여 StorageGRID 11.9의 새로운 기능과 향상된 기능에 대해 알아보고, 더 이상 사용되지 않거나 제거된 기능이 있는지 확인하고, StorageGRID API의 변경 사항에 대해 알아보십시오.
 
-* link:whats-new.html["StorageGRID 11.9의 새로운 기능"]
+== 업그레이드하기 전에
+
+StorageGRID 12.0의 새로운 기능과 향상된 기능에 대해 알아보고, 더 이상 사용되지 않거나 삭제된 기능이 있는지 확인하고, StorageGRID API의 변경 사항을 알아보려면 다음 항목을 검토하세요.
+
+* link:how-your-system-is-affected-during-upgrade.html["업그레이드 중 시스템에 미치는 영향"]
+* link:whats-new.html["StorageGRID 12.0의 새로운 기능"]
 * link:removed-or-deprecated-features.html["제거되거나 사용되지 않는 기능"]
 * link:changes-to-grid-management-api.html["Grid Management API 변경"]
 * link:changes-to-tenant-management-api.html["테넌트 관리 API의 변경 사항"]

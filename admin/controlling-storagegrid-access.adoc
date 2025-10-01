@@ -32,16 +32,16 @@ NOTE: 다른 LDAP v3 서비스를 사용하려면 기술 지원 부서에 문의
 
 == SSO(Single Sign-On)를 활성화합니다
 
-StorageGRID 시스템은 SAML 2.0(Security Assertion Markup Language 2.0) 표준을 사용하여 SSO(Single Sign-On)를 지원합니다. 그런 다음 link:configuring-sso.html["SSO를 구성하고 사용하도록 설정합니다"]모든 사용자가 그리드 관리자, 테넌트 관리자, 그리드 관리 API 또는 테넌트 관리 API에 액세스하기 전에 외부 ID 공급자에 의해 인증되어야 합니다. 로컬 사용자는 StorageGRID에 로그인할 수 없습니다.
+StorageGRID 시스템은 SAML 2.0(Security Assertion Markup Language 2.0) 표준을 사용하여 SSO(Single Sign-On)를 지원합니다.  당신이 후에link:how-sso-works.html["SSO를 구성하고 사용하도록 설정합니다"] 모든 사용자는 Grid Manager, Tenant Manager, Grid Management API 또는 Tenant Management API에 액세스하기 전에 외부 ID 공급자로부터 인증을 받아야 합니다.  로컬 사용자는 StorageGRID 에 로그인할 수 없습니다.
 
 
 
 == 프로비저닝 암호를 변경합니다
 
-프로비저닝 암호는 많은 설치 및 유지 관리 절차와 StorageGRID 복구 패키지 다운로드에 필요합니다. 또한 StorageGRID 시스템에 대한 그리드 토폴로지 정보와 암호화 키의 백업을 다운로드하려면 암호문도 필요합니다. 필요에 따라 할 수 link:changing-provisioning-passphrase.html["암호를 변경합니다"]있습니다.
+프로비저닝 암호는 많은 설치 및 유지 관리 절차와 StorageGRID 복구 패키지를 다운로드하는 데 필요합니다.  StorageGRID 시스템의 그리드 토폴로지 정보와 암호화 키의 백업을 다운로드하려면 암호도 필요합니다.  당신은 할 수 있습니다link:changing-provisioning-passphrase.html["암호를 변경합니다"] 필요에 따라.
 
 
 
 == 노드 콘솔 암호를 변경합니다
 
-그리드의 각 노드에는 고유한 노드 콘솔 암호가 있습니다. 이 암호는 SSH를 사용하여 노드에 "admin"으로 로그인하거나 VM/물리적 콘솔 연결의 루트 사용자에게 로그인해야 합니다. 필요한 경우 각 노드에 대해 수행할 수 link:change-node-console-password.html["노드 콘솔 암호를 변경합니다"]있습니다.
+그리드의 각 노드에는 노드 콘솔 비밀번호가 있는데, SSH를 사용하여 "admin"으로 노드에 로그인하거나 VM/물리적 콘솔 연결에서는 루트 사용자로 로그인해야 합니다.  필요에 따라 다음을 수행할 수 있습니다.link:change-node-console-password.html["노드 콘솔 암호를 변경합니다"] 각 노드에 대해.

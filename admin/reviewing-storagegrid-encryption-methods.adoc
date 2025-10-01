@@ -144,3 +144,6 @@ https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html["
 
 
 오브젝트의 일부 부분만 암호화해야 하는 경우 대신 버킷 또는 개별 오브젝트 수준에서 암호화를 제어하는 것이 좋습니다. 여러 수준의 암호화를 사용하면 추가 성능 비용이 듭니다.
+
+.관련 정보
+link:manage-tls-ssh-policy.html#select-a-security-policy["FIPS 인증 암호화 옵션에 대해 알아보세요"]

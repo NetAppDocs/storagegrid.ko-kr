@@ -24,11 +24,10 @@ NOTE: 정책에 대한 기본 ILM 규칙을 생성하려면 대신 를 link:crea
 * 사용할 클라우드 스토리지 풀을 구성했습니다. 을 link:creating-cloud-storage-pool.html["클라우드 스토리지 풀을 생성합니다"]참조하십시오.
 * 에 대해 잘 알고 link:data-protection-options-for-ingest.html["수집 옵션"]있습니다.
 * S3 오브젝트 잠금과 함께 사용할 규정 준수 규칙을 생성해야 하는 경우 에 익숙합니다.link:requirements-for-s3-object-lock.html["S3 오브젝트 잠금에 대한 요구사항"]
-* 선택적으로 비디오를 시청했습니다 https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9872d38f-80b3-4ad4-9f79-b1ff008760c7["비디오: ILM 규칙 개요"^].
+* 선택적으로 비디오를 시청했습니다.
 +
-[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9872d38f-80b3-4ad4-9f79-b1ff008760c7]
-image::../media/video-screenshot-ilm-rules-118.png[비디오: ILM 규칙 개요]
-
+.ILM 규칙 개요
+video::9872d38f-80b3-4ad4-9f79-b1ff008760c7[panopto]
 
 
 .이 작업에 대해

@@ -48,7 +48,7 @@ SPUT S3 PUT object bucket1/part3.txt tenant:92484777680322627870  cbid:5373D7383
 `audit-explain audit.log 2019-08-12.txt.gz 2019-08-13.txt.gz`
 
 +
-`audit-explain /var/local/log/*`
+`audit-explain /var/local/audit/export/*`
 
 * 파이프의 입력을 수락하면 명령 또는 다른 방법으로 입력을 필터링하고 사전 처리할 수 있습니다. `grep` 예를 들면 다음과 같습니다.
 +
@@ -84,9 +84,9 @@ SPUT S3 PUT object bucket1/part3.txt tenant:92484777680322627870  cbid:5373D7383
 
 
 
-. 다음 명령을 입력합니다. 여기서 는 분석할 파일의 이름과 위치를 나타냅니다. `/var/local/log/audit.log`
+. 다음 명령을 입력하세요. `/var/local/audit/export/audit.log` 분석하려는 파일의 이름과 위치를 나타냅니다.
 +
-`$ audit-explain /var/local/log/audit.log`
+`$ audit-explain /var/local/audit/export/audit.log`
 
 +
 이 `audit-explain` 도구는 지정된 파일에 있는 모든 메시지에 대해 사람이 읽을 수 있는 해석을 인쇄합니다.

@@ -30,7 +30,7 @@ summary: 공격을 방어하려면 StorageGRID 시스템 및 관련 서비스를
 
 == 외부 서비스로 업그레이드
 
-외부 서비스에는 StorageGRID에 간접적으로 영향을 주는 취약점이 있을 수 있습니다. StorageGRID가 의존하는 서비스를 최신 상태로 유지해야 합니다. 이러한 서비스에는 LDAP, KMS(또는 KMIP 서버), DNS 및 NTP가 포함됩니다.
+외부 서비스에는 StorageGRID 간접적으로 영향을 미치는 취약점이 있을 수 있습니다.  StorageGRID 의존하는 서비스가 최신 상태로 유지되는지 확인하세요.  이러한 서비스에는 LDAP, KMS(또는 KMIP 서버), DNS, NTP가 포함됩니다.
 
 지원되는 버전 목록은 를 참조하십시오 https://imt.netapp.com/matrix/#welcome["NetApp 상호 운용성 매트릭스 툴"^].
 

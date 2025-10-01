@@ -56,7 +56,7 @@ HA 그룹을 구성할 경우 ONTAP가 연결할 노드 및 사용할 StorageGRI
 
 === ID 페더레이션 및 SSO를 구성합니다
 
-StorageGRID 시스템에 대해 ID 페더레이션 또는 SSO(Single Sign-On)를 사용하려는 경우 이러한 기능을 활성화했습니다. 또한 ONTAP에서 사용할 테넌트 계정에 대한 루트 액세스 권한이 있어야 하는 통합 그룹도 알고 있습니다. link:../admin/using-identity-federation.html["ID 페더레이션을 사용합니다"]및 을 link:../admin/configuring-sso.html["Single Sign-On 구성"]참조하십시오.
+StorageGRID 시스템에 ID 페더레이션이나 SSO(Single Sign-On)를 사용하려는 경우 이러한 기능을 활성화해야 합니다.  또한 ONTAP 에서 사용할 테넌트 계정에 대해 루트 액세스 권한이 있는 페더레이션 그룹이 어떤지도 알고 있습니다.  보다link:../admin/using-identity-federation.html["ID 페더레이션을 사용합니다"] 그리고link:../admin/how-sso-works.html["Single Sign-On 구성"] .
 
 
 

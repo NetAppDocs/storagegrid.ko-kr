@@ -44,7 +44,7 @@ StorageGRID 설치 아카이브
  a| 
 `Passwords.txt` 파일
  a| 
-명령줄에서 그리드 노드에 액세스하는 데 필요한 암호를 포함합니다. 복구 패키지에 포함되어 있습니다.
+명령줄에서 그리드 노드에 액세스하는 데 필요한 암호가 포함되어 있습니다.  복구 패키지에 포함되어 있습니다.
 
 
 
@@ -60,13 +60,7 @@ StorageGRID 설명서
  a| 
 * link:../admin/index.html["StorageGRID 관리"]
 * link:../release-notes/index.html["릴리스 정보"]
-* 플랫폼에 대한 설치 지침
-+
-** link:../rhel/index.html["Red Hat Enterprise Linux에 StorageGRID를 설치합니다"]
-** link:../ubuntu/index.html["Ubuntu 또는 Debian에 StorageGRID를 설치합니다"]
-** link:../vmware/index.html["VMware에 StorageGRID를 설치합니다"]
-
-
+* link:../swnodes/index.html["플랫폼에 대한 설치 지침"]
 
 
 
@@ -106,7 +100,7 @@ StorageGRID 설명서
 
 
  a| 
-Red Hat Enterprise Linux
+RHEL
 | `StorageGRID-Webscale-_version_-RPM-_uniqueID_.zip` 
 `StorageGRID-Webscale-_version_-RPM-_uniqueID_.tgz` 
 
@@ -134,7 +128,7 @@ OpenStack에서 기존 구축을 확장하려면 위에 나열된 지원되는 L
 +
 각 플랫폼의 단계에 나열된 경로는 아카이브 파일에 의해 설치된 최상위 디렉토리를 기준으로 합니다.
 
-. Red Hat Enterprise Linux 시스템을 확장하는 경우 적절한 파일을 선택합니다.
+. RHEL 시스템을 확장하는 경우 적절한 파일을 선택하세요.
 
 
 [cols="1a,1a"]
@@ -393,6 +387,9 @@ StorageGRID에 대한 API 스키마입니다.
 . StorageGRID 어플라이언스 기반 시스템을 확장하는 경우 해당 파일을 선택합니다.
 
 
+
+NOTE: 기기 설치의 경우, 네트워크 트래픽을 피해야 하는 경우에만 이러한 파일이 필요합니다.  어플라이언스는 복구 절차를 수행하는 관리 노드에서 필요한 파일을 다운로드할 수 있습니다.
+
 [cols="1a,1a"]
 |===
 | 경로 및 파일 이름입니다 | 설명 
@@ -408,9 +405,6 @@ StorageGRID에 대한 API 스키마입니다.
 images-version-SHA.deb`.
 
 |===
-
-NOTE: 어플라이언스 설치의 경우, 이러한 파일은 네트워크 트래픽을 방지해야 하는 경우에만 필요합니다. 어플라이언스는 기본 관리 노드에서 필요한 파일을 다운로드할 수 있습니다.
-
 
 
 == 하드웨어 및 네트워킹을 확인합니다

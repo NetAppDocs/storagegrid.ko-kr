@@ -26,14 +26,6 @@ entries:
     url: "/expand/adding-new-site.html"
 - title: 필요한 자료를 수집합니다
   url: "/expand/gather-required-materials.html"
-- title: 스토리지 볼륨을 추가합니다
-  entries:
-  - title: 스토리지 노드에 스토리지 볼륨을 추가합니다
-    url: "/expand/adding-storage-volumes-to-storage-nodes.html"
-  - title: 'VMware: 스토리지 노드에 스토리지 볼륨을 추가합니다'
-    url: "/expand/vmware-adding-storage-volumes-to-storage-node.html"
-  - title: 'Linux: 스토리지 노드에 직접 연결 또는 SAN 볼륨을 추가합니다'
-    url: "/expand/linux-adding-direct-attached-or-san-volumes-to-storage-node.html"
 - title: 그리드 노드 또는 사이트를 추가합니다
   entries:
   - title: 기존 사이트에 그리드 노드를 추가하거나 새 사이트를 추가합니다
@@ -44,6 +36,14 @@ entries:
     url: "/expand/deploying-new-grid-nodes.html"
   - title: 확장을 수행합니다
     url: "/expand/performing-expansion.html"
+- title: 스토리지 볼륨을 추가합니다
+  entries:
+  - title: 스토리지 노드에 스토리지 볼륨을 추가합니다
+    url: "/expand/adding-storage-volumes-to-storage-nodes.html"
+  - title: 'VMware: 스토리지 노드에 스토리지 볼륨을 추가합니다'
+    url: "/expand/vmware-adding-storage-volumes-to-storage-node.html"
+  - title: 'Linux: 스토리지 노드에 직접 연결 또는 SAN 볼륨을 추가합니다'
+    url: "/expand/linux-adding-direct-attached-or-san-volumes-to-storage-node.html"
 - title: 확장된 시스템을 구성합니다
   entries:
   - title: 구성 단계

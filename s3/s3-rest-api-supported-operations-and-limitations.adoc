@@ -44,13 +44,6 @@ AWS Signature 버전 2에 대한 전체 지원
 * 에서 실제 페이로드 체크섬 값을 `x-amz-content-sha256` 제공하면 헤더에 값이 제공된 것처럼 값이 유효성 검사 없이 수락됩니다. `UNSIGNED-PAYLOAD` 스트리밍을 의미하는 헤더 값 `aws-chunked`(예: streaming-AWS4-HMAC-SHA256 페이로드)을 제공하면 `x-amz-content-sha256` 청크 데이터에 대해 청크 서명이 확인되지 않습니다.
 
 
-
-
- a| 
-X-amz-security-token
- a| 
-구현되지 않았습니다.  `XNotImplemented`를 반환합니다.
-
 |===
 
 

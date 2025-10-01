@@ -19,7 +19,7 @@ FabricPool와 함께 사용하도록 StorageGRID 시스템을 구성할 때 다�
 
 FabricPool 워크로드는 읽기 작업의 비율이 높아 대량의 감사 메시지를 생성할 수 있는 경우가 많습니다.
 
-* FabricPool 또는 다른 S3 응용 프로그램에 대한 클라이언트 읽기 작업 기록이 필요하지 않은 경우 * 구성 * > * 모니터링 * > * 감사 및 syslog 서버 * 로 이동합니다. 클라이언트 읽기 * 설정을 * 오류 * 로 변경하여 감사 로그에 기록되는 감사 메시지 수를 줄입니다. 자세한 내용은 을 link:../monitor/configure-audit-messages.html["감사 메시지 및 로그 대상을 구성합니다"] 참조하십시오.
+* FabricPool 이나 다른 S3 애플리케이션에 대한 클라이언트 읽기 작업 기록이 필요하지 않은 경우 선택적으로 *구성* > *모니터링* > *감사 및 시스템 로그 서버*로 이동합니다.  감사 로그에 기록되는 감사 메시지 수를 줄이려면 *클라이언트 읽기* 설정을 *오류*로 변경하세요. 보다link:../monitor/configure-log-management.html["로그 관리 및 외부 syslog 서버 구성"] 자세한 내용은.
 * 대규모 그리드가 있거나, 여러 유형의 S3 애플리케이션을 사용하거나, 모든 감사 데이터를 보존하려는 경우, 외부 syslog 서버를 구성하고 감사 정보를 원격으로 저장합니다. 외부 서버를 사용하면 감사 데이터의 완성도를 낮추지 않고도 감사 메시지 로깅의 성능 영향을 최소화할 수 있습니다. 자세한 내용은 을 link:../monitor/considerations-for-external-syslog-server.html["외부 syslog 서버에 대한 고려 사항"] 참조하십시오.
 
 
@@ -34,6 +34,12 @@ StorageGRID를 구성할 때 다른 StorageGRID 클라이언트에 데이터 암
 == 오브젝트 압축
 
 StorageGRID를 구성할 때는 를 활성화하지 마십시오.link:../admin/configuring-stored-object-compression.html["저장된 개체를 압축하는 전역 옵션"] FabricPool에서 StorageGRID로 계층화된 데이터는 이미 압축된 상태입니다. StorageGRID 옵션을 사용하면 개체의 크기가 더 작아지지 않습니다.
+
+
+
+== S3 오브젝트 잠금
+
+StorageGRID 시스템에 대해 글로벌 S3 개체 잠금 설정이 활성화된 경우 활성화하지 마십시오.link:../s3/use-s3-api-for-s3-object-lock.html["S3 오브젝트 잠금"] FabricPool 버킷을 생성할 때.  FabricPool 버킷에서는 S3 객체 잠금이 지원되지 않습니다.
 
 
 

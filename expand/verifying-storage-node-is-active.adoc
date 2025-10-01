@@ -15,7 +15,7 @@ summary: 새 스토리지 노드를 추가하는 확장 작업이 완료되면 S
 
 .단계
 . 을 사용하여 그리드 관리자에 link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]로그인합니다.
-. nodes * > *_Expansion Storage Node_ * > * Storage * 를 선택합니다.
+. *노드* > *_확장 스토리지 노드_* > *스토리지*를 선택합니다.
 . 커서를 * Storage Used - Object Data * 그래프 위에 놓으면 * Used * 의 값을 볼 수 있습니다. 이 값은 오브젝트 데이터에 사용된 총 가용 공간의 양입니다.
 . 그래프 오른쪽으로 커서를 이동하면 * Used * 의 값이 증가하는지 확인합니다.
 

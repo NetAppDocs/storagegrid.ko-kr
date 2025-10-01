@@ -22,11 +22,10 @@ StorageGRID는 표에 나열된 ICMP 및 포트 외에도 VRRP(가상 라우터 
 
 == Linux 기반 노드에 대한 지침
 
-엔터프라이즈 네트워킹 정책이 이러한 포트에 대한 액세스를 제한하는 경우 배포 구성 매개 변수를 사용하여 배포 시 포트를 다시 매핑할 수 있습니다. 포트 재매핑 및 배포 구성 매개 변수에 대한 자세한 내용은 다음을 참조하십시오.
+기업 네트워킹 정책이 이러한 포트에 대한 액세스를 제한하는 경우 배포 구성 매개변수를 사용하여 배포 시점에 포트를 다시 매핑할 수 있습니다.  포트 리매핑 및 배포 구성 매개변수에 대한 자세한 내용은 다음을 참조하세요.link:../swnodes/index.html["소프트웨어 기반 노드에 StorageGRID 설치"] .
 
-* link:../rhel/index.html["Red Hat Enterprise Linux에 StorageGRID를 설치합니다"]
-* link:../ubuntu/index.html["Ubuntu 또는 Debian에 StorageGRID를 설치합니다"]
 
+NOTE: 포트 리매핑 지원은 더 이상 제공되지 않으며 향후 릴리스에서 제거될 예정입니다. 재매핑된 포트를 제거하려면 다음을 참조하세요.link:../maintain/removing-port-remaps-on-bare-metal-hosts.html["베어 메탈 호스트에서 포트 재맵을 제거합니다"] .
 
 
 
@@ -34,13 +33,19 @@ StorageGRID는 표에 나열된 ICMP 및 포트 외에도 VRRP(가상 라우터 
 
 VMware 네트워킹 외부의 방화벽 제한을 정의해야 하는 경우에만 다음 포트를 구성합니다.
 
-엔터프라이즈 네트워킹 정책이 이러한 포트에 대한 액세스를 제한하는 경우 VMware vSphere Web Client를 사용하여 노드를 구축하거나 그리드 노드 구축을 자동화할 때 구성 파일 설정을 사용하여 포트를 재매핑할 수 있습니다. 포트 재매핑 및 배포 구성 매개 변수에 대한 자세한 내용은 을 참조하십시오link:../vmware/index.html["VMware에 StorageGRID를 설치합니다"].
+기업 네트워킹 정책이 이러한 포트에 대한 액세스를 제한하는 경우 VMware vSphere Web Client를 사용하여 노드를 배포할 때 포트를 다시 매핑하거나 그리드 노드 배포를 자동화할 때 구성 파일 설정을 사용하여 포트를 다시 매핑할 수 있습니다.  포트 리매핑 및 배포 구성 매개변수에 대한 자세한 내용은 다음 지침을 참조하세요.link:../swnodes/index.html["VMware에 StorageGRID 설치"] .
+
+
+NOTE: 포트 리매핑 지원은 더 이상 제공되지 않으며 향후 릴리스에서 제거될 예정입니다. 재매핑된 포트를 제거하려면 다음을 참조하세요.link:../maintain/removing-port-remaps-on-bare-metal-hosts.html["베어 메탈 호스트에서 포트 재맵을 제거합니다"] .
 
 
 
 == 어플라이언스 노드에 대한 지침
 
 엔터프라이즈 네트워킹 정책에서 이러한 포트에 대한 액세스를 제한하는 경우 StorageGRID 어플라이언스 설치 프로그램을 사용하여 포트를 재매핑할 수 있습니다. 을 https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-remapping-network-ports-for-appliance.html["옵션: 어플라이언스인 네트워크 포트를 재활용합니다"^]참조하십시오.
+
+
+NOTE: 포트 리매핑 지원은 더 이상 제공되지 않으며 향후 릴리스에서 제거될 예정입니다. 재매핑된 포트를 제거하려면 다음을 참조하세요.link:../maintain/removing-port-remaps.html["StorageGRID 어플라이언스에서 포트 리맵 제거"] .
 
 
 
@@ -151,7 +156,7 @@ TCP
  a| 
 스토리지 노드
  a| 
-S3 및 Swift 관련 내부 트래픽
+S3 관련 내부 트래픽.
 
 
 
@@ -425,19 +430,6 @@ TCP
 스토리지 노드
  a| 
 S3 관련 내부 트래픽.
-
-
-
- a| 
-18083
- a| 
-TCP
- a| 
-모든 노드
- a| 
-스토리지 노드
- a| 
-스위프트 관련 내부 트래픽.
 
 
 

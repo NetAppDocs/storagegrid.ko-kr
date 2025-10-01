@@ -33,7 +33,7 @@ summary: 실패한 기본 관리 노드에서 감사 로그를 보존할 수 있
 * 감사 메시지를 생성한 로컬 노드에만 저장하도록 명시적으로 지정했습니다.
 
 
-자세한 내용은 을 link:../monitor/configure-audit-messages.html["감사 메시지 및 로그 대상을 구성합니다"] 참조하십시오.
+보다link:../monitor/configure-log-management.html["로그 관리 및 외부 syslog 서버 구성"] 자세한 내용은.
 
 ====
 .단계
@@ -48,12 +48,12 @@ summary: 실패한 기본 관리 노드에서 감사 로그를 보존할 수 있
 +
 루트로 로그인하면 프롬프트가 에서 `$` 로 `#`변경됩니다.
 
-. 보존된 감사 파일 확인: `cd /var/local/log`
+. 어떤 감사 파일이 보존되었는지 확인하세요. `cd /var/local/audit/export`
 . 보존된 감사 로그 파일을 복구된 관리자 노드에 복사합니다. `scp admin@_grid_node_IP_:/var/local/tmp/saved-audit-logs/YYYY* .`
 +
 메시지가 표시되면 admin의 암호를 입력합니다.
 
 . 보안을 위해 장애가 발생한 그리드 노드에서 복구된 관리 노드에 성공적으로 복사되었는지 확인한 후 감사 로그를 삭제합니다.
-. 복구된 관리자 노드에서 감사 로그 파일의 사용자 및 그룹 설정을 업데이트합니다. `chown ams-user: bycast *`
+. 복구된 관리 노드의 감사 로그 파일에 있는 사용자 및 그룹 설정을 업데이트합니다. `chown ams-user:bycast *`
 . 루트로 로그아웃: `exit`
 

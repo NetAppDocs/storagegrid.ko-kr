@@ -37,7 +37,7 @@ Low object data storage * 알림은 각 스토리지 노드에 오브젝트 데�
 Major 또는 Minor * Low object data storage * 경고가 트리거되면 가능한 한 빨리 확장 절차를 수행해야 합니다.
 
 .단계
-. alerts * > * current * 를 선택합니다.
+. *알림* > *현재*를 선택하세요.
 +
 경고 페이지가 나타납니다.
 
@@ -53,7 +53,7 @@ NOTE: 알림 그룹의 제목이 아닌 알림을 선택합니다.
 ** 이 알림에 대한 메트릭의 현재 값입니다
 
 
-. nodes * > *_Storage Node 또는 Site_ * > * Storage * 를 선택합니다.
+. *노드* > *_스토리지 노드 또는 사이트_* > *스토리지*를 선택합니다.
 . 커서를 Storage Used - Object Data 그래프 위에 놓습니다.
 +
 다음 값이 표시됩니다.

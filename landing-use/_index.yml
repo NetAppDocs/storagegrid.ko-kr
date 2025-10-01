@@ -26,8 +26,8 @@ indexpage:
       url: "../tenant/creating-groups-for-s3-tenant.html"
     - title: 테넌트 관리 권한
       url: "../tenant/tenant-management-permissions.html"
-    - title: 로컬 사용자를 관리합니다
-      url: "../tenant/managing-local-users.html"
+    - title: 사용자 관리
+      url: "../tenant/manage-users.html"
   - title: S3 액세스 키 및 버킷 관리
     links:
     - title: S3 액세스 키를 관리합니다
@@ -57,7 +57,7 @@ indexpage:
     - title: 객체에 대한 작업
       url: "../s3/operations-on-objects.html"
     - title: 버킷 및 그룹 액세스 정책
-      url: "../s3/bucket-and-group-access-policies.html"
+      url: "../s3/use-access-policies.html"
   - title: Swift REST API 사용(지원 종료)
     links:
     - title: Swift를 사용합니다

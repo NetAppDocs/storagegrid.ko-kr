@@ -13,7 +13,7 @@ summary: StorageGRID 시스템의 스토리지에 대한 액세스를 제어하�
 [role="lead"]
 StorageGRID 시스템의 스토리지에 대한 액세스를 제어하려면 하나 이상의 테넌트 계정을 생성해야 합니다.
 
-테넌트 계정을 만드는 단계는 및 link:configuring-sso.html["SSO(Single Sign-On)"] 의 구성 여부와 테넌트 계정을 만드는 데 사용하는 그리드 관리자 계정이 루트 액세스 권한이 있는 관리자 그룹에 속하는지 여부에 따라 link:using-identity-federation.html["ID 제휴"]다릅니다.
+테넌트 계정을 만드는 단계는 다음에 따라 다릅니다.link:using-identity-federation.html["ID 제휴"] 그리고link:how-sso-works.html["SSO(Single Sign-On)"] 구성되었는지 여부와 테넌트 계정을 만드는 데 사용하는 Grid Manager 계정이 루트 액세스 권한이 있는 관리자 그룹에 속하는지 여부입니다.
 
 .시작하기 전에
 * 을 사용하여 그리드 관리자에 로그인되어 있습니다.link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]
@@ -42,7 +42,7 @@ TIP: 이 관리 그룹이 테넌트를 생성하기 전에 두 그리드에 없�
 == 마법사에 액세스합니다
 
 .단계
-. Tenants * 를 선택합니다.
+. *세입자*를 선택하세요.
 . Create * 를 선택합니다.
 
 
@@ -77,9 +77,7 @@ TIP: 이 관리 그룹이 테넌트를 생성하기 전에 두 그리드에 없�
  a| 
 클라이언트 유형입니다
  a| 
-이 테넌트가 사용할 클라이언트 프로토콜 유형으로 * S3 * 또는 * Swift * 가 있습니다.
-
-* 참고 *: Swift 클라이언트 응용 프로그램에 대한 지원은 더 이상 사용되지 않으며 향후 릴리스에서 제거될 예정입니다.
+S3 * 여야 합니다.
 
 
 
@@ -118,7 +116,7 @@ NOTE: 이러한 권한 중 일부는 추가 요구 사항이 있습니다. 자�
  a| 
 고유 ID 소스를 사용합니다
  a| 
-테넌트는 통합 그룹 및 사용자에 대한 자체 ID 소스를 구성하고 관리할 수 있습니다. 이 옵션은 StorageGRID 시스템에 대해 비활성화되어 link:../admin/configuring-sso.html["SSO를 구성했습니다"]있습니다.
+테넌트는 연합된 그룹과 사용자에 대한 자체 ID 소스를 구성하고 관리할 수 있습니다.  이 옵션은 다음 경우 비활성화됩니다.link:../admin/how-sso-works.html["SSO를 구성했습니다"] StorageGRID 시스템용.
 
 
 
@@ -290,7 +288,7 @@ TIP: 로컬 루트 사용자는 암호가 변경될 때까지 대상 그리드�
  a| 
 포트 443
  a| 
-* Grid Manager에서 * Tenants * 를 선택하고 테넌트 이름 오른쪽에 있는 * 로그인 * 을 선택합니다.
+* 그리드 관리자에서 *테넌트*를 선택하고 테넌트 이름 오른쪽에 있는 * Sign in*을 선택합니다.
 * 웹 브라우저에 테넌트의 URL을 입력합니다.
 +
 `https://_FQDN_or_Admin_Node_IP_/?accountId=_20-digit-account-id_/`
@@ -307,7 +305,7 @@ TIP: 로컬 루트 사용자는 암호가 변경될 때까지 대상 그리드�
  a| 
 제한된 포트
  a| 
-* Grid Manager에서 * Tenants * 를 선택하고 * Restricted * 를 선택합니다.
+* 그리드 관리자에서 *테넌트*를 선택하고 *제한됨*을 선택합니다.
 * 웹 브라우저에 테넌트의 URL을 입력합니다.
 +
 `https://_FQDN_or_Admin_Node_IP:port_/?accountId=_20-digit-account-id_`

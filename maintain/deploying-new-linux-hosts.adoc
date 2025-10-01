@@ -13,11 +13,10 @@ summary: 몇 가지 예외가 있을 경우 초기 설치 프로세스 중에 �
 [role="lead"]
 몇 가지 예외가 있을 경우 초기 설치 프로세스 중에 했던 것처럼 새 호스트를 준비합니다.
 
-물리적 또는 가상 Linux 호스트를 새로 배포하거나 다시 설치하려면 Linux 운영 체제에 대한 StorageGRID 설치 지침에 따라 호스트를 준비하는 절차를 따르십시오.
+새 물리적 또는 가상 Linux 호스트를 배포하거나 다시 설치하려면 Linux 운영 체제에 대한 StorageGRID 설치 지침에서 호스트 준비 절차를 따르세요. 보다 link:../swnodes/installing-linux.html["Linux를 설치합니다"] .
 
-* link:../rhel/installing-linux.html["Linux 설치(Red Hat Enterprise Linux)"]
-* link:../ubuntu/installing-linux.html["Linux(Ubuntu 또는 Debian) 설치"]
 
+NOTE: "Linux"는 RHEL, Ubuntu 또는 Debian 배포를 의미합니다.  지원되는 버전 목록은 다음을 참조하세요. https://imt.netapp.com/matrix/#welcome["NetApp 상호 운용성 매트릭스 툴(IMT)"^] .
 
 이 절차에는 다음 작업을 수행하는 단계가 포함됩니다.
 

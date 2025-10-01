@@ -16,12 +16,7 @@ summary: 한 Linux 호스트에서 다른 Linux 호스트로 하나 이상의 St
 예를 들어, OS 패치 및 재부팅을 수행하기 위해 노드를 마이그레이션할 수 있습니다.
 
 .시작하기 전에
-* 마이그레이션 지원을 포함하도록 StorageGRID 배포를 계획했습니다.
-+
-** link:../rhel/node-container-migration-requirements.html["Red Hat Enterprise Linux의 노드 컨테이너 마이그레이션 요구 사항"]
-** link:../ubuntu/node-container-migration-requirements.html["Ubuntu 또는 Debian에 대한 노드 컨테이너 마이그레이션 요구 사항"]
-
-
+* StorageGRID 배포에 마이그레이션 지원을 포함하도록 계획했습니다. 보다 link:../swnodes/node-container-migration-requirements.html["노드 컨테이너 마이그레이션 요구사항"] .
 * 타겟 호스트가 이미 StorageGRID를 사용할 준비가 되었습니다.
 * 공유 스토리지는 모든 노드별 스토리지 볼륨에 사용됩니다
 * 네트워크 인터페이스는 호스트 간에 일관된 이름을 갖습니다.
@@ -132,12 +127,7 @@ Checking for duplication of unique values... PASSED
 ----
 . 유효성 검사 오류가 발생하면 마이그레이션된 노드를 시작하기 전에 이를 해결하십시오.
 +
-문제 해결 정보는 Linux 운영 체제의 StorageGRID 설치 지침을 참조하십시오.
-
-+
-** link:../rhel/index.html["Red Hat Enterprise Linux에 StorageGRID를 설치합니다"]
-** link:../ubuntu/index.html["Ubuntu 또는 Debian에 StorageGRID를 설치합니다"]
-
+문제 해결 정보는 StorageGRID 참조하세요.link:../swnodes/index.html["설치 지침"] Linux 운영체제를 위한 것입니다.
 
 
 

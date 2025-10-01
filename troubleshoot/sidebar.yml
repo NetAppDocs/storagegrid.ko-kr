@@ -20,12 +20,8 @@ entries:
     - title: 개체를 검색하는 메서드입니다
       pdf-filename: 분실하거나 누락된 오브젝트 데이터 문제를 해결합니다
       url: "/troubleshoot/troubleshooting-lost-and-missing-object-data.html"
-    - title: 손실된 개체를 조사합니다
-      url: "/troubleshoot/investigating-lost-objects.html"
-    - title: 잠재적으로 손실된 개체를 검색하여 복원합니다
-      url: "/troubleshoot/searching-for-and-restoring-potentially-lost-objects.html"
-    - title: 분실 및 누락된 개체 수를 재설정합니다
-      url: "/troubleshoot/resetting-lost-and-missing-object-counts.html"
+    - title: 분실 가능성이 있는 물건을 조사하세요
+      url: "/troubleshoot/investigating-potentially-lost-objects.html"
   - title: 오브젝트 부족 데이터 스토리지 경고 문제를 해결합니다
     url: "/troubleshoot/troubleshooting-low-object-data-storage-alert.html"
   - title: 낮은 읽기 전용 배경무늬 재정의 알림 문제 해결
@@ -40,3 +36,5 @@ entries:
   url: "/troubleshoot/troubleshooting-network-hardware-and-platform-issues.html"
 - title: 외부 syslog 서버의 문제를 해결합니다
   url: "/troubleshoot/troubleshooting-syslog-server.html"
+- title: 로드 밸런서 캐싱 문제 해결
+  url: "/troubleshoot/troubleshooting-load-balancer-caching.html"

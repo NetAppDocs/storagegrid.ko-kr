@@ -33,7 +33,7 @@ VMware에서 호스팅되어 장애가 발생한 StorageGRID 노드를 복구하
 . 장애가 발생한 그리드 노드가 스토리지 노드인 경우 데이터 저장에 사용되는 가상 하드 디스크가 손상되지 않았는지 확인하고 복구된 그리드 노드에 다시 연결할 수 있도록 보존합니다.
 . 가상 머신의 전원을 끕니다.
 . 가상 머신을 삭제하려면 * Actions * > * All vCenter Actions * > * Delete from Disk * 를 선택합니다.
-. 새 가상 시스템을 교체 노드로 구축하고 하나 이상의 StorageGRID 네트워크에 연결합니다. 자세한 내용은 을 link:../vmware/deploying-storagegrid-node-as-virtual-machine.html["StorageGRID 노드를 가상 시스템으로 구축"]참조하십시오.
+. 교체 노드가 될 새로운 가상 머신을 배포하고 하나 이상의 StorageGRID 네트워크에 연결합니다.  지침은 다음을 참조하세요.link:../swnodes/deploying-storagegrid-node-as-virtual-machine.html["StorageGRID 노드를 가상 시스템으로 구축"] .
 +
 노드를 배포할 때 선택적으로 노드 포트를 재매핑하거나 CPU 또는 메모리 설정을 늘릴 수 있습니다.
 

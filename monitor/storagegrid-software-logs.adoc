@@ -14,7 +14,7 @@ summary: StorageGRID 로그를 사용하여 문제를 해결할 수 있습니다
 StorageGRID 로그를 사용하여 문제를 해결할 수 있습니다.
 
 
-NOTE: 로그를 외부 syslog 서버로 전송하거나 및 와 `nms.log` 같은 감사 정보의 대상을 `bycast.log` 변경하려면 을 참조하십시오.link:../monitor/configure-audit-messages.html#["감사 메시지 및 로그 대상을 구성합니다"]
+NOTE: 로그를 외부 syslog 서버로 보내거나 감사 정보의 대상을 변경하려는 경우 `bycast.log` 그리고 `nms.log` , 보다link:../monitor/configure-log-management.html["로그 관리 구성"] .
 
 
 
@@ -26,14 +26,14 @@ NOTE: 로그를 외부 syslog 서버로 전송하거나 및 와 `nms.log` 같은
 
 
 | /var/local/log/bycast.log 를 참조하십시오  a| 
-기본 StorageGRID 문제 해결 파일입니다. 지원 * > * 도구 * > * 그리드 토폴로지 * 를 선택합니다. 그런 다음 *_Site_ * > *_Node_ * > * SSM * > * Events * 를 선택합니다.
+기본 StorageGRID 문제 해결 파일입니다.
  a| 
 모든 노드
 
 
 
 | /var/local/log/bycast-err.log 를 참조하십시오  a| 
-의 하위 집합 `bycast.log`(심각도 오류 및 심각도가 있는 메시지)을 포함합니다. 중요 메시지도 시스템에 표시됩니다. 지원 * > * 도구 * > * 그리드 토폴로지 * 를 선택합니다. 그런 다음 *_Site_ * > *_Node_ * > * SSM * > * Events * 를 선택합니다.
+하위 집합을 포함합니다 `bycast.log` (심각도가 ERROR 및 CRITICAL인 메시지).  중요 메시지도 시스템에 표시됩니다.
  a| 
 모든 노드
 
@@ -188,6 +188,13 @@ ADC 서비스를 실행하는 스토리지 노드
 | /var/local/log/aMS.errlog입니다  a| 
  a| 
 관리자 노드
+
+
+
+| /var/local/log/cache-svc.log + /var/local/log/cache-svc.errlog  a| 
+캐시 서비스 로그.
+ a| 
+게이트웨이 노드
 
 
 

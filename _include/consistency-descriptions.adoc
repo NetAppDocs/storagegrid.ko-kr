@@ -1,0 +1,28 @@
+= 
+:allow-uri-read: 
+
+
+* * ALL *: 모든 노드가 즉시 객체 메타데이터를 수신하거나 요청이 실패합니다.
+* *강력한 글로벌*: 모든 사이트의 모든 클라이언트 요청에 대해 읽기-쓰기 일관성을 보장합니다.  Quorum 의미 체계가 구성되면 다음 동작이 적용됩니다.
++
+** 그리드에 사이트가 3개 이상 있는 경우 클라이언트 요청에 대한 사이트 장애 허용을 허용합니다.  2개 사이트 그리드는 사이트 장애 허용 범위를 갖지 않습니다.
+** 다음 S3 작업은 한 사이트가 다운되면 성공할 수 없습니다.
++
+*** DeleteBucketEncryption
+*** PutBucketBranch
+*** PutBucketEncryption을 참조하십시오
+*** PutBucketVersioning을 참조하십시오
+*** PutObjectLegalHold를 선택합니다
+*** PutObjectLockConfiguration 을 참조하십시오
+*** PutObjectRetention
+
+
+
+
++
+필요한 경우 다음을 수행할 수 있습니다. https://kb.netapp.com/hybrid/StorageGRID/Object_Mgmt/Configuring_StorageGRID_quorum_semantics_for_strong-global_consistency["강력한 글로벌 일관성을 위해 StorageGRID Quorum 의미 체계를 구성합니다."^] .
+
+* *Strong-site*: 개체 메타데이터가 사이트의 다른 노드에 즉시 배포됩니다. 사이트 내의 모든 클라이언트 요청에 대해 쓰기 후 읽기 일관성을 보장합니다.
+* *Read-after-new-write*: 새 개체에 대해 읽기-쓰기 후 일관성을 제공하고 개체 업데이트에 대한 최종 일관성을 제공합니다. 고가용성 및 데이터 보호 보장 제공 대부분의 경우에 권장됩니다.
+* * 사용 가능 *: 새 객체 및 객체 업데이트 모두에 대한 최종 일관성을 제공합니다. S3 버킷의 경우 필요한 경우에만 사용하십시오(예: 거의 읽지 않는 로그 값이 포함된 버킷의 경우 또는 존재하지 않는 키의 헤드 또는 GET 작업의 경우). S3 FabricPool 버킷은 지원되지 않습니다.
+

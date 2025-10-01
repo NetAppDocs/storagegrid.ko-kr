@@ -15,7 +15,7 @@ summary: 이 섹션에서는 StorageGRID 시스템이 객체에 대해 S3 REST A
 
 다음 조건은 모든 개체 작업에 적용됩니다.
 
-* StorageGRIDlink:consistency-controls.html["일관성 값"]는 다음과 같은 경우를 제외하고 개체의 모든 작업에서 지원됩니다.
+* StorageGRIDlink:consistency.html["일관성 값"] 다음을 제외한 모든 객체 작업은 지원됩니다.
 +
 ** GetObjectAcl
 ** `OPTIONS /`
@@ -26,7 +26,6 @@ summary: 이 섹션에서는 StorageGRID 시스템이 객체에 대해 S3 REST A
 
 * 동일한 키에 쓰는 두 클라이언트 등의 충돌하는 클라이언트 요청은 "최신 성공" 기준으로 해결됩니다. "Latest-WINS" 평가 시기는 S3 클라이언트가 작업을 시작할 때가 아니라 StorageGRID 시스템이 지정된 요청을 완료하는 시점을 기준으로 합니다.
 * StorageGRID 버킷의 모든 오브젝트는 익명 사용자 또는 다른 계정에서 만든 오브젝트를 포함하여 버킷 소유자가 소유합니다.
-* Swift를 통해 StorageGRID 시스템으로 수집된 데이터 오브젝트는 S3를 통해 액세스할 수 없습니다.
 
 
 다음 표에서는 StorageGRID에서 S3 REST API 오브젝트 작업을 구현하는 방법을 설명합니다.

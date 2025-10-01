@@ -91,13 +91,7 @@ eth1
 윤리2
 
 |===
-가상 또는 물리적 포트를 노드 네트워크 인터페이스에 매핑하는 방법에 대한 자세한 내용은 설치 지침을 참조하십시오.
-
-.소프트웨어 기반 노드
-* link:../rhel/index.html["Red Hat Enterprise Linux에 StorageGRID를 설치합니다"]
-* link:../ubuntu/index.html["Ubuntu 또는 Debian에 StorageGRID를 설치합니다"]
-* link:../vmware/index.html["VMware에 StorageGRID를 설치합니다"]
-
+가상 또는 물리적 포트를 노드 네트워크 인터페이스에 매핑하는 방법에 대한 자세한 내용은 다음을 참조하세요.link:../swnodes/index.html["소프트웨어 기반 노드에 StorageGRID 설치"] .
 
 .어플라이언스 노드
 * https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/hardware-description-sg6100.html["SG6160 스토리지 어플라이언스"^]

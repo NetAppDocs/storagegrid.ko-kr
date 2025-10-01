@@ -1,51 +1,8 @@
 ---
 permalink: ubuntu/navigating-to-grid-manager.html 
-sidebar: sidebar 
-keywords: how to navigate to Grid Manager 
-summary: 그리드 관리자를 사용하여 StorageGRID 시스템을 구성하는 데 필요한 모든 정보를 정의합니다. 
+redirect: storagegrid/swnodes/navigating-to-grid-manager.html 
 ---
-= 그리드 관리자로 이동합니다
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
-
-
-[role="lead"]
-그리드 관리자를 사용하여 StorageGRID 시스템을 구성하는 데 필요한 모든 정보를 정의합니다.
-
-.시작하기 전에
-기본 관리 노드를 구축하고 초기 시작 시퀀스를 완료해야 합니다.
-
-.단계
-. 웹 브라우저를 열고 다음으로 이동합니다.
-+
-`https://_primary_admin_node_ip_`
-
-+
-또는 포트 8443에서 그리드 관리자에 액세스할 수 있습니다.
-
-+
-`https://_primary_admin_node_ip_:8443`
-
-+
-네트워크 구성에 따라 그리드 네트워크 또는 관리 네트워크의 기본 관리 노드 IP에 대한 IP 주소를 사용할 수 있습니다.
-
-. 필요에 따라 임시 설치 관리자 암호를 관리합니다.
-+
-** 이러한 방법 중 하나를 사용하여 암호를 이미 설정한 경우 암호를 입력하여 계속 진행합니다.
-+
-*** 사용자가 이전에 설치 프로그램에 액세스하는 동안 암호를 설정했습니다
-*** 암호가 에 있는 노드 구성 파일에서 자동으로 가져온 것입니다 `/etc/storagegrid/nodes/_<node_name>_.conf`
-
-
-** 암호를 설정하지 않은 경우 StorageGRID 설치 프로그램을 보호할 암호를 선택적으로 설정합니다.
-
-
-. StorageGRID 시스템 설치 * 를 선택합니다.
-+
-StorageGRID 시스템을 구성하는 데 사용되는 페이지가 나타납니다.
-
-+
-image::../media/gmi_installer_first_screen.gif[이 이미지는 주변 텍스트로 설명됩니다.]
 
 

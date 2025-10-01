@@ -117,10 +117,10 @@ NOTE: 어플라이언스 노드에서 명령을 실행한 후에는 `shutdown -h
 
 
 .관련 정보
-* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/index.html["SGF6112 및 SG6160 스토리지 어플라이언스"^]
-* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/index.html["SG6000 스토리지 어플라이언스"^]
-* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg5700/index.html["SG5700 스토리지 어플라이언스"^]
-* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg5800/index.html["SG5800 스토리지 어플라이언스"^]
-* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg110-1100/index.html["SG110 및 SG1100 서비스 어플라이언스"^]
-* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg100-1000/index.html["SG100 및 SG1000 서비스 어플라이언스"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/index.html["SGF6112 및 SG6160 스토리지 어플라이언스"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/index.html["SG6000 스토리지 어플라이언스"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg5700/index.html["SG5700 스토리지 어플라이언스"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg5800/index.html["SG5800 스토리지 어플라이언스"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg110-1100/index.html["SG110 및 SG1100 서비스 어플라이언스"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg100-1000/index.html["SG100 및 SG1000 서비스 어플라이언스"^]
 

@@ -41,7 +41,7 @@ SSO가 활성화되었습니다
  a| 
 액세스 중인 모든 관리 노드에서 로그아웃되었습니다. StorageGRID 로그인 페이지가 표시됩니다. * 그리드 관리자 * 는 * 최근 계정 * 드롭다운에 기본값으로 나열되고 * 계정 ID * 필드는 0으로 표시됩니다.
 
-* 참고: * SSO가 활성화되어 있고 Tenant Manager에도 로그인한 경우, 에도 로그인해야 link:../tenant/signing-out-of-tenant-manager.html["테넌트 계정에서 로그아웃합니다"]합니다link:configuring-sso.html["SSO에서 로그아웃합니다"].
+*참고:* SSO가 활성화되어 있고 테넌트 관리자에도 로그인한 경우 다음도 수행해야 합니다.link:../tenant/signing-out-of-tenant-manager.html["테넌트 계정에서 로그아웃합니다"] 에게link:how-sso-works.html["SSO에서 로그아웃합니다"] .
 
 |===
 

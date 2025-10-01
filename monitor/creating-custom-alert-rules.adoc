@@ -18,11 +18,10 @@ summary: 사용자 지정 알림 규칙을 만들어 알림을 트리거할 자�
 * 이 link:../admin/admin-group-permissions.html["알림 또는 루트 액세스 권한을 관리합니다"]있습니다.
 * 에 대해 잘 알고 link:commonly-used-prometheus-metrics.html["일반적으로 사용되는 Prometheus 메트릭입니다"]있습니다.
 * 을 이해했습니다. https://prometheus.io/docs/prometheus/latest/querying/basics/["Prometheus 쿼리의 구문"^]
-* 선택적으로 비디오를 시청했습니다 https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=54af90c4-9a38-4136-9621-b1ff008604a3["비디오: 사용자 지정 경고"^].
+* 선택적으로 비디오를 시청했습니다.
 +
-[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=54af90c4-9a38-4136-9621-b1ff008604a3]
-image::../media/video-screenshot-alert-create-custom-118.png[비디오: 사용자 지정 경고]
-
+.사용자 정의 알림
+video::54af90c4-9a38-4136-9621-b1ff008604a3[panopto]
 
 
 .이 작업에 대해
@@ -40,7 +39,7 @@ StorageGRID에서는 사용자 지정 경고의 유효성을 검사하지 않습
 
 
 .단계
-. 알림 * > * 규칙 * 을 선택합니다.
+. *알림* > *규칙*을 선택합니다.
 +
 경고 규칙 페이지가 나타납니다.
 

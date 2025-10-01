@@ -67,7 +67,7 @@ vim 또는 nano와 같은 텍스트 편집기를 사용하여 각 호스트에�
 
 
  a| 
-이 노드가 속한 그리드에 대한 운영 관리 노드의 Grid Network IPv4 주소입니다. node_type=VM_Admin_Node 및 admin_role=Primary를 사용하는 그리드 노드에 대해 GRID_NETWORK_IP에 지정한 것과 동일한 값을 사용합니다. 이 매개 변수를 생략하면 노드가 mDNS를 사용하여 기본 관리 노드를 검색합니다.
+Linux 기반 노드를 설치하는 데 사용하려는 관리 노드의 그리드 네트워크 IPv4 주소입니다.  복구를 위해 기본 관리 노드의 IP가 있으면 이를 사용하고, 그렇지 않으면 기본이 아닌 관리 노드의 IP를 사용합니다.  이 매개변수를 생략하면 노드는 mDNS를 사용하여 기본 관리 노드를 검색하려고 시도합니다.
 
 link:how-grid-nodes-discover-primary-admin-node.html["그리드 노드가 기본 관리자 노드를 검색하는 방법"]
 
@@ -277,11 +277,7 @@ StorageGRID 컨테이너가 관리자 네트워크에서 호스트 호스트 대
 
 * 모범 사례: * promiscuous 모드가 필요한 네트워크에서는 admin_network_target_type_interface_clone_MAC 키를 대신 사용합니다.
 
-MAC 클로닝에 대한 자세한 내용:
-
-* link:../rhel/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC 주소 복제의 고려 사항 및 권장 사항(Red Hat Enterprise Linux)"]
-* link:../ubuntu/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC 주소 복제에 대한 고려 사항 및 권장 사항(Ubuntu 또는 Debian)"]
-
+Linux용 MAC 복제에 대한 자세한 내용은 다음을 참조하세요.link:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC 주소 복제에 대한 고려 사항 및 권장 사항"]
  a| 
 모범 사례
 
@@ -639,11 +635,7 @@ StorageGRID 컨테이너가 클라이언트 네트워크의 호스트 대상 인
 
 * 모범 사례: * promiscuous 모드가 필요한 네트워크에서는 대신 client_network_target_type_interface_clone_mac 키를 사용합니다.
 
-MAC 클로닝에 대한 자세한 내용:
-
-* link:../rhel/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC 주소 복제의 고려 사항 및 권장 사항(Red Hat Enterprise Linux)"]
-* link:../ubuntu/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC 주소 복제에 대한 고려 사항 및 권장 사항(Ubuntu 또는 Debian)"]
-
+Linux용 MAC 복제에 대한 자세한 내용은 다음을 참조하세요.link:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC 주소 복제에 대한 고려 사항 및 권장 사항"]
  a| 
 모범 사례
 
@@ -834,11 +826,7 @@ StorageGRID 컨테이너가 그리드 네트워크에서 호스트 대상 인터
 
 * 모범 사례: * promiscuous 모드가 필요한 네트워크에서는 grid_network_target_type_interface_clone_mac 키를 대신 사용합니다.
 
-MAC 클로닝에 대한 자세한 내용:
-
-* link:../rhel/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC 주소 복제의 고려 사항 및 권장 사항(Red Hat Enterprise Linux)"]
-* link:../ubuntu/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC 주소 복제에 대한 고려 사항 및 권장 사항(Ubuntu 또는 Debian)"]
-
+Linux용 MAC 복제에 대한 자세한 내용은 다음을 참조하세요.link:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC 주소 복제에 대한 고려 사항 및 권장 사항"]
  a| 
 모범 사례
 
@@ -980,6 +968,9 @@ _nnnn_의 경우 추가할 각 interface_target 항목의 고유 번호를 지�
 
 
 === 포트 재매핑 키
+
+
+NOTE: 포트 리매핑 지원은 더 이상 제공되지 않으며 향후 릴리스에서 제거될 예정입니다. 재매핑된 포트를 제거하려면 다음을 참조하세요.link:../maintain/removing-port-remaps-on-bare-metal-hosts.html["베어 메탈 호스트에서 포트 재맵을 제거합니다"] .
 
 
 

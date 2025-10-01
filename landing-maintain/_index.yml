@@ -9,7 +9,7 @@ indexpage:
     links:
     - title: 그리드 유지 관리
       url: "../maintain/index.html"
-    - title: 복구 패키지를 다운로드합니다
+    - title: 복구 패키지 다운로드
       url: "../maintain/downloading-recovery-package.html"
   - title: 노드 또는 사이트를 파기합니다
     links:

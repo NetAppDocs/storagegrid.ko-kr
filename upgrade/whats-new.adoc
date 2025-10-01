@@ -1,10 +1,10 @@
 ---
 permalink: upgrade/whats-new.html 
 sidebar: sidebar 
-keywords: what is new in StorageGRID 11.9 
-summary: 이번 StorageGRID 릴리즈에는 다음과 같은 기능이 도입되었습니다. 
+keywords: what is new in StorageGRID 12.0 
+summary: 이 StorageGRID 릴리스는 다음과 같은 기능 및 기능 변경 사항을 소개합니다. 
 ---
-= StorageGRID 11.9의 새로운 기능
+= StorageGRID 12.0의 새로운 기능
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,160 +15,94 @@ summary: 이번 StorageGRID 릴리즈에는 다음과 같은 기능이 도입되
 
 
 
-== 확장성
+== 어플라이언스
 
+* 저장 용량과 비용 효율성이 크게 증가했습니다.
+* 자동 드라이브 펌웨어 업그레이드는 시스템 안정성을 높이고 유지관리 비용을 줄여줍니다.
 
 
-=== 데이터 전용 스토리지 노드
 
-이제 를 설치하여 보다 세분화된 확장을 link:../primer/what-storage-node-is.html#types-of-storage-nodes["데이터 전용 스토리지 노드"]수행할 수 있습니다. 메타데이터 처리가 중요하지 않은 경우 인프라를 비용 효율적으로 최적화할 수 있습니다. 이러한 유연성 덕분에 다양한 워크로드와 성장 패턴을 수용할 수 있습니다.
 
+== 인공지능(AI)과 머신러닝(ML)
 
+* link:../tenant/what-is-branch-bucket.html["지점 버킷"]더 빠른 랜섬웨어 복구와 테스트 및 실험을 위한 격리된 데이터 세트를 용이하게 하는 버킷의 특정 시점 버전을 허용합니다.
+* S3 캐싱 계층은 AI/ML 학습의 성능을 향상시킵니다.
 
-== 클라우드 스토리지 풀 개선
 
 
 
-=== 어디서나 IAM 역할 수행
+== 용량
 
-StorageGRID에서는 이제 를 사용하여 단기 자격 증명을 link:../ilm/creating-cloud-storage-pool.html["클라우드 스토리지 풀용 Amazon S3의 모든 위치에서 IAM 역할"]지원합니다.
+StorageGRID 이제 1조 개의 객체를 지원하는데, 이는 이전 제한의 두 배 이상입니다.  를 참조하세요 https://fusion.netapp.com/["NetApp Fusion 도구"^] StorageGRID 크기와 디자인을 조정합니다.
 
-장기 자격 증명을 사용하여 S3 버킷에 액세스하면 이러한 자격 증명이 손상되는 경우 보안 위험이 발생합니다. 단기 자격 증명의 수명은 제한되어 있어 무단 액세스의 위험이 줄어듭니다.
 
 
+== 카산드라 업데이트
 
-=== S3 오브젝트 잠금 버킷
+StorageGRID 이제 메타데이터 저장을 위해 최신 버전의 Cassandra를 사용합니다.  이 버전의 Cassandra는 디스크 공간을 더 효율적으로 사용하여 더 많은 메타데이터를 저장합니다.
 
-이제 할 수 link:../ilm/creating-cloud-storage-pool.html["Amazon S3 엔드포인트를 사용하여 클라우드 스토리지 풀을 구성합니다"]있습니다. S3 오브젝트 잠금을 통해 오브젝트가 실수로 또는 악의적으로 삭제되지 않도록 방지합니다. StorageGRID에서 Amazon S3로 데이터를 계층화하는 경우 두 시스템 모두에서 오브젝트 잠금이 설정되어 있으면 데이터 라이프사이클 전체에서 데이터 보호가 향상됩니다.
+당신이 후에link:../upgrade/index.html["StorageGRID 11.9에서 12.0으로 업그레이드"] 메타데이터 형식 업데이트는 1~3일 동안 백그라운드에서 진행됩니다.  이 기간 동안 확장 등 메타데이터 스트리밍이 포함된 특정 유지 관리 절차는 비활성화됩니다.
 
+link:../upgrade/performing-upgrade.html#upgrade-other-nodes["다른 노드를 업그레이드합니다"] .
 
 
-== 멀티 테넌시
 
+== 연합
 
+* 이제 할 수 있습니다link:../admin/managing-users.html#import-federated-users["최대 100명의 페더레이션 사용자 가져오기"] StorageGRID 로.
+* 이제 할 수 있습니다link:../ilm/configuring-regions-optional-and-s3-only.html["기본 지역 수정"] S3 버킷의 경우.  이 기능은 데이터 로케일과 규정 준수를 관리하는 데 더 큰 유연성을 제공합니다.
+* 이제 S3 객체 잠금이 활성화된 버킷 간에 크로스 그리드 복제를 구성할 수 있습니다. link:../admin/grid-federation-what-is-cross-grid-replication.html#cgr-with-ol["S3 객체 잠금을 통한 크로스 그리드 복제"] .
++
+NetApp StorageGRID 12.0 소스 버킷과 대상 버킷 간에만 이 기능을 사용할 것을 권장합니다.  하지만 이 기능은 S3 개체 잠금이 비활성화된 StorageGRID 11.9 소스 버킷과 S3 개체 잠금이 활성화된 StorageGRID 12.0 대상 버킷 간에는 지원됩니다.
 
-=== 버킷 제한
 
-link:../tenant/creating-s3-bucket.html["S3 버킷에 대한 설정 제한"]에서는 테넌트가 용량을 독점하지 못하도록 할 수 있습니다. 또한, 폭발적인 증가는 예상치 못한 비용을 초래할 수 있습니다. 제한을 정의하면 테넌트 스토리지 비용을 보다 효율적으로 예측할 수 있습니다.
 
 
 
-=== 테넌트당 5,000개의 버킷
+== 관리 용이성
 
-확장성 향상을 위해 StorageGRID는 현재 까지 link:../s3/operations-on-buckets.html["테넌트당 5,000개의 S3 버킷"]지원합니다. 각 그리드에는 최대 100,000개의 버킷을 포함할 수 있습니다.
+* 개선됨link:../maintain/decommission-procedure.html["해체 절차"] 시간과 복잡성을 줄여 운영 효율성을 높입니다.
+* 강력한 글로벌 일관성을 위한 개선된 동작은 그리드에 사이트가 3개 이상 있는 경우 클라이언트 요청에 대한 사이트 장애 허용을 제공합니다.
++
+** StorageGRID 12.0 이상을 새로 설치하면 기본적으로 Quorum 의미 체계가 사용됩니다.link:../s3/consistency.html["강력한 글로벌 일관성"] 설정되었습니다.
+** StorageGRID 11.9에서 StorageGRID 12.0으로 업그레이드하는 경우 업그레이드된 그리드는 강력한 글로벌 일관성을 위해 이전 동작을 유지합니다.
 
-5,000개의 버킷을 지원하려면 그리드의 각 스토리지 노드에 최소 64GB의 RAM이 있어야 합니다.
 
 
 
-== S3 오브젝트 잠금 개선 사항
 
-테넌트별 구성 기능은 유연성과 데이터 보안의 적절한 균형을 제공합니다. 이제 테넌트별 보존 설정을 다음과 같이 구성할 수 있습니다.
+NOTE: 강력한 글로벌 일관성을 위해 이전 동작으로 되돌려야 하는 경우 다음을 참조하세요. https://kb.netapp.com/hybrid/StorageGRID/Object_Mgmt/Configuring_StorageGRID_quorum_semantics_for_strong-global_consistency["강력한 글로벌 일관성을 위한 StorageGRID Quorum 의미론 구성"^] 지침을 보려면.
 
-* 준수 모드를 허용하거나 허용하지 않습니다
-* 최대 보존 기간을 설정합니다
-
-
-참조:
-
-* link:../ilm/managing-objects-with-s3-object-lock.html["S3 오브젝트 잠금으로 오브젝트 관리"]
-* link:../ilm/how-object-retention-is-determined.html#how-grid-administrators-control-object-retention["그리드 관리자가 개체 보존을 제어하는 방법"]
-* link:../admin/creating-tenant-account.html["테넌트 계정을 생성합니다"]
-
-
-
-
-== S3 호환성
-
-
-
-=== X-amz-checksum - SHA256 체크섬
-
-* 이제 S3 REST API에서 다음 링크를 지원합니다.../S3/operations-on-objects.html[`x-amz-checksum-sha256` checksum].
-* StorageGRID는 이제 PUT, GET 및 HEAD 작업에 SHA-256 체크섬 지원을 제공합니다. 이러한 체크섬은 데이터 무결성을 향상시킵니다.
-
-
-
-
-=== S3 프로토콜 지원으로 변경합니다
-
-* Amazon S3에 대한 마운트 지점 지원을 추가하여 애플리케이션을 로컬 파일 시스템처럼 S3 버킷에 직접 연결할 수 있음 이제 더 많은 애플리케이션과 더 많은 사용 사례에 StorageGRID를 사용할 수 있습니다.
-* 마운트 지점에 대한 지원을 추가하기 위해 StorageGRID 11.9에는 이 link:../s3/index.html#updates-to-rest-api-support["S3 프로토콜 지원에 대한 추가 변경 사항"]포함되어 있습니다.
-
-
-
-
-== 유지 관리 및 지원 가능성
-
-
-
-=== AutoSupport
-
-link:../admin/what-is-autosupport.html["AutoSupport"] 이제 기존 어플라이언스에 대한 하드웨어 장애 사례가 자동으로 생성됩니다.
-
-
-
-=== 확장된 노드 클론 작업
-
-노드 클론 사용 편의성이 확장되어 더 큰 스토리지 노드를 지원할 수 있게 되었습니다.
-
-
-
-=== 만료된 삭제 마커의 ILM 처리가 개선되었습니다
-
-기간이 며칠인 ILM 수집 시간 규칙으로 인해 만료된 오브젝트 삭제 표시자도 제거됩니다. 삭제 표시자는 기간이 경과하고 현재 삭제 작성기가 만료되었을 때만 제거됩니다(현재 버전이 아닌 경우).
-
-link:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["S3 버전 오브젝트 삭제 방법"]및 link:../ilm/example-8-priorities-for-s3-bucket-lifecycle-and-ilm-policy.html#example-of-bucket-lifecycle-taking-priority-over-ilm-policy["ILM 정책보다 우선 순위가 높은 버킷 라이프사이클의 예"]을 참조하십시오.
-
-
-
-=== 노드 서비스 해제 개선
-
-StorageGRID 차세대 하드웨어로 원활하고 효율적으로 전환할 수 있도록 이 link:../maintain/grid-node-decommissioning.html["노드 폐기"]개선되었습니다.
-
-
-
-=== 로드 밸런서 엔드포인트를 위한 syslog
-
-부하 분산 장치 끝점 액세스 로그에는 HTTP 상태 코드와 같은 문제 해결 정보가 포함되어 있습니다. StorageGRID가 이제 link:../monitor/configure-audit-messages.html["이러한 로그를 외부 syslog 서버로 내보냅니다"]지원합니다. 이 향상된 기능을 통해 로그를 보다 효율적으로 관리하고 기존 모니터링 및 알림 시스템과의 통합을 수행할 수 있습니다.
-
-
-
-=== 유지 관리 및 지원 기능을 위한 추가 개선 사항
-
-* 메트릭 UI 업데이트
-* 새 운영 체제 자격 평가
-* 새로운 타사 구성 요소 지원
+* 로그 업로드를 시작하는 기능link:../admin/configure-autosupport-grid-manager.html["AutoSupport"] 지원 대응력을 높이는 데 도움이 됩니다.
+* 줄인 https://docs.netapp.com/us-en/storagegrid-appliances/index.html["기구"^] 재부팅 시간은 가동 중지 시간을 최소화하여 전반적인 시스템 가용성을 향상시킵니다.
+* link:../maintain/move-adc-service.html["ADC 서비스를 이동하는 기능"]다른 스토리지 노드로 전송하면 ADC 서비스를 호스팅하는 스토리지 노드를 관리하는 데 있어 유연성과 복원력이 향상됩니다.  스토리지 노드를 해제하거나 스토리지 노드를 데이터 전용 노드로 변환하기 전에 ADC 서비스를 이동할 수 있습니다.
+* 데이터 저장 용량을 최대화하려면 다음을 수행할 수 있습니다.link:../maintain/convert-to-data-only-node.html["스토리지 노드를 데이터 전용 노드로 변환"] 이로 인해 해당 노드의 메타데이터가 결합된 스토리지 노드나 메타데이터 전용 스토리지 노드로 마이그레이션됩니다.
+* 모든 관리 노드의 기능link:../maintain/selecting-node-recovery-procedure.html["다른 노드를 복구합니다"] (주 관리 노드 제외) 시스템 복구 및 장애 허용성을 향상시켜 전반적인 안정성을 개선합니다.
+* 이제 사용자는 S3 버킷을 사용하여 다음을 수행할 수 있습니다.link:../monitor/configure-log-management.html#use-a-bucket["장기간 감사 로그를 저장합니다."] .
 
 
 
 
 == 보안
 
-
-
-=== SSH 액세스 키 순환
-
-이제 그리드 관리자가 수행할 수 link:../admin/change-ssh-access-passwords.html["SSH 키를 업데이트하고 회전합니다"]있습니다. SSH 키를 회전하는 기능은 보안 모범 사례이자 사전 방어 메커니즘입니다.
-
-
-
-=== 루트 로그인에 대한 경고
-
-알 수 없는 엔티티가 그리드 관리자에 루트로 로그인할 때link:../monitor/alerts-reference.html["알림이 트리거됩니다"]. 루트 SSH 로그인 모니터링은 인프라를 보호하기 위한 사전 예방적인 단계입니다.
+* 더욱 강력한 데이터 암호화와 무결성 보호로 보안과 성능이 향상되었습니다.
+* 저장된 비밀번호의 보안을 강화하면 무단 접근 위험이 줄어듭니다.
+* link:../admin/manage-external-ssh-access.html["SSH는 기본적으로 차단되어 있습니다"]통제된 접근을 허용하는 동시에 보안을 강화합니다.
 
 
 
-== Grid Manager의 향상된 기능
+
+== 세입자 그룹
+
+* 이제 할 수 있습니다link:../tenant/manage-groups.html["새로운 S3 신뢰 정책 구성"] AssumeRole API를 지원합니다.  AssumeRole 함수는 강화된 보안과 유연한 액세스 제어를 위해 단기 자격 증명을 제공합니다.
+* 버킷당 객체 수 할당량을 통해 스토리지 리소스를 보다 효과적으로 제어하고 관리할 수 있습니다.
 
 
 
-=== 삭제 코딩 프로필 페이지가 이동되었습니다
 
-삭제 코딩 프로필 페이지는 이제 * configuration * > * System * > * Erasure coding * 에 있습니다. ILM 메뉴에 있었습니다.
+== 사용자 인터페이스
 
+* 다크 테마와 시스템 테마 설정은 Grid Manager와 Tenant Manager의 사용자 메뉴에서 사용할 수 있습니다.
+* 감사 및 시스템 로그 서버 페이지가 이름이 변경되었습니다.link:../monitor/configure-log-management.html["로그 관리"] , 백업 목적으로 시스템 버킷에 로그를 저장하는 기능이 추가되어 리팩토링되었습니다.
+* 기존 그리드 토폴로지 페이지가 제거되었습니다.  지난 몇 번의 StorageGRID 릴리스에서 해당 페이지에서 사용 가능한 작업 및 메트릭은 특히 Grid Manager의 다른 페이지로 마이그레이션되었습니다.link:../monitor/viewing-nodes-page.html["노드 페이지"] .
 
-
-=== 검색 기능 향상
-
-이제 에는 link:../primer/exploring-grid-manager.html#search-field["그리드 관리자의 검색 필드"]더 나은 일치 논리가 포함되어 있어 페이지 내에서 일반적인 약어와 특정 설정의 이름을 검색하여 페이지를 찾을 수 있습니다. 또한 노드, 사용자 및 테넌트 계정과 같은 더 많은 유형의 항목을 검색할 수도 있습니다.

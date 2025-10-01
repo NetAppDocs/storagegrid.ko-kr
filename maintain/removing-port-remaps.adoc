@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, remove port remap, removing port remap, port remap 
 summary: 로드 밸런서 서비스에 대한 끝점을 구성하려는 경우 포트 재매핑의 매핑된-대상 포트로 이미 구성된 포트를 사용하려면 먼저 기존 포트 재매핑을 제거해야 합니다. 그렇지 않으면 끝점이 적용되지 않습니다. 노드의 모든 포트 매핑을 제거하려면 재매핑된 포트가 충돌하는 각 관리 노드와 게이트웨이 노드에서 스크립트를 실행해야 합니다. 
 ---
-= 포트 재맵을 제거합니다
+= StorageGRID 어플라이언스에서 포트 리맵 제거
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -25,6 +25,7 @@ NOTE: 포트 재매핑이 클라이언트 액세스를 제공하는 경우 서�
 NOTE: 베어 메탈 호스트에 컨테이너로 배포된 StorageGRID 시스템에서는 이 절차를 사용할 수 없습니다. 의 지침을 link:removing-port-remaps-on-bare-metal-hosts.html["베어 메탈 호스트에서 포트 리맵을 제거합니다"]참조하십시오.
 
 .단계
+. 기본적으로 외부 SSH 액세스는 차단됩니다.  필요한 경우,link:../admin/manage-external-ssh-access.html["일시적으로 접근 허용"] .
 . 노드에 로그인합니다.
 +
 .. 다음 명령을 입력합니다. `ssh -p 8022 admin@node_IP`
@@ -43,4 +44,5 @@ NOTE: 베어 메탈 호스트에 컨테이너로 배포된 StorageGRID 시스템
 . 노드를 재부팅합니다. `reboot`
 . 명령 셸에서 로그아웃합니다. `exit`
 . 재매핑된 포트가 충돌하는 각 관리 노드와 게이트웨이 노드에서 이 단계를 반복합니다.
+. 외부 SSH 액세스를 허용한 경우link:../admin/manage-external-ssh-access.html["블록 접근"] 포트 리맵 제거가 완료되면.
 

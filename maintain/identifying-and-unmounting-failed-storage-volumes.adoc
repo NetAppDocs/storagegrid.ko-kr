@@ -30,28 +30,22 @@ NOTE: 명령을 실행하기 전에 하드웨어를 복구하고 디스크를 �
 
 CAUTION: 장애가 발생한 스토리지 볼륨을 신중하게 식별합니다. 이 정보를 사용하여 재포맷해야 하는 볼륨을 확인할 수 있습니다. 볼륨을 다시 포맷한 후에는 볼륨의 데이터를 복구할 수 없습니다.
 
-장애가 발생한 스토리지 볼륨을 올바르게 복구하려면 실패한 스토리지 볼륨의 디바이스 이름과 해당 볼륨 ID를 모두 알아야 합니다.
+오류가 발생한 저장소 볼륨을 복구하려면 오류가 발생한 저장소 볼륨의 장치 이름과 볼륨 ID를 모두 알아야 합니다.
 
-설치 시 각 스토리지 디바이스에 파일 시스템 UUID(Universal Unique Identifier)가 할당되고 할당된 파일 시스템 UUID를 사용하여 스토리지 노드의 rangedb 디렉토리에 마운트됩니다. 파일 시스템 UUID 및 rangedb 디렉토리가 `/etc/fstab` 파일에 나열됩니다. 디바이스 이름, rangedb 디렉토리 및 마운트된 볼륨의 크기가 Grid Manager에 표시됩니다.
-
-다음 예에서 디바이스의 `/dev/sdc` 볼륨 크기는 4TB이며 /`etc/fstab`파일의 디바이스 이름을 사용하여 `/dev/disk/by-uuid/822b0547-3b2b-472e-ad5e-e1cf1809faba` 에 마운트됩니다 `/var/local/rangedb/0`.
-
-image::../media/mounting_storage_devices.gif[볼륨 크기의 예]
+설치 시 각 저장 장치에는 파일 시스템 UUID(Universal Unique Identifier)가 할당되고 해당 할당된 파일 시스템 UUID를 사용하여 저장 노드의 rangedb 디렉토리에 마운트됩니다.  파일 시스템 UUID와 rangedb 디렉토리는 다음에 나열됩니다. `/etc/fstab` 파일.  볼륨의 마운트 지점, 장치 이름, 크기가 Grid Manager에 표시됩니다.
 
 .단계
 . 다음 단계를 수행하여 장애가 발생한 스토리지 볼륨 및 해당 디바이스 이름을 기록합니다.
 +
-.. 지원 * > * 도구 * > * 그리드 토폴로지 * 를 선택합니다.
-.. site * > * failed Storage Node * > * LDR * > * Storage * > * Overview * > * Main * 을 선택하고 알람이 있는 객체 저장소를 찾습니다.
+.. *노드* > *_사이트_* > *_실패한 스토리지 노드_* > *스토리지*를 선택합니다.
+.. 아래로 스크롤하여 볼륨 테이블과 개체 저장소 테이블을 찾은 다음 상태가 알 수 없음 또는 오프라인인 각 볼륨에 대한 다음 정보를 기록합니다.
 +
-image::../media/ldr_storage_object_stores.gif[오브젝트 저장소 섹션]
+*** 볼륨 테이블에서 마운트 지점, 장치, 크기를 기록합니다.
+*** Object stores 테이블에서 다음을 기록합니다. `object_store_ID` .
++
+는 `object_store_ID` 장애가 발생한 스토리지 볼륨의 ID입니다. 예를 들어, ID가 0000인 오브젝트 저장소에 대한 명령에서 를 `0` 지정하십시오.
 
-.. site * > * failed Storage Node * > * SSM * > * Resources * > * Overview * > * Main * 을 선택합니다. 이전 단계에서 확인한 실패한 각 스토리지 볼륨의 마운트 지점 및 볼륨 크기를 확인합니다.
-+
-오브젝트 저장소는 16진수로 번호가 매겨집니다. 예를 들어 0000은 첫 번째 볼륨이고 000F는 16번째 볼륨입니다. 이 예에서 ID가 0000인 개체 저장소는 디바이스 이름 sdc와 크기가 107GB인 에 `/var/local/rangedb/0` 해당합니다.
 
-+
-image::../media/ssm_storage_volumes.gif[오브젝트 저장소 및 마운트 지점을 보여 주는 예]
 
 
 
@@ -61,17 +55,14 @@ image::../media/ssm_storage_volumes.gif[오브젝트 저장소 및 마운트 지
 .. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
 .. 다음 명령을 입력하여 루트로 전환합니다. `su -`
 .. 파일에 나열된 암호를 `Passwords.txt` 입력합니다.
-
-
 +
 루트로 로그인하면 프롬프트가 에서 `$` 로 `#`변경됩니다.
+
+
 
 . 다음 스크립트를 실행하여 장애가 발생한 스토리지 볼륨을 마운트 해제합니다.
 +
 `sn-unmount-volume object_store_ID`
-
-+
-는 `object_store_ID` 장애가 발생한 스토리지 볼륨의 ID입니다. 예를 들어, ID가 0000인 오브젝트 저장소에 대한 명령에서 를 `0` 지정하십시오.
 
 . 메시지가 표시되면 * y * 를 눌러 스토리지 볼륨 0에 따라 Cassandra 서비스를 중지합니다.
 +

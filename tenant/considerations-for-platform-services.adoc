@@ -32,7 +32,7 @@ TIP: 그리드 관리자 또는 그리드 관리 API를 사용하여 StorageGRID
 
 == 플랫폼 서비스 구성 방법
 
-플랫폼 서비스는 또는 를 사용하여 구성한 외부 끝점과 통신합니다.link:configuring-platform-services-endpoints.html["테넌트 관리자"]link:understanding-tenant-management-api.html["테넌트 관리 API"] 각 엔드포인트는 StorageGRID S3 버킷, Amazon Web Services 버킷, Amazon SNS 주제 또는 로컬이나 AWS 등에 호스팅된 Elasticsearch 클러스터와 같은 외부 대상을 나타냅니다.
+플랫폼 서비스는 다음을 사용하여 구성하는 외부 엔드포인트와 통신합니다.link:configuring-platform-services-endpoints.html["테넌트 관리자"] 또는link:understanding-tenant-management-api.html["테넌트 관리 API"] .  각 엔드포인트는 StorageGRID S3 버킷, Amazon Web Services 버킷, Amazon SNS 주제, 웹훅 엔드포인트 또는 로컬, AWS 또는 다른 곳에서 호스팅되는 Elasticsearch 클러스터와 같은 외부 대상을 나타냅니다.
 
 외부 끝점을 만든 후 버킷에 XML 구성을 추가하여 버킷에 대한 플랫폼 서비스를 활성화할 수 있습니다. XML 구성은 버킷이 작업해야 하는 오브젝트, 버킷이 취해야 하는 조치 및 버킷이 서비스에 사용해야 하는 엔드포인트를 식별합니다.
 

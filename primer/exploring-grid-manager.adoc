@@ -46,8 +46,8 @@ image::../media/grid_manager_dashboard_and_menu.png[그리드 관리자의 대�
 
 도움말 메뉴를 image:../media/icon-help-menu-bar.png["메뉴 모음의 도움말 아이콘"] 통해 다음 항목에 액세스할 수 있습니다.
 
-* link:../fabricpool/use-fabricpool-setup-wizard.html["FabricPool"]및 link:../admin/use-s3-setup-wizard.html["S3 설정"] 마법사
-* 현재 릴리즈에 대한 StorageGRID 문서 센터
+* 그만큼link:../fabricpool/use-fabricpool-setup-wizard.html["FabricPool"] 그리고link:../admin/use-s3-setup-wizard.html["S3 설정"] 마법사들
+* 현재 릴리스에 대한 StorageGRID 문서 사이트
 * link:../admin/using-grid-management-api.html["API 설명서"]
 * 현재 설치되어 있는 StorageGRID 버전에 대한 정보입니다
 
@@ -71,11 +71,7 @@ image::../media/grid_manager_dashboard_and_menu.png[그리드 관리자의 대�
 
 == 노드 페이지
 
-에는 link:../monitor/viewing-nodes-page.html["노드 페이지"]전체 그리드, 그리드의 각 사이트 및 사이트의 각 노드에 대한 정보가 표시됩니다.
-
-노드 홈 페이지에는 전체 그리드에 대한 결합된 메트릭이 표시됩니다. 특정 사이트 또는 노드에 대한 정보를 보려면 사이트 또는 노드를 선택합니다.
-
-image::../media/nodes_page.png[노드 페이지 메인]
+그만큼link:../monitor/viewing-nodes-page.html["노드 페이지"] 그리드 전체, 그리드 내 각 사이트, 사이트의 각 노드에 대한 정보를 표시합니다.  특정 사이트나 노드에 대한 정보를 보려면 해당 사이트나 노드를 선택하세요.
 
 
 
@@ -84,8 +80,6 @@ image::../media/nodes_page.png[노드 페이지 메인]
 를 link:../admin/managing-tenants.html["Tenants 페이지"] 사용하면 link:../tenant/index.html["스토리지 테넌트 계정을 생성하고 모니터링합니다"]StorageGRID 시스템을 사용할 수 있습니다. 객체를 저장 및 검색할 수 있는 사람과 객체를 사용할 수 있는 기능을 지정하려면 하나 이상의 테넌트 계정을 생성해야 합니다.
 
 또한 테넌트 페이지에는 사용된 스토리지 양과 객체 수를 비롯한 각 테넌트의 사용 세부 정보도 제공됩니다. 테넌트를 생성할 때 할당량을 설정하면 해당 할당량이 얼마나 사용되었는지 확인할 수 있습니다.
-
-image::../media/tenants_page.png[Tenants 메뉴 및 페이지]
 
 
 
@@ -116,11 +110,12 @@ ILM 메뉴에서 ILM을 보고 관리할 수 있습니다.
 
 네트워크 작업은 다음과 같습니다.
 
-* link:../admin/managing-high-availability-groups.html["고가용성 그룹 관리"]
+* link:../admin/managing-high-availability-groups.html["고가용성 그룹을 관리합니다"]
 * link:../admin/managing-load-balancing.html["로드 밸런서 엔드포인트 관리"]
-* link:../admin/configuring-s3-api-endpoint-domain-names.html["S3 엔드포인트 도메인 이름 구성 중"]
-* link:../admin/managing-traffic-classification-policies.html["트래픽 분류 정책 관리"]
-* link:../admin/configure-vlan-interfaces.html["VLAN 인터페이스 구성"]
+* link:../admin/configuring-s3-api-endpoint-domain-names.html["S3 끝점 도메인 이름을 구성합니다"]
+* link:../admin/managing-traffic-classification-policies.html["트래픽 분류 정책을 관리합니다"]
+* link:../admin/configure-vlan-interfaces.html["VLAN 인터페이스를 구성합니다"]
+* link:../admin/enable-cross-origin-resource-sharing-for-management-interface.html["관리 인터페이스에 StorageGRID CORS 활성화"]
 
 
 
@@ -129,11 +124,11 @@ ILM 메뉴에서 ILM을 보고 관리할 수 있습니다.
 
 보안 작업에는 다음이 포함됩니다.
 
-* link:../admin/using-storagegrid-security-certificates.html["보안 인증서 관리"]
-* link:../admin/manage-firewall-controls.html["내부 방화벽 제어 관리"]
-* link:../admin/kms-configuring.html["키 관리 서버 구성"]
-* link:../admin/manage-tls-ssh-policy.html["TLS 및 SSH 정책"]link:../admin/changing-network-options-object-encryption.html["네트워크 및 개체 보안 옵션"], 및 를 포함한 보안 설정 구성link:../admin/changing-browser-session-timeout-interface.html["인터페이스 보안 설정"]
-* 또는 에 대한 설정 구성 link:../admin/configuring-storage-proxy-settings.html["스토리지 프록시"]link:../admin/configuring-admin-proxy-settings.html["관리 프록시"]
+* link:../admin/using-storagegrid-security-certificates.html["보안 인증서를 관리합니다"]
+* link:../admin/manage-firewall-controls.html["내부 방화벽 제어를 관리합니다"]
+* link:../admin/kms-configuring.html["키 관리 서버를 구성합니다"]
+* 보안 설정을 구성합니다.link:../admin/manage-tls-ssh-policy.html["TLS 및 SSH 정책"] ,link:../admin/changing-network-options-object-encryption.html["네트워크 및 개체 보안 옵션"] ,link:../admin/changing-browser-session-timeout-interface.html["인터페이스 보안 설정"] , 그리고link:../admin/manage-external-ssh-access.html["SSH 접속 옵션"]
+* 설정 구성link:../admin/configuring-storage-proxy-settings.html["스토리지 프록시"] 또는link:../admin/configuring-admin-proxy-settings.html["관리 프록시"]
 
 
 
@@ -142,11 +137,12 @@ ILM 메뉴에서 ILM을 보고 관리할 수 있습니다.
 
 시스템 작업은 다음과 같습니다.
 
-* 를 사용하여 link:../admin/grid-federation-overview.html["그리드 통합"]테넌트 계정 정보를 클론 복제하고 두 StorageGRID 시스템 간에 오브젝트 데이터를 복제합니다.
-* 옵션을 활성화합니다(선택 사항)link:../admin/configuring-stored-object-compression.html["저장된 객체를 압축합니다"].
-* link:../ilm/managing-objects-with-s3-object-lock.html["S3 오브젝트 잠금 관리"]
-* 및 등의 스토리지 옵션 이해link:../admin/what-object-segmentation-is.html["개체 분할"]link:../admin/what-storage-volume-watermarks-are.html["스토리지 볼륨 워터마크입니다"]
-* link:../ilm/manage-erasure-coding-profiles.html["삭제 코딩 프로필을 관리합니다"]..
+* 사용link:../admin/grid-federation-overview.html["그리드 통합"] 테넌트 계정 정보를 복제하고 두 StorageGRID 시스템 간에 개체 데이터를 복제합니다.
+* 선택적으로 다음을 활성화합니다.link:../admin/configuring-stored-object-compression.html["저장된 객체를 압축합니다"] 옵션
+* 선택적으로 다음을 구성합니다.link:../s3/consistency.html["기본 버킷 일관성 설정"]
+* link:../ilm/managing-objects-with-s3-object-lock.html["S3 객체 잠금 관리"]
+* 저장소 설정 등을 이해하세요.link:../admin/what-storage-volume-watermarks-are.html["스토리지 볼륨 워터마크입니다"]
+* link:../ilm/manage-erasure-coding-profiles.html["삭제 코딩 프로필을 관리합니다"]
 
 
 
@@ -155,7 +151,7 @@ ILM 메뉴에서 ILM을 보고 관리할 수 있습니다.
 
 모니터링 작업에는 다음이 포함됩니다.
 
-* link:../monitor/configure-audit-messages.html["감사 메시지 및 로그 대상 구성"]
+* link:../monitor/configure-log-management.html["로그 관리 구성"]
 * link:../monitor/using-snmp-monitoring.html["SNMP 모니터링을 사용합니다"]
 
 
@@ -165,11 +161,11 @@ ILM 메뉴에서 ILM을 보고 관리할 수 있습니다.
 
 액세스 제어 작업에는 다음이 포함됩니다.
 
-* link:../admin/managing-admin-groups.html["관리 그룹 관리"]
+* link:../admin/managing-admin-groups.html["관리 그룹을 관리합니다"]
 * link:../admin/managing-users.html["관리자 사용자 관리"]
-* link:../admin/changing-provisioning-passphrase.html["프로비저닝 암호"]또는 변경 link:../admin/change-node-console-password.html["노드 콘솔 암호"]
-* link:../admin/using-identity-federation.html["ID 페더레이션 사용"]
-* link:../admin/configuring-sso.html["SSO 구성"]
+* 변경하다link:../admin/changing-provisioning-passphrase.html["프로비저닝 암호"] 또는link:../admin/change-node-console-password.html["노드 콘솔 암호"]
+* link:../admin/using-identity-federation.html["ID 페더레이션을 사용합니다"]
+* link:../admin/how-sso-works.html["SSO 구성"]
 
 
 
@@ -189,7 +185,7 @@ ILM 메뉴에서 ILM을 보고 관리할 수 있습니다.
 * link:../maintain/warnings-and-considerations-for-grid-node-recovery.html["그리드 노드 복구 절차"] 장애가 발생한 노드를 교체하고 데이터를 복원합니다
 * link:../maintain/rename-grid-site-node-overview.html["절차 이름 바꾸기"] 그리드, 사이트 및 노드의 표시 이름을 변경합니다
 * link:../troubleshoot/verifying-object-integrity.html["개체 존재 확인 작업"] 개체 데이터의 존재 여부(정확도는 아님)를 확인합니다
-* 를 link:../maintain/rolling-reboot-procedure.html["재부팅 롤링 중"] 수행하여 여러 그리드 노드를 재시작합니다
+* 수행하다link:../maintain/rolling-reboot-procedure.html["재부팅 롤링 중"] 여러 그리드 노드를 다시 시작하려면
 * link:../maintain/restoring-volume.html["볼륨 복원 작업"]
 
 
@@ -199,8 +195,8 @@ ILM 메뉴에서 ILM을 보고 관리할 수 있습니다.
 
 수행할 수 있는 시스템 유지보수 작업은 다음과 같습니다.
 
-* link:../admin/viewing-storagegrid-license-information.html["StorageGRID 라이센스 정보 보기"] 또는 link:../admin/updating-storagegrid-license-information.html["라이센스 정보를 업데이트하는 중입니다"]
-* 생성 및 다운로드 link:../maintain/downloading-recovery-package.html["복구 패키지"]
+* link:../admin/viewing-storagegrid-license-information.html["StorageGRID 라이센스 정보를 봅니다"]또는link:../admin/updating-storagegrid-license-information.html["라이센스 정보 업데이트"]
+* 생성 및 다운로드link:../maintain/downloading-recovery-package.html["복구 패키지"]
 * 선택한 어플라이언스에서 SANtricity OS 소프트웨어에 대한 소프트웨어 업그레이드, 핫픽스 및 업데이트를 포함한 StorageGRID 소프트웨어 업데이트 수행
 +
 ** link:../upgrade/index.html["업그레이드 절차"]
@@ -217,9 +213,9 @@ ILM 메뉴에서 ILM을 보고 관리할 수 있습니다.
 
 수행할 수 있는 네트워크 유지 보수 작업은 다음과 같습니다.
 
-* link:../maintain/configuring-dns-servers.html["DNS 서버 구성"]
-* link:../maintain/updating-subnets-for-grid-network.html["그리드 네트워크 서브넷을 업데이트하는 중입니다"]
-* link:../maintain/configuring-ntp-servers.html["NTP 서버 관리"]
+* link:../maintain/configuring-dns-servers.html["DNS 서버를 구성합니다"]
+* link:../maintain/updating-subnets-for-grid-network.html["그리드 네트워크 서브넷 업데이트"]
+* link:../maintain/configuring-ntp-servers.html["NTP 서버를 관리합니다"]
 
 
 
@@ -236,7 +232,6 @@ ILM 메뉴에서 ILM을 보고 관리할 수 있습니다.
 
 * link:../admin/configure-autosupport-grid-manager.html["AutoSupport를 구성합니다"]
 * link:../monitor/running-diagnostics.html["진단 유틸리티를 실행합니다"] 그리드의 현재 상태
-* link:../monitor/viewing-grid-topology-tree.html["그리드 토폴로지 트리에 액세스합니다"] 그리드 노드, 서비스 및 속성에 대한 자세한 정보를 보려면
 * link:../monitor/collecting-log-files-and-system-data.html["로그 파일 및 시스템 데이터를 수집합니다"]
 * link:../monitor/reviewing-support-metrics.html["지원 메트릭을 검토합니다"]
 +
@@ -247,17 +242,13 @@ NOTE: 메트릭* 옵션에서 사용할 수 있는 도구는 기술 지원 부�
 
 
 
-=== 알람(레거시)
-
-기존 알람에 대한 정보는 이 버전의 설명서에서 제거되었습니다. 을 https://docs.netapp.com/us-en/storagegrid-118/monitor/managing-alerts-and-alarms.html["경고 및 알람 관리(StorageGRID 11.8 설명서)"^]참조하십시오.
-
-
-
 === 기타
 
 지원 메뉴의 기타 섹션에서 다음을 수행할 수 있습니다.
 
+* 구성link:../monitor/manage-io-prioritization.html["I/O 우선순위 지정"]
+* 구성link:../admin/configure-autosupport-grid-manager.html["AutoSupport 이메일 설정(레거시)"]
 * 관리 link:../admin/manage-link-costs.html["링크 비용"]
-* link:../admin/viewing-notification-status-and-queues.html["네트워크 관리 시스템(NMS)"]항목을 봅니다
+* 노드 서비스 ID 보기
 * 관리 link:../admin/what-storage-volume-watermarks-are.html["스토리지 워터마크"]
 
