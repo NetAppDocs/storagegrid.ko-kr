@@ -244,9 +244,9 @@ HTTPS
  a| 
 관리자 노드
  a| 
-그리드 관리자 및 테넌트 관리자에 액세스하기 위해 웹 브라우저 및 관리 API 클라이언트에서 사용됩니다.
+웹 브라우저와 관리 API 클라이언트가 Grid Manager와 Tenant Manager에 액세스하는 데 사용됩니다.
 
-* 참고 *: Grid Manager 포트 443 또는 8443을 닫으면 사용자를 포함하여 차단된 포트에 현재 연결되어 있는 모든 사용자는 권한이 있는 주소 목록에 IP 주소가 추가되지 않으면 Grid Manager에 액세스할 수 없습니다. 권한 있는 IP 주소를 구성하려면 를 link:../admin/configure-firewall-controls.html["방화벽 제어를 구성합니다"]참조하십시오.
+*참고*: Grid Manager 포트 443 또는 8443을 닫으면 차단된 포트에 현재 연결된 모든 사용자(본인 포함)는 IP 주소가 권한 있는 주소 목록에 추가되지 않는 한 Grid Manager에 액세스할 수 없게 됩니다. 참조하다link:../admin/configure-firewall-controls.html["방화벽 제어를 구성합니다"] 특권 IP 주소를 구성합니다.
 
 
 
@@ -306,7 +306,7 @@ mDNS
  a| 
 모든 노드
  a| 
-전체 그리드 IP 변경 및 설치, 확장 및 복구 중에 기본 관리 노드 검색에 사용되는 멀티캐스트 DNS(mDNS) 서비스를 제공합니다.
+설치, 확장, 복구 중에 전체 그리드 IP 변경과 기본 관리 노드 검색에 사용되는 멀티캐스트 DNS(mDNS) 서비스를 제공합니다.
 
 
 
@@ -336,9 +336,26 @@ HTTPS
  a| 
 관리자 노드
  a| 
-선택 사항. 웹 브라우저 및 관리 API 클라이언트에서 Grid Manager에 액세스하는 데 사용됩니다. Grid Manager와 Tenant Manager 통신을 구분하는 데 사용할 수 있습니다.
+선택 과목. 웹 브라우저와 관리 API 클라이언트가 Grid Manager에 액세스하는 데 사용됩니다. Grid Manager와 Tenant Manager 통신을 분리하는 데 사용할 수 있습니다.
 
-* 참고 *: Grid Manager 포트 443 또는 8443을 닫으면 사용자를 포함하여 차단된 포트에 현재 연결되어 있는 모든 사용자는 권한이 있는 주소 목록에 IP 주소가 추가되지 않으면 Grid Manager에 액세스할 수 없습니다. 권한 있는 IP 주소를 구성하려면 를 link:../admin/configure-firewall-controls.html["방화벽 제어를 구성합니다"]참조하십시오.
+*참고*: Grid Manager 포트 443 또는 8443을 닫으면 차단된 포트에 현재 연결된 모든 사용자(본인 포함)는 IP 주소가 권한 있는 주소 목록에 추가되지 않는 한 Grid Manager에 액세스할 수 없게 됩니다.  참조하다link:../admin/configure-firewall-controls.html["방화벽 제어를 구성합니다"] 특권 IP 주소를 구성합니다.
+
+
+
+ a| 
+8443
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+브라우저
+ a| 
+어플라이언스
+ a| 
+웹 브라우저와 관리 API 클라이언트에서 StorageGRID Appliance Installer에 액세스하는 데 사용됩니다.
+
+*참고*: 포트 443은 StorageGRID Appliance 설치 프로그램의 포트 8443으로 리디렉션됩니다.
 
 
 
@@ -400,7 +417,7 @@ HTTPS
  a| 
 관리자 노드
  a| 
-선택 사항. 테넌트 관리자를 액세스하기 위해 웹 브라우저 및 관리 API 클라이언트에서 사용됩니다. Grid Manager와 Tenant Manager 통신을 구분하는 데 사용할 수 있습니다.
+선택 과목. 웹 브라우저와 관리 API 클라이언트가 테넌트 관리자에 액세스하는 데 사용됩니다. Grid Manager와 Tenant Manager 통신을 분리하는 데 사용할 수 있습니다.
 
 
 
