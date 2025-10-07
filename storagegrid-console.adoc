@@ -1,0 +1,23 @@
+---
+sidebar: sidebar 
+permalink: storagegrid-console.html 
+keywords: storagegrid, how to enable, third-party solutions, tools, applications, examples, bluexp, console 
+summary: Grid Manager를 사용하여 NetApp 콘솔에서 StorageGRID 시스템을 관리하는 방법과 NetApp 콘솔의 데이터 서비스를 사용하여 백업, 데이터 계층화 등을 수행하는 방법을 알아보세요. 
+---
+= NetApp 콘솔을 사용하여 StorageGRID 관리하는 방법
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+로 가다 https://docs.netapp.com/us-en/console-storagegrid/index.html["NetApp 콘솔을 사용한 StorageGRID 관리"^] Grid Manager를 사용하여 NetApp 콘솔에서 StorageGRID 시스템을 관리하는 방법과 NetApp 콘솔의 데이터 서비스를 사용하여 백업, 데이터 계층화 등을 수행하는 방법을 알아보세요.
+
+* BlueXP 는 이제 NetApp 콘솔입니다.*
+
+강화되고 재구성된 BlueXP 기반을 기반으로 구축된 NetApp 콘솔은 엔터프라이즈급 온프레미스 및 클라우드 환경 전반에서 NetApp 스토리지와 NetApp 데이터 서비스를 중앙에서 관리하여 실시간 통찰력, 더 빠른 워크플로, 간소화된 관리를 제공하며, 높은 보안성과 규정 준수를 보장합니다.
+
+변경된 사항에 대한 자세한 내용은 다음을 참조하세요.link:https://docs.netapp.com/us-en/bluexp-relnotes/index.html["NetApp 콘솔 릴리스 노트"] .

@@ -382,8 +382,8 @@ sidebar:
       url: "/maintain/how-site-recovery-is-performed-by-technical-support.html"
   - title: StorageGRID 솔루션 및 리소스
     url: "/storagegrid-enable.html"
-  - title: StorageGRID and BlueXP  를 참조하십시오
-    url: "/storagegrid-bluexp.html"
+  - title: StorageGRID 및 NetApp 콘솔
+    url: "/storagegrid-console.html"
   - title: 법적 고지
     url: "/legal-notices.html"
 product-family:
