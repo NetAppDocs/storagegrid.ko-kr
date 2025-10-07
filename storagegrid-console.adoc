@@ -14,7 +14,7 @@ summary: Grid Manager를 사용하여 NetApp 콘솔에서 StorageGRID 시스템�
 
 
 [role="lead"]
-로 가다 https://docs.netapp.com/us-en/console-storagegrid/index.html["NetApp 콘솔을 사용한 StorageGRID 관리"^] Grid Manager를 사용하여 NetApp 콘솔에서 StorageGRID 시스템을 관리하는 방법과 NetApp 콘솔의 데이터 서비스를 사용하여 백업, 데이터 계층화 등을 수행하는 방법을 알아보세요.
+로 가다 https://docs.netapp.com/us-en/storage-management-storagegrid/index.html["NetApp 콘솔을 사용한 StorageGRID 관리"^] Grid Manager를 사용하여 NetApp 콘솔에서 StorageGRID 시스템을 관리하는 방법과 NetApp 콘솔의 데이터 서비스를 사용하여 백업, 데이터 계층화 등을 수행하는 방법을 알아보세요.
 
 * BlueXP 는 이제 NetApp 콘솔입니다.*
 

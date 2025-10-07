@@ -76,7 +76,7 @@ indexpage:
     - title: NetApp 학습 서비스
       url: https://www.netapp.com/support-and-training/netapp-university/
     - title: NetApp 콘솔을 사용한 StorageGRID 관리
-      url: https://docs.netapp.com/us-en/console-storagegrid/index.html
+      url: https://docs.netapp.com/us-en/storage-management-storagegrid/index.html
   - title: 더 많은 리소스
     links:
     - title: StorageGRID 지원 페이지
