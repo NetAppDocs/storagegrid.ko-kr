@@ -2,7 +2,7 @@
 permalink: troubleshoot/investigating-potentially-lost-objects.html 
 sidebar: sidebar 
 keywords: lost objects, investigating, objects 
-summary: *분실 가능성이 있는 물건* 경고가 발생하면 즉시 조사해야 합니다.  영향을 받은 객체에 대한 정보를 수집하고 기술 지원팀에 문의하세요. 
+summary: 분실 가능성이 있는 물건 알림이 울리면 즉시 조사해야 합니다. 영향을 받은 객체에 대한 정보를 수집하고 기술 지원팀에 문의하세요. 
 ---
 = 분실 가능성이 있는 물건을 조사하세요
 :allow-uri-read: 
