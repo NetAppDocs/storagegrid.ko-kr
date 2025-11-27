@@ -24,7 +24,7 @@ StorageGRID 로드 밸런서 서비스는 모든 관리 노드 및 모든 게이
 각 노드의 로드 밸런서 서비스는 클라이언트 트래픽을 스토리지 노드로 전달할 때 독립적으로 작동합니다. 로드 밸런서 서비스는 가중 프로세스를 통해 더 많은 요청을 CPU 가용성이 높은 스토리지 노드로 라우팅합니다.
 
 
-NOTE: StorageGRID 로드 밸런서 서비스가 권장되는 로드 밸런싱 메커니즘이지만 타사 로드 밸런서를 대신 통합할 수도 있습니다. 자세한 내용은 NetApp 어카운트 담당자에게 문의하거나 를 참조하십시오 https://fieldportal.netapp.com/content/2666394["TR-4626: StorageGRID 타사 및 글로벌 로드 밸런서"^].
+NOTE: StorageGRID 로드 밸런서 서비스가 권장되는 로드 밸런싱 메커니즘이기는 하지만 대신 타사 로드 밸런서를 통합하는 것이 좋을 수도 있습니다. 자세한 내용은 NetApp 계정 담당자에게 문의하거나 다음을 참조하세요. https://docs.netapp.com/us-en/storagegrid-enable/technical-reports/load-balancer-index.html["StorageGRID 와 함께 타사 로드 밸런서를 사용하세요"^].
 
 
 
