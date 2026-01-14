@@ -1,10 +1,10 @@
 ---
 permalink: expand/copying-prometheus-metrics.html 
 sidebar: sidebar 
-keywords: prometheus, copy metrics, Admin Node expansion 
+keywords: prometheus, copy metrics, Admin Node expansion, StorageGRID 
 summary: 새 관리 노드를 추가한 후 선택적으로 Prometheus에서 관리하는 기간별 메트릭을 운영 관리 노드에서 새 관리 노드로 복사할 수 있습니다. 메트릭을 복사하면 관리 노드 간에 기간별 메트릭이 일관되게 유지됩니다. 
 ---
-= Prometheus 메트릭을 복사합니다
+= StorageGRID 의 새 관리 노드에 Prometheus 메트릭을 복사합니다.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

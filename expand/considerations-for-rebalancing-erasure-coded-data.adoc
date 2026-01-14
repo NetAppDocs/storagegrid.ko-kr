@@ -1,10 +1,10 @@
 ---
 permalink: expand/considerations-for-rebalancing-erasure-coded-data.html 
 sidebar: sidebar 
-keywords: erasure coding, rebalance, ec rebalance, site rebalance 
+keywords: erasure coding, rebalance, ec rebalance, site rebalance, StorageGRID 
 summary: 스토리지 노드를 추가하기 위해 확장을 수행하고 ILM 규칙을 사용하여 데이터를 삭제할 경우 사용 중인 삭제 코딩 체계에 대해 충분한 스토리지 노드를 추가할 수 없는 경우 EC 균형 조정 절차를 수행해야 할 수 있습니다. 
 ---
-= 삭제 코딩 데이터의 재조정에 대한 고려사항
+= StorageGRID 에서 확장 후 EC 리밸런싱에 대해 알아보세요.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

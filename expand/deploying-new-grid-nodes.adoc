@@ -1,10 +1,10 @@
 ---
 permalink: expand/deploying-new-grid-nodes.html 
 sidebar: sidebar 
-keywords: expansion, add nodes 
+keywords: expansion, add nodes, StorageGRID 
 summary: 확장 시 새 그리드 노드를 구축하는 단계는 그리드를 처음 설치할 때 사용한 단계와 동일합니다. 확장을 수행하려면 먼저 모든 새 그리드 노드를 배포해야 합니다. 
 ---
-= 새 그리드 노드를 배포합니다
+= StorageGRID 에 새 그리드 노드를 배포합니다.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

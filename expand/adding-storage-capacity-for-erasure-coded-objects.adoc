@@ -1,10 +1,10 @@
 ---
 permalink: expand/adding-storage-capacity-for-erasure-coded-objects.html 
 sidebar: sidebar 
-keywords: erasure coding, capacity, storage nodes, ec, expand, expansion 
+keywords: erasure coding, capacity, storage nodes, ec, expand, expansion, StorageGRID 
 summary: ILM 정책에 삭제 코딩 복사본을 만드는 규칙이 포함된 경우 새 스토리지를 추가할 위치와 새 스토리지를 추가할 시기를 계획해야 합니다. 추가하는 스토리지의 양과 추가 시기는 그리드의 사용 가능한 스토리지 용량에 영향을 줄 수 있습니다. 
 ---
-= 삭제 코딩 오브젝트를 위한 스토리지 용량을 추가합니다
+= StorageGRID 에서 소거 부호화(EC) 데이터에 대한 확장 계획
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

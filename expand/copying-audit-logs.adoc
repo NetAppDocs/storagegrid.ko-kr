@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: expand/copying-audit-logs.html 
-keywords: copy audit log, Admin Node expansion, 
+keywords: copy audit log, Admin Node expansion, StorageGRID 
 summary: 확장 절차를 통해 새로운 관리 노드를 추가하면 AMS 서비스는 시스템에 가입한 후 발생하는 이벤트와 작업만 기록합니다.  필요에 따라 이전에 설치된 관리 노드에서 감사 로그를 새 확장 관리 노드로 복사하여 StorageGRID 시스템의 나머지 부분과 동기화할 수 있습니다. 
 ---
-= 감사 로그를 복사합니다
+= StorageGRID 의 새 관리 노드에 감사 로그를 복사합니다.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

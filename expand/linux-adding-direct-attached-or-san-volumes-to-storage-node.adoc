@@ -1,12 +1,11 @@
 ---
 permalink: expand/linux-adding-direct-attached-or-san-volumes-to-storage-node.html 
 sidebar: sidebar 
-keywords: expansion, Linux, add storage volumes 
+keywords: expansion, Linux, add storage volumes, StorageGRID 
 summary: 스토리지 노드에 스토리지 볼륨이 48개 미만인 경우 새 블록 스토리지 디바이스를 추가하고, Linux 호스트에 표시하고, 스토리지 노드에 사용되는 StorageGRID 구성 파일에 새 블록 디바이스 매핑을 추가하여 용량을 늘릴 수 있습니다. 
 ---
-= Linux: 스토리지 노드에 직접 연결 또는 SAN 볼륨을 추가합니다
+= StorageGRID 의 Linux 스토리지 노드에 직접 연결 볼륨 또는 SAN 볼륨을 추가합니다.
 :allow-uri-read: 
-:icons: font
 :imagesdir: ../media/
 
 

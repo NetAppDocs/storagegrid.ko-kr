@@ -1,10 +1,10 @@
 ---
 permalink: expand/performing-expansion.html 
 sidebar: sidebar 
-keywords: expand, expansion procedure 
+keywords: expand, expansion procedure, StorageGRID 
 summary: 확장을 수행하면 새 그리드 노드가 기존 StorageGRID 배포에 추가됩니다. 
 ---
-= 확장을 수행합니다
+= StorageGRID 확장을 수행합니다.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
