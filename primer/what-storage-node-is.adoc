@@ -1,10 +1,10 @@
 ---
 permalink: primer/what-storage-node-is.html 
 sidebar: sidebar 
-keywords: what is a storage node, how many storage nodes 
+keywords: StorageGRID, what is a storage node, how many storage nodes 
 summary: '스토리지 노드: 오브젝트 데이터 및 메타데이터를 관리하고 저장합니다. 스토리지 노드에는 디스크의 오브젝트 데이터와 메타데이터를 저장, 이동, 확인 및 검색하는 데 필요한 서비스와 프로세스가 포함됩니다.' 
 ---
-= 스토리지 노드란?
+= StorageGRID 스토리지 노드란 무엇입니까?
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

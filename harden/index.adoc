@@ -1,10 +1,10 @@
 ---
 permalink: harden/index.html 
 sidebar: sidebar 
-keywords: Hardening guidelines, system, security 
+keywords: StorageGRID, hardening guidelines, system, security 
 summary: 시스템 강화는 StorageGRID 시스템에서 가능한 한 많은 보안 위험을 제거하는 프로세스입니다. 
 ---
-= 시스템 강화에 대한 일반 고려 사항
+= StorageGRID의 시스템 강화에 대해 알아보십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

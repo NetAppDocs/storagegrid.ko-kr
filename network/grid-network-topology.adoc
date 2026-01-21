@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid network topology 
 summary: 가장 간단한 네트워크 토폴로지는 그리드 네트워크만 구성하여 만듭니다. 
 ---
-= 그리드 네트워크 토폴로지
+= StorageGRID용 그리드 네트워크 토폴로지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

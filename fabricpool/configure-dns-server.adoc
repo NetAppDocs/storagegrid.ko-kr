@@ -1,10 +1,10 @@
 ---
 permalink: fabricpool/configure-dns-server.html 
 sidebar: sidebar 
-keywords: dns, vip, virtual ip, fqdn, server name 
+keywords: fabricPool, StorageGRID, dns, vip, virtual ip, fqdn, server name 
 summary: 고가용성 그룹, 로드 밸런서 끝점 및 S3 도메인 이름을 구성한 후에는 DNS에 StorageGRID에 필요한 항목이 포함되어 있는지 확인해야 합니다. 
 ---
-= DNS 서버를 구성합니다
+= FabricPool를 사용하여 StorageGRID에 대한 DNS 서버 항목 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

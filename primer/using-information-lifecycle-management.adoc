@@ -1,10 +1,10 @@
 ---
 permalink: primer/using-information-lifecycle-management.html 
 sidebar: sidebar 
-keywords: what is information lifecycle management, how to use ilm 
+keywords: StorageGRID, what is information lifecycle management, how to use ilm 
 summary: 'ILM(정보 수명 주기 관리) \(ILM\)을 사용하여 StorageGRID 시스템의 모든 개체에 대한 배치, 기간 및 수집 동작을 제어할 수 있습니다. ILM 규칙은 StorageGRID이 시간에 따라 개체를 저장하는 방법을 결정합니다. 하나 이상의 ILM 규칙을 구성한 다음 ILM 정책에 추가합니다.' 
 ---
-= 정보 수명 주기 관리
+= StorageGRID의 정보 수명 주기 관리
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

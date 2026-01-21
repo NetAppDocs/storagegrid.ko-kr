@@ -1,10 +1,10 @@
 ---
 permalink: primer/how-storagegrid-manages-data.html 
 sidebar: sidebar 
-keywords: how storagegrid manages data, what an object is, how object data is protected 
+keywords: StorageGRID, how storagegrid manages data, what an object is, how object data is protected 
 summary: 오브젝트 스토리지의 경우, 스토리지 단위는 파일 또는 블록이 아닌 오브젝트입니다. 파일 시스템 또는 블록 스토리지의 트리와 같은 계층구조와 달리 오브젝트 스토리지는 데이터를 구조화되지 않은 단순 레이아웃으로 구성합니다. 
 ---
-= 개체란 무엇입니까
+= StorageGRID 객체란 무엇입니까
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

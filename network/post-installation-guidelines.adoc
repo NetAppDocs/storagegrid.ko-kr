@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: networking after installation, dhcp networking 
 summary: 그리드 노드 배포 및 구성을 완료한 후 DHCP 주소 지정 및 네트워크 구성 변경에 대한 다음 지침을 따르십시오. 
 ---
-= 설치 후 지침
+= StorageGRID 설치 후 지침
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

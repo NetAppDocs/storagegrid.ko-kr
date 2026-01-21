@@ -13,7 +13,7 @@ entries:
   entries:
   - title: 노드 및 서비스
     url: "/primer/nodes-and-services.html"
-    pdf-filename: 노드 및 서비스
+    pdf-filename: StorageGRID 노드 및 서비스
   - title: 관리자 노드란 무엇입니까
     url: "/primer/what-admin-node-is.html"
   - title: 스토리지 노드란
@@ -25,15 +25,15 @@ entries:
   - title: 개체란 무엇입니까
     pdf-filename: StorageGRID에서 데이터를 관리하는 방법 - 개요
     url: "/primer/how-storagegrid-manages-data.html"
-  - title: 개체의 수명입니다
+  - title: 객체 수명 주기
     url: "/primer/life-of-object.html"
-  - title: 수집 데이터 흐름
+  - title: 데이터 수집
     url: "/primer/ingest-data-flow.html"
   - title: 복사 관리
     url: "/primer/copy-management.html"
-  - title: 데이터 흐름을 검색합니다
+  - title: 데이터 검색
     url: "/primer/retrieve-data-flow.html"
-  - title: 데이터 흐름을 삭제합니다
+  - title: 데이터 삭제
     url: "/primer/delete-data-flow.html"
   - title: 정보 수명 주기 관리
     url: "/primer/using-information-lifecycle-management.html"

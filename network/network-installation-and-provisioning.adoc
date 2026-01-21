@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network install, network provisioning 
 summary: 노드 배포 및 그리드 구성 중에 그리드 네트워크와 선택적 관리 및 클라이언트 네트워크가 어떻게 사용되는지 이해해야 합니다. 
 ---
-= 네트워크 설치 및 프로비저닝
+= StorageGRID의 네트워크 설치 및 프로비저닝
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

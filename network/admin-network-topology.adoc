@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: admin network topology, using admin network 
 summary: 관리 네트워크 보유는 선택 사항입니다. 관리 네트워크 및 그리드 네트워크를 사용할 수 있는 한 가지 방법은 각 노드에 대해 라우팅 가능한 그리드 네트워크 및 경계 관리자 네트워크를 구성하는 것입니다. 
 ---
-= 관리 네트워크 토폴로지
+= StorageGRID의 관리자 네트워크 토폴로지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

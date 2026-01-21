@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: admin network requirements, guidelines for admin network, aesl 
 summary: 관리 네트워크는 선택 사항입니다. 관리 네트워크를 구성하려는 경우 다음 요구 사항 및 지침을 따르십시오. 
 ---
-= 관리 네트워크 요구 사항
+= StorageGRID의 관리자 네트워크 요구 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

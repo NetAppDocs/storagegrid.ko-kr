@@ -1,10 +1,10 @@
 ---
 permalink: primer/what-admin-node-is.html 
 sidebar: sidebar 
-keywords: admin nodes 
+keywords: StorageGRID, admin nodes 
 summary: 관리 노드는 시스템 구성, 모니터링 및 로깅과 같은 관리 서비스를 제공합니다. 관리 노드를 사용하여 S3 클라이언트 트래픽의 로드 밸런싱을 수행할 수도 있습니다. 각 그리드에는 1개의 기본 관리 노드가 있어야 하며 이중화를 위해 여러 개의 비기본 관리 노드가 있을 수 있습니다. 
 ---
-= 관리 노드란 무엇입니까?
+= StorageGRID 관리 노드란 무엇입니까?
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

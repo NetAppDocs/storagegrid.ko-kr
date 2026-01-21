@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: client network topology 
 summary: '클라이언트 네트워크 보유는 선택 사항입니다. 클라이언트 네트워크를 사용하면 클라이언트 네트워크 트래픽\(예: S3\)을 그리드 내부 트래픽과 분리할 수 있으므로 그리드 네트워킹의 보안이 더욱 강화됩니다. 관리 네트워크가 구성되지 않은 경우 클라이언트 또는 그리드 네트워크에서 관리 트래픽을 처리할 수 있습니다.' 
 ---
-= 클라이언트 네트워크 토폴로지
+= StorageGRID용 클라이언트 네트워크 토폴로지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

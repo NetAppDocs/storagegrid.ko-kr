@@ -1,9 +1,9 @@
 ---
 section: harden
-title: 시스템 강화
+title: StorageGRID의 시스템 강화
 entries:
-- title: 일반 고려 사항
-  pdf-filename: StorageGRID 시스템 강화
+- title: 시스템 강화에 대해 알아보십시오
+  pdf-filename: StorageGRID의 시스템 강화
   url: "/harden/index.html"
 - title: 업그레이드 강화 지침
   url: "/harden/hardening-guidelines-for-software-upgrades.html"
@@ -13,5 +13,5 @@ entries:
   url: "/harden/hardening-guidelines-for-storagegrid-nodes.html"
 - title: TLS 및 SSH에 대한 강화 지침
   url: "/harden/hardening-guideline-for-server-certificates.html"
-- title: 기타 강화 지침
+- title: 로그 및 암호에 대한 강화 지침
   url: "/harden/other-hardening-guidelines.html"

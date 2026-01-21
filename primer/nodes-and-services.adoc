@@ -1,10 +1,10 @@
 ---
 permalink: primer/nodes-and-services.html 
 sidebar: sidebar 
-keywords: services, grid nodes, primary admin, storage, gateway 
+keywords: StorageGRID, services, grid nodes, primary admin, storage, gateway 
 summary: StorageGRID 시스템의 기본 구성 요소는 그리드 노드입니다. 노드에는 그리드 노드에 일련의 기능을 제공하는 소프트웨어 모듈인 서비스가 포함됩니다. 
 ---
-= 그리드 노드 및 서비스
+= StorageGRID 그리드 노드 및 서비스
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

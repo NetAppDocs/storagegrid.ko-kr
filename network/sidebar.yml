@@ -2,8 +2,8 @@
 section: network
 title: 네트워킹 지침
 entries:
-- title: StorageGRID 네트워킹
-  pdf-filename: StorageGRID 네트워킹 지침
+- title: 네트워킹 지침
+  pdf-filename: StorageGRID의 네트워킹 지침
   url: "/network/index.html"
 - title: StorageGRID 네트워크 유형입니다
   url: "/network/storagegrid-network-types.html"
@@ -27,7 +27,7 @@ entries:
     url: "/network/linux-deployments.html"
   - title: 플랫폼 서비스 및 클라우드 스토리지 풀을 위한 네트워킹 및 포트
     url: "/network/networking-and-ports-for-platform-services-and-cloud-storage-pools.html"
-  - title: 어플라이언스 노드
+  - title: 어플라이언스 네트워크 구성
     url: "/network/appliance-nodes.html"
 - title: 네트워크 설치 및 프로비저닝
   url: "/network/network-installation-and-provisioning.html"

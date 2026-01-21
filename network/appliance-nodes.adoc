@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: networking for appliance, port bond mode 
 summary: StorageGRID 어플라이언스의 네트워크 포트를 구성하여 처리량, 이중화 및 페일오버 요구사항을 충족하는 포트 결합 모드를 사용할 수 있습니다. 
 ---
-= 어플라이언스 노드
+= StorageGRID 어플라이언스 노드의 네트워크 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

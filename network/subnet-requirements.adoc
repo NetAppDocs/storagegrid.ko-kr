@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network subnets 
 summary: 네트워크 서브넷에 대한 다음 요구 사항 및 지침을 따르십시오. 
 ---
-= 서브넷 요구 사항
+= StorageGRID의 서브넷 요구 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

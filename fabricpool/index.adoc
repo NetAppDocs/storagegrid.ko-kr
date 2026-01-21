@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure storagegrid for fabricpool, using fabricpool with storagegrid, 
 summary: NetApp ONTAP 소프트웨어를 사용하는 경우 NetApp FabricPool를 사용하여 비활성 데이터를 NetApp StorageGRID 오브젝트 스토리지 시스템에 계층화할 수 있습니다. 
 ---
-= FabricPool용 StorageGRID를 구성합니다
+= FabricPool와 함께 StorageGRID를 사용하기 위한 구성 워크플로우
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

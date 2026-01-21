@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: linux network, container engine, red hat enterprise linux network, rhel network, ubuntu network 
 summary: 효율성, 안정성 및 보안을 위해 StorageGRID 시스템은 Linux에서 컨테이너 엔진의 모음으로 실행됩니다. StorageGRID 시스템에는 컨테이너 엔진 관련 네트워크 구성이 필요하지 않습니다. 
 ---
-= Linux 배포
+= StorageGRID Linux 배포를 위한 네트워크 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

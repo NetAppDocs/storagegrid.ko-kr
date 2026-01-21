@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network gateway requirements 
 summary: 네트워크 게이트웨이 또는 라우터에 대한 다음 요구 사항 및 지침을 따르십시오. 
 ---
-= 네트워크 게이트웨이 요구 사항
+= StorageGRID의 네트워크 게이트웨이 요구 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -1,10 +1,10 @@
 ---
 permalink: primer/what-gateway-node-is.html 
 sidebar: sidebar 
-keywords: gateway nodes, api gateway 
+keywords: StorageGRID, gateway nodes, api gateway 
 summary: 게이트웨이 노드는 S3 클라이언트 애플리케이션이 StorageGRID에 연결하는 데 사용할 수 있는 전용 로드 밸런싱 인터페이스를 제공합니다. 로드 밸런싱은 여러 스토리지 노드에 워크로드를 분산하여 속도와 연결 용량을 극대화합니다. 게이트웨이 노드는 선택 사항입니다. 
 ---
-= 게이트웨이 노드란 무엇입니까?
+= StorageGRID 게이트웨이 노드란 무엇입니까?
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -1,7 +1,7 @@
 ---
 permalink: primer/quick-start.html 
 sidebar: sidebar 
-keywords: storagegrid quick start, tasks 
+keywords: StorageGRID, quick start, tasks 
 summary: 모든 StorageGRID 시스템을 구성하고 사용하려면 다음 단계를 따르십시오. 
 ---
 = StorageGRID를 빠르게 시작합니다

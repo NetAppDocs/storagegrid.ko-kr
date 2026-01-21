@@ -1,10 +1,10 @@
 ---
 permalink: primer/retrieve-data-flow.html 
 sidebar: sidebar 
-keywords: object data, retrieve 
+keywords: StorageGRID, object data, retrieve 
 summary: 검색 작업은 StorageGRID 시스템과 클라이언트 간에 정의된 데이터 흐름으로 구성됩니다. 시스템은 특성을 사용하여 스토리지 노드 또는 필요한 경우 클라우드 스토리지 풀에서 객체 검색을 추적합니다. 
 ---
-= 데이터 흐름을 검색합니다
+= StorageGRID에서 객체 검색을 처리하는 방법
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

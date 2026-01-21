@@ -1,10 +1,10 @@
 ---
 permalink: fabricpool/creating-ha-group-for-fabricpool.html 
 sidebar: sidebar 
-keywords: fabricPool, high availability group, HA group, create, creating, virtual IP, VIP, active interface, backup interface 
+keywords: fabricPool, StorageGRID, high availability group, HA group, create, creating, virtual IP, VIP, active interface, backup interface 
 summary: 'FabricPool와 함께 사용하도록 StorageGRID를 구성할 때 HA(고가용성) 그룹을 하나 이상 선택적으로 생성할 수 있습니다. HA 그룹은 각 노드에 StorageGRID 로드 밸런서 서비스가 포함된 노드 모음입니다. HA 그룹에는 게이트웨이 노드, 관리자 노드 또는 둘 다 포함될 수 있습니다.' 
 ---
-= FabricPool에 대한 고가용성(HA) 그룹을 생성합니다
+= StorageGRID에서 FabricPool에 대한 고가용성(HA) 그룹 생성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

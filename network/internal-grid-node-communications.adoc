@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, network port, internal communications, ports, TCP, UDP, grid communications, port 
 summary: 'StorageGRID 내부 방화벽은 포트 22, 80, 123 및 443\을 제외한 그리드 네트워크의 특정 포트에 대한 들어오는 연결만 허용합니다(외부 통신에 대한 정보 참조\). 로드 밸런서 끝점에 의해 정의된 포트에서도 연결이 허용됩니다.' 
 ---
-= 내부 그리드 노드 통신
+= StorageGRID의 내부 그리드 노드 통신
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
