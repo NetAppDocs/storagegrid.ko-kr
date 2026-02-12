@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar 
-permalink: storagegrid-hardware.html 
+permalink: swnodes/storagegrid-hardware.html 
 keywords: storagegrid, software, grid 
 summary: StorageGRID 어플라이언스 하드웨어를 설치, 구성 및 사용하는 방법에 대해 알아보십시오. 
 ---

@@ -28,7 +28,7 @@ sidebar:
   - title: StorageGRID 12.0 소프트웨어
     url: "/index.html"
   - title: StorageGRID 어플라이언스
-    url: "/storagegrid-hardware.html"
+    url: "/swnodes/storagegrid-hardware.html"
   - title: 릴리스 정보
     url: "/release-notes/index.html"
   - title: 시작하십시오
@@ -41,8 +41,6 @@ sidebar:
   - title: 설치, 업그레이드 및 핫픽스
     url: "/landing-install-upgrade/index.html"
     entries:
-    - title: 어플라이언스 기반 노드 설치
-      url: "/storagegrid-hardware.html"
     - section: swnodes
     - section: upgrade
     - title: StorageGRID 핫픽스를 적용합니다
