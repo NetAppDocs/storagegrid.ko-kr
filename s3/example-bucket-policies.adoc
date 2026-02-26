@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: bucket policy examples 
 summary: 이 섹션의 예를 사용하여 버킷에 대한 StorageGRID 액세스 정책을 구축합니다. 
 ---
-= 버킷 정책의 예
+= StorageGRID S3 REST API 버킷 정책 예
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

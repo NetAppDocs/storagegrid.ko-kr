@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade, troubleshoot, troubleshooting, errors, upgrade precheck 
 summary: 업그레이드를 수행할 때 문제가 발생하면 직접 문제를 해결할 수 있습니다. 문제를 해결할 수 없는 경우 최대한 많은 정보를 수집한 다음 기술 지원 팀에 문의하십시오. 
 ---
-= 업그레이드 문제를 해결합니다
+= StorageGRID 업그레이드 문제 해결
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

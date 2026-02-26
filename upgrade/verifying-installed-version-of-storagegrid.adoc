@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, version, current version, previous version 
 summary: 업그레이드를 시작하기 전에 이전 버전의 StorageGRID가 현재 설치되어 있고 사용 가능한 최신 핫픽스가 적용되었는지 확인합니다. 
 ---
-= 설치된 StorageGRID 버전을 확인합니다
+= 업그레이드하기 전에 설치된 StorageGRID 버전을 확인하십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

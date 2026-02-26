@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: about s3, s3 rest api, s3 overview 
 summary: 'StorageGRID는 REST\(Representational State Transfer\) 웹 서비스 세트로 구현되는 S3(Simple Storage Service) API를 지원합니다.' 
 ---
-= S3 REST API 지원 버전 및 업데이트
+= StorageGRID S3 REST API 지원 버전 및 업데이트
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

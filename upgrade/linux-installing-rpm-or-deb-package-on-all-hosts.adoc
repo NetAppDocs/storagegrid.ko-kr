@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade, linux, rpm, deb, 
 summary: Linux 호스트에 구축된 StorageGRID 노드가 있는 경우 업그레이드를 시작하기 전에 각 호스트에 RPM 또는 DEB 패키지를 추가로 설치합니다. 
 ---
-= Linux: 모든 호스트에 RPM 또는 DEB 패키지를 다운로드하고 설치합니다
+= StorageGRID용 모든 Linux 호스트에 RPM 또는 DEB 패키지 다운로드 및 설치
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

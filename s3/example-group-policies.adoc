@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: group policy examples 
 summary: 이 섹션의 예제를 사용하여 그룹에 대한 StorageGRID 액세스 정책을 작성합니다. 
 ---
-= 그룹 정책의 예
+= StorageGRID S3 REST API 그룹 정책 예
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords:  
 summary: 이 릴리스에서는 일부 기능이 제거되거나 더 이상 사용되지 않습니다. 업그레이드 전에 클라이언트 응용 프로그램을 업데이트하거나 구성을 수정해야 하는지 여부를 이해하려면 이 항목을 검토하십시오. 
 ---
-= 제거되거나 더 이상 사용되지 않는 기능
+= StorageGRID에서 제거되거나 더 이상 사용되지 않는 기능
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: multipart upload, object, object size 
 summary: CompleteMultipartUpload 작업은 이전에 업로드한 부품을 조립하여 객체의 다중 부분 업로드를 완료합니다. 
 ---
-= CompleteMultipartUpload를 클릭합니다
+= StorageGRID S3 REST API가 멀티파트 업로드를 완료하는 방법
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

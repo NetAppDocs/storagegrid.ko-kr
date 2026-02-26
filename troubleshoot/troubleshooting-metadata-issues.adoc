@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot metadata issues 
 summary: 메타데이터 문제가 발생하면 경고가 문제의 출처와 권장 조치를 알려 줍니다. 특히, Low metadata storage 경고가 트리거된 경우 새 스토리지 노드를 추가해야 합니다. 
 ---
-= 메타데이터 문제를 해결합니다
+= StorageGRID의 메타데이터 문제 해결
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

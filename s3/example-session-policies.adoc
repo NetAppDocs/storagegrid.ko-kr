@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: session policy example 
 summary: 이 섹션의 예를 사용하여 StorageGRID 세션 정책을 구축합니다. 
 ---
-= 세션 정책 예
+= StorageGRID S3 REST API 세션 정책 예
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

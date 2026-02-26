@@ -4,9 +4,8 @@ sidebar: sidebar
 keywords: operations, buckets, custom, storagegrid bucket operations 
 summary: StorageGRID 시스템은 S3 REST API에 추가된 사용자 지정 작업을 지원합니다. 
 ---
-= StorageGRID 사용자 정의 작업
+= StorageGRID에서 지원되는 사용자 지정 버킷 작업
 :allow-uri-read: 
-:icons: font
 :imagesdir: ../media/
 
 

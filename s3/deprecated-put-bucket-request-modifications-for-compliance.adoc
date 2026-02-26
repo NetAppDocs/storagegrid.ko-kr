@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, deprecated bucket requests for compliance 
 summary: SGCompliance XML 요소는 사용되지 않습니다. 이전에는 이 StorageGRID 사용자 지정 요소를 CreateBucket 요청의 선택적 XML 요청 본문에 포함시켜 준수 버킷을 만들 수 있었습니다. 
 ---
-= 사용되지 않음: 규정 준수를 위한 CreateBucket 요청 수정
+= StorageGRID의 더 이상 사용되지 않는 SGCompliance 요소
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

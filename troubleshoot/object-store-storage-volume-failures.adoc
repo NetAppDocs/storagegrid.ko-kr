@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to confirm object location, object metadata lookup 
 summary: 스토리지 노드의 기본 스토리지는 오브젝트 저장소로 나뉩니다. 오브젝트 저장소는 스토리지 볼륨이라고도 합니다. 
 ---
-= 오브젝트 저장소(스토리지 볼륨) 장애가 발생했습니다
+= StorageGRID의 스토리지 볼륨에 대한 오브젝트 저장소 장애에 대해 알아보십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

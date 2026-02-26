@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, PUT deprecated compliance requests 
 summary: Put Bucket 준수 요청은 더 이상 사용되지 않습니다. 그러나 이 요청을 계속 사용하여 기존 레거시 준수 버킷의 준수 설정을 수정할 수 있습니다. 
 ---
-= 폐기됨: 버킷 준수 요청을 넣으십시오
+= StorageGRID의 더 이상 사용되지 않는 PUT 버킷 규정 준수 요청
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

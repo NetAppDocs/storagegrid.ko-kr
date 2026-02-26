@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 UploadPart operation 
 summary: UploadPart 작업은 객체에 대한 다중 부분 업로드의 파트를 업로드합니다. 
 ---
-= 업로드 파트
+= StorageGRID의 S3 UploadPart 작업에 대해 지원되는 요청 헤더 및 지원되지 않는 요청 헤더
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

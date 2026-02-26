@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 lifecycle, object deletion, bucket 
 summary: S3 라이프사이클 구성을 생성하여 StorageGRID 시스템에서 특정 오브젝트 삭제 시기를 제어할 수 있습니다. 
 ---
-= S3 라이프사이클 구성을 생성합니다
+= StorageGRID의 S3 라이프사이클 구성에 대해 알아보십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

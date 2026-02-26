@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: use S3 Select, S3 Select 
 summary: StorageGRID는 SelectObjectContent 명령에 대해 다음과 같은 Amazon S3 Select 절, 데이터 형식, 연산자 및 예약된 키워드를 지원합니다. 
 ---
-= S3 Select를 사용합니다
+= StorageGRID에서 지원되는 Amazon S3 Select 작업
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

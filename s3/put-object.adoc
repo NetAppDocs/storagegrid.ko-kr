@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object, add object, put, PutObject request 
 summary: S3 PutObject 요청을 사용하여 객체를 버킷에 추가할 수 있습니다. 
 ---
-= PutObject 를 선택합니다
+= S3 PutObject 요청을 사용하여 StorageGRID의 버킷에 객체 추가
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

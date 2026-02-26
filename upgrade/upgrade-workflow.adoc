@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade workflow 
 summary: 업그레이드를 시작하기 전에 일반 워크플로를 검토하십시오. StorageGRID 업그레이드 페이지에서는 업그레이드 단계를 안내합니다. 
 ---
-= 업그레이드 빠른 시작
+= StorageGRID 업그레이드 빠른 시작
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

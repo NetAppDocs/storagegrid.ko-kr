@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 rest api supported operations, s3 rest api limitations 
 summary: 'StorageGRID 시스템은 대부분의 작업을 지원하고 몇 가지 제한 사항이 있는 간단한 스토리지 서비스 API(API 버전 2006-03-01)를 구현합니다. S3 REST API 클라이언트 애플리케이션을 통합할 때 구현 세부 정보를 이해해야 합니다.' 
 ---
-= S3 REST API 구현 세부 정보
+= StorageGRID에서 지원되는 S3 REST API 작업 및 제한 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

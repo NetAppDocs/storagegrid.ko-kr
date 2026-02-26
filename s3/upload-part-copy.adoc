@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: UploadPart, UploadPartCopy, multipart uploads, uploads, 
 summary: UploadPartCopy 작업은 기존 개체의 데이터를 데이터 소스로 복사하여 개체의 일부를 업로드합니다. 
 ---
-= 업로드파트 복사
+= S3 UploadPartCopy 작업을 사용하여 StorageGRID에 객체의 일부를 업로드합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

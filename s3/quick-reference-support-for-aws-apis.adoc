@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Amazon s3, API, request headers, s3 support, request syntax, supported, aws s3 
 summary: '이 페이지에서는 StorageGRID에서 Amazon S3(Simple Storage Service) API를 지원하는 방법을 요약합니다.' 
 ---
-= 빠른 참조: 지원되는 S3 API 요청
+= StorageGRID에서 지원되는 S3 API 요청
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

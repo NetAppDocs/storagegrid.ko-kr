@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: operations, multipart uploads, uploads, rest API 
 summary: 이 섹션에서는 StorageGRID가 멀티파트 업로드 작업을 지원하는 방법에 대해 설명합니다. 
 ---
-= 멀티파트 업로드 작업
+= StorageGRID에서 지원되는 멀티파트 업로드 작업
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

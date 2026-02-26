@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: bucket, buckets, operations on buckets 
 summary: StorageGRID 시스템은 각 S3 테넌트 계정에 대해 최대 5,000개의 버킷을 지원합니다. 
 ---
-= 버킷 작업
+= StorageGRID의 S3 버킷 작업 및 구현 세부 정보
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

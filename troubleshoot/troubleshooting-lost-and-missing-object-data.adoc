@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot lost object data, how to troubleshoot missing object data 
 summary: 클라이언트 애플리케이션의 읽기 요청, 복제된 오브젝트 데이터의 백그라운드 검증, ILM 재평가, 스토리지 노드 복구 중 오브젝트 데이터 복원을 비롯한 여러 가지 이유로 오브젝트를 검색할 수 있습니다. 
 ---
-= 분실하거나 누락된 오브젝트 데이터 문제를 해결합니다
+= StorageGRID에서 손실 및 누락된 객체 데이터에 대해 알아보십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

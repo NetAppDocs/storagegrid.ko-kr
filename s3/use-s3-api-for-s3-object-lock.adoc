@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure S3 object lock, object lock, default bucket retention, governance, compliance, retain-until-date, legal hold 
 summary: StorageGRID 시스템에서 글로벌 S3 오브젝트 잠금 설정이 활성화된 경우 S3 오브젝트 잠금이 활성화된 버킷을 생성할 수 있습니다. 각 오브젝트 버전에 대해 각 버킷의 기본 보존 또는 보존 설정을 지정할 수 있습니다. 
 ---
-= S3 REST API를 사용하여 S3 오브젝트 잠금을 구성합니다
+= S3 REST API를 사용하여 StorageGRID S3 Object Lock을 구성합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ListMultipartUploads, uploads, multipart uploads, bucket 
 summary: ListMultipartUploads 작업은 버킷에 대해 진행 중인 다중 파트 업로드를 나열합니다. 
 ---
-= ListMultipartUploads 를 참조하십시오
+= S3 ListMultipartUploads 작업 및 StorageGRID에서 지원되는 매개 변수
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: post, RestoreObject, object 
 summary: S3 RestoreObject 요청을 사용하여 클라우드 스토리지 풀에 저장된 개체를 복원할 수 있습니다. 
 ---
-= RestoreObject 를 선택합니다
+= S3 RestoreObject 요청을 사용하여 StorageGRID에서 객체 복원
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
