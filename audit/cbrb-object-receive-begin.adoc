@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, CBRB, Object Receive Begin 
 summary: 정상적인 시스템 작업 중에 데이터 액세스, 복제 및 보존에 따라 컨텐츠 블록이 서로 다른 노드 간에 지속적으로 전송됩니다. 한 노드에서 다른 노드로 콘텐츠 블록 전송이 시작되면 대상 엔터티가 이 메시지를 발행합니다. 
 ---
-= CBRB: 객체 수신 시작
+= StorageGRID의 객체 수신 시작에 대한 CBRB 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

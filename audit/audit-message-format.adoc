@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message formats, message format 
 summary: StorageGRID 시스템 내에서 교환되는 감사 메시지에는 모든 메시지에 공통되는 표준 정보 및 보고되는 이벤트 또는 활동을 설명하는 특정 콘텐츠가 포함됩니다. 
 ---
-= 감사 메시지 형식
+= StorageGRID 감사 메시지의 구조에 대해 알아보세요
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

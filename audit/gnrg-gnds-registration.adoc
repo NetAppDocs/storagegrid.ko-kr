@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audi, message, GNRG, GNDS Registration 
 summary: CMN 서비스는 서비스가 StorageGRID 시스템에 자체 관련 정보를 업데이트하거나 등록할 때 이 감사 메시지를 생성합니다. 
 ---
-= GNRG: GNDS 등록
+= StorageGRID의 GNDS 등록에 대한 GNRG 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

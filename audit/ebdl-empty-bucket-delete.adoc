@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, EBDL, Empty Bucket Delete 
 summary: 'ILM 스캐너가 모든 오브젝트를 삭제 중인 버킷 내 오브젝트를 삭제했습니다(빈 버킷 작업 수행).' 
 ---
-= EBDL: 빈 버킷 삭제
+= StorageGRID의 빈 버킷 오브젝트 삭제에 대한 EBDL 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

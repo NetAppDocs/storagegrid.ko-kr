@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, messages, message 
 summary: 시스템에서 반환된 감사 메시지에 대한 자세한 설명은 다음 섹션에 나와 있습니다. 각 감사 메시지는 먼저 메시지가 나타내는 활동 클래스별로 관련 메시지를 그룹화하는 표에 나열됩니다. 이러한 그룹화는 감사되는 활동의 유형을 이해하고 원하는 유형의 감사 메시지 필터링을 선택하는 데 유용합니다. 
 ---
-= 감사 메시지 설명
+= StorageGRID의 감사 메시지 유형 및 코드에 대해 알아보십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

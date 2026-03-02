@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, MGAU, Management audit message 
 summary: 관리 범주는 사용자 요청을 관리 API에 기록합니다. API에 대한 GET 또는 HEAD 요청이 아닌 모든 요청은 API에 대한 사용자 이름, IP 및 요청 유형을 사용하여 응답을 기록합니다. 
 ---
-= MGAU: 관리 감사 메시지
+= StorageGRID의 관리 API 요청에 대한 MGAU 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

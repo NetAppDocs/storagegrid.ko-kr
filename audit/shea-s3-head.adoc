@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SHEA, S3 HEAD 
 summary: S3 클라이언트가 HEAD 작업을 실행하면 객체 또는 버킷의 존재 여부를 확인하고 객체에 대한 메타데이터를 검색하라는 요청이 이루어집니다.  이 메시지는 작업이 성공하면 서버에서 발행됩니다. 
 ---
-= Shea: S3 헤드
+= StorageGRID의 S3 HEAD 작업에 대한 SHEA 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

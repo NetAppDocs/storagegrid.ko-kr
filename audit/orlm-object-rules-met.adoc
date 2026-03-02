@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: audit message, ORLM, Object Rules Met, ilm rule 
 summary: 이 메시지는 ILM 규칙에 지정된 대로 개체가 성공적으로 저장 및 복사될 때 생성됩니다. 
 ---
-= ORLM: 개체 규칙이 충족되었습니다
+= StorageGRID에서 ILM 규칙이 충족된 경우의 ORLM 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

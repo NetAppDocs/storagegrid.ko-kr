@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, GTSU, Grid Task Submitted 
 summary: 이 감사 메시지는 그리드 작업이 CMN 서비스로 제출되었음을 나타냅니다. 
 ---
-= GTSU: 그리드 작업 제출됨
+= StorageGRID에서 제출된 그리드 작업에 대한 GTSU 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

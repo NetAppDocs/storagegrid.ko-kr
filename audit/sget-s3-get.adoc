@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SGET, S3 GET 
 summary: S3 클라이언트가 가져오기 트랜잭션을 실행할 때 오브젝트를 검색하거나 버킷에 있는 오브젝트를 나열하도록 요청이 이루어집니다. 이 메시지는 트랜잭션이 성공하면 서버에서 발행됩니다. 
 ---
-= SGET: S3 GET
+= StorageGRID의 S3 GET 트랜잭션에 대한 SGET 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

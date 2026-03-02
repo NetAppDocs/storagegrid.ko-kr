@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: audit messages, ILM, IDEL, LKCU, ORLM 
 summary: ILM 감사 범주에 속하는 감사 메시지는 정보 수명 주기 작업과 관련된 이벤트에 사용됩니다. 
 ---
-= ILM 감사 메시지
+= StorageGRID ILM 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

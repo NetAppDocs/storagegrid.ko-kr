@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SPUT, S3 PUT 
 summary: S3 클라이언트가 PUT 트랜잭션을 실행할 때 새 오브젝트 또는 버킷을 생성해야 합니다. 이 메시지는 트랜잭션이 성공하면 서버에서 발행됩니다. 
 ---
-= SPUT: S3 PUT
+= StorageGRID의 S3 PUT 트랜잭션에 대한 SPUT 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

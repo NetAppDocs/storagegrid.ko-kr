@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, LKCU, Overwritten Object Cleanup 
 summary: 이 메시지는 StorageGRID가 이전에 정리 작업을 통해 스토리지 공간을 확보하는 데 필요한 덮어쓴 개체를 제거할 때 생성됩니다. S3 클라이언트에서 이미 개체가 포함된 경로에 개체를 쓸 때 개체를 덮어쓰게 됩니다. 제거 프로세스는 백그라운드에서 자동으로 실행됩니다. 
 ---
-= LKCU: 덮어쓴 개체 정리
+= StorageGRID에서 덮어쓴 오브젝트 정리에 대한 LKCU 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

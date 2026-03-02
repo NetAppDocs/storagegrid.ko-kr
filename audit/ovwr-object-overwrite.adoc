@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, OVWR, Object Overwrite 
 summary: '이 메시지는 외부 \(클라이언트 요청\) 작업으로 인해 다른 개체에서 한 개체를 덮어쓸 때 생성됩니다.' 
 ---
-= OVWR: 개체 덮어쓰기
+= StorageGRID의 객체 덮어쓰기에 대한 OVWR 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

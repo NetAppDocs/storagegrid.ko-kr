@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, ETAF, Security Authentication Failed 
 summary: '이 메시지는 TLS(Transport Layer Security\)를 사용하여 연결을 시도했으나 실패한 경우에 생성됩니다.' 
 ---
-= ETAF: 보안 인증 실패
+= StorageGRID의 보안 인증 실패에 대한 ETAF 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

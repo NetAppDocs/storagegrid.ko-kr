@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, management, user request, user requests 
 summary: 관리 범주는 사용자 요청을 관리 API에 기록합니다. 
 ---
-= 관리 감사 메시지입니다
+= StorageGRID 관리 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

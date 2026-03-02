@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, CBSE, Object Send End 
 summary: 한 노드에서 다른 노드로 콘텐츠 블록 전송이 완료되면 소스 엔터티가 이 메시지를 발행합니다. 
 ---
-= CBSE: 객체 보내기 종료
+= StorageGRID의 객체 전송 종료에 대한 CBSE 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

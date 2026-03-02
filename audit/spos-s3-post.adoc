@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SPOS, S3 POST 
 summary: S3 클라이언트가 POST 오브젝트 요청을 실행할 때 트랜잭션이 성공하면 서버에서 이 메시지를 발행합니다. 
 ---
-= Spos: S3 POST
+= StorageGRID의 S3 POST 트랜잭션에 대한 SPOS 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

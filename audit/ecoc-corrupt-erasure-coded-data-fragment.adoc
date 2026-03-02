@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, ECOC, Corrupt Erasure-Coded Data Fragment 
 summary: 이 감사 메시지는 시스템에서 손상된 삭제 코딩 데이터 조각을 감지했음을 나타냅니다. 
 ---
-= ECOC: 손상된 삭제 - 코드화된 데이터 조각
+= StorageGRID의 손상된 삭제 코딩 데이터에 대한 ECOC 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

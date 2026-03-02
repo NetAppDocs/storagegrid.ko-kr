@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, Metadata update, S3 metadata update, SUPD 
 summary: 감사 메시지는 S3 클라이언트가 오브젝트의 메타데이터를 업데이트할 때 생성됩니다. 
 ---
-= 메타데이터 업데이트 메시지
+= StorageGRID의 S3 오브젝트 메타데이터 업데이트에 대한 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

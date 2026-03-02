@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SCMT, Object Store Commit 
 summary: '그리드 콘텐츠는 커밋될 때까지 사용 가능하거나 저장된 것으로 인식되지 않습니다\(즉, 영구적으로 저장되었음을 의미\). 영구적으로 저장된 콘텐츠는 디스크에 완전히 기록되었으며 관련 무결성 검사를 통과했습니다. 이 메시지는 콘텐츠 블록이 저장소에 커밋될 때 발행됩니다.' 
 ---
-= SCMT: 오브젝트 저장소 커밋
+= StorageGRID의 오브젝트 저장소 커밋에 대한 SCMT 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

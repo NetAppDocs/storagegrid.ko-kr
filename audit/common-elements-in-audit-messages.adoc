@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, messages, message, common elements, AMID, ANID, ASES, ASQN, ATID, ATIM, ATYP, AVER, RSLT 
 summary: 모든 감사 메시지에는 공통 요소가 포함됩니다. 
 ---
-= 감사 메시지의 공통 요소
+= StorageGRID 감사 메시지의 공통 요소
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

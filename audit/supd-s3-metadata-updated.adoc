@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SUPD, S3 Metadata Updated 
 summary: 이 메시지는 S3 클라이언트가 수집된 개체의 메타데이터를 업데이트할 때 S3 API에서 생성됩니다. 메타데이터 업데이트에 성공하면 서버에서 이 메시지를 발행합니다. 
 ---
-= SUPD:S3 메타데이터가 업데이트되었습니다
+= StorageGRID의 S3 메타데이터 업데이트에 대한 SUPD 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

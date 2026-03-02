@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, GNUR, GNDS Unregistration 
 summary: CMN 서비스는 StorageGRID 시스템에서 서비스에 대한 자체 정보가 등록되지 않은 경우 이 감사 메시지를 생성합니다. 
 ---
-= GNUR:GNDS 등록 취소
+= StorageGRID의 GNDS 등록 취소에 대한 GNUR 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SVRF, Object Store Verify Fail 
 summary: 이 메시지는 콘텐츠 블록이 확인 프로세스를 통과하지 못할 때마다 발행됩니다. 복제된 오브젝트 데이터를 디스크에서 읽거나 디스크에 쓸 때마다 여러 검증 및 무결성 검사가 수행되어 요청 사용자에게 전송된 데이터가 원래 시스템으로 수집된 데이터와 동일한지 확인합니다. 이러한 검사 중 하나라도 실패하면 시스템이 손상된 복제된 객체 데이터를 자동으로 격리하여 손상된 객체 데이터가 다시 검색되지 않도록 합니다. 
 ---
-= SVRF: Object Store Verify Fail(SVRF: 오브젝트 저장소 확인 실패)
+= StorageGRID의 오브젝트 저장소 검증 실패에 대한 SVRF 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: bror, bucket read only request, empty bucket, audit message, 
 summary: LDR 서비스는 버킷이 읽기 전용 모드로 들어가거나 나갈 때 이 감사 메시지를 생성합니다. 예를 들어 버킷을 비우는 동안 버킷을 읽기 전용 모드로 전환합니다. 
 ---
-= BROR: 버킷 읽기 전용 요청
+= StorageGRID의 버킷 읽기 전용 요청에 대한 BROR 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

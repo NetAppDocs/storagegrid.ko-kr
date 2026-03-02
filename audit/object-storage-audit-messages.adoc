@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: audit, object storage, object management, object retrieval, node transfer, verification, BROR, CBSE, CBRE, CGRR, EBDL, EBKR, SCMT, SREM 
 summary: 따라서 오브젝트 스토리지 감사 범주에 속하는 감사 메시지를 잘 알고 있어야 합니다. 이러한 이벤트는 StorageGRID 시스템 내에서 개체의 스토리지 및 관리와 관련된 이벤트입니다. 여기에는 오브젝트 스토리지 및 검색, 그리드 노드에서 그리드 노드 전송, 검증도 포함됩니다. 
 ---
-= 오브젝트 스토리지 감사 메시지
+= StorageGRID의 오브젝트 스토리지 이벤트에 대한 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

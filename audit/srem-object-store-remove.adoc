@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SREM, Object Store Remove 
 summary: 이 메시지는 콘텐츠가 영구 저장소에서 제거되고 더 이상 일반 API를 통해 액세스할 수 없을 때 발행됩니다. 
 ---
-= SREM: 오브젝트 저장소 제거
+= StorageGRID의 오브젝트 저장소 제거에 대한 SREM 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

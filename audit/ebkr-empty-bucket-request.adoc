@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, EBKR, Empty Bucket Request 
 summary: '이 메시지는 사용자가 빈 버킷을 설정 또는 해제하라는 요청을 보냈음을 나타냅니다(즉, 버킷 오브젝트를 삭제하거나 오브젝트 삭제를 중지).' 
 ---
-= EBKR: 빈 버킷 요청
+= StorageGRID의 빈 버킷 요청에 대한 EBKR 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

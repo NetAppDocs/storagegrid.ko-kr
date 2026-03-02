@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, log file formats, log formats, log file format, log format 
 summary: 감사 로그 파일은 모든 관리 노드에서 찾을 수 있으며 개별 감사 메시지 모음을 포함합니다. 
 ---
-= 감사 로그 파일 형식
+= StorageGRID의 감사 로그 파일 형식에 대해 알아보십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

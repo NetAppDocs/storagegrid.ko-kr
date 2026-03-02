@@ -40,7 +40,7 @@ S3 SelectObjectContent 요청을 사용하여 간단한 SQL 문을 기반으로 
 
 == CSV 요청 구문 예
 
-[source, asciidoc]
+[source, cli]
 ----
 POST /{Key+}?select&select-type=2 HTTP/1.1
 Host: Bucket.s3.abc-company.com
@@ -83,7 +83,7 @@ x-amz-expected-bucket-owner: ExpectedBucketOwner
 
 == 쪽모이 세공 요청 구문 예
 
-[source, asciidoc]
+[source, cli]
 ----
 POST /{Key+}?select&select-type=2 HTTP/1.1
 Host: Bucket.s3.abc-company.com

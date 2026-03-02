@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, messages, client read, S3SL, SGET, SHEA, WGET, WHEA, S3 
 summary: 클라이언트 읽기 감사 메시지는 S3 클라이언트 애플리케이션이 객체 검색을 요청할 때 기록됩니다. 
 ---
-= 클라이언트가 감사 메시지를 읽습니다
+= StorageGRID의 클라이언트 읽기 작업에 대한 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

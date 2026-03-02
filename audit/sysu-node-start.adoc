@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SYSU, Node Start 
 summary: '서비스가 다시 시작되면 이 메시지가 생성되어 이전 종료가 정상\(명령됨\) 또는 불질서한\(예기치 않은\)인지 여부를 나타냅니다.' 
 ---
-= SYSU: 노드 시작
+= StorageGRID에서 노드 시작에 대한 SYSU 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

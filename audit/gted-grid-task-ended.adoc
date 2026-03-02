@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, GTED, Grid Task Ended 
 summary: 이 감사 메시지는 CMN 서비스가 지정된 그리드 작업 처리를 마치고 작업을 내역 테이블로 이동했음을 나타냅니다. 결과가 SUCS, ABRT 또는 Rolf인 경우 해당 Grid Task Started 감사 메시지가 표시됩니다. 다른 결과는 이 그리드 작업의 처리가 시작되지 않았음을 나타냅니다. 
 ---
-= GTED: 그리드 작업이 종료되었습니다
+= StorageGRID에서 종료된 그리드 작업에 대한 GTED 감사 메시지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, flow, retention 
 summary: 모든 StorageGRID 서비스는 정상적인 시스템 작동 중에 감사 메시지를 생성합니다. 이러한 감사 메시지가 StorageGRID 시스템을 통해 audit.log 파일로 이동하는 방법을 이해해야 합니다. 
 ---
-= 감사 메시지 흐름 및 보존
+= 감사 메시지가 StorageGRID 시스템을 거쳐 audit.log 파일로 이동하여 보존되는 방법
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
