@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create ILM rule, information lifecycle rule 
 summary: ILM 규칙 만들기 마법사를 사용하여 ILM 규칙을 만듭니다. 
 ---
-= ILM 규칙 만들기 마법사에 액세스합니다
+= StorageGRID에서 ILM 규칙 생성 마법사에 액세스합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

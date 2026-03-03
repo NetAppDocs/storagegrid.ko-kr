@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: requirements, s3 object lock, compliant ilm rule, compliant ilm policy 
 summary: 글로벌 S3 오브젝트 잠금 설정을 사용하기 위한 요구사항, 호환되는 ILM 규칙 및 ILM 정책을 만들기 위한 요구사항 및 StorageGRID가 S3 오브젝트 잠금을 사용하는 버킷과 오브젝트에 배치하는 제한을 검토해야 합니다. 
 ---
-= S3 오브젝트 잠금에 대한 요구사항
+= StorageGRID의 S3 오브젝트 잠금 요구 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

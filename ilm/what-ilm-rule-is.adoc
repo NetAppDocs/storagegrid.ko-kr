@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what is information lifecycle rule, ilm rule 
 summary: '개체를 관리하려면 ILM(정보 수명 주기 관리) 규칙 집합을 만들고 이를 ILM 정책으로 구성합니다.' 
 ---
-= ILM 규칙을 사용하여 오브젝트를 관리합니다
+= StorageGRID의 ILM 규칙에 대해 알아보십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

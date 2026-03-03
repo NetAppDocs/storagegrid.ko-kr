@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: consistency error, s3 object lock and consistency 
 summary: 사이트의 데이터 센터 사이트 또는 여러 스토리지 노드를 사용할 수 없게 된 경우, S3 테넌트 사용자가 S3 오브젝트 잠금 또는 레거시 규정 준수 구성에 변경 사항을 적용할 수 있도록 도와야 할 수 있습니다. 
 ---
-= S3 오브젝트 잠금 또는 레거시 규정 준수 구성을 업데이트할 때 일관성 오류를 해결합니다
+= StorageGRID에서 S3 오브젝트 잠금 또는 레거시 규정 준수 설정을 업데이트할 때 정합성 보장 오류 해결
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

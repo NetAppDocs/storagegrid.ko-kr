@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what is a storage grade, create storage grade 
 summary: 스토리지 등급은 스토리지 노드에서 사용하는 스토리지 유형을 식별합니다. ILM 규칙을 사용하여 특정 스토리지 노드에 특정 객체를 배치하려는 경우 스토리지 성적을 생성할 수 있습니다. 
 ---
-= 저장 점수를 생성하고 할당합니다
+= StorageGRID에서 스토리지 등급 생성 및 할당
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ilm lifecycle, object lifecycle and ILM 
 summary: StorageGRID에서 ILM을 사용하여 삶의 모든 단계에서 개체를 관리하는 방법을 이해하면 더 효과적인 정책을 설계하는 데 도움이 됩니다. 
 ---
-= ILM이 개체 수명 전반에 걸쳐 작동하는 방식
+= ILM이 StorageGRID에서 오브젝트 수명 전반에 걸쳐 작동하는 방식
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

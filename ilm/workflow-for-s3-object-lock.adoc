@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object lock workflow 
 summary: 그리드 관리자는 테넌트 사용자와 긴밀하게 협력하여 보존 요구 사항을 충족하는 방식으로 객체가 보호되도록 해야 합니다. 
 ---
-= S3 오브젝트 잠금 작업
+= StorageGRID의 S3 오브젝트 잠금 워크플로우
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

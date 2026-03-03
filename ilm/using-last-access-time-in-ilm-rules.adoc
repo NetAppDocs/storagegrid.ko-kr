@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: last access time, ilm rule reference time 
 summary: ILM 규칙에서 마지막 액세스 시간을 참조 시간으로 사용할 수 있습니다. 예를 들어, 최근 3개월 동안 표시된 객체를 로컬 스토리지 노드에 그대로 두고, 최근에 외부 위치로 표시되지 않은 객체를 이동할 수 있습니다. ILM 규칙을 특정 날짜에 마지막으로 액세스한 개체에만 적용하려면 마지막 액세스 시간을 고급 필터로 사용할 수도 있습니다. 
 ---
-= ILM 규칙에서 마지막 액세스 시간을 사용합니다
+= StorageGRID ILM 규칙에서 마지막 액세스 시간 사용
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

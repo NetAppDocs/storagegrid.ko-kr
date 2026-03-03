@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: simulate ilm policy 
 summary: ILM 정책 시뮬레이션의 예는 환경에 맞는 시뮬레이션을 구조화하고 수정하기 위한 지침을 제공합니다. 
 ---
-= ILM 정책 시뮬레이션의 예
+= StorageGRID의 ILM 정책 시뮬레이션 예
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

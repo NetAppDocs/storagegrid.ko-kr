@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ILM deletion, how objects are deleted 
 summary: StorageGRID는 클라이언트 요청에 직접 응답하거나 S3 버킷 라이프사이클의 만료 또는 ILM 정책 요구사항으로 인해 자동으로 오브젝트를 삭제할 수 있습니다. 개체를 삭제할 수 있는 다양한 방법과 StorageGRID에서 삭제 요청을 처리하는 방법을 이해하면 개체를 보다 효율적으로 관리할 수 있습니다. 
 ---
-= 오브젝트 삭제 방법
+= StorageGRID에서 객체를 삭제하는 방법
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: use cloud storage pool, benefits of cloud storage pools 
 summary: Cloud Storage Pool을 사용하면 데이터를 외부 위치에 백업하거나 계층화할 수 있습니다. 또한 둘 이상의 클라우드에 데이터를 백업하거나 계층화할 수 있습니다. 
 ---
-= 클라우드 스토리지 풀을 사용하는 경우
+= StorageGRID의 클라우드 스토리지 풀 사용 사례
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: lifecycle of cloud storage pool object 
 summary: 클라우드 스토리지 풀을 구현하기 전에 각 유형의 클라우드 스토리지 풀에 저장된 개체의 라이프사이클을 검토하십시오. 
 ---
-= Cloud Storage Pool 개체의 수명주기입니다
+= StorageGRID의 클라우드 스토리지 풀 오브젝트 수명 주기
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

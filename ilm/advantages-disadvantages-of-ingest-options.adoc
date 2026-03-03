@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ingest options, balance ingest, strict ingest, dual commit ingest 
 summary: '수집 시 데이터를 보호하기 위한 세 가지 옵션(균형, 엄격 또는 이중 커밋\)의 각 장단점을 이해하면 ILM 규칙에 대해 선택할 항목을 결정하는 데 도움이 됩니다.' 
 ---
-= 수집 옵션의 장점, 단점 및 제한 사항
+= StorageGRID의 ILM 수집 옵션의 장점, 단점 및 제한 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

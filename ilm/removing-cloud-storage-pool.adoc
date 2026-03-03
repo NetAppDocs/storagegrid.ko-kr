@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: remove cloud storage pool 
 summary: ILM 규칙에 사용되지 않고 오브젝트 데이터가 없는 경우 클라우드 스토리지 풀을 제거할 수 있습니다. 
 ---
-= 클라우드 스토리지 풀을 제거합니다
+= StorageGRID에서 클라우드 스토리지 풀 제거
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

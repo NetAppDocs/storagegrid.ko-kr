@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: enable s3 object lock, object lock 
 summary: 오브젝트 데이터를 저장할 때 S3 테넌트 계정이 규정 요구사항을 준수해야 하는 경우 전체 StorageGRID 시스템에 대해 S3 오브젝트 잠금을 활성화해야 합니다. 글로벌 S3 오브젝트 잠금 설정을 활성화하면 모든 S3 테넌트 사용자가 S3 오브젝트 잠금을 통해 버킷과 오브젝트를 생성하고 관리할 수 있습니다. 
 ---
-= S3 오브젝트 잠금을 전역적으로 활성화합니다
+= StorageGRID에서 S3 오브젝트 잠금을 전역적으로 설정합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

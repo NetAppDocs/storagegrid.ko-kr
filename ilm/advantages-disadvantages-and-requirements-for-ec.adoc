@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: erasure coding advantages, disadvantages, EC requirements 
 summary: 오브젝트 데이터의 손실로부터 보호하기 위해 복제 또는 삭제 코딩을 사용할지 결정하기 전에 삭제 코딩의 장점, 단점 및 요구 사항을 이해해야 합니다. 
 ---
-= 삭제 코딩의 장점, 단점 및 요구 사항
+= StorageGRID의 삭제 코딩에 대한 장점, 단점 및 요구 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

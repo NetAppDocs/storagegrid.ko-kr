@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create cloud storage pool 
 summary: 클라우드 스토리지 풀은 단일 외부 Amazon S3 버킷 또는 기타 S3 호환 공급자 또는 Azure Blob 스토리지 컨테이너를 지정합니다. 
 ---
-= 클라우드 스토리지 풀을 생성합니다
+= StorageGRID에서 클라우드 스토리지 풀 생성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

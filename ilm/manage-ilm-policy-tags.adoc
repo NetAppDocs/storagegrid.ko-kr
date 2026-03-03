@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ILM policy tag 
 summary: ILM 정책 태그 세부 정보를 보거나 태그를 편집하거나 태그를 제거할 수 있습니다. 
 ---
-= ILM 정책 태그를 관리합니다
+= StorageGRID에서 ILM 정책 태그 관리
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

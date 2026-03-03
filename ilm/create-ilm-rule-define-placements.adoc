@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ilm rule step 2, define placements 
 summary: 'ILM 규칙 생성 마법사의 배치 정의 단계를 사용하면 개체 저장 기간, 복사본 유형(복제 또는 삭제 코딩\), 저장소 위치 및 복사본 수를 결정하는 배치 지침을 정의할 수 있습니다.' 
 ---
-= 단계 2/3: 배치 정의
+= StorageGRID ILM 규칙에 대한 배치 지침을 정의합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

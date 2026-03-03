@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ILM policy, information lifecycle policy considerations 
 summary: 'ILM(정보 수명 주기 관리) 정책은 StorageGRID 시스템이 시간에 따라 개체 데이터를 관리하는 방법을 결정하는 ILM 규칙 집합의 순서가 지정된 집합입니다.' 
 ---
-= ILM 정책 사용
+= StorageGRID의 ILM 정책에 대해 알아보십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

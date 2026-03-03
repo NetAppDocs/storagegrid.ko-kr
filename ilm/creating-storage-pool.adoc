@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create storage pool 
 summary: 스토리지 풀을 생성하여 StorageGRID 시스템에서 오브젝트 데이터를 저장하는 위치와 사용된 스토리지 유형을 결정합니다. 각 스토리지 풀에는 하나 이상의 사이트와 하나 이상의 스토리지 등급이 포함됩니다. 
 ---
-= 스토리지 풀을 생성합니다
+= StorageGRID에서 스토리지 풀 생성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

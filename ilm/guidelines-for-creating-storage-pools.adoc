@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage pool guidelines 
 summary: 여러 사이트에 데이터를 분산하여 데이터 손실을 방지하기 위해 스토리지 풀을 구성 및 사용합니다. 복제된 복사본 및 삭제 코딩 복사본을 사용하려면 다른 스토리지 풀 구성이 필요합니다. 
 ---
-= 스토리지 풀 생성 지침
+= StorageGRID의 스토리지 풀 구성 지침
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

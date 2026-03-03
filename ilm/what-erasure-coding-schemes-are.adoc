@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: erasure-coding scheme 
 summary: 삭제 코딩 스키마를 통해 각 오브젝트에 대해 생성되는 데이터 조각과 패리티 조각의 수를 제어합니다. 
 ---
-= 삭제 코딩 체계란 무엇입니까?
+= StorageGRID의 삭제 코딩 체계에 대해 알아보십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ingest options, balanced ingest, strict ingest, dual-commit ingest 
 summary: ILM 규칙을 생성할 때 수집 시 개체를 보호하기 위한 세 가지 옵션 중 하나인 이중 커밋, Strict 또는 균형 을 지정합니다. 
 ---
-= 수집 옵션
+= StorageGRID의 ILM 수집 옵션
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: view cloud storage pool 
 summary: 클라우드 스토리지 풀의 세부 정보를 확인하여 해당 풀이 사용되는 위치를 확인하고 포함된 노드 및 스토리지 등급을 확인할 수 있습니다. 
 ---
-= 클라우드 스토리지 풀 세부 정보를 봅니다
+= StorageGRID에서 클라우드 스토리지 풀 세부 정보 보기
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

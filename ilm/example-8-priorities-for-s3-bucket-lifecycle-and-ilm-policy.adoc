@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: retention priority, example S3 bucket lifecycle, example ILM policy 
 summary: 라이프사이클 구성에 따라 오브젝트는 S3 버킷 라이프사이클 또는 ILM 정책의 보존 설정을 따릅니다. 
 ---
-= 예 8: S3 버킷 라이프사이클 및 ILM 정책의 우선순위
+= StorageGRID에서 S3 버킷 라이프사이클과 ILM 정책이 상호 작용하는 방법
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

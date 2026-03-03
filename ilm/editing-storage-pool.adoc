@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: edit storage pool 
 summary: 스토리지 풀을 편집하여 이름을 변경하거나 사이트 및 스토리지 등급을 업데이트할 수 있습니다. 
 ---
-= 스토리지 풀을 편집합니다
+= StorageGRID에서 스토리지 풀 편집
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

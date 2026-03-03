@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create default ilm rule 
 summary: ILM 정책을 만들기 전에 정책의 다른 규칙과 일치하지 않는 개체를 배치하기 위한 기본 규칙을 만들어야 합니다. 기본 규칙은 필터를 사용할 수 없습니다. 모든 테넌트, 모든 버킷 및 모든 오브젝트 버전에 적용되어야 합니다. 
 ---
-= 기본 ILM 규칙을 생성합니다
+= StorageGRID에서 기본 ILM 규칙 생성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

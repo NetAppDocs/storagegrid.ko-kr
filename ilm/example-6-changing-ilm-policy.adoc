@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: change ILM policy, example ILM policy, information lifecycle policy example 
 summary: 데이터 보호를 변경하거나 새 사이트를 추가해야 하는 경우 새 ILM 정책을 만들고 활성화할 수 있습니다. 
 ---
-= 예 6: ILM 정책 변경
+= ILM 정책 변경이 StorageGRID 성능에 미치는 영향
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

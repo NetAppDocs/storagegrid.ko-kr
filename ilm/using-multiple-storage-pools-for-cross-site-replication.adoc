@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: site-loss protection, cross-site replication, storage pools 
 summary: StorageGRID 구축에 사이트가 두 개 이상 포함된 경우 적절하게 구성된 스토리지 풀과 함께 복제 및 삭제 코딩을 사용하여 사이트 손실을 보호할 수 있습니다. 
 ---
-= 사이트 손실 방지
+= StorageGRID의 스토리지 풀을 통한 사이트 손실 방지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: edit cloud storage pool 
 summary: Cloud Storage Pool을 편집하여 이름, 서비스 끝점 또는 기타 세부 정보를 변경할 수 있지만 Cloud Storage Pool의 S3 버킷 또는 Azure 컨테이너를 변경할 수는 없습니다. 
 ---
-= 클라우드 스토리지 풀을 편집합니다
+= StorageGRID에서 클라우드 스토리지 풀 편집
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: remove ilm rule, edit ilm rule, clone ilm rule, ilm queue 
 summary: 스토리지 요구사항이 변경됨에 따라 다른 정책을 적용하거나 정책과 연결된 ILM 규칙을 수정해야 할 수 있습니다. ILM 메트릭을 확인하여 시스템 성능을 결정할 수 있습니다. 
 ---
-= ILM 정책 및 ILM 규칙 사용
+= StorageGRID에서 ILM 정책 및 ILM 규칙 작업
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

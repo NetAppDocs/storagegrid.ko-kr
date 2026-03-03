@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create ILM policy 
 summary: 서비스 품질 요구사항을 충족하는 하나 이상의 ILM 정책을 생성합니다. 
 ---
-= ILM 정책을 생성합니다
+= StorageGRID에서 ILM 정책 생성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

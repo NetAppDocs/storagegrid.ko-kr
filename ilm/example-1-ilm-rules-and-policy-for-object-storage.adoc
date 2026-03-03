@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: example ILM rule, information lifecycle rule examples 
 summary: ILM 정책을 정의하여 개체 보호 및 보존 요구 사항을 충족할 때 다음 예제 규칙 및 정책을 출발점으로 사용할 수 있습니다. 
 ---
-= 예 1: 오브젝트 스토리지에 대한 ILM 규칙 및 정책
+= StorageGRID의 기본 오브젝트 보호 및 보존을 위한 ILM 규칙 및 정책
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

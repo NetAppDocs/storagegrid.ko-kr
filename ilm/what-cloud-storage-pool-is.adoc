@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what is a cloud storage pool 
 summary: 클라우드 스토리지 풀을 사용하면 ILM을 사용하여 StorageGRID 시스템 외부로 오브젝트 데이터를 이동할 수 있습니다. 예를 들어, 자주 액세스하지 않는 오브젝트를 Microsoft Azure Blob 스토리지의 Amazon S3 Glacier, S3 Glacier Deep Archive, Google Cloud 또는 Archive 액세스 계층과 같은 저비용 클라우드 스토리지로 이동할 수 있습니다. 또는 StorageGRID 오브젝트의 클라우드 백업을 유지하여 재해 복구를 강화하는 경우도 있습니다. 
 ---
-= 클라우드 스토리지 풀이란 무엇입니까?
+= StorageGRID의 클라우드 스토리지 풀에 대해 알아보십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

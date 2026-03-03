@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: information lifecycle management overview, about information lifecycle management, ilm overview, about ilm 
 summary: 'ILM 정책의 정보 수명 주기 관리\(ILM\) 규칙은 StorageGRID에 오브젝트 데이터의 복사본을 생성 및 배포하고 이러한 복사본을 시간에 따라 관리하는 방법을 안내합니다.' 
 ---
-= ILM을 사용하여 개체를 관리합니다
+= StorageGRID에서 ILM을 사용하여 오브젝트 관리
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

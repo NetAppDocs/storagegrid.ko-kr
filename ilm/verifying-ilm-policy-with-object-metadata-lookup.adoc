@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: verify ilm policy, object metadata lookup 
 summary: ILM 정책을 활성화한 후 StorageGRID 시스템에 대표 테스트 오브젝트를 수집한 다음 오브젝트 메타데이터 조회를 수행하여 복사본이 의도한 대로 만들어지고 올바른 위치에 배치되어 있는지 확인합니다. 
 ---
-= 개체 메타데이터 조회를 통해 ILM 정책을 확인합니다
+= StorageGRID에서 오브젝트 메타데이터 조회를 통해 ILM 정책 확인
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

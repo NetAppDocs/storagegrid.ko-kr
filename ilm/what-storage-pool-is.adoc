@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what is a storage pool 
 summary: 스토리지 풀은 스토리지 노드의 논리적 그룹입니다. 
 ---
-= 스토리지 풀이란 무엇입니까?
+= StorageGRID의 스토리지 풀에 대해 알아보십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

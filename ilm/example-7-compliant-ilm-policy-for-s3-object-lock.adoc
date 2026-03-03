@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ILM policy,S3 Object Lock 
 summary: 이 예제에서 S3 오브젝트 잠금이 활성화된 버킷의 오브젝트에 대한 오브젝트 보호 및 보존 요구사항을 충족하기 위해 ILM 정책을 정의할 때 시작 지점으로 S3 버킷, ILM 규칙 및 ILM 정책을 사용할 수 있습니다. 
 ---
-= 예 7: S3 오브젝트 잠금에 대한 규정 준수 ILM 정책
+= StorageGRID의 S3 오브젝트 잠금에 대한 규정 준수 ILM 정책
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

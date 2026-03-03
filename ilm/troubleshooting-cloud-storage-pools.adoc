@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cloud storage pool, troubleshoot 
 summary: 클라우드 스토리지 풀을 생성, 편집 또는 삭제할 때 발생할 수 있는 오류를 해결하려면 다음 문제 해결 단계를 사용하십시오. 
 ---
-= 클라우드 스토리지 풀 문제 해결
+= StorageGRID에서 클라우드 스토리지 풀 문제 해결
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

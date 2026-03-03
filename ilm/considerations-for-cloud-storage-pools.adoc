@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what is a cloud storage pool, considerations for a cloud storage pool 
 summary: 클라우드 스토리지 풀을 사용하여 StorageGRID 시스템 외부로 오브젝트를 이동하려는 경우 클라우드 스토리지 풀을 구성 및 사용하기 위한 고려 사항을 검토해야 합니다. 
 ---
-= 클라우드 스토리지 풀에 대한 고려 사항
+= StorageGRID의 클라우드 스토리지 풀 요구 사항 및 제한 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

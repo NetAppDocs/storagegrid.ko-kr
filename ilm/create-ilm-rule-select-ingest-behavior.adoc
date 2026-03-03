@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ilm rule step 3, define ingest behavior 
 summary: 'ILM 규칙 생성 마법사의 3단계\(수집 동작 선택\)에서는 이 규칙으로 필터링된 개체가 수집될 때 보호되는 방법을 선택할 수 있습니다.' 
 ---
-= 3단계 중 3단계: 수집 동작을 선택합니다
+= StorageGRID ILM 규칙에 대한 수집 동작을 선택하십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
