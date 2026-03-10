@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to collect information about your vmware deployment environment 
 summary: 그리드 노드를 구축하기 전에 네트워크 구성 및 VMware 환경에 대한 정보를 수집해야 합니다. 
 ---
-= 배포 환경(VMware)에 대한 정보 수집
+= StorageGRID용 VMware 환경에 대한 정보 수집
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

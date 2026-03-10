@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to deploy grid nodes in vsphere or vsphere web client, port, remap, port remap, vmware 
 summary: VMware vSphere Web Client를 사용하여 각 그리드 노드를 가상 머신으로 구축합니다. 배포 중에는 각 그리드 노드가 하나 이상의 StorageGRID 네트워크에 생성되고 연결됩니다. 
 ---
-= StorageGRID 노드를 가상 머신(VMware)으로 배포
+= VMware vSphere를 사용하여 StorageGRID용 그리드 노드를 가상 머신으로 배포합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

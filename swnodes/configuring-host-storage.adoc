@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure host storage 
 summary: 각 Linux 호스트에 블록 스토리지 볼륨을 할당해야 합니다. 
 ---
-= 호스트 스토리지 구성(Linux)
+= Linux 배포를 위한 StorageGRID 호스트 스토리지 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

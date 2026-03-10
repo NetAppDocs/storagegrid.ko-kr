@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to start host service 
 summary: StorageGRID 노드를 시작하고 호스트를 재부팅한 후 다시 시작하려면 StorageGRID 호스트 서비스를 설정하고 시작해야 합니다. 
 ---
-= StorageGRID 호스트 서비스 시작(Linux)
+= Linux에서 StorageGRID 호스트 서비스를 시작합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

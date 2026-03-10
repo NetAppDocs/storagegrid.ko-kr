@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure container engine storage volume, Docker, Podman 
 summary: Docker 또는 Podman 컨테이너 엔진을 설치하기 전에 스토리지 볼륨을 포맷하고 마운트해야 할 수도 있습니다. 
 ---
-= 컨테이너 엔진 스토리지 볼륨 구성(Linux)
+= Linux에서 StorageGRID용 컨테이너 엔진 스토리지 볼륨 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

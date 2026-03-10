@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cpu, ram, cpu cores 
 summary: StorageGRID 소프트웨어를 설치하기 전에 StorageGRID 시스템을 지원할 준비가 되도록 하드웨어를 확인 및 구성하십시오. 
 ---
-= CPU 및 RAM 요구 사항
+= StorageGRID의 CPU 및 RAM 요구 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

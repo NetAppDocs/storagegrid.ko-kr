@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to install AppArmor profile 
 summary: 사용자가 자체 배포된 Ubuntu 환경에서 AppArmor 필수 액세스 제어 시스템을 사용하는 경우 기본 시스템에 설치하는 패키지와 관련된 AppArmor 프로필이 StorageGRID와 함께 설치된 해당 패키지에 의해 차단될 수 있습니다. 
 ---
-= AppArmor 프로필 설치(Ubuntu 및 Debian) 이해
+= Ubuntu 및 Debian에서 StorageGRID용 AppArmor 프로필에 대해 알아보십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

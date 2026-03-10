@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to install Linux 
 summary: 모든 Linux 그리드 호스트에 StorageGRID 설치해야 합니다.  지원되는 버전 목록을 보려면 NetApp 상호 운용성 매트릭스 도구를 사용하세요. 
 ---
-= Linux를 설치합니다
+= Linux 그리드 호스트에 StorageGRID 설치
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

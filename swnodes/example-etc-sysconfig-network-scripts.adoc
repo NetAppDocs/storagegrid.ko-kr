@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to aggregate red hat linux interface, how to aggregate rhel interface, LACP bond, network scripts 
 summary: 예제 파일을 사용하여 4개의 Linux 물리적 인터페이스를 단일 LACP 결합으로 집계한 다음 StorageGRID 그리드, 관리 및 클라이언트 네트워크 인터페이스로 사용할 본드를 포함하는 3개의 VLAN 인터페이스를 설정할 수 있습니다. 
 ---
-= 예제 /etc/sysconfig/network-scripts(RHEL)
+= RHEL 기반 StorageGRID에서 4개의 물리적 인터페이스를 하나의 본드로 통합하는 예시
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

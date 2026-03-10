@@ -2,9 +2,9 @@
 permalink: swnodes/automating-installation-linux.html 
 sidebar: sidebar 
 keywords: how to automate linux installation 
-summary: StorageGRID 호스트 서비스의 Linux 설치와 그리드 노드 구성을 자동화할 수 있습니다. 
+summary: Linux에서 StorageGRID 호스트 서비스 설치 및 그리드 노드 구성을 자동화할 수 있습니다. 
 ---
-= 설치 자동화(Linux)
+= Linux에서 StorageGRID 호스트 서비스 설치 및 그리드 노드 구성 자동화
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

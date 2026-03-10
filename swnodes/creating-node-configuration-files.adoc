@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create rhel ubuntu or debian node configuration files, port, remap, port remap 
 summary: 노드 구성 파일은 StorageGRID 호스트 서비스에서 노드를 시작하고 적절한 네트워크 및 블록 스토리지 리소스에 연결하는 데 필요한 정보를 제공하는 작은 텍스트 파일입니다. 노드 구성 파일은 가상 노드에 사용되며 어플라이언스 노드에는 사용되지 않습니다. 
 ---
-= Linux 배포를 위한 노드 구성 파일 만들기
+= Linux 배포용 StorageGRID 노드 구성 파일을 생성합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
