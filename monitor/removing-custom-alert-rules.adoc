@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to disable alert rules, how to remove a custom alert rule 
 summary: 사용자 지정 알림 규칙을 더 이상 사용하지 않으려는 경우 제거할 수 있습니다. 
 ---
-= 사용자 지정 경고 규칙을 제거합니다
+= StorageGRID에서 사용자 지정 알림 규칙 제거
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

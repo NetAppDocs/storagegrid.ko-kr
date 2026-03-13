@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view dashboard, how to configure dashboard 
 summary: 대시보드를 사용하여 시스템 작업을 한 눈에 모니터링할 수 있습니다. 사용자 지정 대시보드를 만들어 StorageGRID 구현을 모니터링할 수 있습니다. 
 ---
-= 대시보드를 보고 관리합니다
+= StorageGRID에서 대시보드 보기 및 관리
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

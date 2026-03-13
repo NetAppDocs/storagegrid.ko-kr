@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network tab 
 summary: 네트워크 탭은 노드, 사이트 또는 그리드의 모든 네트워크 인터페이스를 통해 수신 및 전송된 네트워크 트래픽을 보여주는 그래프를 표시합니다. 
 ---
-= 네트워크 탭을 봅니다
+= StorageGRID 네트워크 탭을 참조하십시오.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

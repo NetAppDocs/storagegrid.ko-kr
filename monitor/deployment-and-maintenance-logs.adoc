@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: deployment, logs, Maintenance 
 summary: 배포 및 유지 관리 로그를 사용하여 문제를 해결할 수 있습니다. 
 ---
-= 배포 및 유지 관리 로그
+= StorageGRID의 배포 및 유지 관리 로그
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

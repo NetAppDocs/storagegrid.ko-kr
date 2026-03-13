@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to monitor storage capacity 
 summary: 사용 가능한 총 공간을 모니터링하여 StorageGRID 시스템에 오브젝트 또는 오브젝트 메타데이터의 스토리지 공간이 부족하지 않은지 확인합니다. 
 ---
-= 스토리지 용량을 모니터링합니다
+= StorageGRID에서 스토리지 용량 모니터링
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

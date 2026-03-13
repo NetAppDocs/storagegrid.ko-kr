@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: snmp, monitoring 
 summary: 'SNMP(Simple Network Management Protocol)\ 를 사용하여 StorageGRID를 모니터링하려면 StorageGRID에 포함된 SNMP 에이전트를 구성해야 합니다.' 
 ---
-= SNMP 모니터링을 사용합니다
+= StorageGRID에서 SNMP 모니터링 사용
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

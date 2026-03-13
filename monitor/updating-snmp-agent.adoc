@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to update the SNMP agent 
 summary: SNMP 알림을 비활성화하거나 커뮤니티 문자열을 업데이트하거나 에이전트 주소, USM 사용자 및 트랩 대상을 추가 또는 제거할 수 있습니다. 
 ---
-= SNMP 에이전트를 업데이트합니다
+= StorageGRID SNMP 에이전트를 업데이트하세요
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

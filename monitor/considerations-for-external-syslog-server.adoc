@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: syslog server, external syslog server, sizing, sizing syslog server, audit messages 
 summary: 외부 syslog 서버는 단일 위치에서 시스템 감사 정보를 수집하는 데 사용할 수 있는 StorageGRID 외부의 서버입니다. 외부 syslog 서버를 사용하면 관리 노드의 네트워크 트래픽을 줄이고 감사 정보를 보다 효율적으로 관리할 수 있습니다. 
 ---
-= 외부 syslog 서버 사용 시 고려 사항
+= StorageGRID의 외부 syslog 서버
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object ingest rates, object retrieval rates, monitor s3, client operations 
 summary: 오브젝트 수집 및 검색 속도와 오브젝트 수, 쿼리, 검증을 위한 메트릭을 모니터링할 수 있습니다. 클라이언트 응용 프로그램이 StorageGRID 시스템에서 개체를 읽고, 쓰고, 수정하는 데 성공한 시도 및 실패한 시도 횟수를 볼 수 있습니다. 
 ---
-= S3 클라이언트 작업 모니터링
+= StorageGRID에서 S3 클라이언트 작업을 모니터링합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

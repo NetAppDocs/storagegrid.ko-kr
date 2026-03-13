@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: alert rules, managing alerts, alerts, alert notifications. edit alert rules 
 summary: 이 경고 시스템은 StorageGRID 작동 중에 발생할 수 있는 문제를 감지, 평가 및 해결하기 위한 사용이 간편한 인터페이스를 제공합니다. 
 ---
-= 알림을 관리합니다
+= StorageGRID에서 알림 관리
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

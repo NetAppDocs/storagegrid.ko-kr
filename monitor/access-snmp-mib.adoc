@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: mib, snmp, monitoring 
 summary: MIB 파일에는 그리드의 노드에 대한 관리되는 리소스 및 서비스의 속성에 대한 정의 및 정보가 들어 있습니다. StorageGRID에 대한 객체 및 알림을 정의하는 MIB 파일에 액세스할 수 있습니다. 이러한 파일은 그리드를 모니터링하는 데 유용할 수 있습니다. 
 ---
-= MIB 파일에 액세스합니다
+= StorageGRID MIB 파일에 액세스
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

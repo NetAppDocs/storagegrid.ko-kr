@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage tab 
 summary: 스토리지 탭에는 스토리지 가용성 및 기타 스토리지 메트릭이 요약되어 있습니다. 
 ---
-= Storage 탭을 봅니다
+= StorageGRID 스토리지 탭을 확인하십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

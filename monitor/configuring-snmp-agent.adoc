@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: snmp agent, mib, trap, inform 
 summary: 읽기 전용 MIB 액세스 및 알림에 타사 SNMP 관리 시스템을 사용하도록 StorageGRID SNMP 에이전트를 구성할 수 있습니다. 
 ---
-= SNMP 에이전트를 구성합니다
+= StorageGRID에서 SNMP 에이전트 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

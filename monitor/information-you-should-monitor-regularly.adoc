@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: when to monitor, what to monitor 
 summary: 오류가 발생하거나 그리드의 일부를 사용할 수 없는 경우에도 StorageGRID 시스템이 계속 작동할 수 있지만, 잠재적인 문제가 그리드의 효율성 또는 가용성에 영향을 미치기 전에 이를 모니터링하고 해결해야 합니다. 
 ---
-= 모니터링 대상 및 시기
+= StorageGRID에서 모니터링할 항목 및 시기
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

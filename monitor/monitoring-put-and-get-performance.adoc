@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: put, get, performance 
 summary: 개체 저장소 및 검색 등의 특정 작업의 성능을 모니터링하여 추가 조사가 필요할 수 있는 변경 내용을 식별할 수 있습니다. 
 ---
-= PUT 모니터링 및 성능 확보
+= StorageGRID에서 PUT 및 GET 성능 모니터링
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: hardware tab 
 summary: 하드웨어 탭에는 각 노드의 CPU 사용률 및 메모리 사용량, 어플라이언스에 대한 추가 하드웨어 정보가 표시됩니다. 
 ---
-= 하드웨어 탭을 봅니다
+= StorageGRID 하드웨어 탭을 참조하십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

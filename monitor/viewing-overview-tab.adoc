@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: overview tab 
 summary: 개요 탭은 각 노드에 대한 기본 정보를 제공합니다. 또한 현재 노드에 영향을 주는 모든 알림도 표시됩니다. 
 ---
-= 개요 탭을 봅니다
+= StorageGRID 개요 탭을 확인합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

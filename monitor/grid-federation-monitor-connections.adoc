@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, monitor connection, cross grid replication metrics 
 summary: 모든 그리드 페더레이션 연결에 대한 기본 정보, 특정 연결에 대한 자세한 정보 또는 교차 그리드 복제 작업에 대한 Prometheus 메트릭을 모니터링할 수 있습니다. 두 그리드 중 하나에서 연결을 모니터링할 수 있습니다. 
 ---
-= 그리드 페더레이션 연결을 모니터링합니다
+= StorageGRID 그리드 페더레이션 연결 모니터링
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

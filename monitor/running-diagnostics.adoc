@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to run diagnostics 
 summary: 문제를 해결할 때 기술 지원 부서의 도움을 받을 수 있습니다. StorageGRID 시스템에서 진단 프로그램을 실행하고 결과를 검토할 수 있습니다. 
 ---
-= 진단 유틸리티를 실행합니다
+= StorageGRID에서 진단 실행
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

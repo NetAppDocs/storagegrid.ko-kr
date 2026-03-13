@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: platform services tab 
 summary: 플랫폼 서비스 탭은 사이트의 S3 플랫폼 서비스 작업에 대한 정보를 제공합니다. 
 ---
-= 플랫폼 서비스 탭을 봅니다
+= StorageGRID 플랫폼 서비스 탭을 확인합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

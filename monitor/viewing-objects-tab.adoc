@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: objects tab 
 summary: Objects 탭은 S3 수집 및 검색 속도에 대한 정보를 제공합니다. 
 ---
-= 개체 탭을 봅니다
+= StorageGRID 객체 탭을 봅니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

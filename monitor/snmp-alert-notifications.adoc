@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to use snmp notifications for alerts 
 summary: 경고가 발생할 때 StorageGRID에서 SNMP 알림을 보내도록 하려면 StorageGRID SNMP 에이전트를 활성화하고 하나 이상의 트랩 대상을 구성해야 합니다. 
 ---
-= 경고에 대한 SNMP 알림을 설정합니다
+= StorageGRID 알림에 대한 SNMP 알림을 설정하세요
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

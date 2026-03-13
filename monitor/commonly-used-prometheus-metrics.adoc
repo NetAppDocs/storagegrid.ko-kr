@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: prometheus, Prometheus metrics, metrics 
 summary: 기본 알림 규칙의 조건을 더 잘 이해하거나 사용자 지정 알림 규칙의 조건을 구성하려면 일반적으로 사용되는 Prometheus 메트릭의 목록을 참조하십시오. 
 ---
-= 일반적으로 사용되는 Prometheus 메트릭입니다
+= StorageGRID에서 일반적으로 사용되는 Prometheus 메트릭
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

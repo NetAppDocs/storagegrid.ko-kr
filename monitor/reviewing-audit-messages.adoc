@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to review audit messages, how to view audit messages 
 summary: 감사 메시지를 통해 StorageGRID 시스템의 세부 작업을 보다 잘 이해할 수 있습니다. 감사 로그를 사용하여 문제를 해결하고 성능을 평가할 수 있습니다. 
 ---
-= 감사 메시지를 검토합니다
+= StorageGRID 감사 메시지를 검토하십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

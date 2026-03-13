@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: monitoring, monitoring network connections, network, network performance 
 summary: 노드와 사이트 간 네트워크의 무결성과 대역폭, 개별 그리드 노드의 리소스 사용은 효율적인 운영에 매우 중요합니다. 
 ---
-= 네트워킹 및 시스템 리소스를 모니터링합니다
+= StorageGRID에서 네트워킹 및 시스템 리소스 모니터링
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

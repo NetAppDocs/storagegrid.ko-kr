@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: load balancer tab 
 summary: 로드 밸런서 탭에는 로드 밸런서 서비스 작업과 관련된 성능 및 진단 그래프가 포함되어 있습니다. 
 ---
-= 부하 분산 장치 탭을 봅니다
+= StorageGRID 로드 밸런서 탭을 확인하세요
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

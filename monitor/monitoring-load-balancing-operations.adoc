@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: load balancing, monitoring 
 summary: 로드 밸런서를 사용하여 StorageGRID에 대한 클라이언트 연결을 관리하는 경우 시스템을 처음 구성한 후 또는 구성을 변경하거나 확장을 수행한 후에 로드 밸런싱 작업을 모니터링해야 합니다. 
 ---
-= 로드 밸런싱 작업을 모니터링합니다
+= StorageGRID에서 로드 밸런싱 작업 모니터링
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: log management, audit level, external syslog server, log destinations 
 summary: 필요에 따라 감사 수준, 프로토콜 헤더, 감사 메시지 및 로그의 위치를 구성합니다. 
 ---
-= 로그 관리 구성
+= StorageGRID에서 로그 관리 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
