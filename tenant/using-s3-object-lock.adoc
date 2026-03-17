@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to use s3 object lock 
 summary: 버킷과 오브젝트가 보존 규정 요구사항을 준수해야 하는 경우 S3 오브젝트 잠금을 사용할 수 있습니다. 
 ---
-= S3 오브젝트 잠금을 사용하여 오브젝트를 보존합니다
+= S3 오브젝트 잠금을 사용하여 StorageGRID에서 오브젝트 보존
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

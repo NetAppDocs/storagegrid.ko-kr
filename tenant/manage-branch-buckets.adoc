@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create branch bucket 
 summary: 테넌트 관리자를 사용하여 지점 버킷에 대한 세부 정보를 만들고 확인하세요. 
 ---
-= 지점 버킷 관리
+= StorageGRID 브랜치 버킷 관리
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

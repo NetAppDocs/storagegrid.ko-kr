@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to test platform services endpoint connection 
 summary: 플랫폼 서비스에 대한 연결이 변경된 경우 끝점에 대한 연결을 테스트하여 대상 리소스가 있는지 그리고 지정한 자격 증명을 사용하여 해당 리소스에 연결할 수 있는지 확인할 수 있습니다. 
 ---
-= 플랫폼 서비스 끝점에 대한 연결을 테스트합니다
+= StorageGRID 플랫폼 서비스 엔드포인트의 연결을 테스트합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

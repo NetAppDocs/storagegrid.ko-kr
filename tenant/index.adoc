@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: use tenant account 
 summary: '테넌트 계정을 사용하면 S3(Simple Storage Service) REST API를 사용하여 StorageGRID 시스템에 객체를 저장하고 검색할 수 있습니다.' 
 ---
-= 테넌트 계정을 사용합니다
+= StorageGRID 테넌트 계정을 사용합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

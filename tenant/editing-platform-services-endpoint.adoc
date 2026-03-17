@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to edit platform services endpoint 
 summary: 플랫폼 서비스 끝점의 구성을 편집하여 이름, URI 또는 기타 세부 정보를 변경할 수 있습니다. 예를 들어 만료된 자격 증명을 업데이트하거나 대체 작동을 위한 백업 Elasticsearch 인덱스를 가리키도록 URI를 변경해야 할 수 있습니다. 플랫폼 서비스 끝점의 URN은 변경할 수 없습니다. 
 ---
-= 플랫폼 서비스 끝점을 편집합니다
+= StorageGRID에서 플랫폼 서비스 엔드포인트 편집
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

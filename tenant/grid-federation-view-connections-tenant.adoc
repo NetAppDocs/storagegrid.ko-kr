@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation connection, view, clear error, last error 
 summary: 테넌트 계정에 그리드 페더레이션 연결 사용 권한이 있는 경우 허용된 연결을 볼 수 있습니다. 
 ---
-= 그리드 페더레이션 연결을 봅니다
+= StorageGRID에서 그리드 페더레이션 연결 보기
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view and edit tenant groups, manage groups, duplicate group, remove group, edit group 
 summary: 필요에 따라 테넌트 그룹을 관리하여 그룹 보기, 편집 또는 복제 등을 수행할 수 있습니다. 
 ---
-= 그룹을 관리합니다
+= StorageGRID 테넌트 그룹 관리
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

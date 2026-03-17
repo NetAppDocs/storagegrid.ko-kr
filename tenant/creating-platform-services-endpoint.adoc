@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create platform services endpoint 
 summary: 플랫폼 서비스를 사용하려면 먼저 올바른 유형의 끝점을 하나 이상 만들어야 합니다. 
 ---
-= 플랫폼 서비스 끝점을 만듭니다
+= StorageGRID 플랫폼 서비스 엔드포인트를 생성합니다.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

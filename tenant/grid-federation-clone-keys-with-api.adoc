@@ -2,16 +2,16 @@
 permalink: tenant/grid-federation-clone-keys-with-api.html 
 sidebar: sidebar 
 keywords: s3 access key, secret key id, account clone, tenant manager api 
-summary: 테넌트 계정에 그리드 페더레이션 사용 연결 권한이 있는 경우 테넌트 관리 API를 사용하여 소스 그리드의 테넌트에서 대상 그리드의 테넌트로 S3 액세스 키를 수동으로 복제할 수 있습니다. 
+summary: StorageGRID 테넌트 계정에 그리드 페더레이션 연결 사용 권한이 있는 경우 테넌트 관리 API를 사용하여 S3 액세스 키를 수동으로 복제할 수 있습니다. 
 ---
-= API를 사용하여 S3 액세스 키의 클론을 생성합니다
+= 테넌트 관리 API를 사용하여 StorageGRID 그리드 간 S3 액세스 키 복제
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-테넌트 계정에 * 그리드 페더레이션 연결 사용 * 권한이 있는 경우 테넌트 관리 API를 사용하여 소스 그리드의 테넌트에서 대상 그리드의 테넌트로 S3 액세스 키를 수동으로 복제할 수 있습니다.
+StorageGRID 테넌트 계정에 *그리드 페더레이션 연결 사용* 권한이 있는 경우 테넌트 관리 API를 사용하여 소스 그리드의 테넌트에서 대상 그리드의 테넌트로 S3 액세스 키를 수동으로 복제할 수 있습니다.
 
 .시작하기 전에
 * 테넌트 계정에는 * 그리드 페더레이션 연결 사용 * 권한이 있습니다.

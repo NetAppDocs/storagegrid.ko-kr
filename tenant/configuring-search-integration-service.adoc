@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure search integration service 
 summary: 검색 통합 구성 XML을 생성하고 테넌트 관리자를 사용하여 XML을 버킷에 적용하여 버킷에 대한 검색 통합을 활성화합니다. 
 ---
-= 검색 통합 서비스를 구성합니다
+= StorageGRID에서 검색 통합 서비스 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

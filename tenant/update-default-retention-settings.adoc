@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: update default retention for s3 object lock bucket, default retention mode, default retention period, compliance, governance 
 summary: 버킷을 생성할 때 S3 오브젝트 잠금을 설정한 경우 버킷을 편집하여 기본 보존 설정을 변경할 수 있습니다. 기본 보존을 사용하거나 사용하지 않도록 설정하고 기본 보존 모드 및 보존 기간을 설정할 수 있습니다. 
 ---
-= S3 오브젝트 잠금 기본 보존 업데이트
+= StorageGRID에서 S3 오브젝트 잠금 기본 보존 업데이트
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

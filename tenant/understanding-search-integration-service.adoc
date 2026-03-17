@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to understand search integration service 
 summary: 오브젝트 메타데이터에 외부 검색 및 데이터 분석 서비스를 사용하려는 경우 S3 버킷에 대한 검색 통합을 활성화할 수 있습니다. 
 ---
-= 검색 통합 서비스를 이해합니다
+= StorageGRID 검색 통합 서비스에 대해 알아보십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

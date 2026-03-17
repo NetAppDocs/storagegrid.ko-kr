@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to delete tenant group 
 summary: 시스템에서 그룹을 삭제할 수 있습니다. 해당 그룹에만 속하는 사용자는 더 이상 테넌트 관리자에 로그인하거나 테넌트 계정을 사용할 수 없습니다. 
 ---
-= 그룹을 삭제합니다
+= StorageGRID 테넌트 그룹 삭제
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

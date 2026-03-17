@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cloudmirror replication 
 summary: StorageGRID가 버킷에 추가된 지정된 오브젝트를 하나 이상의 대상 버킷에 복제하도록 하려면 S3 버킷에 대해 CloudMirror 복제를 활성화할 수 있습니다. 
 ---
-= CloudMirror 복제 서비스를 이해합니다
+= StorageGRID CloudMirror 복제 서비스에 대해 알아보세요
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

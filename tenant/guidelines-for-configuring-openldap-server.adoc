@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure open ldap 
 summary: OpenLDAP 서버를 ID 페더레이션에 사용하려면 OpenLDAP 서버에서 특정 설정을 구성해야 합니다. 
 ---
-= OpenLDAP 서버 구성 지침
+= StorageGRID용 OpenLDAP 서버 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create branch bucket 
 summary: 분기 버킷은 특정 시간에 존재했던 버킷의 객체에 대한 액세스를 제공합니다. 
 ---
-= 브랜치 버킷이란 무엇인가요?
+= StorageGRID 브랜치 버킷에 대해 알아보세요
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

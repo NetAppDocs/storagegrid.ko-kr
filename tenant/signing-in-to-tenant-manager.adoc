@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to sign in to tenant manager 
 summary: 지원되는 웹 브라우저의 주소 표시줄에 테넌트에 대한 URL을 입력하여 테넌트 관리자에 액세스합니다. 
 ---
-= 테넌트 관리자에 로그인합니다
+= StorageGRID 테넌트 관리자에 Sign in
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

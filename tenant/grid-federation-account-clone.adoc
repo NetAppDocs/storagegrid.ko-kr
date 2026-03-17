@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: account clone, cloning tenant, grid federation, cross-grid replication 
 summary: '그리드 페더레이션 연결을 사용하도록 테넌트를 만들거나 편집한 경우 해당 테넌트는 한 StorageGRID 시스템\(소스 테넌트\)에서 다른 StorageGRID 시스템\(복제본 테넌트\)으로 복제됩니다. 테넌트가 복제되면 소스 테넌트에 추가된 모든 그룹 및 사용자가 복제본 테넌트에 클론됩니다.' 
 ---
-= 클론 테넌트 그룹 및 사용자
+= StorageGRID에서 테넌트 그룹 및 사용자 복제
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

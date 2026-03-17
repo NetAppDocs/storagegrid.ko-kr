@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view and edit group 
 summary: 그룹의 세부 정보를 볼 때 그룹의 표시 이름, 사용 권한, 정책 및 그룹에 속한 사용자를 변경할 수 있습니다. 
 ---
-= 그룹 세부 정보를 보고 편집합니다
+= StorageGRID에서 테넌트 그룹 세부 정보 보기 및 편집
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

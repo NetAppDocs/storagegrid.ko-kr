@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure CloudMirror replication, replication xml 
 summary: 버킷 복제 구성 XML을 생성하고 테넌트 관리자를 사용하여 XML을 버킷에 적용하여 버킷에 대한 CloudMirror 복제를 활성화합니다. 
 ---
-= CloudMirror 복제를 구성합니다
+= StorageGRID에서 CloudMirror 복제 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

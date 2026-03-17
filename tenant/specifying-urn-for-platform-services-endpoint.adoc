@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to specify platform services urn 
 summary: '플랫폼 서비스 끝점을 만들 때는 고유한 URN(리소스 이름)을 지정해야 합니다. 플랫폼 서비스에 대한 구성 XML을 만들 때 URN을 사용하여 끝점을 참조합니다. 각 끝점의 URN은 고유해야 합니다.' 
 ---
-= 플랫폼 서비스 끝점에 URN을 지정합니다
+= StorageGRID 플랫폼 서비스 엔드포인트에 대한 URN을 지정하십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

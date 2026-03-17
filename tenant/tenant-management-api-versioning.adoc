@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: tenant management api version 
 summary: 테넌트 관리 API는 버전 관리를 사용하여 무중단 업그레이드를 지원합니다. 
 ---
-= 테넌트 관리 API 버전 관리
+= StorageGRID Tenant Management API 버전 관리
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

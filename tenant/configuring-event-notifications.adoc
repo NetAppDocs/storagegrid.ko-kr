@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure event notifications, bucket notification 
 summary: 알림 구성 XML을 생성하고 테넌트 관리자를 사용하여 XML을 버킷에 적용하여 버킷에 대한 알림을 활성화합니다. 
 ---
-= 이벤트 알림을 구성합니다
+= StorageGRID에서 이벤트 알림을 구성합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

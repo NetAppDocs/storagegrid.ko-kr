@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to use s3 console 
 summary: S3 콘솔을 사용하여 S3 버킷의 오브젝트를 보고 관리할 수 있다. 
 ---
-= S3 콘솔 사용
+= StorageGRID에서 S3 콘솔 사용
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

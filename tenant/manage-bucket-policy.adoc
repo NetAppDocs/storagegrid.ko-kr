@@ -1,10 +1,10 @@
 ---
 permalink: tenant/manage-bucket-policy.html 
 sidebar: sidebar 
-keywords: how to create S3 tenant groups, federated group, local group 
+keywords: bucket policy, S3 bucket policy, manage bucket policy 
 summary: S3 버킷 및 해당 버킷의 오브젝트에 대한 사용자 액세스를 제어할 수 있습니다. 
 ---
-= 버킷 정책을 관리합니다
+= StorageGRID 버킷 정책 관리
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

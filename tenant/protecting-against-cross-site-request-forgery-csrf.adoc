@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to protect against cross-site request forgery, csrf 
 summary: 'CSRF 토큰을 사용하여 쿠키를 사용하는 인증을 강화하면 StorageGRID에 대한 CSRF(사이트 간 요청 위조) 공격으로부터 보호할 수 있습니다. Grid Manager 및 Tenant Manager는 이 보안 기능을 자동으로 활성화합니다. 다른 API 클라이언트는 로그인할 때 활성화 여부를 선택할 수 있습니다.' 
 ---
-= 사이트 간 요청 위조(CSRF)로부터 보호
+= StorageGRID에서 교차 사이트 요청 위조 방지
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

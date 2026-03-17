@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to use identity federation, how to use federated groups with Tenant Manager 
 summary: ID 페더레이션을 사용하면 테넌트 그룹 및 사용자를 더 빠르게 설정할 수 있으며, 테넌트 사용자는 익숙한 자격 증명을 사용하여 테넌트 계정에 로그인할 수 있습니다. 
 ---
-= ID 페더레이션을 사용합니다
+= StorageGRID에서 ID 페더레이션 사용
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

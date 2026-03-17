@@ -2,9 +2,9 @@
 permalink: tenant/grid-federation-manage-cross-grid-replication.html 
 sidebar: sidebar 
 keywords: grid federation, cross-grid replication, use grid federation connection, replicate client delete markers, s3 bucket 
-summary: 테넌트 계정이 생성되었을 때 그리드 페더레이션 연결 사용 권한이 할당된 경우 교차 그리드 복제를 사용하여 테넌트 소스 그리드의 버킷 및 테넌트 대상 그리드의 버킷 간에 객체를 자동으로 복제할 수 있습니다. 크로스 그리드 복제는 한 방향 또는 두 방향으로 수행될 수 있습니다. 
+summary: 테넌트 계정 생성 시 그리드 페더레이션 연결 사용 권한이 부여된 경우, 크로스 그리드 복제를 사용하여 테넌트 소스 그리드의 버킷과 테넌트 대상 그리드의 버킷 간에 객체를 자동으로 복제할 수 있습니다. 크로스 그리드 복제는 단방향 또는 양방향으로 수행될 수 있습니다. 
 ---
-= 교차 그리드 복제 관리
+= StorageGRID에서 교차 그리드 복제 관리
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
