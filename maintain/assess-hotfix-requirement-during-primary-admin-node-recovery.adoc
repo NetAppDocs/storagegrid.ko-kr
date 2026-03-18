@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, primary admin node, hotfix 
 summary: 기본 관리 노드를 복구한 후 핫픽스를 적용해야 하는지 확인합니다. 
 ---
-= 기본 관리자 노드에 대한 핫픽스 요구 사항을 결정합니다
+= StorageGRID의 기본 관리 노드에 대한 핫픽스 요구 사항 확인
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

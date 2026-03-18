@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, hotfix, software update 
 summary: 핫픽스는 먼저 기본 관리자 노드에 자동으로 적용됩니다. 그런 다음 모든 노드가 동일한 소프트웨어 버전을 실행할 때까지 다른 그리드 노드에 대한 핫픽스 응용 프로그램을 승인해야 합니다. 개별 그리드 노드, 그리드 노드 그룹 또는 모든 그리드 노드를 승인하도록 선택하여 승인 순서를 사용자 지정할 수 있습니다. 
 ---
-= 핫픽스를 적용합니다
+= StorageGRID에서 핫픽스 적용
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

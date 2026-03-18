@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, stop service, service 
 summary: 일부 유지 관리 절차에서는 그리드 노드의 다른 서비스를 계속 실행하는 동안 단일 서비스를 중지해야 합니다. 유지 관리 절차에 의해 지시된 경우에만 개별 서비스를 중지하십시오. 
 ---
-= 서비스를 중지합니다
+= StorageGRID 서비스를 중지하세요
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

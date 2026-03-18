@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, node shutdown, shut down node, node shut down 
 summary: 노드의 명령 셸에서 그리드 노드를 종료할 수 있습니다. 
 ---
-= 그리드 노드를 종료합니다
+= StorageGRID 노드를 종료합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

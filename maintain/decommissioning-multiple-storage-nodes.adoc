@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission nodes, storage node, multiple storage nodes 
 summary: 둘 이상의 스토리지 노드를 제거해야 하는 경우 순차적으로 또는 병렬로 서비스 해제할 수 있습니다. 
 ---
-= 여러 스토리지 노드의 서비스 해제
+= 여러 StorageGRID 스토리지 노드 해제
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

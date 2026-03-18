@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, replace primary admin node, replacing primary admin node, primary admin node 
 summary: 기본 관리 노드를 복구하려면 먼저 물리적 또는 가상 하드웨어를 교체해야 합니다. 
 ---
-= 기본 관리 노드를 교체합니다
+= 기본 StorageGRID 관리 노드 교체
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

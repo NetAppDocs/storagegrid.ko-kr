@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission admin node, decommission gateway node 
 summary: 관리자 노드 또는 게이트웨이 노드 서비스 해제와 관련된 고려 사항을 검토합니다. 
 ---
-= 관리자 또는 게이트웨이 노드 해체 시 고려 사항
+= StorageGRID 관리 노드 또는 게이트웨이 노드 폐기 시 고려 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

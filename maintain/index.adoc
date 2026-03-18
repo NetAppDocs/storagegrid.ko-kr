@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: maintain overview, maintenance overview, about maintain, about maintenance 
 summary: 그리드 유지 관리 작업에는 노드 또는 사이트 사용 중단, 그리드, 노드 또는 사이트 이름 변경, 네트워크 유지 관리가 포함됩니다. 또한 호스트 및 미들웨어 절차와 그리드 노드 프로시저를 수행할 수 있습니다. 
 ---
-= 그리드 유지 관리
+= StorageGRID 그리드 유지 관리
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, reboot node, command shell reboot 
 summary: 재부팅 작업을 보다 자세히 모니터링해야 하거나 Grid Manager에 액세스할 수 없는 경우 GRID 노드에 로그인하여 명령 셸에서 Server Manager 재부팅 명령을 실행할 수 있습니다. 
 ---
-= 명령 셸에서 그리드 노드를 재부팅합니다
+= 명령 셸에서 StorageGRID 노드 재부팅
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, node ip address, change node ip, change node ip address, changing node ip, changing node ip address 
 summary: 그리드의 모든 노드에 대해 그리드 네트워크 IP 주소를 변경해야 하는 경우 이 특수 절차를 따라야 합니다. 개별 노드를 변경하는 절차를 사용하여 그리드 전체 그리드 네트워크 IP를 변경할 수는 없습니다. 
 ---
-= 그리드의 모든 노드에 대한 IP 주소를 변경합니다
+= StorageGRID 그리드의 모든 노드에 대한 IP 주소를 변경합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

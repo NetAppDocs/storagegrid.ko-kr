@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, archive node failure, workflow 
 summary: 아카이브 노드에 대한 지원이 제거되었습니다. 
 ---
-= 아카이브 노드 장애에서 복구
+= StorageGRID 아카이브 노드 장애 복구
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission 
 summary: 사이트를 해체하기 전에 다음 자료를 확보해야 합니다. 
 ---
-= 필요한 자료를 수집합니다
+= StorageGRID 사이트 폐쇄에 필요한 자료를 모으십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

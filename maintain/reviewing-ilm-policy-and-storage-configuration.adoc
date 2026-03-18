@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, restore, ilm policy, storage configuration 
 summary: 스토리지 노드의 서비스를 해제할 계획인 경우 서비스 해제 프로세스를 시작하기 전에 StorageGRID 시스템의 ILM 정책을 검토해야 합니다. 
 ---
-= ILM 정책 및 스토리지 구성을 검토합니다
+= StorageGRID ILM 정책 및 스토리지 구성 검토
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

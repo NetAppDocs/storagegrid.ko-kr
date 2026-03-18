@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: add interfaces, add client network interface, add admin network interface 
 summary: 다음 단계를 수행하여 관리자 네트워크 또는 클라이언트 네트워크의 인터페이스를 Linux 노드에 설치합니다. 
 ---
-= Linux: 기존 노드에 관리자 또는 클라이언트 인터페이스를 추가합니다
+= StorageGRID의 Linux 노드에 관리자 또는 클라이언트 인터페이스 추가
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, storage node recovery, system drive, storage state 
 summary: 스토리지 노드에 대한 시스템 드라이브를 복구한 후에는 스토리지 노드의 원하는 상태가 온라인으로 설정되어 있는지 확인하고 스토리지 노드 서버가 다시 시작될 때마다 기본적으로 상태가 온라인 상태인지 확인해야 합니다. 
 ---
-= 스토리지 노드 시스템 드라이브를 복구한 후 스토리지 상태를 확인합니다
+= StorageGRID 스토리지 노드 시스템 드라이브 복구 후 스토리지 상태를 확인합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

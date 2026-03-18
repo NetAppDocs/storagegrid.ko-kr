@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage node decommission, considerations, appliance node clone 
 summary: 스토리지 노드를 해제하기 전에 노드를 복제할 수 있는지 여부를 고려하십시오. 그런 다음 노드를 해제하기로 결정한 경우 서비스 해제 절차 동안 StorageGRID에서 오브젝트 및 메타데이터를 관리하는 방법을 검토하십시오. 
 ---
-= 스토리지 노드 폐기에 대한 고려 사항
+= StorageGRID의 스토리지 노드 폐기 고려 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

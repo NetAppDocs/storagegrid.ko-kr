@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, restore node to host, node configuration file, start host service 
 summary: 장애가 발생한 그리드 노드를 새 Linux 호스트로 복원하려면 다음 단계를 수행하여 노드 구성 파일을 복원합니다. 
 ---
-= 그리드 노드를 호스트에 복구합니다
+= StorageGRID 노드를 호스트에 복원합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

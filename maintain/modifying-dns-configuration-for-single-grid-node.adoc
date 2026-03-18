@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, dns, modify dns 
 summary: 전체 배포에 대해 DNS를 전역적으로 구성하는 대신 스크립트를 실행하여 각 그리드 노드에 대해 DNS를 다르게 구성할 수 있습니다. 
 ---
-= 단일 그리드 노드에 대한 DNS 구성을 수정합니다
+= 단일 StorageGRID 노드에 대한 DNS 구성 수정
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

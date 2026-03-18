@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: replace linux node 
 summary: 장애가 발생하여 하나 이상의 새로운 물리적 또는 가상 호스트를 구축해야 하거나 기존 호스트에 Linux를 재설치해야 하는 경우 그리드 노드를 복구하기 전에 대체 호스트를 배포하고 구성하십시오. 이 절차는 모든 유형의 그리드 노드에 대한 그리드 노드 복구 프로세스의 한 단계입니다. 
 ---
-= Linux 노드를 교체합니다
+= StorageGRID에서 Linux 노드 교체
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

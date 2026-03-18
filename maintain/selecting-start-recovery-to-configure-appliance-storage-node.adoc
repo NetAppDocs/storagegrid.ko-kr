@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, appliance storage node 
 summary: 장애가 발생한 노드의 대체품으로 어플라이언스 스토리지 노드를 구성하려면 그리드 관리자에서 복구 시작을 선택해야 합니다. 
 ---
-= Start Recovery(복구 시작) 를 선택하여 어플라이언스 스토리지 노드를 구성합니다
+= StorageGRID 어플라이언스 스토리지 노드를 구성하려면 복구 시작을 선택하십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

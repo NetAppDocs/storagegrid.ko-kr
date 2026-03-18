@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, deploy linux host, new host, new linux host 
 summary: 몇 가지 예외가 있을 경우 초기 설치 프로세스 중에 했던 것처럼 새 호스트를 준비합니다. 
 ---
-= 새 Linux 호스트를 배포합니다
+= StorageGRID용 새 Linux 호스트 배포
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

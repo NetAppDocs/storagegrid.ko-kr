@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, disconnected nodes, decommission node 
 summary: '현재 그리드에 연결되어 있지 않은 노드(상태가 알 수 없음 또는 관리 중단\)를 해제해야 할 수 있습니다.' 
 ---
-= 연결이 끊긴 그리드 노드의 서비스 해제
+= 연결이 끊긴 StorageGRID 노드를 해제합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, hotfix 
 summary: 핫픽스를 적용할 때 StorageGRID 시스템이 어떤 영향을 받는지 알아야 합니다. 
 ---
-= 핫픽스를 적용할 때 시스템이 영향을 받는 방식
+= 핫픽스를 적용할 때 StorageGRID가 받는 영향
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, warning 
 summary: 그리드 노드에 장애가 발생할 경우 가능한 한 빨리 복구해야 합니다. 시작하기 전에 노드 복구에 대한 모든 경고 및 고려 사항을 검토해야 합니다. 
 ---
-= 그리드 노드 복구에 대한 경고 및 고려 사항
+= StorageGRID 노드 복구 시 주의 사항 및 고려 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

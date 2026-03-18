@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, non-primary admin node 
 summary: 비기본 관리 노드를 교체한 후 그리드 관리자에서 복구 시작 을 선택하여 새 노드를 장애가 발생한 노드에 대한 교체품으로 구성해야 합니다. 
 ---
-= 복구 시작 을 선택하여 비 기본 관리 노드를 구성합니다
+= 비기본 StorageGRID Admin Node를 구성하려면 Start Recovery를 선택하십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

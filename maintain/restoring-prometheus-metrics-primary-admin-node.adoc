@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, restore metrics, restore prometheus, primary admin node 
 summary: 선택적으로, 장애가 발생한 운영 관리 노드에서 Prometheus가 유지 관리하는 기간별 메트릭을 유지할 수 있습니다. Prometheus 메트릭은 StorageGRID 시스템에 다른 관리 노드가 포함된 경우에만 복원할 수 있습니다. 
 ---
-= 기본 관리 노드를 복구할 때 Prometheus 메트릭을 복원합니다
+= 기본 StorageGRID 관리 노드 복구 시 Prometheus 메트릭 복원
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

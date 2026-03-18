@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, select site 
 summary: 사이트를 해제할 수 있는지 확인하려면 서비스 해제 사이트 마법사에 액세스하여 시작합니다. 
 ---
-= 1단계: 사이트를 선택합니다
+= StorageGRID에서 서비스 해제할 사이트 선택
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission, connected nodes, decommission node 
 summary: 그리드에 연결된 노드를 사용 중지하고 영구적으로 제거할 수 있습니다. 
 ---
-= 연결된 그리드 노드 해제
+= 연결된 StorageGRID 노드를 해제합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

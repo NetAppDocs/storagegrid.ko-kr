@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, monitor decommission, decommission 
 summary: '서비스 해제 사이트 페이지 마법사의 6단계\(서비스 해제 모니터링\)에서 사이트가 제거될 때 진행 상황을 모니터링할 수 있습니다.' 
 ---
-= 6단계: 서비스 해제 모니터링
+= StorageGRID에서 사이트 폐기 진행 상황 모니터링
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

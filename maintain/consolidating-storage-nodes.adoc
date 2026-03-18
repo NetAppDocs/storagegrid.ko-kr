@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, storage node, consolidate storage node, consolidating storage node 
 summary: 스토리지 노드를 통합하여 스토리지 용량을 늘리면서 사이트 또는 구축의 스토리지 노드 수를 줄일 수 있습니다. 
 ---
-= 스토리지 노드 통합
+= StorageGRID 스토리지 노드 통합
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

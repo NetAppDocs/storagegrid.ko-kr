@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, procedure 
 summary: 실패한 노드 유형에 대해 올바른 복구 절차를 선택해야 합니다. 
 ---
-= 노드 복구 절차를 선택합니다
+= StorageGRID 노드 복구 절차를 선택합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

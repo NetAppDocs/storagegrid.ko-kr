@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: replace VMware node 
 summary: VMware에서 호스팅되어 장애가 발생한 StorageGRID 노드를 복구하면 장애가 발생한 노드를 제거하고 복구 노드를 배포합니다. 
 ---
-= VMware 노드를 교체합니다
+= StorageGRID에서 VMware 노드 교체
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

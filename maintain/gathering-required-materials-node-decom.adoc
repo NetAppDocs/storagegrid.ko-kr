@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, node decommission, decommission 
 summary: 그리드 노드 해제를 수행하기 전에 다음 정보를 얻어야 합니다. 
 ---
-= 필요한 자료를 수집합니다
+= StorageGRID 노드 폐기에 필요한 자료를 준비하세요
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

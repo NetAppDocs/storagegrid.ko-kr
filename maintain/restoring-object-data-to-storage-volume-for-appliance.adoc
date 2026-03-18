@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: restore replicated data, restore erasure-coded data, recover appliance storage node, recover storage volume 
 summary: 어플라이언스 스토리지 노드의 스토리지 볼륨을 복구한 후에는 스토리지 노드에 장애가 발생할 때 손실된 복제 또는 삭제 코딩 오브젝트 데이터를 복원할 수 있습니다. 
 ---
-= 어플라이언스의 스토리지 볼륨에 오브젝트 데이터를 복원합니다
+= StorageGRID 어플라이언스의 스토리지 볼륨에 객체 데이터를 복원합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

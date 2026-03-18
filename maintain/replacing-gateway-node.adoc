@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, replace gateway node, replacing gateway node 
 summary: 장애가 발생한 게이트웨이 노드를 동일한 물리적 또는 가상 하드웨어에서 실행되는 게이트웨이 노드로 대체하거나, VMware 또는 Linux 호스트에서 실행되는 게이트웨이 노드를 서비스 어플라이언스에서 호스팅되는 게이트웨이 노드로 교체할 수 있습니다. 
 ---
-= 게이트웨이 노드를 교체합니다
+= StorageGRID 게이트웨이 노드 교체
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

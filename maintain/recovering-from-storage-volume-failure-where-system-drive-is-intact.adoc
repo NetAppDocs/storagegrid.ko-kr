@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, storage volume failure, volume failure, system drive intact 
 summary: 스토리지 노드의 하나 이상의 스토리지 볼륨이 실패했지만 시스템 드라이브가 손상되지 않은 소프트웨어 기반 스토리지 노드를 복구하려면 일련의 작업을 완료해야 합니다. 스토리지 볼륨만 장애가 발생한 경우에도 StorageGRID 시스템에서 스토리지 노드를 계속 사용할 수 있습니다. 
 ---
-= 시스템 드라이브가 손상되지 않은 스토리지 볼륨 장애로부터 복구합니다
+= 시스템 드라이브가 손상되지 않은 StorageGRID 스토리지 볼륨 장애 복구
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

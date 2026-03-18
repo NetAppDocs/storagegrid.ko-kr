@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, revise ilm policies 
 summary: '사이트 해제 마법사의 3단계\(ILM 정책 수정\)에서 사이트가 ILM 정책에 의해 참조되는지 여부를 확인할 수 있습니다.' 
 ---
-= 3단계: ILM 정책을 수정합니다
+= StorageGRID에서 사이트 폐기를 위한 ILM 정책 수정
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

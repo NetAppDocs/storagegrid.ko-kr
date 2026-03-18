@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, volume warning 
 summary: 스토리지 노드에 대해 장애가 발생한 스토리지 볼륨을 복구하기 전에 다음 경고를 검토해야 합니다. 
 ---
-= 저장소 볼륨 복구에 대한 경고
+= StorageGRID 스토리지 볼륨 복구 관련 경고
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

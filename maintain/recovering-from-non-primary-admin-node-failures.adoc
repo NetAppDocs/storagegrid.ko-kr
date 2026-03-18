@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, non-primary admin node failure 
 summary: '운영 관리자 노드가 아닌 노드에서 복구하려면 다음 작업을 완료해야 합니다. 하나의 관리 노드는 구성 관리 노드\(CMN\) 서비스를 호스팅하며 기본 관리 노드라고 합니다. 여러 개의 관리 노드를 사용할 수 있지만 각 StorageGRID 시스템에는 하나의 기본 관리 노드만 포함됩니다. 다른 모든 관리 노드는 비 기본 관리 노드입니다.' 
 ---
-= 운영 관리자 노드가 아닌 노드에서 복구합니다
+= 비기본 StorageGRID 관리 노드 장애 발생 시 복구
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

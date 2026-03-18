@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, adc, adc quorum 
 summary: '사용 중단 후 관리 도메인 컨트롤러\(ADC\) 서비스가 너무 적을 경우 사이트에서 특정 스토리지 노드를 해제하지 못할 수 있습니다.' 
 ---
-= ADC 쿼럼이란 무엇입니까?
+= StorageGRID ADC 쿼럼이란 무엇입니까?
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

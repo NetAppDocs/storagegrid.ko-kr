@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, view details 
 summary: '서비스 해제 사이트 마법사의 2단계\(세부 정보 보기\)에서 사이트에 포함된 노드를 검토하고 각 스토리지 노드에서 사용된 공간의 양을 확인하고 그리드의 다른 사이트에서 사용 가능한 여유 공간의 양을 평가할 수 있습니다.' 
 ---
-= 2단계: 세부 정보 보기
+= StorageGRID에서 사용 중지 전에 사이트 세부 정보 검토
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

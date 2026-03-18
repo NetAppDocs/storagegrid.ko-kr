@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, remove ilm reference 
 summary: '사이트 해제 마법사의 4단계\(ILM 참조 제거\)에서 ILM 정책에 규칙이 사용되지 않더라도 사이트를 참조하는 사용하지 않는 ILM 규칙을 삭제하거나 편집해야 합니다.' 
 ---
-= 4단계: ILM 참조 제거
+= StorageGRID의 사이트에 대한 ILM 참조 제거
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

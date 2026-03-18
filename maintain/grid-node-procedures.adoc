@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, grid node procedure 
 summary: 특정 그리드 노드 또는 노드 서비스와 관련된 유지 관리 절차를 수행해야 할 수도 있습니다. 
 ---
-= 노드 유지 관리 절차
+= StorageGRID 노드 유지 관리 절차
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

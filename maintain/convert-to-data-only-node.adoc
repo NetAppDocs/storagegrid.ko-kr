@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, convert node, data-only node 
 summary: 성능을 높이려면 느린 비 ADC 스토리지 노드를 데이터 전용 스토리지 노드로 변환할 수 있습니다. 
 ---
-= 스토리지 노드를 데이터 전용 노드로 변환
+= StorageGRID 스토리지 노드를 데이터 전용 노드로 변환
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

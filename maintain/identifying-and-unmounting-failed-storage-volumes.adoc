@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, storage volume, failed storage volume, unmount failed volume 
 summary: 장애가 발생한 스토리지 볼륨으로 스토리지 노드를 복구할 때는 장애가 발생한 볼륨을 식별하고 마운트 해제해야 합니다. 복구 절차의 일부로 장애가 발생한 스토리지 볼륨만 다시 포맷되었는지 확인해야 합니다. 
 ---
-= 장애가 발생한 스토리지 볼륨을 식별하고 마운트 해제합니다
+= StorageGRID에서 장애가 발생한 스토리지 볼륨 식별 및 마운트 해제
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

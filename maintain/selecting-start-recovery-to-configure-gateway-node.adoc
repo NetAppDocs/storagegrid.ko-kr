@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, gateway node 
 summary: 게이트웨이 노드를 교체한 후 그리드 관리자에서 복구 시작 을 선택하여 새 노드를 장애가 발생한 노드에 대한 교체품으로 구성해야 합니다. 
 ---
-= Start Recovery(복구 시작) 를 선택하여 게이트웨이 노드를 구성합니다
+= StorageGRID 게이트웨이 노드를 구성하려면 복구 시작을 선택하십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

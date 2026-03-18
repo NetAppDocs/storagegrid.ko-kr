@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, restore, volume 
 summary: Grid Manager를 사용하여 장애가 발생한 스토리지 볼륨 또는 스토리지 노드에 대한 객체 데이터를 복구할 수 있습니다. 또한 Grid Manager를 사용하여 진행 중인 복원 프로세스를 모니터링하고 복원 기록을 표시할 수도 있습니다. 
 ---
-= Grid Manager를 사용하여 개체 데이터를 복원합니다
+= StorageGRID Grid Manager를 사용하여 객체 데이터를 복원합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

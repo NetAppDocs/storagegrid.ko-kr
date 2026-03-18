@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, hotfix, download 
 summary: 핫픽스를 적용하려면 먼저 핫픽스 파일을 다운로드해야 합니다. 
 ---
-= 핫픽스 파일을 다운로드합니다
+= StorageGRID 핫픽스 파일을 다운로드하십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

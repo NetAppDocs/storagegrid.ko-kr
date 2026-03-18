@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: add extra interface to node, access interface, VM interface 
 summary: VM 노드를 설치한 후 추가 트렁크 또는 액세스 인터페이스를 VM 노드에 추가할 수 있습니다. 추가한 인터페이스는 VLAN 인터페이스 페이지와 HA 그룹 페이지에 표시됩니다. 
 ---
-= VMware: 노드에 트렁크 또는 액세스 인터페이스를 추가합니다
+= StorageGRID의 VMware 노드에 트렁크 또는 액세스 인터페이스 추가
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

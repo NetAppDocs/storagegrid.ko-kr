@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, primary admin node failure 
 summary: '기본 관리 노드 오류에서 복구하려면 특정 작업 세트를 완료해야 합니다. 기본 관리 노드는 그리드에 대한 CMN(Configuration Management Node)\ 서비스를 호스팅합니다.' 
 ---
-= 운영 관리 노드 오류에서 복구
+= 기본 StorageGRID 관리 노드 장애 복구
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

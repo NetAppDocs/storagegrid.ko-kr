@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, hotfix 
 summary: 핫픽스가 시스템에 적용되었는지 확인해야 합니다. 
 ---
-= 핫픽스를 적용하기 전에 시스템 상태를 확인하십시오
+= StorageGRID 핫픽스를 적용하기 전에 시스템 상태를 확인하십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

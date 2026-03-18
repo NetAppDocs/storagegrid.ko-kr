@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, maintenance, maintain, failed storage volumes, failed volumes, cassandra, cassandra rebuild, rebuild cassandra, cassandra database 
 summary: 장애가 발생한 스토리지 볼륨에서 스토리지를 다시 포맷하고 다시 마운트하는 스크립트를 실행하고, 시스템에서 필요하다고 판단할 경우 스토리지 노드에서 Cassandra 데이터베이스를 재구성해야 합니다. 
 ---
-= 장애가 발생한 스토리지 볼륨을 복구하고 Cassandra 데이터베이스를 재구축합니다
+= StorageGRID에서 장애가 발생한 스토리지 볼륨을 복구하고 Cassandra 데이터베이스를 재구축합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

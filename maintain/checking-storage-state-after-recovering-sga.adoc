@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recovery, node recovery, storage state 
 summary: 어플라이언스 스토리지 노드를 복구한 후에는 어플라이언스 스토리지 노드의 원하는 상태가 온라인으로 설정되어 있는지 확인하고 스토리지 노드 서버를 다시 시작할 때마다 기본적으로 온라인 상태가 되도록 해야 합니다. 
 ---
-= 어플라이언스 스토리지 노드를 복구한 후 스토리지 상태를 확인합니다
+= StorageGRID 어플라이언스 스토리지 노드 복구 후 스토리지 상태를 확인합니다.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

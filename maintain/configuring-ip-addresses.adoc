@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: configure ip address, change IP tool, ethernet, dhcp, ha group 
 summary: IP 변경 도구를 사용하여 그리드 노드에 대한 IP 주소를 구성하여 네트워크 구성을 수행할 수 있습니다. 
 ---
-= IP 주소 지침
+= StorageGRID IP 주소 지침
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

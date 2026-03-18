@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recovery, grid node recovery, node recovery 
 summary: 유지보수 절차를 수행하기 전에 장애가 발생한 그리드 노드를 복구하는 데 필요한 자료가 있는지 확인해야 합니다. 
 ---
-= 그리드 노드 복구를 위해 필요한 자료를 수집합니다
+= StorageGRID 그리드 노드 복구에 필요한 자료를 모으십시오.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

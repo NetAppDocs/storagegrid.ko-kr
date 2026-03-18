@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, primary admin node, replace primary admin node, replacing primary admin node 
 summary: 교체 노드는 StorageGRID 시스템의 기본 관리 노드로 구성해야 합니다. 
 ---
-= 대체 운영 관리자 노드를 구성합니다
+= StorageGRID에서 교체 운영 관리 노드 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

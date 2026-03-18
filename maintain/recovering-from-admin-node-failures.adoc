@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, admin node failure, workflow 
 summary: 관리 노드의 복구 프로세스는 기본 관리 노드인지 또는 비기본 관리 노드인지에 따라 달라집니다. 
 ---
-= 기본 또는 비기본 관리자 노드 복구
+= StorageGRID의 운영 또는 비운영 관리 노드 복구
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

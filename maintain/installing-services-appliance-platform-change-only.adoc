@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover services appliance, recover appliance, recovering appliance, recovering services appliance, install services appliance, installing services appliance, services appliance 
 summary: 'VMware 또는 Linux 호스트에서 호스팅되는 장애가 발생한 그리드 노드를 복구하는 경우 교체 노드에 대해 서비스 어플라이언스를 사용하는 경우, 먼저 장애가 발생한 노드와 동일한 노드 이름(시스템 이름)을 사용하여 새 어플라이언스 하드웨어를 설치해야 합니다.' 
 ---
-= 서비스 어플라이언스 설치(플랫폼 변경 전용)
+= StorageGRID 서비스 어플라이언스 설치(플랫폼 변경만)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

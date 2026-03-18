@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, service error state, error, error state 
 summary: 서비스가 오류 상태로 전환되면 서비스를 다시 시작하십시오. 
 ---
-= 오류 상태의 서비스
+= StorageGRID의 오류 상태 서비스
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
