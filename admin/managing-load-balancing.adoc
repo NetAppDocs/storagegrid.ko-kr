@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: manage load balancing, balance workload, client ingest, client retrieval, distribute connection 
 summary: 로드 밸런싱을 사용하여 S3 클라이언트에서 수집 및 검색 워크로드를 처리할 수 있습니다. 
 ---
-= 로드 균형 조정에 대한 고려 사항
+= StorageGRID 로드 밸런싱에 대해 알아보십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

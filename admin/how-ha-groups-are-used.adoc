@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ha groups, high availability group 
 summary: '고가용성(HA) 그룹을 사용하여 오브젝트 데이터 및 관리용으로 StorageGRID에 대한 고가용성 연결을 제공할 수 있습니다.' 
 ---
-= HA 그룹은 어떻게 사용됩니까?
+= StorageGRID HA 그룹이 고가용성을 제공하는 방법
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

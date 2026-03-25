@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: global S3 API certificate 
 summary: 스토리지 노드에 대한 S3 클라이언트 연결이나 로드 밸런서 끝점에 사용되는 서버 인증서를 교체하거나 복원할 수 있습니다. 교체 사용자 지정 서버 인증서는 조직에 따라 다릅니다. 
 ---
-= S3 API 인증서를 구성합니다
+= StorageGRID에서 S3 API 인증서 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

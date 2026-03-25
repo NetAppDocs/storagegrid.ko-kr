@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: increase metadata reserved space setting 
 summary: 스토리지 노드가 RAM 및 사용 가능한 공간에 대한 특정 요구 사항을 충족할 경우 메타데이터 예약 공간 시스템 설정을 늘릴 수 있습니다. 
 ---
-= 메타데이터 예약 공간 증가 설정을 사용합니다
+= StorageGRID에서 메타데이터 예약 공간 설정 증가
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

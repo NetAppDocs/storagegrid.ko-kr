@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid ca certificate, copy certificate 
 summary: 'StorageGRID는 내부 인증 기관 \(CA\)을 사용하여 내부 트래픽을 보호합니다. 인증서를 업로드해도 이 인증서는 변경되지 않습니다.' 
 ---
-= Grid CA 인증서를 복사합니다
+= StorageGRID Grid CA 인증서를 복사합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

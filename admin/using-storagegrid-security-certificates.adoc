@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: security certificates, grid CA certificate, types of certificates 
 summary: 보안 인증서는 StorageGRID 구성 요소와 StorageGRID 구성 요소 및 외부 시스템 간에 안전하고 신뢰할 수 있는 연결을 만드는 데 사용되는 작은 데이터 파일입니다. 
 ---
-= 보안 인증서를 관리합니다
+= StorageGRID에서 보안 인증서 관리
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

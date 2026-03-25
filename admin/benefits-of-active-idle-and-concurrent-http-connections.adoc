@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: active http connection benefits, idle http connection benefits, concurrent http connection benefits 
 summary: HTTP 연결을 구성하는 방법은 StorageGRID 시스템의 성능에 영향을 줄 수 있습니다. 구성은 HTTP 연결이 활성 상태인지 유휴 상태인지 또는 여러 개의 동시 연결이 있는지 여부에 따라 달라집니다. 
 ---
-= 활성, 유휴 및 동시 HTTP 연결의 이점
+= StorageGRID의 활성, 유휴 및 동시 HTTP 연결의 이점
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

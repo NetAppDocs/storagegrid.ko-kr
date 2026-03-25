@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Key Management Interoperability Protocol, kmip version, kms requirements, use key management server 
 summary: '외부 키 관리 서버 \(KMS\)를 구성하기 전에 고려 사항 및 요구 사항을 이해해야 합니다.' 
 ---
-= 키 관리 서버 사용에 대한 고려 사항 및 요구 사항
+= StorageGRID 키 관리 서버 요구 사항 및 고려 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

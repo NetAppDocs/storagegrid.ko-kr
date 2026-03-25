@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Grid Management API,  API operations 
 summary: Grid Management API는 사용 가능한 API 작업을 다음 섹션으로 구성합니다. 
 ---
-= Grid Management API 작업
+= StorageGRID의 Grid Management API 작업
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

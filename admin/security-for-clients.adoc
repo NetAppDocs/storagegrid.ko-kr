@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: security, S3, client application, TLS 
 summary: StorageGRID 테넌트 계정은 S3 클라이언트 애플리케이션을 사용하여 오브젝트 데이터를 StorageGRID에 저장합니다. 클라이언트 응용 프로그램에 대해 구현된 보안 조치를 검토해야 합니다. 
 ---
-= S3 클라이언트에 대한 보안
+= StorageGRID의 S3 클라이언트 보안
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: manage high availability group, ha groups, admin node, gateway node, active interface, backup interface, priority order 
 summary: 'HA\(High Availability\) 그룹은 S3 클라이언트에 대한 고가용성 데이터 연결과 Grid Manager 및 Tenant Manager에 대한 고가용성 연결을 제공합니다.' 
 ---
-= 고가용성(HA) 그룹이란?
+= StorageGRID 고가용성 그룹에 대해 알아보세요
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: add kms, key management server 
 summary: StorageGRID 키 관리 서버 마법사를 사용하여 각 KMS 또는 KMS 클러스터를 추가합니다. 
 ---
-= KMS(키 관리 서버) 추가
+= StorageGRID에 키 관리 서버 추가
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

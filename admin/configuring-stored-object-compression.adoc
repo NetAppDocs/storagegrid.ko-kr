@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object compression, compress stored objects 
 summary: 오브젝트 압축을 활성화하여 StorageGRID에 저장된 오브젝트 크기를 줄일 수 있으므로 오브젝트가 더 적은 스토리지를 소비하도록 할 수 있습니다. 
 ---
-= 저장된 객체를 압축합니다
+= StorageGRID에 저장된 객체 압축
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

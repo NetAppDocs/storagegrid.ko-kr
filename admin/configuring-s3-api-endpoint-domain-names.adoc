@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 endpoint domain names, virtual-hosted-style requests 
 summary: S3 가상 호스팅 스타일 요청을 지원하려면 그리드 관리자를 사용하여 S3 클라이언트가 연결하는 S3 엔드 포인트 도메인 이름 목록을 구성해야 합니다. 
 ---
-= S3 끝점 도메인 이름을 구성합니다
+= StorageGRID에서 S3 엔드포인트 도메인 이름 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

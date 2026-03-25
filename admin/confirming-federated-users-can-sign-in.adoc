@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: sso configuration 
 summary: 'SSO(Single Sign-On)\(SSO\)를 활성화하기 전에 하나 이상의 통합 사용자가 Grid Manager에 로그인하고 기존 테넌트 계정에 대한 테넌트 관리자에 로그인할 수 있는지 확인해야 합니다.' 
 ---
-= 페더레이션 사용자가 로그인할 수 있는지 확인합니다
+= 연합 사용자가 StorageGRID에 로그인할 수 있는지 확인합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: ha groups, best practices, high availability group options 
 summary: 다음 다이어그램에서는 HA 그룹을 구성할 수 있는 다양한 방법의 예를 제공합니다. 각 옵션에는 장단점이 있습니다. 
 ---
-= HA 그룹에 대한 구성 옵션
+= StorageGRID 고가용성 그룹의 구성 옵션
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-다음 다이어그램에서는 HA 그룹을 구성할 수 있는 다양한 방법의 예를 제공합니다. 각 옵션에는 장단점이 있습니다.
+다음 다이어그램은 고가용성(HA) 그룹을 구성하는 다양한 방법을 보여주는 예시입니다. 각 옵션에는 장점과 단점이 있습니다.
 
 다이어그램에서 파란색은 HA 그룹의 기본 인터페이스를 나타내고 노란색은 HA 그룹의 백업 인터페이스를 나타냅니다.
 

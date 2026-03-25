@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network traffic, traffic classification policy, monitor traffic 
 summary: 트래픽 분류 정책 페이지에서 사용할 수 있는 그래프를 보고 네트워크 트래픽을 모니터링할 수 있습니다. 
 ---
-= 네트워크 트래픽 메트릭을 확인합니다
+= StorageGRID에서 네트워크 트래픽 메트릭 보기
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

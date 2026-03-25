@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ip addresses for client, how to connect to storagegrid, ports, vip 
 summary: '오브젝트를 저장하거나 검색하기 위해 S3 클라이언트 애플리케이션은 모든 관리 노드 및 게이트웨이 노드에 포함된 로드 밸런서 서비스 또는 모든 스토리지 노드에 포함된 LDR(Local Distribution Router) 서비스에 연결됩니다.' 
 ---
-= 요약: 클라이언트 연결을 위한 IP 주소 및 포트
+= StorageGRID 클라이언트 연결을 위한 IP 주소 및 포트
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

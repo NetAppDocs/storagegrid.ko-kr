@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, cross-grid replication, account clone, cgr, disaster recovery 
 summary: 그리드 페더레이션을 사용하여 테넌트를 클론 복제하고 재해 복구를 위해 두 StorageGRID 시스템 간에 개체를 복제할 수 있습니다. 
 ---
-= 그리드 페더레이션은 무엇입니까?
+= StorageGRID 그리드 연합에 대해 알아보세요
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

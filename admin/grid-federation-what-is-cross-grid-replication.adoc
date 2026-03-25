@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cross-grid replication, cgr, disaster recovery, grid federation 
 summary: 그리드 간 복제는 그리드 페더레이션 연결에 연결된 두 StorageGRID 시스템에서 선택한 S3 버킷 간에 오브젝트를 자동으로 복제하는 것입니다. 교차 그리드 복제에는 계정 클론이 필요합니다. 
 ---
-= 교차 그리드 복제란 무엇입니까?
+= StorageGRID의 교차 그리드 복제에 대해 알아보십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

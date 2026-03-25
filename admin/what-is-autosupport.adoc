@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: autosupport, technical support, storagegrid health, system status, Active IQ 
 summary: AutoSupport 기능을 사용하면 StorageGRID에서 상태 패키지를 NetApp 기술 지원으로 보낼 수 있습니다. 
 ---
-= AutoSupport란 무엇입니까?
+= StorageGRID의 AutoSupport에 대해 알아보기
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure high availability group, node priority order, failover 
 summary: '고가용성 \(HA\) 그룹을 구성하여 관리 노드 또는 게이트웨이 노드의 서비스에 대한 고가용성 액세스를 제공할 수 있습니다.' 
 ---
-= 고가용성 그룹을 구성합니다
+= StorageGRID에서 고가용성 그룹 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

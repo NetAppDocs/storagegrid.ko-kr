@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: use the Grid Management API, private API 
 summary: Grid Manager 사용자 인터페이스 대신 Grid Management REST API를 사용하여 시스템 관리 작업을 수행할 수 있습니다. 예를 들어, API를 사용하여 작업을 자동화하거나 사용자와 같은 여러 엔터티를 더 빠르게 생성할 수 있습니다. 
 ---
-= Grid Management API를 사용합니다
+= StorageGRID 그리드 관리 API를 사용하십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

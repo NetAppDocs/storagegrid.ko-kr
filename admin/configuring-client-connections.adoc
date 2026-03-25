@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 connection, connect to storagegrid, s3 setup wizard 
 summary: 그리드 관리자는 S3 클라이언트 애플리케이션이 StorageGRID 시스템에 연결하여 데이터를 저장 및 검색하는 방법을 제어하는 구성 옵션을 관리합니다. 
 ---
-= S3 클라이언트 연결을 구성합니다
+= StorageGRID에 대한 S3 클라이언트 연결을 구성합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: autosupport, how to send asup message 
 summary: StorageGRID 시스템 관련 문제 해결에 대한 기술 지원을 지원하기 위해 AutoSupport 패키지를 수동으로 전송할 수 있습니다. 
 ---
-= AutoSupport 패키지를 수동으로 트리거합니다
+= StorageGRID에서 AutoSupport 패키지를 수동으로 트리거합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

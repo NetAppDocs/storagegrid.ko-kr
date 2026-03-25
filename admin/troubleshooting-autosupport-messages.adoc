@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: troubleshoot autosupport, asup package 
 summary: AutoSupport 패키지 전송 시도가 실패하면 StorageGRID 시스템은 AutoSupport 패키지 유형에 따라 다른 작업을 수행합니다. 지원\>툴\>AutoSupport\> 결과를 선택하여 AutoSupport 패키지의 상태를 확인할 수 있습니다. 
 ---
-= AutoSupport 패키지 문제 해결
+= StorageGRID AutoSupport 패키지 문제 해결
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

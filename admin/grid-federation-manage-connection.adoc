@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, edit connection, remove connection, rotate certificates 
 summary: StorageGRID 시스템 간의 그리드 페더레이션 연결 관리에는 연결 세부 정보 편집, 인증서 회전, 테넌트 권한 제거 및 사용되지 않는 연결 제거가 포함됩니다. 
 ---
-= 그리드 페더레이션 연결을 관리합니다
+= StorageGRID 그리드 페더레이션 연결 관리
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: relying party trust, active directory, ad fs, single sign on, sso 
 summary: 'AD FS(Active Directory Federation Services)를 사용하여 시스템의 각 관리 노드에 대한 기반 당사자 신뢰를 만들어야 합니다. PowerShell 명령을 사용하거나, StorageGRID에서 SAML 메타데이터를 가져오거나, 데이터를 수동으로 입력하여 의존할 수 있는 회사 트러스트를 만들 수 있습니다.' 
 ---
-= AD FS에서 기반 당사자 트러스트를 생성합니다
+= AD FS에서 StorageGRID에 대한 신뢰 당사자 트러스트 생성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

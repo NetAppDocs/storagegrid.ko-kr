@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: client certificates, prometheus 
 summary: 클라이언트 인증서를 사용하면 권한이 있는 외부 클라이언트가 StorageGRID Prometheus 데이터베이스에 액세스할 수 있으므로 외부 도구에서 StorageGRID를 모니터링하는 안전한 방법이 제공됩니다. 
 ---
-= 클라이언트 인증서를 구성합니다
+= StorageGRID에서 클라이언트 인증서 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

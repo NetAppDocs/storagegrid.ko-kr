@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: platform services message delivery 
 summary: 모든 플랫폼 서비스 작업은 사이트별로 수행됩니다. 
 ---
-= 플랫폼 서비스 메시지를 사이트별로 전달
+= StorageGRID 플랫폼 서비스 메시지의 사이트별 전달
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

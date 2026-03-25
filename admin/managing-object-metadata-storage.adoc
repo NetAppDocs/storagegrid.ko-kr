@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object metadata, metadata capacity, best practices 
 summary: StorageGRID 시스템의 오브젝트 메타데이터 용량은 해당 시스템에 저장할 수 있는 최대 오브젝트 수를 제어합니다. StorageGRID 시스템에 새 개체를 저장할 충분한 공간이 있는지 확인하려면 StorageGRID에서 개체 메타데이터를 저장하는 위치와 방법을 알아야 합니다. 
 ---
-= 오브젝트 메타데이터 스토리지 관리
+= StorageGRID에서 객체 메타데이터 스토리지 관리
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

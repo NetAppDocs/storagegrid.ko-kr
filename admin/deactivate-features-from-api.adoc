@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: deactivate features from api 
 summary: 그리드 관리 API를 사용하여 StorageGRID 시스템의 특정 기능을 완전히 비활성화할 수 있습니다. 기능이 비활성화되면 해당 기능과 관련된 작업을 수행할 수 있는 권한을 아무도 할당할 수 없습니다. 
 ---
-= API를 사용하여 기능을 비활성화합니다
+= API를 사용하여 StorageGRID 기능을 비활성화합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

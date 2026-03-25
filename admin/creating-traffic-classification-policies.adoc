@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: traffic classification, network traffic, traffic limits, policy 
 summary: 버킷, 테넌트, IP 서브넷 또는 로드 밸런서 끝점별로 네트워크 트래픽을 모니터링하고 선택적으로 제한하려는 경우 트래픽 분류 정책을 생성합니다. 필요에 따라 대역폭, 동시 요청 수 또는 요청 속도를 기준으로 정책에 대한 제한을 설정할 수 있습니다. 
 ---
-= 트래픽 분류 정책을 생성합니다
+= StorageGRID 트래픽 분류 정책 생성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

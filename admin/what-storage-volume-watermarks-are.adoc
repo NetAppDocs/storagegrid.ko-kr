@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what are storage volume watermarks, storage volume soft read-only watermark, storage volume hard read-only watermark, storage volume read-write watermark 
 summary: StorageGRID는 세 개의 스토리지 볼륨 워터마크를 사용하여 공간이 매우 부족하기 전에 스토리지 노드가 읽기 전용 상태로 안전하게 전환되도록 하고 읽기 전용 상태로 전환된 스토리지 노드가 다시 읽기-쓰기로 전환되도록 합니다. 
 ---
-= 스토리지 볼륨 워터마크란 무엇입니까?
+= StorageGRID의 스토리지 볼륨 워터마크에 대해 알아보십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

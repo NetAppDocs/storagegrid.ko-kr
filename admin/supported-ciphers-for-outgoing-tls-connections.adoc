@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: tls cipher suites, transport layer security connections 
 summary: 'StorageGRID 시스템은 ID 페더레이션 및 클라우드 스토리지 풀에 사용되는 외부 시스템에 대한 TLS(Transport Layer Security) 연결을 위한 제한된 암호화 그룹 세트를 지원합니다.' 
 ---
-= 발신 TLS 연결에 지원되는 암호
+= StorageGRID의 발신 TLS 연결에 지원되는 암호
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: firewall, privileged IP address, untrusted client network, configure firewall controls, monitor 
 summary: 특정 내부 StorageGRID 포트에 대한 네트워크 액세스를 구성할 수 있습니다. 
 ---
-= 내부 방화벽을 구성합니다
+= StorageGRID 내부 방화벽을 구성합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

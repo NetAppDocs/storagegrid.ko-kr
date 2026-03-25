@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: security, browser inactivity timeout, management API stack track 
 summary: 인터페이스 보안 설정을 사용하면 사용자가 지정된 시간 이상 비활성 상태인 경우 로그아웃할지 여부 및 스택 추적이 API 오류 응답에 포함되는지 여부를 제어할 수 있습니다. 
 ---
-= 인터페이스 보안 설정을 변경합니다
+= StorageGRID 인터페이스 보안 설정을 변경합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

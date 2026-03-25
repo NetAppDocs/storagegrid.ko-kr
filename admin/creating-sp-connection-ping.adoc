@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: service provider, sp connection, pingfederate, ping, single sign on, sso 
 summary: 'PingFederate를 사용하여 시스템의 각 관리 노드에 대한 서비스 공급자(SP) 연결을 만듭니다. 프로세스 속도를 높이기 위해 StorageGRID에서 SAML 메타데이터를 가져옵니다.' 
 ---
-= PingFederate에서 서비스 공급자(SP) 연결을 생성합니다
+= StorageGRID에 대한 PingFederate에서 서비스 공급자 연결 생성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

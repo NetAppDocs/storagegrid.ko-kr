@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: kms cluster, copy kms encryption key 
 summary: '각 키 관리 서버 \(KMS\) 또는 KMS 클러스터는 단일 사이트 또는 사이트 그룹의 모든 어플라이언스 노드에 암호화 키를 제공합니다. 사이트에 사용되는 KMS를 변경해야 하는 경우 암호화 키를 한 KMS에서 다른 KMS로 복사해야 할 수 있습니다.' 
 ---
-= 사이트의 KMS를 변경할 때의 고려 사항
+= StorageGRID 사이트의 KMS 변경 시 고려 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

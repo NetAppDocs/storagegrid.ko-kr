@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: manage kms, manage key management server, view kms, view key management server, edit kms, edit key management server, view encrypted nodes, remove kms, remove key management server 
 summary: '키 관리 서버\(KMS\)를 관리하려면 세부 정보 보기 또는 편집, 인증서 관리, 암호화된 노드 보기, KMS 제거 등이 필요합니다.' 
 ---
-= KMS를 관리합니다
+= StorageGRID에서 키 관리 서버 관리
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

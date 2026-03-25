@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: use sandbox mode for sso, how to test single sign-on 
 summary: 'SSO 구성 마법사를 따라 샌드박스 모드로 들어가서 모든 StorageGRID 사용자에 대해 SSO(단일 로그인)를 활성화하기 전에 SSO를 구성하고 테스트할 수 있습니다.  SSO가 활성화된 후 구성을 변경하거나 다시 테스트해야 할 때 샌드박스 모드로 돌아갈 수 있습니다.' 
 ---
-= SSO 구성
+= StorageGRID에서 SSO 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

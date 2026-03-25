@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: primary admin node, configuration management node 
 summary: 기본 관리자 노드는 비기본 관리자 노드보다 더 많은 기능을 제공합니다. 예를 들어, 일부 유지 보수 절차는 기본 관리자 노드를 사용하여 수행해야 합니다. 
 ---
-= 기본 관리 노드를 식별합니다
+= StorageGRID에서 기본 관리 노드 식별
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

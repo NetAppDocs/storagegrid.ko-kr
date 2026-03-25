@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object segmentation, multipart upload 
 summary: 객체 분할은 객체를 더 작은 고정 크기 객체 컬렉션으로 분할하여 큰 객체에 대한 스토리지 및 리소스 사용을 최적화하는 프로세스입니다. S3 다중 파트 업로드는 또한 각 파트를 나타내는 오브젝트와 함께 분할된 오브젝트를 만듭니다. 
 ---
-= 객체 분할이란 무엇입니까?
+= StorageGRID의 오브젝트 세그먼트화에 대해 알아보십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid manager, sign in, log in 
 summary: '지원되는 웹 브라우저의 주소 표시줄에 정규화된 도메인 이름\(FQDN\) 또는 관리 노드의 IP 주소를 입력하여 그리드 관리자 로그인 페이지에 액세스합니다.' 
 ---
-= Grid Manager에 로그인합니다
+= StorageGRID 그리드 관리자에 Sign in
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

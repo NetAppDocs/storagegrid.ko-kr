@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, manage tenant, use grid federation permission, remove permission, cross grid replication 
 summary: S3 테넌트 계정에서 두 StorageGRID 시스템 간의 그리드 페더레이션 연결을 사용하도록 허용할 수 있습니다. 테넌트가 연결을 사용할 수 있는 경우 테넌트 세부 정보를 편집하거나 연결을 사용할 테넌트 권한을 영구적으로 제거하려면 특별한 단계가 필요합니다. 
 ---
-= 그리드 페더레이션을 위해 허용된 테넌트를 관리합니다
+= StorageGRID 그리드 페더레이션에 허용된 테넌트를 관리합니다.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

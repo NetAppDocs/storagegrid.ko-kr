@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: provisioning passphrase, change passphrase 
 summary: 이 절차를 사용하여 StorageGRID 프로비저닝 암호를 변경합니다.  암호는 복구, 확장 및 유지 관리 절차에 필요합니다.  StorageGRID 시스템의 그리드 토폴로지 정보, 그리드 노드 콘솔 비밀번호, 암호화 키가 포함된 복구 패키지 백업을 다운로드하려면 암호도 필요합니다. 
 ---
-= 프로비저닝 암호를 변경합니다
+= StorageGRID 프로비저닝 암호를 변경하세요
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: admin group permissions 
 summary: 관리자 사용자 그룹을 만들 때 그리드 관리자의 특정 기능에 대한 액세스를 제어하는 권한을 하나 이상 선택합니다. 그런 다음 각 사용자를 이러한 관리 그룹 중 하나 이상에 할당하여 사용자가 수행할 수 있는 작업을 결정할 수 있습니다. 
 ---
-= 관리자 그룹 권한
+= StorageGRID의 관리 그룹 권한
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

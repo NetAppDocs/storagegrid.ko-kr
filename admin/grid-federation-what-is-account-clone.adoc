@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: account clone, tenant replication, disaster recovery, grid federation 
 summary: 계정 클론은 테넌트 계정, 테넌트 그룹, 테넌트 사용자의 자동 복제이며, 필요에 따라 그리드 페더레이션 연결에서 StorageGRID 시스템 간의 S3 액세스 키 
 ---
-= 계정 클론이란 무엇입니까?
+= StorageGRID의 계정 복제에 대해 알아보십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

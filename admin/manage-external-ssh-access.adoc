@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: security, external, ssh, access 
 summary: 외부 SSH 액세스를 차단하거나 허용하여 SSH 보호를 관리합니다. 
 ---
-= 외부 SSH 액세스 관리
+= StorageGRID에서 외부 SSH 액세스 관리
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

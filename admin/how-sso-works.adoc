@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: single sign on, sso, SAML 
 summary: 'SSO(Single Sign-On)가 활성화된 경우 사용자는 조직에서 구현한 SSO 로그인 프로세스를 통해 자격 증명이 승인된 경우에만 Grid Manager, Tenant Manager, Grid Management API 또는 Tenant Management API에 액세스할 수 있습니다.  로컬 사용자는 StorageGRID 에 로그인할 수 없습니다.' 
 ---
-= SSO 작동 방식
+= StorageGRID SSO에 대해 알아보십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

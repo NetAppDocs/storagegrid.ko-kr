@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage node is full 
 summary: 스토리지 노드가 용량에 도달하면 새 스토리지를 추가하여 StorageGRID 시스템을 확장해야 합니다. 스토리지 볼륨 추가, 스토리지 확장 쉘프 추가, 스토리지 노드 추가의 세 가지 옵션을 사용할 수 있습니다. 
 ---
-= 전체 스토리지 노드 관리
+= StorageGRID에서 전체 스토리지 노드 관리
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

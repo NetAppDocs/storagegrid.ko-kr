@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3, S3 setup wizard 
 summary: S3 설정 마법사를 사용하여 StorageGRID를 S3 애플리케이션의 오브젝트 스토리지 시스템으로 구성할 수 있습니다. 
 ---
-= S3 설정 마법사 고려 사항 및 요구 사항을 사용합니다
+= StorageGRID S3 setup wizard 고려 사항 및 요구 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cross-grid replication, cloudmirror replication 
 summary: 그리드 페더레이션을 사용하기 시작할 때 교차 그리드 복제와 StorageGRID CloudMirror 복제 서비스의 유사점과 차이점을 검토하십시오. 
 ---
-= 교차 그리드 복제와 CloudMirror 복제를 비교합니다
+= StorageGRID에서 교차 그리드 복제와 CloudMirror 복제 비교
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
