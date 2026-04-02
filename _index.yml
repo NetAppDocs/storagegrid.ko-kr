@@ -11,10 +11,8 @@ indexpage:
   tiles:
   - title: 시작하십시오
     links:
-    - title: 릴리스 정보
-      url: "/release-notes/index.html"
     - title: 새로운 소식
-      url: "/upgrade/whats-new.html"
+      url: "/release-notes/whats-new.html"
     - title: StorageGRID에 대해 자세히 알아보십시오
       url: "/primer/index.html"
     - title: 네트워킹 지침

@@ -32,7 +32,7 @@ indexpage:
   - title: 업그레이드 또는 핫픽스
     links:
     - title: 새로운 소식
-      url: "../upgrade/whats-new.html"
+      url: "../release-notes/whats-new.html"
     - title: 예상 완료 시간
       url: "../upgrade/estimating-time-to-complete-upgrade.html"
     - title: 업그레이드 중 시스템에 미치는 영향

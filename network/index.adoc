@@ -56,5 +56,5 @@ StorageGRID 시스템에 대한 네트워킹을 구성하려면 이더넷 스위
 
 .StorageGRID 소프트웨어를 구성하고 관리합니다
 * link:../admin/index.html["StorageGRID 관리"]
-* link:../release-notes/index.html["릴리스 정보"]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["릴리스 정보"^]. 릴리스 노트에 액세스하려면 NetApp 계정으로 로그인하거나 계정을 생성해야 합니다.
 

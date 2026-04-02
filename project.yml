@@ -30,7 +30,15 @@ sidebar:
   - title: StorageGRID 어플라이언스
     url: "/swnodes/storagegrid-hardware.html"
   - title: 릴리스 정보
-    url: "/release-notes/index.html"
+    entries:
+    - title: StorageGRID 12.0의 새로운 기능
+      url: "/release-notes/whats-new.html"
+    - title: 제거되었거나 더 이상 사용되지 않는 기능
+      url: "/release-notes/removed-or-deprecated-features.html"
+    - title: Grid Management API 변경
+      url: "/release-notes/changes-to-grid-management-api.html"
+    - title: 테넌트 관리 API의 변경 사항
+      url: "/release-notes/changes-to-tenant-management-api.html"
   - title: 시작하십시오
     url: "/landing-get-started/index.html"
     entries:
