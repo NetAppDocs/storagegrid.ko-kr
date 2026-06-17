@@ -2,7 +2,7 @@
 permalink: s3/conflicting-client-requests.html 
 sidebar: sidebar 
 keywords: conflicting client requests 
-summary: '동일한 키에 쓰는 두 클라이언트 등의 충돌하는 클라이언트 요청은 "최신 성공" 기준으로 해결됩니다.' 
+summary: 두 클라이언트가 동일한 키에 쓰기를 시도하는 등 클라이언트 요청이 충돌하는 경우, 최신 요청이 우선시되는 방식으로 해결됩니다. 
 ---
 = StorageGRID S3 REST API가 충돌하는 클라이언트 요청을 해결하는 방법
 :allow-uri-read: 

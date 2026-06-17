@@ -2,7 +2,7 @@
 permalink: ilm/data-protection-options-for-ingest.html 
 sidebar: sidebar 
 keywords: ingest options, balanced ingest, strict ingest, dual-commit ingest 
-summary: ILM 규칙을 생성할 때 수집 시 개체를 보호하기 위한 세 가지 옵션 중 하나인 이중 커밋, Strict 또는 균형 을 지정합니다. 
+summary: ILM 규칙을 생성할 때 데이터 수집 시 객체 보호 옵션으로 이중 커밋, 엄격 또는 균형의 세 가지 중 하나를 지정합니다. 
 ---
 = StorageGRID의 ILM 수집 옵션
 :allow-uri-read: 

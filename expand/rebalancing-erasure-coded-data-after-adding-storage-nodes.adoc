@@ -2,7 +2,7 @@
 permalink: expand/rebalancing-erasure-coded-data-after-adding-storage-nodes.html 
 sidebar: sidebar 
 keywords: erasure coding, EC, rebalancing, site rebalance procedure, StorageGRID 
-summary: 스토리지 노드를 추가한 후 삭제 코딩 재조정 절차를 사용하여 기존 및 새 스토리지 노드 간에 삭제 코딩 조각을 재배포할 수 있습니다. 
+summary: 스토리지 노드를 추가한 후에는 소거 코딩 재분배 절차를 사용하여 소거 코딩된 조각을 기존 스토리지 노드와 새 스토리지 노드 간에 재분배할 수 있습니다. 
 ---
 = StorageGRID 시스템에 노드를 추가한 후 이레이저 코딩된 데이터의 균형을 재조정하세요.
 :allow-uri-read: 

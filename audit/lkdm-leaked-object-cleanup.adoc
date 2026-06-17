@@ -2,7 +2,7 @@
 permalink: audit/lkdm-leaked-object-cleanup.html 
 sidebar: sidebar 
 keywords: storagegrid, audit, message, LKDM, Leaked Object Cleanup 
-summary:  
+summary: LKDM 감사 메시지는 누출된 청크가 정리되거나 삭제되었을 때 생성됩니다. 
 ---
 = StorageGRID의 유출된 객체 정리에 대한 LKDM 감사 메시지
 :allow-uri-read: 

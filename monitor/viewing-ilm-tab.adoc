@@ -2,7 +2,7 @@
 permalink: monitor/viewing-ilm-tab.html 
 sidebar: sidebar 
 keywords: ilm tab 
-summary: 'ILM 탭은 ILM(정보 수명 주기 관리) 작업에 대한 정보를 제공합니다.' 
+summary: 'ILM 탭은 ILM(정보 라이프사이클 관리) 작업에 대한 정보를 제공합니다.' 
 ---
 = StorageGRID ILM 탭을 참조하십시오
 :allow-uri-read: 

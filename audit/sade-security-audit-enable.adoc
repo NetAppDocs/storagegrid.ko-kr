@@ -2,7 +2,7 @@
 permalink: audit/sade-security-audit-enable.html 
 sidebar: sidebar 
 keywords: storagegrid, audit, message, SADE, Security Audit Enable 
-summary: '이 메시지는 발신 서비스 \(노드 ID\)에서 감사 메시지 로깅을 복원했으며 감사 메시지가 다시 수집되고 전달되었음을 나타냅니다.' 
+summary: '이 메시지는 발신 서비스(노드 ID)에서 감사 메시지 로깅이 복원되었음을 나타냅니다. StorageGRID가 이제 감사 메시지를 다시 수집하고 전달합니다.' 
 ---
 = StorageGRID의 보안 감사 활성화에 대한 SADE 감사 메시지
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: '이 메시지는 발신 서비스 \(노드 ID\)에서 감사 메시지
 
 
 [role="lead"]
-이 메시지는 발신 서비스(노드 ID)가 감사 메시지 로깅을 복원했으며 감사 메시지가 다시 수집 및 전달되고 있음을 나타냅니다.
+이 메시지는 발신 서비스(노드 ID)에서 감사 메시지 로깅이 복원되었음을 나타냅니다. StorageGRID가 이제 감사 메시지를 다시 수집하고 전달합니다.
 
 [cols="1a,1a,4a"]
 |===

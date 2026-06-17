@@ -2,7 +2,7 @@
 permalink: admin/managing-tenants.html 
 sidebar: sidebar 
 keywords: manage tenants, tenant account, what is a tenant 
-summary: '테넌트 계정을 사용하면 S3(Simple Storage Service) REST API를 사용하여 StorageGRID 시스템에 객체를 저장하고 검색할 수 있습니다.' 
+summary: '테넌트 계정을 사용하면 S3(Simple Storage Service) REST API를 사용하여 StorageGRID 시스템에 오브젝트를 저장하고 검색할 수 있습니다.' 
 ---
 = StorageGRID의 테넌트 계정
 :allow-uri-read: 
