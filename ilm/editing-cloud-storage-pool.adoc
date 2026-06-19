@@ -2,7 +2,7 @@
 permalink: ilm/editing-cloud-storage-pool.html 
 sidebar: sidebar 
 keywords: edit cloud storage pool 
-summary: 클라우드 스토리지 풀의 이름, 서비스 엔드포인트 또는 기타 세부 정보를 변경하기 위해 편집할 수 있지만, 클라우드 스토리지 풀의 S3 버킷이나 Azure 컨테이너는 변경할 수 없습니다. 
+summary: 클라우드 스토리지 풀을 편집하여 이름, 서비스 엔드포인트 또는 기타 세부 정보를 변경할 수 있습니다. 하지만 클라우드 스토리지 풀에 연결된 S3 버킷이나 Azure 컨테이너는 변경할 수 없습니다. 
 ---
 = StorageGRID에서 클라우드 스토리지 풀 편집
 :allow-uri-read: 

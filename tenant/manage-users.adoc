@@ -2,7 +2,7 @@
 permalink: tenant/manage-users.html 
 sidebar: sidebar 
 keywords: how to create local tenant users, manage users 
-summary: '로컬 사용자를 생성하고 로컬 그룹에 할당하여 해당 사용자가 액세스할 수 있는 기능을 지정할 수 있습니다. 테넌트 관리자에는 미리 정의된 로컬 사용자 하나가 포함되어 있으며, 이름은 `root`입니다. 로컬 사용자를 추가하거나 제거할 수는 있지만, 루트 사용자는 제거할 수 없습니다.' 
+summary: 로컬 사용자를 생성하고 로컬 그룹에 할당하여 해당 사용자가 액세스할 수 있는 기능을 지정할 수 있습니다. 테넌트 관리자에는 root라는 이름의 사전 정의된 로컬 사용자가 하나 포함되어 있습니다. 로컬 사용자는 추가 및 삭제할 수 있지만, 루트 사용자는 삭제할 수 없습니다. 
 ---
 = StorageGRID 테넌트 사용자 관리
 :allow-uri-read: 
