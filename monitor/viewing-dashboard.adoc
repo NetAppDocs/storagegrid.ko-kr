@@ -18,7 +18,7 @@ TIP: Grid Manager에 표시된 스토리지 값의 단위를 변경하려면 Gri
 
 대시보드는 시스템 구성에 따라 다를 수 있습니다.
 
-image::../media/grid_manager_dashboard.png[Grid Manager 대시보드]
+image:grid_manager_dashboard.png["Grid Manager 대시보드"]
 
 
 
@@ -69,7 +69,7 @@ ILM을 참조하십시오
 노드별 CPU, 데이터 및 메모리 사용량 노드별 S3 작업 노드-사이트 배포
 
 |===
-일부 카드는 보다 쉽게 볼 수 있도록 최대화할 수 있습니다. 카드의 오른쪽 상단 모서리에 있는 최대화 아이콘을 선택합니다image:../media/icon_dashboard_card_maximize.png["최대화 아이콘"]. 최대화된 카드를 닫으려면 최소화 아이콘을 image:../media/icon_dashboard_card_minimize.png["최소화 아이콘"] 선택하거나 * 닫기 * 를 선택합니다.
+일부 카드는 더 쉽게 볼 수 있도록 최대화할 수 있습니다. 카드 오른쪽 상단에 있는 최대화 아이콘 image:icon_dashboard_card_maximize.png["최대화 아이콘"]을 선택합니다. 최대화된 카드를 닫으려면 최소화 아이콘 image:icon_dashboard_card_minimize.png["최소화 아이콘"]을 선택하거나 *닫기*를 선택합니다.
 
 
 
@@ -91,7 +91,7 @@ NOTE: 루트 액세스 이외의 다른 권한이 있는 경우 활성 대시보
 
 대시보드를 관리하려면 * Actions * > * Manage Dashboards * 를 선택합니다.
 
-image::../media/dashboard_manage.png[대시보드를 관리합니다]
+image:dashboard_manage.png["대시보드를 관리합니다"]
 
 
 
@@ -112,4 +112,4 @@ NOTE: 시스템에서 제공하는 대시보드는 편집하거나 제거할 수
 * 카드 상단에서 * S *, * M *, * L * 또는 * XL * 을 선택하여 개별 카드의 크기를 선택합니다
 
 
-image::../media/dashboard_configure.png[대시보드를 구성합니다]
+image:dashboard_configure.png["대시보드를 구성합니다"]

@@ -39,7 +39,7 @@ summary: 모든 그리드 페더레이션 연결에 대한 기본 정보, 특정
 
 
 +
-image::../media/grid-federation-connections-tab.png[Grid Federation connections(그리드 페더레이션 연결) 탭]
+image:grid-federation-connections-tab.png["Grid Federation connections(그리드 페더레이션 연결) 탭"]
 
 . 그리드 페더레이션 연결 사용 * 권한이 있는 이 그리드의 모든 테넌트 계정에 대한 기본 정보를 보려면 * 허용된 테넌트 * 탭을 선택합니다.
 +
@@ -51,7 +51,7 @@ image::../media/grid-federation-connections-tab.png[Grid Federation connections(
 ** 허용된 테넌트를 선택하고 link:../admin/grid-federation-manage-tenants.html["권한을 제거합니다"]을 선택합니다.
 ** 교차 그리드 복제 오류가 있는지 확인하고 마지막 오류가 있으면 지웁니다. 을 link:../admin/grid-federation-troubleshoot.html["그리드 통합 오류 문제 해결"]참조하십시오.
 +
-image::../media/grid-federation-permitted-tenants-tab.png[Grid Federation permitted Tenants 탭]
+image:grid-federation-permitted-tenants-tab.png["Grid Federation permitted Tenants 탭"]
 
 
 
@@ -82,7 +82,7 @@ image::../media/grid-federation-permitted-tenants-tab.png[Grid Federation permit
 ** link:../admin/grid-federation-manage-tenants.html["테넌트의 권한을 제거합니다"] 연결을 사용합니다.
 ** 교차 그리드 복제 오류를 확인하고 마지막 오류를 지웁니다. 을 link:../admin/grid-federation-troubleshoot.html["그리드 통합 오류 문제 해결"]참조하십시오.
 +
-image::../media/grid-federation-permitted-tenants-tab-for-connection.png[Grid-federation-permitted-tenant-tab-for-connection]
+image:grid-federation-permitted-tenants-tab-for-connection.png["Grid-federation-permitted-tenant-tab-for-connection"]
 
 
 
@@ -94,7 +94,7 @@ image::../media/grid-federation-permitted-tenants-tab-for-connection.png[Grid-fe
 ** link:../admin/grid-federation-manage-connection.html["연결 인증서를 회전합니다"]..
 ** 연결된 인증서를 보거나 다운로드하거나 인증서 PEM을 복사하려면 * 서버 * 또는 * 클라이언트 * 를 선택합니다.
 +
-image::../media/grid-federation-certificates-tab.png[grid-federation-certificates-tab]
+image:grid-federation-certificates-tab.png["grid-federation-certificates-tab"]
 
 
 

@@ -19,7 +19,7 @@ summary: 네트워크 탭은 노드, 사이트 또는 그리드의 모든 네트
 
 노드의 경우 네트워크 인터페이스 표에 각 노드의 물리적 네트워크 포트에 대한 정보가 나와 있습니다. Network communications(네트워크 통신) 표에는 각 노드의 수신 및 전송 작업과 드라이버에서 보고된 고장 카운터에 대한 세부 정보가 나와 있습니다.
 
-image::../media/nodes_page_network_tab.png[노드 페이지 네트워크 탭]
+image:nodes_page_network_tab.png["노드 페이지 네트워크 탭"]
 
 .관련 정보
 link:monitoring-network-connections-and-performance.html["네트워크 연결 및 성능을 모니터링합니다"]

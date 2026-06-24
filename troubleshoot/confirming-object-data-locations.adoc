@@ -31,7 +31,7 @@ UUID, CBID 또는 S3 버킷/객체 키를 입력할 수 있습니다.
 
 . 개체의 특정 버전을 조회하려면 버전 ID(선택 사항)를 입력합니다.
 +
-image::../media/object_lookup.png[개체 조회 페이지입니다]
+image:object_lookup.png["개체 조회 페이지입니다"]
 
 . Look Up * 을 선택합니다.
 +
@@ -52,6 +52,6 @@ image::../media/object_lookup.png[개체 조회 페이지입니다]
 
 
 +
-image::../media/object_lookup_results.png[객체 조회 결과]
+image:object_lookup_results.png["객체 조회 결과"]
 
 

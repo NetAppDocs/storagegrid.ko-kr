@@ -21,7 +21,7 @@ summary: 개체의 수명은 다양한 단계로 구성됩니다. 각 단계는 
 * * 삭제 *: 모눈에서 모든 개체 복사본을 제거하는 프로세스입니다. StorageGRID 시스템에 삭제 요청을 보낸 클라이언트 응용 프로그램의 결과나 개체의 수명이 만료될 때 StorageGRID가 수행하는 자동 프로세스의 결과로 개체를 삭제할 수 있습니다.
 
 
-image::../media/object_lifecycle.png[개체의 수명을 보여 주는 다이어그램]
+image:object_lifecycle.png["개체의 수명을 보여 주는 다이어그램"]
 
 .관련 정보
 * link:../ilm/index.html["ILM을 사용하여 개체를 관리합니다"]

@@ -22,4 +22,4 @@ summary: 세 개의 네트워크를 모두 전용 그리드 네트워크, 경계
 
 *토폴로지 예: 그리드, 관리 및 클라이언트 네트워크*
 
-image::../media/grid_admin_client_networks.png[Grid Admin 클라이언트 네트워크]
+image:grid_admin_client_networks.png["Grid Admin 클라이언트 네트워크"]

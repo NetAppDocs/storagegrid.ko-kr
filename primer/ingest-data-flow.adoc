@@ -19,7 +19,7 @@ summary: 수집 또는 저장 작업은 클라이언트와 StorageGRID 시스템
 
 클라이언트가 StorageGRID 시스템에 개체를 요청하면 스토리지 노드의 LDR 서비스가 요청을 처리하고 메타데이터 및 데이터를 디스크에 저장합니다.
 
-image::../media/ingest_data_flow.png[동기식 배치로 수집]
+image:ingest_data_flow.png["동기식 배치로 수집"]
 
 . 클라이언트 응용 프로그램은 개체를 만들어 HTTP PUT 요청을 통해 StorageGRID 시스템으로 보냅니다.
 . 객체는 시스템의 ILM 정책에 따라 평가됩니다.

@@ -24,7 +24,7 @@ IP 주소 대신 도메인 이름을 사용하여 Grid Manager 또는 Tenant Man
 
 다음 예에서는 사용자 지정 관리 인터페이스 인증서가 만료된 경우 인증서 오류를 보여 줍니다.
 
-image::../media/certificate_error.png[인증서 오류 예]
+image:certificate_error.png["인증서 오류 예"]
 
 실패한 서버 인증서로 인해 작업이 중단되지 않도록 하려면 서버 인증서가 곧 만료될 때 * Management Interface * 용 서버 인증서 만료 알림이 트리거됩니다.
 

@@ -15,7 +15,7 @@ summary: 객체 분할은 객체를 더 작은 고정 크기 객체 컬렉션으
 
 개체가 StorageGRID 시스템으로 수집되면 LDR 서비스는 개체를 세그먼트로 분할하고 모든 세그먼트의 헤더 정보를 내용으로 나열하는 세그먼트 컨테이너를 만듭니다.
 
-image::../media/object_segmentation_diagram.gif[객체 분할 워크플로우]
+image:object_segmentation_diagram.gif["객체 분할 워크플로우"]
 
 세그먼트 컨테이너를 검색할 때 LDR 서비스는 세그먼트에서 원래 개체를 어셈블하고 개체를 클라이언트에 반환합니다.
 

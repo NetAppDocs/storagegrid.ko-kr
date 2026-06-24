@@ -48,7 +48,7 @@ NOTE: StorageGRID에는 모든 그리드에서 동일한 운영 체제 CA 인증
 .단계
 . Grid Manager에서 *구성* > *보안* > *인증서*를 선택합니다.
 +
-image::security_certificates.png[인증서 페이지]
+image:security_certificates.png["인증서 페이지"]
 
 . 인증서 페이지에서 탭을 선택하여 각 인증서 범주에 대한 정보를 확인하고 인증서 설정에 액세스합니다. 가 있는 경우 탭에 액세스할 수 link:admin-group-permissions.html["적절한 권한"]있습니다.
 +

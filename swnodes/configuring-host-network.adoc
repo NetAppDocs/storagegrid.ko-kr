@@ -104,7 +104,7 @@ MAC 복제를 활성화하려면 을 link:creating-node-configuration-files.html
 
 예제 1에서는 호스트측 구성이 거의 또는 전혀 필요하지 않은 간단한 물리적 인터페이스 매핑에 대해 설명합니다.
 
-image::../media/rhel_install_vlan_diag_1.gif[VLAN 다이어그램 설치]
+image:rhel_install_vlan_diag_1.gif["VLAN 다이어그램 설치"]
 
 Linux 운영 체제는 다음을 생성합니다. `ensXYZ` 설치 또는 부팅 중에 인터페이스가 자동으로 추가되거나 인터페이스가 핫 애드될 때 인터페이스가 자동으로 추가됩니다.  부팅 후 인터페이스가 자동으로 실행되도록 설정하는 것 외에는 다른 구성이 필요하지 않습니다.  나중에 구성 프로세스에서 올바른 매핑을 제공할 수 있도록 어떤 ensXYZ가 어떤 StorageGRID 네트워크(Grid, Admin 또는 Client)에 해당하는지 확인해야 합니다.
 
@@ -125,7 +125,7 @@ Linux 운영 체제는 다음을 생성합니다. `ensXYZ` 설치 또는 부팅 
 
 동일한 호스트에서 노드 네트워크에 대해 별도의 VLAN과 서브넷이 필요한 경우, 결합에 VLAN 인터페이스를 추가하고 이를 호스트에 매핑할 수 있습니다(그림에서 bond0.1004로 표시됨).
 
-image::../media/rhel_install_vlan_diag_2.gif[VLAN 인터페이스]
+image:rhel_install_vlan_diag_2.gif["VLAN 인터페이스"]
 
 .단계
 . StorageGRID 네트워크 연결에 사용할 모든 물리적 네트워크 인터페이스를 단일 LACP 결합으로 통합합니다.

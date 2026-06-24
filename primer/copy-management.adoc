@@ -25,7 +25,7 @@ ILM 규칙의 콘텐츠 배치 지침에 따라 오브젝트 데이터의 복제
 
 LDR 서비스의 ILM 엔진은 복제를 제어하고 올바른 위치에 올바른 복제본 수를 올바른 시간 동안 저장합니다.
 
-image::../media/replication_data_flow.png[주변 텍스트에 설명된 프로세스를 보여 주는 다이어그램]
+image:replication_data_flow.png["주변 텍스트에 설명된 프로세스를 보여 주는 다이어그램"]
 
 . ILM 엔진은 ADC 서비스를 쿼리하여 ILM 규칙에 지정된 스토리지 풀 내에서 최상의 대상 LDR 서비스를 결정합니다. 그런 다음 LDR 서비스에 복제를 시작하는 명령을 보냅니다.
 . 대상 LDR 서비스는 ADC 서비스에 최상의 소스 위치를 쿼리합니다. 그런 다음 복제 요청을 소스 LDR 서비스로 보냅니다.
@@ -42,7 +42,7 @@ ILM 규칙에 오브젝트 데이터의 삭제 코딩 복사본을 만드는 지
 
 LDR 서비스의 구성 요소인 ILM 엔진은 삭제 코딩을 제어하고 삭제 코딩 프로필이 오브젝트 데이터에 적용되도록 합니다.
 
-image::../media/erasure_coding_data_flow.png[삭제 코딩 데이터 흐름]
+image:erasure_coding_data_flow.png["삭제 코딩 데이터 흐름"]
 
 . ILM 엔진은 ADC 서비스에 쿼리하여 삭제 코딩 작업을 가장 잘 수행할 수 있는 DDS 서비스를 결정합니다. 결정되면 ILM 엔진이 해당 서비스에 "시작" 요청을 보냅니다.
 . DDS 서비스는 LDR에 오브젝트 데이터를 삭제 코딩하도록 지시합니다.
@@ -60,7 +60,7 @@ ILM 규칙의 콘텐츠 배치 명령에 따라 오브젝트 데이터의 복제
 
 LDR 서비스의 구성 요소인 ILM 엔진 및 Data Mover 서비스는 클라우드 스토리지 풀에 대한 객체 이동을 제어합니다.
 
-image::../media/cloud_storage_pool_data_flow.png[클라우드 스토리지 풀 데이터 흐름]
+image:cloud_storage_pool_data_flow.png["클라우드 스토리지 풀 데이터 흐름"]
 
 . ILM 엔진은 Data Mover 서비스를 선택하여 Cloud Storage Pool에 복제합니다.
 . Data Mover 서비스는 객체 데이터를 클라우드 스토리지 풀로 보냅니다.

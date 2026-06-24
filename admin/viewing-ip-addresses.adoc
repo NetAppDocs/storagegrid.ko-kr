@@ -26,6 +26,6 @@ IP 주소 변경에 대한 자세한 내용은 를 link:../maintain/configuring-
 해당 그리드 노드의 IP 주소가 테이블에 나열됩니다.
 
 +
-image::../media/nodes_page_overview_tab_extended.png[노드 페이지 IP 주소]
+image:nodes_page_overview_tab_extended.png["노드 페이지 IP 주소"]
 
 

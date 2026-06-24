@@ -19,7 +19,7 @@ summary: 필요한 경우 그리드의 최대 스토리지 용량과 같은 Stor
 .이 작업에 대해
 이 StorageGRID 시스템의 소프트웨어 라이센스에 문제가 있는 경우 대시보드의 상태 카드에 라이센스 상태 아이콘과 * 라이센스 * 링크가 포함됩니다. 이 숫자는 라이센스 관련 문제의 수를 나타냅니다.
 
-image::../media/dashboard_health_panel_license_status.png[대시보드 상태 카드 라이센스 상태입니다]
+image:dashboard_health_panel_license_status.png["대시보드 상태 카드 라이센스 상태입니다"]
 
 .단계
 . 다음 중 하나를 수행하여 라이센스 페이지에 액세스합니다.

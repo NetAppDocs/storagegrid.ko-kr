@@ -26,7 +26,7 @@ summary: 그룹의 표시 이름을 편집할 수 있습니다. 그룹의 고유
 Edit group name(그룹 이름 편집) 대화 상자가 나타납니다.
 
 +
-image::../media/edit_group_name.png[그룹 이름을 편집합니다]
+image:edit_group_name.png["그룹 이름을 편집합니다"]
 
 . 로컬 그룹을 편집하는 경우 필요에 따라 표시 이름을 업데이트합니다.
 +

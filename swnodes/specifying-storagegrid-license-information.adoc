@@ -27,7 +27,7 @@ StorageGRID 시스템의 이름을 지정하고 NetApp에서 제공하는 라이
 NOTE: StorageGRID 설치 아카이브에는 제품에 대한 지원 권한이 없는 무료 라이센스가 포함되어 있습니다. 설치 후 지원을 제공하는 라이센스로 업데이트할 수 있습니다.
 
 +
-image::../media/2_gmi_installer_license_page.png[StorageGRID 설치 프로그램 라이센스 페이지입니다]
+image:2_gmi_installer_license_page.png["StorageGRID 설치 프로그램 라이센스 페이지입니다"]
 
 . 다음 * 을 선택합니다.
 

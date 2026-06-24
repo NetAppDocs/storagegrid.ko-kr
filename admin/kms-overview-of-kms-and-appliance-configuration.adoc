@@ -15,7 +15,7 @@ KMS(키 관리 서버)를 사용하여 어플라이언스 노드에서 StorageGR
 
 이 순서도는 KMS를 사용하여 어플라이언스 노드의 StorageGRID 데이터를 보호하는 상위 단계를 보여 줍니다.
 
-image::../media/kms_configuration_overview.png[KMS 구성 워크플로로, 다음 텍스트에 설명되어 있습니다]
+image:kms_configuration_overview.png["KMS 구성 워크플로로, 다음 텍스트에 설명되어 있습니다"]
 
 순서도는 KMS 설정 및 어플라이언스 설정이 병렬로 이루어지지만, 요구 사항에 따라 새 어플라이언스 노드에 대한 노드 암호화를 활성화하기 전이나 후에 키 관리 서버를 설정할 수 있습니다.
 

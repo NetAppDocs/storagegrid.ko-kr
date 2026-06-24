@@ -57,7 +57,7 @@ EC 전용 개체 > 1MB
 3개의 사이트를 사용하여 2+1 삭제 코딩 복사본을 생성합니다
 
 |===
-image::../media/policy_2_rule_1_ec_objects_adv_filtering.png[예를 들어, ILM 규칙 1: 1MB 이상의 모든 개체에 EC를 사용합니다]
+image:policy_2_rule_1_ec_objects_adv_filtering.png["예를 들어, ILM 규칙 1: 1MB 이상의 모든 개체에 EC를 사용합니다"]
 
 
 
