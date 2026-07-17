@@ -15,6 +15,7 @@ SSH 액세스를 제어하고, 기본 TLS 인증서를 교체하고, TLS 및 SSH
 
 
 
+[[hardening-guidelines-for-certificates]]
 == 인증서 강화 지침
 
 설치 중에 생성된 기본 인증서를 사용자 지정 인증서로 교체해야 합니다.
@@ -44,6 +45,7 @@ NOTE: StorageGRID는 로드 밸런서 끝점에 사용되는 인증서를 별도
 
 
 
+[[hardening-guidelines-for-tls-and-ssh-policy]]
 == TLS 및 SSH 정책 강화 지침
 
 보안 정책을 선택하여 클라이언트 응용 프로그램과 보안 TLS 연결을 설정하고 내부 StorageGRID 서비스에 대한 SSH 연결을 보안하는 데 사용되는 프로토콜과 암호를 결정할 수 있습니다.
@@ -54,6 +56,7 @@ NOTE: StorageGRID는 로드 밸런서 끝점에 사용되는 인증서를 별도
 
 
 
+[[manage-external-ssh-access]]
 == 외부 SSH 액세스 관리
 
 시스템 보안을 강화하기 위해 기본적으로 외부 SSH 액세스는 차단됩니다.  문제 해결 등 인바운드 SSH 액세스가 필요한 작업을 수행해야 하는 경우에만 SSH 액세스를 활성화하세요.  참조하다link:../admin/manage-external-ssh-access.html["외부 SSH 액세스 관리"] 자세한 내용과 지침은 여기를 참조하세요.

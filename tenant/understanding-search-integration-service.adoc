@@ -24,6 +24,7 @@ NOTE: 검색 통합 서비스가 개체 메타데이터를 대상으로 전송�
 
 
 
+[[search-integration-and-s3-buckets]]
 == 검색 통합 및 S3 버킷
 
 버전 관리되거나 버전이 지정되지 않은 모든 버킷에 대해 검색 통합 서비스를 활성화할 수 있습니다. 검색 통합은 메타데이터 알림 구성 XML을 작업할 개체 및 개체 메타데이터에 대한 대상을 지정하는 버킷과 연결하여 구성됩니다.
@@ -35,6 +36,7 @@ NOTE: 태그 및 사용자 메타데이터의 경우 StorageGRID는 날짜 및 �
 
 
 
+[[search-notifications]]
 == 알림을 검색합니다
 
 메타데이터 알림은 다음과 같은 경우에 생성되고 배달 대기 상태가 됩니다.
@@ -52,6 +54,7 @@ NOTE: 태그 및 사용자 메타데이터의 경우 StorageGRID는 날짜 및 �
 
 
 
+[[search-integration-service-and-elasticsearch]]
 == 검색 통합 서비스 및 Elasticsearch
 
 StorageGRID 검색 통합 서비스는 Elasticsearch 클러스터를 대상으로 지원합니다. 다른 플랫폼 서비스와 마찬가지로 대상은 서비스의 구성 XML에서 URN이 사용되는 끝점에서 지정됩니다. 를 사용하여 https://imt.netapp.com/matrix/#welcome["NetApp 상호 운용성 매트릭스 툴"^] 지원되는 Elasticsearch 버전을 확인합니다.

@@ -4,6 +4,7 @@
 
 
 
+[[requirements-for-buckets-with-s3-object-lock-enabled]]
 == S3 오브젝트 잠금이 설정된 버킷의 요구 사항
 
 * StorageGRID 시스템에 대해 글로벌 S3 오브젝트 잠금 설정이 활성화된 경우 테넌트 관리자, 테넌트 관리 API 또는 S3 REST API를 사용하여 S3 오브젝트 잠금이 활성화된 버킷을 생성할 수 있습니다.
@@ -16,6 +17,7 @@
 
 
 
+[[requirements-for-objects-in-buckets-with-s3-object-lock-enabled]]
 == S3 오브젝트 잠금이 설정된 버킷의 오브젝트 요구사항
 
 * 개체 버전을 보호하려면 버킷의 기본 보존 설정을 지정하거나 각 오브젝트 버전에 대한 보존 설정을 지정할 수 있습니다. 오브젝트 레벨의 보존 설정은 S3 클라이언트 애플리케이션 또는 S3 REST API를 사용하여 지정할 수 있습니다.
@@ -24,6 +26,7 @@
 
 
 
+[[lifecycle-of-objects-in-buckets-with-s3-object-lock-enabled]]
 == S3 오브젝트 잠금이 설정된 버킷의 오브젝트 라이프사이클
 
 S3 오브젝트 잠금이 설정된 버킷에 저장된 각 오브젝트는 다음 단계를 거칩니다.

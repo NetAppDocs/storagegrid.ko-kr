@@ -15,6 +15,7 @@ summary: 예제 파일을 사용하여 4개의 Linux 물리적 인터페이스�
 
 
 
+[[physical-interfaces]]
 == 물리적 인터페이스
 
 링크의 다른 쪽 끝에 있는 스위치도 4개의 포트를 단일 LACP 트렁크 또는 포트 채널로 처리해야 하며, 태그가 있는 3개 이상의 참조된 VLAN을 통과해야 합니다.
@@ -69,6 +70,7 @@ SLAVE=yes
 ----
 
 
+[[bond-interface]]
 == 본드 인터페이스
 
 `*/etc/sysconfig/network-scripts/ifcfg-bond0*`
@@ -84,6 +86,7 @@ BONDING_OPTS=mode=802.3ad
 ----
 
 
+[[vlan-interfaces]]
 == VLAN 인터페이스
 
 `*/etc/sysconfig/network-scripts/ifcfg-bond0.1001*`

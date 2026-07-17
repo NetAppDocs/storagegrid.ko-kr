@@ -19,12 +19,14 @@ Prometheus 쿼리 구문에 대한 자세한 내용은 을 참조하십시오 ht
 
 
 
+[[what-are-prometheus-metrics]]
 == Prometheus 메트릭이란 무엇입니까?
 
 Prometheus 메트릭은 시계열 측정입니다. 관리 노드의 Prometheus 서비스는 모든 노드의 서비스에서 이러한 메트릭을 수집합니다. 메트릭은 Prometheus 데이터에 예약된 공간이 가득 찰 때까지 각 관리 노드에 저장됩니다. 볼륨이 용량에 도달하면 `/var/local/mysql_ibdata/` 가장 오래된 메트릭이 먼저 삭제됩니다.
 
 
 
+[[where-are-prometheus-metrics-used]]
 == Prometheus 메트릭은 어디에 사용됩니까?
 
 Prometheus에서 수집한 메트릭은 Grid Manager의 여러 위치에서 사용됩니다.
@@ -48,6 +50,7 @@ NOTE: 메트릭 페이지의 일부 기능 및 메뉴 항목은 의도적으로 
 
 
 
+[[list-of-most-common-metrics]]
 == 가장 일반적인 메트릭의 목록입니다
 
 다음 목록에는 가장 일반적으로 사용되는 Prometheus 메트릭이 포함되어 있습니다.
@@ -142,6 +145,7 @@ StorageGRID_tenant_usage_quota_bytes를 나타냅니다:: 테넌트 객체에 �
 
 
 
+[[get-a-list-of-all-metrics]]
 == 모든 메트릭의 목록을 가져옵니다
 
 [[Obtain-all-metrics]] 메트릭의 전체 목록을 보려면 Grid Management API를 사용하십시오.

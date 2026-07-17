@@ -15,6 +15,7 @@ StorageGRID 네트워크, 하드웨어 및 플랫폼 문제와 관련된 문제�
 
 
 
+[[422-unprocessable-entity-errors]]
 == "422: 처리할 수 없는 엔터티" 오류
 
 422:처리할 수 없는 엔터티는 여러 가지 이유로 발생할 수 있습니다. 오류 메시지를 확인하여 문제의 원인을 파악합니다.
@@ -77,6 +78,7 @@ TLS handshake failed
 |===
 
 
+[[troubleshootmtualertgrid-network-mtu-mismatch-alert]]
 == [[troubleshoot_MTU_alert]] 그리드 네트워크 MTU 불일치 알림
 
 그리드 네트워크 인터페이스(eth0)에 대한 최대 전송 단위(MTU) 설정이 그리드의 노드 간에 상당히 다를 경우 * Grid Network MTU mismatch * 경고가 트리거됩니다.
@@ -154,6 +156,7 @@ MTU를 적용할 네트워크입니다. 다음 네트워크 유형 중 하나 �
 
 
 
+[[node-network-reception-frame-error-alert]]
 == 노드 네트워크 수신 프레임 오류 경고입니다
 
 * 노드 네트워크 수신 프레임 오류 * 경고는 StorageGRID와 네트워크 하드웨어 간의 연결 문제로 인해 발생할 수 있습니다. 이 알림은 기본 문제가 해결된 후에 자동으로 지워집니다.
@@ -240,6 +243,7 @@ NOTE: 전기 소음이 많은 환경에서 높은 오류율을 느낄 수 있습
 
 
 
+[[time-synchronization-errors]]
 == 시간 동기화 오류입니다
 
 시간 동기화와 관련된 문제가 그리드에 나타날 수 있습니다.
@@ -251,12 +255,14 @@ NOTE: 프로덕션 수준의 StorageGRID를 설치하는 경우 link:../maintain
 
 
 
+[[linux-network-connectivity-issues]]
 == Linux: 네트워크 연결 문제
 
 Linux 호스트에서 호스팅되는 StorageGRID 노드의 네트워크 연결 문제가 발생할 수 있습니다.
 
 
 
+[[mac-address-cloning]]
 === MAC 주소 복제
 
 어떤 경우에는 MAC 주소 복제를 사용하여 네트워크 문제를 해결할 수 있습니다.  가상 호스트를 사용하는 경우 노드 구성 파일에서 각 네트워크의 MAC 주소 복제 키 값을 "true"로 설정합니다.  이 설정을 사용하면 StorageGRID 컨테이너의 MAC 주소가 호스트의 MAC 주소를 사용하게 됩니다.  지침을 참조하세요link:../swnodes/creating-node-configuration-files.html["노드 구성 파일 생성"] .
@@ -268,6 +274,7 @@ NOTE: Linux 호스트 OS에서 사용할 별도의 가상 네트워크 인터페
 
 
 
+[[promiscuous-mode]]
 === 무차별 모드
 
 MAC 주소 클로닝을 사용하지 않고 하이퍼바이저에 의해 할당된 것이 아닌 MAC 주소에 대한 데이터를 모든 인터페이스에서 수신 및 전송하도록 허용하려면 가상 스위치 및 포트 그룹 수준의 보안 속성이 Promiscuous Mode, MAC Address 변경 및 Forged 전송에 대해 * Accept * 로 설정되어 있는지 확인합니다. 가상 스위치에 설정된 값은 포트 그룹 수준의 값으로 재정의할 수 있으므로 두 위치에서 설정이 동일한지 확인합니다.
@@ -276,6 +283,7 @@ Promiscuous Mode 사용에 대한 자세한 내용은 다음 지침을 참조하
 
 
 
+[[linux-node-status-is-orphaned]]
 == Linux: 노드 상태가 "고립된" 상태입니다.
 
 고립된 상태의 Linux 노드는 대개 StorageGRID 서비스나 노드의 컨테이너를 제어하는 StorageGRID 노드 데몬이 예기치 않게 종료되었음을 나타냅니다.
@@ -322,6 +330,7 @@ storagegrid node start DC1-S1-172-16-1-172
 
 
 
+[[linux-troubleshoot-ipv6-support]]
 == Linux: IPv6 지원 문제 해결
 
 Linux 호스트에 StorageGRID 노드를 설치한 경우 커널에서 IPv6 지원을 활성화해야 하며, IPv6 주소가 예상대로 노드 컨테이너에 할당되지 않은 것을 확인할 수 있습니다.

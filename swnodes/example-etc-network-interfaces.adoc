@@ -15,6 +15,7 @@ summary: /etc/network/interfaces 파일에는 물리적 인터페이스, 연결 
 
 
 
+[[physical-interfaces]]
 == 물리적 인터페이스
 
 링크의 다른 쪽 끝에 있는 스위치도 4개의 포트를 단일 LACP 트렁크 또는 포트 채널로 처리해야 하며, 태그가 있는 3개 이상의 참조된 VLAN을 통과해야 합니다.
@@ -48,6 +49,7 @@ iface ens256 inet manual
 ----
 
 
+[[bond-interface]]
 == 본드 인터페이스
 
 [listing]
@@ -61,6 +63,7 @@ iface bond0 inet manual
 ----
 
 
+[[vlan-interfaces]]
 == VLAN 인터페이스
 
 [listing]

@@ -24,6 +24,7 @@ NOTE: StorageGRID 시스템에서 SSO(Single Sign-On)가 활성화된 경우 로
 
 
 
+[[create-usercreate-a-local-user]]
 == [[create-user]] 로컬 사용자를 생성합니다
 
 로컬 사용자를 만들어 하나 이상의 로컬 그룹에 할당하여 액세스 권한을 제어할 수 있습니다.
@@ -32,6 +33,7 @@ NOTE: StorageGRID 시스템에서 SSO(Single Sign-On)가 활성화된 경우 로
 
 
 
+[[access-the-create-user-wizard]]
 === 사용자 생성 마법사에 액세스합니다
 
 .단계
@@ -47,6 +49,7 @@ image:grid-federation-tenant-user-banner.png["테넌트 소스 그리드인 경�
 
 
 
+[[enter-credentials]]
 === 자격 증명을 입력합니다
 
 .단계
@@ -93,6 +96,7 @@ image:grid-federation-tenant-user-banner.png["테넌트 소스 그리드인 경�
 
 
 
+[[assign-to-groups]]
 === 그룹에 할당합니다
 
 .단계
@@ -112,6 +116,7 @@ image:grid-federation-tenant-user-banner.png["테넌트 소스 그리드인 경�
 
 
 
+[[view-or-edit-local-user]]
 == 로컬 사용자를 보거나 편집합니다
 
 .단계
@@ -172,6 +177,7 @@ image:grid-federation-tenant-user-banner.png["테넌트 소스 그리드인 경�
 
 
 
+[[import-federated-users]]
 == 페더레이션 사용자 가져오기
 
 최대 100명까지의 연합 사용자를 하나 이상 사용자 페이지로 직접 가져올 수 있습니다.
@@ -199,6 +205,7 @@ image:grid-federation-tenant-user-banner.png["테넌트 소스 그리드인 경�
 
 
 
+[[duplicate-local-user]]
 == 로컬 사용자를 복제하십시오
 
 로컬 사용자를 복제하면 새 사용자를 보다 빠르게 만들 수 있습니다.
@@ -216,6 +223,7 @@ NOTE: 테넌트 계정에 * 그리드 페더레이션 연결 사용 * 권한이 
 
 
 
+[[clone-usersretry-user-clone]]
 == [[clone-users]] 사용자 클론을 다시 시도하십시오
 
 실패한 클론을 재시도하려면 다음을 수행합니다.
@@ -229,6 +237,7 @@ NOTE: 테넌트 계정에 * 그리드 페더레이션 연결 사용 * 권한이 
 
 
 
+[[delete-one-or-more-local-users]]
 == 하나 이상의 로컬 사용자를 삭제합니다
 
 StorageGRID 테넌트 계정에 더 이상 액세스할 필요가 없는 하나 이상의 로컬 사용자를 영구적으로 삭제할 수 있습니다.

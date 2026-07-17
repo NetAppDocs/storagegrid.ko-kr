@@ -19,6 +19,7 @@ summary: 서비스 품질 요구사항을 충족하는 하나 이상의 ILM 정�
 
 
 
+[[create-an-ilm-policy]]
 == ILM 정책을 생성합니다
 
 .이 작업에 대해
@@ -172,6 +173,8 @@ NOTE: ILM 규칙이 올바른 순서로 되어 있는지 확인해야 합니다.
 
 
 
+[[simulate-a-policy]]
+[[simulate-ilm-policy]]
 == 정책 시뮬레이션
 
 정책을 활성화하고 운영 데이터에 적용하기 전에 테스트 객체에 대한 정책을 시뮬레이션합니다.
@@ -201,6 +204,8 @@ link:simulating-ilm-policy-examples.html["ILM 정책 시뮬레이션의 예"]
 
 
 
+[[activate-a-policy]]
+[[activate-ilm-policy]]
 == 정책을 활성화합니다
 
 새로운 단일 ILM 정책을 활성화하면 기존 오브젝트 및 새로 수집된 오브젝트가 해당 정책에 의해 관리됩니다. 여러 정책을 활성화할 때 버킷에 할당된 ILM 정책 태그는 관리할 오브젝트를 결정합니다.

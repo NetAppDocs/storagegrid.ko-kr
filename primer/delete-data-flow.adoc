@@ -15,6 +15,7 @@ summary: 클라이언트 또는 테넌트가 삭제 작업을 수행하거나 �
 
 
 
+[[deletion-hierarchy]]
 == 삭제 계층
 
 StorageGRID 개체가 보존되거나 삭제되는 시기를 제어하는 여러 가지 방법을 제공합니다. 객체는 클라이언트 요청에 의해 또는 자동으로 삭제될 수 있습니다. StorageGRID는 항상 S3 오브젝트 잠금 설정의 우선 순위를 클라이언트 삭제 요청보다 우선적으로 지정합니다. 이 요청은 S3 버킷 수명 주기 및 ILM 배치 지침보다 우선적으로 적용됩니다.
@@ -41,6 +42,7 @@ NOTE: S3 버킷 라이프사이클이 구성된 경우 라이프사이클 만료
 
 
 
+[[data-flow-for-client-deletes]]
 == 클라이언트 삭제에 대한 데이터 흐름
 
 image:delete_data_flow.png["클라이언트가 데이터 흐름을 삭제합니다"]
@@ -52,6 +54,7 @@ image:delete_data_flow.png["클라이언트가 데이터 흐름을 삭제합니�
 
 
 
+[[data-flow-for-ilm-deletes]]
 == ILM의 데이터 흐름은 삭제됩니다
 
 image:automatic_deletion_data_flow.png["자동 삭제 데이터 흐름"]

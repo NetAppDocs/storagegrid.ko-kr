@@ -18,6 +18,7 @@ CAUTION: FabricPool에는 StorageGRID ILM 규칙 또는 정책에 대한 지식�
 
 
 
+[[guidelines-for-using-ilm-with-fabricpool]]
 == FabricPool에서 ILM 사용 지침
 
 FabricPool 설정 마법사를 사용하면 마법사는 사용자가 생성하는 각 S3 버킷에 대한 새 ILM 규칙을 자동으로 생성하고 해당 규칙을 비활성 정책에 추가합니다. 정책을 활성화하라는 메시지가 표시됩니다. 자동으로 생성된 규칙은 권장되는 모범 사례를 따릅니다. 단일 사이트에서 2+1 삭제 코딩을 사용합니다.

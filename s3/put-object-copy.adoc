@@ -15,12 +15,14 @@ S3 CopyObject 요청을 사용하여 이미 S3에 저장된 개체의 복사본�
 
 
 
+[[resolve-conflicts]]
 == 충돌 해결
 
 동일한 키에 쓰는 두 클라이언트 등의 충돌하는 클라이언트 요청은 "최신 성공" 기준으로 해결됩니다. "Latest-WINS" 평가 시기는 S3 클라이언트가 작업을 시작할 때가 아니라 StorageGRID 시스템이 지정된 요청을 완료하는 시점을 기준으로 합니다.
 
 
 
+[[object-size]]
 == 개체 크기
 
 단일 PutObject 작업의 maximum_recommended_size는 5GiB(5,368,709,120바이트)입니다. 5GiB보다 큰 오브젝트가 있는 경우 대신 를 link:operations-for-multipart-uploads.html["멀티파트 업로드"]사용하십시오.
@@ -32,6 +34,7 @@ NOTE: StorageGRID 11.6 이하에서 업그레이드한 경우 5GiB를 초과하�
 
 
 
+[[utf-8-characters-in-user-metadata]]
 == 사용자 메타데이터의 UTF-8 문자
 
 요청에 사용자 정의 메타데이터의 키 이름이나 값에 UTF-8 값이 포함되어 있으면 StorageGRID 동작이 정의되지 않습니다.
@@ -44,6 +47,7 @@ StorageGRID는 사용자 정의 메타데이터의 키 이름이나 값에 포�
 
 
 
+[[supported-request-headers]]
 == 지원되는 요청 헤더입니다
 
 지원되는 요청 헤더는 다음과 같습니다.
@@ -92,6 +96,7 @@ StorageGRID는 사용자 정의 메타데이터의 키 이름이나 값에 포�
 
 
 
+[[unsupported-request-headers]]
 == 지원되지 않는 요청 헤더입니다
 
 다음 요청 헤더는 지원되지 않습니다.
@@ -118,6 +123,7 @@ StorageGRID는 사용자 정의 메타데이터의 키 이름이나 값에 포�
 
 
 
+[[storage-class-options]]
 == 스토리지 클래스 옵션
 
  `x-amz-storage-class`요청 헤더가 지원되며 일치하는 ILM 규칙이 Dual Commit 또는 Balanced를 사용할 경우 StorageGRID에서 생성하는 객체 복제본 수에 영향을 link:../ilm/data-protection-options-for-ingest.html["수집 옵션"]줍니다.
@@ -138,6 +144,7 @@ NOTE: S3 오브젝트 잠금이 설정된 상태에서 오브젝트를 버킷에
 
 
 
+[[using-x-amz-copy-source-in-copyobject]]
 == CopyObject에서 x-amz-copy-source 사용
 
 헤더에 지정된 소스 버킷 및 키가 대상 버킷 및 키와 다른 경우 `x-amz-copy-source` 소스 오브젝트 데이터의 복사본이 대상에 기록됩니다.
@@ -153,6 +160,7 @@ NOTE: S3 오브젝트 잠금이 설정된 상태에서 오브젝트를 버킷에
 
 
 
+[[request-headers-for-server-side-encryption]]
 == 서버측 암호화에 대한 요청 헤더
 
 사용자가 link:using-server-side-encryption.html["서버측 암호화를 사용합니다"]제공하는 요청 헤더는 소스 개체가 암호화되어 있는지 여부와 대상 개체를 암호화할 계획인지에 따라 달라집니다.
@@ -188,6 +196,7 @@ NOTE:  `server-side-encryption`개체 값을 업데이트할 수 없습니다. �
 
 
 
+[[versioning]]
 == 버전 관리
 
 소스 버킷의 버전이 관리되는 경우 헤더를 사용하여 개체의 최신 버전을 복사할 수 `x-amz-copy-source` 있습니다. 개체의 특정 버전을 복사하려면 하위 리소스를 사용하여 복사할 버전을 명시적으로 지정해야 `versionId` 합니다. 대상 버킷의 버전이 지정된 경우 생성된 버전이 `x-amz-version-id` 응답 헤더에 반환됩니다. 대상 버킷에 대한 버전 관리가 일시 중단된 경우 `x-amz-version-id` "null" 값이 반환됩니다.

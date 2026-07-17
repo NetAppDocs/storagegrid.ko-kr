@@ -30,6 +30,7 @@ StorageGRID 노드 마이그레이션 기능을 사용하려면 배포가 추가
 
 
 
+[[vmware-live-migration-not-supported]]
 == VMware Live Migration은 지원되지 않습니다
 
 VMware VM에서 베어 메탈 설치를 수행할 때 OpenStack Live Migration 및 VMware Live vMotion을 사용하면 가상 머신 클록 시간이 증가하며 어떠한 유형의 그리드 노드에서도 지원되지 않습니다. 드물지만 잘못된 클럭 시간으로 인해 데이터 또는 구성 업데이트가 손실될 수 있습니다.
@@ -38,6 +39,7 @@ VMware VM에서 베어 메탈 설치를 수행할 때 OpenStack Live Migration �
 
 
 
+[[consistent-network-interface-names]]
 == 일관된 네트워크 인터페이스 이름
 
 한 호스트에서 다른 호스트로 노드를 이동하려면 StorageGRID 호스트 서비스가 노드가 현재 위치에 있는 외부 네트워크 연결을 새 위치에서 복제할 수 있다는 확신을 가져야 합니다. 호스트에서 일관된 네트워크 인터페이스 이름을 사용하면 이러한 자신감을 얻을 수 있습니다.
@@ -54,6 +56,7 @@ image:eth0_bond.gif["이 이미지는 주변 텍스트로 설명됩니다."]
 
 
 
+[[shared-storage]]
 == 공유 스토리지
 
 오버헤드가 낮은 노드를 신속하게 마이그레이션하기 위해 StorageGRID 노드 마이그레이션 기능은 노드 데이터를 물리적으로 이동하지 않습니다. 대신 노드 마이그레이션은 다음과 같이 한 쌍의 엑스포트 및 임포트 작업으로 수행됩니다.

@@ -5210,7 +5210,6 @@
   <block id="308239ed7e43fc89ae81da72046a1cb5" category="summary">감사 로그의 각 감사 메시지는 시스템 이벤트와 관련된 데이터를 기록합니다.</block>
   <block id="43e9c4a674688908c439631161649671" category="doc">이벤트 관련 데이터</block>
   <block id="fe6f2eb2d34a6fb8fcd20196ff437c86" category="paragraph">메시지 자체를 식별하는 열린 컨테이너 다음에<block ref="76918408696376cc0b0c9acf06dc901e" prefix=" " category="inline-code"></block> 다음 속성 집합은 감사 메시지에서 설명하는 이벤트 또는 작업에 대한 정보를 제공합니다. 이러한 특성은 다음 예제에서 강조됩니다.</block>
-  <block id="0db84933e70a875f988a06f943ee983e" category="paragraph">2018-12-05T08:24:45.921845 [AUDT: * \[RSLT\(FC32\):SUCS\] * \[TIME\(UI64\):11454\] \[SAIP\(iPad\):"10.224.0.100"\]\[S3SStr\S31124562C642S562S564C6100C4S562S564CW5100C6100C6100C4C4S564C4C4C4C4C4C4C4CW4S5100C4S562S564S564CW5100C4CW4S562S5100C4S5100C4C4C4C4C4CW5100C4C4C4C4C6100C6100C6100CWs\S564C4C6100C4C4C4C4CWs\S564C4C4C4CWs\S564CWs\S564C4C4S</block>
   <block id="330f957a5bec85ad2bedd3f07d7dc2a1" category="paragraph">이<block ref="77b67b7419230d63f01bbbe32666b7e8" prefix=" " category="inline-code"></block> 예제에서는 밑줄이 그어진 요소를 사용하여 메시지를 생성한 이벤트를 식별합니다. 이 예제 메시지에는 메시지 코드([ATYP(FC32):Shea])가 포함되어 <block ref="93c5ff5de753ca04c1a8d5c3e6acd152" category="inline-link-macro-rx"></block>있으며, 이는 S3 헤드 요청이 성공적으로 생성되었음을 나타냅니다.</block>
   <block id="bc3cda0f98b17a806d22f17a594d539e" category="summary">CMN 서비스는 서비스가 StorageGRID 시스템에 자체 관련 정보를 업데이트하거나 등록할 때 이 감사 메시지를 생성합니다.</block>
   <block id="372ef73078ea0cb4e30ab742e0c3d63d" category="doc">GNRG: GNDS 등록</block>
@@ -22854,4 +22853,5 @@
   <block id="58a49eb623c4a6b9fafad050142d4526" category="paragraph"><block ref="58a49eb623c4a6b9fafad050142d4526" category="inline-image-macro-rx" type="image"></block></block>
   <block id="bb70c14ff3206571f466d4eba7c5ee22" category="paragraph"><block ref="bb70c14ff3206571f466d4eba7c5ee22" category="inline-image-macro-rx" type="image"></block></block>
   <block id="cb92d4f4887328dd78af4c98d48eb460" category="paragraph"><block ref="cb92d4f4887328dd78af4c98d48eb460" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="07475a26866d8d6533c6342bd2454b1e" category="list-text">AutoSupport와 관련된 로그가 포함되어 있습니다.</block>
 </blocks>

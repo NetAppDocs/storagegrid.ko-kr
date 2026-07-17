@@ -39,6 +39,7 @@ NOTE: Bond 또는 Bridge 장치를 컨테이너 네트워크 인터페이스로 
 
 
 
+[[considerations-and-recommendations-for-mac-address-cloning]]
 == MAC 주소 복제에 대한 고려 사항 및 권장 사항
 
 .[[맥_주소_복제]]
@@ -46,6 +47,7 @@ MAC 주소 클로닝은 컨테이너가 호스트의 MAC 주소를 사용하고 
 
 
 
+[[enabling-mac-cloning]]
 === MAC 클론 생성 활성화
 
 특정 환경에서는 관리 네트워크, 그리드 네트워크 및 클라이언트 네트워크에 전용 가상 NIC를 사용할 수 있으므로 MAC 주소 클로닝을 통해 보안을 강화할 수 있습니다. 컨테이너가 호스트에 있는 전용 NIC의 MAC 주소를 사용하도록 하면 무차별 모드 네트워크 구성을 사용하지 않도록 할 수 있습니다.
@@ -72,6 +74,7 @@ NOTE: 하이퍼바이저에서 무차별 모드를 설정하지 않고 가상 �
 
 
 
+[[mac-cloning-use-cases]]
 === Mac 클론 복제 활용 사례
 
 MAC 클로닝에는 다음 두 가지 사용 사례를 고려해야 합니다.
@@ -87,6 +90,7 @@ MAC 복제를 활성화하려면 을 link:creating-node-configuration-files.html
 
 
 
+[[mac-cloning-example]]
 === Mac 클론 복제의 예
 
 인터페이스 ens256의 경우 MAC 주소가 11:22:33:44:55:66이고 노드 구성 파일의 경우 다음 키가 있는 호스트에서 활성화된 MAC 클론 복제의 예:
@@ -100,6 +104,7 @@ MAC 복제를 활성화하려면 을 link:creating-node-configuration-files.html
 
 
 
+[[example-1-1-to-1-mapping-to-physical-or-virtual-nics]]
 == 예 1: 물리적 NIC 또는 가상 NIC에 1:1 대 1 매핑
 
 예제 1에서는 호스트측 구성이 거의 또는 전혀 필요하지 않은 간단한 물리적 인터페이스 매핑에 대해 설명합니다.
@@ -114,6 +119,7 @@ Linux 운영 체제는 다음을 생성합니다. `ensXYZ` 설치 또는 부팅 
 
 
 
+[[example-2-lacp-bond-carrying-vlans]]
 == 예 2: VLAN을 전달하는 LACP 결합
 
 예제 2에서는 네트워크 인터페이스를 결합하거나 사용 중인 Linux 배포판에서 VLAN 인터페이스를 만드는 방법에 대해 잘 알고 있다고 가정합니다.

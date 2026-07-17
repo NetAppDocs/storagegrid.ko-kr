@@ -17,6 +17,7 @@ summary: '[버킷 최종 액세스 시간 가져오기(Get Bucket Last Access Ti
 
 
 
+[[request-example]]
 == 요청 예
 
 [listing, subs="specialcharacters,quotes"]
@@ -28,6 +29,7 @@ Host: _host_
 ----
 
 
+[[response-example]]
 == 응답 예
 
 이 예에서는 버킷에 대해 마지막 액세스 시간 업데이트가 활성화되어 있음을 보여 줍니다.

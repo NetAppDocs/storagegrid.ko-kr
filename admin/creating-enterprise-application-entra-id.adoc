@@ -28,6 +28,7 @@ NOTE: StorageGRID 시스템의 각 관리 노드에 대해 엔터프라이즈 �
 
 
 
+[[access-entra-id]]
 == 엔트라 ID 접속
 
 .단계
@@ -38,6 +39,7 @@ NOTE: StorageGRID 시스템의 각 관리 노드에 대해 엔터프라이즈 �
 
 
 
+[[create-enterprise-applications-and-save-storagegrid-sso-configuration]]
 == 엔터프라이즈 애플리케이션을 생성하고 StorageGRID SSO 구성을 저장합니다
 
 StorageGRID 에서 Entra ID에 대한 SSO 구성을 저장하려면 Entra ID를 사용하여 각 관리 노드에 대한 엔터프라이즈 애플리케이션을 만들어야 합니다.  Entra ID에서 페더레이션 메타데이터 URL을 복사하여 SSO 구성 페이지의 해당 *페더레이션 메타데이터 URL* 필드에 붙여넣습니다.
@@ -61,6 +63,7 @@ StorageGRID 에서 Entra ID에 대한 SSO 구성을 저장하려면 Entra ID를 
 
 
 
+[[download-saml-metadata-for-every-admin-node]]
 == 모든 관리 노드에 대해 SAML 메타데이터를 다운로드합니다
 
 SSO 구성을 저장한 후 StorageGRID 시스템의 각 관리 노드에 대해 SAML 메타데이터 파일을 다운로드할 수 있습니다.
@@ -78,6 +81,7 @@ SSO 구성을 저장한 후 StorageGRID 시스템의 각 관리 노드에 대해
 
 
 
+[[upload-saml-metadata-to-each-enterprise-application]]
 == 각 엔터프라이즈 애플리케이션에 SAML 메타데이터를 업로드합니다
 
 각 StorageGRID 관리 노드에 대한 SAML 메타데이터 파일을 다운로드한 후 Entra ID에서 다음 단계를 수행합니다.

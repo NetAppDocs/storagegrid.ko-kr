@@ -20,6 +20,7 @@ summary: 로컬 및 통합 사용자를 볼 수 있습니다. 로컬 사용자�
 
 
 
+[[create-a-local-user]]
 == 로컬 사용자를 생성합니다
 
 하나 이상의 로컬 사용자를 생성하고 각 사용자를 하나 이상의 로컬 그룹에 할당할 수 있습니다. 그룹의 권한은 사용자가 액세스할 수 있는 Grid Manager 및 Grid Management API 기능을 제어합니다.
@@ -33,6 +34,7 @@ NOTE: SSO(Single Sign-On)가 활성화된 경우 로컬 사용자는 StorageGRID
 
 
 
+[[access-the-wizard]]
 === 마법사에 액세스합니다
 
 .단계
@@ -42,6 +44,7 @@ NOTE: SSO(Single Sign-On)가 활성화된 경우 로컬 사용자는 StorageGRID
 
 
 
+[[enter-user-credentials]]
 === 사용자 자격 증명을 입력합니다
 
 .단계
@@ -52,6 +55,7 @@ NOTE: SSO(Single Sign-On)가 활성화된 경우 로컬 사용자는 StorageGRID
 
 
 
+[[assign-to-groups]]
 === 그룹에 할당합니다
 
 .단계
@@ -67,6 +71,7 @@ NOTE: SSO(Single Sign-On)가 활성화된 경우 로컬 사용자는 StorageGRID
 
 
 
+[[view-and-edit-local-users]]
 == 로컬 사용자를 보고 편집합니다
 
 기존 로컬 및 통합 사용자에 대한 세부 정보를 볼 수 있습니다. 로컬 사용자를 수정하여 사용자의 전체 이름, 암호 또는 그룹 구성원을 변경할 수 있습니다. 사용자가 그리드 관리자 및 그리드 관리 API에 일시적으로 액세스하지 못하도록 할 수도 있습니다.
@@ -175,6 +180,7 @@ StorageGRID 액세스를 거부하거나 허용합니다
 
 
 
+[[import-federated-users]]
 == 페더레이션 사용자 가져오기
 
 최대 100명까지의 연합 사용자를 하나 이상 사용자 페이지로 직접 가져올 수 있습니다.
@@ -202,6 +208,7 @@ StorageGRID 액세스를 거부하거나 허용합니다
 
 
 
+[[duplicate-a-user]]
 == 사용자를 복제합니다
 
 기존 사용자를 복제하여 동일한 권한을 가진 새 사용자를 만들 수 있습니다.
@@ -214,6 +221,7 @@ StorageGRID 액세스를 거부하거나 허용합니다
 
 
 
+[[delete-a-user]]
 == 사용자를 삭제합니다
 
 로컬 사용자를 삭제하여 해당 사용자를 시스템에서 영구적으로 제거할 수 있습니다.

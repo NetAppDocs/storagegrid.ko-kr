@@ -15,6 +15,7 @@ summary: '외부 키 관리 서버(KMS)를 구성하기 전에 고려 사항 및
 
 
 
+[[which-version-of-kmip-is-supported]]
 == 지원되는 KMIP 버전은 무엇입니까?
 
 StorageGRID는 KMIP 버전 1.4를 지원합니다.
@@ -23,6 +24,7 @@ http://docs.oasis-open.org/kmip/spec/v1.4/os/kmip-spec-v1.4-os.html["키 관리 
 
 
 
+[[what-are-the-network-considerations]]
 == 네트워크 고려 사항은 무엇입니까?
 
 네트워크 방화벽 설정을 통해 각 어플라이언스 노드가 KMIP(Key Management Interoperability Protocol) 통신에 사용되는 포트를 통해 통신할 수 있어야 합니다. 기본 KMIP 포트는 5696입니다.
@@ -31,6 +33,7 @@ http://docs.oasis-open.org/kmip/spec/v1.4/os/kmip-spec-v1.4-os.html["키 관리 
 
 
 
+[[which-versions-of-tls-are-supported]]
 == 지원되는 TLS 버전은 무엇입니까?
 
 어플라이언스 노드와 구성된 KMS 간의 통신은 보안 TLS 연결을 사용합니다. StorageGRID는 KMS가 지원하는 것과 사용 중인 것에 따라 KMS 또는 KMS 클러스터에 KMIP 연결을 설정할 때 TLS 1.2 또는 TLS 1.3 프로토콜을 지원할 수 있습니다link:manage-tls-ssh-policy.html["TLS 및 SSH 정책"].
@@ -39,6 +42,7 @@ StorageGRID 연결을 만들 때 KMS와 프로토콜 및 암호(TLS 1.2) 또는 
 
 
 
+[[which-appliances-are-supported]]
 == 어떤 어플라이언스가 지원됩니까?
 
 KMS(키 관리 서버)를 사용하여 * 노드 암호화 * 설정이 활성화된 그리드에 있는 StorageGRID 어플라이언스의 암호화 키를 관리할 수 있습니다. 이 설정은 StorageGRID 어플라이언스 설치 프로그램을 사용하여 어플라이언스 설치의 하드웨어 구성 단계에서만 활성화할 수 있습니다.
@@ -58,6 +62,7 @@ NOTE: 어플라이언스를 그리드에 추가한 후에는 노드 암호화를
 
 
 
+[[when-should-i-configure-key-management-servers]]
 == 키 관리 서버는 언제 구성해야 합니까?
 
 새 설치의 경우 일반적으로 테넌트를 생성하기 전에 Grid Manager에서 하나 이상의 키 관리 서버를 설정해야 합니다. 이 순서를 사용하면 오브젝트 데이터가 노드에 저장되기 전에 노드가 보호됩니다.
@@ -66,6 +71,7 @@ NOTE: 어플라이언스를 그리드에 추가한 후에는 노드 암호화를
 
 
 
+[[how-many-key-management-servers-do-i-need]]
 == 몇 개의 키 관리 서버가 필요합니까?
 
 StorageGRID 시스템의 어플라이언스 노드에 암호화 키를 제공하도록 하나 이상의 외부 키 관리 서버를 구성할 수 있습니다. 각 KMS는 단일 사이트 또는 사이트 그룹의 StorageGRID 어플라이언스 노드에 단일 암호화 키를 제공합니다.
@@ -80,6 +86,7 @@ image:kms_per_site.png["사이트당 킬로미터"]
 
 
 
+[[what-happens-when-a-key-is-rotated]]
 == 키를 회전하면 어떻게 됩니까?
 
 보안 모범 사례로서, 구성된 각 KMS에서 주기적으로 사용해야 link:kms-managing.html#rotate-key["암호화 키를 회전합니다"]합니다.
@@ -93,6 +100,7 @@ image:kms_per_site.png["사이트당 킬로미터"]
 
 
 
+[[can-i-reuse-an-appliance-node-after-it-has-been-encrypted]]
 == 어플라이언스 노드를 암호화한 후 다시 사용할 수 있습니까?
 
 암호화된 어플라이언스를 다른 StorageGRID 시스템에 설치해야 하는 경우 오브젝트 데이터를 다른 노드로 이동하려면 먼저 그리드 노드를 해제해야 합니다. 그런 다음 StorageGRID 어플라이언스 설치 프로그램을 사용하여 에연결할 수 https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/monitoring-node-encryption-in-maintenance-mode.html["KMS 구성을 지웁니다"^] 있습니다. KMS 구성을 지우면 * 노드 암호화 * 설정이 비활성화되고 StorageGRID 사이트에 대한 어플라이언스 노드와 KMS 구성 간의 연결이 제거됩니다.

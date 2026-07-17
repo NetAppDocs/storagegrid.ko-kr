@@ -20,18 +20,21 @@ NOTE: 소스 버킷에 S3 오브젝트 잠금이 설정된 경우 CloudMirror �
 
 
 
+[[cloudmirror-and-ilm]]
 == CloudMirror 및 ILM
 
 CloudMirror 복제는 그리드의 활성 ILM 정책과 독립적으로 작동합니다. CloudMirror 서비스는 소스 버킷에 저장된 객체를 복제하여 가능한 한 빨리 대상 버킷에 제공합니다. 오브젝트 수집의 성공 시 복제된 오브젝트 제공이 트리거됩니다.
 
 
 
+[[cloudmirror-and-cross-grid-replication]]
 == CloudMirror 및 교차 그리드 복제
 
 CloudMirror 복제는 교차 그리드 복제 기능과의 중요한 유사점과 차이점이 있습니다. 을 link:../admin/grid-federation-compare-cgr-to-cloudmirror.html["교차 그리드 복제와 CloudMirror 복제를 비교합니다"]참조하십시오.
 
 
 
+[[cloudmirror-and-s3-buckets]]
 == CloudMirror 및 S3 버킷
 
 CloudMirror 복제는 일반적으로 외부 S3 버킷을 대상으로 사용하도록 구성됩니다. 그러나 다른 StorageGRID 배포나 S3 호환 서비스를 사용하도록 복제를 구성할 수도 있습니다.
@@ -49,6 +52,7 @@ NOTE: CloudMirror 복제를 사용하여 Amazon S3 대상으로 오브젝트를 
 
 
 
+[[deletion-replication-loops-and-events]]
 == 삭제, 복제 루프 및 이벤트입니다
 
 삭제 동작:: 는 Amazon S3 서비스, 지역 간 복제(CRR)의 삭제 동작과 동일합니다. 소스 버킷에서 오브젝트를 삭제하면 대상에서 복제된 오브젝트가 삭제되지 않습니다. 소스 및 대상 버킷의 버전이 모두 지정된 경우 삭제 마커가 복제됩니다. 대상 버킷의 버전이 지정되지 않은 경우 소스 버킷에서 오브젝트를 삭제해도 삭제 마커가 대상 버킷에 복제되거나 대상 오브젝트를 삭제하지 않습니다.

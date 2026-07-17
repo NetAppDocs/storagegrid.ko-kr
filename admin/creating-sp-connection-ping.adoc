@@ -28,12 +28,14 @@ PingFederate를 사용하여 시스템의 각 관리 노드에 대한 서비스 
 
 
 
+[[complete-prerequisites-in-pingfederate]]
 == PingFederate에서 필수 구성 요소를 완료합니다
 
 StorageGRID에 사용할 SP 연결을 생성하려면 PingFederate에서 사전 요구 작업을 완료해야 합니다. SP 접속을 구성할 때 이러한 사전 요구 사항의 정보를 사용합니다.
 
 
 
+[[create-data-storedata-store]]
 === 데이터 저장소 생성 [[data-store]]
 
 아직 연결하지 않은 경우 데이터 저장소를 생성하여 PingFederate를 AD FS LDAP 서버에 연결합니다. StorageGRID에서 사용한 값을 link:../admin/using-identity-federation.html["ID 페더레이션을 구성하는 중입니다"]사용합니다.
@@ -45,6 +47,7 @@ StorageGRID에 사용할 SP 연결을 생성하려면 PingFederate에서 사전 
 
 
 
+[[create-password-credential-validatorpassword-validator]]
 === 암호 자격 증명 유효성 검사기 [[암호 유효성 검사기]] 만들기
 
 아직 설치하지 않은 경우 암호 자격 증명 유효성 검사기를 만듭니다.
@@ -58,6 +61,7 @@ StorageGRID에 사용할 SP 연결을 생성하려면 PingFederate에서 사전 
 
 
 
+[[create-idp-adapter-instanceadapter-instance]]
 === IDP 어댑터 인스턴스 만들기 [[adapter-instance]]
 
 아직 IDP 어댑터 인스턴스를 만들지 않은 경우 생성합니다.
@@ -74,6 +78,7 @@ StorageGRID에 사용할 SP 연결을 생성하려면 PingFederate에서 사전 
 
 
 
+[[create-or-import-signing-certificatesigning-certificate]]
 === 서명 인증서 만들기 또는 가져오기 [[signing-certificate]]
 
 서명 인증서를 아직 만들지 않은 경우 서명 인증서를 만들거나 가져옵니다.
@@ -85,6 +90,7 @@ StorageGRID에 사용할 SP 연결을 생성하려면 PingFederate에서 사전 
 
 
 
+[[create-an-sp-connection-in-pingfederate]]
 == PingFederate에서 SP 접속을 생성합니다
 
 PingFederate에서 SP 연결을 생성할 때 StorageGRID에서 다운로드한 SAML 메타데이터를 관리자 노드에 대해 가져옵니다. 메타데이터 파일에는 필요한 많은 특정 값이 들어 있습니다.
@@ -94,6 +100,7 @@ TIP: 사용자가 모든 노드에 안전하게 로그인할 수 있도록 Stora
 
 
 
+[[choose-sp-connection-type]]
 === SP 접속 유형을 선택합니다
 
 .단계
@@ -105,6 +112,7 @@ TIP: 사용자가 모든 노드에 안전하게 로그인할 수 있도록 Stora
 
 
 
+[[import-sp-metadata]]
 === SP 메타데이터를 가져옵니다
 
 .단계
@@ -119,6 +127,7 @@ TIP: 사용자가 모든 노드에 안전하게 로그인할 수 있도록 Stora
 
 
 
+[[configure-idp-browser-sso]]
 === IDP 브라우저 SSO를 구성합니다
 
 .단계
@@ -137,6 +146,7 @@ TIP: 사용자가 모든 노드에 안전하게 로그인할 수 있도록 Stora
 
 
 
+[[map-adapter-instance]]
 === 어댑터 인스턴스를 매핑합니다
 
 .단계
@@ -163,6 +173,7 @@ TIP: 사용자가 모든 노드에 안전하게 로그인할 수 있도록 Stora
 
 
 
+[[configure-protocol-settings]]
 === 프로토콜 설정을 구성합니다
 
 .단계
@@ -178,6 +189,7 @@ TIP: 사용자가 모든 노드에 안전하게 로그인할 수 있도록 Stora
 
 
 
+[[configure-credentials]]
 === 자격 증명을 구성합니다
 
 .단계
@@ -195,6 +207,7 @@ TIP: 사용자가 모든 노드에 안전하게 로그인할 수 있도록 Stora
 
 
 
+[[create-additional-sp-connections]]
 === 추가 SP 접속을 생성합니다
 
 첫 번째 SP 접속을 복제하여 그리드의 각 관리 노드에 필요한 SP 접속을 생성할 수 있습니다. 각 복사본에 대한 새 메타데이터를 업로드합니다.

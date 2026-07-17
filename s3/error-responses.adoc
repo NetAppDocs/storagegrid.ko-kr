@@ -15,6 +15,7 @@ StorageGRID 시스템은 적용되는 모든 표준 S3 REST API 오류 응답을
 
 
 
+[[supported-s3-api-error-codes]]
 == 지원되는 S3 API 오류 코드입니다
 
 [cols="1a,1a"]
@@ -289,6 +290,7 @@ UserKeyMustBeSpecified 를 선택합니다
 |===
 
 
+[[storagegrid-custom-error-codes]]
 == StorageGRID 사용자 지정 오류 코드
 
 [cols="2a,2a,1a"]

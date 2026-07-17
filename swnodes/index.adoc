@@ -43,6 +43,7 @@ NOTE: "Linux"는 RHEL, Ubuntu 또는 Debian 배포를 의미합니다.  지원�
 
 
 
+[[automate-the-installation]]
 == 설치를 자동화합니다
 
 

@@ -18,6 +18,7 @@ NOTE: 그리드 관리자는 귀하에게 S3 오브젝트 잠금의 특정 기�
 
 
 
+[[what-is-s3-object-lock]]
 == S3 오브젝트 잠금이란 무엇입니까?
 
 StorageGRID S3 오브젝트 잠금 기능은 Amazon S3(Amazon Simple Storage Service)의 S3 오브젝트 잠금과 동등한 오브젝트 보호 솔루션입니다.
@@ -34,6 +35,7 @@ StorageGRID 시스템에 대해 글로벌 S3 오브젝트 잠금 설정이 활�
 
 
 
+[[retention-modes]]
 === 보존 모드
 
 StorageGRID S3 오브젝트 잠금 기능은 두 가지 보존 모드를 지원하여 오브젝트에 다양한 보호 수준을 적용합니다. 이러한 모드는 Amazon S3 보존 모드에 해당합니다.
@@ -56,6 +58,7 @@ StorageGRID S3 오브젝트 잠금 기능은 두 가지 보존 모드를 지원�
 
 
 
+[[retention-settings-for-object-versions]]
 === 개체 버전에 대한 보존 설정입니다
 
 버킷이 S3 오브젝트 잠금이 설정된 상태로 생성된 경우 사용자는 S3 클라이언트 애플리케이션을 사용하여 버킷에 추가되는 각 오브젝트에 대해 다음 보존 설정을 선택적으로 지정할 수 있습니다.
@@ -74,6 +77,7 @@ NOTE: 개체가 법적 보류 중인 경우 보존 모드에 관계없이 개체
 
 
 
+[[default-retention-setting-for-buckets]]
 === 버킷을 위한 기본 보존 설정입니다
 
 버킷이 S3 오브젝트 잠금이 활성화된 상태로 생성된 경우 사용자는 버킷에 대해 다음 기본 설정을 선택적으로 지정할 수 있습니다.
@@ -88,6 +92,7 @@ link:../tenant/creating-s3-bucket.html["S3 버킷을 생성합니다"]및 을 li
 
 
 
+[[s3-object-lock-tasks]]
 == S3 오브젝트 잠금 작업
 
 그리드 관리자 및 테넌트 사용자를 위한 다음 목록에는 S3 오브젝트 잠금 기능을 사용하기 위한 상위 수준의 작업이 포함되어 있습니다.
@@ -127,6 +132,7 @@ link:../tenant/creating-s3-bucket.html["S3 버킷을 생성합니다"]및 을 li
 
 
 
+[[requirements-for-buckets-with-s3-object-lock-enabled]]
 == S3 오브젝트 잠금이 설정된 버킷의 요구 사항
 
 * StorageGRID 시스템에 대해 글로벌 S3 오브젝트 잠금 설정이 활성화된 경우 테넌트 관리자, 테넌트 관리 API 또는 S3 REST API를 사용하여 S3 오브젝트 잠금이 활성화된 버킷을 생성할 수 있습니다.
@@ -139,6 +145,7 @@ link:../tenant/creating-s3-bucket.html["S3 버킷을 생성합니다"]및 을 li
 
 
 
+[[requirements-for-objects-in-buckets-with-s3-object-lock-enabled]]
 == S3 오브젝트 잠금이 설정된 버킷의 오브젝트 요구사항
 
 * 개체 버전을 보호하려면 버킷의 기본 보존 설정을 지정하거나 각 오브젝트 버전에 대한 보존 설정을 지정할 수 있습니다. 오브젝트 레벨의 보존 설정은 S3 클라이언트 애플리케이션 또는 S3 REST API를 사용하여 지정할 수 있습니다.
@@ -147,6 +154,7 @@ link:../tenant/creating-s3-bucket.html["S3 버킷을 생성합니다"]및 을 li
 
 
 
+[[lifecycle-of-objects-in-buckets-with-s3-object-lock-enabled]]
 == S3 오브젝트 잠금이 설정된 버킷의 오브젝트 라이프사이클
 
 S3 오브젝트 잠금이 설정된 버킷에 저장된 각 오브젝트는 다음 단계를 거칩니다.
@@ -176,6 +184,7 @@ StorageGRID는 지정된 보존 기간 동안 보호된 각 개체의 복사본�
 
 
 
+[[can-i-still-manage-legacy-compliant-buckets]]
 == 레거시 준수 버킷을 계속 관리할 수 있습니까?
 
 S3 오브젝트 잠금 기능은 이전 StorageGRID 버전에서 사용할 수 있었던 규정 준수 기능을 대체합니다. 이전 버전의 StorageGRID를 사용하여 준수 버킷을 생성한 경우 이러한 버켓의 설정을 계속 관리할 수 있지만, 더 이상 새로운 준수 버킷을 생성할 수 없습니다. 자세한 내용은 을 https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["NetApp 기술 자료: StorageGRID 11.5에서 레거시 준수 버킷을 관리하는 방법"^]참조하십시오.

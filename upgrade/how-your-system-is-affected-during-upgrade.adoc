@@ -15,12 +15,14 @@ summary: 업그레이드 중에 StorageGRID 시스템이 어떤 영향을 받는
 
 
 
+[[external-ssh-access-is-allowed-until-upgrade-completes]]
 == 업그레이드가 완료될 때까지 외부 SSH 액세스가 허용됩니다.
 
 업그레이드하는 동안 외부 SSH 액세스가 허용됩니다.  업그레이드가 완료되면 기본적으로 외부 SSH 액세스가 차단됩니다.  업그레이드 후 *Grid Manager* > *보안 설정* 페이지에서 사용 가능한 *SSH 차단* 탭을 사용할 수 있습니다.link:../admin/manage-external-ssh-access.html["외부 SSH 액세스 관리"] .  그리드 노드 간 SSH 액세스는 영향을 받지 않습니다.
 
 
 
+[[storagegrid-upgrades-are-non-disruptive]]
 == StorageGRID 업그레이드는 무중단으로 수행할 수 있습니다
 
 StorageGRID 시스템은 업그레이드 프로세스 전반에서 클라이언트 애플리케이션의 데이터를 수집하고 검색할 수 있습니다. 같은 유형의 모든 노드를 업그레이드(예: 스토리지 노드)하도록 승인하면 노드가 한 번에 하나씩 중단되므로 특정 유형의 모든 그리드 노드 또는 모든 그리드 노드를 사용할 수 없게 되는 시간은 없습니다.
@@ -35,6 +37,7 @@ StorageGRID 시스템은 업그레이드 프로세스 전반에서 클라이언�
 
 
 
+[[client-applications-might-experience-short-term-disruptions]]
 == 클라이언트 애플리케이션은 단기간 동안 중단될 수 있습니다
 
 StorageGRID 시스템은 업그레이드 프로세스 전반에서 클라이언트 애플리케이션에서 데이터를 수집 및 검색할 수 있지만, 업그레이드에 따라 해당 노드에서 서비스를 다시 시작해야 하는 경우 개별 게이트웨이 노드 또는 스토리지 노드에 대한 클라이언트 연결이 일시적으로 중단될 수 있습니다. 업그레이드 프로세스가 완료되고 개별 노드에서 서비스가 재개되면 연결이 복원됩니다.
@@ -46,12 +49,14 @@ NOTE: 여러 게이트웨이 및 고가용성(HA) 그룹을 사용하여 업그�
 
 
 
+[[background-repairs-wont-run-on-grids-with-mixed-version-nodes]]
 == 혼합 버전 노드가 있는 그리드에서는 백그라운드 복구가 실행되지 않습니다.
 
 그리드에 여러 버전의 노드가 포함된 경우 업그레이드 중에는 백그라운드 복구가 실행되지 않습니다.  사이트 중단으로 인해 발생한 불일치 사항은 업그레이드가 완료될 때까지 복구되지 않습니다.
 
 
 
+[[appliance-firmware-is-upgraded]]
 == 어플라이언스 펌웨어가 업그레이드되었습니다
 
 StorageGRID 12.0 업그레이드 중:
@@ -64,6 +69,7 @@ StorageGRID 12.0 업그레이드 중:
 
 
 
+[[ilm-policies-are-handled-differently-according-to-their-status]]
 == ILM 정책은 상태에 따라 다르게 처리됩니다
 
 * 활성 정책은 업그레이드 후에도 동일하게 유지됩니다.
@@ -73,6 +79,7 @@ StorageGRID 12.0 업그레이드 중:
 
 
 
+[[alerts-might-be-triggered]]
 == 알림이 트리거될 수 있습니다
 
 서비스가 시작 및 중지되거나 StorageGRID 시스템이 혼합 버전 환경으로 작동 중일 때(이전 버전을 실행하는 일부 그리드 노드와 이후 버전으로 업그레이드된 경우) 경고가 트리거될 수 있습니다. 업그레이드가 완료된 후 다른 알림이 트리거될 수 있습니다.
@@ -85,6 +92,7 @@ StorageGRID 12.0으로 업그레이드하는 동안 스토리지 노드가 중�
 
 
 
+[[configuration-changes-are-restricted]]
 == 구성 변경이 제한됩니다
 
 

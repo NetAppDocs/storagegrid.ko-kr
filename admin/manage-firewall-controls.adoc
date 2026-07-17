@@ -38,6 +38,7 @@ NOTE: 한 탭에서 설정한 내용은 다른 탭의 액세스 변경에 영향
 
 
 
+[[privileged-address-list-and-manage-external-access-tabs]]
 == 특별 권한 주소 목록 및 외부 액세스 관리 탭
 
 특별 권한 주소 목록 탭을 사용하면 닫힌 그리드 포트에 대한 액세스 권한이 부여된 하나 이상의 IP 주소를 등록할 수 있습니다. 외부 액세스 관리 탭을 사용하면 선택한 외부 포트 또는 열려 있는 모든 외부 포트에 대한 외부 액세스를 닫을 수 있습니다(외부 포트는 기본적으로 비 그리드 노드가 액세스할 수 있는 포트입니다). 이러한 두 탭을 함께 사용하여 그리드에 필요한 정확한 네트워크 액세스를 사용자 지정할 수 있습니다.
@@ -47,6 +48,7 @@ NOTE: 권한이 있는 IP 주소는 기본적으로 내부 그리드 포트 액�
 
 
 
+[[example-1-use-a-jump-host-for-maintenance-tasks]]
 === 예 1: 유지 보수 작업에 점프 호스트를 사용합니다
 
 네트워크 관리에 점프 호스트(보안 강화 호스트)를 사용하려는 경우를 가정해 보겠습니다. 다음과 같은 일반 단계를 사용할 수 있습니다.
@@ -62,6 +64,7 @@ CAUTION: 포트 443 및 8443을 차단하기 전에 권한이 있는 IP 주소�
 
 
 
+[[example-2-lock-down-sensitive-ports]]
 === 예 2: 민감한 포트를 잠급니다
 
 민감한 포트와 해당 포트의 서비스를 잠그고 싶다고 가정해 보겠습니다.  다음과 같은 일반적인 단계를 사용할 수 있습니다.
@@ -77,12 +80,14 @@ CAUTION: Grid Manager 및 Tenant Manager 액세스에 할당된 포트에 대한
 
 
 
+[[example-3-disable-access-to-unused-services]]
 === 예 3: 사용하지 않는 서비스에 대한 액세스를 비활성화합니다
 
 네트워크 수준에서는 사용하지 않을 일부 서비스를 사용하지 않도록 설정할 수 있습니다. 예를 들어 HTTP S3 클라이언트 트래픽을 차단하려면 외부 액세스 관리 탭의 토글을 사용하여 포트 18084를 차단할 수 있습니다.
 
 
 
+[[untrusted-client-networks-tab]]
 == 신뢰할 수 없는 클라이언트 네트워크 탭
 
 클라이언트 네트워크를 사용하는 경우 명시적으로 구성된 끝점에서만 인바운드 클라이언트 트래픽을 허용하여 악의적인 공격으로부터 StorageGRID를 보호할 수 있습니다.
@@ -93,6 +98,7 @@ CAUTION: Grid Manager 및 Tenant Manager 액세스에 할당된 포트에 대한
 
 
 
+[[example-1-gateway-node-only-accepts-https-s3-requests]]
 === 예 1: 게이트웨이 노드는 HTTPS S3 요청만 허용합니다
 
 게이트웨이 노드가 HTTPS S3 요청을 제외한 클라이언트 네트워크의 모든 인바운드 트래픽을 거부하도록 한다고 가정합니다. 다음과 같은 일반 단계를 수행합니다.
@@ -105,6 +111,7 @@ CAUTION: Grid Manager 및 Tenant Manager 액세스에 할당된 포트에 대한
 
 
 
+[[example-2-storage-node-sends-s3-platform-services-requests]]
 === 예 2: 스토리지 노드가 S3 플랫폼 서비스 요청을 전송합니다
 
 스토리지 노드에서 아웃바운드 S3 플랫폼 서비스 트래픽을 활성화하되 클라이언트 네트워크의 해당 스토리지 노드에 대한 인바운드 연결을 차단하려는 경우를 가정해 봅니다. 이 일반 단계를 수행합니다.
@@ -116,6 +123,7 @@ CAUTION: Grid Manager 및 Tenant Manager 액세스에 할당된 포트에 대한
 
 
 
+[[example-3-limiting-access-to-grid-manager-to-a-subnet]]
 === 예 3: 그리드 관리자에 대한 액세스를 서브넷으로 제한
 
 특정 서브넷에서만 Grid Manager 액세스를 허용한다고 가정합니다. 다음 단계를 수행합니다.

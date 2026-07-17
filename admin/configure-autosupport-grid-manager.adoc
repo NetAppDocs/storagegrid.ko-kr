@@ -35,6 +35,7 @@ StorageGRID AutoSupport의 구성을 변경하려면 기본 관리자 노드에�
 
 
 
+[[specify-protocol-for-autosupport-packagesspecify-the-protocol-for-autosupport-packages]]
 == [[Specify-protocol-for-autosupport-packages]] AutoSupport 패키지의 프로토콜을 지정합니다
 
 다음 프로토콜을 사용하여 AutoSupport 패키지를 보낼 수 있습니다.
@@ -60,6 +61,7 @@ StorageGRID AutoSupport의 구성을 변경하려면 기본 관리자 노드에�
 
 
 
+[[disable-weekly-autosupport]]
 == Weekly AutoSupport를 비활성화합니다
 
 기본적으로 StorageGRID 시스템은 일주일에 한 번 AutoSupport 패키지를 기술 지원부로 보내도록 구성되어 있습니다.
@@ -76,6 +78,7 @@ StorageGRID AutoSupport의 구성을 변경하려면 기본 관리자 노드에�
 
 
 
+[[disable-event-triggered-autosupport]]
 == 이벤트가 트리거된 AutoSupport를 비활성화합니다
 
 기본적으로 StorageGRID 시스템은 한 시간마다 AutoSupport 패키지를 기술 지원으로 보내도록 구성되어 있습니다.
@@ -90,6 +93,7 @@ StorageGRID AutoSupport의 구성을 변경하려면 기본 관리자 노드에�
 
 
 
+[[enable-autosupport-on-demand]]
 == AutoSupport 온디맨드 를 활성화합니다
 
 AutoSupport On Demand는 기술 지원이 활발하게 진행 중인 문제를 해결하는 데 도움이 될 수 있습니다.
@@ -111,6 +115,7 @@ AutoSupport On Demand가 활성화되어 있으면 기술 지원 부서에서 Au
 
 
 
+[[disable-checks-for-software-updates]]
 == 소프트웨어 업데이트 확인을 비활성화합니다
 
 기본적으로 StorageGRID은 NetApp에 문의하여 사용 가능한 소프트웨어 업데이트가 있는지 확인합니다. StorageGRID 핫픽스 또는 새 버전을 사용할 수 있는 경우 새 버전이 StorageGRID 업그레이드 페이지에 표시됩니다.
@@ -125,6 +130,7 @@ AutoSupport On Demand가 활성화되어 있으면 기술 지원 부서에서 Au
 
 
 
+[[add-an-additional-autosupport-destination]]
 == AutoSupport 대상을 추가합니다
 
 AutoSupport를 활성화하면 상태 패키지와 상태 패키지가 기술 지원으로 전송됩니다. 모든 AutoSupport 패키지에 대해 하나의 추가 대상을 지정할 수 있습니다.
@@ -177,6 +183,7 @@ CA 인증서 메타데이터가 나타납니다.
 
 
 
+[[autosupport-for-appliancesconfigure-autosupport-for-appliances]]
 == [[autosupport-for-appliance]] 어플라이언스에 대해 AutoSupport를 구성합니다
 
 어플라이언스용 AutoSupport가 StorageGRID 하드웨어 문제를 보고하며 StorageGRID AutoSupport은 StorageGRID 소프트웨어 문제를 보고하지만, SGF6112의 경우 StorageGRID AutoSupport에서 하드웨어 및 소프트웨어 문제를 모두 보고합니다. 추가 구성이 필요하지 않은 SGF6112를 제외하고 각 어플라이언스에서 AutoSupport을 구성해야 합니다. AutoSupport는 서비스 어플라이언스와 스토리지 어플라이언스에 대해 서로 다르게 구현됩니다.

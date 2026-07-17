@@ -9,12 +9,14 @@ CAUTION: Active Directory 또는 Microsoft Entra ID가 아닌 ID 소스의 경�
 
 
 
+[[memberof-and-refint-overlays]]
 === MemberOf 및 구체화 오버레이
 
 MemberOf 및 구체화 오버레이를 활성화해야 합니다. 자세한 내용은 에서 역방향 그룹 구성원 유지 관리에 대한 지침을 참조하십시오http://www.openldap.org/doc/admin24/index.html["OpenLDAP 설명서: 버전 2.4 관리자 가이드"^].
 
 
 
+[[indexing]]
 === 인덱싱
 
 지정된 인덱스 키워드를 사용하여 다음 OpenLDAP 속성을 구성해야 합니다.

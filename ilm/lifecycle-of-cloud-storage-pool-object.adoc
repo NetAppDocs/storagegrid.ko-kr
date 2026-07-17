@@ -15,6 +15,7 @@ summary: 클라우드 스토리지 풀을 구현하기 전에 각 유형의 클�
 
 
 
+[[s3-lifecycle-of-a-cloud-storage-pool-object]]
 == S3: 클라우드 스토리지 풀 오브젝트의 수명 주기
 
 S3 Cloud Storage Pool에 저장된 오브젝트의 라이프사이클 단계를 설명합니다.
@@ -61,6 +62,7 @@ NOTE: StorageGRID 내의 스토리지 노드에 하나 이상의 객체 복제�
 
 
 
+[[azure-lifecycle-of-a-cloud-storage-pool-object]]
 == Azure: Cloud Storage Pool 개체의 수명 주기
 
 이 단계에서는 Azure Cloud Storage Pool에 저장된 개체의 라이프사이클 단계를 설명합니다.

@@ -15,6 +15,7 @@ summary: 스토리지 노드를 해제하기 전에 노드를 복제할 수 있�
 
 
 
+[[when-to-clone-a-node-instead-of-decommissioning-it]]
 == 노드를 서비스 해제하지 않고 클론을 생성할 때
 
 이전 어플라이언스 스토리지 노드를 최신 또는 더 큰 어플라이언스로 교체하려면 확장에 새 어플라이언스를 추가한 다음 이전 어플라이언스를 사용하지 않고 어플라이언스 노드의 클론을 생성하는 것이 좋습니다.
@@ -33,6 +34,7 @@ summary: 스토리지 노드를 해제하기 전에 노드를 복제할 수 있�
 
 
 
+[[considerations-for-connected-storage-nodes]]
 == 접속된 스토리지 노드에 대한 고려 사항
 
 접속된 스토리지 노드 해체 시 고려 사항을 검토합니다.
@@ -57,6 +59,8 @@ NOTE: ILM 평가 또는 삭제 코딩 데이터 사용 중단 단계에 도달�
 
 
 
+[[considerations-for-disconnected-storage-nodes]]
+[[considerations-disconnected-storage-nodes]]
 == 연결이 끊어진 스토리지 노드에 대한 고려 사항
 
 연결이 끊어진 스토리지 노드를 해제할 때 고려해야 할 사항을 검토합니다.

@@ -71,6 +71,7 @@ LDR
 |===
 
 
+[[example-urls]]
 == URL의 예
 
 클라이언트 응용 프로그램을 게이트웨이 노드의 HA 그룹의 로드 밸런서 끝점에 연결하려면 아래와 같이 구조화된 URL을 사용합니다.
@@ -83,6 +84,7 @@ LDR
 
 
 
+[[where-to-find-ip-addresses]]
 == IP 주소를 찾을 위치
 
 . 을 사용하여 그리드 관리자에 link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]로그인합니다.

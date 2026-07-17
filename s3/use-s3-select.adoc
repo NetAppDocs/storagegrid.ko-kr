@@ -22,6 +22,7 @@ S3 Select가 활성화된 테넌트 계정만 SelectObjectContent 쿼리를 실�
 
 
 
+[[clauses]]
 == 절을 참조하십시오
 
 * 목록을 선택합니다
@@ -32,6 +33,7 @@ S3 Select가 활성화된 테넌트 계정만 SelectObjectContent 쿼리를 실�
 
 
 
+[[data-types]]
 == 데이터 유형
 
 * 불입니다
@@ -44,10 +46,12 @@ S3 Select가 활성화된 테넌트 계정만 SelectObjectContent 쿼리를 실�
 
 
 
+[[operators]]
 == 연산자
 
 
 
+[[logical-operators]]
 === 논리 연산자
 
 * 및
@@ -57,6 +61,7 @@ S3 Select가 활성화된 테넌트 계정만 SelectObjectContent 쿼리를 실�
 
 
 
+[[comparison-operators]]
 === 비교 연산자
 
 * 를 누릅니다
@@ -73,6 +78,7 @@ S3 Select가 활성화된 테넌트 계정만 SelectObjectContent 쿼리를 실�
 
 
 
+[[pattern-matching-operators]]
 === 패턴 일치 연산자
 
 * 좋아요
@@ -82,6 +88,7 @@ S3 Select가 활성화된 테넌트 계정만 SelectObjectContent 쿼리를 실�
 
 
 
+[[unitary-operators]]
 === 단일 작업자
 
 * NULL입니다
@@ -90,6 +97,7 @@ S3 Select가 활성화된 테넌트 계정만 SelectObjectContent 쿼리를 실�
 
 
 
+[[math-operators]]
 === 수학 연산자
 
 * 를 누릅니다
@@ -103,6 +111,7 @@ StorageGRID는 Amazon S3 Select 운영자 우선권을 따릅니다.
 
 
 
+[[aggregate-functions]]
 == 집계 함수
 
 * 평균()
@@ -114,6 +123,7 @@ StorageGRID는 Amazon S3 Select 운영자 우선권을 따릅니다.
 
 
 
+[[conditional-functions]]
 == 조건부 함수
 
 * 케이스
@@ -123,6 +133,7 @@ StorageGRID는 Amazon S3 Select 운영자 우선권을 따릅니다.
 
 
 
+[[conversion-functions]]
 == 변환 함수
 
 * 캐스트(지원되는 데이터 형식용)
@@ -130,6 +141,7 @@ StorageGRID는 Amazon S3 Select 운영자 우선권을 따릅니다.
 
 
 
+[[date-functions]]
 == 날짜 함수
 
 * date_add
@@ -142,6 +154,7 @@ StorageGRID는 Amazon S3 Select 운영자 우선권을 따릅니다.
 
 
 
+[[string-functions]]
 == 문자열 함수
 
 * char_length, character_length

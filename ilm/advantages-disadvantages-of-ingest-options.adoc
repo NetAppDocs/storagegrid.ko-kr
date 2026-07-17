@@ -17,6 +17,7 @@ summary: '수집 시 데이터를 보호하기 위한 세 가지 옵션(균형, 
 
 
 
+[[advantages-of-the-balanced-and-strict-options]]
 == 균형 및 엄격 옵션의 장점
 
 수집하는 동안 임시 사본을 생성하는 이중 커밋과 비교할 때 두 개의 동기식 배치 옵션은 다음과 같은 이점을 제공합니다.
@@ -29,6 +30,7 @@ summary: '수집 시 데이터를 보호하기 위한 세 가지 옵션(균형, 
 
 
 
+[[disadvantages-of-the-balanced-and-strict-options]]
 == 균형 및 엄격 옵션의 단점
 
 이중 커밋과 비교할 때 균형 및 엄격 옵션에는 다음과 같은 몇 가지 단점이 있습니다.
@@ -46,6 +48,7 @@ summary: '수집 시 데이터를 보호하기 위한 세 가지 옵션(균형, 
 
 
 
+[[limitations-on-object-placements-with-the-balanced-and-strict-options]]
 == 균형 및 엄격 옵션을 사용한 개체 배치 제한
 
 다음 배치 지침이 있는 ILM 규칙에는 균형 또는 엄격 옵션을 사용할 수 없습니다.
@@ -58,6 +61,7 @@ summary: '수집 시 데이터를 보호하기 위한 세 가지 옵션(균형, 
 
 
 
+[[how-ilm-rules-and-consistency-interact-to-affect-data-protection]]
 == ILM 규칙 및 일관성이 상호 작용하여 데이터 보호에 영향을 미치는 방법
 
 ILM 규칙과 정합성 보장 선택은 모두 오브젝트를 보호하는 방법에 영향을 미칩니다. 이러한 설정은 상호 작용할 수 있습니다.
@@ -96,6 +100,7 @@ NOTE: 일관성 값을 선택하기 전에link:../s3/consistency.html["일관성
 
 
 
+[[example-of-how-consistency-and-ilm-rules-can-interact]]
 == 일관성과 ILM 규칙이 상호 작용하는 방법의 예
 
 다음 ILM 규칙과 일관성을 갖춘 3개 사이트 그리드가 있다고 가정해 보겠습니다.

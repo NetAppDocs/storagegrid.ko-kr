@@ -20,6 +20,7 @@ NOTE: StorageGRID 12.0에서는 더 이상 사용되지 않는 테넌트 관리 
 
 
 
+[[new-api-for-object-replication]]
 == 객체 복제를 위한 새로운 API
 
 당신은 사용할 수 있습니다 `/org/cross-grid-replication/{versionId}/replicate` 새로 구성된 크로스 그리드 복제가 있는 기존 버킷에서 객체를 수동으로 복제하기 위한 API입니다.

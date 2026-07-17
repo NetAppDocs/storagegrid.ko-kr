@@ -15,6 +15,7 @@ StorageGRID는 그리드 관리자와 개별 테넌트 사용자 모두에게 �
 
 
 
+[[how-tenant-users-control-object-retention]]
 == 테넌트 사용자가 객체 보존을 제어하는 방식
 
 테넌트 사용자는 다음 방법을 사용하여 개체가 StorageGRID에 저장되는 기간을 제어할 수 있습니다.
@@ -33,6 +34,7 @@ StorageGRID는 그리드 관리자와 개별 테넌트 사용자 모두에게 �
 
 
 
+[[how-grid-administrators-control-object-retention]]
 == 그리드 관리자가 개체 보존을 제어하는 방법
 
 그리드 관리자는 다음 방법을 사용하여 객체 보존을 제어할 수 있습니다.
@@ -44,18 +46,21 @@ StorageGRID는 그리드 관리자와 개별 테넌트 사용자 모두에게 �
 
 
 
+[[how-s3-bucket-lifecycle-and-ilm-interact]]
 == S3 버킷 수명 주기와 ILM이 상호 작용하는 방식
 
 S3 버킷 라이프사이클이 구성된 경우 라이프사이클 만료 작업이 라이프사이클 필터와 일치하는 오브젝트에 대한 ILM 정책을 재정의합니다. 따라서 개체를 배치하기 위한 ILM 명령이 만료된 후에도 개체가 그리드에 유지될 수 있습니다.
 
 
 
+[[examples-for-object-retention]]
 == 오브젝트 보존의 예
 
 S3 오브젝트 잠금, 버킷 수명 주기 설정, 클라이언트 삭제 요청 및 ILM 간의 상호 작용을 더 잘 이해하려면 다음 예제를 고려해 보십시오.
 
 
 
+[[example-1-s3-bucket-lifecycle-keeps-objects-longer-than-ilm]]
 === 예 1: S3 버킷 수명 주기는 ILM보다 개체를 더 오래 유지합니다
 
 ILM을 참조하십시오:: 1년(365일) 동안 2부 보관
@@ -68,6 +73,7 @@ NOTE: 버킷 라이프사이클에서 ILM에서 지정한 것보다 더 오래 �
 
 
 
+[[example-2-s3-bucket-lifecycle-expires-objects-before-ilm]]
 === 예 2: S3 버킷 라이프사이클이 ILM 전에 오브젝트를 만기합니다
 
 ILM을 참조하십시오:: 2년(730일) 동안 2부 보관
@@ -77,6 +83,7 @@ ILM을 참조하십시오:: 2년(730일) 동안 2부 보관
 
 
 
+[[example-3-client-delete-overrides-bucket-lifecycle-and-ilm]]
 === 예 3: 클라이언트 삭제는 버킷 수명 주기와 ILM을 재정의합니다
 
 ILM을 참조하십시오:: 스토리지 노드에 "영구" 복사본 2개 저장
@@ -87,6 +94,7 @@ ILM을 참조하십시오:: 스토리지 노드에 "영구" 복사본 2개 저�
 
 
 
+[[example-4-s3-object-lock-overrides-client-delete-request]]
 === 예 4: S3 오브젝트 잠금이 클라이언트 삭제 요청을 재정의합니다
 
 S3 오브젝트 잠금:: 개체 버전에 대한 보존 기한은 2026-03-31입니다. 법적 증거 자료 보관 은 적용되지 않습니다.

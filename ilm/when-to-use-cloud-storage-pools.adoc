@@ -15,6 +15,7 @@ Cloud Storage Pool을 사용하면 데이터를 외부 위치에 백업하거나
 
 
 
+[[back-up-storagegrid-data-to-external-location]]
 == StorageGRID 데이터를 외부 위치에 백업합니다
 
 클라우드 스토리지 풀을 사용하여 StorageGRID 객체를 외부 위치에 백업할 수 있습니다.
@@ -32,6 +33,7 @@ StorageGRID의 복사본에 액세스할 수 없는 경우 클라우드 스토�
 
 
 
+[[tier-data-from-storagegrid-to-external-location]]
 == StorageGRID에서 외부 위치로 데이터 계층화
 
 클라우드 스토리지 풀을 사용하여 StorageGRID 시스템 외부에 개체를 저장할 수 있습니다. 예를 들어, 보존해야 하는 오브젝트가 많은 경우 해당 오브젝트에 거의 액세스하지 않을 것으로 예상한다고 가정합니다. 클라우드 스토리지 풀을 사용하여 오브젝트를 저비용 스토리지로 계층화하거나 StorageGRID에서 공간을 확보할 수 있습니다.
@@ -45,6 +47,7 @@ StorageGRID의 복사본에 액세스할 수 없는 경우 클라우드 스토�
 
 
 
+[[maintain-multiple-cloud-endpoints]]
 == 여러 클라우드 엔드포인트 유지 관리
 
 오브젝트 데이터를 두 개 이상의 클라우드에 계층화하거나 백업하려는 경우 여러 Cloud Storage Pool 엔드포인트를 구성할 수 있습니다. ILM 규칙의 필터를 사용하여 각 클라우드 스토리지 풀에 저장할 오브젝트를 지정할 수 있습니다. 예를 들어, 일부 테넌트 또는 버킷의 오브젝트를 Amazon S3 빙하에 저장하고 다른 테넌트 또는 버킷의 오브젝트를 Azure Blob 스토리지에 저장할 수 있습니다. 또는 Amazon S3 Glacier와 Azure Blob 스토리지 간에 데이터를 이동할 수 있습니다.

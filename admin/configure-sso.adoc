@@ -60,6 +60,7 @@ StorageGRID (서비스 공급자)와 SSO ID 공급자가 사용자 인증 요청
 
 
 
+[[access-the-wizard]]
 == 마법사에 액세스합니다
 
 .단계
@@ -73,6 +74,7 @@ NOTE: SSO 설정 구성 버튼이 비활성화된 경우 ID 공급자를 페더�
 
 
 
+[[provide-identity-provider-details]]
 == ID 공급자 세부 정보 제공
 
 .단계
@@ -101,6 +103,7 @@ CAUTION: CA 인증서를 변경하는 경우 즉시 link:../maintain/starting-or
 
 
 
+[[enter-sandbox-modeprovide-relying-party-identifier]]
 == [[enter-sandbox-mode]]신뢰하는 당사자 식별자 제공
 
 . 선택한 SSO 유형에 따라 신뢰 당사자 식별자 제공 페이지에서 필드를 완성합니다.
@@ -171,6 +174,7 @@ https://<Federation Service Name>:<port>/pf/federation_metadata.ping?PartnerSpId
 
 
 
+[[configure-relying-party-trusts-enterprise-applications-or-sp-connections]]
 == 신뢰할 수 있는 파티 트러스트, 엔터프라이즈 애플리케이션 또는 SP 연결을 구성합니다
 
 구성을 저장하고 샌드박스 모드로 들어간 후, 선택한 SSO 유형에 대한 구성을 완료하고 테스트할 수 있습니다.
@@ -231,6 +235,7 @@ StorageGRID 필요한 만큼 샌드박스 모드를 유지할 수 있습니다. 
 ====
 
 
+[[test-ssotest-configuration]]
 == [[test-sso]]테스트 구성
 
 StorageGRID 시스템 전체에 대해 단일 로그인 사용을 강제로 적용하기 전에 각 관리 노드에 대해 단일 로그인 및 단일 로그아웃이 올바르게 구성되었는지 확인하세요.
@@ -294,6 +299,7 @@ URL은 * 페더레이션 서비스 이름 * 필드에 입력한 값에서 파생
 ====
 
 
+[[enable-single-sign-on]]
 == SSO(Single Sign-On)를 활성화합니다
 
 SSO를 사용하여 각 관리 노드에 로그인할 수 있는지 확인한 후 전체 StorageGRID 시스템에 대해 SSO를 활성화할 수 있습니다.

@@ -15,6 +15,7 @@ FabricPool 설정 마법사를 사용하여 StorageGRID를 FabricPool 클라우�
 
 
 
+[[when-to-use-the-fabricpool-setup-wizard]]
 == FabricPool 설정 마법사를 사용하는 경우
 
 FabricPool 설정 마법사는 FabricPool에서 사용하도록 StorageGRID를 구성하는 각 단계를 안내하고 ILM 및 트래픽 분류 정책과 같은 특정 엔터티를 자동으로 구성합니다. 마법사 완료 시 ONTAP 시스템 관리자에 값을 입력하는 데 사용할 수 있는 파일을 다운로드합니다. 마법사를 사용하여 시스템을 보다 빠르게 구성하고 설정이 StorageGRID 및 FabricPool 모범 사례에 맞는지 확인합니다.
@@ -26,12 +27,14 @@ TIP: 특별한 요구 사항이 있거나 구현 시 상당한 사용자 지정�
 
 
 
+[[before-using-the-wizard]]
 == 마법사를 사용하기 전에
 
 이 필수 단계를 완료했는지 확인합니다.
 
 
 
+[[review-best-practices]]
 === 모범 사례를 검토합니다
 
 * 에 대한 일반적인 이해도를 가지고 link:information-needed-to-attach-storagegrid-as-cloud-tier.html["StorageGRID를 클라우드 계층으로 연결하는 데 필요한 정보"]있습니다.
@@ -46,6 +49,7 @@ TIP: 특별한 요구 사항이 있거나 구현 시 상당한 사용자 지정�
 
 
 
+[[obtain-ip-addresses-and-set-up-vlan-interfaces]]
 === IP 주소를 얻고 VLAN 인터페이스를 설정합니다
 
 HA 그룹을 구성할 경우 ONTAP가 연결할 노드 및 사용할 StorageGRID 네트워크를 알고 있어야 합니다. 서브넷 CIDR, 게이트웨이 IP 주소 및 가상 IP(VIP) 주소에 대해 입력할 값도 알고 있습니다.
@@ -54,12 +58,14 @@ HA 그룹을 구성할 경우 ONTAP가 연결할 노드 및 사용할 StorageGRI
 
 
 
+[[configure-identity-federation-and-sso]]
 === ID 페더레이션 및 SSO를 구성합니다
 
 StorageGRID 시스템에 ID 페더레이션이나 SSO(Single Sign-On)를 사용하려는 경우 이러한 기능을 활성화해야 합니다.  또한 ONTAP 에서 사용할 테넌트 계정에 대해 루트 액세스 권한이 있는 페더레이션 그룹이 어떤지도 알고 있습니다.  보다link:../admin/using-identity-federation.html["ID 페더레이션을 사용합니다"] 그리고link:../admin/how-sso-works.html["Single Sign-On 구성"] .
 
 
 
+[[obtain-and-configure-domain-names]]
 === 도메인 이름 가져오기 및 구성
 
 * StorageGRID에 사용할 FQDN(정규화된 도메인 이름)을 알고 있습니다. DNS(Domain Name Server) 항목은 이 FQDN을 마법사를 사용하여 생성한 HA 그룹의 가상 IP(VIP) 주소에 매핑합니다. 을 link:../fabricpool/configure-dns-server.html["DNS 서버를 구성합니다"]참조하십시오.
@@ -68,6 +74,7 @@ StorageGRID 시스템에 ID 페더레이션이나 SSO(Single Sign-On)를 사용�
 
 
 
+[[review-load-balancer-and-security-certificate-requirements]]
 === 로드 밸런서 및 보안 인증서 요구 사항을 검토합니다
 
 StorageGRID 로드 밸런서를 사용할 계획이라면 일반을 검토하셨습니다.link:../admin/managing-load-balancing.html["로드 균형 조정에 대한 고려 사항"] 업로드할 인증서 또는 인증서를 생성하는 데 필요한 값이 있습니다.
@@ -76,6 +83,7 @@ StorageGRID 로드 밸런서를 사용할 계획이라면 일반을 검토하셨
 
 
 
+[[confirm-ilm-storage-pool-configuration]]
 === ILM 스토리지 풀 구성을 확인합니다
 
 처음에 StorageGRID 11.6 또는 이전 버전을 설치한 경우 사용할 스토리지 풀을 구성했습니다. 일반적으로 ONTAP 데이터를 저장하는 데 사용할 각 StorageGRID 사이트에 대해 스토리지 풀을 생성해야 합니다.
@@ -85,6 +93,7 @@ NOTE: 이 필수 구성 요소는 처음에 StorageGRID 11.7 또는 11.8을 설�
 
 
 
+[[relationship-between-ontap-and-the-storagegrid-cloud-tier]]
 == ONTAP와 StorageGRID 클라우드 계층 간의 관계
 
 FabricPool 마법사는 StorageGRID 테넌트 1개, 액세스 키 세트 1개 및 StorageGRID 버킷 1개가 포함된 단일 StorageGRID 클라우드 계층을 생성하는 프로세스를 안내합니다. 이 StorageGRID 클라우드 계층을 하나 이상의 ONTAP 로컬 계층에 연결할 수 있습니다.
@@ -98,6 +107,7 @@ NOTE: NetApp MetroCluster ™ 및 FabricPool Mirror와 함께 StorageGRID를 사
 
 
 
+[[optional-use-a-different-bucket-for-each-local-tier]]
 === 선택 사항: 각 로컬 계층에 대해 다른 버킷을 사용하십시오
 
 ONTAP 클러스터에서 로컬 계층에 둘 이상의 버킷을 사용하려면 ONTAP에 둘 이상의 StorageGRID 클라우드 계층을 추가하십시오. 각 클라우드 계층은 동일한 HA 그룹, 로드 밸런서 엔드포인트, 테넌트 및 액세스 키를 공유하지만 다른 컨테이너(StorageGRID 버킷)를 사용합니다. 다음 일반 단계를 따릅니다.
@@ -111,6 +121,7 @@ ONTAP 클러스터에서 로컬 계층에 둘 이상의 버킷을 사용하려�
 
 
 
+[[optional-use-a-different-tenant-and-bucket-for-each-local-tier]]
 === 선택 사항: 각 로컬 계층에 대해 다른 테넌트와 버킷을 사용합니다
 
 ONTAP 클러스터에서 로컬 계층에 대해 둘 이상의 테넌트 및 다른 액세스 키 세트를 사용하려면 ONTAP에 둘 이상의 StorageGRID 클라우드 계층을 추가합니다. 각 클라우드 계층은 동일한 HA 그룹, 로드 밸런서 엔드포인트를 공유하지만 다른 테넌트, 액세스 키 및 컨테이너(StorageGRID 버킷)를 사용합니다. 다음 일반 단계를 따릅니다.

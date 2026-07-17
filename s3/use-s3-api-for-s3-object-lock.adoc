@@ -15,6 +15,7 @@ StorageGRID 시스템에서 글로벌 S3 오브젝트 잠금 설정이 활성화
 
 
 
+[[how-to-enable-s3-object-lock-for-a-bucket]]
 == 버킷에 대해 S3 오브젝트 잠금을 활성화하는 방법
 
 StorageGRID 시스템에 대해 글로벌 S3 오브젝트 잠금 설정이 활성화된 경우 각 버킷을 생성할 때 선택적으로 S3 오브젝트 잠금을 활성화할 수 있습니다.
@@ -31,12 +32,14 @@ S3 오브젝트 잠금에서는 버킷 버전 관리가 필요하며, 이 버전
 
 
 
+[[default-retention-settings-for-a-bucket]]
 == 버킷의 기본 보존 설정입니다
 
 버킷에 대해 S3 오브젝트 잠금이 활성화된 경우 버킷에 대한 기본 보존을 선택적으로 설정하고 기본 보존 모드 및 기본 보존 기간을 지정할 수 있습니다.
 
 
 
+[[default-retention-mode]]
 === 기본 보존 모드
 
 * 규정 준수 모드:
@@ -57,12 +60,14 @@ S3 오브젝트 잠금에서는 버킷 버전 관리가 필요하며, 이 버전
 
 
 
+[[default-retention-period]]
 === 기본 보존 기간
 
 각 버킷에는 년 또는 일 단위로 지정된 기본 보존 기간이 있을 수 있습니다.
 
 
 
+[[how-to-set-default-retention-for-a-bucket]]
 == 버킷의 기본 보존 설정 방법
 
 버킷의 기본 보존을 설정하려면 다음 방법 중 하나를 사용합니다.
@@ -73,6 +78,7 @@ S3 오브젝트 잠금에서는 버킷 버전 관리가 필요하며, 이 버전
 
 
 
+[[putobjectlockconfiguration]]
 === PutObjectLockConfiguration 을 참조하십시오
 
 PutObjectLockConfiguration 요청을 사용하면 S3 오브젝트 잠금이 설정된 버킷의 기본 보존 모드 및 기본 보존 기간을 설정하고 수정할 수 있습니다. 이전에 구성한 기본 보존 설정을 제거할 수도 있습니다.
@@ -115,6 +121,7 @@ Authorization: _authorization-string_
 ----
 
 
+[[how-to-determine-the-default-retention-for-a-bucket]]
 == 버킷의 기본 보존 결정 방법
 
 버킷에 대해 S3 오브젝트 잠금이 설정되었는지 확인하고 기본 보존 모드 및 보존 기간을 확인하려면 다음 방법 중 하나를 사용하십시오.
@@ -125,6 +132,7 @@ Authorization: _authorization-string_
 
 
 
+[[getobjectlockconfiguration]]
 === GetObjectLockConfiguration 을 참조하십시오
 
 GetObjectLockConfiguration 요청을 사용하면 버킷에 대해 S3 오브젝트 잠금이 설정되어 있는지 확인하고, 사용하도록 설정되어 있는 경우 버킷에 대해 구성된 기본 보존 모드 및 보존 기간이 있는지 확인할 수 있습니다.
@@ -173,6 +181,7 @@ Server: AmazonS3
 ----
 
 
+[[how-to-specify-retention-settings-for-an-object]]
 == 개체의 보존 설정을 지정하는 방법
 
 S3 오브젝트 잠금이 활성화된 버킷에는 S3 오브젝트 잠금 보존 설정이 있는 오브젝트와 없는 오브젝트의 조합이 포함될 수 있습니다.
@@ -227,6 +236,7 @@ NOTE: 을 지정한 `x-amz-object-lock-mode` 경우에는 도 지정해야 `x-am
 
 
 
+[[how-to-update-retention-settings-for-an-object]]
 == 개체의 보존 설정을 업데이트하는 방법
 
 기존 개체 버전에 대한 법적 증거 자료 보관 또는 보존 설정을 업데이트해야 하는 경우 다음 개체 하위 리소스 작업을 수행할 수 있습니다.
@@ -246,6 +256,7 @@ NOTE: 을 지정한 `x-amz-object-lock-mode` 경우에는 도 지정해야 `x-am
 
 
 
+[[how-to-use-governance-mode]]
 == 거버넌스 모드 사용 방법
 
 권한이 있는 사용자는 `s3:BypassGovernanceRetention` 거버넌스 모드를 사용하는 개체의 활성 보존 설정을 무시할 수 있습니다. 삭제 또는 PutObjectRetention 작업은 요청 헤더를 포함해야 `x-amz-bypass-governance-retention:true` 합니다. 이러한 사용자는 다음과 같은 추가 작업을 수행할 수 있습니다.

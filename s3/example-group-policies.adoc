@@ -17,6 +17,7 @@ summary: 이 섹션의 예제를 사용하여 그룹에 대한 StorageGRID 액�
 
 
 
+[[example-set-group-policy-using-tenant-manager]]
 == 예: 테넌트 관리자를 사용하여 그룹 정책을 설정합니다
 
 테넌트 관리자에서 그룹을 추가하거나 편집할 때 그룹 정책을 선택하여 이 그룹의 구성원이 가질 S3 액세스 권한을 결정할 수 있습니다. 을 link:../tenant/creating-groups-for-s3-tenant.html["S3 테넌트에 대한 그룹을 생성합니다"]참조하십시오.
@@ -33,6 +34,7 @@ summary: 이 섹션의 예제를 사용하여 그룹에 대한 StorageGRID 액�
 
 
 
+[[example-allow-group-full-access-to-all-buckets]]
 == 예: 모든 버킷에 대한 그룹 전체 액세스 허용
 
 이 예에서 그룹의 모든 구성원은 버킷 정책에 의해 명시적으로 거부되지 않는 한 테넌트 계정이 소유한 모든 버킷에 대해 전체 액세스가 허용됩니다.
@@ -51,6 +53,7 @@ summary: 이 섹션의 예제를 사용하여 그룹에 대한 StorageGRID 액�
 ----
 
 
+[[example-allow-group-read-only-access-to-all-buckets]]
 == 예: 모든 버킷에 대한 그룹 읽기 전용 액세스를 허용합니다
 
 이 예제에서 그룹의 모든 구성원은 버킷 정책에 의해 명시적으로 거부되지 않는 한 S3 리소스에 대해 읽기 전용 액세스 권한을 갖습니다. 예를 들어 이 그룹의 사용자는 개체를 나열하고 개체 데이터, 메타데이터 및 태그를 읽을 수 있습니다.
@@ -78,6 +81,7 @@ summary: 이 섹션의 예제를 사용하여 그룹에 대한 StorageGRID 액�
 ----
 
 
+[[example-allow-group-members-full-access-to-only-their-folder-in-a-bucket]]
 == 예: 그룹 구성원이 버킷의 "폴더"에만 모든 권한을 부여할 수 있습니다
 
 이 예제에서 그룹의 구성원은 지정된 버킷의 특정 폴더(키 접두사)를 나열하고 액세스할 수만 있습니다. 이러한 폴더의 개인 정보를 확인할 때는 다른 그룹 정책 및 버킷 정책의 액세스 권한을 고려해야 합니다.

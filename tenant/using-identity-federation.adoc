@@ -15,6 +15,7 @@ ID 페더레이션을 사용하면 테넌트 그룹 및 사용자를 더 빠르�
 
 
 
+[[configure-identity-federation-for-tenant-manager]]
 == 테넌트 관리자에 대한 ID 페더레이션을 구성합니다
 
 테넌트 그룹과 사용자를 Active Directory, Microsoft Entra ID, OpenLDAP 또는 Oracle Directory Server와 같은 다른 시스템에서 관리하려는 경우 테넌트 관리자에 대한 ID 페더레이션을 구성할 수 있습니다.
@@ -38,6 +39,7 @@ image:tenant_shares_identity_federation.png["테넌트 공유 ID 페더레이션
 
 
 
+[[enter-configuration]]
 === 구성을 입력합니다
 
 Identify 페더레이션을 구성할 때 StorageGRID가 LDAP 서비스에 연결하는 데 필요한 값을 제공합니다.
@@ -141,6 +143,7 @@ NOTE: Active Directory 서버에서 LDAP 서명을 적용하는 경우 *TLS 사�
 
 
 
+[[test-the-connection-and-save-the-configuration]]
 === 연결을 테스트하고 구성을 저장합니다
 
 모든 값을 입력한 후 구성을 저장하기 전에 연결을 테스트해야 합니다. StorageGRID는 LDAP 서버에 대한 연결 설정과 바인딩 사용자 이름 형식(제공한 경우)을 확인합니다.
@@ -169,6 +172,7 @@ image:identity_federation_test_connection.png["바인딩 사용자 이름 형식
 
 
 
+[[force-synchronization-with-identity-source]]
 == ID 소스와 강제로 동기화합니다
 
 StorageGRID 시스템은 ID 소스에서 페더레이션 그룹과 사용자를 정기적으로 동기화합니다. 사용자 권한을 최대한 빨리 설정하거나 제한하려는 경우 동기화를 강제로 시작할 수 있습니다.
@@ -187,6 +191,7 @@ NOTE: ID 소스에서 페더레이션 그룹과 사용자를 동기화하는 데
 
 
 
+[[disable-identity-federation]]
 == ID 페더레이션을 비활성화합니다
 
 그룹 및 사용자에 대한 ID 페더레이션을 일시적 또는 영구적으로 비활성화할 수 있습니다.  ID 페더레이션이 비활성화되면 StorageGRID 와 ID 소스 간에 통신이 이루어지지 않습니다.  하지만 구성한 설정은 모두 유지되므로 나중에 ID 페더레이션을 쉽게 다시 활성화할 수 있습니다.
@@ -207,6 +212,7 @@ ID 페더레이션을 사용하지 않도록 설정하기 전에 다음 사항�
 
 
 
+[[guidelines-for-configuring-openldap-server]]
 == OpenLDAP 서버 구성 지침
 
 OpenLDAP 서버를 ID 페더레이션에 사용하려면 OpenLDAP 서버에서 특정 설정을 구성해야 합니다.
@@ -216,12 +222,14 @@ CAUTION: Active Directory 또는 Microsoft Entra ID가 아닌 ID 소스의 경�
 
 
 
+[[memberof-and-refint-overlays]]
 === MemberOf 및 구체화 오버레이
 
 MemberOf 및 구체화 오버레이를 활성화해야 합니다. 자세한 내용은 에서 역방향 그룹 구성원 유지 관리에 대한 지침을 참조하십시오http://www.openldap.org/doc/admin24/index.html["OpenLDAP 설명서: 버전 2.4 관리자 가이드"^].
 
 
 
+[[indexing]]
 === 인덱싱
 
 지정된 인덱스 키워드를 사용하여 다음 OpenLDAP 속성을 구성해야 합니다.

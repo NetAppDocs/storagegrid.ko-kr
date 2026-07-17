@@ -15,6 +15,7 @@ summary: 관리 노드는 시스템 구성, 모니터링 및 로깅과 같은 �
 
 
 
+[[differences-between-primary-and-non-primary-admin-nodes]]
 == 운영 관리 노드와 비운영 관리 노드 간의 차이점
 
 Grid Manager 또는 Tenant Manager에 로그인하면 관리 노드에 연결됩니다.  모든 관리 노드에 연결할 수 있으며, 각 관리 노드에는 StorageGRID 시스템의 유사한 보기가 표시됩니다.  하지만 기본 관리 노드는 기본이 아닌 관리 노드보다 더 많은 기능을 제공합니다.  예를 들어, 대부분의 유지 관리 절차는 기본 관리 노드에서 수행해야 합니다.
@@ -162,6 +163,7 @@ IP 주소 변경 및 NTP 서버 업데이트와 같은 모든 네트워크 관�
 |===
 
 
+[[preferred-senderpreferred-sender-admin-node]]
 == [[preferred-sender]] 기본 보낸 사람 관리자 노드
 
 StorageGRID 구축에 여러 관리자 노드가 포함된 경우 기본 관리자 노드가 경고 알림, AutoSupport 패키지, SNMP 트랩 및 알림을 보내는 기본 보낸 사람이 됩니다.
@@ -180,6 +182,7 @@ NOTE: AutoSupport 패키지를 테스트할 때 모든 관리 노드가 테스�
 
 
 
+[[primary-services-for-admin-nodes]]
 == 관리 노드에 대한 기본 서비스
 
 다음 표에서는 관리 노드의 기본 서비스를 보여 줍니다. 그러나 이 테이블에는 모든 노드 서비스가 나열되지는 않습니다.

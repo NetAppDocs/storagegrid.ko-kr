@@ -56,6 +56,7 @@ image:health_status_card.png["상태 카드 - 대시보드"]
 |===
 
 
+[[monitor-node-connection-states]]
 == 노드 연결 상태를 모니터링합니다
 
 하나 이상의 노드가 그리드에서 분리되면 중요한 StorageGRID 작업이 영향을 받을 수 있습니다. 노드 연결 상태를 모니터링하고 문제를 즉시 해결합니다.
@@ -111,6 +112,7 @@ image:icon_alert_green_checkmark.png["아이콘 경고 녹색 확인 표시"]
 |===
 
 
+[[view-current-and-resolved-alerts]]
 == 현재 및 해결된 경고를 봅니다
 
 * 현재 경고 *: 경고가 트리거되면 경고 아이콘이 대시보드에 표시됩니다. 노드 페이지의 노드에 대한 알림 아이콘도 표시됩니다. 이 경우 link:email-alert-notifications.html["경고 e-메일 알림이 구성되었습니다"]알림을 해제하지 않는 한 이메일 알림도 전송됩니다.

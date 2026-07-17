@@ -19,6 +19,7 @@ SSO(Single Sign-On)를 활성화하기 전에 SSO를 사용할 때 StorageGRID �
 
 
 
+[[sign-in-when-sso-is-enabled]]
 == SSO가 활성화되면 로그인하십시오
 
 SSO가 활성화되어 있고 StorageGRID에 로그인하면 조직의 SSO 페이지로 리디렉션되어 자격 증명을 검증합니다.
@@ -69,6 +70,7 @@ SSO 자격 증명을 다시 입력하지 않아도 됩니다.
 
 
 
+[[sign-out-when-sso-is-enabled]]
 == SSO가 활성화되면 로그아웃합니다
 
 StorageGRID에 대해 SSO가 활성화된 경우 로그아웃할 때 발생하는 작업은 로그인한 대상 및 로그아웃 위치에 따라 달라집니다.

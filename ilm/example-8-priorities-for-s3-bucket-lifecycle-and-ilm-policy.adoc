@@ -15,6 +15,7 @@ summary: 라이프사이클 구성에 따라 오브젝트는 S3 버킷 라이프
 
 
 
+[[example-of-bucket-lifecycle-taking-priority-over-ilm-policy]]
 == ILM 정책보다 우선 순위가 높은 버킷 라이프사이클의 예
 
 ILM 정책::
@@ -50,6 +51,7 @@ ILM 정책::
 
 
 
+[[example-of-bucket-lifecycle-implicitly-keeping-forever]]
 == 버킷 수명 주기의 예 - 영구 보관
 
 ILM 정책::
@@ -85,6 +87,7 @@ ILM 정책::
 
 
 
+[[example-of-using-bucket-lifecycle-to-duplicate-ilm-and-clean-up-expired-delete-markers]]
 == 버킷 수명 주기를 사용하여 ILM을 복제하고 만료된 삭제 마커를 정리하는 예
 
 ILM 정책::

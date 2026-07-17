@@ -22,6 +22,7 @@ HTTP 연결을 구성하는 방법은 StorageGRID 시스템의 성능에 영향�
 
 
 
+[[benefits-of-keeping-idle-http-connections-open]]
 == 유휴 HTTP 연결을 열어 두면 얻을 수 있는 이점
 
 클라이언트 애플리케이션이 유휴 상태일 때에도 HTTP 연결을 열어두면 나중에 트랜잭션을 수행할 수 있습니다.  최대 10분 동안 유휴 HTTP 연결을 열어 둡니다.  StorageGRID 10분 이상 열려 있고 유휴 상태인 HTTP 연결을 자동으로 닫을 수 있습니다.
@@ -40,6 +41,7 @@ HTTP 연결을 구성하는 방법은 StorageGRID 시스템의 성능에 영향�
 
 
 
+[[benefits-of-active-http-connections]]
 == 활성 HTTP 연결의 이점
 
 스토리지 노드에 직접 연결하는 경우 HTTP 연결이 지속적으로 트랜잭션을 수행하더라도 활성 HTTP 연결 기간을 최대 10분으로 제한해야 합니다.
@@ -63,6 +65,7 @@ HTTP 연결을 구성하는 방법은 StorageGRID 시스템의 성능에 영향�
 
 
 
+[[benefits-of-concurrent-http-connections]]
 == 동시 HTTP 연결의 이점
 
 병렬 처리를 허용하도록 StorageGRID 시스템에 대한 여러 TCP/IP 연결을 열린 상태로 유지하여 성능을 향상시켜야 합니다. 최적의 병렬 연결 수는 다양한 요인에 따라 달라집니다.
@@ -92,6 +95,7 @@ StorageGRID 시스템은 종종 여러 클라이언트 애플리케이션을 지
 
 
 
+[[separation-of-http-connection-pools-for-read-and-write-operations]]
 == 읽기 및 쓰기 작업을 위한 HTTP 연결 풀 분리
 
 읽기 및 쓰기 작업에 별도의 HTTP 연결 풀을 사용하고 각 풀에 사용할 풀 수를 제어할 수 있습니다. 별도의 HTTP 연결 풀을 통해 트랜잭션을 보다 효율적으로 제어하고 로드 밸런싱을 수행할 수 있습니다.

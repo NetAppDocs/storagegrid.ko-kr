@@ -22,6 +22,7 @@ StorageGRID 시스템의 그리드 노드 간에 데이터가 정확하게 동�
 
 
 
+[[how-storagegrid-uses-ntp]]
 == StorageGRID에서 NTP를 사용하는 방법
 
 StorageGRID 시스템은 NTP(네트워크 시간 프로토콜)를 사용하여 그리드의 모든 그리드 노드 간에 시간을 동기화합니다.
@@ -32,6 +33,7 @@ StorageGRID 시스템은 NTP(네트워크 시간 프로토콜)를 사용하여 �
 
 
 
+[[ntp-server-guidelines]]
 == NTP 서버 지침
 
 타이밍 문제로부터 보호하려면 다음 지침을 따르십시오.
@@ -46,6 +48,7 @@ NOTE: 프로덕션 수준 StorageGRID 설치에 외부 NTP 소스를 지정할 �
 
 
 
+[[configure-ntp-servers]]
 == NTP 서버를 구성합니다
 
 다음 단계에 따라 NTP 서버를 추가, 업데이트 또는 제거합니다.
@@ -68,6 +71,7 @@ NOTE: 새 NTP 서버를 저장한 후 모든 NTP 서버가 연결 테스트에 �
 
 
 
+[[resolve-ntp-server-issues]]
 == NTP 서버 문제를 해결합니다
 
 설치 중에 원래 지정한 NTP 서버의 안정성 또는 가용성에 문제가 발생하면 StorageGRID 시스템에서 서버를 추가하거나 기존 서버를 업데이트 또는 제거하여 사용하는 외부 NTP 소스 목록을 업데이트할 수 있습니다.

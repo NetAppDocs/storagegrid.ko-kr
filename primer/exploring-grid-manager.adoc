@@ -22,6 +22,7 @@ Grid Manager에 로그인하면 관리 노드에 연결됩니다. 각 StorageGRI
 
 
 
+[[grid-manager-dashboard]]
 == Grid Manager 대시보드
 
 그리드 관리자에 처음 로그인할 때 대시보드를 사용하여 한 눈에 볼 수 link:../monitor/viewing-dashboard.html["시스템 활동을 모니터링합니다"]있습니다.
@@ -34,6 +35,7 @@ image:grid_manager_dashboard_and_menu.png["그리드 관리자의 대시보드"]
 
 
 
+[[search-field]]
 == 검색 필드
 
 머리글 표시줄의 * 검색 * 필드를 사용하면 그리드 관리자 내의 특정 페이지로 빠르게 이동할 수 있습니다. 예를 들어, KMS(키 관리 서버) 페이지에 액세스하기 위해 * km * 를 입력할 수 있습니다.
@@ -42,6 +44,7 @@ image:grid_manager_dashboard_and_menu.png["그리드 관리자의 대시보드"]
 
 
 
+[[help-menu]]
 == 도움말 메뉴
 
 도움말 메뉴 image:icon-help-menu-bar.png["메뉴 모음의 도움말 아이콘"]를 통해 다음 항목에 액세스할 수 있습니다.
@@ -54,6 +57,7 @@ image:grid_manager_dashboard_and_menu.png["그리드 관리자의 대시보드"]
 
 
 
+[[alerts-menu]]
 == 알림 메뉴
 
 경고 메뉴는 StorageGRID 작동 중에 발생할 수 있는 문제를 감지, 평가 및 해결하는 사용하기 쉬운 인터페이스를 제공합니다.
@@ -69,12 +73,14 @@ image:grid_manager_dashboard_and_menu.png["그리드 관리자의 대시보드"]
 
 
 
+[[nodes-page]]
 == 노드 페이지
 
 그만큼link:../monitor/viewing-nodes-page.html["노드 페이지"] 그리드 전체, 그리드 내 각 사이트, 사이트의 각 노드에 대한 정보를 표시합니다.  특정 사이트나 노드에 대한 정보를 보려면 해당 사이트나 노드를 선택하세요.
 
 
 
+[[tenants-page]]
 == Tenants 페이지
 
 를 link:../admin/managing-tenants.html["Tenants 페이지"] 사용하면 link:../tenant/index.html["스토리지 테넌트 계정을 생성하고 모니터링합니다"]StorageGRID 시스템을 사용할 수 있습니다. 객체를 저장 및 검색할 수 있는 사람과 객체를 사용할 수 있는 기능을 지정하려면 하나 이상의 테넌트 계정을 생성해야 합니다.
@@ -83,6 +89,7 @@ image:grid_manager_dashboard_and_menu.png["그리드 관리자의 대시보드"]
 
 
 
+[[ilm-menu]]
 == ILM 메뉴
 
 을 link:using-information-lifecycle-management.html["ILM 메뉴"] 사용하여 데이터 내구성 및 가용성을 제어할 수 link:../ilm/index.html["정보 라이프사이클 관리(ILM) 규칙 및 정책을 구성합니다"]있습니다. 개체 식별자를 입력하여 해당 개체의 메타데이터를 볼 수도 있습니다.
@@ -100,12 +107,14 @@ ILM 메뉴에서 ILM을 보고 관리할 수 있습니다.
 
 
 
+[[configuration-menu]]
 == 구성 메뉴
 
 구성 메뉴를 사용하여 네트워크 설정, 보안 설정, 시스템 설정, 모니터링 옵션 및 액세스 제어 옵션을 지정할 수 있습니다.
 
 
 
+[[network-tasks]]
 === 네트워크 작업
 
 네트워크 작업은 다음과 같습니다.
@@ -120,6 +129,7 @@ ILM 메뉴에서 ILM을 보고 관리할 수 있습니다.
 
 
 
+[[security-tasks]]
 === 보안 작업
 
 보안 작업에는 다음이 포함됩니다.
@@ -133,6 +143,7 @@ ILM 메뉴에서 ILM을 보고 관리할 수 있습니다.
 
 
 
+[[system-tasks]]
 === 시스템 작업
 
 시스템 작업은 다음과 같습니다.
@@ -147,6 +158,7 @@ ILM 메뉴에서 ILM을 보고 관리할 수 있습니다.
 
 
 
+[[monitoring-tasks]]
 === 모니터링 작업
 
 모니터링 작업에는 다음이 포함됩니다.
@@ -157,6 +169,7 @@ ILM 메뉴에서 ILM을 보고 관리할 수 있습니다.
 
 
 
+[[access-control-tasks]]
 === 액세스 제어 작업
 
 액세스 제어 작업에는 다음이 포함됩니다.
@@ -170,12 +183,14 @@ ILM 메뉴에서 ILM을 보고 관리할 수 있습니다.
 
 
 
+[[maintenance-menu]]
 == 유지 관리 메뉴
 
 유지 관리 메뉴를 사용하면 유지 관리 작업, 시스템 유지 관리 및 네트워크 유지 관리를 수행할 수 있습니다.
 
 
 
+[[tasks]]
 === 작업
 
 유지보수 태스크는 다음과 같습니다.
@@ -191,6 +206,7 @@ ILM 메뉴에서 ILM을 보고 관리할 수 있습니다.
 
 
 
+[[system]]
 === 시스템
 
 수행할 수 있는 시스템 유지보수 작업은 다음과 같습니다.
@@ -209,6 +225,7 @@ ILM 메뉴에서 ILM을 보고 관리할 수 있습니다.
 
 
 
+[[network]]
 === 네트워크
 
 수행할 수 있는 네트워크 유지 보수 작업은 다음과 같습니다.
@@ -220,12 +237,14 @@ ILM 메뉴에서 ILM을 보고 관리할 수 있습니다.
 
 
 
+[[support-menu]]
 == 지원 메뉴
 
 지원 메뉴는 기술 지원 부서에서 시스템을 분석하고 문제를 해결하는 데 도움이 되는 옵션을 제공합니다.
 
 
 
+[[tools]]
 === 도구
 
 지원 메뉴의 도구 섹션에서 다음을 수행할 수 있습니다.
@@ -242,6 +261,7 @@ NOTE: 메트릭* 옵션에서 사용할 수 있는 도구는 기술 지원 부�
 
 
 
+[[other]]
 === 기타
 
 지원 메뉴의 기타 섹션에서 다음을 수행할 수 있습니다.

@@ -15,6 +15,7 @@ summary: 'SSO(Single Sign-On)를 구성하고 활성화했으며 Entra ID를 SSO
 
 
 
+[[sign-in-to-the-api-if-entra-id-single-sign-on-is-enabled]]
 == Entra ID 단일 로그인이 활성화된 경우 API에 Sign in.
 
 이 지침은 SSO ID 공급자로 Entra ID를 사용하는 경우에 적용됩니다.

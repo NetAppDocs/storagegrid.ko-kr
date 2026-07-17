@@ -15,12 +15,14 @@ OpenLDAP 서버를 ID 페더레이션에 사용하려면 OpenLDAP 서버에서 �
 
 
 
+[[memberof-and-refint-overlays]]
 == MemberOf 및 구체화 오버레이
 
 MemberOf 및 구체화 오버레이를 활성화해야 합니다. 자세한 내용은 _OpenLDAP 소프트웨어 관리자 가이드 _ 에서 역방향 그룹 구성원 유지 관리 지침을 참조하십시오.
 
 
 
+[[indexing]]
 == 인덱싱
 
 지정된 인덱스 키워드를 사용하여 다음 OpenLDAP 속성을 구성해야 합니다.

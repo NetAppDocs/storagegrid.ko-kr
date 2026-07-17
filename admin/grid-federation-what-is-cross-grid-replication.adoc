@@ -15,6 +15,7 @@ summary: 그리드 간 복제는 그리드 페더레이션 연결에 연결된 �
 
 
 
+[[workflow-for-cross-grid-replication]]
 == 그리드 간 복제를 위한 워크플로우
 
 워크플로 다이어그램은 두 그리드의 버킷 간에 크로스 그리드 복제를 구성하는 단계를 요약한 것입니다.
@@ -23,6 +24,7 @@ image:grid-federation-cgr-workflow.png["교차 그리드 복제 워크플로우"
 
 
 
+[[requirements-for-cross-grid-replication]]
 == 크로스 그리드 복제 요구 사항
 
 테넌트 계정에 하나 이상의 그리드 페더레이션 연결을 사용할 수 있는 *그리드 페더레이션 연결 사용* 권한이 있는 경우link:grid-federation-overview.html["그리드 페더레이션 연결"] 루트 액세스 권한이 있는 테넌트 사용자는 각 그리드의 해당 테넌트 계정에 버킷을 생성할 수 있습니다.  이 버킷:
@@ -40,12 +42,14 @@ link:../tenant/grid-federation-manage-cross-grid-replication.html["교차 그리
 
 
 
+[[how-cross-grid-replication-works]]
 == 교차 그리드 복제의 작동 방식
 
 그리드 간 복제를 단방향 또는 양방향으로 구성하여 수행할 수 있습니다.
 
 
 
+[[replication-in-one-direction]]
 === 복제 기능을 제공합니다
 
 한 그리드의 버킷에 대해서만 교차 그리드 복제를 활성화하는 경우 해당 버킷(소스 버킷)에 추가된 객체는 다른 그리드의 해당 버킷(대상 버킷)에 복제됩니다.  하지만 대상 버킷에 추가된 객체는 소스로 다시 복제되지 않습니다.  그림에서 크로스 그리드 복제가 활성화되었습니다. `my-bucket` 그리드 1에서 그리드 2로의 이동은 가능하지만 반대 방향으로는 활성화되어 있지 않습니다.
@@ -54,6 +58,7 @@ image:grid-federation-cross-grid-replication-one-direction.png["그리드 페더
 
 
 
+[[replication-in-both-directions]]
 === 양방향으로 복제
 
 두 그리드에서 동일한 버킷에 대해 교차 그리드 복제를 활성화하면 두 버킷에 추가된 객체가 다른 그리드에 복제됩니다. 그림에서 교차 그리드 복제는 양방향으로 에 대해 `my-bucket` 활성화됩니다.
@@ -62,6 +67,7 @@ image:grid-federation-cross-grid-replication.png["복제를 양방향으로 비�
 
 
 
+[[what-happens-when-objects-are-ingested]]
 === 오브젝트를 수집하면 어떻게 됩니까?
 
 S3 클라이언트가 교차 그리드 복제를 사용하도록 설정된 버킷에 오브젝트를 추가하면 다음과 같은 현상이 발생합니다.
@@ -101,6 +107,7 @@ NOTE: StorageGRID 지원하지 않습니다 `x-amz-replication-status` 헤더.
 
 
 
+[[what-happens-when-objects-are-deleted]]
 === 오브젝트를 삭제하면 어떻게 됩니까?
 
 에 설명된 대로 link:../primer/delete-data-flow.html["데이터 흐름을 삭제합니다"]StorageGRID는 다음과 같은 이유로 개체를 삭제할 수 있습니다.
@@ -144,6 +151,7 @@ NOTE: 그리드 간에 객체 삭제를 동기화된 상태로 유지하려면 l
 
 
 
+[[how-encrypted-objects-are-replicated]]
 === 암호화된 개체가 복제되는 방식
 
 교차 그리드 복제를 사용하여 그리드 간에 오브젝트를 복제할 때 개별 오브젝트를 암호화하거나 기본 버킷 암호화를 사용하거나 그리드 전체 암호화를 구성할 수 있습니다. 버킷에 대해 교차 그리드 복제를 활성화하기 전이나 후에 기본 버킷 또는 그리드 전체 암호화 설정을 추가, 수정 또는 제거할 수 있습니다.
@@ -178,6 +186,8 @@ NOTE: SSE는 AES-128을 지원하지 않습니다.  *AES-128* 옵션을 사용�
 
 
 
+[[cross-grid-replication-with-s3-object-lock]]
+[[cgr-with-ol]]
 === S3 객체 잠금을 통한 크로스 그리드 복제
 
 다음과 같은 상황에서 S3 개체 잠금이 활성화된 StorageGRID 버킷 간에 크로스 그리드 복제를 구성할 수 있습니다.
@@ -230,6 +240,7 @@ NOTE: SSE는 AES-128을 지원하지 않습니다.  *AES-128* 옵션을 사용�
 
 
 
+[[putobjecttagging-and-deleteobjecttagging-arent-supported]]
 === PutObjectTagging 및 DeleteObjectTagging은 지원되지 않습니다
 
 PutObjectTagging 및 DeleteObjectTagging 요청은 교차 그리드 복제가 활성화된 버킷의 객체에 대해 지원되지 않습니다.
@@ -238,6 +249,7 @@ S3 클라이언트가 PutObjectTagging 또는 DeleteObjectTagging 요청을 발�
 
 
 
+[[putobjectretention-and-putobjectlegalhold-arent-supported]]
 === PutObjectRetention 및 PutObjectLegalHold는 지원되지 않습니다.
 
 PutObjectRetention 및 PutObjectLegalHold 요청은 크로스 그리드 복제가 활성화된 버킷의 개체에 대해 완전히 지원되지 않습니다.
@@ -246,6 +258,7 @@ S3 클라이언트가 PutObjectRetention 또는 PutObjectLegalHold 요청을 실
 
 
 
+[[how-segmented-objects-are-replicated]]
 === 분할된 객체가 복제되는 방식
 
 소스 그리드의 최대 세그먼트 크기는 대상 그리드에 복제된 개체에 적용됩니다.  객체가 다른 그리드에 복제되면 소스 그리드의 *최대 세그먼트 크기* 설정(*구성* > *시스템* > *저장소 옵션*)이 두 그리드 모두에 사용됩니다.  예를 들어, 소스 그리드의 최대 세그먼트 크기가 1GB이고 대상 그리드의 최대 세그먼트 크기가 50MB라고 가정해 보겠습니다.  소스 그리드에서 2GB 객체를 수집하는 경우 해당 객체는 두 개의 1GB 세그먼트로 저장됩니다.  해당 그리드의 최대 세그먼트 크기가 50MB인 경우에도 대상 그리드에 1GB 세그먼트 두 개로 복제됩니다.

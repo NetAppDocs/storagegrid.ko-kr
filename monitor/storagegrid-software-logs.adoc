@@ -18,6 +18,7 @@ NOTE: 로그를 외부 syslog 서버로 보내거나 감사 정보의 대상을 
 
 
 
+[[general-storagegrid-logs]]
 == 일반 StorageGRID 로그
 
 [cols="3a,3a,2a"]
@@ -49,6 +50,7 @@ NOTE: 로그를 외부 syslog 서버로 보내거나 감사 정보의 대상을 
 |===
 
 
+[[cipher-related-logs]]
 == 암호화 관련 로그
 
 [cols="3a,3a,2a"]
@@ -85,6 +87,7 @@ TLS 및 SSH 정책 구성과 관련된 로그를 포함합니다.
 |===
 
 
+[[grid-federation-logs]]
 == 그리드 페더레이션 로그
 
 [cols="3a,3a,2a"]
@@ -100,6 +103,7 @@ TLS 및 SSH 정책 구성과 관련된 로그를 포함합니다.
 |===
 
 
+[[nms-logs]]
 == NMS 로그
 
 [cols="3a,3a,2a"]
@@ -113,6 +117,7 @@ TLS 및 SSH 정책 구성과 관련된 로그를 포함합니다.
 * 시스템에서 변경한 구성 변경으로 인한 XML 번들 업데이트를 포함합니다.
 * 하루에 한 번 수행된 속성 다운샘플링과 관련된 오류 메시지가 포함되어 있습니다.
 * Java 웹 서버 오류 메시지(예: 페이지 생성 오류 및 HTTP 상태 500 오류)가 포함되어 있습니다.
+* AutoSupport와 관련된 로그가 포함되어 있습니다.
 
  a| 
 관리자 노드
@@ -136,6 +141,7 @@ MySQL 데이터베이스 업그레이드와 관련된 오류 메시지가 포함
 |===
 
 
+[[server-manager-logs]]
 == 서버 관리자 로그
 
 [cols="3a,3a,2a"]
@@ -165,6 +171,7 @@ Server Manager GUI 백엔드 애플리케이션에 대한 로그 파일입니다
 |===
 
 
+[[storagegrid-services-logs]]
 == StorageGRID 서비스 로그
 
 [cols="3a,3a,2a"]

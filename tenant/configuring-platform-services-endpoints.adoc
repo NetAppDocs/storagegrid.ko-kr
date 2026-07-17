@@ -17,6 +17,7 @@ summary: 버킷에 대한 플랫폼 서비스를 구성하려면 먼저 플랫�
 
 
 
+[[what-is-a-platform-services-endpoint]]
 == 플랫폼 서비스 엔드포인트란 무엇입니까?
 
 플랫폼 서비스 끝점은 StorageGRID가 외부 대상에 액세스하는 데 필요한 정보를 지정합니다.
@@ -29,12 +30,14 @@ summary: 버킷에 대한 플랫폼 서비스를 구성하려면 먼저 플랫�
 
 
 
+[[endpoints-for-cloudmirror-replication]]
 == CloudMirror 복제용 엔드포인트
 
 StorageGRID는 S3 버킷을 나타내는 복제 엔드포인트를 지원합니다. 이러한 버킷은 Amazon Web Services, 동일한 또는 원격 StorageGRID 구축 또는 다른 서비스에서 호스팅될 수 있습니다.
 
 
 
+[[endpoints-for-notifications]]
 == 알림의 끝점입니다
 
 StorageGRID Amazon SNS, Kafka 및 웹훅 엔드포인트를 지원합니다.  SQS(Simple Queue Service) 및 AWS Lambda 엔드포인트는 지원되지 않습니다.
@@ -43,6 +46,7 @@ Kafka 엔드포인트의 경우 Mutual TLS가 지원되지 않습니다.  결과
 
 
 
+[[endpoints-for-the-search-integration-service]]
 == 검색 통합 서비스의 끝점입니다
 
 StorageGRID는 Elasticsearch 클러스터를 나타내는 검색 통합 끝점을 지원합니다. 이러한 Elasticsearch 클러스터는 로컬 데이터 센터에 있거나 AWS 클라우드 또는 다른 곳에서 호스팅될 수 있습니다.

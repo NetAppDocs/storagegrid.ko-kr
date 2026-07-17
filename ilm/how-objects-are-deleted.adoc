@@ -66,6 +66,7 @@ S3 클라이언트가 삭제 요청을 하면 StorageGRID는 삭제 큐에 개�
 
 
 
+[[time-required-to-delete-objects]]
 == 객체를 삭제하는 데 필요한 시간입니다
 
 StorageGRID에서 객체를 삭제하는 방법은 시스템이 수행하는 방식에 영향을 미칠 수 있습니다.
@@ -84,6 +85,8 @@ StorageGRID에서 객체를 삭제하는 방법은 시스템이 수행하는 방
 
 
 
+[[how-s3-versioned-objects-are-deleted]]
+[[delete-s3-versioned-objects]]
 == S3 버전 오브젝트 삭제 방법
 
 S3 버킷에 대해 버전 관리가 활성화된 경우 StorageGRID는 삭제 요청에 응답할 때 Amazon S3 동작을 따릅니다. 이러한 요청이 S3 클라이언트에서 온 것인지, S3 버킷 라이프사이클의 만료 또는 ILM 정책 요구사항이 있는지 여부에 관계없이 이 동작을 따릅니다.

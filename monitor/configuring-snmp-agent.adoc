@@ -25,6 +25,7 @@ StorageGRID SNMP 에이전트는 SNMPv1, SNMPv2c 및 SNMPv3를 지원합니다. 
 
 
 
+[[specify-basic-configuration]]
 == 기본 구성을 지정합니다
 
 첫 번째 단계로 StorageGRID SMNP 에이전트를 활성화하고 기본 정보를 제공합니다.
@@ -79,6 +80,7 @@ SNMP 에이전트 알림을 설정합니다
 
 
 
+[[enter-community-strings]]
 == 커뮤니티 문자열을 입력합니다
 
 SNMPv1 또는 SNMPv2c를 사용하는 경우 커뮤니티 문자열 섹션을 완료하십시오.
@@ -102,6 +104,7 @@ TIP: StorageGRID 시스템의 보안을 유지하려면 커뮤니티 문자열�
 
 
 
+[[selecttrapdestinationcreate-trap-destinations]]
 == [[SELECT_TRAP_DESTINATION]] 트랩 목적지를 작성하십시오
 
 기타 구성 섹션의 트랩 대상 탭을 사용하여 StorageGRID 트랩 또는 알림 알림에 대한 하나 이상의 대상을 정의합니다. SNMP 에이전트를 활성화하고 * 저장 * 을 선택하면 StorageGRID는 경고가 트리거될 때 정의된 각 대상에 알림을 보냅니다. 지원되는 MIB-II 엔티티에 대해서도 표준 알림이 전송됩니다(예: ifdown 및 coldstart).
@@ -277,6 +280,7 @@ USM 사용자입니다
 
 
 
+[[create-agent-addresses]]
 == 에이전트 주소를 만듭니다
 
 필요에 따라 기타 구성 섹션의 상담원 주소 탭을 사용하여 하나 이상의 "수신 주소"를 지정합니다. SNMP 에이전트가 쿼리를 수신할 수 있는 StorageGRID 주소입니다.
@@ -344,6 +348,7 @@ SNMP 에이전트의 기본 UDP 포트는 161이지만 사용하지 않는 포�
 
 
 
+[[create-usm-userscreate-usm-users]]
 == [[create-USM-users]] USM 사용자를 생성합니다
 
 SNMPv3을 사용하는 경우 Other configurations 섹션의 USM users 탭을 사용하여 MIB를 쿼리하거나 트랩 및 알림을 받을 권한이 있는 USM 사용자를 정의합니다.

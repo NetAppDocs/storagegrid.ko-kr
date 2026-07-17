@@ -15,6 +15,7 @@ summary: 그리드 페더레이션 연결, 계정 클론 및 교차 그리드 �
 
 
 
+[[grid-federation-errorsgrid-federation-connection-alerts-and-errors]]
 == [[grid-federation-errors]] 그리드 페더레이션 연결 경고 및 오류
 
 그리드 페더레이션 연결에서 경고를 받거나 오류가 발생할 수 있습니다.
@@ -23,6 +24,7 @@ summary: 그리드 페더레이션 연결, 계정 클론 및 교차 그리드 �
 
 
 
+[[grid-federation-connection-failure-alert]]
 === 그리드 페더레이션 연결 실패 알림
 
 .문제
@@ -40,6 +42,7 @@ summary: 그리드 페더레이션 연결, 계정 클론 및 교차 그리드 �
 
 
 
+[[expiration-of-grid-federation-certificate-alert]]
 === 그리드 페더레이션 인증서 알림의 만료
 
 .문제
@@ -53,6 +56,7 @@ summary: 그리드 페더레이션 연결, 계정 클론 및 교차 그리드 �
 
 
 
+[[error-editing-a-grid-federation-connection]]
 === 그리드 페더레이션 연결을 편집하는 동안 오류가 발생했습니다
 
 .문제
@@ -69,10 +73,12 @@ summary: 그리드 페더레이션 연결, 계정 클론 및 교차 그리드 �
 
 
 
+[[account-clone-errors]]
 == 계정 클론 오류입니다
 
 
 
+[[cant-sign-in-to-a-cloned-tenant-account]]
 === 복제된 테넌트 계정에 로그인할 수 없습니다
 
 .문제
@@ -88,6 +94,7 @@ summary: 그리드 페더레이션 연결, 계정 클론 및 교차 그리드 �
 
 
 
+[[tenant-created-without-a-clone]]
 === 클론 없이 테넌트가 생성되었습니다
 
 .문제
@@ -110,10 +117,12 @@ image:grid-federation-retry-account-clone.png["오류 메시지와 계정 클론
 
 
 
+[[cross-grid-replication-alerts-and-errors]]
 == 교차 그리드 복제 경고 및 오류
 
 
 
+[[last-error-shown-for-connection-or-tenant]]
 === 연결 또는 테넌트에 대해 마지막 오류가 표시됩니다
 
 .문제
@@ -156,6 +165,7 @@ TIP: 오류를 지운 후 오류가 있는 다른 버킷에서 오브젝트를 �
 
 
 
+[[cross-grid-replication-permanent-failure-alert]]
 === 교차 그리드 복제 영구 실패 알림
 
 .문제
@@ -204,6 +214,7 @@ NOTE: 알림이 해결된 후 지우는 데 하루 정도 걸릴 수 있습니�
 
 
 
+[[cross-grid-replication-resource-unavailable-alert]]
 === 교차 그리드 복제 리소스를 사용할 수 없음 경고
 
 .문제

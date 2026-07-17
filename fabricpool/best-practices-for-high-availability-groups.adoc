@@ -15,6 +15,7 @@ StorageGRID를 FabricPool 클라우드 계층으로 연결하기 전에 StorageG
 
 
 
+[[what-is-an-ha-group]]
 == HA 그룹이란 무엇입니까?
 
 HA(고가용성) 그룹은 여러 StorageGRID 게이트웨이 노드, 관리 노드 또는 둘 모두의 인터페이스 모음입니다. HA 그룹을 사용하면 클라이언트 데이터 연결을 계속 사용할 수 있습니다. HA 그룹의 액티브 인터페이스에 장애가 발생할 경우 백업 인터페이스에서 FabricPool 작업에 거의 영향을 주지 않고 워크로드를 관리할 수 있습니다.
@@ -25,6 +26,7 @@ HA(고가용성) 그룹은 여러 StorageGRID 게이트웨이 노드, 관리 노
 
 
 
+[[using-ha-groups]]
 == HA 그룹 사용
 
 FabricPool용 StorageGRID HA 그룹을 생성하는 모범 사례는 워크로드에 따라 다릅니다.

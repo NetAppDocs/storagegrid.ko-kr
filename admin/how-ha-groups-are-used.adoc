@@ -69,6 +69,7 @@ S3 클라이언트 액세스--로드 밸런서 서비스
 |===
 
 
+[[limitations-of-using-ha-groups-with-grid-manager-or-tenant-manager]]
 == Grid Manager 또는 Tenant Manager에 HA 그룹을 사용할 때의 제한 사항
 
 Grid Manager 또는 Tenant Manager 서비스에 장애가 발생하면 HA 그룹 페일오버가 트리거되지 않습니다.

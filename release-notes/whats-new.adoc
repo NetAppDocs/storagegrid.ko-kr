@@ -17,6 +17,7 @@ StorageGRID 12.0은 객체 스토리지 용량을 확장하고, AI/ML 워크로�
 
 
 
+[[appliances]]
 == 어플라이언스
 
 * 저장 용량과 비용 효율성이 크게 증가했습니다.
@@ -25,6 +26,7 @@ StorageGRID 12.0은 객체 스토리지 용량을 확장하고, AI/ML 워크로�
 
 
 
+[[artificial-intelligence-ai-and-machine-learning-ml]]
 == 인공지능(AI)과 머신러닝(ML)
 
 * link:../tenant/what-is-branch-bucket.html["지점 버킷"]더 빠른 랜섬웨어 복구와 테스트 및 실험을 위한 격리된 데이터 세트를 용이하게 하는 버킷의 특정 시점 버전을 허용합니다.
@@ -33,12 +35,14 @@ StorageGRID 12.0은 객체 스토리지 용량을 확장하고, AI/ML 워크로�
 
 
 
+[[capacity]]
 == 용량
 
 StorageGRID 이제 1조 개의 객체를 지원하는데, 이는 이전 제한의 두 배 이상입니다.  를 참조하세요 https://fusion.netapp.com/["NetApp Fusion 도구"^] StorageGRID 크기와 디자인을 조정합니다.
 
 
 
+[[cassandra-updates]]
 == 카산드라 업데이트
 
 StorageGRID 이제 메타데이터 저장을 위해 최신 버전의 Cassandra를 사용합니다.  이 버전의 Cassandra는 디스크 공간을 더 효율적으로 사용하여 더 많은 메타데이터를 저장합니다.
@@ -49,6 +53,7 @@ link:../upgrade/performing-upgrade.html#upgrade-other-nodes["다른 노드를 �
 
 
 
+[[federation]]
 == 연합
 
 * 이제 할 수 있습니다link:../admin/managing-users.html#import-federated-users["최대 100명의 페더레이션 사용자 가져오기"] StorageGRID 로.
@@ -61,6 +66,7 @@ NetApp StorageGRID 12.0 소스 버킷과 대상 버킷 간에만 이 기능을 �
 
 
 
+[[manageability]]
 == 관리 용이성
 
 * 개선됨link:../maintain/decommission-procedure.html["해체 절차"] 시간과 복잡성을 줄여 운영 효율성을 높입니다.
@@ -85,6 +91,7 @@ NOTE: 강력한 글로벌 일관성을 위해 이전 동작으로 되돌려야 �
 
 
 
+[[security]]
 == 보안
 
 * 더욱 강력한 데이터 암호화와 무결성 보호로 보안과 성능이 향상되었습니다.
@@ -94,6 +101,7 @@ NOTE: 강력한 글로벌 일관성을 위해 이전 동작으로 되돌려야 �
 
 
 
+[[tenant-groups]]
 == 세입자 그룹
 
 * 이제 할 수 있습니다link:../tenant/manage-groups.html["새로운 S3 신뢰 정책 구성"] AssumeRole API를 지원합니다.  AssumeRole 함수는 강화된 보안과 유연한 액세스 제어를 위해 단기 자격 증명을 제공합니다.
@@ -102,6 +110,7 @@ NOTE: 강력한 글로벌 일관성을 위해 이전 동작으로 되돌려야 �
 
 
 
+[[user-interface]]
 == 사용자 인터페이스
 
 * 다크 테마와 시스템 테마 설정은 Grid Manager와 Tenant Manager의 사용자 메뉴에서 사용할 수 있습니다.

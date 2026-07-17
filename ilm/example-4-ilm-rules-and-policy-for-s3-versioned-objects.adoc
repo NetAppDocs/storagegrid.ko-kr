@@ -29,6 +29,7 @@ link:how-objects-are-deleted.html["오브젝트 삭제 방법"]
 
 
 
+[[ilm-rule-1-for-example-4-save-three-copies-for-10-years]]
 == 예를 들어 ILM 규칙 1: 10년 동안 복사본 3개를 저장합니다
 
 이 ILM 규칙은 10년 동안 3개의 사이트에 각 개체의 복사본을 저장합니다.
@@ -69,6 +70,7 @@ link:how-objects-are-deleted.html["오브젝트 삭제 방법"]
 |===
 
 
+[[ilm-rule-2-for-example-4-save-two-copies-of-noncurrent-versions-for-2-years]]
 == 예를 들어 ILM 규칙 2: 2년 동안 비최신 버전의 복사본 2개를 저장합니다
 
 이 ILM 규칙 예에서는 2년 동안 S3 버전 오브젝트에서 2개의 복사본을 저장합니다.
@@ -117,6 +119,7 @@ image:ilm-rule-apply-only-to-older-object-verions.png["ILM 규칙을 이전 개�
 |===
 
 
+[[ilm-policy-for-example-4-s3-versioned-objects]]
 == ILM 정책(예: 4:S3 버전 오브젝트
 
 개체의 이전 버전을 현재 버전과 다르게 관리하려면 "현재 시간"을 참조 시간으로 사용하는 규칙이 현재 개체 버전에 적용되는 규칙 앞에 ILM 정책에 나타나야 합니다.

@@ -17,6 +17,7 @@ StorageGRID 핫픽스에는 기능 또는 패치 릴리스 외부에서 사용�
 
 
 
+[[considerations-for-applying-a-hotfix]]
 == 핫픽스 적용 시 고려 사항
 
 다른 유지보수 절차가 실행 중인 경우에는 StorageGRID 핫픽스를 적용할 수 없습니다. 예를 들어 서비스 해제, 확장 또는 복구 절차가 실행 중인 동안에는 핫픽스를 적용할 수 없습니다.
@@ -32,6 +33,7 @@ Grid Manager에서 핫픽스를 업로드하면 핫픽스가 기본 관리 노�
 
 
 
+[[how-hotfixes-are-applied-for-recovery-and-expansion]]
 == 복구 및 확장에 핫픽스 적용 방식
 
 핫픽스가 그리드에 적용된 후 기본 관리 노드는 복구 작업에 의해 복원되거나 확장에 추가된 노드에 동일한 핫픽스 버전을 자동으로 설치합니다.

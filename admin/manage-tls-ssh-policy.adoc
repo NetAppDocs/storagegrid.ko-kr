@@ -25,6 +25,7 @@ NOTE: 이러한 정책에서 암호를 사용하도록 일부 StorageGRID 서비
 
 
 
+[[select-a-security-policy]]
 == 보안 정책을 선택합니다
 
 .단계
@@ -111,6 +112,7 @@ NetApp StorageGRID Kernel Crypto API 모듈은 VM 및 StorageGRID 어플라이�
 
 
 
+[[create-a-custom-security-policy]]
 == 사용자 지정 보안 정책을 만듭니다
 
 사용자 고유의 암호를 적용해야 하는 경우 사용자 지정 정책을 만들 수 있습니다.
@@ -132,6 +134,8 @@ image:securitysettings-custom-security-policy-copy.png["기존 정책을 복사�
 
 
 
+[[temporarily-revert-to-the-default-security-policy]]
+[[temporarily-revert-to-default-security-policy]]
 == 일시적으로 기본 보안 정책으로 돌아갑니다
 
 사용자 지정 보안 정책을 구성한 경우 구성된 TLS 정책이 과 호환되지 않으면 그리드 관리자에 로그인하지 못할 수 link:global-certificate-types.html["구성된 서버 인증서입니다"]있습니다.

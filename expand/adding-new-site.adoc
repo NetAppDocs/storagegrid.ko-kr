@@ -15,6 +15,7 @@ summary: 새 사이트를 추가하여 StorageGRID 시스템을 확장할 수 �
 
 
 
+[[guidelines-for-adding-a-site]]
 == 사이트 추가 지침
 
 사이트를 추가하기 전에 다음 요구 사항 및 제한 사항을 검토하십시오.

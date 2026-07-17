@@ -15,12 +15,14 @@ summary: 그리드 페더레이션을 사용하여 테넌트를 클론 복제하
 
 
 
+[[what-is-a-grid-federation-connection]]
 == 그리드 페더레이션 연결이란 무엇입니까?
 
 그리드 페더레이션 연결은 두 StorageGRID 시스템에서 관리자 노드와 게이트웨이 노드 간에 양방향으로 안전하게 연결됩니다.
 
 
 
+[[workflow-for-grid-federation]]
 == 그리드 페더레이션을 위한 워크플로
 
 워크플로 다이어그램은 두 그리드 간의 그리드 페더레이션 연결을 구성하는 단계를 요약합니다.
@@ -29,6 +31,7 @@ image:grid-federation-workflow.png["그리드 페더레이션 연결 워크플�
 
 
 
+[[considerations-and-requirements-for-grid-federation-connections]]
 == 그리드 페더레이션 연결에 대한 고려 사항 및 요구 사항
 
 * 그리드 페더레이션에 사용되는 그리드는 동일하거나 둘 이상의 주요 버전 차이가 없는 StorageGRID 버전을 실행해야 합니다.
@@ -42,6 +45,7 @@ image:grid-federation-workflow.png["그리드 페더레이션 연결 워크플�
 
 
 
+[[networking-and-ip-address-requirements]]
 === 네트워킹 및 IP 주소 요구 사항
 
 * 그리드 페더레이션 연결은 그리드 네트워크, 관리자 네트워크 또는 클라이언트 네트워크에서 발생할 수 있습니다.
@@ -53,6 +57,7 @@ image:grid-federation-workflow.png["그리드 페더레이션 연결 워크플�
 
 
 
+[[use-fqdns-to-load-balance-the-connection]]
 === FQDN을 사용하여 연결 밸런스를 로드합니다
 
 운영 환경의 경우 FQDN(정규화된 도메인 이름)을 사용하여 연결의 각 그리드를 식별합니다. 그런 다음 다음과 같이 적절한 DNS 항목을 만듭니다.
@@ -69,6 +74,7 @@ image:grid-federation-workflow.png["그리드 페더레이션 연결 워크플�
 
 
 
+[[port-requirements]]
 === 포트 요구 사항
 
 그리드 페더레이션 연결을 생성할 때 사용하지 않는 포트 번호를 23000에서 23999까지 지정할 수 있습니다. 이 연결의 두 그리드는 동일한 포트를 사용합니다.
@@ -77,6 +83,7 @@ image:grid-federation-workflow.png["그리드 페더레이션 연결 워크플�
 
 
 
+[[certificate-requirements]]
 === 인증서 요구 사항
 
 그리드 페더레이션 연결을 구성할 때 StorageGRID는 자동으로 네 개의 SSL 인증서를 생성합니다.

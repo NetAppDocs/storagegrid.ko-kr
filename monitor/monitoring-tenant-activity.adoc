@@ -20,6 +20,7 @@ summary: 모든 S3 클라이언트 작업은 StorageGRID 테넌트 계정과 연
 
 
 
+[[view-all-tenants]]
 == 모든 테넌트를 봅니다
 
 Tenants 페이지에는 현재 모든 테넌트 계정에 대한 기본 정보가 표시됩니다.
@@ -60,6 +61,7 @@ image:tenant_accounts_example_csv.png["테넌트 계정 예 .csv"]
 
 
 
+[[view-a-specific-tenant]]
 == 특정 테넌트를 봅니다
 
 특정 테넌트의 세부 정보를 볼 수 있습니다.
@@ -128,6 +130,7 @@ link:../admin/grid-federation-overview.html["그리드 페더레이션은 무엇
 
 
 
+[[view-network-traffic]]
 == 네트워크 트래픽을 봅니다
 
 테넌트를 위한 트래픽 분류 정책이 마련되어 있는 경우 해당 테넌트의 네트워크 트래픽을 검토하십시오.
@@ -146,6 +149,7 @@ link:../admin/grid-federation-overview.html["그리드 페더레이션은 무엇
 
 
 
+[[use-the-audit-log]]
 == 감사 로그를 사용합니다
 
 필요에 따라 감사 로그를 사용하여 테넌트의 활동을 보다 세부적으로 모니터링할 수 있습니다.
@@ -164,6 +168,7 @@ link:../admin/grid-federation-overview.html["그리드 페더레이션은 무엇
 
 
 
+[[use-prometheus-metrics]]
 == Prometheus 메트릭을 사용합니다
 
 선택적으로 Prometheus 메트릭을 사용하여 테넌트 활동을 보고합니다.

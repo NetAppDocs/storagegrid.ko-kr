@@ -19,6 +19,7 @@ summary: '그리드 페더레이션 연결을 사용하도록 테넌트를 만�
 
 
 
+[[tenant-workflow-for-account-clone]]
 == 계정 클론에 대한 테넌트 워크플로우
 
 테넌트 계정에 * 그리드 페더레이션 연결 사용 * 권한이 있는 경우 워크플로 다이어그램을 검토하여 그룹, 사용자 및 S3 액세스 키를 복제하는 단계를 확인합니다.
@@ -57,12 +58,14 @@ image:grid-federation-account-clone-workflow-tm.png["계정 클론에 대한 테
 
 
 
+[[how-are-groups-users-and-s3-access-keys-cloned]]
 == 그룹, 사용자 및 S3 액세스 키의 클론을 생성하는 방법은 무엇입니까?
 
 이 섹션을 검토하여 테넌트 소스 그리드와 테넌트 대상 그리드 간에 그룹, 사용자 및 S3 액세스 키의 클론 생성 방법을 이해합니다.
 
 
 
+[[local-groups-created-on-source-grid-are-cloned]]
 === 소스 그리드에 생성된 로컬 그룹이 복제됩니다
 
 테넌트 계정이 생성되어 대상 그리드에 복제된 후 StorageGRID는 테넌트의 소스 그리드에 추가한 모든 로컬 그룹을 테넌트의 대상 그리드에 자동으로 복제합니다.
@@ -76,6 +79,7 @@ NOTE: 소스 그리드에 로컬 그룹을 생성할 때 선택한 사용자는 
 
 
 
+[[local-users-created-on-source-grid-are-cloned]]
 === 소스 그리드에 생성된 로컬 사용자의 클론이 생성됩니다
 
 소스 그리드에 새로운 로컬 사용자를 생성하면 StorageGRID 자동으로 해당 사용자를 대상 그리드에 복제합니다.  원래 사용자와 복제본 모두 동일한 전체 이름, 사용자 이름 및 *액세스 거부* 설정을 갖습니다.  두 사용자는 모두 같은 그룹에 속합니다. 지침은 다음을 참조하세요.link:manage-users.html["사용자 관리"] .
@@ -86,6 +90,7 @@ image:grid-federation-local-user-clone.png["소스 그리드에서 대상 그리
 
 
 
+[[federated-groups-created-on-source-grid-are-cloned]]
 === 소스 그리드에 생성된 연합 그룹이 클론됩니다
 
 에서 계정 클론을 사용하기 위한 요구 사항이 충족되었다고 가정할 때 link:../admin/grid-federation-what-is-account-clone.html#account-clone-sso["SSO(Single Sign-On)"] link:../admin/grid-federation-what-is-account-clone.html#account-clone-identity-federation["ID 제휴"]소스 그리드에서 테넌트에 대해 생성(가져오기)한 페더레이션 그룹이 대상 그리드의 테넌트에 자동으로 복제됩니다.
@@ -98,6 +103,7 @@ image:grid-federation-federated-group-clone.png["통합 그룹이 소스 그리�
 
 
 
+[[s3-access-keys-can-be-manually-cloned]]
 === S3 액세스 키를 수동으로 복제할 수 있습니다
 
 StorageGRID는 각 그리드에 서로 다른 키를 추가하여 보안을 강화하기 때문에 S3 액세스 키를 자동으로 복제하지 않습니다.
@@ -115,6 +121,7 @@ NOTE: 통합 사용자의 S3 액세스 키를 클론하면 사용자 및 S3 액�
 
 
 
+[[groups-and-users-added-to-destination-grid-arent-cloned]]
 === 대상 그리드에 추가된 그룹 및 사용자는 클론이 생성되지 않습니다
 
 클론 생성은 테넌트의 소스 그리드에서 테넌트의 대상 그리드로만 이루어집니다. 테넌트의 대상 그리드에 그룹 및 사용자를 생성하거나 가져오는 경우 StorageGRID는 이러한 항목을 테넌트의 소스 그리드에 다시 복제하지 않습니다.
@@ -123,6 +130,7 @@ image:grid-federation-account-not-cloned.png["대상 그리드의 세부 정보�
 
 
 
+[[edited-or-deleted-groups-users-and-access-keys-arent-cloned]]
 === 편집 또는 삭제된 그룹, 사용자 및 액세스 키는 복제되지 않습니다
 
 클론 생성은 새 그룹 및 사용자를 생성할 때만 발생합니다.

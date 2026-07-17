@@ -15,6 +15,7 @@ StorageGRID 노드는 VMware 가상 머신, Linux 호스트의 컨테이너 엔�
 
 
 
+[[block-remote-ipmicontrol-remote-ipmi-access-to-bmc]]
 == [[block-remote-ipmi]] BMC 에 대한 원격 IPMI 액세스를 제어합니다.
 
 BMC를 포함하는 모든 어플라이언스에 대해 원격 IPMI 액세스를 활성화 또는 비활성화할 수 있습니다. 원격 IPMI 인터페이스를 사용하면 BMC 계정 및 암호를 가진 모든 사용자가 StorageGRID 어플라이언스에 낮은 수준의 하드웨어 액세스를 할 수 있습니다. BMC에 대한 원격 IPMI 액세스가 필요하지 않으면 이 옵션을 비활성화합니다.
@@ -31,6 +32,7 @@ BMC 경화에 대한 추가 정보는 다음을 참조하세요. https://media.d
 
 
 
+[[firewall-configuration]]
 == 방화벽 구성
 
 시스템 강화 프로세스의 일환으로 외부 방화벽 구성을 검토하고 트래픽이 IP 주소 및 해당 IP 주소가 반드시 필요한 포트에서만 허용되도록 수정해야 합니다.
@@ -50,24 +52,28 @@ StorageGRID 에서 사용하는 모든 내부 및 외부 포트 목록은 다음
 
 
 
+[[disable-unused-services]]
 == 사용하지 않는 서비스를 비활성화합니다
 
 모든 StorageGRID 노드에 대해 사용하지 않는 서비스에 대한 액세스를 비활성화하거나 차단해야 합니다.  예를 들어, DHCP를 사용하지 않을 계획이라면 Grid Manager를 사용하여 포트 68을 닫으세요.  *구성* > *방화벽 제어* > *외부 액세스 관리*를 선택합니다.  그런 다음 포트 68의 상태 토글을 *열림*에서 *닫힘*으로 변경합니다.
 
 
 
+[[virtualization-containers-and-shared-hardware]]
 == 가상화, 컨테이너 및 공유 하드웨어
 
 모든 StorageGRID 노드의 경우 신뢰할 수 없는 소프트웨어와 동일한 물리적 하드웨어에서 StorageGRID를 실행하지 마십시오. StorageGRID와 맬웨어가 모두 동일한 물리적 하드웨어에 존재할 경우 하이퍼바이저 보호를 통해 맬웨어가 StorageGRID로 보호되는 데이터에 액세스하지 못할 것이라고 가정하지 마십시오. 예를 들어 멜트다운 및 스펙터 공격은 최신 프로세서의 중요한 취약점을 악용하고 프로그램이 동일한 컴퓨터의 메모리에 있는 데이터를 훔칠 수 있도록 합니다.
 
 
 
+[[protect-nodes-during-installation]]
 == 설치하는 동안 노드를 보호합니다
 
 노드가 설치될 때 신뢰할 수 없는 사용자가 네트워크를 통해 StorageGRID 노드에 액세스하도록 허용하지 않습니다. 노드가 그리드에 가입될 때까지 완전히 보안되지 않습니다.
 
 
 
+[[limit-physical-access-to-hardware]]
 == 하드웨어에 대한 물리적 액세스 제한
 
 StorageGRID 하드웨어 어플라이언스 노드와 StorageGRID 실행하는 VMware 가상 머신 호스트 및 Linux 호스트에 대한 물리적 액세스를 권한이 있는 관리자로만 제한해야 합니다.  물리적 접근 통제의 예로는 잠금장치, 경비원, 물리적 장벽, 비디오 감시 등이 있습니다.
@@ -76,6 +82,7 @@ StorageGRID 하드웨어 어플라이언스 노드와 StorageGRID 실행하는 V
 
 
 
+[[guidelines-for-admin-nodes]]
 == 관리 노드에 대한 지침
 
 관리 노드는 시스템 구성, 모니터링 및 로깅과 같은 관리 서비스를 제공합니다. 그리드 관리자 또는 테넌트 관리자에 로그인할 때 관리 노드에 연결됩니다.
@@ -95,6 +102,7 @@ StorageGRID 하드웨어 어플라이언스 노드와 StorageGRID 실행하는 V
 
 
 
+[[guidelines-for-storage-nodes]]
 == 스토리지 노드 지침
 
 스토리지 노드: 오브젝트 데이터 및 메타데이터를 관리하고 저장합니다. 다음 지침에 따라 StorageGRID 시스템의 스토리지 노드를 보호합니다.
@@ -108,6 +116,7 @@ StorageGRID 하드웨어 어플라이언스 노드와 StorageGRID 실행하는 V
 
 
 
+[[guidelines-for-gateway-nodes]]
 == 게이트웨이 노드에 대한 지침
 
 게이트웨이 노드는 클라이언트 애플리케이션이 StorageGRID에 연결하는 데 사용할 수 있는 선택적 로드 밸런싱 인터페이스를 제공합니다. 다음 지침에 따라 StorageGRID 시스템의 게이트웨이 노드를 보호합니다.
@@ -119,6 +128,7 @@ StorageGRID 하드웨어 어플라이언스 노드와 StorageGRID 실행하는 V
 
 
 
+[[guidelines-for-hardware-appliance-nodes]]
 == 하드웨어 어플라이언스 노드에 대한 지침입니다
 
 StorageGRID 하드웨어 어플라이언스는 StorageGRID 시스템에서 사용하도록 특별히 설계되었습니다. 일부 어플라이언스는 스토리지 노드로 사용할 수 있습니다. 다른 어플라이언스를 관리 노드 또는 게이트웨이 노드로 사용할 수 있습니다. 어플라이언스 노드를 소프트웨어 기반 노드와 결합하거나 완전히 엔지니어링된 모든 어플라이언스 그리드를 구축할 수 있습니다.

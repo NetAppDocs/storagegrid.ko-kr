@@ -15,12 +15,14 @@ S3 PutObject 요청을 사용하여 객체를 버킷에 추가할 수 있습니�
 
 
 
+[[resolve-conflicts]]
 == 충돌 해결
 
 동일한 키에 쓰는 두 클라이언트 등의 충돌하는 클라이언트 요청은 "최신 성공" 기준으로 해결됩니다. "Latest-WINS" 평가 시기는 S3 클라이언트가 작업을 시작할 때가 아니라 StorageGRID 시스템이 지정된 요청을 완료하는 시점을 기준으로 합니다.
 
 
 
+[[object-size]]
 == 개체 크기
 
 단일 PutObject 작업의 maximum_recommended_size는 5GiB(5,368,709,120바이트)입니다. 5GiB보다 큰 오브젝트가 있는 경우 대신 를 link:operations-for-multipart-uploads.html["멀티파트 업로드"]사용하십시오.
@@ -32,12 +34,14 @@ NOTE: StorageGRID 11.6 이하에서 업그레이드한 경우 5GiB를 초과하�
 
 
 
+[[user-metadata-size]]
 == 사용자 메타데이터 크기입니다
 
 Amazon S3는 각 PUT 요청 헤더 내의 사용자 정의 메타데이터 크기를 2KB로 제한합니다. StorageGRID는 사용자 메타데이터를 24KiB로 제한합니다. 사용자 정의 메타데이터의 크기는 각 키와 값의 UTF-8 인코딩에서 바이트 수의 합계를 구하여 측정됩니다.
 
 
 
+[[utf-8-characters-in-user-metadata]]
 == 사용자 메타데이터의 UTF-8 문자
 
 요청에 사용자 정의 메타데이터의 키 이름이나 값에 UTF-8 값이 포함되어 있으면 StorageGRID 동작이 정의되지 않습니다.
@@ -50,18 +54,21 @@ StorageGRID는 사용자 정의 메타데이터의 키 이름이나 값에 포�
 
 
 
+[[object-tag-limits]]
 == 개체 태그 제한
 
 새 개체를 업로드할 때 태그를 추가하거나 기존 개체에 태그를 추가할 수 있습니다. StorageGRID 및 Amazon S3 모두 각 오브젝트에 대해 최대 10개의 태그를 지원합니다. 개체와 관련된 태그에는 고유한 태그 키가 있어야 합니다. 태그 키의 길이는 최대 128자의 유니코드 문자이고 태그 값의 길이는 최대 256자의 유니코드 문자일 수 있습니다. 키와 값은 대/소문자를 구분합니다.
 
 
 
+[[object-ownership]]
 == 개체 소유권
 
 StorageGRID에서는 소유자가 아닌 계정 또는 익명 사용자가 만든 개체를 포함하여 모든 개체가 버킷 소유자 계정에 의해 소유됩니다.
 
 
 
+[[supported-request-headers]]
 == 지원되는 요청 헤더입니다
 
 지원되는 요청 헤더는 다음과 같습니다.
@@ -137,6 +144,7 @@ NOTE: ILM 규칙은 참조 시간에 * 사용자 정의 생성 시간 * 과 Bala
 
 
 
+[[unsupported-request-headers]]
 == 지원되지 않는 요청 헤더입니다
 
 다음 요청 헤더는 지원되지 않습니다.
@@ -160,6 +168,7 @@ NOTE: ILM 규칙은 참조 시간에 * 사용자 정의 생성 시간 * 과 Bala
 
 
 
+[[storage-class-options]]
 == 스토리지 클래스 옵션
 
  `x-amz-storage-class`요청 헤더가 지원됩니다. 에 제출된 `x-amz-storage-class` 값은 StorageGRID 시스템(ILM에 의해 결정됨)에 저장되는 오브젝트의 영구 사본의 수가 아니라 수집 중에 StorageGRID가 오브젝트 데이터를 보호하는 방법에 영향을 줍니다.
@@ -198,6 +207,7 @@ NOTE: S3 오브젝트 잠금이 설정된 상태에서 오브젝트를 버킷에
 
 
 
+[[request-headers-for-server-side-encryption]]
 == 서버측 암호화에 대한 요청 헤더
 
 다음 요청 헤더를 사용하여 서버측 암호화를 사용하여 개체를 암호화할 수 있습니다. SSE 및 SSE-C 옵션은 상호 배타적입니다.
@@ -227,6 +237,7 @@ NOTE: 개체가 SSE 또는 SSE-C로 암호화된 경우 버킷 수준 또는 그
 
 
 
+[[versioning]]
 == 버전 관리
 
 버킷에 대해 버전 관리를 사용하도록 설정하면 저장되는 오브젝트 버전에 대해 고유한 `versionId` 버전이 자동으로 생성됩니다.  `versionId`응답 헤더를 사용하여 응답에서도 `x-amz-version-id` 반환됩니다.
@@ -235,6 +246,7 @@ NOTE: 개체가 SSE 또는 SSE-C로 암호화된 경우 버킷 수준 또는 그
 
 
 
+[[signature-calculations-for-the-authorization-header]]
 == 승인 헤더의 서명 계산
 
 헤더를 사용하여 요청을 인증하는 경우 `Authorization` StorageGRID는 다음과 같은 점에서 AWS와 다릅니다.

@@ -18,6 +18,7 @@ TIP: 이 버전의 문서 사이트에서 Swift 세부 정보가 제거되었습
 
 
 
+[[configuration-tasks]]
 == 구성 작업
 
 . 클라이언트 응용 프로그램이 StorageGRID에 연결되는 방법에 따라 StorageGRID에서 필수 작업을 수행합니다.
@@ -75,12 +76,14 @@ S3 설정 마법사의 단계를 따릅니다.
 
 
 
+[[information-needed-to-attach-storagegrid-to-a-client-application]]
 == StorageGRID를 클라이언트 애플리케이션에 연결하는 데 필요한 정보입니다
 
 StorageGRID를 S3 클라이언트 응용 프로그램에 연결하려면 먼저 StorageGRID에서 구성 단계를 수행하고 특정 값을 얻어야 합니다.
 
 
 
+[[what-values-do-i-need]]
 === 어떤 가치가 필요합니까?
 
 다음 표에는 StorageGRID에서 구성해야 하는 값과 S3 응용 프로그램 및 DNS 서버에서 이러한 값을 사용하는 위치가 나와 있습니다.
@@ -147,6 +150,7 @@ StorageGRID > 테넌트 및 버킷
 |===
 
 
+[[how-do-i-get-these-values]]
 === 이러한 값을 얻으려면 어떻게 해야 합니까?
 
 요구 사항에 따라 다음 중 하나를 수행하여 필요한 정보를 얻을 수 있습니다.

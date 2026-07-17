@@ -18,6 +18,7 @@ NOTE: 일부 노드를 나중에 설치하는 대신 모든 노드를 한 번 �
 
 
 
+[[vmware-information]]
 == VMware 정보입니다
 
 배포 환경에 액세스하여 VMware 환경, 그리드, 관리자 및 클라이언트 네트워크용으로 생성된 네트워크, 스토리지 노드에 사용할 스토리지 볼륨 유형에 대한 정보를 수집해야 합니다.
@@ -33,6 +34,7 @@ NOTE: VMware Live vMotion을 사용하면 가상 머신 클록 시간이 점프�
 
 
 
+[[grid-network-information]]
 == 그리드 네트워크 정보
 
 StorageGRID 그리드 네트워크(필수)용으로 생성된 VMware 네트워크에 대한 정보를 수집해야 합니다. 여기에는 다음이 포함됩니다.
@@ -48,6 +50,7 @@ StorageGRID 그리드 네트워크(필수)용으로 생성된 VMware 네트워�
 
 
 
+[[admin-network-information]]
 == 관리자 네트워크 정보
 
 선택적 StorageGRID 관리자 네트워크에 연결될 노드의 경우 이 네트워크에 대해 생성된 VMware 네트워크 관련 정보를 수집해야 합니다. 여기에는 다음이 포함됩니다.
@@ -64,6 +67,7 @@ StorageGRID 그리드 네트워크(필수)용으로 생성된 VMware 네트워�
 
 
 
+[[client-network-information]]
 == 클라이언트 네트워크 정보
 
 선택적 StorageGRID 클라이언트 네트워크에 연결될 노드의 경우 이 네트워크에 대해 생성된 VMware 네트워크 관련 정보를 수집해야 합니다. 여기에는 다음이 포함됩니다.
@@ -75,6 +79,7 @@ StorageGRID 그리드 네트워크(필수)용으로 생성된 VMware 네트워�
 
 
 
+[[information-about-additional-interfaces]]
 == 추가 인터페이스에 대한 정보입니다
 
 노드를 설치한 후 vCenter에서 VM에 트렁크 또는 액세스 인터페이스를 선택적으로 추가할 수 있습니다. 예를 들어, 관리 또는 게이트웨이 노드에 트렁크 인터페이스를 추가하여 VLAN 인터페이스를 사용하여 다른 애플리케이션이나 테넌트에 속한 트래픽을 분리할 수 있습니다. 또는 고가용성(HA) 그룹에서 사용할 액세스 인터페이스를 추가할 수도 있습니다.
@@ -87,6 +92,7 @@ StorageGRID 그리드 네트워크(필수)용으로 생성된 VMware 네트워�
 
 
 
+[[storage-volumes-for-virtual-storage-nodes]]
 == 가상 스토리지 노드의 스토리지 볼륨
 
 가상 머신 기반 스토리지 노드에 대한 다음 정보를 수집해야 합니다.
@@ -96,6 +102,7 @@ StorageGRID 그리드 네트워크(필수)용으로 생성된 VMware 네트워�
 
 
 
+[[grid-configuration-information]]
 == 그리드 구성 정보
 
 그리드를 구성하려면 정보를 수집해야 합니다.

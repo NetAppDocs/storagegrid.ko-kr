@@ -15,6 +15,7 @@ Grid Manager 사용자 인터페이스 대신 Grid Management REST API를 사용
 
 
 
+[[top-level-resources]]
 == 최고 수준의 리소스
 
 Grid Management API는 다음과 같은 최상위 리소스를 제공합니다.
@@ -26,6 +27,7 @@ Grid Management API는 다음과 같은 최상위 리소스를 제공합니다.
 
 
 
+[[issue-api-requests]]
 == API 요청을 발행합니다
 
 Grid Management API는 Swagger 오픈 소스 API 플랫폼을 사용합니다. Swagger는 개발자와 개발자가 아닌 사용자가 API를 사용하여 StorageGRID에서 실시간 작업을 수행할 수 있도록 직관적인 사용자 인터페이스를 제공합니다.

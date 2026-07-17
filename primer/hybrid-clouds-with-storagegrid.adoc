@@ -15,6 +15,7 @@ summary: 정책 기반의 데이터 관리를 구현하여 하이브리드 클�
 
 
 
+[[cloud-storage-pools]]
 == 클라우드 스토리지 풀
 
 클라우드 스토리지 풀을 사용하면 StorageGRID 시스템 외부에 오브젝트를 저장할 수 있습니다. 예를 들어, 자주 액세스하지 않는 오브젝트를 Microsoft Azure Blob 스토리지의 Amazon S3 Glacier, S3 Glacier Deep Archive, Google Cloud 또는 Archive 액세스 계층과 같은 저비용 클라우드 스토리지로 이동할 수 있습니다. 또는 스토리지 볼륨 또는 스토리지 노드 장애로 인해 손실된 데이터를 복구하는 데 사용할 수 있는 StorageGRID 개체의 클라우드 백업을 유지 관리할 수도 있습니다.
@@ -26,6 +27,7 @@ NOTE: FabricPool에서 클라우드 스토리지 풀 타겟의 객체를 검색�
 
 
 
+[[s3-platform-services]]
 == S3 플랫폼 서비스
 
 S3 플랫폼 서비스를 사용하면 원격 서비스를 오브젝트 복제, 이벤트 알림 또는 검색 통합을 위한 엔드포인트로 사용할 수 있습니다. 플랫폼 서비스는 그리드의 ILM 규칙과 독립적으로 작동하며 개별 S3 버킷에 대해 활성화됩니다. 지원되는 서비스는 다음과 같습니다.
@@ -39,6 +41,7 @@ S3 플랫폼 서비스를 사용하면 원격 서비스를 오브젝트 복제, 
 
 
 
+[[ontap-data-tiering-using-fabricpool]]
 == FabricPool를 사용한 ONTAP 데이터 계층화
 
 FabricPool를 사용하여 데이터를 StorageGRID로 계층화하여 ONTAP 스토리지 비용을 절감할 수 있습니다. FabricPool를 사용하면 사내 또는 사외에서 데이터를 저비용 오브젝트 스토리지 계층으로 자동 계층화할 수 있습니다.

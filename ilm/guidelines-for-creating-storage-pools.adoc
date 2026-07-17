@@ -17,6 +17,7 @@ summary: 여러 사이트에 데이터를 분산하여 데이터 손실을 방�
 
 
 
+[[guidelines-for-all-storage-pools]]
 == 모든 스토리지 풀에 대한 지침입니다
 
 * 스토리지 풀 구성을 가능한 한 단순하게 유지합니다. 필요한 것보다 더 많은 스토리지 풀을 생성하지 마십시오.
@@ -27,6 +28,7 @@ summary: 여러 사이트에 데이터를 분산하여 데이터 손실을 방�
 
 
 
+[[guidelines-for-storage-pools-used-for-replicated-copies]]
 == 복제된 복제본에 사용되는 스토리지 풀에 대한 지침입니다
 
 * 를 사용하여 사이트 손실 보호를 수행하려면 link:what-replication-is.html["복제"]에서 사이트별 스토리지 풀을 하나 이상 link:create-ilm-rule-define-placements.html["각 ILM 규칙에 대한 배치 지침"]지정합니다.
@@ -43,6 +45,7 @@ StorageGRID를 설치하는 동안 각 사이트에 대해 스토리지 풀 하�
 
 
 
+[[guidelines-for-storage-pools-used-for-erasure-coded-copies]]
 == 삭제 코딩 복사본에 사용되는 스토리지 풀에 대한 지침입니다
 
 * 를 사용하여 사이트 손실 보호를 link:what-erasure-coding-is.html["삭제 코딩"]수행하려면 최소 3개의 사이트로 구성된 스토리지 풀을 생성합니다. 스토리지 풀에 사이트가 두 개만 포함된 경우 해당 스토리지 풀을 삭제 코딩에 사용할 수 없습니다. 두 개의 사이트가 있는 스토리지 풀에는 삭제 코딩 스키마를 사용할 수 없습니다.

@@ -21,6 +21,7 @@ Get Storage Usage 요청은 계정이 사용하는 총 스토리지 양과 계�
 
 
 
+[[request-example]]
 == 요청 예
 
 [listing, subs="specialcharacters,quotes"]
@@ -32,6 +33,7 @@ Host: _host_
 ----
 
 
+[[response-example]]
 == 응답 예
 
 이 예에서는 두 버킷에 4개의 오브젝트와 12바이트의 데이터가 있는 계정을 보여 줍니다. 각 버킷에는 2개의 오브젝트와 6바이트의 데이터가 포함되어 있습니다.
@@ -67,6 +69,7 @@ Content-Type: application/xml
 ----
 
 
+[[versioning]]
 == 버전 관리
 
 저장된 모든 개체 버전은 응답의 및 `DataBytes` 값에 영향을 `ObjectCount` 줍니다. 표식 삭제는 합계에 추가되지 `ObjectCount` 않습니다.

@@ -18,12 +18,14 @@ NOTE: StorageGRID는 CompleteMultipartUpload를 사용하여 요청 매개 변�
 
 
 
+[[resolve-conflicts]]
 == 충돌 해결
 
 동일한 키에 쓰는 두 클라이언트 등의 충돌하는 클라이언트 요청은 "최신 성공" 기준으로 해결됩니다. "Latest-WINS" 평가 시기는 S3 클라이언트가 작업을 시작할 때가 아니라 StorageGRID 시스템이 지정된 요청을 완료하는 시점을 기준으로 합니다.
 
 
 
+[[supported-request-headers]]
 == 지원되는 요청 헤더입니다
 
 지원되는 요청 헤더는 다음과 같습니다.
@@ -55,6 +57,7 @@ NOTE:  `ETag`반환되는 값은 데이터의 MD5 합계가 아니라 다중 개
 
 
 
+[[unsupported-request-headers]]
 == 지원되지 않는 요청 헤더입니다
 
 다음 요청 헤더는 지원되지 않습니다.
@@ -73,6 +76,7 @@ NOTE:  `ETag`반환되는 값은 데이터의 MD5 합계가 아니라 다중 개
 
 
 
+[[versioning]]
 == 버전 관리
 
 이 작업은 여러 부분 업로드를 완료합니다. 버켓에 대해 버전 관리가 활성화된 경우 다중 파트 업로드가 완료된 후 개체 버전이 생성됩니다.
@@ -86,6 +90,7 @@ NOTE: 버켓에 대해 버전 관리가 활성화된 경우, 같은 개체 키�
 
 
 
+[[failed-replication-notification-or-metadata-notification]]
 == 복제, 알림 또는 메타데이터 알림에 실패했습니다
 
 플랫폼 서비스에 대해 다중 파트 업로드가 발생하는 버킷이 구성된 경우 연결된 복제 또는 알림 작업이 실패한 경우에도 다중 파트 업로드가 성공합니다.

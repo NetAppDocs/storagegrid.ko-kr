@@ -15,6 +15,7 @@ StorageGRID 시스템의 오브젝트 메타데이터 용량은 해당 시스템
 
 
 
+[[what-is-object-metadata]]
 == 오브젝트 메타데이터란?
 
 개체 메타데이터는 개체를 설명하는 정보입니다. StorageGRID는 오브젝트 메타데이터를 사용하여 그리드 전체의 모든 오브젝트의 위치를 추적하고 각 오브젝트의 라이프사이클 관리를 제공합니다.
@@ -32,6 +33,7 @@ StorageGRID의 개체에 대한 개체 메타데이터에는 다음 유형의 �
 
 
 
+[[how-is-object-metadata-stored]]
 == 오브젝트 메타데이터는 어떻게 저장됩니까?
 
 StorageGRID는 오브젝트 메타데이터를 Cassandra 데이터베이스에 유지하며, 이 데이터베이스는 오브젝트 데이터와 독립적으로 저장됩니다. 이중화를 제공하고 개체 메타데이터를 손실로부터 보호하기 위해 StorageGRID는 각 사이트의 시스템 모든 개체에 대한 메타데이터 복사본을 3개 저장합니다.
@@ -42,6 +44,7 @@ image:metadata_space_across_sites.png["사이트 전체의 메타데이터 공�
 
 
 
+[[where-is-object-metadata-stored]]
 == 오브젝트 메타데이터는 어디에 저장됩니까?
 
 이 그림은 단일 스토리지 노드의 스토리지 볼륨을 나타냅니다.
@@ -54,6 +57,7 @@ image:metadata_space_storage_node.png["메타데이터 공간 스토리지 노�
 
 
 
+[[metadata-reserved-space-setting]]
 == 메타데이터 예약 공간 설정입니다
 
 Metadata Reserved space_는 모든 스토리지 노드의 볼륨 0에서 메타데이터로 예약될 공간의 양을 나타내는 시스템 차원의 설정입니다. 표에 나와 있는 것처럼 이 설정의 기본값은 다음을 기반으로 합니다.
@@ -111,6 +115,7 @@ Metadata Reserved space_는 모든 스토리지 노드의 볼륨 0에서 메타�
 |===
 
 
+[[view-metadata-reserved-space-setting]]
 === 메타데이터 예약 공간 설정을 봅니다
 
 StorageGRID 시스템의 메타데이터 예약 공간 설정을 보려면 다음 단계를 수행하십시오.
@@ -126,6 +131,7 @@ StorageGRID 11.8 이상의 경우 메타데이터 예약 공간 값은 100GB 이
 
 
 
+[[actual-reserved-space-for-metadata]]
 == 메타데이터의 실제 예약 공간입니다
 
 시스템 차원 메타데이터 예약 공간 설정과 달리 각 스토리지 노드에 대해 _actual reserved space_for object 메타데이터가 결정됩니다. 지정된 스토리지 노드에 대해 메타데이터의 실제 예약된 공간은 노드의 볼륨 0 크기 및 시스템 차원의 메타데이터 예약 공간 설정에 따라 달라집니다.
@@ -156,6 +162,7 @@ StorageGRID 11.8 이상의 경우 메타데이터 예약 공간 값은 100GB 이
 |===
 
 
+[[view-actual-reserved-space-for-metadata]]
 === 메타데이터에 대한 실제 예약 공간을 봅니다
 
 특정 스토리지 노드의 메타데이터에 대한 실제 예약 공간을 보려면 다음 단계를 따르십시오.
@@ -173,6 +180,7 @@ image:storage_used_object_metadata_actual_reserved.png["사용된 스토리지 -
 
 
 
+[[example-for-actual-reserved-metadata-space]]
 === 실제 예약 메타데이터 공간의 예
 
 버전 11.7 이상을 사용하여 새 StorageGRID 시스템을 설치한다고 가정합니다. 이 예에서는 각 스토리지 노드에 128MB 이상의 RAM이 있고 SN1(Storage Node 1)의 볼륨 0이 6TB라고 가정합니다. 다음 값을 기준으로 합니다.
@@ -183,6 +191,7 @@ image:storage_used_object_metadata_actual_reserved.png["사용된 스토리지 -
 
 
 
+[[allowed-metadata-space]]
 == 허용된 메타데이터 공간입니다
 
 각 스토리지 노드의 실제 메타데이터 예약 공간은 오브젝트 메타데이터(_allowed metadata space_)에 사용할 수 있는 공간과 필수 데이터베이스 작업(예: 컴팩션 및 복구)에 필요한 공간, 향후 하드웨어 및 소프트웨어 업그레이드로 세분화됩니다. 허용되는 메타데이터 공간은 전체 오브젝트 용량을 관리합니다.
@@ -191,6 +200,7 @@ image:metadata_allowed_space_volume_0.png["허용되는 메타데이터 공간 �
 
 다음 표에서는 StorageGRID가 노드에 대한 메모리 양과 메타데이터에 대한 실제 예약된 공간을 기준으로 서로 다른 스토리지 노드에 대해 * 허용된 메타데이터 공간 * 을 계산하는 방법을 보여 줍니다.
 
+[[table-allowed-space-for-metadata]]
 [cols="1a,1a,2a,2a"]
 |===
 
@@ -232,6 +242,7 @@ GT, 4TB(&G
 |===
 
 
+[[view-allowed-metadata-space]]
 === 허용된 메타데이터 공간을 봅니다
 
 스토리지 노드에 대해 허용되는 메타데이터 공간을 보려면 다음 단계를 따르십시오.
@@ -254,6 +265,7 @@ image:storage_used_object_metadata_allowed.png["사용된 스토리지 - 객체 
 
 
 
+[[example-for-allowed-metadata-space]]
 == 허용되는 메타데이터 공간의 예
 
 버전 11.6를 사용하여 StorageGRID 시스템을 설치한다고 가정합니다. 이 예에서는 각 스토리지 노드에 128MB 이상의 RAM이 있고 SN1(Storage Node 1)의 볼륨 0이 6TB라고 가정합니다. 다음 값을 기준으로 합니다.
@@ -265,6 +277,7 @@ image:storage_used_object_metadata_allowed.png["사용된 스토리지 - 객체 
 
 
 
+[[how-storage-nodes-of-different-sizes-affect-object-capacity]]
 == 서로 다른 크기의 스토리지 노드가 오브젝트 용량에 미치는 영향
 
 위에서 설명한 것처럼 StorageGRID는 각 사이트의 스토리지 노드에 오브젝트 메타데이터를 균등하게 분산합니다. 따라서 사이트에 크기가 다른 스토리지 노드가 있는 경우 사이트의 가장 작은 노드가 사이트의 메타데이터 용량을 결정합니다.

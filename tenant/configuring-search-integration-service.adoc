@@ -184,6 +184,7 @@ NOTE: 그리드 관리자 또는 관리 API를 사용하여 StorageGRID 관리�
 
 
 
+[[example-notification-configexample-metadata-notification-configuration-that-applies-to-all-objects]]
 == [[example-notification-config]] 예: 모든 개체에 적용되는 메타데이터 알림 구성입니다
 
 이 예제에서 모든 오브젝트의 오브젝트 메타데이터는 동일한 대상으로 전송됩니다.
@@ -203,6 +204,7 @@ NOTE: 그리드 관리자 또는 관리 API를 사용하여 StorageGRID 관리�
 ----
 
 
+[[example-metadata-notification-configuration-with-two-rules]]
 == 예: 두 개의 규칙이 있는 메타데이터 알림 구성
 
 이 예에서는 접두사와 일치하는 개체의 개체 메타데이터가 `/images` 한 대상으로 전송되고, 접두사와 일치하는 개체의 개체 메타데이터가 `/videos` 두 번째 대상으로 전송됩니다.
@@ -231,6 +233,7 @@ NOTE: 그리드 관리자 또는 관리 API를 사용하여 StorageGRID 관리�
 ----
 
 
+[[metadata-notification-format]]
 == 메타데이터 알림 형식입니다
 
 버킷에 대한 검색 통합 서비스를 활성화하면 개체 메타데이터 또는 태그를 추가, 업데이트 또는 삭제할 때마다 JSON 문서가 생성되어 대상 끝점으로 전송됩니다.
@@ -257,6 +260,7 @@ NOTE: 그리드 관리자 또는 관리 API를 사용하여 StorageGRID 관리�
 ----
 
 
+[[fields-included-in-the-json-document]]
 === JSON 문서에 포함된 필드입니다
 
 문서 이름에는 버킷 이름, 오브젝트 이름 및 버전 ID(있는 경우)가 포함됩니다.
@@ -301,6 +305,7 @@ NOTE: 그리드 관리자 또는 관리 API를 사용하여 StorageGRID 관리�
 
 
 
+[[how-to-view-results-in-elasticsearch]]
 === Elasticsearch에서 결과를 보는 방법
 
 태그 및 사용자 메타데이터의 경우 StorageGRID는 날짜 및 숫자를 Elasticsearch에 문자열 또는 S3 이벤트 알림으로 전달합니다. 이러한 문자열을 날짜 또는 숫자로 해석하도록 Elasticsearch를 구성하려면 동적 필드 매핑 및 날짜 형식 매핑에 대한 Elasticsearch 지침을 따르십시오. 검색 통합 서비스를 구성하기 전에 인덱스에서 동적 필드 매핑을 사용하도록 설정합니다. 문서가 인덱싱된 후에는 인덱스에서 문서의 필드 형식을 편집할 수 없습니다.

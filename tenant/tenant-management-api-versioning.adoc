@@ -69,6 +69,7 @@ Received call to deprecated v2 API at POST "/api/v2/authorize"
 
 
 
+[[determine-which-api-versions-are-supported-in-the-current-release]]
 == 현재 릴리즈에서 지원되는 API 버전을 확인합니다
 
 API 요청을 사용하여 `GET /versions` 지원되는 API 주요 버전 목록을 반환합니다. 이 요청은 Swagger API 설명서의 * config * 섹션에 있습니다.
@@ -89,6 +90,7 @@ GET https://{{IP-Address}}/api/versions
 ----
 
 
+[[specify-an-api-version-for-a-request]]
 == 요청에 대한 API 버전을 지정합니다
 
 경로 매개 변수(`/api/v4`) 또는 헤더를 사용하여 API 버전을 지정할 수 (`Api-Version: 4`있습니다. 두 값을 모두 제공하면 헤더 값이 경로 값을 재정의합니다.

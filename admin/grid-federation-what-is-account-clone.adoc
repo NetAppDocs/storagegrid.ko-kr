@@ -17,6 +17,7 @@ summary: 계정 클론은 테넌트 계정, 테넌트 그룹, 테넌트 사용�
 
 
 
+[[workflow-for-account-clone]]
 == 계정 클론 워크플로우
 
 워크플로우 다이어그램은 그리드 관리자 및 허용된 테넌트가 계정 클론을 설정하기 위해 수행하는 단계를 보여 줍니다. 이러한 단계는 이후에 link:grid-federation-create-connection.html["그리드 페더레이션 연결이 구성되어 있습니다"]수행됩니다.
@@ -25,12 +26,14 @@ image:grid-federation-account-clone-workflow.png["계정 클론 워크플로우"
 
 
 
+[[grid-admin-workflow]]
 == 그리드 관리자 워크플로
 
 그리드 관리자가 수행하는 단계는 의 StorageGRID 시스템이 SSO(Single Sign-On)를 사용하는지 ID 페더레이션을 사용하는지에 따라 link:grid-federation-overview.html["그리드 페더레이션 연결"]다릅니다.
 
 
 
+[[account-clone-ssoconfigure-sso-for-account-clone-optional]]
 === [[account-clone-SSO]] 계정 클론에 대한 SSO 구성(선택 사항)
 
 그리드 페더레이션 연결의 StorageGRID 시스템 중 하나에서 SSO를 사용하는 경우 두 그리드에서 모두 SSO를 사용해야 합니다. 그리드 페더레이션을 위해 테넌트 계정을 생성하기 전에 테넌트의 소스 및 대상 그리드에 대한 그리드 관리자가 다음 단계를 수행해야 합니다.
@@ -50,6 +53,7 @@ NOTE: 이 관리 그룹이 테넌트를 생성하기 전에 두 그리드에 없
 
 
 
+[[account-clone-identity-federationconfigure-grid-level-identity-federation-for-account-clone-optional]]
 === [[account-clone-identity-federation]] 계정 클론에 대한 그리드 수준 ID 페더레이션 구성(선택 사항)
 
 StorageGRID 시스템 중 하나에서 SSO 없이 ID 페더레이션을 사용하는 경우 두 그리드 모두 ID 페더레이션을 사용해야 합니다. 그리드 페더레이션을 위해 테넌트 계정을 생성하기 전에 테넌트의 소스 및 대상 그리드에 대한 그리드 관리자가 다음 단계를 수행해야 합니다.
@@ -66,6 +70,7 @@ NOTE: 두 그리드에 없는 통합 그룹에 루트 액세스 권한을 할당
 
 
 
+[[create-permitted-s3-tenant-account]]
 === 허용된 S3 테넌트 계정을 생성합니다
 
 선택적으로 SSO 또는 ID 페더레이션을 구성한 후 그리드 관리자는 다음 단계를 수행하여 버킷 객체를 다른 StorageGRID 시스템으로 복제할 수 있는 테넌트를 결정합니다.
@@ -98,6 +103,7 @@ NOTE: 두 그리드에 없는 통합 그룹에 루트 액세스 권한을 할당
 
 
 
+[[permitted-tenant-account-workflow]]
 == 허용된 테넌트 계정 워크플로
 
 그리드 페더레이션 연결 사용 * 권한이 있는 테넌트가 대상 그리드에 복제된 후에 허용된 테넌트 계정은 테넌트 그룹, 사용자 및 S3 액세스 키를 클론 복제하기 위해 다음 단계를 수행할 수 있습니다.

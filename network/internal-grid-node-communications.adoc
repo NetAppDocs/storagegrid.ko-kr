@@ -20,6 +20,7 @@ StorageGRID는 표에 나열된 ICMP 및 포트 외에도 VRRP(가상 라우터 
 
 
 
+[[guidelines-for-linux-based-nodes]]
 == Linux 기반 노드에 대한 지침
 
 기업 네트워킹 정책이 이러한 포트에 대한 액세스를 제한하는 경우 배포 구성 매개변수를 사용하여 배포 시점에 포트를 다시 매핑할 수 있습니다.  포트 리매핑 및 배포 구성 매개변수에 대한 자세한 내용은 다음을 참조하세요.link:../swnodes/index.html["소프트웨어 기반 노드에 StorageGRID 설치"] .
@@ -29,6 +30,7 @@ NOTE: 포트 리매핑 지원은 더 이상 제공되지 않으며 향후 릴리
 
 
 
+[[guidelines-for-vmware-based-nodes]]
 == VMware 기반 노드에 대한 지침입니다
 
 VMware 네트워킹 외부의 방화벽 제한을 정의해야 하는 경우에만 다음 포트를 구성합니다.
@@ -40,6 +42,7 @@ NOTE: 포트 리매핑 지원은 더 이상 제공되지 않으며 향후 릴리
 
 
 
+[[guidelines-for-appliance-nodes]]
 == 어플라이언스 노드에 대한 지침
 
 엔터프라이즈 네트워킹 정책에서 이러한 포트에 대한 액세스를 제한하는 경우 StorageGRID 어플라이언스 설치 프로그램을 사용하여 포트를 재매핑할 수 있습니다. 을 https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-remapping-network-ports-for-appliance.html["옵션: 어플라이언스인 네트워크 포트를 재활용합니다"^]참조하십시오.
@@ -49,6 +52,7 @@ NOTE: 포트 리매핑 지원은 더 이상 제공되지 않으며 향후 릴리
 
 
 
+[[storagegrid-internal-ports]]
 == StorageGRID 내부 포트
 
 [cols="1a,1a,1a,1a,4a"]

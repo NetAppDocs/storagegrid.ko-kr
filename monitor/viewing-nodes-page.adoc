@@ -28,6 +28,8 @@ image:nodes_table.png["노드 메뉴"]
 
 
 
+[[connection-state-icons]]
+[[connection-state]]
 == 연결 상태 아이콘
 
 노드가 그리드에서 분리되어 있는 경우 노드 이름 옆에 다음 아이콘 중 하나가 표시됩니다.
@@ -74,6 +76,7 @@ image:icon_alarm_gray_administratively_down.png["회색 물음표 아이콘"]
 
 
 
+[[alert-icons]]
 == 경고 아이콘
 
 노드에 대한 활성 경고가 있는 경우 노드 이름 옆에 다음 아이콘 중 하나가 표시됩니다.
@@ -86,6 +89,7 @@ image:icon_alert_yellow_minor.png["아이콘 경고 노란색이 경미합니다
 
 
 
+[[view-details-for-a-system-site-or-node]]
 == 시스템, 사이트 또는 노드에 대한 세부 정보를 봅니다
 
 노드 테이블에 표시된 정보를 필터링하려면 * 검색 * 필드에 검색 문자열을 입력합니다. 시스템 이름, 표시 이름 또는 유형별로 검색할 수 있습니다(예: * gat * 를 입력하여 모든 게이트웨이 노드를 빠르게 찾을 수 있습니다).

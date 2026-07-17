@@ -28,6 +28,7 @@ ILM 규칙 정의:
 
 
 
+[[example-ilm-rule]]
 == ILM 규칙 예
 
 예를 들어 ILM 규칙에서 다음을 지정할 수 있습니다.
@@ -43,6 +44,7 @@ ILM 규칙 정의:
 
 
 
+[[how-an-ilm-policy-evaluates-objects]]
 == ILM 정책이 개체를 평가하는 방법
 
 StorageGRID 시스템에 대한 활성 ILM 정책은 모든 오브젝트의 배치, 기간 및 수집 동작을 제어합니다.
@@ -56,6 +58,7 @@ StorageGRID 시스템에 대한 활성 ILM 정책은 모든 오브젝트의 배�
 
 
 
+[[example-ilm-policy]]
 == ILM 정책의 예
 
 예를 들어 ILM 정책에 다음을 지정하는 세 가지 ILM 규칙이 포함될 수 있습니다.

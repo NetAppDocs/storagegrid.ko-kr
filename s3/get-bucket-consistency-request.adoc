@@ -19,6 +19,7 @@ Get Bucket Consistency 요청을 사용하면 특정 버킷에 적용되는 일�
 
 
 
+[[request-example]]
 == 요청 예
 
 [listing, subs="specialcharacters,quotes"]
@@ -30,6 +31,7 @@ Host: _host_
 ----
 
 
+[[response]]
 == 응답
 
 응답 XML에서 은 `<Consistency>` 다음 값 중 하나를 반환합니다.
@@ -75,6 +77,7 @@ Host: _host_
 |===
 
 
+[[response-example]]
 == 응답 예
 
 [listing]

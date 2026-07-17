@@ -25,6 +25,7 @@ CORS(Cross-origin Resource Sharing)는 한 도메인의 클라이언트 웹 애�
 
 
 
+[[enable-cors-for-a-bucket]]
 == 버킷에 대해 CORS를 활성화합니다
 
 .단계
@@ -70,6 +71,7 @@ CORS 구성 XML에 대한 자세한 내용은 을 참조하십시오 http://docs
 
 
 
+[[modify-cors-setting]]
 == CORS 설정을 수정합니다
 
 .단계
@@ -79,6 +81,7 @@ CORS 구성 XML에 대한 자세한 내용은 을 참조하십시오 http://docs
 
 
 
+[[disable-cors-setting]]
 == CORS 설정을 비활성화합니다
 
 .단계

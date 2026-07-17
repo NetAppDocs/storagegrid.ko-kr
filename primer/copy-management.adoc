@@ -19,6 +19,7 @@ summary: 개체 데이터는 활성 ILM 정책 및 해당 ILM 규칙에 의해 �
 
 
 
+[[content-protection-replication]]
 == 컨텐츠 보호: 복제
 
 ILM 규칙의 콘텐츠 배치 지침에 따라 오브젝트 데이터의 복제된 복사본이 필요한 경우 복사본은 구성된 스토리지 풀을 구성하는 스토리지 노드에 의해 만들어지면 디스크에 저장됩니다.
@@ -36,6 +37,7 @@ image:replication_data_flow.png["주변 텍스트에 설명된 프로세스를 �
 
 
 
+[[content-protection-erasure-coding]]
 == 콘텐츠 보호: 삭제 코딩
 
 ILM 규칙에 오브젝트 데이터의 삭제 코딩 복사본을 만드는 지침이 포함된 경우 해당 삭제 코딩 체계에서 오브젝트 데이터를 데이터 및 패리티 조각으로 분할하고 이러한 조각을 삭제 코딩 프로필에 구성된 스토리지 노드에 분산합니다.
@@ -54,6 +56,7 @@ image:erasure_coding_data_flow.png["삭제 코딩 데이터 흐름"]
 
 
 
+[[content-protection-cloud-storage-pool]]
 == 콘텐츠 보호: 클라우드 스토리지 풀
 
 ILM 규칙의 콘텐츠 배치 명령에 따라 오브젝트 데이터의 복제된 복사본이 Cloud Storage Pool에 저장되어야 하는 경우 오브젝트 데이터는 Cloud Storage Pool에 지정된 외부 S3 버킷 또는 Azure Blob 스토리지 컨테이너에 복제됩니다.

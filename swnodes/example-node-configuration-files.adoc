@@ -23,6 +23,7 @@ NOTE: 이 예에서는 클라이언트 네트워크가 기본적으로 비활성
 
 
 
+[[example-for-primary-admin-node]]
 == 기본 관리자 노드의 예
 
 * 파일 이름 예 *: `/etc/storagegrid/nodes/dc1-adm1.conf`
@@ -54,6 +55,7 @@ ADMIN_NETWORK_ESL = 192.168.100.0/21,172.16.0.0/21,172.17.0.0/21
 ----
 
 
+[[example-for-storage-node]]
 == 스토리지 노드의 예
 
 * 파일 이름 예: * `/etc/storagegrid/nodes/dc1-sn1.conf`
@@ -79,6 +81,7 @@ GRID_NETWORK_GATEWAY = 10.1.0.1
 ----
 
 
+[[example-for-gateway-node]]
 == 게이트웨이 노드의 예
 
 * 파일 이름 예: * `/etc/storagegrid/nodes/dc1-gw1.conf`
@@ -99,6 +102,7 @@ GRID_NETWORK_GATEWAY = 10.1.0.1
 ----
 
 
+[[example-for-a-non-primary-admin-node]]
 == 운영 관리자 노드가 아닌 노드의 예
 
 * 파일 이름 예: * `/etc/storagegrid/nodes/dc1-adm2.conf`

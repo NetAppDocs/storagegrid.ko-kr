@@ -17,6 +17,7 @@ StorageGRID에서는 플랫폼 서비스 엔드포인트를 만들 때 이를 �
 
 
 
+[[urn-elements]]
 == urn 요소
 
 플랫폼 서비스 끝점의 URN은 다음과 같이 또는 `urn:mysite` 로 시작해야 합니다 `arn:aws`.
@@ -92,6 +93,7 @@ CloudMirror 복제
 |===
 
 
+[[urns-for-services-hosted-on-aws-and-gcp]]
 == AWS 및 GCP에서 호스팅되는 서비스의 여관
 
 AWS 및 GCP 엔터티의 경우 URN은 유효한 AWS ARN입니다. 예를 들면 다음과 같습니다.
@@ -122,6 +124,7 @@ NOTE: AWS 검색 통합 끝점의 경우 에 `domain-name` 나와 있는 리터�
 
 
 
+[[urns-for-locally-hosted-services]]
 == 현지 호스팅 서비스를 위한 여관
 
 클라우드 서비스 대신 로컬로 호스팅된 서비스를 사용하는 경우 URN에 필요한 요소가 세 번째 및 최종 위치에 포함되어 있는 한 유효하고 고유한 URN을 만드는 방식으로 URN을 지정할 수 있습니다. 선택 사항으로 표시된 요소를 비워 두거나 자원을 식별하고 URN을 고유하게 만드는 데 도움이 되도록 원하는 방식으로 지정할 수 있습니다. 예를 들면 다음과 같습니다.

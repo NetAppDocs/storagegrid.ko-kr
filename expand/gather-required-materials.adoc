@@ -73,6 +73,7 @@ StorageGRID 설명서
 |===
 
 
+[[download-and-extract-the-storagegrid-installation-files]]
 == StorageGRID 설치 파일을 다운로드하고 압축을 풉니다
 
 .[[download-and-extract-install-files]]([다운로드 및 추출-설치 파일])
@@ -407,6 +408,7 @@ images-version-SHA.deb`.
 |===
 
 
+[[verify-hardware-and-networking]]
 == 하드웨어 및 네트워킹을 확인합니다
 
 StorageGRID 시스템 확장을 시작하기 전에 다음 사항을 확인하십시오.

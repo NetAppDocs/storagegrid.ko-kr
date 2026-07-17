@@ -49,6 +49,7 @@ StorageGRID는 그리드 네트워크(eth0)의 그리드 노드 간에 통신하
 ====
 
 
+[[add-a-subnet]]
 == 서브넷을 추가합니다
 
 .단계
@@ -74,6 +75,7 @@ CAUTION: 복구 패키지 파일은 StorageGRID 시스템에서 데이터를 얻
 
 
 
+[[edit-a-subnet]]
 == 서브넷을 편집합니다
 
 .단계
@@ -91,6 +93,7 @@ CAUTION: 복구 패키지 파일은 StorageGRID 시스템에서 데이터를 얻
 
 
 
+[[delete-a-subnet]]
 == 서브넷을 삭제합니다
 
 .단계

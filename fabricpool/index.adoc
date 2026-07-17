@@ -22,6 +22,7 @@ NetApp ONTAP 소프트웨어를 사용하는 경우 NetApp FabricPool를 사용�
 
 
 
+[[quick-start-for-configuring-storagegrid-for-fabricpool]]
 == FabricPool용 StorageGRID 구성을 빠르게 시작합니다
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"] 구성을 계획합니다
@@ -69,6 +70,7 @@ StorageGRID 값을 사용하는 경우 ONTAP link:configure-ontap.html["클라�
 
 
 
+[[what-is-fabricpool]]
 == FabricPool란 무엇입니까?
 
 FabricPool는 고성능 플래시 애그리게이트를 성능 계층으로 사용하고 오브젝트 저장소를 클라우드 계층으로 사용하는 ONTAP 하이브리드 스토리지 솔루션입니다. FabricPool 지원 애그리게이트를 사용하면 성능, 효율성 또는 보호 기능에 영향을 주지 않으면서 스토리지 비용을 절감할 수 있습니다.
@@ -79,12 +81,14 @@ FabricPool는 클라우드 계층(StorageGRID와 같은 외부 오브젝트 저�
 
 
 
+[[what-is-storagegrid]]
 == StorageGRID란 무엇입니까?
 
 NetApp StorageGRID는 파일 또는 블록 스토리지와 같은 다른 스토리지 아키텍처와 달리 데이터를 객체로 관리하는 스토리지 아키텍처입니다. 오브젝트는 버킷과 같은 단일 컨테이너 내부에 보관되며 다른 디렉토리 내의 디렉토리 내에 파일로 중첩되지 않습니다. 오브젝트 스토리지는 일반적으로 파일 또는 블록 스토리지보다 성능이 낮지만 확장성이 훨씬 더 높습니다. StorageGRID 버킷에는 페타바이트 단위의 데이터와 수십억 개의 오브젝트를 저장할 수 있습니다.
 
 
 
+[[why-use-storagegrid-as-a-fabricpool-cloud-tier]]
 == StorageGRID를 FabricPool 클라우드 계층으로 사용하는 이유
 
 FabricPool는 ONTAP 데이터를 StorageGRID를 비롯한 여러 오브젝트 스토리지 제공업체에 계층화할 수 있습니다. 버킷 또는 컨테이너 레벨에서 지원되는 최대 IOPS(초당 입출력 작업 수)를 설정할 수 있는 퍼블릭 클라우드와 달리, StorageGRID 성능은 시스템의 노드 수에 따라 확장됩니다. StorageGRID를 FabricPool 클라우드 계층으로 사용하면 자체 프라이빗 클라우드에 콜드 데이터를 유지하여 데이터를 최적의 성능으로 완벽하게 제어할 수 있습니다.

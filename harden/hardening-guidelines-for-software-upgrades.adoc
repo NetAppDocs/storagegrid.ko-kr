@@ -15,6 +15,7 @@ summary: 공격을 방어하려면 StorageGRID 시스템 및 관련 서비스를
 
 
 
+[[upgrades-to-storagegrid-software]]
 == StorageGRID 소프트웨어로 업그레이드합니다
 
 가능하면 StorageGRID 소프트웨어를 최신 주요 릴리즈나 이전 주요 릴리즈로 업그레이드해야 합니다. StorageGRID를 최신 상태로 유지하면 알려진 취약점이 활성화되는 시간을 줄이고 전체 공격 노출 영역을 줄일 수 있습니다. 또한 최신 버전의 StorageGRID에는 이전 릴리즈에 포함되지 않은 보안 강화 기능이 포함되어 있는 경우가 많습니다.
@@ -28,6 +29,7 @@ summary: 공격을 방어하려면 StorageGRID 시스템 및 관련 서비스를
 
 
 
+[[upgrades-to-external-services]]
 == 외부 서비스로 업그레이드
 
 외부 서비스에는 StorageGRID 간접적으로 영향을 미치는 취약점이 있을 수 있습니다.  StorageGRID 의존하는 서비스가 최신 상태로 유지되는지 확인하세요.  이러한 서비스에는 LDAP, KMS(또는 KMIP 서버), DNS, NTP가 포함됩니다.
@@ -36,6 +38,7 @@ summary: 공격을 방어하려면 StorageGRID 시스템 및 관련 서비스를
 
 
 
+[[upgrades-to-hypervisors]]
 == 하이퍼바이저로 업그레이드
 
 StorageGRID 노드가 VMware 또는 다른 하이퍼바이저에서 실행 중인 경우 하이퍼바이저 소프트웨어 및 펌웨어를 최신 상태로 유지해야 합니다.
@@ -44,6 +47,7 @@ StorageGRID 노드가 VMware 또는 다른 하이퍼바이저에서 실행 중�
 
 
 
+[[upgrades-to-linux-nodes]]
 == * Linux 노드로 업그레이드 *
 
 StorageGRID 노드가 Linux 호스트 플랫폼을 사용하는 경우 보안 업데이트 및 커널 업데이트가 호스트 OS에 적용되었는지 확인해야 합니다. 또한 이러한 업데이트를 사용할 수 있게 되면 취약한 하드웨어에 펌웨어 업데이트를 적용해야 합니다.

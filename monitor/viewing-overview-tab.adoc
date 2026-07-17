@@ -17,6 +17,7 @@ summary: 개요 탭은 각 노드에 대한 기본 정보를 제공합니다. �
 
 
 
+[[node-information]]
 == 노드 정보
 
 개요 탭의 노드 정보 섹션에는 노드에 대한 기본 정보가 나열됩니다.
@@ -53,6 +54,7 @@ NOTE: 관리되는 종료 작업 중에 노드가 알 수 없음으로 나타날
 
 
 
+[[alerts]]
 == 경고
 
 개요 탭의 경고 섹션에 모든 항목이 link:monitoring-system-health.html#view-current-and-resolved-alerts["이 노드에 영향을 주는 경고로서, 해제되지 않았습니다"]나열됩니다. 추가 세부 정보 및 권장 조치를 보려면 알림 이름을 선택하십시오.

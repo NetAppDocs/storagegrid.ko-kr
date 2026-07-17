@@ -34,6 +34,7 @@ image:kms_copied_key.png["KMS 복사 키"]
 
 
 
+[[use-cases-for-changing-which-kms-is-used-for-a-site]]
 == 사이트에 사용되는 KMS를 변경하는 사용 사례
 
 이 표에는 사이트에 대한 KMS를 변경하는 가장 일반적인 경우를 위한 필수 단계가 요약되어 있습니다.

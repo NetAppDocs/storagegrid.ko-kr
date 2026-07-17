@@ -32,6 +32,7 @@ NOTE: StorageGRID 사이트 전체에 장애가 발생한 경우 기술 지원�
 
 
 
+[[preconditions-for-recovering-grid-nodes]]
 == 그리드 노드 복구 사전 조건
 
 그리드 노드를 복구할 때는 다음 조건이 모두 적용됩니다.
@@ -44,12 +45,14 @@ NOTE: StorageGRID 사이트 전체에 장애가 발생한 경우 기술 지원�
 
 
 
+[[order-of-node-recovery-if-a-server-hosting-more-than-one-grid-node-fails]]
 == 둘 이상의 그리드 노드를 호스팅하는 서버가 실패한 경우 노드 복구 순서
 
 두 개 이상의 그리드 노드를 호스팅하는 서버에 장애가 발생하면 원하는 순서로 노드를 복구할 수 있습니다. 하지만 실패한 서버가 기본 관리 노드를 호스팅하는 경우 먼저 해당 노드를 복구해야 합니다.
 
 
 
+[[ip-addresses-for-recovered-nodes]]
 == 복구된 노드의 IP 주소입니다
 
 현재 다른 노드에 할당된 IP 주소를 사용하여 노드를 복구하려고 시도하지 마십시오. 새 노드를 구축할 때는 장애가 발생한 노드의 현재 IP 주소 또는 사용되지 않는 IP 주소를 사용합니다.

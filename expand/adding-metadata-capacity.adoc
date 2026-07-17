@@ -27,6 +27,7 @@ Grid Manager를 사용하여 스토리지 노드의 메타데이터 용량을 �
 
 
 
+[[guidelines-for-increasing-metadata-capacity]]
 == 메타데이터 용량 확장 지침
 
 스토리지 노드를 추가하여 메타데이터 용량을 증가시키기 전에 다음 지침 및 제한 사항을 검토하십시오.
@@ -62,6 +63,7 @@ Grid Manager를 사용하여 스토리지 노드의 메타데이터 용량을 �
 
 
 
+[[how-metadata-is-redistributed-when-you-add-storage-nodes]]
 == 스토리지 노드를 추가할 때 메타데이터가 재배포되는 방식
 
 확장 시 스토리지 노드를 추가하면 StorageGRID는 기존 오브젝트 메타데이터를 각 사이트의 새 노드로 재분배하여 그리드의 전체 메타데이터 용량을 늘립니다. 사용자 작업이 필요하지 않습니다.

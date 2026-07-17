@@ -25,6 +25,7 @@ StorageGRID 키 관리 서버 마법사를 사용하여 각 KMS 또는 KMS 클�
 
 
 
+[[step-1-kms-details]]
 == 1단계: KMS 세부 정보
 
 KMS(Key Management Server 추가) 마법사의 1단계(KMS 세부 정보)에서 KMS 또는 KMS 클러스터에 대한 세부 정보를 제공합니다.
@@ -96,6 +97,7 @@ KMS의 정규화된 도메인 이름 또는 IP 주소입니다.
 
 
 
+[[step-2-upload-server-certificate]]
 == 2단계: 서버 인증서를 업로드합니다
 
 키 관리 서버 추가 마법사의 2단계(서버 인증서 업로드)에서 KMS에 대한 서버 인증서(또는 인증서 번들)를 업로드합니다. 서버 인증서를 사용하면 외부 KMS가 StorageGRID에 자신을 인증할 수 있습니다.
@@ -115,6 +117,7 @@ NOTE: 인증서 번들을 업로드한 경우 각 인증서의 메타데이터�
 
 
 
+[[sg-create-keystep-3-upload-client-certificates]]
 == [[sg-create-key]]] 3단계: 클라이언트 인증서 업로드
 
 키 관리 서버 추가 마법사의 3단계(클라이언트 인증서 업로드)에서 클라이언트 인증서와 클라이언트 인증서 개인 키를 업로드합니다. 클라이언트 인증서를 사용하면 StorageGRID가 KMS에 대한 인증을 받을 수 있습니다.

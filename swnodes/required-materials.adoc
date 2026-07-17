@@ -15,6 +15,7 @@ StorageGRID를 설치하기 전에 필요한 정보와 자료를 수집하고 �
 
 
 
+[[required-information]]
 == 필수 정보입니다
 
 네트워크 계획:: 각 StorageGRID 노드에 연결할 네트워크 StorageGRID는 트래픽 분리, 보안 및 관리의 편의를 위해 여러 네트워크를 지원합니다.
@@ -37,6 +38,7 @@ NOTE: StorageGRID 설치에서 StorageGRID 어플라이언스(하드웨어) 스�
 
 
 
+[[required-materials]]
 == 필수 자료
 
 NetApp StorageGRID 라이센스:: 디지털 서명된 유효한 NetApp 라이센스가 있어야 합니다.

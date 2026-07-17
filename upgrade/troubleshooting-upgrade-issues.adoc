@@ -15,36 +15,42 @@ summary: 업그레이드를 수행할 때 문제가 발생하면 직접 문제�
 
 
 
+[[upgrade-does-not-complete]]
 == 업그레이드가 완료되지 않습니다
 
 다음 섹션에서는 업그레이드가 부분적으로 실패한 상황에서 복구하는 방법에 대해 설명합니다.
 
 
 
+[[upgrade-precheck-errors]]
 === 업그레이드 사전 점검 오류
 
 문제를 감지하고 해결하려면 실제 업그레이드를 시작하기 전에 업그레이드 사전 점검을 수동으로 실행할 수 있습니다. 대부분의 사전 검사 오류는 문제 해결 방법에 대한 정보를 제공합니다.
 
 
 
+[[provisioning-failures]]
 === 프로비저닝 실패
 
 자동 프로비저닝 프로세스가 실패하면 기술 지원 팀에 문의하십시오.
 
 
 
+[[grid-node-crashes-or-fails-to-start]]
 === 그리드 노드가 충돌하거나 시작되지 않습니다
 
 업그레이드 프로세스 중에 그리드 노드가 작동 중단되거나 업그레이드가 완료된 후 성공적으로 시작되지 않는 경우 기술 지원 부서에 문의하여 기본적인 문제를 조사하고 해결하십시오.
 
 
 
+[[ingest-or-data-retrieval-is-interrupted]]
 === 수집 또는 데이터 검색이 중단됩니다
 
 그리드 노드를 업그레이드하지 않을 때 데이터 수집 또는 검색이 예기치 않게 중단되면 기술 지원 부서에 문의하십시오.
 
 
 
+[[database-upgrade-errors]]
 === 데이터베이스 업그레이드 오류
 
 데이터베이스 업그레이드에 오류가 발생하면 업그레이드를 다시 시도하십시오. 다시 실패하면 기술 지원 부서에 문의하십시오.
@@ -54,12 +60,14 @@ link:checking-systems-condition-before-upgrading-software.html["소프트웨어�
 
 
 
+[[user-interface-issues]]
 == 사용자 인터페이스 문제
 
 업그레이드 도중 또는 이후에 Grid Manager 또는 테넌트 관리자에 문제가 발생할 수 있습니다.
 
 
 
+[[grid-manager-displays-multiple-error-messages-during-upgrade]]
 === 그리드 관리자는 업그레이드 중에 여러 오류 메시지를 표시합니다
 
 기본 관리자 노드가 업그레이드되는 동안 브라우저를 새로 고치거나 다른 그리드 관리자 페이지로 이동하는 경우 "503: 서비스를 사용할 수 없음" 및 "서버에 연결하는 데 문제가 있음" 메시지가 여러 개 표시될 수 있습니다. 이러한 메시지는 무시해도 됩니다. 노드가 업그레이드되는 즉시 표시되지 않습니다.
@@ -68,6 +76,7 @@ link:checking-systems-condition-before-upgrading-software.html["소프트웨어�
 
 
 
+[[web-interface-does-not-respond-as-expected]]
 === 웹 인터페이스가 예상대로 응답하지 않습니다
 
 StorageGRID 소프트웨어를 업그레이드한 후 그리드 관리자 또는 테넌트 관리자가 예상대로 응답하지 않을 수 있습니다.
@@ -87,6 +96,7 @@ NOTE: 브라우저 지원은 일반적으로 각 StorageGRID 릴리스에 대한
 
 
 
+[[docker-image-availability-check-error-messages]]
 == "Docker 이미지 가용성 확인" 오류 메시지
 
 업그레이드 프로세스를 시작하려고 할 때 "다음 문제가 Docker 이미지 가용성 검사 유효성 검사 제품군으로 식별되었습니다."라는 오류 메시지가 나타날 수 있습니다. 업그레이드를 완료하기 전에 모든 문제를 해결해야 합니다.

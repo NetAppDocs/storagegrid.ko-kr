@@ -15,6 +15,7 @@ StorageGRID 시스템은 ID 페더레이션 및 클라우드 스토리지 풀에
 
 
 
+[[supported-versions-of-tls]]
 == 지원되는 TLS 버전입니다
 
 StorageGRID는 ID 페더레이션 및 클라우드 스토리지 풀에 사용되는 외부 시스템에 대한 연결을 위해 TLS 1.2 및 TLS 1.3을 지원합니다.

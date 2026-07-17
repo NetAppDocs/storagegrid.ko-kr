@@ -20,6 +20,7 @@ Put Bucket Consistency 요청을 사용하면 버킷에서 수행된 작업에 �
 
 
 
+[[request]]
 == 요청하십시오
 
 매개 변수에는 `x-ntap-sg-consistency` 다음 값 중 하나가 포함되어야 합니다.
@@ -67,6 +68,7 @@ Put Bucket Consistency 요청을 사용하면 버킷에서 수행된 작업에 �
 
 
 
+[[request-example]]
 == 요청 예
 
 [listing, subs="specialcharacters,quotes"]
