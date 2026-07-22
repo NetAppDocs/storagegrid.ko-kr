@@ -48,9 +48,6 @@ image:nodes_page_network_interfaces.png["노드 페이지 네트워크 인터페
 +
 Receive 및 Transmit 테이블은 각 네트워크에서 수신 및 전송된 바이트 및 패킷의 수와 기타 수신 및 전송 메트릭을 보여줍니다.
 
-+
-image:nodes_page_network_communication.png["노드 페이지 네트워크 통신"]
-
 
 
 . 트래픽 분류 정책과 관련된 메트릭을 사용하여 네트워크 트래픽을 모니터링합니다.
@@ -62,7 +59,7 @@ image:nodes_page_network_communication.png["노드 페이지 네트워크 통신
 +
 image:traffic_classification_policies_main_screen_w_examples.png["그래프 트래픽 정책 예"]
 
-.. 정책과 연결된 네트워킹 메트릭을 보여주는 그래프를 보려면 정책 왼쪽의 라디오 버튼을 선택한 다음 * Metrics * 를 클릭합니다.
+.. 정책과 관련된 네트워킹 메트릭을 보여주는 그래프를 보려면 정책 왼쪽에 있는 라디오 버튼을 선택한 다음 *메트릭*을 선택하십시오.
 .. 그래프를 검토하여 정책과 관련된 네트워크 트래픽을 파악합니다.
 +
 트래픽 분류 정책이 네트워크 트래픽을 제한하도록 설계된 경우 트래픽이 얼마나 자주 제한되는지 분석하고 정책이 계속해서 요구 사항을 충족하는지 결정합니다. 때때로,link:../admin/managing-traffic-classification-policies.html["필요에 따라 각 트래픽 분류 정책을 조정합니다"].

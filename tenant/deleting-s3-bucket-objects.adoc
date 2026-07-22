@@ -82,7 +82,7 @@ Bucket 페이지가 나타나고 기존의 모든 S3 버킷을 표시합니다.
 
 
 +
-image:delete-bucket-objects-in-progress.png["삭제 중인 버킷 오브젝트를 보여 주는 스크린샷"]
+image:delete_bucket_objects_in_progress.png["삭제 중인 버킷 오브젝트를 보여 주는 스크린샷"]
 
 . 작업이 실행되는 동안 필요에 따라 * 개체 삭제 중지 * 를 선택하여 프로세스를 중단합니다. 그런 다음 필요에 따라 * 버킷 안의 오브젝트 삭제 * 를 선택하여 프로세스를 재개합니다.
 +
@@ -93,7 +93,7 @@ image:delete-bucket-objects-in-progress.png["삭제 중인 버킷 오브젝트�
 버킷이 비어 있으면 상태 배너가 업데이트되지만 버킷은 읽기 전용으로 유지됩니다.
 
 +
-image:delete-bucket-objects-complete.png["삭제된 모든 버킷 객체를 보여 주는 스크린샷"]
+image:delete_bucket_objects_complete.png["삭제된 모든 버킷 객체를 보여 주는 스크린샷"]
 
 . 다음 중 하나를 수행합니다.
 +

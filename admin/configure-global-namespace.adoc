@@ -1,0 +1,212 @@
+---
+permalink: admin/configure-global-namespace.html 
+sidebar: sidebar 
+keywords: global namespace, grid federation, S3 endpoint domain names, default region, grid federation connection, multi-grid 
+summary: 여러 StorageGRID 시스템에서 테넌트가 버킷에 액세스할 수 있도록 글로벌 네임스페이스를 구성합니다. 
+---
+= 그리드 페더레이션을 위한 글로벌 네임스페이스 구성
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+여러 StorageGRID 시스템에서 테넌트가 버킷에 액세스할 수 있도록 글로벌 네임스페이스를 구성합니다.
+
+글로벌 네임스페이스에 대한 자세한 내용은 link:learn-about-global-namespace.html["그리드 페더레이션을 위한 글로벌 네임스페이스에 대해 알아보기"]을 참조하십시오.
+
+.시작하기 전에
+* 각 그리드의 Grid Manager에 link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]을(를) 사용하여 로그인되어 있습니다.
+* 각 그리드마다 link:../admin/admin-group-permissions.html["루트 액세스 권한"]이(가) 있습니다.
+* 그리드 연합 연결에 대한 link:../admin/grid-federation-overview.html["고려 사항 및 요구 사항"]을(를) 검토했습니다.
+
+
+
+
+[[requirements-for-configuring-global-namespace]]
+== 글로벌 네임스페이스 구성을 위한 요구 사항
+
+* 글로벌 네임스페이스에 있는 모든 그리드는 각 그리드 쌍 간에 글로벌 네임스페이스가 활성화된 그리드 페더레이션 연결을 가져야 합니다.
+* 하나의 글로벌 네임스페이스에 참여할 수 있는 최대 그리드 수는 11개(로컬 그리드 1개와 원격 그리드 10개)입니다.
++
+
+CAUTION: 10개 그리드 제한은 StorageGRID 배포에서 지원하는 최대 그리드 페더레이션 연결 수에 따라 제한됩니다. 총 연결 제한은 글로벌 네임스페이스가 활성화되지 않은 연결을 포함하여 배포의 *모든* 그리드 페더레이션 연결에 적용되므로, 완전히 연결된 글로벌 네임스페이스와 추가 그리드 페더레이션 연결을 모두 합쳐도 이 전체 제한을 초과하지 않도록 해야 합니다.
+
+* S3 클라이언트는 서명 버전 4(SigV4) 인증을 사용해야 합니다. 글로벌 네임스페이스 라우팅 작업에서는 익명 및 서명 버전 2 요청이 지원되지 않습니다.
++
+** 일반 서명 요청은  https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-auth-using-authorization-header.html["인증 요청: Authorization 헤더 사용(AWS Signature Version 4)"]에 설명된 대로 지정됩니다.
+** 사전 서명 요청은  https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html["요청 인증: 쿼리 파라미터 사용(AWS Signature Version 4)"]에 설명된 대로 명시됩니다.
+
+
+
+
+
+
+[[number-of-required-connectionsnumber-of-required-connections]]
+== [[number-of-required-connections]]필요한 연결 수
+
+전역 네임스페이스에서는 모든 그리드 쌍이 연결되어 있어야 합니다. 필요한 연결 수는 그리드 수에 따라 달라집니다.
+
+[cols="1a,1a"]
+|===
+| 그리드 개수 | 필요한 연결 수 
+
+
+ a| 
+2
+ a| 
+1
+
+
+
+ a| 
+3
+ a| 
+3
+
+
+
+ a| 
+4
+ a| 
+6
+
+
+
+ a| 
+5
+ a| 
+10
+
+
+
+ a| 
+_n_
+ a| 
+_n_ × (_n_ − 1) / 2
+
+|===
+
+
+[[step-1-set-a-unique-default-region-for-each-grid]]
+[[configure-default-region]]
+== 1단계: 각 그리드에 대해 고유한 기본 영역을 설정합니다.
+
+글로벌 네임스페이스의 각 그리드는 고유한 기본 리전을 가져야 합니다. 기본 리전은 버킷을 소유한 그리드를 식별합니다.
+
+CreateBucket 및 ListBuckets 요청은 이 지역을 기준으로 라우팅되며, 다른 모든 요청은 전송되는 기본 지역과 일치해야 합니다.
+
+자세한 내용은 link:../ilm/configuring-regions-optional-and-s3-only.html["S3 지역 구성"]을 참조하십시오.
+
+.단계
+. 각 그리드에서 link:../ilm/configuring-regions-optional-and-s3-only.html["기본 지역을 고유한 값으로 설정합니다."]. 예를 들어, 그리드 A를 `us-east-1`로, 그리드 B를 `us-west-1`로 설정합니다.
++
+
+NOTE: ILM 정책 목적으로  `LocationConstraint` 요소를 사용하여 link:../s3/operations-on-buckets.html["CreateBucket 요청"]에서 설정된 기본값이 아닌 영역을 계속 사용할 수 있습니다. 기본값이 아닌 영역은 전역 네임스페이스의 그리드 간 고유성 유효성 검사를 거치지 않습니다.
+
+. 전역 네임스페이스의 모든 그리드에 대해 이 과정을 반복합니다. 각 그리드는 서로 다른 기본 영역을 가져야 합니다.
+. 필요에 따라 추가 지역을 설정하십시오.
+
+
+
+
+[[step-2-configure-s3-global-namespace-settings]]
+== 2단계: S3 글로벌 네임스페이스 설정 구성
+
+글로벌 네임스페이스의 각 그리드에 두 개의 S3 엔드포인트 도메인 이름을 추가합니다.
+
+* 모든 그리드에서 동일한 글로벌 네임스페이스 엔드포인트
+* 그리드에 대한 고유한 CNAME
+
+
+전역 네임스페이스 엔드포인트가 하나 이상의 그리드로 확인되고, 고유 CNAME 엔드포인트가 특정 그리드로 확인되도록 외부 DNS를 구성해야 합니다.
+
+
+CAUTION: <<configure-default-region,기본 영역 구성>>S3 글로벌 네임스페이스 설정을 구성하기 전에 이 작업을 반드시 수행해야 합니다. 글로벌 네임스페이스 설정을 활성화하면 올바른 지역을 지정하지 않을 경우 S3 요청이 실패합니다. 모든 S3 요청은 그리드의 기본 지역으로 서명되어야 합니다.
+
+.단계
+. 각 그리드에서 *구성* > *네트워크* > *S3 엔드포인트 도메인 이름* > *도메인 이름*을 선택합니다.
+. 모든 그리드에서 동일한 전역 네임스페이스 엔드포인트 도메인 이름을 추가하세요. 예: `s3.example.com`.
+. 그리드에 고유한 CNAME을 추가하세요. 예를 들어, `s3.company.com`.
+. 저장 * 을 선택합니다.
+. *전역 네임스페이스 설정*을 선택합니다.
++
+.. 글로벌 네임스페이스 엔드포인트를 선택합니다.
+.. 그리드의 고유한 CNAME 도메인 이름을 선택하십시오.
+
+
+. 저장 * 을 선택합니다.
+. 클라이언트가 사용하는 서버 인증서에 새 S3 엔드포인트 도메인 이름이 포함되어 있는지 확인하십시오.
++
+** 클라이언트가 자체 인증서를 사용하는 로드 밸런서 끝점에 연결하는 경우link:../admin/configuring-load-balancer-endpoints.html["끝점과 연결된 인증서를 업데이트합니다"]
+** 클라이언트가 글로벌 S3 API 인증서를 사용하는 로드 밸런서 끝점에 연결하거나 스토리지 노드에 직접 연결하는 경우,link:../admin/use-s3-setup-wizard-steps.html["글로벌 S3 API 인증서를 업데이트합니다"]
+
+
+. 글로벌 네임스페이스의 모든 그리드에서 이 단계를 반복하십시오.
+
+
+자세한 내용은 link:../admin/configuring-s3-api-endpoint-domain-names.html["S3 끝점 도메인 이름을 구성합니다"]를 참조하십시오.
+
+
+
+[[step-3-create-grid-federation-connections-with-global-namespace-enabled]]
+== 3단계: 전역 네임스페이스를 활성화하여 그리드 페더레이션 연결 생성
+
+모든 그리드에서 S3 엔드포인트 도메인 이름과 기본 리전을 구성한 후에는 전역 네임스페이스를 활성화하여 그리드 연합 연결을 생성할 수 있습니다.
+
+.이 작업에 대해
+그리드 페더레이션 연결을 생성하고 글로벌 네임스페이스를 활성화하면 이전 단계에서 구성한 값을 사용하여 글로벌 네임스페이스 엔드포인트, CNAME 및 기본 지역 필드가 자동으로 채워집니다. 이러한 필드가 올바르게 설정되지 않은 경우 Grid Manager는 글로벌 네임스페이스 활성화를 방지합니다.
+
+
+CAUTION: 글로벌 네임스페이스를 사용하는 그리드 연합 연결이 생성된 후에는 해당 연결에 속한 그리드의 글로벌 네임스페이스 엔드포인트, CNAME 및 기본 지역을 변경할 수 없습니다.
+
+.단계
+. 첫 번째 그리드에서 link:../admin/grid-federation-create-connection.html["그리드 페더레이션 연결을 만듭니다"]에 설명된 단계를 따르십시오.
+. 연결 정보를 입력할 때 *전역 네임스페이스 사용*을 선택하십시오.
++
+전역 네임스페이스 엔드포인트, CNAME 및 기본 지역 필드는 이전 단계에서 구성한 값으로 자동으로 채워집니다. 값이 누락되었거나 유효하지 않은 경우, 문제를 해결하기 전까지는 전역 네임스페이스를 활성화할 수 없습니다.
+
+. 인증 파일을 다운로드하여 다른 그리드에 업로드함으로써 연결을 완료하십시오.
+. 전역 네임스페이스에 있는 모든 그리드 쌍에 대해 이전 단계를 반복합니다.
++
+예를 들어, 그리드가 3개 있는 경우 3개의 연결(그리드 A-그리드 B, 그리드 A-그리드 C, 그리드 B-그리드 C)이 필요합니다. 그리드가 4개 있는 경우에는 6개의 연결이 필요합니다. 전역 네임스페이스에는 최대 10개의 그리드를 사용할 수 있습니다. <<number-of-required-connections,필요한 연결 수>>을 참조하십시오.
+
+
+
+
+
+[[step-4-configure-load-balancer-endpoints]]
+== 4단계: 로드 밸런서 엔드포인트 구성
+
+link:../admin/configuring-load-balancer-endpoints.html["로드 밸런서 엔드포인트 구성"] 글로벌 네임스페이스의 각 그리드에 대해. 이러한 각 엔드포인트에 동일한 포트를 사용하십시오.
+
+
+NOTE: DNS 확인을 구성하기 전에 로드 밸런서 엔드포인트를 먼저 구성해야 합니다.
+
+
+
+[[config-dns-resolutionstep-5-configure-dns-resolution]]
+== [[config-dns-resolution]]5단계: DNS 확인 구성
+
+StorageGRID는 글로벌 네임스페이스에 대한 내장 DNS 확인자를 제공하지 않습니다. S3 요청을 올바른 그리드로 라우팅하려면 외부 DNS 인프라를 구성해야 합니다.
+
+DNS 확인자는 다음을 수행해야 합니다.
+
+. 글로벌 네임스페이스 엔드포인트(예:  `s3.example.com`)를 일반적으로 라운드 로빈 DNS를 사용하여 하나 이상의 그리드의 로드 밸런서 엔드포인트로 확인합니다.
+. 각 그리드의 고유한 CNAME(예:  `s3.grid-a.example.com`)을 해당 그리드에 대한 로드 밸런서 엔드포인트로 확인합니다.
+. 가상 호스팅 스타일 버킷 요청(예:  `_bucket_.s3.example.com`)의 경우, 조직의 라우팅 정책을 사용하여 버킷 이름을 해당 그리드의 CNAME에 매핑하십시오.
++
+StorageGRID는 버킷의 소유권을 확인하는 DNS 기반 메커니즘을 제공하지 않습니다. 버킷 소유권에 따른 자동 라우팅이 필요한 경우, link:../tenant/understanding-tenant-management-api.html["테넌트 관리 API"]를 사용하여 ListBucket 요청을 실행하고 버킷 UUID를 반환하십시오. 버킷 UUID와 그리드 간의 내부 매핑을 유지하십시오. 외부 DNS는 StorageGRID를 직접 쿼리하는 대신 해당 매핑을 사용해야 합니다.
+
+
+
+
+
+[[related-information]]
+== 관련 정보
+
+* link:grid-federation-overview.html["그리드 페더레이션은 무엇입니까?"]
+* link:grid-federation-create-connection.html["그리드 페더레이션 연결을 만듭니다"]
+* link:configuring-s3-api-endpoint-domain-names.html["S3 끝점 도메인 이름을 구성합니다"]
+* link:grid-federation-manage-connection.html["그리드 페더레이션 연결을 관리합니다"]
+

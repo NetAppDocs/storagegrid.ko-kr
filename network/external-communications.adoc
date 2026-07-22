@@ -315,6 +315,21 @@ HTTPS
 
 
  a| 
+636
+ a| 
+TCP/UDP
+ a| 
+LDAP를 지원합니다
+ a| 
+ADC가 있는 스토리지 노드
+ a| 
+Active Directory/LDAP를 선택합니다
+ a| 
+ID 페더레이션을 위해 Active Directory 또는 LDAP 서버에 연결하는 데 사용됩니다.
+
+
+
+ a| 
 5353
  a| 
 UDP입니다

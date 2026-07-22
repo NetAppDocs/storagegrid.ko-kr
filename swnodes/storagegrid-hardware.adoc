@@ -14,4 +14,4 @@ summary: StorageGRID 어플라이언스 하드웨어를 설치, 구성 및 사�
 
 
 [role="lead"]
-StorageGRID 스토리지 및 서비스 어플라이언스를 설치, 구성 및 유지 관리하는 방법에 대해 알아보려면 를 https://docs.netapp.com/us-en/storagegrid-appliances/index.html["StorageGRID 어플라이언스 설명서"^] 참조하십시오.
+StorageGRID 스토리지 및 서비스 어플라이언스를 설치, 구성 및 유지 관리하는 방법을 알아보려면  https://docs.netapp.com/us-en/storagegrid-appliances/index.html["StorageGRID 어플라이언스 설명서"^]을 참조하십시오.

@@ -1,0 +1,357 @@
+---
+permalink: admin/creating-sp-connection-ping-oidc.html 
+sidebar: sidebar 
+keywords: service provider, sp connection, pingfederate, ping, single sign on, sso 
+summary: 'PingFederate를 사용하여 시스템의 각 관리 노드에 대한 서비스 공급자(SP) 연결을 만듭니다. 프로세스 속도를 높이기 위해 StorageGRID에서 SAML 메타데이터를 가져옵니다.' 
+---
+= StorageGRID의 OIDC를 위해 PingFederate에서 서비스 공급자 연결 생성
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+PingFederate를 사용하여 시스템의 각 관리 노드에 대한 OpenID Connect(OIDC) 서비스 공급자(SP) 연결을 생성하십시오.
+
+.시작하기 전에
+* PingFederate Server에서 SP 연결을 생성하는 경험이 있습니다.
+* PingFederate Server용 이 https://docs.pingidentity.com/pingfederate/latest/administrators_reference_guide/pf_administrators_reference_guide.html["관리자 참조 안내서"^]있습니다. PingFederate 설명서는 자세한 단계별 지침과 설명을 제공합니다.
+* 당신은 가지고있다link:../admin/admin-group-permissions.html["관리자 권한"] PingFederate 서버용.
+
+
+.이 작업에 대해
+이 지침은 PingFederate 서버 버전 12.1.10을 StorageGRID의 SSO 공급자로 구성하는 방법을 요약합니다. 다른 버전의 PingFederate를 사용하는 경우 이 지침을 수정해야 할 수 있습니다. 사용 중인 릴리스에 대한 자세한 지침은 PingFederate 서버 설명서를 참조하십시오.
+
+별도로 지정하지 않는 한 기본 설정을 사용하십시오. 경우에 따라 인증 방법 설정과 같이 조직에서 요구하는 설정을 사용할 수 있습니다.
+
+
+
+[[step-1-create-data-storedata-store-oidc]]
+== 1단계: 데이터 저장소 생성[[data-store-oidc]]
+
+아직 데이터 저장소를 생성하지 않았다면 PingFederate를 AD FS LDAP 서버에 연결하는 데이터 저장소를 생성하십시오.
+
+.단계
+. *시스템* > *데이터 및 자격 증명 저장소*로 이동합니다.
+. *새 데이터 저장소*를 선택합니다.
+. 유형에서 *디렉터리(LDAP)*를 선택하십시오.
+. 다음 * 을 선택합니다.
+. LDAP 구성에서:
++
+** *호스트 이름*, *사용자 DN*(사용자 이름) 및 *비밀번호* 값을 입력하십시오.
++
+StorageGRID에서 link:../admin/using-identity-federation.html["ID 페더레이션을 구성하는 중입니다"] 때 사용한 값을 사용하십시오.
+
+** Active Directory의 경우 *LDAP 유형*을 선택하십시오.
+
+
+
+
+
+
+[[step-2-create-password-credential-validatorpassword-validator-oidc]]
+== 2단계: 암호 자격 증명 유효성 검사기 생성[[password-validator-oidc]]
+
+아직 설치하지 않은 경우 암호 자격 증명 유효성 검사기를 만듭니다.
+
+.단계
+. *암호 자격 증명 유효성 검사기* > *새 인스턴스 생성*을 선택합니다.
+. 유형 탭에서 다음 정보를 입력하십시오.
++
+.. 인스턴스 이름과 인스턴스 ID: 두 값에 동일한 값을 사용할 수 있습니다.
+.. 유형: *LDAP Username Password Credential Validator*를 선택하십시오.
+
+
+. 다음 * 을 선택합니다.
+. 인스턴스 구성 탭에서 다음 정보를 입력하십시오.
++
+** LDAP 데이터 저장소: 생성한 <<data-store-oidc,데이터 저장소>>을 선택하십시오.
+** 검색 기준: <<data-store-oidc,LDAP 구성>>에 대한 정보를 입력하세요.
+** 검색 필터: *sAMAccountName=${username}*를 입력하세요.
+** 검색 범위: *하위 트리*를 선택하세요.
+
+
+. 다음 * 을 선택합니다.
+. 확장 계약 탭에서 다음 속성을 추가하십시오: `memberOf`, `objectGUID`, `sAMAccountName`, `sn`, 및 `userPrincipalName`
+. *다음* > *저장*을 선택합니다.
+
+
+
+
+[[step-3-create-idp-adapter-instanceadapter-instance-oidc]]
+== 3단계: IdP 어댑터 인스턴스 생성[[adapter-instance-oidc]]
+
+아직 IdP(ID 공급자) 어댑터 인스턴스를 생성하지 않았다면 지금 생성하세요.
+
+
+NOTE: StorageGRID 시스템의 각 관리 노드는 IdP(ID 공급자) 연결을 설정해야 합니다. 이를 통해 사용자는 모든 관리 노드에 안전하게 로그인하고 로그아웃할 수 있습니다. 모든 관리 노드에 대해 단일 IdP 연결을 생성하거나(권장) 각 관리 노드마다 별도의 IdP 연결을 생성할 수 있습니다.
+
+.단계
+. 인증 * > * 통합 * > * IDP 어댑터 * 로 이동합니다.
+. 새 인스턴스 만들기 * 를 선택합니다.
+. 유형 탭에서 다음 정보를 입력하십시오.
++
+** 인스턴스 이름과 인스턴스 ID: 두 값에 동일한 값을 사용할 수 있습니다.
+** 유형: *HTML Form IdP Adapter*를 선택하십시오.
+
+
+. 다음 * 을 선택합니다.
+. *IdP Adapter* 탭에서 *'Credential Validators'에 새 행 추가*를 선택합니다.
+. 직접 생성한 <<password-validator-oidc,암호 자격 증명 유효성 검사기가 있습니다>>을 선택합니다.
+. 다음 * 을 선택합니다.
+. 확장 계약 탭에서 <<password-validator-oidc,암호 자격 증명 유효성 검사기가 있습니다>>에 대해 매핑한 속성을 추가합니다.
+. 다음 * 을 선택합니다.
+. 어댑터 속성 탭에서 가명으로 사용하기 위해 *username* 속성을 선택합니다.
+. *다음* > *다음*을 선택합니다.
+. 요약 내용을 검토하고 *저장*을 선택합니다.
+
+
+
+
+[[step-4-configure-oauth-server-and-authorization-server-settings]]
+== 4단계: OAuth 서버 및 인증 서버 설정 구성
+
+StorageGRID에서 허용하는 권한 부여 유형을 지원하도록 인증 서버를 구성합니다.
+
+.단계
+. *시스템* > *권한 부여 서버 설정*으로 이동하십시오.
+. 기존 영구 액세스 권한 부여를 권한 유형에 재사용하려면 다음 옵션이 선택되어 있는지 확인하십시오.
++
+** 암시적
+** 승인 코드
+** 리소스 소유자 암호 자격 증명
++
+
+NOTE: 회사에서 리소스 소유자 암호 자격 증명 사용을 제한하는 경우 인증 코드만 사용할 수 있습니다.
+
+
+
+. OAuth 관리 웹 서비스 설정의 경우, 생성한 <<password-validator-oidc,암호 자격 증명 유효성 검사기가 있습니다>>을 선택하십시오.
+
+
+
+
+[[step-5-define-scopes]]
+== 5단계: 범위 정의
+
+PingFederate에서 범위를 정의합니다.
+
+.단계
+. *시스템* > *OAuth 설정* > *범위 관리*로 이동합니다.
+. 공통 범위 탭에서 *openid*, *email*, *profile* 값이 아직 없는 경우 해당 값을 추가합니다.
+
+
+
+
+[[step-6-configure-idp-adapter-mapping]]
+== 6단계: IdP 어댑터 매핑 구성
+
+IdP 어댑터 매핑을 구성하여 IdP의 속성을 액세스 토큰이나 갱신 토큰과 같이 클라이언트에 발급되는 영구 권한에 매핑합니다.
+
+.단계
+. *인증* > *정책 계약 부여 매핑*으로 이동하세요.
+. *IdP 어댑터 권한 매핑*을 선택하십시오.
+. SOURCE ADAPTER INSTANCE 드롭다운에서 직접 생성한 <<adapter-instance-oidc,HTML 폼 어댑터>>을 선택합니다.
+. *매핑 추가* > *계약 이행*을 선택합니다.
+. 소스에서 USER_KEY와 USER_NAME에 대해 *어댑터*를 선택하십시오.
+. 값에서 USER_KEY에는 *sAMAccountName*을, USER_NAME에는 *username*을 선택하십시오.
+. 요약 페이지로 이동하려면 *다음* > *다음*을 선택합니다.
+. 저장 * 을 선택합니다.
+
+
+
+
+[[step-7-set-up-resource-owner-credentials-mapping]]
+== 7단계: 리소스 소유자 자격 증명 매핑 설정
+
+사용자 자격 증명이 인증 중에 올바르게 검증되도록 리소스 소유자 자격 증명 매핑을 설정하십시오.
+
+.단계
+. *인증* > *정책 계약 부여 매핑*으로 이동하세요.
+. *Resource Owner Credentials Grant Mapping*을 선택하십시오.
+. 소스 암호 유효성 검사기 인스턴스 드롭다운에서 직접 생성한 <<password-validator-oidc,암호 자격 증명 유효성 검사기가 있습니다>>을 선택합니다.
+. *매핑 추가* > *계약 이행*을 선택합니다.
+. USER_KEY에 대한 매핑을 추가합니다:
++
+** 소스에서 *암호 자격 증명 유효성 검사기*를 선택하십시오.
+** 값에서 *sAMAccountName*을 선택합니다.
+
+
+. 요약 페이지로 이동하려면 *다음* > *다음*을 선택합니다.
+. 저장 * 을 선택합니다.
+
+
+
+
+[[step-8-create-or-import-signing-certificatesigning-certificate-oidc]]
+== 8단계: 서명 인증서 생성 또는 가져오기[[signing-certificate-oidc]]
+
+서명 인증서를 아직 만들지 않은 경우 서명 인증서를 만들거나 가져옵니다.
+
+.단계
+. 보안 * > * 서명 및 암호 해독 키 및 인증서 * 로 이동합니다.
+. *새로 만들기*를 선택한 다음 다음 정보를 입력합니다.
++
+** 일반 이름(CN): 서버의 정규화된 도메인 이름(FQDN)이어야 합니다.
+** 조직(Org): 조직 이름을 입력합니다.
+** 국가: 두 글자로 된 국가 코드를 입력하십시오. 예를 들어, 미국의 경우 US입니다.
+** 키 알고리즘: *RSA*와 같은 적절한 키 알고리즘을 선택하십시오.
+** 키 크기: *2048*비트로 설정하십시오.
+** 서명 알고리즘: 안전한 암호화 작업을 보장하기 위해 서명 알고리즘으로 *RSA with SHA256*을 선택하십시오.
+
+
+
+
+
+
+[[step-9-configure-access-token-managementaccess-token-oidc]]
+== 9단계: 액세스 토큰 관리 구성[[access-token-oidc]]
+
+StorageGRID는 PingFederate에서 API 요청을 인증하고 승인하기 위해 액세스 토큰을 사용합니다.
+
+.단계
+. *애플리케이션* > *액세스 토큰 관리*로 이동합니다.
+. 새 인스턴스 만들기 * 를 선택합니다.
+. 유형 탭에서 다음 정보를 입력하십시오.
++
+** 인스턴스 이름과 인스턴스 ID: 두 값에 동일한 값을 사용할 수 있습니다.
+** 유형: 값이 *JSON Web Tokens*인지 확인하십시오.
+
+
+. 다음 * 을 선택합니다.
+. 인스턴스 구성 탭에서 인증서에 대해 다음 정보를 입력하십시오.
++
+** 키 ID: 키에 대한 고유 식별자를 입력하십시오.
+** 인증서: 생성한 <<signing-certificate-oidc,인증서>>을 추가합니다.
+** JWS ALGORITHM: *SHA256을 사용하는 RSA*를 선택합니다.
+** 활성 서명 인증서 키 ID: 이 단계에서 생성한 *키 ID*를 선택하십시오.
+
+
+. *다음* > *다음*을 선택합니다.
+. 액세스 토큰 속성 계약 탭에서 주체 속성 이름으로 *USER_KEY*를 선택하고 계약 연장으로 *username*을 선택합니다.
+. 추가 * 를 선택합니다.
+. 요약 페이지로 이동하려면 *다음* > *다음* > *다음*을 선택합니다.
+. 저장 * 을 선택합니다.
+
+
+
+
+[[step-10-configure-access-token-mapping]]
+== 10단계: 액세스 토큰 매핑 구성
+
+생성한 액세스 토큰을 사용하도록 액세스 토큰 매핑을 구성하십시오.
+
+.단계
+. *애플리케이션* > *액세스 토큰 매핑*으로 이동합니다.
+. *액세스 토큰 매핑*을 선택합니다.
+. *매핑 추가*를 선택합니다.
+. 컨텍스트에서 *기본값*을 선택합니다.
+. 액세스 토큰 관리자의 경우, 직접 생성한 <<access-token-oidc,액세스 토큰>>을 선택하십시오.
+. *다음* > *계약 이행*을 선택합니다.
+. 소스에서 사용자 이름에 대해 *Persistent Grant*를 선택합니다.
+. 값에서 사용자 이름으로 *USER_KEY*를 선택합니다.
+. *다음* > *저장*을 선택합니다.
+
+
+
+
+[[step-11-set-up-the-openid-connect-policy]]
+== 11단계: OpenID Connect 정책 설정
+
+OpenID 사양에 따라 매핑된 속성에 대한 클라이언트 액세스를 위한 OpenID Connect 정책을 정의합니다.
+
+.단계
+. *애플리케이션* > *OAuth 클라이언트*로 이동합니다.
+. *OpenId Connect 정책 관리* > *정책 추가*를 선택합니다.
+. 정책 관리 탭에서 다음 정보를 입력하십시오.
++
+** 정책 ID: 해당 정책을 고유하게 식별하는 식별자입니다.
+** 정책 이름: 정책에 대한 설명적인 이름입니다.
+** 액세스 토큰 관리자: 생성한 <<access-token-oidc,액세스 토큰>>을 선택합니다.
+** ID 토큰 유효 기간: ID 토큰의 원하는 유효 기간을 설정합니다. 예를 들어 60분 또는 1시간으로 설정할 수 있습니다.
+** ID 토큰에 사용자 정보 포함: ID 토큰에 사용자 정보를 포함하려면 이 확인란을 선택하십시오.
+
+
+. 다음 * 을 선택합니다.
+. 속성 계약 탭에서 생성한 <<data-store-oidc,데이터 저장소>>에 필요하지 않은 기존 속성을 모두 제거하십시오. Ping Authentication에서 StorageGRID로 전달할 속성만 유지하십시오.
++
+
+NOTE: 이는 매우 중요한 단계입니다. 이 단계를 통해 ID 토큰에 포함될 속성 값이 결정됩니다. StorageGRID는 인증 과정에서 이러한 값을 상속받습니다.
+
+. *다음* > *다음*을 선택합니다.
+. 속성 소스 및 사용자 조회 탭에서 *속성 소스 추가*를 선택합니다. 그런 다음 정보를 입력합니다.
++
+** ATTRIBUTE SOURCE ID 및 ATTRIBUTE SOURCE DESCRIPTION: 두 항목에 동일한 값을 사용할 수 있습니다.
+** 활성 데이터 저장소: 생성한 <<data-store-oidc,데이터 저장소>>을 선택합니다.
+
+
+. 다음 * 을 선택합니다.
+. LDAP 디렉토리 검색 탭에서 다음을 수행합니다.
++
+.. 기본 DN * 을 입력합니다. 이 값은 LDAP 서버에 대해 StorageGRID에 입력한 값과 정확히 일치해야 합니다.
+.. 루트 객체 클래스 드롭다운에서 *objectClass*를 선택합니다.
+.. 속성 드롭다운 메뉴에서 매핑하려는 각 객체 클래스에 대한 속성을 추가합니다. 예를 들면 다음과 같습니다.
++
+*** InetOrgPerson: displayName, givenName, 또는 HomePhone을 추가합니다.
+*** 사용자: LocalID 또는 userPrincipalName (upn)을 추가하세요.
+*** 상단: memberOf 또는 name을 추가하세요.
+*** 사람: sn을 추가하세요.
+
+
+
+
+. 다음 * 을 선택합니다.
+. LDAP 필터 탭에서 * sAMAccountName=${username} * 을 입력합니다.
++
+StorageGRID가 조직의 특정 Active Directory 또는 LDAP 구조에 따라 사용자 속성을 검색하도록 하려면 LDAP 필터를 사용자 지정해야 합니다. 설정에 맞는 적절한 필터 표현식을 얻으려면 LDAP/AD 관리자에게 문의하십시오.
+
+. *저장*을 선택하고 요약을 검토합니다.
+. 계약 이행 탭에서 다음 정보를 입력하십시오.
++
+** 출처: 생성한 <<data-store-oidc,LDAP 데이터 저장소>>을 선택합니다.
+** 값: 각 속성 계약을 해당 값에 매핑합니다.
+
+
+. *다음* > *다음*을 선택합니다.
+. 요약 내용을 검토하고 *저장*을 선택합니다.
+. *애플리케이션* > *OAuth 클라이언트* > *OpenID Connect 정책 관리*로 이동합니다.
+. 생성한 정책이 기본 정책으로 설정되어 있는지 확인하십시오.
+
+
+
+
+[[step-12-create-oauth-client-for-oauth-server]]
+== 12단계: OAuth 서버용 OAuth 클라이언트 생성
+
+필요한 클라이언트 자격 증명을 구성하고 PingFederate와 StorageGRID 간의 연결을 승인하려면 새 OAuth 클라이언트를 생성합니다.
+
+.단계
+. *애플리케이션* > *OAuth 클라이언트*로 이동합니다.
+. *클라이언트 추가*를 선택한 다음 다음 정보를 입력합니다.
++
+** 클라이언트 ID: 고유한 값을 입력하십시오.
+** 클라이언트 인증: *Client Secret*을 선택합니다.
+** CLIENT SECRET: *CHANGE SECRET* > *Generate Secret*을 선택하십시오.
++
+이렇게 하면 클라이언트용 비밀 키가 생성됩니다. 나중에 사용할 수 있도록 이 키를 저장해 두십시오.
+
+** 리디렉션 URI: *리디렉션 URI* 섹션에 StorageGRID 반환 URL을 제공하십시오. 이러한 URL은 OAuth를 위해 StorageGRID에 구성된 URL과 일치해야 합니다. 예:
+** `\https://<Admin IP or Hostname>/api/v4/oidc-callback`
+** `\https://<Admin IP or Hostname>/api/v4/oidc-logged-out`
+** 허용되는 권한 부여 유형: 다음 옵션을 선택하십시오.
++
+*** *Authorization Code*: OAuth 흐름을 시작합니다.
+*** *Refresh Token*: 액세스 토큰이 만료되면 새 토큰을 발급받습니다.
+*** *Resource Owner Password Credentials*: 인증을 위해 사용자 자격 증명에 직접 액세스해야 하는 경우.
+
+
+** OPENID CONNECT: ID 토큰 서명 알고리즘으로 *SHA-256을 사용하는 RSA*를 선택하십시오.
+** 로그아웃 모드: *OIDC Back-Channel*을 선택하십시오.
+** Front-Channel Logout URI, Back-Channel Logout URI, Post-Logout Redirect URI: StorageGRID 로그아웃 URI를 추가합니다. `\https://<Admin IP or Hostname>/api/v4/oidc-logged-out`
+
+
+. 저장 * 을 선택합니다.
+
+
+.다음 단계
+SP 연결을 생성한 후, link:configure-sso-oidc.html["OIDC를 사용하여 SSO 구성"].

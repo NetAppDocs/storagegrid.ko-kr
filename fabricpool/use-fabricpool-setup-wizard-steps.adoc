@@ -31,10 +31,7 @@ StorageGRID 그리드 관리자 사용을 시작할 때 FabricPool 설정 마법
 
 .단계
 . 을 사용하여 그리드 관리자에 link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]로그인합니다.
-. 대시보드에 * FabricPool and S3 setup wizard * 배너가 나타나면 배너에서 링크를 선택합니다. 배너가 더 이상 나타나지 않으면 그리드 관리자의 머리글 표시줄에서 도움말 아이콘을 선택하고 * FabricPool and S3 setup wizard * 를 선택합니다.
-+
-image:help_menu.png["도움말 메뉴"]
-
+. 대시보드에 *FabricPool and S3 설정 마법사* 배너가 나타나면 배너의 링크를 선택하십시오. 배너가 더 이상 표시되지 않으면 Grid Manager 헤더 바에서 도움말 아이콘 image:icon_help_menu_bar.png["도움말 아이콘"]을 선택하고 *FabricPool and S3 설정 마법사*를 선택하십시오.
 . FabricPool 및 S3 설정 마법사 페이지의 FabricPool 섹션에서 * 지금 구성 * 을 선택합니다.
 +
 * 9단계 중 1단계: HA 그룹 구성 * 이 나타납니다.

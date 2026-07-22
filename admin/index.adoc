@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to administer storagegrid 
 summary: 다음 지침에 따라 StorageGRID 시스템을 구성하고 관리합니다. 
 ---
-= StorageGRID 관리
+= StorageGRID 관리를 위한 빠른 시작
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -14,24 +14,67 @@ summary: 다음 지침에 따라 StorageGRID 시스템을 구성하고 관리합
 다음 지침에 따라 StorageGRID 시스템을 구성하고 관리합니다.
 
 
+NOTE: StorageGRID 시스템에 대한 전반적인 이해와 Linux 명령 셸, 네트워킹, 서버 하드웨어 설정 및 구성에 대한 상세한 지식을 갖추고 있는지 확인하십시오.
 
-[[about-these-instructions]]
-== 참조하십시오
-
-StorageGRID 구성 및 관리를 위한 기본 작업을 통해 다음을 수행할 수 있습니다.
-
-* 그리드 관리자를 사용하여 그룹 및 사용자를 설정합니다
-* S3 클라이언트 애플리케이션이 오브젝트를 저장하고 검색할 수 있도록 테넌트 계정을 생성합니다
-* StorageGRID 네트워크를 구성하고 관리합니다
-* AutoSupport를 구성합니다
-* 노드 설정을 관리합니다
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"]Grid Manager 시작하기
+[role="quick-margin-list"]
+* link:../admin/web-browser-requirements.html["Grid Manager 사용자 인터페이스 사용을 위한 기본 단계 알아보기"]
+* link:../admin/viewing-storagegrid-license-information.html["라이선스 정보에 대해 알아보기"]
+* link:../admin/using-grid-management-api.html["그리드 관리 API 사용에 대해 알아보기"]
 
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"] StorageGRID에 대한 액세스 제어
+[role="quick-margin-list"]
+* link:../admin/controlling-storagegrid-access.html["암호, 비밀번호 및 권한에 대해 알아보기"]
+* link:../admin/using-identity-federation.html["ID 페더레이션 구성"]
+* link:../admin/managing-admin-groups.html["관리 그룹을 관리합니다"]
+* link:../admin/managing-users.html["사용자 관리"]
+* link:../admin/how-sso-works.html["싱글 사인온(SSO) 구성"]
 
 
-[[before-you-begin]]
-== 시작하기 전에
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["세 가지"] 그리드 페더레이션 사용
+[role="quick-margin-list"]
+* link:../admin/grid-federation-overview.html["그리드 페더레이션 연결 구성"]
+* link:../admin/grid-federation-what-is-account-sync.html["계정 동기화에 대해 알아보기"]
+* link:../admin/grid-federation-what-is-cross-grid-replication.html["그리드 간 복제에 대해 알아보기"]
+* link:../admin/learn-about-global-namespace.html["전역 네임스페이스 구성"]
 
-* StorageGRID 시스템에 대해 전반적으로 이해하고 있습니다.
-* Linux 명령 셸, 네트워킹 및 서버 하드웨어 설정 및 구성에 대한 매우 상세한 지식을 보유하고 있습니다.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"] 보안 관리
+[role="quick-margin-list"]
+* link:../admin/reviewing-storagegrid-encryption-methods.html["StorageGRID 암호화 방법을 검토합니다"]
+* link:../admin/using-storagegrid-security-certificates.html["인증서를 관리합니다"]
+* link:../admin/manage-tls-ssh-policy.html["보안 설정을 구성합니다"]
+* link:../admin/kms-configuring.html["키 관리 서버를 구성합니다"]
+* link:../admin/configuring-storage-proxy-settings.html["프록시 설정을 관리합니다"]
+* link:../admin/controlling-access-through-firewalls.html["방화벽을 제어합니다"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["다섯"] 테넌트 관리
+[role="quick-margin-list"]
+* link:../admin/managing-tenants.html["테넌트 계정에 대해 알아보고 관리합니다."]
+* link:../admin/manage-platform-services-for-tenants.html["테넌트를 위한 플랫폼 서비스 관리"]
+* link:../admin/manage-s3-select-for-tenant-accounts.html["관리 S3 테넌트 계정에 대해 선택"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["6개"] 클라이언트 연결 구성
+[role="quick-margin-list"]
+* link:../admin/security-for-clients.html["S3 클라이언트 보안에 대해 알아보기"]
+* link:../admin/use-s3-setup-wizard.html["S3 설정 마법사를 사용합니다"]
+* link:../admin/managing-high-availability-groups.html["고가용성 그룹 관리"]
+* link:../admin/configuring-s3-api-endpoint-domain-names.html["S3 끝점 도메인 이름을 구성합니다"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["7번"] 네트워크 및 연결 관리
+[role="quick-margin-list"]
+* link:../admin/configuring-network-settings.html["네트워크 설정을 구성합니다"]
+* link:../admin/configure-vlan-interfaces.html["VLAN 인터페이스를 구성합니다"]
+* link:../admin/managing-traffic-classification-policies.html["트래픽 분류 정책을 관리합니다"]
+* link:../admin/manage-link-costs.html["링크 비용 관리"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-8.png["8개"]노드 관리
+[role="quick-margin-list"]
+* link:../admin/what-object-segmentation-is.html["스토리지 노드 관리"]
+* link:../admin/using-multiple-admin-nodes.html["관리 노드 관리"]
 

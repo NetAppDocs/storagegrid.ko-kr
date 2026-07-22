@@ -43,9 +43,8 @@ CAUTION: 각 사이트에서 최소 2개의 노드가 4개 이상의 외부 NTP 
 
 . 관리 노드를 추가한 경우:
 +
-.. StorageGRID 시스템에 대해 SSO(Single Sign-On)가 활성화된 경우 새 관리 노드에 대한 신뢰 당사자 트러스트를 만듭니다.  이 신뢰 당사자 트러스트를 생성하기 전까지는 노드에 로그인할 수 없습니다. 보다 link:../admin/configure-sso.html["Single Sign-On 구성"] .
+.. StorageGRID 시스템에서 SSO(싱글 사인온)가 활성화된 경우 새 관리 노드에 대한 신뢰 당사자 트러스트를 생성해야 합니다.  이 신뢰 당사자 트러스트를 생성하기 전까지는 노드에 로그인할 수 없습니다.  SSO 설정 방법은 link:../admin/learn-about-setting-up-sso-oidc.html["OIDC"] 또는 link:../admin/learn-about-setting-up-sso-saml.html["SAML"]을 참조하십시오.
 .. 관리 노드에서 로드 밸런서 서비스를 사용하려는 경우 선택적으로 새 관리 노드를 HA 그룹에 추가합니다.  기존 HA 그룹 목록을 검토하고 새 노드를 추가하려면 *구성* > *네트워크* > *고가용성 그룹*을 선택합니다. 보다 link:../admin/configure-high-availability-group.html["고가용성 그룹을 구성합니다"] .
-.. 필요에 따라 각 관리 노드에서 속성과 감사 정보를 일관되게 유지하려면 운영 관리 노드에서 확장 관리 노드로 관리 노드 데이터베이스를 복사합니다. 을 link:copying-admin-node-database.html["관리 노드 데이터베이스를 복사합니다"]참조하십시오.
 .. 필요에 따라 각 관리 노드에서 기간별 메트릭을 일관되게 유지하려면 Prometheus 데이터베이스를 기본 관리 노드에서 확장 관리 노드로 복사합니다. 을 link:copying-prometheus-metrics.html["Prometheus 메트릭을 복사합니다"]참조하십시오.
 .. 필요에 따라 각 관리 노드에서 기록 로그 정보를 일관되게 유지하려면 기존 감사 로그를 기본 관리 노드에서 확장 관리 노드로 복사합니다. 을 link:copying-audit-logs.html["감사 로그를 복사합니다"]참조하십시오.
 

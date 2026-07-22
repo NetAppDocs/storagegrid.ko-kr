@@ -37,7 +37,7 @@ StorageGRID 시스템의 장점은 다음과 같습니다.
 * StorageGRID 리소스 전체에서 데이터 로드를 최적화하기 위한 통합 로드 밸런싱으로 데이터 스토리지 및 일부 관리 기능의 고가용성 제공
 * 여러 스토리지 테넌트 계정을 지원하여 시스템에 저장된 객체를 다른 엔터티로 분리할 수 있습니다.
 * 포괄적인 알림 시스템, 그래픽 대시보드, 모든 노드 및 사이트에 대한 자세한 상태 등을 비롯하여 StorageGRID 시스템의 상태를 모니터링하는 다양한 툴이 제공됩니다.
-* 소프트웨어 또는 하드웨어 기반 구축 지원 다음 중 한 가지 방법으로 StorageGRID를 구축할 수 있습니다.
+* 소프트웨어 또는 하드웨어 기반 배포를 지원합니다. StorageGRID를 다음 환경에 배포할 수 있습니다.
 +
 ** VMware에서 실행 중인 가상 시스템
 ** Linux 호스트의 컨테이너 엔진
@@ -57,5 +57,5 @@ StorageGRID 시스템의 장점은 다음과 같습니다.
 
 
 * 무중단 업그레이드 및 유지보수 운영: 업그레이드, 확장, 서비스 해제 및 유지보수 절차 중에도 내용에 대한 액세스 유지
-* 통합 ID 관리. 사용자 인증을 위해 Active Directory, OpenLDAP 또는 Oracle Directory Service와 통합됩니다. SAML 2.0(Security Assertion Markup Language 2.0) 표준을 사용하여 StorageGRID와 AD FS(Active Directory Federation Services) 간에 인증 및 권한 부여 데이터를 교환하는 SSO(Single Sign-On)를 지원합니다.
+* 연합 ID 관리. 사용자 인증을 위해 Active Directory, OpenLDAP 또는 Oracle Directory Service와 통합합니다. StorageGRID와 Active Directory Federation Services(AD FS)와 같은 외부 ID 공급자 간에 인증 및 권한 부여 데이터를 교환하기 위해 SAML 2.0(Security Assertion Markup Language 2.0) 또는 OpenID Connect(OIDC)를 사용한 단일 로그인(SSO)을 지원합니다.
 

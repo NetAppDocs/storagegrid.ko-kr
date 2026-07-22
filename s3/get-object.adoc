@@ -31,10 +31,14 @@ StorageGRID는 사용자 정의 메타데이터에서 이스케이프된 UTF-8 �
 
 
 
-[[supported-request-header]]
-== 지원되는 요청 헤더
+[[supported-request-headers]]
+== 지원되는 요청 헤더입니다
 
-다음 요청 헤더가 지원됩니다.
+지원되는 요청 헤더는 다음과 같습니다.
+
+* `Accept-Encoding`
++
+객체에 저장된 인코딩이 없는 경우,  `Content-Encoding`를 사용한 GET 요청은  `Accept-Encoding: gzip`응답에 즉시 압축을 적용합니다.  `gzip`만 GET 응답 인코딩에 영향을 미치며,  `deflate`,  `br`,  `identity`은 영향을 미치지 않습니다. 이미 저장된 인코딩이 있는 객체의 경우, StorageGRID는  `Content-Encoding`저장된 인코딩을 반환하며  `Accept-Encoding`에 따라 추가적인 즉시 압축을 적용하지 않습니다. StorageGRID는  `Accept-Encoding: gzip`를 사용한 GET 요청에 대한 범위 읽기 작업을 지원하지 않습니다.
 
 * `x-amz-checksum-mode`: 지정합니다 `ENABLED`
 +

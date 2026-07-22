@@ -1,0 +1,224 @@
+---
+permalink: admin/create-client-keycloak-oidc.html 
+sidebar: sidebar 
+keywords: keycloak, client, single sign on, sso 
+summary: Keycloak을 사용하여 시스템의 각 관리 노드에 대한 클라이언트 연결을 생성합니다. 
+---
+= StorageGRID에서 OIDC를 위한 Keycloak 클라이언트 생성
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Keycloak을 사용하여 StorageGRID 시스템의 OpenID Connect(OIDC)에 대한 각 관리 노드의 클라이언트 연결을 생성하십시오.
+
+.시작하기 전에
+* Keycloak에서 클라이언트를 생성해 본 경험이 있거나 Keycloak 문서에 접근할 수 있어야 합니다.
+* 디렉터리 조회를 위한 전용 계정(Bind DN)과 로그인 자격 증명이 있습니다.
+* Keycloak 관리자 권한이 있습니다.
+
+
+.이 작업에 대해
+StorageGRID 시스템의 각 관리 노드는 클라이언트 연결을 설정해야 합니다. 이를 통해 사용자는 모든 관리 노드에 안전하게 로그인하고 로그아웃할 수 있습니다. 모든 관리 노드에 대해 단일 클라이언트 연결을 생성하거나(권장) 각 관리 노드마다 별도의 클라이언트 연결을 생성할 수 있습니다.
+
+별도로 지정하지 않는 한 기본 설정을 사용하십시오. 경우에 따라 조직에서 요구하는 설정을 사용할 수 있습니다.
+
+
+
+[[step-1-optionally-create-a-realm]]
+== 1단계: 선택적으로 영역을 생성합니다
+
+LDAP 공급자 및 OIDC 클라이언트를 구성하려면 Keycloak 영역을 생성하거나 Keycloak 기본 영역을 사용하십시오.
+
+.단계
+. *영역 생성*을 선택합니다.
+. 영역의 이름을 입력하세요.
+. *활성화*를 선택합니다.
+. Create * 를 선택합니다.
+
+
+
+
+[[create-ldap-oidcstep-2-configure-ldap-provider]]
+== [[create-ldap-oidc]]2단계: LDAP 공급자 구성
+
+Keycloak이 Active Directory Federation Service(AD FS) LDAP 서버에 연결되도록 LDAP 공급자를 구성합니다.
+
+.단계
+. *사용자 페더레이션* > *Add Ldap providers*를 선택합니다.
+. 설정 탭에서:
++
+.. 다음 권장 값을 입력하십시오.
++
+*** UI 표시 이름: 고유한 값을 입력하십시오.
+*** 공급업체: *Active Directory*
+*** 연결 URL: `ldap://<ldap_IP_address>` 또는 `ldaps://<ldap_IP_address>`
+*** 연결 풀링: *ON*
+*** 바인드 DN: 바인드 DN을 입력하십시오
+*** 바인딩 자격 증명: 비밀번호를 입력하십시오
+*** 편집 모드: *READ_ONLY*
+*** 사용자 DN: 예를 들어, `CN=Users`, `DC=saml`, `DC=sgws`
+*** 사용자 이름 LDAP 속성: *sAMAccountName*
+*** RDN LDAP 속성: *cn*
+*** UUID LDAP 속성: *objectGUID*
+*** 사용자 객체 클래스:	`person`, `organizationalPerson`, `user`
+*** 사용자 LDAP 필터: `(sAMAccountName=*)`
+*** 검색 범위: *Subtree*
+*** 페이지네이션: *ON*
+*** 사용자 가져오기: *ON*
+*** 등록 동기화: *ON*
+*** 검색 중 유효하지 않은 사용자 제거: *ON*
+
+
+.. *연결 테스트* 및 *인증 테스트*를 선택합니다.
++
+계속 진행하기 전에 발생할 수 있는 모든 문제를 해결하십시오.
+
+
+
+. 저장 * 을 선택합니다.
+
+
+
+
+[[step-3-configure-ldap-mapping]]
+== 3단계: LDAP 매핑 구성
+
+Active Directory를 Keycloak의 속성으로 매핑하도록 LDAP 매핑을 구성합니다.
+
+.단계
+. *사용자 페더레이션* > *LDAP*로 이동합니다.
+. 생성한 <<create-ldap-oidc,LDAP 공급자>>을 선택합니다.
+. 매퍼 탭에서 *매퍼 추가* > *새 매퍼 생성*을 선택합니다.
+. 매퍼 유형의 경우 *user-attribute-ldap-mapper*를 선택하십시오.
+. *저장*을 선택한 다음 다음 정보를 입력합니다.
++
+** 사용자 모델 속성: *userPrincipalName*
+** LDAP 속성: *userPrincipalName*
+** 읽기 전용: *ON*
+** LDAP에서 항상 값 읽기: *ON*
+** LDAP에서 필수 항목: *OFF*
+** 기본값 강제 적용: *ON*
+** 바이너리 속성 여부: *OFF*
+
+
+. 저장 * 을 선택합니다.
+
+
+
+
+[[create-client-oidcstep-4-create-oidc-client]]
+== [[create-client-oidc]]4단계: OIDC 클라이언트 생성
+
+시스템에 맞는 OIDC 클라이언트를 생성합니다.
+
+.단계
+. *클라이언트* > *클라이언트 생성*으로 이동합니다.
+. 일반 설정에는 다음 정보를 입력하십시오.
++
+** 이름: 클라이언트의 표시 이름을 입력합니다.
+** 클라이언트 유형: *OIDC Connect*
+** 클라이언트 ID: 고유한 값을 입력하십시오. 나중에 사용할 수 있도록 이 값을 저장하십시오.
+
+
+. 다음 * 을 선택합니다.
+. 기능 구성을 위해 다음 정보를 입력하십시오.
++
+** 클라이언트 인증: *ON*
+** 표준 흐름: *Enable*
+** 직접 접근 권한 부여: *Enable*
+** 서비스 계정 역할: *Enable*
+
+
+. 다음 * 을 선택합니다.
+. 로그인 설정에서 리디렉션 URI를 입력하세요.
++
+
+NOTE: 관리 인터페이스에 대해 하나 이상의 로드 밸런서 엔드포인트가 구성된 경우 각 포트에 대한 리디렉션 URI를 추가하십시오. 예를 들면 다음과 같습니다. `\https://<Admin_IP_address_or_FQDN>:<port>/api/v4/oidc-callback` 및 `\https://<Admin_IP_address_or_FQDN>:<port>/api/v4/oidc-logged-out`
+
++
+** 유효한 리디렉션 URI: `\https://<Admin_IP_address_or_FQDN>/api/v4/oidc-callback` 및 `\https://<Admin_IP_address_or_FQDN>/api/v4/oidc-logged-out`
+** 유효한 로그아웃 후 리디렉션 URI: `\https://<Admin_IP_address_or_FQDN>/api/v4/oidc-logged-out`
+** 웹 출처: `\https://<Admin_IP_address_or_FQDN>`
+
+
+. 저장 * 을 선택합니다.
+
+
+
+
+[[client-secret-oidcstep-5-generate-client-secret]]
+== [[client-secret-oidc]]5단계: 클라이언트 시크릿 생성
+
+생성한 OIDC 클라이언트에 대한 클라이언트 암호를 생성합니다.
+
+.단계
+. *클라이언트*로 이동한 다음, 생성한 <<create-client-oidc,OIDC 클라이언트>>을 선택합니다.
+. 자격 증명 탭에서 다음 정보를 입력하십시오.
++
+** 클라이언트 인증: *Client Id and Secret*
+** 클라이언트 비밀: *클라이언트 비밀을 생성하거나 설정하세요*. 나중에 사용할 수 있도록 이 값을 저장해 두세요.
+
+
+
+
+
+
+[[step-6-define-scopes]]
+== 6단계: 범위 정의
+
+Keycloak에서 스코프를 정의합니다.
+
+.단계
+. *Client scopes* > *Create client scope* 로 이동한 다음 다음 정보를 입력하십시오.
++
+** 유형: *없음*
+** 프로토콜: *OpenID Connect*
+** 동의 화면에 표시: *활성화됨*
+** OpenID 공급자 메타데이터에 포함: *Enabled*
+
+
+. 저장 * 을 선택합니다.
+. 매퍼 탭에서 *새 매퍼 구성* > *사용자 속성*을 선택한 다음 다음 정보를 입력합니다.
++
+** 이름: 고유한 값을 입력합니다.
+** 사용자 속성: *userPrincipalName*
+** 토큰 청구 이름: *upn*
+** 클레임 JSON 유형: *String*
+** ID 토큰에 추가: *ON*
+** 액세스 토큰에 추가: *ON*
+** 사용자 정보에 추가: *ON*
+** 토큰 내부 검사에 추가: *ON*
+
+
+. 저장 * 을 선택합니다.
+. *클라이언트*로 이동하여 생성한 <<create-client-oidc,OIDC 클라이언트>>을 선택합니다.
+. *클라이언트 범위* > *클라이언트 범위 추가*를 선택합니다.
+. 생성한 클라이언트 범위를 선택합니다.
+. 추가 * 를 선택합니다.
+
+
+
+
+[[step-7-prepare-to-configure-sso-using-oidc]]
+== 7단계: OIDC를 사용하여 SSO 구성 준비
+
+Keycloak을 사용하여 OIDC로 SSO를 구성하는 데 필요한 정보를 StorageGRID 시스템에 저장합니다.
+
+.단계
+. 생성한 OIDC 클라이언트에서 <<create-client-oidc,클라이언트 ID>> 와 <<client-secret-oidc,클라이언트 암호>> 가 저장되었는지 확인하십시오.
+. 영역에 대한 OpenID Connect 검색 엔드포인트를 저장하세요. 이 엔드포인트는  `well-known` 구성 엔드포인트에서 확인할 수 있습니다.
++
+`\https://<keycloak_host_ip/keycloak_host_name>/realms/<realm_name>/.well-known/openid-configuration`
+
++
+선택적으로 네트워크 포트를 포함할 수 있습니다.
+
++
+`\https://<keycloak_host_ip/keycloak_host_name>:<https_port>/realms/<realm_name>/.well-known/openid-configuration`
+
+
+
+.다음 단계
+OIDC 클라이언트를 생성한 후, link:configure-sso-oidc.html["OIDC를 사용하여 SSO 구성"].

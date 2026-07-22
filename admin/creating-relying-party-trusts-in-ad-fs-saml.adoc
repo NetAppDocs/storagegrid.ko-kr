@@ -1,21 +1,21 @@
 ---
-permalink: admin/creating-relying-party-trusts-in-ad-fs.html 
+permalink: admin/creating-relying-party-trusts-in-ad-fs-saml.html 
 sidebar: sidebar 
 keywords: relying party trust, active directory, ad fs, single sign on, sso 
 summary: 'AD FS(Active Directory Federation Services)를 사용하여 시스템의 각 관리 노드에 대한 기반 당사자 신뢰를 만들어야 합니다. PowerShell 명령을 사용하거나, StorageGRID에서 SAML 메타데이터를 가져오거나, 데이터를 수동으로 입력하여 의존할 수 있는 회사 트러스트를 만들 수 있습니다.' 
 ---
-= AD FS에서 StorageGRID에 대한 신뢰 당사자 트러스트 생성
+= StorageGRID에서 SAML을 위한 AD FS의 신뢰 당사자 트러스트 생성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-AD FS(Active Directory Federation Services)를 사용하여 시스템의 각 관리 노드에 대한 기반 당사자 신뢰를 만들어야 합니다. PowerShell 명령을 사용하거나, StorageGRID에서 SAML 메타데이터를 가져오거나, 데이터를 수동으로 입력하여 의존할 수 있는 회사 트러스트를 만들 수 있습니다.
+시스템의 각 SAML 관리 노드에 대해 Active Directory Federation Services(AD FS)를 사용하여 신뢰 당사자 트러스트를 생성해야 합니다. 신뢰 당사자 트러스트는 PowerShell 명령을 사용하거나, StorageGRID에서 SAML 메타데이터를 가져오거나, 데이터를 수동으로 입력하여 생성할 수 있습니다.
 
 .시작하기 전에
 * StorageGRID에 대해 Single Sign-On을 구성하고 SSO 유형으로 * AD FS * 를 선택했습니다.
-* 당신은 가지고있다link:../admin/configure-sso.html["샌드박스 모드로 들어갔습니다"] 그리드 관리자에서.
+* Grid Manager에 link:../admin/configure-sso-saml.html["샌드박스 모드로 들어갔습니다"]이(가) 있습니다.
 * 시스템의 각 관리 노드에 대한 정규화된 도메인 이름(또는 IP 주소)과 신뢰 당사자 식별자를 알고 있습니다.  이러한 값은 StorageGRID SSO 구성 페이지의 관리 노드 세부 정보 표에서 찾을 수 있습니다.
 +
 
@@ -89,7 +89,7 @@ AD FS 관리 도구가 나타납니다.
 
 
 . 이 단계를 반복하여 StorageGRID 시스템의 모든 관리 노드에 대한 신뢰할 수 있는 상대 트러스트를 구성합니다.
-. 완료되면 StorageGRID 로 돌아가서link:../admin/configure-sso.html#test-sso["모든 신뢰 당사자 트러스트를 테스트합니다"] 올바르게 구성되었는지 확인하세요.
+. 완료되면 StorageGRID로 돌아가서 link:../admin/configure-sso-saml.html#test-sso["모든 신뢰 당사자 트러스트를 테스트합니다"] 올바르게 구성되었는지 확인하십시오.
 
 
 
@@ -141,7 +141,7 @@ NOTE: 표시 이름을 입력할 때 그리드 관리자의 단일 사인온 페
 
 
 . 이 단계를 반복하여 StorageGRID 시스템의 모든 관리 노드에 대한 신뢰할 수 있는 상대 트러스트를 구성합니다.
-. 완료되면 StorageGRID 로 돌아가서link:../admin/configure-sso.html#test-sso["모든 신뢰 당사자 트러스트를 테스트합니다"] 올바르게 구성되었는지 확인하세요.
+. 완료되면 StorageGRID로 돌아가서 link:../admin/configure-sso-saml.html#test-sso["모든 신뢰 당사자 트러스트를 테스트합니다"] 올바르게 구성되었는지 확인하십시오.
 
 
 
@@ -236,5 +236,5 @@ NOTE: 관리자 노드의 기본 인증서 (`server.crt`사용)은 사용하지 
 
 
 . 이 단계를 반복하여 StorageGRID 시스템의 모든 관리 노드에 대한 신뢰할 수 있는 상대 트러스트를 구성합니다.
-. 완료되면 StorageGRID 로 돌아가서link:../admin/configure-sso.html#test-sso["모든 신뢰 당사자 트러스트를 테스트합니다"] 올바르게 구성되었는지 확인하세요.
+. 완료되면 StorageGRID로 돌아가서 link:../admin/configure-sso-saml.html#test-sso["모든 신뢰 당사자 트러스트를 테스트합니다"] 올바르게 구성되었는지 확인하십시오.
 

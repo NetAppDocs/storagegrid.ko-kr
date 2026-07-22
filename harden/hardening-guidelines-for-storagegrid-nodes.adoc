@@ -1,7 +1,7 @@
 ---
 permalink: harden/hardening-guidelines-for-storagegrid-nodes.html 
 sidebar: sidebar 
-keywords: StorageGRID, hardening guidelines, nodes, security 
+keywords: StorageGRID, hardening guidelines, nodes, security, bmc password 
 summary: StorageGRID 노드는 VMware 가상 머신, Linux 호스트의 컨테이너 엔진 내부 또는 전용 하드웨어 어플라이언스에 구축할 수 있습니다. 각 플랫폼 유형과 각 노드 유형에는 강화 모범 사례가 포함되어 있습니다. 
 ---
 = StorageGRID 노드에 대한 강화 지침
@@ -18,9 +18,9 @@ StorageGRID 노드는 VMware 가상 머신, Linux 호스트의 컨테이너 엔�
 [[block-remote-ipmicontrol-remote-ipmi-access-to-bmc]]
 == [[block-remote-ipmi]] BMC 에 대한 원격 IPMI 액세스를 제어합니다.
 
-BMC를 포함하는 모든 어플라이언스에 대해 원격 IPMI 액세스를 활성화 또는 비활성화할 수 있습니다. 원격 IPMI 인터페이스를 사용하면 BMC 계정 및 암호를 가진 모든 사용자가 StorageGRID 어플라이언스에 낮은 수준의 하드웨어 액세스를 할 수 있습니다. BMC에 대한 원격 IPMI 액세스가 필요하지 않으면 이 옵션을 비활성화합니다.
+BMC가 포함된 모든 어플라이언스에 대해 원격 IPMI 액세스를 활성화하거나 비활성화할 수 있습니다. 원격 IPMI 인터페이스를 사용하면 BMC 계정과 암호를 가진 모든 사용자가 StorageGRID 어플라이언스에 대한 낮은 수준의 하드웨어 액세스를 수행할 수 있습니다. BMC에 대한 원격 IPMI 액세스가 필요하지 않은 경우 이 옵션을 비활성화하십시오.
 
-* Grid Manager에서 BMC 에 대한 원격 IPMI 액세스를 제어하려면 *구성* > *보안* > *보안 설정* > *어플라이언스*로 이동합니다.
+* Grid Manager에서 BMC에 대한 원격 IPMI 액세스를 제어하려면 *구성* > *보안* > *보안 설정* > *어플라이언스* > *원격 IPMI 액세스*로 이동하십시오.
 +
 ** BMC에 대한 IPMI 액세스를 비활성화하려면 * 원격 IPMI 액세스 활성화 * 확인란을 선택 취소합니다.
 ** BMC에 대한 IPMI 액세스를 활성화하려면 * 원격 IPMI 액세스 활성화 * 확인란을 선택합니다.
@@ -29,6 +29,38 @@ BMC를 포함하는 모든 어플라이언스에 대해 원격 IPMI 액세스를
 
 
 BMC 경화에 대한 추가 정보는 다음을 참조하세요. https://media.defense.gov/2023/Jun/14/2003241405/-1/-1/0/CSI_HARDEN_BMCS.PDF["Harden 베이스보드 관리 컨트롤러"^] 사이버 보안 정보 시트 https://www.nsa.gov/["국가안보국(NSA)"^] 그리고 https://www.cisa.gov/["사이버보안 및 인프라 보안국(CISA)"^] .
+
+
+
+[[change-appliance-bmc-password]]
+== 어플라이언스 BMC 암호 변경
+
+어플라이언스의 BMC 암호를 변경하여 접근을 제한하고 시스템 보안을 강화할 수 있습니다.
+
+. 그리드 관리자에서 *노드* > *_그리드 노드_* > *BMC 설정*으로 이동합니다.
+. 암호 변경 섹션에서 *새 암호*에 8~16자 길이의 새 BMC 암호를 입력한 다음 *새 암호 확인*에 다시 입력하십시오.
+. 저장 * 을 선택합니다.
+
+
+ `PUT /bmc-configuration/root-password` API를 사용하여 BMC 비밀번호를 변경할 수도 있습니다.
+
+
+
+[[control-remote-access-through-usb-portscontrol-external-usb-port-access-on-appliances]]
+== [[control-remote-access-through-usb-ports]]어플라이언스의 외부 USB 포트 액세스 제어
+
+기술 지원 진단 및 문제 해결을 위해 기술 지원 담당자가 어플라이언스에 접근할 수 있도록 USB 포트를 활성화할 수 있습니다. USB 포트 접근이 필요하지 않은 경우 보안을 위해 포트를 비활성화하십시오. USB 포트는 초기 설치 또는 업그레이드 후 기본적으로 활성화됩니다.
+
+* 그리드 관리자에서 *구성* > *보안* > *보안 설정* > *어플라이언스* > *USB 포트 액세스*로 이동하여 USB 포트를 활성화 또는 비활성화할 수 있습니다.
++
+** *USB 포트 활성화* 확인란을 선택하고 저장하여 포트를 활성화합니다.
++
+이전에 USB 확인란을 선택 해제하고 저장한 경우, *USB 포트 활성화* 확인란을 선택하고 저장하여 USB 포트를 다시 활성화하십시오.
+
+** *USB 포트 활성화* 확인란을 선택 해제하고 저장하여 포트를 비활성화하십시오.
+
+
+
 
 
 
@@ -107,7 +139,7 @@ StorageGRID 하드웨어 어플라이언스 노드와 StorageGRID 실행하는 V
 
 스토리지 노드: 오브젝트 데이터 및 메타데이터를 관리하고 저장합니다. 다음 지침에 따라 StorageGRID 시스템의 스토리지 노드를 보호합니다.
 
-* 신뢰할 수 없는 클라이언트가 스토리지 노드에 직접 연결하도록 허용하지 않습니다. 게이트웨이 노드 또는 타사 로드 밸런서가 제공하는 로드 밸런서 끝점을 사용합니다.
+* 신뢰할 수 없는 클라이언트가 스토리지 노드에 직접 연결하지 못하도록 하십시오. 게이트웨이 노드 또는 타사 로드 밸런서에서 제공하는 로드 밸런서 엔드포인트를 사용하십시오.
 * 신뢰할 수 없는 테넌트에 대해 아웃바운드 서비스를 활성화하지 마십시오. 예를 들어, 신뢰할 수 없는 테넌트의 계정을 생성할 때 테넌트가 자신의 ID 소스를 사용하도록 허용하지 않고 플랫폼 서비스의 사용을 허용하지 않습니다. 의 단계를 link:../admin/creating-tenant-account.html["테넌트 계정을 생성하는 중입니다"]참조하십시오.
 * 신뢰할 수 없는 클라이언트 트래픽에 타사 로드 밸런서를 사용합니다. 타사 로드 밸런싱은 더 많은 제어 기능과 공격에 대한 추가적인 보호 계층을 제공합니다.
 * 필요한 경우 스토리지 프록시를 사용하여 스토리지 노드에서 외부 서비스로의 클라우드 스토리지 풀 및 플랫폼 서비스 통신을 더욱 강력하게 제어할 수 있습니다. 의 단계를 link:../admin/configuring-storage-proxy-settings.html["스토리지 프록시 생성"]참조하십시오.
@@ -144,12 +176,13 @@ VLAN을 설정하여 BMC 네트워크 연결을 분리하고 BMC 인터넷 액�
 안전하고 신뢰할 수 있는 내부 관리 네트워크를 사용할 수 없는 경우 BMC 관리 포트를 연결하지 않거나 차단해 두세요.  기술 지원팀은 지원 사례 중에 임시 액세스를 요청할 수 있습니다.
 
 * 어플라이언스가 IPMI(Intelligent Platform Management Interface) 표준을 사용하여 이더넷을 통한 컨트롤러 하드웨어의 원격 관리를 지원하는 경우 포트 623에서 신뢰할 수 없는 트래픽을 차단합니다.
++
+또한 <<block-remote-ipmi,원격 IPMI 액세스 비활성화>>할 수도 있습니다.
+
 
 
 
 NOTE: BMC 포함된 모든 어플라이언스에 대해 원격 IPMI 액세스를 활성화하거나 비활성화할 수 있습니다.  원격 IPMI 인터페이스를 사용하면 BMC 계정과 비밀번호가 있는 모든 사람이 StorageGRID 어플라이언스에 저수준 하드웨어로 액세스할 수 있습니다.  BMC 에 대한 원격 IPMI 액세스가 필요하지 않은 경우 다음 방법 중 하나를 사용하여 이 옵션을 비활성화합니다. + Grid Manager에서 *구성* > *보안* > *보안 설정* > *어플라이언스*로 이동하여 *원격 IPMI 액세스 사용* 확인란의 선택을 취소합니다.  + 그리드 관리 API에서 개인 엔드포인트를 사용하세요. `PUT /private/bmc` .
-
-+ 또한 할 수 있습니다<<block-remote-ipmi,원격 IPMI 액세스 비활성화>> .
 
 * SANtricity System Manager로 관리하는 SED, FDE 또는 FIPS NL-SAS 드라이브가 포함된 어플라이언스 모델의 경우, https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/accessing-and-configuring-santricity-system-manager.html["SANtricity 드라이브 보안을 활성화하고 구성합니다"^]
 * StorageGRID Appliance Installer 및 Grid Manager를 사용하여 관리하는 SED 또는 FIPS NVMe SSD가 포함된 어플라이언스 모델의 경우 https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-enabling-node-encryption.html#enable-drive-encryption["StorageGRID 드라이브 암호화를 설정하고 구성합니다"^] .

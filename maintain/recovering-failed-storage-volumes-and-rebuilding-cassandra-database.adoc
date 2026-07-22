@@ -97,4 +97,5 @@ restore copies of data.
 
 
 
-스토리지 볼륨을 다시 포맷하고 다시 마운트하고 필요한 Cassandra 작업이 완료된 후에 작업을 link:../maintain/restoring-volume.html["Grid Manager를 사용하여 개체 데이터를 복원합니다"]수행할 수 있습니다.
+.다음 단계
+스토리지 볼륨이 재포맷되고 다시 마운트되며 필요한 Cassandra 작업이 완료되면 link:../maintain/restoring-object-data-to-storage-volume-where-system-drive-is-intact.html["Grid Manager를 사용하여 개체 데이터를 복원합니다"]할 수 있습니다.

@@ -16,7 +16,7 @@ StorageGRID가 버킷에 추가된 지정된 오브젝트를 하나 이상의 �
 예를 들어, CloudMirror 복제를 사용하여 특정 고객 레코드를 Amazon S3에 미러링한 다음 AWS 서비스를 활용하여 데이터에 대한 분석을 수행할 수 있습니다.
 
 
-NOTE: 소스 버킷에 S3 오브젝트 잠금이 설정된 경우 CloudMirror 복제가 지원되지 않습니다.
+NOTE: CloudMirror 복제는 소스 버킷에 S3 객체 잠금이 활성화되어 있고 엔드포인트가 Amazon 또는 StorageGRID S3 버킷인 경우에만 지원됩니다. 객체 잠금 설정은 버킷 엔드포인트로 복제되지 않습니다.
 
 
 

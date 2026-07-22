@@ -11,10 +11,12 @@ indexpage:
   tiles:
   - title: 시작하십시오
     links:
+    - title: 웹 브라우저 요구 사항
+      url: "../admin/web-browser-requirements.html"
     - title: Grid Manager에 로그인합니다
       url: "../admin/signing-in-to-grid-manager.html"
-    - title: AutoSupport를 구성합니다
-      url: "../admin/configure-autosupport-grid-manager.html"
+    - title: Grid Manager에서 로그아웃합니다
+      url: "../admin/signing-out-of-grid-manager.html"
     - title: Grid Management API를 사용합니다
       url: "../admin/using-grid-management-api.html"
   - title: 관리자 그룹 및 사용자를 관리합니다
@@ -23,8 +25,8 @@ indexpage:
       url: "../admin/using-identity-federation.html"
     - title: 관리 그룹을 관리합니다
       url: "../admin/managing-admin-groups.html"
-    - title: 관리자 그룹 권한
-      url: "../admin/admin-group-permissions.html"
+    - title: 다중 관리자 인증에 대해 알아보기
+      url: "../admin/about-multi-admin-verify.html"
     - title: Single Sign-On 구성
       url: "../admin/how-sso-works.html"
   - title: 그리드 페더레이션을 사용합니다
@@ -37,6 +39,8 @@ indexpage:
       url: "../admin/grid-federation-create-connection.html"
     - title: 허용된 테넌트 관리
       url: "../admin/grid-federation-manage-tenants.html"
+    - title: 전역 네임스페이스 구성
+      url: "../admin/configure-global-namespace.html"
   - title: 클라이언트 연결 및 테넌트 관리
     links:
     - title: S3 끝점 도메인 이름을 구성합니다

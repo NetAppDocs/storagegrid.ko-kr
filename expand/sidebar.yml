@@ -50,8 +50,6 @@ entries:
     url: "/expand/configuring-expanded-storagegrid-system.html"
   - title: 스토리지 노드가 활성화되어 있는지 확인하십시오.
     url: "/expand/verifying-storage-node-is-active.html"
-  - title: 관리 노드 데이터베이스를 복사합니다
-    url: "/expand/copying-admin-node-database.html"
   - title: Prometheus 메트릭을 복사합니다
     url: "/expand/copying-prometheus-metrics.html"
   - title: 감사 로그를 복사합니다

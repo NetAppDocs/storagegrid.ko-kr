@@ -17,6 +17,11 @@ UploadPartCopy 작업은 모든 Amazon S3 REST API 동작으로 구현됩니다.
 
 이 요청은 StorageGRID 시스템 내에 지정된 오브젝트 데이터를 읽고 `x-amz-copy-source-range` 씁니다.
 
+
+
+[[supported-request-headers]]
+== 지원되는 요청 헤더입니다
+
 지원되는 요청 헤더는 다음과 같습니다.
 
 * `x-amz-copy-source-if-match`
@@ -53,3 +58,10 @@ CAUTION: 제공한 암호화 키는 저장되지 않습니다. 암호화 키를 
 == 버전 관리
 
 멀티파트 업로드는 업로드 시작, 리스팅 업로드, 파트 업로드, 업로드된 파트 조립 및 업로드 완료를 위한 별도의 작업으로 구성됩니다. CompleteMultipartUpload 작업이 수행될 때 객체가 생성되고 해당되는 경우 버전이 지정됩니다.
+
+
+
+[[s3-checksum-support]]
+== S3 체크섬 지원
+
+StorageGRID는 CreateMultipartUpload 요청 시 체크섬이 지정되었는지 자동으로 감지하고, 해당 체크섬을 UploadPartCopy 작업에 사용합니다. UploadPartCopy 요청 시에는 체크섬을 지정할 필요가 없습니다. CreateMultipartUpload 요청에서 체크섬을 지정하지 않으면, StorageGRID는 객체에 대한 기본 CRC-64/NVME 체크섬을 계산하지 않습니다. CreateMultipartUpload에서 체크섬을 지정하지 않은 경우, StorageGRID는 복사된 파트에 대한 체크섬을 포함하지 않습니다.

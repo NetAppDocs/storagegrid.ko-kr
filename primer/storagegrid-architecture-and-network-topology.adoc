@@ -15,7 +15,7 @@ StorageGRID 시스템은 하나 이상의 데이터 센터 사이트에 있는 �
 
 에 대해 알아보세요link:nodes-and-services.html["그리드 노드 유형"] .
 
-StorageGRID 네트워크 토폴로지, 요구 사항 및 그리드 통신에 대한 추가 정보는 다음을 참조하십시오.link:../network/index.html["네트워킹 지침"] .
+StorageGRID 네트워크 토폴로지, 요구 사항 및 그리드 통신에 대한 추가 정보는 link:../network/index.html["네트워킹 지침"]을 참조하십시오.
 
 
 
@@ -62,8 +62,8 @@ image:data_center_sites_multiple.png["다중 데이터 센터 사이트"]
 
 image:grid_nodes_and_components.png["주변 텍스트로 설명하는 다이어그램"]
 
-S3 클라이언트는 StorageGRID에서 오브젝트를 저장하고 검색합니다. 다른 클라이언트는 e-메일 알림을 보내고, StorageGRID 관리 인터페이스에 액세스하고, 선택적으로 감사 공유에 액세스하는 데 사용됩니다.
+S3 클라이언트는 StorageGRID에서 객체를 저장하고 검색합니다. 다른 클라이언트는 StorageGRID 관리 인터페이스에 액세스하는 데 사용되며 선택적으로 감사 공유에 액세스할 수 있습니다. 또한 StorageGRID는 선택적으로 외부 SMTP 서버를 통해 이메일 알림을 보낼 수 있습니다.
 
 S3 클라이언트를 게이트웨이 노드 또는 관리자 노드에 연결하여 스토리지 노드에 대한 로드 밸런싱 인터페이스를 사용할 수 있습니다. 또는 S3 클라이언트를 HTTPS를 사용하여 스토리지 노드에 직접 연결할 수 있습니다.
 
-객체는 소프트웨어 또는 하드웨어 기반 스토리지 노드의 StorageGRID 에 저장하거나, 외부 S3 버킷이나 Azure Blob 스토리지 컨테이너로 구성된 클라우드 스토리지 풀에 저장할 수 있습니다.
+객체는 소프트웨어 또는 하드웨어 기반 스토리지 노드의 StorageGRID 내에 저장하거나, 외부 S3 버킷 또는 Azure Blob Storage 컨테이너로 구성된 클라우드 스토리지 풀에 저장할 수 있습니다.

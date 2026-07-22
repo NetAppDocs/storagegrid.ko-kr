@@ -59,7 +59,7 @@ image:erasure_coding_data_flow.png["삭제 코딩 데이터 흐름"]
 [[content-protection-cloud-storage-pool]]
 == 콘텐츠 보호: 클라우드 스토리지 풀
 
-ILM 규칙의 콘텐츠 배치 명령에 따라 오브젝트 데이터의 복제된 복사본이 Cloud Storage Pool에 저장되어야 하는 경우 오브젝트 데이터는 Cloud Storage Pool에 지정된 외부 S3 버킷 또는 Azure Blob 스토리지 컨테이너에 복제됩니다.
+ILM 규칙의 콘텐츠 배치 지침에서 객체 데이터의 복제본을 클라우드 스토리지 풀에 저장해야 하는 경우, 객체 데이터는 해당 클라우드 스토리지 풀에 지정된 외부 S3 버킷 또는 Azure Blob Storage 컨테이너로 복제됩니다.
 
 LDR 서비스의 구성 요소인 ILM 엔진 및 Data Mover 서비스는 클라우드 스토리지 풀에 대한 객체 이동을 제어합니다.
 

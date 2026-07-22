@@ -24,6 +24,14 @@ summary: 이 섹션의 예를 사용하여 버킷에 대한 StorageGRID 액세�
 ----
 
 
+StorageGRID에서 Principal은 다음과 같습니다.
+
+* `"Principal": "*"` 익명(서명되지 않은) 요청을 포함하여 모든 사람과 일치합니다.
+* `"Principal": { "AWS": "*" }` 인증된 신원 또는 사용자와 일치합니다(익명 요청과는 일치하지 않음)
+* 버킷 정책에만 적용됩니다
+* 주체는 권한이 부여되거나 거부된 계정/사용자입니다.
+
+
 
 
 [[example-allow-everyone-read-only-access-to-a-bucket]]

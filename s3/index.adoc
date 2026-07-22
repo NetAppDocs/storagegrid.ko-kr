@@ -67,10 +67,37 @@ https://datatracker.ietf.org/doc/html/rfc2616["IETF RFC 2616:HTTP/1.1(Hypertext 
 
 
  a| 
+12.1.0
+ a| 
+* `If-Match`
++
+ `If-Match` 헤더는 StorageGRID 구성에 따라 다르게 동작합니다. 이 헤더를 제공하면 오류 메시지(501 구현되지 않음)가 반환될 수 있습니다.  `If-Match` 헤더가 허용되지만 제대로 작동하지 않는 경우, 더 엄격한 501 구현되지 않음 오류 동작을 활성화하는 방법에 대한 안내와 함께 알림이 표시될 수 있습니다.
+
+* `If-None-Match`
++
+ `If-None-Match` 헤더는 StorageGRID 구성에 따라 다르게 동작합니다. 이 헤더를 제공하면 오류 메시지(501 구현되지 않음)가 반환될 수 있습니다.  `If-None-Match` 헤더가 허용되지만 제대로 작동하지 않는 경우, 더 엄격한 501 구현되지 않음 오류 동작을 활성화하는 방법에 대한 안내와 함께 알림이 표시될 수 있습니다.
+
+* 다음 요청 및 지원되는 헤더에 대해 미리 계산된 체크섬 값에 대한 지원이 추가되었습니다.
++
+** CompleteMultipartUpload: `x-amz-checksum-crc32`, `x-amz-checksum-crc32c`, 및 `x-amz-checksum-crc64nvme`
+** CreateMultipartUpload: `CRC32`, `CRC32C`, 및 `CRC64NVME`(에 대한) `x-amz-checksum-algorithm`
+** CopyObject: `CRC32`, `CRC32C`, `CRC64NVME`, 및 `SHA256`에 대한 `x-amz-checksum-algorithm`
+** PutObject: `x-amz-checksum-crc32`, `x-amz-checksum-crc32c`, 및 `x-amz-checksum-crc64nvme`
+** UploadPart: `x-amz-checksum-crc32`, `x-amz-checksum-crc32c`, 및 `x-amz-checksum-crc64nvme`
+
+
+*  `x-amz-checksum-type`에 대한 지원이 CreateMultipartUpload 및 CompleteMultipartUpload에 추가되었습니다.
+*  `s3:x-amz-copy-source` 정책 조건 키에 대한 지원이 추가되었습니다.
+* 기존 버킷에서 S3 객체 잠금을 활성화할 수 있도록 허용합니다.
+
+
+
+
+ a| 
 12.0
  a| 
 * 관리 API를 사용하여 다른 도메인이 StorageGRID 의 데이터에 액세스할 수 있도록 하는 관리 인터페이스에 대한 CORS(교차 출처 리소스 공유) 지원이 추가되었습니다. link:../admin/enable-cross-origin-resource-sharing-for-management-interface.html["자세한 정보"] .
-* STS AssumeRole 및 세션 정책에 대한 지원이 추가되었습니다. 보다 link:example-session-policies.html["세션 정책의 예"] .  테넌트 그룹에서 AssumeRole을 설정할 수 있습니다.
+* STS AssumeRole 및 세션 정책 지원이 추가되었습니다. link:../s3/example-session-policies.html["세션 정책의 예"]을 참조하십시오. 테넌트 그룹에서 AssumeRole을 설정할 수 있습니다.
 
 
 
@@ -115,7 +142,7 @@ https://datatracker.ietf.org/doc/html/rfc2616["IETF RFC 2616:HTTP/1.1(Hypertext 
  a| 
 11.7
  a| 
-* link:quick-reference-support-for-aws-apis.html["빠른 참조: 지원되는 S3 API 요청"]추가되었습니다.
+* 추가됨 link:../s3/quick-reference-support-for-aws-apis.html["빠른 참조: 지원되는 S3 API 요청"].
 * S3 Object Lock을 통한 거버넌스 모드 사용을 지원합니다.
 * Get Object 및 Head Object 요청에 대한 StorageGRID별 응답 헤더에 대한 지원이 추가되었습니다 `x-ntap-sg-cgr-replication-status`. 이 헤더는 크로스 그리드 복제를 위한 객체의 복제 상태를 제공합니다.
 * SelectObjectContent 요청이 이제 Parquet 객체를 지원합니다.
@@ -215,7 +242,7 @@ CORS(Cross-Origin Resource Sharing), 그리드 노드에 대한 S3 클라이언�
  a| 
 10.1
  a| 
-멀티파트 업로드, 가상 호스팅 스타일 요청 및 v4 인증에 대한 지원이 추가되었습니다.
+멀티파트 업로드, 가상 호스팅 방식 요청 및 v4 인증에 대한 지원이 추가되었습니다.
 
 
 

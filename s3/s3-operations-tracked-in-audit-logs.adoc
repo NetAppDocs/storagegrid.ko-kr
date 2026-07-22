@@ -20,13 +20,18 @@ summary: 감사 메시지는 StorageGRID 서비스에서 생성되고 텍스트 
 
 * CreateBucket
 * 삭제 버킷
+* DeleteBuckketPolicy를 참조하십시오
 * 삭제 BucketTagging
 * DeleteObjects 를 클릭합니다
+* GetBuckLifecycleConfiguration 을 참조하십시오
+* GetBuckketPolicy를 참조하십시오
 * GetBucketTagging
 * 머리버킷
 * ListObjects 를 선택합니다
 * ListObjectVersions 를 선택합니다
 * 버킷 규정 준수
+* PutBucketLifecycleConfiguration을 참조하십시오
+* BucketPolicy를 참조하십시오
 * BucketTagging
 * PutBucketVersioning을 참조하십시오
 

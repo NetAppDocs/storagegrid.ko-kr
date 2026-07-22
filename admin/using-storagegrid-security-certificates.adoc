@@ -186,7 +186,7 @@ NOTE: 가 있는 경우에만 다른 인증서의 정보를 보고 액세스할 
 *** link:grid-federation-manage-connection.html#rotate-connection-certificates["그리드 페더레이션 연결 인증서를 회전합니다"]
 *** link:using-identity-federation.html["ID 페더레이션 인증서를 보고 편집합니다"]
 *** link:kms-adding.html["KMS(키 관리 서버) 서버 및 클라이언트 인증서를 업로드합니다"]
-*** link:creating-relying-party-trusts-in-ad-fs.html#create-a-relying-party-trust-manually["신뢰할 수 있는 당사자 트러스트를 위해 SSO 인증서를 수동으로 지정합니다"]
+*** link:creating-relying-party-trusts-in-ad-fs-saml.html#create-a-relying-party-trust-manually["신뢰할 수 있는 당사자 트러스트를 위해 SSO 인증서를 수동으로 지정합니다"]
 
 
 --
@@ -317,7 +317,7 @@ link:configuring-administrator-client-certificates.html["클라이언트 인증�
  a| 
 서버
  a| 
-StorageGRID 클라우드 스토리지 풀에서 S3 Glacier 또는 Microsoft Azure Blob 스토리지와 같은 외부 스토리지 위치로 연결을 인증합니다. 각 클라우드 공급자 유형에는 다른 인증서가 필요합니다.
+StorageGRID 클라우드 스토리지 풀에서 S3 Glacier 또는 Microsoft Azure Blob Storage와 같은 외부 스토리지 위치로의 연결을 인증합니다. 각 클라우드 공급자 유형마다 다른 인증서가 필요합니다.
  a| 
 ILM * > * 스토리지 풀 *
  a| 

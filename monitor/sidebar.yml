@@ -2,6 +2,19 @@
 section: monitor
 title: StorageGRID 시스템을 모니터링합니다
 entries:
+- title: AutoSupport를 사용합니다
+  entries:
+  - title: AutoSupport란 무엇입니까
+    pdf-filename: AutoSupport를 사용합니다
+    url: "/monitor/what-is-autosupport.html"
+  - title: AutoSupport를 구성합니다
+    url: "/monitor/configure-autosupport-grid-manager.html"
+  - title: AutoSupport 패키지를 수동으로 트리거합니다
+    url: "/monitor/manually-triggering-autosupport-package.html"
+  - title: StorageGRID가 AutoSupport 패키지 오류를 처리하는 방법
+    url: "/monitor/autosupport-package-failure-handling.html"
+  - title: StorageGRID를 통해 E-Series AutoSupport 패키지를 전송합니다
+    url: "/monitor/sending-eseries-autosupport-messages-through-storagegrid.html"
 - title: 모니터링 작업
   pdf-filename: StorageGRID 시스템을 모니터링합니다
   url: "/monitor/index.html"
@@ -25,7 +38,7 @@ entries:
   - title: ILM 탭을 봅니다
     url: "/monitor/viewing-ilm-tab.html"
   - title: 작업 탭을 사용합니다
-    url: "/monitor/using-task-tab-to-reboot-grid-node.html"
+    url: "/monitor/using-task-tab.html"
   - title: 부하 분산 장치 탭을 봅니다
     url: "/monitor/viewing-load-balancer-tab.html"
   - title: 플랫폼 서비스 탭을 봅니다
@@ -97,6 +110,8 @@ entries:
     url: "/monitor/considerations-for-external-syslog-server.html"
   - title: 로그 관리 구성
     url: "/monitor/configure-log-management.html"
+- title: 이메일 서버 구성
+  url: "/monitor/configure-email-server.html"
 - title: SNMP 모니터링을 사용합니다
   entries:
   - title: SNMP 모니터링
@@ -118,8 +133,6 @@ entries:
     url: "/monitor/reviewing-audit-messages.html"
   - title: 로그 파일 및 시스템 데이터를 수집합니다
     url: "/monitor/collecting-log-files-and-system-data.html"
-  - title: AutoSupport 패키지를 수동으로 트리거합니다
-    url: "/monitor/manually-triggering-autosupport-message.html"
   - title: 지원 메트릭을 검토합니다
     url: "/monitor/reviewing-support-metrics.html"
   - title: I/O 우선순위 변경

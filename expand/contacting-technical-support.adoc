@@ -19,7 +19,7 @@ summary: 그리드 확장 프로세스 중에 해결할 수 없는 오류가 발
 . 기본적으로 외부 SSH 액세스는 차단됩니다.  필요한 경우,link:../admin/manage-external-ssh-access.html["일시적으로 접근 허용"] .
 . 장애가 발생한 확장 노드에 연결:
 +
-.. 다음 명령을 입력합니다.``ssh -p 8022 admin@_grid_node_IP_``
+.. 다음 명령을 입력합니다. `ssh -p 8022 admin@_grid_node_IP_`
 +
 포트 8022는 기본 OS의 SSH 포트이고, 포트 22는 StorageGRID를 실행하는 컨테이너 엔진의 SSH 포트입니다.
 

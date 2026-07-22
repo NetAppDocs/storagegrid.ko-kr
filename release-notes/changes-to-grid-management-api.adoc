@@ -2,7 +2,7 @@
 permalink: release-notes/changes-to-grid-management-api.html 
 sidebar: sidebar 
 keywords: grid management api, api, api version, swagger, rest api, usageCacheDuration 
-summary: StorageGRID 12.0은 그리드 관리 API 버전 4를 사용합니다. 버전 4에서는 버전 3이 더 이상 사용되지 않습니다. 하지만 버전 1, 2, 3은 여전히 지원됩니다. 
+summary: StorageGRID 12.1은 그리드 관리 API 버전 4를 사용합니다. 버전 4에서는 버전 3이 더 이상 사용되지 않습니다. 하지만 버전 1, 2, 3은 여전히 지원됩니다. 
 ---
 = StorageGRID의 Grid Management API 변경 사항
 :allow-uri-read: 
@@ -11,46 +11,24 @@ summary: StorageGRID 12.0은 그리드 관리 API 버전 4를 사용합니다. �
 
 
 [role="lead"]
-StorageGRID 12.0은 Grid Management API 버전 4를 사용합니다.  버전 4에서는 버전 3이 더 이상 사용되지 않지만, 버전 1, 2, 3은 계속 지원됩니다.
+StorageGRID 12.1은 그리드 관리 API 버전 4를 사용합니다. 버전 4에서는 버전 3이 더 이상 사용되지 않지만, 버전 1, 2, 3은 여전히 지원됩니다.
 
 
-NOTE: StorageGRID 12.0에서는 더 이상 사용되지 않는 관리 API 버전을 계속 사용할 수 있습니다. 그러나 이러한 버전의 API에 대한 지원은 StorageGRID 의 향후 릴리스에서 제거될 예정입니다.  StorageGRID 12.0으로 업그레이드한 후에는 다음을 사용하여 더 이상 사용되지 않는 API를 비활성화할 수 있습니다. `PUT /grid/config/management` API.
+NOTE: StorageGRID에서 더 이상 사용되지 않는 관리 API 버전을 계속 사용할 수 있지만, 이러한 API 버전에 대한 지원은 향후 StorageGRID 릴리스에서 제거될 예정입니다. StorageGRID 12.0 이상으로 업그레이드한 후에는  `PUT /grid/config/management` API를 사용하여 더 이상 사용되지 않는 API를 비활성화할 수 있습니다.
 
 자세한 내용은 을 link:../admin/using-grid-management-api.html["Grid Management API를 사용합니다"]참조하십시오.
 
 
 
-[[new-endpoints-for-branch-buckets]]
-== 지점 버킷의 새로운 엔드포인트
+[[new-endpoints-for-changing-the-bmc-password-and-lan-ip-settings]]
+== BMC 암호 및 LAN IP 설정을 변경하기 위한 새로운 엔드포인트
 
-다음 엔드포인트가 추가되어 다음을 수행할 수 있습니다.link:../tenant/what-is-branch-bucket.html["지점 버킷 관리"] :
+다음 엔드포인트가 추가되어 사용자가 link:../harden/hardening-guidelines-for-storagegrid-nodes.html#change-appliance-bmc-password["어플라이언스 BMC 암호 변경"]할 수 있습니다.
 
-`GET /org/containers/{branchBucketName}/branch`
+`PUT /bmc-configuration/root-password`
 
-`PUT /org/containers/{branchBucketName}/branch`
+다음 엔드포인트가 추가되어 link:../maintain/changing-nodes-network-configuration.html#change-appliance-node-bmc-lan-ip-settings["BMC LAN IP 설정을 변경하거나 확인합니다"]할 수 있습니다.
 
+`PUT /grid/bmc/{node-id}/lan-ip-config`
 
-
-[[new-private-endpoints-for-move-adc]]
-== Move ADC를 위한 새로운 개인 엔드포인트
-
-다음 개인 엔드포인트가 추가되어 다음을 수행할 수 있습니다.link:../maintain/move-adc-service.html["ADC 서비스를 이동합니다"] 동일한 사이트의 한 스토리지 노드에서 다른 스토리지 노드로:
-
-`/private/move-adc`
-
-`/private/move-adc/start`
-
-`/private/move-adc/retry`
-
-
-
-[[new-private-endpoints-for-convert-to-data-only-node]]
-== 데이터 전용 노드로 변환을 위한 새로운 개인 엔드포인트
-
-다음 개인 엔드포인트가 추가되어 다음을 수행할 수 있습니다.link:../maintain/convert-to-data-only-node.html["하나 이상의 결합된 스토리지 노드를 변환합니다."] ADC 서비스를 포함하지 않는 데이터 전용 노드로 전환합니다.
-
-`/private/convert-to-data-only-node`
-
-`/private/convert-to-data-only-node/start`
-
-`/private/convert-to-data-only-node/retry`
+`GET /grid/bmc/{node-id}/lan-ip-config`

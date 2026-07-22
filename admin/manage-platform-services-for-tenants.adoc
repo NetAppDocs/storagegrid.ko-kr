@@ -29,9 +29,6 @@ StorageGRID CloudMirror 복제 서비스는 StorageGRID 버킷에서 지정된 �
 CloudMirror 복제는 교차 그리드 복제 기능과 몇 가지 중요한 유사점과 차이점이 있습니다. 자세한 내용은 을 참조하십시오link:../admin/grid-federation-compare-cgr-to-cloudmirror.html["교차 그리드 복제와 CloudMirror 복제를 비교합니다"].
 
 
-NOTE: 소스 버킷에 S3 개체 잠금이 활성화된 경우 CloudMirror 복제가 지원되지 않습니다.
-
-
 
 [[notifications]]
 == 알림

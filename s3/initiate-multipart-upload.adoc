@@ -55,10 +55,12 @@ NOTE: S3 오브젝트 잠금이 설정된 상태에서 오브젝트를 버킷에
 지원되는 요청 헤더는 다음과 같습니다.
 
 * `Content-Type`
-* `x-amz-checksum-algorithm`
+* `x-amz-checksum-algorithm`:  `CRC32`,  `CRC32C`,  `CRC64NVME` 또는  `SHA256`을 지정하십시오.
 +
-현재는 의 SHA256 값만 `x-amz-checksum-algorithm` 지원됩니다.
 
+NOTE: CreateMultipartUpload 요청에서 체크섬을 지정하지 않으면 StorageGRID는 객체에 대한 기본 CRC-64/NVME 체크섬을 계산하지 않습니다. StorageGRID는 유효하지 않거나 지원되지 않는 `x-amz-checksum-algorithm` 값을 무시합니다.
+
+* `x-amz-checksum-type`
 * `x-amz-meta-`, 그 뒤에 사용자 정의 메타데이터를 포함하는 이름-값 쌍이 옵니다
 +
 사용자 정의 메타데이터에 대한 이름 값 쌍을 지정할 때 다음 일반 형식을 사용합니다.

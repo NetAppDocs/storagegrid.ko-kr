@@ -2,7 +2,7 @@
 permalink: admin/grid-federation-create-connection.html 
 sidebar: sidebar 
 keywords: grid federation, create connection, configure connection 
-summary: 테넌트 세부 정보의 클론을 생성하고 객체 데이터를 복제하려는 경우 두 StorageGRID 시스템 간에 그리드 페더레이션 연결을 생성할 수 있습니다. 
+summary: 테넌트 세부 정보를 동기화하고 객체 데이터를 복제하려면 StorageGRID 시스템 간에 그리드 페더레이션 연결을 생성할 수 있습니다. 
 ---
 = StorageGRID 그리드 페더레이션 연결을 생성합니다
 :allow-uri-read: 
@@ -11,11 +11,14 @@ summary: 테넌트 세부 정보의 클론을 생성하고 객체 데이터를 �
 
 
 [role="lead"]
-테넌트 세부 정보의 클론을 생성하고 객체 데이터를 복제하려는 경우 두 StorageGRID 시스템 간에 그리드 페더레이션 연결을 생성할 수 있습니다.
+테넌트 세부 정보를 동기화하고 객체 데이터를 복제하려면 StorageGRID 시스템 간에 그리드 페더레이션 연결을 생성할 수 있습니다.
 
 그림에 표시된 것처럼 그리드 페더레이션 연결을 만드는 작업은 두 그리드 모두에 대한 단계를 포함합니다. 한 그리드에 연결을 추가하고 다른 그리드에서 연결을 완료합니다. 두 눈금 중 하나에서 시작할 수 있습니다.
 
-image:grid-federation-create-connection.png["두 그리드에 연결을 생성하는 단계에 대한 그래픽 개요입니다"]
+
+TIP: 원하시면 link:../admin/grid-federation-automate-connections.html["그리드 페더레이션 연결의 생성, 편집 및 유지 관리를 자동화합니다."]할 수 있습니다.
+
+image:grid_federation_create_connection.png["두 그리드에 연결을 생성하는 단계에 대한 그래픽 개요입니다"]
 
 .시작하기 전에
 * 그리드 페더레이션 연결을 구성하기 위해 을 검토했습니다.link:grid-federation-overview.html["고려 사항 및 요구 사항"]
@@ -35,18 +38,15 @@ image:grid-federation-create-connection.png["두 그리드에 연결을 생성�
 . 두 그리드 중 하나의 기본 관리자 노드에서 그리드 관리자에 로그인합니다.
 . *구성* > *시스템* > *그리드 연합*을 선택합니다.
 . 연결 추가 * 를 선택합니다.
-. 연결에 대한 세부 정보를 입력합니다.
-+
+. 연결 이름을 입력하세요. 이 이름은 연결을 쉽게 식별할 수 있도록 고유한 이름이어야 합니다. 예를 들어, `Grid 1-Grid 2`.
+. 원하시면 link:../admin/configure-global-namespace.html["글로벌 네임스페이스 구성"], *전역 네임스페이스 사용*을 선택합니다.
+. Continue * 를 선택합니다.
+. 그리드 세부 정보를 다음과 같이 입력하십시오.
+
+
 [cols="1a,2a"]
 |===
 | 필드에 입력합니다 | 설명 
-
-
- a| 
-연결 이름입니다
- a| 
-이 연결을 쉽게 인식할 수 있는 고유한 이름(예: "그리드 1 - 그리드 2")
-
 
 
  a| 
@@ -54,9 +54,9 @@ image:grid-federation-create-connection.png["두 그리드에 연결을 생성�
  a| 
 다음 중 하나:
 
-** 현재 로그인한 그리드의 FQDN입니다
-** 이 그리드에서 HA 그룹의 VIP 주소입니다
-** 이 그리드에 있는 관리 노드 또는 게이트웨이 노드의 IP 주소입니다. IP는 대상 그리드가 연결할 수 있는 모든 네트워크에 있을 수 있습니다.
+* 현재 로그인한 그리드의 FQDN입니다
+* 이 그리드에서 HA 그룹의 VIP 주소입니다
+* 이 그리드에 있는 관리 노드 또는 게이트웨이 노드의 IP 주소입니다. IP는 대상 그리드가 연결할 수 있는 모든 네트워크에 있을 수 있습니다.
 
 
 
@@ -91,9 +91,9 @@ StorageGRID는 연결을 저장할 때 각 그리드에 대해 클라이언트 �
  a| 
 다음 중 하나:
 
-** 연결할 그리드의 FQDN입니다
-** 다른 그리드에서 HA 그룹의 VIP 주소입니다
-** 다른 그리드에 있는 관리 노드 또는 게이트웨이 노드의 IP 주소입니다. IP는 소스 그리드가 연결할 수 있는 모든 네트워크에 있을 수 있습니다.
+* 연결할 그리드의 FQDN입니다
+* 다른 그리드에서 HA 그룹의 VIP 주소입니다
+* 다른 그리드에 있는 관리 노드 또는 게이트웨이 노드의 IP 주소입니다. IP는 소스 그리드가 연결할 수 있는 모든 네트워크에 있을 수 있습니다.
 
 
 |===
@@ -155,5 +155,5 @@ CAUTION: 연결 끝 중 하나의 인증서가 만료되면 연결이 중지되�
 * link:creating-tenant-account.html["하나 이상의 새 테넌트 계정을 생성합니다"]을 클릭하고 * 그리드 페더레이션 연결 사용 * 권한을 할당하고 새 연결을 선택합니다.
 * link:grid-federation-manage-connection.html["연결을 관리합니다"] 필요한 경우. 연결 값을 편집하거나, 연결을 테스트하거나, 연결 인증서를 회전하거나, 연결을 제거할 수 있습니다.
 * link:../monitor/grid-federation-monitor-connections.html["연결을 모니터링합니다"] 를 일반적인 StorageGRID 모니터링 활동의 일부로 활용합니다.
-* link:grid-federation-troubleshoot.html["연결 문제를 해결합니다"]계정 클론 및 교차 그리드 복제와 관련된 경고 및 오류 해결을 포함합니다.
+* link:grid-federation-troubleshoot.html["연결 문제를 해결합니다"]여기에는 계정 동기화 및 그리드 간 복제와 관련된 모든 경고 및 오류 해결이 포함됩니다.
 

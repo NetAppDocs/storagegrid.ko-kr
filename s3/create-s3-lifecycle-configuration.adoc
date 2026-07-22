@@ -13,7 +13,7 @@ summary: S3 라이프사이클 구성을 생성하여 StorageGRID 시스템에�
 [role="lead"]
 S3 라이프사이클 구성을 생성하여 StorageGRID 시스템에서 특정 오브젝트 삭제 시기를 제어할 수 있습니다.
 
-이 섹션의 간단한 예는 S3 라이프사이클 구성에서 특정 S3 버킷에서 특정 객체가 삭제(만료)되는 시기를 제어하는 방법을 보여줍니다. 이 섹션의 예제는 설명을 위한 것입니다. S3 라이프사이클 구성 생성에 대한 자세한 내용은 를 참조하십시오 https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html["Amazon Simple Storage Service 사용자 가이드: 객체 수명 주기 관리"^]. StorageGRID는 만료 작업만 지원하며 전환 작업은 지원하지 않습니다.
+이 섹션의 간단한 예제는 S3 수명 주기 구성을 통해 특정 S3 버킷에서 특정 객체가 삭제(만료)되는 시점을 제어하는 방법을 보여줍니다. 이 섹션의 예제는 설명 목적으로만 제공됩니다. S3 수명 주기 구성 생성에 대한 자세한 내용은 https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html["Amazon Simple Storage Service 사용자 가이드: 객체 수명 주기 관리"^]을 참조하십시오. StorageGRID는 만료 작업만 지원하며 전환 작업은 지원하지 않습니다.
 
 
 

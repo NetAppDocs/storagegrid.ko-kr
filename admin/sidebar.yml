@@ -2,7 +2,7 @@
 section: admin
 title: StorageGRID 관리
 entries:
-- title: 관리 작업
+- title: 관리자 빠른 시작
   pdf-filename: StorageGRID 시스템 관리
   url: "/admin/index.html"
 - title: Grid Manager를 시작합니다
@@ -67,31 +67,67 @@ entries:
       url: "/admin/requirements-for-sso.html"
     - title: 페더레이션 사용자가 로그인할 수 있는지 확인합니다
       url: "/admin/confirming-federated-users-can-sign-in.html"
-    - title: SSO 구성
-      url: "/admin/configure-sso.html"
-    - title: AD FS에서 기반 당사자 트러스트를 생성합니다
-      url: "/admin/creating-relying-party-trusts-in-ad-fs.html"
-    - title: Entra ID에서 엔터프라이즈 애플리케이션 만들기
-      url: "/admin/creating-enterprise-application-entra-id.html"
-    - title: PingFederate에서 SP 연결을 생성합니다
-      url: "/admin/creating-sp-connection-ping.html"
+    - title: OIDC를 사용하여 SSO 설정
+      entries:
+      - title: 자세히 알아보기
+        url: "/admin/learn-about-setting-up-sso-oidc.html"
+      - title: AD FS에서 애플리케이션 그룹 생성
+        url: "/admin/creating-relying-party-trusts-in-ad-fs-oidc.html"
+      - title: Entra ID에서 애플리케이션 생성
+        url: "/admin/creating-enterprise-application-entra-id-oidc.html"
+      - title: Keycloak에서 클라이언트 생성
+        url: "/admin/create-client-keycloak-oidc.html"
+      - title: Okta 애플리케이션 생성
+        url: "/admin/create-okta-application-oidc.html"
+      - title: PingFederate에서 SP 연결을 생성합니다
+        url: "/admin/creating-sp-connection-ping-oidc.html"
+      - title: SSO 구성
+        url: "/admin/configure-sso-oidc.html"
+    - title: SAML을 사용하여 SSO 설정
+      entries:
+      - title: 자세히 알아보기
+        url: "/admin/learn-about-setting-up-sso-saml.html"
+      - title: SSO 구성
+        url: "/admin/configure-sso-saml.html"
+      - title: AD FS에서 기반 당사자 트러스트를 생성합니다
+        url: "/admin/creating-relying-party-trusts-in-ad-fs-saml.html"
+      - title: Entra ID에서 엔터프라이즈 애플리케이션 만들기
+        url: "/admin/creating-enterprise-application-entra-id-saml.html"
+      - title: PingFederate에서 SP 연결을 생성합니다
+        url: "/admin/creating-sp-connection-ping-saml.html"
     - title: SSO 비활성화
       url: "/admin/disabling-single-sign-on.html"
     - title: 한 관리 노드에 대해 SSO를 일시적으로 비활성화하고 다시 활성화합니다.
       url: "/admin/temporarily-disabling-and-reenabling-sso-for-admin-node.html"
+  - title: 다중 관리자 인증 사용
+    entries:
+    - title: 다중 관리자 인증에 대해 알아보기
+      url: "/admin/about-multi-admin-verify.html"
+    - title: 다중 관리자 인증 구성
+      url: "/admin/configure-multi-admin-verify.html"
+    - title: 보호된 작업에 대한 승인 요청
+      url: "/admin/request-mav-approval-for-protected-ops.html"
+    - title: 보호된 작업 요청 관리
+      url: "/admin/manage-mav-protected-ops-requests.html"
 - title: 그리드 페더레이션을 사용합니다
   entries:
   - title: 그리드 페더레이션은 무엇입니까
     pdf-filename: 그리드 페더레이션을 사용합니다
     url: "/admin/grid-federation-overview.html"
-  - title: 계정 클론이란 무엇입니까
-    url: "/admin/grid-federation-what-is-account-clone.html"
+  - title: 계정 동기화란 무엇인가요?
+    url: "/admin/grid-federation-what-is-account-sync.html"
   - title: 크로스 그리드 복제란
     url: "/admin/grid-federation-what-is-cross-grid-replication.html"
   - title: 교차 그리드 복제와 CloudMirror 복제를 비교합니다
     url: "/admin/grid-federation-compare-cgr-to-cloudmirror.html"
   - title: 그리드 페더레이션 연결을 만듭니다
     url: "/admin/grid-federation-create-connection.html"
+  - title: 그리드 연합 연결 자동화
+    url: "/admin/grid-federation-automate-connections.html"
+  - title: 글로벌 네임스페이스에 대해 알아보기
+    url: "/admin/learn-about-global-namespace.html"
+  - title: 전역 네임스페이스 구성
+    url: "/admin/configure-global-namespace.html"
   - title: 그리드 페더레이션 연결을 관리합니다
     url: "/admin/grid-federation-manage-connection.html"
   - title: 허용된 테넌트 관리
@@ -257,19 +293,6 @@ entries:
     url: "/admin/benefits-of-active-idle-and-concurrent-http-connections.html"
   - title: 링크 비용 관리
     url: "/admin/manage-link-costs.html"
-- title: AutoSupport를 사용합니다
-  entries:
-  - title: AutoSupport란 무엇입니까
-    pdf-filename: AutoSupport를 사용합니다
-    url: "/admin/what-is-autosupport.html"
-  - title: AutoSupport를 구성합니다
-    url: "/admin/configure-autosupport-grid-manager.html"
-  - title: AutoSupport 패키지를 수동으로 트리거합니다
-    url: "/admin/manually-triggering-autosupport-message.html"
-  - title: AutoSupport 패키지 문제 해결
-    url: "/admin/troubleshooting-autosupport-messages.html"
-  - title: StorageGRID를 통해 E-Series AutoSupport 패키지를 전송합니다
-    url: "/admin/sending-eseries-autosupport-messages-through-storagegrid.html"
 - title: 스토리지 노드 관리
   entries:
   - title: 스토리지 옵션을 사용합니다

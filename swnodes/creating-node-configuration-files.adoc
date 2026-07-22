@@ -88,8 +88,6 @@ vim 또는 nano와 같은 텍스트 편집기를 사용하여 각 호스트에�
 Linux 기반 노드를 설치하는 데 사용하려는 관리 노드의 그리드 네트워크 IPv4 주소입니다.  복구를 위해 기본 관리 노드의 IP가 있으면 이를 사용하고, 그렇지 않으면 기본이 아닌 관리 노드의 IP를 사용합니다.  이 매개변수를 생략하면 노드는 mDNS를 사용하여 기본 관리 노드를 검색하려고 시도합니다.
 
 link:how-grid-nodes-discover-primary-admin-node.html["그리드 노드가 기본 관리자 노드를 검색하는 방법"]
-
-* 참고 *: 이 값은 기본 관리 노드에서 무시되고 금지될 수 있습니다.
  a| 
 모범 사례
 
@@ -274,7 +272,7 @@ StorageGRID 노드에서 관리자 네트워크 액세스에 사용할 호스트
 
 
  a| 
-인터페이스(이 값만 지원됩니다.)
+DedicatedInterface (이 값만 지원됩니다.)
  a| 
 선택 사항
 
@@ -292,8 +290,6 @@ StorageGRID 노드에서 관리자 네트워크 액세스에 사용할 호스트
 참 또는 거짓
 
 StorageGRID 컨테이너가 관리자 네트워크에서 호스트 호스트 대상 인터페이스의 MAC 주소를 사용하도록 하려면 키를 "true"로 설정합니다.
-
-* 모범 사례: * promiscuous 모드가 필요한 네트워크에서는 admin_network_target_type_interface_clone_MAC 키를 대신 사용합니다.
 
 Linux용 MAC 복제에 대한 자세한 내용은 다음을 참조하세요.link:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC 주소 복제에 대한 고려 사항 및 권장 사항"]
  a| 
@@ -634,7 +630,7 @@ StorageGRID 노드에서 클라이언트 네트워크 액세스에 사용할 호
 
 
  a| 
-인터페이스(지원되는 값만 해당)
+DedicatedInterface (이 값만 지원됩니다.)
  a| 
 선택 사항
 
@@ -652,8 +648,6 @@ StorageGRID 노드에서 클라이언트 네트워크 액세스에 사용할 호
 참 또는 거짓
 
 StorageGRID 컨테이너가 클라이언트 네트워크의 호스트 대상 인터페이스의 MAC 주소를 사용하도록 하려면 키를 "true"로 설정합니다.
-
-* 모범 사례: * promiscuous 모드가 필요한 네트워크에서는 대신 client_network_target_type_interface_clone_mac 키를 사용합니다.
 
 Linux용 MAC 복제에 대한 자세한 내용은 다음을 참조하세요.link:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC 주소 복제에 대한 고려 사항 및 권장 사항"]
  a| 
@@ -826,7 +820,7 @@ StorageGRID 노드에서 그리드 네트워크 액세스에 사용할 호스트
 
 
  a| 
-인터페이스(이 값만 지원됩니다.)
+DedicatedInterface (이 값만 지원됩니다.)
  a| 
 선택 사항
 
@@ -844,8 +838,6 @@ StorageGRID 노드에서 그리드 네트워크 액세스에 사용할 호스트
 참 또는 거짓
 
 StorageGRID 컨테이너가 그리드 네트워크에서 호스트 대상 인터페이스의 MAC 주소를 사용하도록 키 값을 "true"로 설정합니다.
-
-* 모범 사례: * promiscuous 모드가 필요한 네트워크에서는 grid_network_target_type_interface_clone_mac 키를 대신 사용합니다.
 
 Linux용 MAC 복제에 대한 자세한 내용은 다음을 참조하세요.link:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC 주소 복제에 대한 고려 사항 및 권장 사항"]
  a| 

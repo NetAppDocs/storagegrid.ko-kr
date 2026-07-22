@@ -129,7 +129,12 @@ Admin: # grep OLST audit.log
  a| 
 출력에 위치가 나열되지 않으면 해당 개체가 누락되었을 가능성이 있습니다.  기술 지원팀에 문의하세요.
 
-기술 지원 부서에서 진행 중인 스토리지 복구 절차가 있는지 확인하도록 요청할 수 있습니다. 및 에 대한 정보를 link:../maintain/restoring-volume.html["Grid Manager를 사용하여 개체 데이터를 복원합니다"]link:../maintain/restoring-object-data-to-storage-volume.html["오브젝트 데이터를 스토리지 볼륨에 복원 중입니다"]참조하십시오.
+기술 지원팀에서 스토리지 복구 절차가 진행 중인지 확인해 달라고 요청할 수 있습니다. 다음을 참조하십시오.
+
+*** link:../maintain/restoring-object-data-to-storage-volume-for-appliance.html["어플라이언스의 스토리지 볼륨에 오브젝트 데이터를 복원합니다"]
+*** link:../maintain/restoring-object-data-to-storage-volume-where-system-drive-is-intact.html["시스템 드라이브가 손상되지 않은 스토리지 볼륨에 개체 데이터를 복원합니다"]
+*** link:../maintain/restoring-object-data-to-storage-volume.html["오브젝트 데이터를 스토리지 볼륨으로 복원(시스템 드라이브 장애)"]
+
 
 |===
 

@@ -65,7 +65,7 @@ Cloud Storage Pool의 개체이지만 아직 검색할 수 없는 상태로 전�
 
 필요한 경우, request 요소를 사용하여 `Tier` 복원 작업이 완료되는 데 걸리는 시간을 (`Expedited` `Standard`결정합니다, 또는 `Bulk`). 지정하지 않으면 `Tier` `Standard` 계층이 사용됩니다.
 
-* 중요 *: 개체가 S3 Glacier Deep Archive로 전환되었거나 클라우드 스토리지 풀이 Azure Blob 스토리지를 사용하는 경우 계층을 사용하여 복원할 수 없습니다 `Expedited`. 다음 오류가 `403 Forbidden` 반환됩니다 `InvalidTier` `Retrieval option is not supported by this storage class`.
+*중요*: 개체가 S3 Glacier Deep Archive로 전환되었거나 클라우드 스토리지 풀이 Azure Blob Storage를 사용하는 경우, 해당 `Expedited` 계층을 사용하여 복원할 수 없습니다. 다음 오류가 반환됩니다 `403 Forbidden`, `InvalidTier`: `Retrieval option is not supported by this storage class`.
 
 
 

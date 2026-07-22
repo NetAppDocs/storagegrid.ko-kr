@@ -1,0 +1,125 @@
+---
+permalink: tenant/grid-federation-account-sync.html 
+sidebar: sidebar 
+keywords: account sync, tenant sync, grid federation, cross-grid replication 
+summary: '테넌트가 그리드 페더레이션 연결을 사용하도록 생성되거나 편집된 경우, 해당 테넌트는 하나의 StorageGRID 시스템(원본 테넌트)에서 연결된 다른 모든 StorageGRID 시스템(복제 테넌트)으로 복제됩니다. 테넌트 복제가 완료되면 테넌트 그룹, 사용자 및 S3 액세스 키가 연결된 그리드 전체에 동기화됩니다.' 
+---
+= StorageGRID에서 테넌트 그룹 및 사용자 동기화
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+테넌트가 그리드 페더레이션 연결을 사용하도록 생성되거나 편집된 경우, 해당 테넌트는 하나의 StorageGRID 시스템(원본 테넌트)에서 연결된 다른 모든 StorageGRID 시스템(복제 테넌트)으로 복제됩니다. 테넌트 복제가 완료되면 테넌트 그룹, 사용자 및 S3 액세스 키가 연결된 그리드 전체에 동기화됩니다.
+
+테넌트가 처음 생성된 StorageGRID 시스템이 테넌트의 _소스 그리드_입니다. 테넌트는 하나 이상의 _대상 그리드_로 복제됩니다. 연결된 모든 그리드의 테넌트 계정은 동일한 계정 ID, 이름, 설명, 스토리지 할당량, 할당된 권한 및 루트 사용자 암호를 갖습니다. 자세한 내용은 link:../admin/grid-federation-what-is-account-sync.html["그리드 페더레이션의 계정 동기화에 대해 알아보기"] 및 link:../admin/grid-federation-manage-tenants.html["허용된 테넌트 관리"]을 참조하십시오.
+
+버킷 객체의 link:../admin/grid-federation-what-is-cross-grid-replication.html["교차 그리드 복제"]에는 테넌트 계정 정보 동기화가 필요합니다. 모든 그리드에서 동일한 테넌트 그룹과 사용자를 사용하면 연결된 모든 그리드에서 해당 버킷과 객체에 액세스할 수 있습니다.
+
+
+
+[[tenant-workflow-for-account-sync]]
+== 계정 동기화를 위한 테넌트 워크플로
+
+테넌트 계정에 *그리드 페더레이션 연결 사용* 권한이 있는 경우 워크플로 다이어그램을 검토하여 그룹, 사용자 및 S3 액세스 키를 동기화하기 위해 수행할 단계를 확인하십시오.
+
+image:grid_federation_account_sync_workflow_tm.png["테넌트의 계정 동기화 워크플로입니다. 단계는 아래에 설명되어 있습니다."]
+
+워크플로의 주요 단계는 다음과 같습니다.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"] 테넌트에 로그인합니다
+[role="quick-margin-para"]
+연결된 모든 그리드에서 테넌트 계정에 로그인합니다.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"] 필요한 경우 ID 페더레이션을 구성합니다
+[role="quick-margin-para"]
+테넌트 계정에 페더레이션 그룹 및 사용자를 사용하기 위한 *자체 ID 소스 사용* 권한이 있는 경우, 소스 테넌트 계정과 하나 이상의 대상 테넌트 계정에 동일한 ID 소스(동일한 설정 포함)를 구성해야 합니다. 페더레이션 그룹은 생성 시 복제되고, 페더레이션 사용자는 키 생성 시 복제됩니다. 복제가 이루어지려면 모든 그리드에 동일한 ID 소스가 구성되어 있어야 합니다. 자세한 내용은 link:using-identity-federation.html["ID 페더레이션을 사용합니다"]을 참조하십시오.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["세 가지"] 그룹 및 사용자를 생성합니다
+[role="quick-margin-para"]
+연결된 모든 그리드에서 그룹과 사용자를 생성할 수 있습니다. 새 로컬 그룹을 추가하면 StorageGRID가 연결된 모든 그리드에 자동으로 동기화합니다. 로컬 그룹에 대한 변경 사항(편집, 삭제)도 지속적으로 동기화됩니다. 페더레이션 그룹은 생성 시 한 번 복제됩니다.
+
+[role="quick-margin-list"]
+* 전체 StorageGRID 시스템 또는 테넌트 계정에 대해 ID 페더레이션이 구성된 경우 ID 소스에서 페더레이션 link:creating-groups-for-s3-tenant.html["새 테넌트 그룹을 생성합니다"] 그룹을 가져옵니다.
+
+
+[role="quick-margin-list"]
+* ID 페더레이션을 사용하지 않는 경우link:creating-groups-for-s3-tenant.html["새 로컬 그룹을 생성합니다"] 그런 다음link:manage-users.html["로컬 사용자를 생성합니다"] .
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"] S3 액세스 키를 생성합니다
+[role="quick-margin-para"]
+연결된 모든 그리드의 버킷에 액세스하려면 어떤 그리드에서든 link:creating-your-own-s3-access-keys.html["사용자 고유의 액세스 키를 생성합니다"] 하거나 link:creating-another-users-s3-access-keys.html["다른 사용자의 액세스 키를 생성합니다"] 할 수 있습니다.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["다섯"] S3 액세스 키 동기화
+[role="quick-margin-para"]
+모든 그리드에서 동일한 액세스 키로 버킷에 액세스해야 하는 경우, 그리드 중 하나에서 액세스 키를 생성하세요. 로컬 사용자의 경우 액세스 키는 기본적으로 자동으로 동기화됩니다. 페더레이션 사용자의 경우, 소스 그리드에서 S3 액세스 키를 생성하고 *액세스 키 동기화 활성화*를 선택해야 모든 대상 그리드에 키가 동기화됩니다.
+
+
+
+[[how-are-groups-users-and-s3-access-keys-synced]]
+== 그룹, 사용자 및 S3 액세스 키는 어떻게 동기화됩니까?
+
+이 섹션을 검토하여 연결된 그리드 간에 그룹, 사용자 및 S3 액세스 키가 동기화되는 방식을 이해하십시오.
+
+
+
+[[local-groups-are-continuously-synced]]
+=== 로컬 그룹은 지속적으로 동기화됩니다.
+
+테넌트 계정이 생성되어 대상 그리드로 복제되면 StorageGRID는 연결된 모든 그리드에서 로컬 그룹을 지속적으로 동기화합니다. 생성, 편집 및 삭제 작업을 포함하여 모든 그리드에서 로컬 그룹에 대한 변경 사항은 연결된 다른 모든 그리드로 자동으로 복제됩니다.
+
+원본 그룹과 동기화된 복사본 모두 동일한 액세스 모드, 그룹 권한 및 S3 그룹 정책을 가집니다. 지침은 link:creating-groups-for-s3-tenant.html["S3 테넌트용 그룹을 생성합니다"]을 참조하십시오.
+
+
+
+[[local-users-are-continuously-synced]]
+=== 로컬 사용자는 지속적으로 동기화됩니다
+
+연결된 그리드에서 새 로컬 사용자를 생성하면 StorageGRID가 해당 사용자를 연결된 다른 모든 그리드와 자동으로 동기화합니다. 이후 변경 사항(편집, 삭제, 비밀번호 재설정 포함)도 지속적으로 동기화됩니다. 원본 사용자와 동기화된 사용자는 동일한 전체 이름, 사용자 이름 및 *액세스 거부* 설정을 갖습니다. 각 그리드의 동일한 사용자는 동일한 그룹에 속합니다. 자세한 내용은 link:manage-users.html["사용자 관리"]을 참조하십시오.
+
+
+
+[[federated-groups-are-synced-once-at-creation]]
+=== 연합 그룹은 생성 시 한 번 동기화됩니다.
+
+계정 동기화 사용에 필요한 요건이 link:../admin/grid-federation-what-is-account-sync.html#account-sync-sso["SSO(Single Sign-On)"] 및 link:../admin/grid-federation-what-is-account-sync.html#account-sync-identity-federation["ID 제휴"]에 대해 충족되었다고 가정하면, 테넌트 그리드의 테넌트에 대해 생성(가져오기)한 페더레이션 그룹은 연결된 다른 모든 그리드의 해당 테넌트와 자동으로 동기화됩니다.
+
+두 그룹 모두 동일한 액세스 모드, 그룹 권한 및 S3 그룹 정책을 가집니다.
+
+원본 테넌트에 대해 페더레이션 그룹이 생성되고 다른 그리드와 동기화되면 페더레이션 사용자는 연결된 모든 그리드에서 해당 테넌트에 로그인할 수 있습니다. 페더레이션 그룹에 대한 후속 변경 사항은 그리드 간에 자동으로 동기화되지 않습니다.
+
+
+
+[[s3-access-keys-can-be-automatically-or-manually-synced]]
+=== S3 액세스 키는 자동으로 또는 수동으로 동기화할 수 있습니다.
+
+기본적으로 StorageGRID는 S3 액세스 키를 자동으로 동기화합니다. 보안을 위해 각 테넌트에 대한 S3 액세스 키의 자동 동기화를 비활성화하고 각 그리드의 각 테넌트마다 서로 다른 키를 사용할 수 있습니다.
+
+연결된 그리드에서 액세스 키를 관리하려면 다음 두 가지 방법 중 하나를 사용할 수 있습니다.
+
+* 각 그리드에 동일한 키를 사용할 필요가 없는 경우, 자동 액세스 키 동기화를 비활성화하고 각 그리드에서 link:creating-your-own-s3-access-keys.html["사용자 고유의 액세스 키를 생성합니다"] 또는 link:creating-another-users-s3-access-keys.html["다른 사용자의 액세스 키를 생성합니다"] 할 수 있습니다.
+
+
+
+NOTE: 페더레이션 사용자의 S3 액세스 키를 동기화하면 사용자와 S3 액세스 키 모두 대상 테넌트에 동기화됩니다.
+
+
+NOTE: 로컬 사용자가 소유한 S3 액세스 키는 키가 삭제되는 경우를 포함하여 연결된 그리드 전체에서 지속적으로 동기화됩니다. 페더레이션 사용자가 소유한 S3 액세스 키는 생성 시 한 번만 동기화되며, 이후 변경 사항(삭제 포함)은 복제되지 않습니다. 각 테넌트 연결에 대해 액세스 키 동기화를 활성화 또는 비활성화할 수 있습니다.
+
+
+
+[[groups-and-users-added-to-destination-grid-are-synced]]
+=== 대상 그리드에 추가된 그룹과 사용자가 동기화됩니다.
+
+로컬 그룹 및 사용자 생성 또는 가져오기를 포함하여 연결된 그리드에서 변경된 사항은 연결된 다른 모든 그리드에 자동으로 동기화됩니다.
+
+
+
+[[edited-or-deleted-local-groups-users-and-access-keys-are-synced]]
+=== 수정 또는 삭제된 로컬 그룹, 사용자 및 액세스 키는 동기화됩니다.
+
+로컬 그룹, 로컬 사용자 및 로컬 사용자가 소유한 S3 액세스 키에 대한 변경 사항은 연결된 모든 그리드에서 지속적으로 동기화됩니다. 동기화되는 작업에는 편집, 삭제 및 암호 재설정이 포함됩니다.
+
+연합 그룹 및 연합 사용자가 소유한 S3 액세스 키에 대한 변경 사항은 최초 생성 후에는 동기화되지 않습니다.

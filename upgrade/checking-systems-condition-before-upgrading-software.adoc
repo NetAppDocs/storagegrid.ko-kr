@@ -16,9 +16,9 @@ StorageGRID 시스템을 업그레이드하기 전에 시스템이 업그레이�
 .단계
 . 을 사용하여 그리드 관리자에 link:../admin/web-browser-requirements.html["지원되는 웹 브라우저"]로그인합니다.
 . 활성 경고를 확인하고 해결합니다.
-. 참조하다link:../network/internal-grid-node-communications.html["내부 그리드 노드 통신"] 그리고link:../network/external-communications.html["외부 통신"] 업그레이드하기 전에 StorageGRID 12.0에 필요한 모든 포트가 열려 있는지 확인하세요.
+. link:../network/internal-grid-node-communications.html["내부 그리드 노드 통신"] 및 link:../network/external-communications.html["외부 통신"]를 참조하여 업그레이드하기 전에 StorageGRID 12.1에 필요한 모든 포트가 열려 있는지 확인하십시오.
 +
 
-NOTE: StorageGRID 12.0으로 업그레이드할 때 추가 포트는 필요하지 않습니다.
+NOTE: StorageGRID 12.1로 업그레이드할 때 추가 포트는 필요하지 않습니다.
 
 

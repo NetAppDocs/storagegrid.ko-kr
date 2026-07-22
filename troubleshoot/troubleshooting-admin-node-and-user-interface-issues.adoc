@@ -47,13 +47,9 @@ StorageGRID 관리자 노드에 로그인할 때 오류가 발생하는 경우 �
 
 
 . 노드의 하드웨어가 오프라인인지 확인합니다.
-. StorageGRID 시스템에 대해 SSO(Single Sign-On)가 활성화된 경우 다음 단계를 참조하세요.link:../admin/configure-sso.html["Single Sign-On 구성"] .
+. StorageGRID 시스템에 단일 로그인(SSO)이 활성화된 경우, link:../admin/learn-about-setting-up-sso-oidc.html["OIDC"] 또는 link:../admin/learn-about-setting-up-sso-saml.html["SAML"]을 사용하여 SSO를 설정하는 방법을 참조하십시오.
 +
 문제를 해결하려면 단일 관리 노드에 대해 SSO를 일시적으로 비활성화하고 다시 활성화해야 할 수 있습니다.
-
-+
-
-NOTE: SSO가 활성화된 경우 제한된 포트를 사용하여 로그인할 수 없습니다. 포트 443을 사용해야 합니다.
 
 . 사용 중인 계정이 통합 사용자에 속하는지 확인합니다.
 +
@@ -64,7 +60,7 @@ NOTE: SSO가 활성화된 경우 제한된 포트를 사용하여 로그인할 �
 +
 ... 알림을 검토합니다.
 ... *구성* > *액세스 제어* > *ID 페더레이션*을 선택합니다.
-... LDAP 서버에 대한 연결 설정을 확인하려면 * 연결 테스트 * 를 클릭합니다.
+... LDAP 서버에 대한 연결 설정을 확인하려면 *Test connection* 을 선택합니다.
 ... 테스트에 실패한 경우 구성 오류를 해결합니다.
 
 

@@ -14,7 +14,7 @@ summary: 업그레이드를 시작하기 전에 이전 버전의 StorageGRID가 
 업그레이드를 시작하기 전에 이전 버전의 StorageGRID가 현재 설치되어 있고 사용 가능한 최신 핫픽스가 적용되었는지 확인합니다.
 
 .이 작업에 대해
-StorageGRID 12.0으로 업그레이드하기 전에 그리드에 StorageGRID 11.9.0.8 이상이 설치되어 있어야 합니다.  현재 StorageGRID 의 이전 버전을 사용하고 있다면 그리드의 현재 버전이 최소한 StorageGRID 11.9.0.8이 될 때까지 모든 이전 업그레이드 파일과 최신 핫픽스를 설치해야 합니다(강력히 권장).
+StorageGRID 12.1로 업그레이드하기 전에 그리드에 StorageGRID 12.0 이상 버전이 설치되어 있어야 합니다. 현재 이전 버전의 StorageGRID를 사용 중인 경우, 그리드의 현재 버전이 StorageGRID 12.0.0 이상이 될 때까지 이전 업그레이드 파일과 최신 핫픽스(강력 권장)를 모두 설치해야 합니다.
 
 에 가능한 업그레이드 경로 중 하나가 <<example-upgrade-path,예>>나와 있습니다.
 
@@ -41,7 +41,7 @@ CAUTION: NetApp 다음 버전으로 업그레이드하기 전에 각 StorageGRID
 [[example-upgrade-pathexample-upgrade-to-storagegrid-12-0-from-version-11-8]]
 == [[example-upgrade-path]]예: 버전 11.8에서 StorageGRID 12.0으로 업그레이드
 
-다음 예에서는 StorageGRID 12.0 업그레이드를 준비하기 위해 StorageGRID 버전 11.8에서 버전 11.9로 업그레이드하는 단계를 보여줍니다.
+다음 예는 StorageGRID 12.1 업그레이드를 준비하기 위해 StorageGRID 버전 11.9에서 버전 12.0으로 업그레이드하는 단계를 보여줍니다.
 
 시스템을 업그레이드할 수 있도록 다음 순서로 소프트웨어를 다운로드하여 설치합니다.
 

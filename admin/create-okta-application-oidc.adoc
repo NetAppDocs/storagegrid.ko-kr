@@ -1,0 +1,149 @@
+---
+permalink: admin/create-okta-application-oidc.html 
+sidebar: sidebar 
+keywords: okta, application, single sign on, sso 
+summary: 'StorageGRID 시스템의 모든 관리 노드에 대해 OpenID Connect(OIDC)용 Okta 애플리케이션을 생성합니다.' 
+---
+= StorageGRID에서 OIDC용 Okta 애플리케이션 생성
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 시스템의 모든 관리 노드에 대해 OpenID Connect(OIDC)용 Okta 애플리케이션을 생성합니다.
+
+.시작하기 전에
+* Okta 애플리케이션 개발 경험이 있거나 Okta 문서에 접근할 수 있어야 합니다.
+* Okta 관리자 권한이 있습니다.
+
+
+.이 작업에 대해
+Okta 애플리케이션에는 모든 관리자 노드에 대한 로그인 및 로그아웃 리디렉션 URI가 포함되어야 합니다. 리디렉션 URI를 통해 사용자는 모든 관리자 노드에 안전하게 로그인하고 로그아웃할 수 있습니다. 모든 관리자 노드에 대해 하나의 Okta 애플리케이션을 생성하거나(권장) 각 관리자 노드마다 별도의 애플리케이션을 생성할 수 있습니다.
+
+별도로 지정하지 않는 한 기본 설정을 사용하십시오. 경우에 따라 조직에서 요구하는 설정을 사용할 수 있습니다.
+
+
+
+[[step-1-create-an-okta-application]]
+== 1단계: Okta 애플리케이션 생성
+
+Okta UI를 사용하여 Okta 애플리케이션을 생성합니다.
+
+.단계
+. Okta에서 *애플리케이션* > *애플리케이션*으로 이동합니다.
+. *앱 통합 생성*을 선택한 다음 아래 정보를 입력하십시오.
++
+** 로그인 방식: *OIDC - OpenID Connect*
+** 애플리케이션 유형: *Web Application*
+
+
+. 다음 * 을 선택합니다.
+. 앱 통합 필드에 애플리케이션 이름을 입력합니다.
+. 핵심 권한 부여에 대해 인증 코드가 선택되어 있는지(기본값) 확인하십시오.
+. 각 관리 노드에 대한 로그인 및 로그아웃 리디렉션 URI를 추가합니다.
++
+** 로그인 리디렉션 URI: `\https://<Admin_IP_address_or_FQDN>/api/v4/oidc-callback`
+** 로그아웃 리디렉션 URI: `\https://<Admin_IP_address_or_FQDN>/api/v4/oidc-logged-out`
++
+
+NOTE: 관리 인터페이스에 대해 하나 이상의 로드 밸런서 엔드포인트가 구성된 경우 각 포트에 대한 리디렉션 URI를 추가하십시오. 예를 들면 다음과 같습니다. `\https://<Admin_IP_address_or_FQDN>:<port>/api/v4/oidc-callback` 및 `\https://<Admin_IP_address_or_FQDN>:<port>/api/v4/oidc-logged-out`
+
+
+
+. *저장*을 선택합니다. 클라이언트 ID와 클라이언트 비밀 값을 저장하여 나중에 사용합니다.
+
+
+
+
+[[step-2-add-a-federate-group]]
+== 2단계: 페더레이트 그룹 추가
+
+Active Directory Federation Service(AD FS) 서버에서 StorageGRID에 대한 그룹을 생성하거나 기존 그룹을 사용합니다.
+
+.단계
+. GRID Manager에서 *구성* > *관리자 그룹* > *그룹 생성* > *그룹 연동*을 선택합니다.
+. AD FS 서버 그룹 이름을 입력하십시오.
+. 접근 모드는 *읽기-쓰기*로, 권한은 *루트 액세스*로 선택하십시오.
+. Create group * 을 선택합니다.
+
+
+
+
+[[step-3-import-ad-fs-server-groups-and-users]]
+== 3단계: AD FS 서버 그룹 및 사용자 가져오기
+
+Okta Active Directory 클라이언트를 AD FS 서버에 설치합니다. 그런 다음 AD FS 서버의 그룹과 사용자를 가져옵니다.
+
+.단계
+. Okta에서 *디렉터리* > *디렉터리 통합* > *디렉터리 추가* > *Active Directory 추가*로 이동합니다.
+. *Active Directory 설정* > *에이전트 다운로드*를 선택합니다.
+. 설치 과정을 즉시 진행하십시오.
++
+
+NOTE: 지체할 경우 설치 과정이 중단되어 처음부터 다시 시작해야 할 수도 있습니다.
+
++
+.. Active Directory 도메인을 선택하십시오.
+.. 기존 사용자를 연결하는 대신 OktaService 계정을 생성하세요.
+.. 사용자를 포함하는 조직 단위와 그룹을 포함하는 조직 단위를 선택하십시오.
+.. Okta 사용자 이름으로 AD UPN을 사용하는 사용자 주체 이름(UPN)을 선택하십시오. 예: user@domain.com
+
+
+. *Okta AD Agent Management Utility* 애플리케이션을 검색합니다. 그런 다음 애플리케이션을 실행하고 상태 메시지 `The agent is running`가 표시되는지 확인합니다.
++
+
+NOTE: Okta를 사용하여 AD FS 서버 동기화 및 가져오기를 실행하려면 Okta AD 클라이언트가 항상 실행 중이어야 합니다.
+
+. Okta에서 *Directory* > *Directory Integrations*으로 이동합니다.
+. 생성한 디렉터리 통합을 선택합니다.
+. *가져오기* > *지금 가져오기*를 선택합니다.
+. 가져올 사용자를 선택한 다음 *할당 확인*을 선택합니다.
+. *디렉토리* > *사용자*로 이동하여 사용자가 성공적으로 가져왔는지 확인하십시오.
++
+사용자 상태가 활성이 아니면 *활성화*를 선택하고 사용자 상태가 활성으로 바뀔 때까지 페이지를 새로 고침하십시오.
+
+. *디렉토리* > *그룹*으로 이동하여 가져온 사용자의 그룹이 자동으로 가져와졌는지 확인하십시오.
+. 그룹을 선택하고 가져온 사용자가 해당 그룹에 속해 있는지 확인하십시오.
+
+
+
+
+[[step-4-set-up-a-claim]]
+== 4단계: 청구 설정
+
+액세스 토큰에 AD FS 서버 그룹을 포함하도록 클레임을 설정합니다. 그런 다음, 가져온 사용자와 Okta 애플리케이션에 대해 가져온 그룹이 클레임에 포함되었는지 확인합니다.
+
+.단계
+. Okta에서 *디렉토리* > *그룹*으로 이동합니다.
+. 가져온 사용자에 대해 가져온 그룹을 선택합니다.
+. *애플리케이션* > *애플리케이션 할당* > *할당*을 선택합니다.
+. *보안* > *API*로 이동합니다.
+. 기본 인증 서버를 선택합니다.
+. *클레임* > *클레임 추가*를 선택합니다. 그런 다음 다음 자격 증명을 사용하여 클레임을 생성합니다.
++
+** 이름: *groups*
+** 토큰 유형에 포함되는 항목: *ID 토큰 - 항상*
+** 값 유형: *Expression*
+** 값: *Groups.startsWith("active_directory","",100)*
+** 포함 범위: *모든 범위*
+
+
+. *보안* > *API*로 이동합니다.
+. 기본 인증 서버를 선택합니다.
+. *Token Preview* 탭을 선택하고 요청 속성에 다음 자격 증명을 입력하십시오.
++
+** OAuth/OIDC 클라이언트: *<application name>*
+** 권한 부여 유형: *Authorization Code*
+** 사용자: *가져온 사용자(이메일 주소)*
+** 범위: *email, profile, openid*
+
+
+. Execute * 를 선택합니다.
++
+가져온 그룹은 페이로드의 미리 보기 id_token 탭에 나타납니다.
+
+
+
+.다음 단계
+Okta 애플리케이션을 생성한 후, link:configure-sso-oidc.html["OIDC를 사용하여 SSO 구성"].

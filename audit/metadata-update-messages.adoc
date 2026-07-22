@@ -47,7 +47,9 @@ link:supd-s3-metadata-updated.html["SUPD:S3 메타데이터가 업데이트되�
 [[supd-s3-metadata-update]]
 === SUPD:S3 메타데이터 업데이트
 
-S3 클라이언트는 지정된 메타데이터를 업데이트하기 위해 요청(SUPD)을 수행합니다.(`x-amz-meta-\*` ) S3 객체(S3KY)에 대한 것입니다.  이 예에서 요청 헤더는 HTRH 필드에 포함됩니다. 그 이유는 감사 프로토콜 헤더로 구성되었기 때문입니다(구성 > 모니터링 > 감사 및 시스템 로그 서버). 보다 link:../monitor/configure-log-management.html["로그 관리 및 외부 syslog 서버 구성"] .
+S3 클라이언트는 S3 객체(S3KY)에 대해 지정된 메타데이터((`x-amz-meta-*`)를 업데이트하기 위한 요청(SUPD)을 수행합니다.
+
+이 예에서 요청 헤더는 HTRH 필드에 포함되어 있는데, 이는 해당 필드가 감사 프로토콜 헤더로 구성되었기 때문입니다(*구성* > *모니터링* > *감사 및 syslog 서버*). 자세한 내용은 link:../monitor/configure-log-management.html["로그 관리 및 외부 syslog 서버 구성"]을 참조하십시오.
 
 [listing]
 ----

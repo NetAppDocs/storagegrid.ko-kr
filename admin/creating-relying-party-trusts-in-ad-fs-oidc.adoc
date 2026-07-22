@@ -1,0 +1,96 @@
+---
+permalink: admin/creating-relying-party-trusts-in-ad-fs-oidc.html 
+sidebar: sidebar 
+keywords: application group, active directory, ad fs, single sign on, sso 
+summary: '시스템의 각 관리 노드에 대한 애플리케이션 그룹을 생성하려면 Active Directory Federation Services(AD FS)를 사용해야 합니다.' 
+---
+= StorageGRID에서 OIDC를 위한 AD FS에 애플리케이션 그룹 생성
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+시스템에서 OpenID Connect(OIDC)용 각 관리 노드에 대한 애플리케이션 그룹을 생성하려면 Active Directory Federation Services(AD FS)를 사용해야 합니다.
+
+.시작하기 전에
+* 시스템에 있는 각 관리 노드에 대한 정규화된 도메인 이름(또는 IP 주소)과 신뢰 당사자 식별자를 가지고 있습니다.
++
+
+NOTE: StorageGRID 시스템의 각 관리 노드에는 애플리케이션 그룹이 있어야 합니다. 이를 통해 사용자는 모든 관리 노드에 안전하게 로그인하고 로그아웃할 수 있습니다. 모든 관리 노드에 대해 단일 애플리케이션 그룹을 생성하거나(권장) 각 관리 노드마다 별도의 애플리케이션 그룹을 생성할 수 있습니다.
+
+* AD FS에서 애플리케이션 그룹을 생성해 본 경험이 있거나 Microsoft AD FS 설명서에 액세스할 수 있어야 합니다.
+* AD FS 관리 스냅인을 사용하고 있으며 사용자는 Administrators 그룹에 속해 있습니다.
+
+
+.이 작업에 대해
+이 지침은 Windows Server 2022 AD FS에 적용됩니다. 다른 버전의 AD FS를 사용하는 경우 절차에 약간의 차이가 있을 수 있습니다. 궁금한 점이 있으면 Microsoft AD FS 설명서를 참조하십시오.
+
+
+
+[[step-1-create-an-application-group]]
+== 1단계: 애플리케이션 그룹 생성
+
+Windows PowerShell을 사용하여 응용 프로그램 그룹을 빠르게 만들 수 있습니다.
+
+.단계
+. Windows Server Manager에서 * Tools * > * AD FS Management * 를 선택합니다.
+. *애플리케이션 그룹* > *애플리케이션 그룹 추가*를 선택합니다.
+. *이름*에는 신뢰 당사자 식별자를 입력하십시오.
+. 템플릿에서 *클라이언트-서버 애플리케이션* > *웹 API에 액세스하는 서버 애플리케이션*을 선택합니다.
+. 다음 * 을 선택합니다.
+. 클라이언트 식별자 값을 기록하십시오.
+. *리디렉션 URI* 항목에 관리 노드의 FQDN(또는 IP 주소) `callback`과 `logged-out` URI를 입력하십시오.
++
+** `https://<FQDN>/api/v4/oidc-callback` 또는 `https://<IP_address>/api/v4/oidc-callback`
+** `https://<FQDN>/api/v4/oidc-logged-out` 또는 `https://<IP_address>/api/v4/oidc-logged-out`
+
+
++
+모든 관리 노드에 하나의 애플리케이션 그룹을 사용하는 경우 각 관리 노드의 URI를 입력하십시오. 각 관리 노드에 서로 다른 애플리케이션 그룹을 사용하는 경우 해당 관리 노드의 URI만 입력하십시오.
+
+. 추가 * 를 선택합니다.
+. *공유 비밀 생성*을 선택하고 *비밀* 값을 기록한 다음 *다음*을 선택합니다.
+. *식별자*에 클라이언트 식별자를 입력하십시오.
+. *추가*를 선택한 다음 *다음*을 선택합니다.
+. *모든 사람 허용*을 선택합니다.
+. *클라이언트 애플리케이션(호출자)*에서 서버 애플리케이션이 선택되어 있는지 확인하십시오.
+. *허용 범위*에서 다음 옵션만 선택되어 있는지 확인하십시오.
++
+** allatclaims
+** 이메일
+** openid
+** 프로필
+
+
+. *다음* > *다음*을 선택합니다.
+. *Close*를 선택합니다.
+
+
+
+
+[[step-2-configure-issuance-transform-rules]]
+== 2단계: 발급 변환 규칙 구성
+
+각 애플리케이션 그룹에 대한 발급 변환 규칙을 구성합니다.
+
+.단계
+. *AD FS 관리* 페이지에서 애플리케이션 그룹을 마우스 오른쪽 버튼으로 클릭한 다음 *속성*을 선택합니다.
+. 이전에 생성한 웹 API를 선택한 다음 *편집*을 선택합니다.
+. *발급 변환 규칙* > *규칙 추가...*를 선택합니다.
+. *클레임 규칙 템플릿:*에서 *Send LDAP Attribute as Claims*를 선택합니다.
+. 다음 * 을 선택합니다.
+. 클레임 규칙 이름을 입력하세요.
+. 속성 저장소로 *Active Directory*를 선택하십시오.
+. 발신 클레임 유형에 LDAP 속성 매핑을 추가합니다.
++
+** `E-Mail Addresses - E-Mail Address`
+** `Token-Groups - Unqualified Names - Group`
+
+
+. 마침 * 을 선택합니다.
+. *적용* > *확인* > *확인*을 선택합니다.
+
+
+.다음 단계
+애플리케이션 그룹을 생성한 후, link:configure-sso-oidc.html["OIDC를 사용하여 SSO 구성"].

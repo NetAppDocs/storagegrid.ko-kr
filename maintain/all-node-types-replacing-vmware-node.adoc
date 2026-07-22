@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: replace VMware node 
 summary: VMware에서 호스팅되어 장애가 발생한 StorageGRID 노드를 복구하면 장애가 발생한 노드를 제거하고 복구 노드를 배포합니다. 
 ---
-= StorageGRID에서 VMware 노드 교체
+= StorageGRID에서 VMware 노드를 복구 노드로 교체
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -49,16 +49,9 @@ NOTE: 새 노드를 구축한 후 스토리지 요구 사항에 따라 새 가�
 
 
  a| 
-기본 관리자 노드
+관리자 노드
  a| 
-link:configuring-replacement-primary-admin-node.html["대체 운영 관리자 노드를 구성합니다"]
-
-
-
- a| 
-운영 관리자 노드가 아닌 노드
- a| 
-link:selecting-start-recovery-to-configure-non-primary-admin-node.html["복구 시작 을 선택하여 비 기본 관리 노드를 구성합니다"]
+link:recovering-from-admin-node-failures.html["StorageGRID의 운영 또는 비운영 관리 노드 복구"]
 
 
 

@@ -43,7 +43,7 @@ summary: 문제를 해결할 때 기술 지원 부서의 도움을 받을 수 �
 +
 image:support_diagnostics_page.png["지원 진단 페이지"]
 
-. 특정 진단에 대한 자세한 내용을 보려면 행의 아무 곳이나 클릭합니다.
+. 특정 진단에 대한 자세한 내용을 알아보려면 해당 행을 선택하십시오.
 +
 진단 및 현재 결과에 대한 세부 정보가 나타납니다. 다음 세부 정보가 나열됩니다.
 
@@ -75,7 +75,7 @@ NOTE: *지원* > *도구* > *측정항목* 페이지의 Grafana 섹션에서 미
 +
 image:grafana_dashboard_nodes.png["Grafana 대시보드 노드"]
 
-. * 선택 사항 *: Prometheus 표현식의 차트를 보려면 * Prometheus * 에서 보기 를 클릭합니다.
+. *선택 사항*: 시간에 따른 Prometheus 표현식 차트를 보려면 *Prometheus에서 보기*를 선택하십시오.
 +
 진단에서 사용되는 표현식의 Prometheus 그래프가 나타납니다.
 

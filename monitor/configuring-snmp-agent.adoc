@@ -444,3 +444,6 @@ USM 사용자가 생성되어 테이블에 추가됩니다.
 새 SNMP 에이전트 구성이 활성화됩니다.
 
 
+
+.관련 정보
+link:../network/external-communications.html["외부 통신에 사용되는 포트"]

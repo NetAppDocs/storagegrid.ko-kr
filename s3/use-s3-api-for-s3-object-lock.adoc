@@ -14,6 +14,9 @@ summary: StorageGRID 시스템에서 글로벌 S3 오브젝트 잠금 설정이 
 StorageGRID 시스템에서 글로벌 S3 오브젝트 잠금 설정이 활성화된 경우 S3 오브젝트 잠금이 활성화된 버킷을 생성할 수 있습니다. 각 오브젝트 버전에 대해 각 버킷의 기본 보존 또는 보존 설정을 지정할 수 있습니다.
 
 
+NOTE: StorageGRID는  `x-amz-sdk-checksum-algorithm` 요청 헤더를 지원하지 않습니다.
+
+
 
 [[how-to-enable-s3-object-lock-for-a-bucket]]
 == 버킷에 대해 S3 오브젝트 잠금을 활성화하는 방법
@@ -22,10 +25,11 @@ StorageGRID 시스템에 대해 글로벌 S3 오브젝트 잠금 설정이 활�
 
 S3 오브젝트 잠금은 버킷을 생성할 때만 활성화할 수 있는 영구 설정입니다. 버킷을 생성한 후에는 S3 오브젝트 잠금을 추가하거나 비활성화할 수 없습니다.
 
-버킷에 대해 S3 오브젝트 잠금을 설정하려면 다음 방법 중 하나를 사용하십시오.
+버킷에 S3 객체 잠금을 활성화하려면 다음 방법 중 하나를 사용하십시오.
 
 * 테넌트 관리자를 사용하여 버킷을 생성합니다. 을 link:../tenant/creating-s3-bucket.html["S3 버킷을 생성합니다"]참조하십시오.
 * 요청 헤더가 있는 CreateBucket 요청을 사용하여 버킷을 `x-amz-bucket-object-lock-enabled` 만듭니다. 을 link:operations-on-buckets.html["버킷 작업"]참조하십시오.
+* 테넌트 관리자에서 버킷 설정을 관리합니다. link:../tenant/update-default-retention-settings.html["S3 오브젝트 잠금 기본 보존 업데이트"]을 참조하십시오.
 
 
 S3 오브젝트 잠금에서는 버킷 버전 관리가 필요하며, 이 버전은 버킷을 생성할 때 자동으로 활성화됩니다. 버킷의 버전 관리는 일시 중단할 수 없습니다. 을 link:object-versioning.html["오브젝트 버전 관리"]참조하십시오.
@@ -83,19 +87,27 @@ S3 오브젝트 잠금에서는 버킷 버전 관리가 필요하며, 이 버전
 
 PutObjectLockConfiguration 요청을 사용하면 S3 오브젝트 잠금이 설정된 버킷의 기본 보존 모드 및 기본 보존 기간을 설정하고 수정할 수 있습니다. 이전에 구성한 기본 보존 설정을 제거할 수도 있습니다.
 
-새 오브젝트 버전이 버킷에 수집되면 및 `x-amz-object-lock-retain-until-date` 이 지정되지 않은 경우 기본 보존 모드가 `x-amz-object-lock-mode` 적용됩니다. 이 지정되지 않은 경우 기본 보존 기간은 유지 종료 날짜를 계산하는 데 `x-amz-object-lock-retain-until-date` 사용됩니다.
+버킷에 새 객체 버전이 수집될 때,  `x-amz-object-lock-mode` 및  `x-amz-object-lock-retain-until-date`가 지정되지 않으면 기본 보존 모드가 적용됩니다.  `x-amz-object-lock-retain-until-date`가 지정되지 않은 경우 기본 보존 기간이 보존 만료일을 계산하는 데 사용됩니다.
 
-오브젝트 버전을 수집한 후 기본 보존 기간을 수정하면 오브젝트 버전의 보존 기한은 그대로 유지되고 새 기본 보존 기간을 사용하여 다시 계산되지 않습니다.
+객체 버전이 수집된 후 기본 보존 기간이 수정되더라도 객체 버전의 보존 만료일은 그대로 유지되며 새 기본 보존 기간을 사용하여 재계산되지 않습니다.
 
 이 작업을 완료하려면 권한이 있거나 계정 루트여야 `s3:PutBucketObjectLockConfiguration` 합니다.
 
- `Content-MD5`PUT 요청에 요청 헤더를 지정해야 합니다.
+PutObjectLockConfiguration 요청에는 다음 요청 헤더 중 하나를 지정해야 합니다.
+
+[listing]
+----
+Content-MD5
+x-amz-checksum-*
+----
+
+NOTE: StorageGRID는 이 작업에 대해 x-amz-checksum-* 헤더의 내용을 검증하지 않습니다.
 
 
 
 ==== 요청 예
 
-이 예에서는 버킷에 대해 S3 Object Lock을 설정하고 기본 보존 모드를 규정 준수 로 설정하고 기본 보존 기간을 6년으로 설정합니다.
+이 예제는 (그리드 관리자가 권한을 부여한 경우) 버킷에 대한 S3 Object Lock을 활성화하고 기본 보존 모드를 COMPLIANCE로, 기본 보존 기간을 6년으로 설정합니다.
 
 [listing, subs="specialcharacters,quotes"]
 ----
@@ -137,7 +149,7 @@ Authorization: _authorization-string_
 
 GetObjectLockConfiguration 요청을 사용하면 버킷에 대해 S3 오브젝트 잠금이 설정되어 있는지 확인하고, 사용하도록 설정되어 있는 경우 버킷에 대해 구성된 기본 보존 모드 및 보존 기간이 있는지 확인할 수 있습니다.
 
-새 오브젝트 버전이 버킷에 수집되면 이 지정되지 않은 경우 기본 보존 모드가 `x-amz-object-lock-mode` 적용됩니다. 이 지정되지 않은 경우 기본 보존 기간은 유지 종료 날짜를 계산하는 데 `x-amz-object-lock-retain-until-date` 사용됩니다.
+새로운 객체 버전이 버킷에 추가될 때,  `x-amz-object-lock-mode`이 지정되지 않으면 기본 보존 모드가 적용됩니다.  `x-amz-object-lock-retain-until-date`이 지정되지 않은 경우 기본 보존 기간이 보존 만료일을 계산하는 데 사용됩니다.
 
 이 작업을 완료하려면 권한이 있거나 계정 루트여야 `s3:GetBucketObjectLockConfiguration` 합니다.
 
@@ -226,8 +238,17 @@ NOTE: 을 지정한 `x-amz-object-lock-mode` 경우에는 도 지정해야 `x-am
 
 이러한 요청 헤더를 사용하는 경우 다음과 같은 제한 사항에 유의하십시오.
 
-*  `Content-MD5`요청 헤더가 PutObject 요청에 있는 경우 요청 `x-amz-object-lock-*` 헤더가 필요합니다. `Content-MD5` CopyObject 또는 CreateMultipartUpload에는 필요하지 않습니다.
-* 버킷에 S3 오브젝트 잠금이 설정되어 있지 않고 요청 헤더가 있는 경우 `x-amz-object-lock-*` 400 Bad Request(InvalidRequest) 오류가 반환됩니다.
+* PutObject 요청에 x-amz-object-lock-* 요청 헤더가 있는 경우 다음 요청 헤더 중 하나를 반드시 포함해야 합니다.
++
+[listing]
+----
+Content-MD5
+x-amz-checksum-*
+----
++
+이러한 헤더는 CopyObject 또는 CreateMultipartUpload에는 필요하지 않습니다.
+
+* 버킷에 S3 객체 잠금이 활성화되어 있지 않고 x-amz-object-lock-* 요청 헤더가 있는 경우 400 잘못된 요청(InvalidRequest) 오류가 반환됩니다.
 * PutObject 요청에서는 AWS 동작을 일치시키기 위해 의 사용을 `x-amz-storage-class: REDUCED_REDUNDANCY` 지원합니다. 하지만 오브젝트가 S3 오브젝트 잠금이 설정된 버킷으로 수집되면 StorageGRID는 항상 이중 커밋 수집을 수행합니다.
 * 이후의 Get 또는 HeadObject 버전 응답에는 헤더 `x-amz-object-lock-mode`, `x-amz-object-lock-retain-until-date` 및 `x-amz-object-lock-legal-hold`, 구성된 경우 요청 보낸 사람에게 올바른 권한이 있는지 여부가 `s3:Get*` 포함됩니다.
 
@@ -254,6 +275,16 @@ NOTE: 을 지정한 `x-amz-object-lock-mode` 경우에는 도 지정해야 `x-am
 
 
 
+요청에 다음 요청 헤더 중 하나를 지정해야 합니다.
+
+[listing]
+----
+Content-MD5
+x-amz-checksum-*
+----
+
+NOTE: StorageGRID는 이러한 작업에 대해 x-amz-checksum-* 헤더의 내용을 검증하지 않습니다.
+
 
 
 [[how-to-use-governance-mode]]
@@ -264,6 +295,9 @@ NOTE: 을 지정한 `x-amz-object-lock-mode` 경우에는 도 지정해야 `x-am
 * DeleteObject 또는 DeleteObjects 작업을 수행하여 보존 기간이 경과하기 전에 개체 버전을 삭제합니다.
 +
 법적 증거 자료 보관 중인 객체는 삭제할 수 없습니다. 법적 증거 자료 보관 기능을 해제해야 합니다.
+
++
+The `x-amz-bypass-governance-retention` 헤더는 S3 객체 잠금이 없는 객체에는 아무런 영향을 미치지 않습니다.
 
 * 개체의 보존 기간이 경과하기 전에 개체 버전의 모드를 거버넌스에서 규정 준수로 변경하는 PutObjectRetention 작업을 수행합니다.
 +

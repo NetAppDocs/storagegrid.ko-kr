@@ -32,4 +32,4 @@ DNS 항목을 추가하여 StorageGRID 서버 이름(정규화된 도메인 이�
 [[dns-entries-for-virtual-hosted-style-requests]]
 == 가상 호스팅 스타일 요청에 대한 DNS 항목
 
-을  정의하고 가상 호스팅 스타일 요청을 사용할 경우 link:../admin/configuring-s3-api-endpoint-domain-names.html["S3 끝점 도메인 이름"]모든 와일드카드 이름을 포함하여 필요한 모든 S3 끝점 도메인 이름에 DNS 항목을 추가합니다.
+link:../admin/configuring-s3-api-endpoint-domain-names.html["S3 끝점 도메인 이름"]를 정의하고 가상 호스팅 스타일 요청을 사용할 경우, 와일드카드 이름을 포함하여 필요한 모든 S3 엔드포인트 도메인 이름에 대한 DNS 항목을 추가하십시오.

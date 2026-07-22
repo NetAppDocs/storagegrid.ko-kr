@@ -31,7 +31,7 @@ StorageGRID 플랫폼 서비스 또는 클라우드 스토리지 풀을 사용�
 [[networking-for-cloud-storage-pools]]
 == 클라우드 스토리지 풀을 위한 네트워킹
 
-또한 클라우드 스토리지 풀에서는 Amazon S3 Glacier 또는 Microsoft Azure Blob 스토리지와 같이 사용되는 외부 서비스에서 제공하는 엔드포인트로 스토리지 노드에서 액세스할 수 있어야 합니다. 자세한 내용은 을 link:../ilm/what-cloud-storage-pool-is.html["클라우드 스토리지 풀이란 무엇입니까"]참조하십시오.
+클라우드 스토리지 풀을 사용하려면 스토리지 노드에서 Amazon S3 Glacier 또는 Microsoft Azure Blob Storage와 같은 외부 서비스에서 제공하는 엔드포인트에 액세스할 수 있어야 합니다. 자세한 내용은 link:../ilm/what-cloud-storage-pool-is.html["클라우드 스토리지 풀이란 무엇입니까"]을 참조하십시오.
 
 
 

@@ -44,10 +44,14 @@ DeleteObject 요청을 처리할 때 StorageGRID는 저장된 모든 위치에�
 +
 --
 * MFA(다중 요소 인증) 및 응답 헤더는 `x-amz-mfa` 지원되지 않습니다.
-*  `If-None` 및 `If-None-Match` 헤더는 허용되지만 기능하지 않습니다.
+*  `If-Match` 및  `If-None-Match` 헤더는 StorageGRID 구성에 따라 다르게 동작합니다. 이러한 헤더를 제공하면 오류 메시지(501 Not Implemented)가 반환될 수 있습니다.  `If-Match` 또는  `If-None-Match` 헤더가 허용되지만 제대로 작동하지 않는 경우, 더 엄격한 501 Not Implemented 오류 동작을 활성화하는 방법에 대한 안내와 함께 알림이 표시될 수 있습니다.
 
 
 --
+
+
+The `x-amz-bypass-governance-retention` 헤더는 S3 객체 잠금이 없는 객체에는 아무런 영향을 미치지 않습니다.
+
 버전 관리:: 특정 버전을 제거하려면 요청자가 버킷 소유자여야 하고 하위 리소스를 사용해야 `versionId` 합니다. 이 하위 리소스를 사용하면 버전이 영구적으로 삭제됩니다. 가 삭제 마커에 해당하는 경우 `versionId` 응답 헤더는 `x-amz-delete-marker` 로 설정된 상태로 `true`반환됩니다.
 +
 --
@@ -73,6 +77,8 @@ DeleteObjects 를 클릭합니다
 MFA(다중 요소 인증) 및 응답 헤더는 `x-amz-mfa` 지원되지 않습니다.
 
 동일한 요청 메시지에서 여러 객체를 삭제할 수 있습니다.
+
+The `x-amz-bypass-governance-retention` 헤더는 S3 객체 잠금이 없는 객체에는 아무런 영향을 미치지 않습니다.
 
 거버넌스 모드에서 개체 버전을 삭제하는 방법은 을 link:../s3/use-s3-api-for-s3-object-lock.html["S3 REST API를 사용하여 S3 오브젝트 잠금을 구성합니다"]참조하십시오.
 

@@ -106,10 +106,7 @@ image:nodes_page_storage_used_object_data.png["노드 페이지 스토리지 사
 . 그래프 아래에 있는 Volumes and Object Stores(볼륨 및 오브젝트 저장소) 표에서 사용 가능한 값을 검토합니다.
 +
 
-NOTE: 이러한 값의 그래프를 보려면 사용 가능한 열에 있는 차트 아이콘 image:icon_chart_new_for_11_5.png["차트 아이콘"]을 클릭하십시오.
-
-+
-image:nodes_page_storage_tables.png["개체는 테이블을 저장합니다"]
+NOTE: 이러한 값의 그래프를 보려면 사용 가능한 열에서 차트 아이콘을 선택하십시오.
 
 . 시간에 따른 값을 모니터링하여 사용 가능한 스토리지 공간이 사용되는 속도를 예측합니다.
 . 정상적인 시스템 운영을 유지하려면 사용 가능한 공간이 소비되기 전에 스토리지 노드를 추가하고, 스토리지 볼륨을 추가하거나, 오브젝트 데이터를 아카이빙합니다.
@@ -206,4 +203,4 @@ CAUTION: 사용된 값(%) * 값이 특정 임계값에 도달하면 * Low metada
 . 이 값을 사용하여 데이터 및 메타데이터 스토리지에 새 스토리지 노드를 추가해야 하는 시기를 예측할 수 있습니다.
 
 
-image:forecast-metadata-usage.png["사이트별 메타데이터 사용량 예측"]
+image:forecast_metadata_usage.png["사이트별 메타데이터 사용량 예측"]

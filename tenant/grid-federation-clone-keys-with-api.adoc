@@ -40,7 +40,7 @@ NOTE: 통합 사용자의 S3 액세스 키를 클론하면 사용자 및 S3 액�
 `POST /org/users/current-user/replicate-s3-access-key`
 
 +
-image:grid-federation-post-current-user-replicate.png["고유한 액세스 키를 복제하기 위한 사후 끝점"]
+image:grid_federation_post_current_user_replicate.png["고유한 액세스 키를 복제하기 위한 사후 끝점"]
 
 . 체험하기 * 를 선택합니다.
 . body * 텍스트 상자에서 * AccessKey * 및 * secretAccessKey * 의 예제 항목을 다운로드한 *.csv * 파일의 값으로 바꿉니다.
@@ -48,7 +48,7 @@ image:grid-federation-post-current-user-replicate.png["고유한 액세스 키�
 각 문자열 주위에 큰따옴표를 붙여야 합니다.
 
 +
-image:grid-federation-clone-access-key.png["테넌트 관리자 API 클론 액세스 키에 값을 입력합니다"]
+image:grid_federation_clone_access_key.png["테넌트 관리자 API 클론 액세스 키에 값을 입력합니다"]
 
 . 키가 만료되면 * Expires * 에 대한 예제 항목을 ISO 8601 데이터-시간 형식(예:)의 문자열로 `2024-02-28T22:46:33-08:00` 대체합니다. 키가 만료되지 않으면 * expires * 항목의 값으로 * null * 을 입력하거나 * expires * 행 및 앞의 쉼표를 제거합니다.
 . Execute * 를 선택합니다.
@@ -82,7 +82,7 @@ image:grid-federation-clone-access-key.png["테넌트 관리자 API 클론 액�
 `POST /org/users/{userId}/replicate-s3-access-key`
 
 +
-image:grid-federation-post-other-user.png["다른 사용자의 액세스 키를 복제하기 위한 게시 끝점"]
+image:grid_federation_post_other_user.png["다른 사용자의 액세스 키를 복제하기 위한 게시 끝점"]
 
 . 체험하기 * 를 선택합니다.
 . userId * 텍스트 상자에 복사한 사용자 ID를 붙여 넣습니다.

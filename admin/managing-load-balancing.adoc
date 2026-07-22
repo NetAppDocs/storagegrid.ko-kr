@@ -176,7 +176,7 @@ Subject DN: /C=Country/ST=State/O=Company,Inc./CN=s3.storagegrid.example.com
 ----
 필요에 따라 인증서는 와일드카드를 사용하여 로드 밸런서 서비스를 실행하는 모든 관리 노드 및 게이트웨이 노드의 정규화된 도메인 이름을 나타낼 수 있습니다. 예를 들어, 에서는 `*.storagegrid._example_.com` * 와일드카드를 사용하여 `adm1.storagegrid._example_.com` 및 `gn1.storagegrid._example_.com`를 나타냅니다.
 
-S3 가상 호스팅 스타일 요청을 사용하려는 경우 인증서에는 와일드카드 이름을 포함하여 구성한 각 항목에 대해 * Alternative Name * 항목도 포함되어야 link:../admin/configuring-s3-api-endpoint-domain-names.html["S3 끝점 도메인 이름입니다"]합니다. 예를 들면 다음과 같습니다.
+S3 가상 호스팅 스타일 요청을 사용할 계획이라면, 인증서에는 구성한 각 link:../admin/configuring-s3-api-endpoint-domain-names.html["S3 끝점 도메인 이름입니다"]에 대한 *대체 이름* 항목(와일드카드 이름 포함)도 포함되어야 합니다. 예를 들면 다음과 같습니다.
 
 [listing]
 ----

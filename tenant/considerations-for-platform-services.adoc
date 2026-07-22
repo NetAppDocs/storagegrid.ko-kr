@@ -24,7 +24,7 @@ StorageGRID 플랫폼 서비스를 사용하면 S3 오브젝트 및 오브젝트
 
 플랫폼 서비스의 대상 위치는 일반적으로 StorageGRID 구축과 외부적이기 때문에 플랫폼 서비스는 데이터에 대한 외부 스토리지 리소스, 알림 서비스 및 검색 또는 분석 서비스를 사용하여 얻을 수 있는 성능과 유연성을 제공합니다.
 
-단일 S3 버킷에 대해 모든 플랫폼 서비스 조합을 구성할 수 있습니다. 예를 들어, 및 link:../tenant/understanding-notifications-for-buckets.html["알림"]StorageGRID S3 버킷에서 특정 오브젝트를 Amazon S3(Simple Storage Service)에 미러링하는 동시에 각 오브젝트에 대한 알림을 타사 모니터링 애플리케이션에 전송하여 AWS 비용을 추적할 수 있도록 할 link:../tenant/understanding-cloudmirror-replication-service.html["CloudMirror 서비스"]수 있습니다.
+하나의 S3 버킷에 대해 다양한 플랫폼 서비스를 조합하여 구성할 수 있습니다. 예를 들어, StorageGRID S3 버킷에서 link:../tenant/understanding-cloudmirror-replication-service.html["CloudMirror 서비스"] 및 link:../tenant/understanding-notifications-for-buckets.html["알림"]를 모두 구성하여 특정 객체를 Amazon Simple Storage Service(S3)에 미러링하는 동시에 각 객체에 대한 알림을 타사 모니터링 애플리케이션으로 전송하여 AWS 비용을 추적할 수 있습니다.
 
 
 TIP: 그리드 관리자 또는 그리드 관리 API를 사용하여 StorageGRID 관리자가 각 테넌트 계정에 대해 플랫폼 서비스 사용을 활성화해야 합니다.
@@ -139,8 +139,6 @@ AWS CRR 및 Amazon Simple Notification Service의 삭제 동작과 일치시키�
  a| 
 Kafka 엔드포인트 사용
  a| 
-Kafka 엔드포인트의 경우 상호 TLS는 지원되지 않습니다. 그 결과, Kafka 브로커 구성에서 로 설정한 `required` 경우 `ssl.client.auth` Kafka 엔드포인트 구성 문제가 발생할 수 있습니다.
-
 Kafka 엔드포인트 인증은 다음과 같은 인증 유형을 사용합니다. 이러한 유형은 Amazon SNS와 같은 다른 엔드포인트의 인증에 사용되는 유형과는 다르며 사용자 이름 및 암호 자격 증명이 필요합니다.
 
 * SASL/일반
@@ -182,7 +180,7 @@ CloudMirror 복제 서비스를 통해 대상 버킷에 복제할 수 있는 개
  a| 
 StorageGRID의 소스 S3 버킷에서 버전 관리가 활성화된 경우 대상 버킷의 버전 관리도 활성화해야 합니다.
 
-버전 관리를 사용할 때는 S3 프로토콜의 제한으로 인해 대상 버킷에서 오브젝트 버전 순서가 CloudMirror 서비스에 의해 보장되지 않는 것이 가장 좋습니다.
+버전 관리를 사용할 때, 대상 버킷의 객체 버전 순서는 S3 프로토콜의 제한 사항으로 인해 CloudMirror 서비스에서 보장되지 않고 최선을 다해 유지된다는 점에 유의하십시오. 또한 대상 버킷은 자체 설정을 유지 관리하며 버전 관리를 제공하지 않을 수도 있습니다.
 
 * 참고 *: StorageGRID의 소스 버킷에 대한 버전 ID는 대상 버킷의 버전 ID와 관련이 없습니다.
 
@@ -214,6 +212,8 @@ CloudMirror 서비스는 SSE-C로 암호화된 객체를 지원하지 않습니�
  a| 
 S3 오브젝트 잠금이 활성화된 버킷
  a| 
-S3 오브젝트 잠금이 활성화된 소스 또는 대상 버킷에는 복제가 지원되지 않습니다.
+StorageGRID의 소스 S3 버킷에 S3 Object Lock이 활성화되어 있는 경우, 기본 보존이 구성된 대상 버킷에도 S3 Object Lock을 활성화해야 합니다.
+
+S3 객체 잠금이 활성화된 소스 및 대상 버킷에 대해 _객체 데이터_ 복제가 지원됩니다. 단, 대상 버킷은 객체 보존에 대한 자체 설정을 유지하며, 규정 준수 또는 버전 관리를 제공하지 않을 수 있습니다.
 
 |===

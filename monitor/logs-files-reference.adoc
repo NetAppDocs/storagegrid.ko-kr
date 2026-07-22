@@ -64,6 +64,11 @@ StorageGRID 로그 파일 아카이브에는 각 범주에 대해 설명된 로�
 | 보관 위치 | 설명 
 
 
+| acct-tunnel.log  a| 
+로드 밸런서와 연동되는 계정 터널 도우미에 대한 로그입니다.
+
+
+
 | 감사  a| 
 정상적인 시스템 작동 중에 생성된 감사 메시지입니다.
 
@@ -114,6 +119,11 @@ Cassandra 데이터베이스 정보 및 리퍼 복구 로그.
 
 
 
+| internal-access.log  a| 
+내부 HTTP 프록시 트래픽 로그.
+
+
+
 | 람다 - 중재인  a| 
 S3 Select 프록시 요청과 관련된 로그입니다.
 
@@ -126,6 +136,11 @@ S3 Select 프록시 요청과 관련된 로그입니다.
 
 | lumberjack.log  a| 
 로그 수집과 관련된 디버그 메시지입니다.
+
+
+
+| manage-audit.log  a| 
+`mgmt-api` 감사 로그에 액세스합니다.
 
 
 
@@ -174,6 +189,10 @@ MariaDB 데이터베이스 구성 및 관련 로그.
 
 
 * `nginx-gw-dns-check.log`: 새 DNS 확인 알림과 관련이 있습니다.
+* stream-access.log: 스트림 블록에 대한 TCP/TLS 스트림(레이어 4) 프록시 세션입니다.
++
+*참고*: 이것은 HTTP 요청 로그가 아닙니다.
+
 
 
 
@@ -220,6 +239,16 @@ CPU, 네트워킹 및 디스크 I/O에 대한 성능 정보
 
 
 
+| revision_history.json  a| 
+수정 내역.
+
+
+
+| routed-s3-access.log.gz  a| 
+S3처럼 라우팅되는 그리드 페더레이션 트래픽에 대한 액세스 로그(글로벌 네임스페이스/페더레이션 URL).
+
+
+
 | SSH를 클릭합니다  a| 
 SSH 구성 및 서비스와 관련된 로그
 
@@ -235,6 +264,11 @@ SNMP 알림을 보내는 데 사용되는 SNMP 에이전트 구성입니다.
 
 
 
+| system-bucket.log  a| 
+`update-system-bucket-configuration.log`: 시스템 버킷 로그.
+
+
+
 | system-commands.txt  a| 
 StorageGRID 컨테이너 명령의 출력 네트워킹 및 디스크 사용과 같은 시스템 정보를 포함합니다.
 
@@ -242,5 +276,15 @@ StorageGRID 컨테이너 명령의 출력 네트워킹 및 디스크 사용과 �
 
 | synchronize-recovery-package  a| 
 ADC 서비스를 호스팅하는 모든 관리 노드와 스토리지 노드에서 최신 복구 패키지의 일관성을 유지하는 것과 관련이 있습니다.
+
+
+
+| update-cipher-configurations.log  a| 
+`update-cors-configurations.log`: TLS/암호화 방식 및 CORS 변경과 관련된 추적 로그입니다.
+
+
+
+| update-leakd-configurations.log  a| 
+고아 감지 구성 로그.
 
 |===

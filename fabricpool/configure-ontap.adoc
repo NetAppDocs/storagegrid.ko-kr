@@ -57,9 +57,9 @@ summary: 필요한 StorageGRID 정보를 확인한 후 ONTAP로 이동하여 Sto
  a| 
 URL 스타일
  a| 
-link:../admin/configuring-s3-api-endpoint-domain-names.html["S3 끝점 도메인 이름을 구성했습니다"]가상 호스트 스타일 URL * 을 선택합니다.
+만약 그렇다면, link:../admin/configuring-s3-api-endpoint-domain-names.html["S3 끝점 도메인 이름을 구성했습니다"], *Virtual-Hosted-Style URL*을 선택합니다.
 
-ONTAP의 기본값은 * 경로 스타일 URL * 이지만 StorageGRID에 가상 호스팅 스타일 요청을 사용하는 것이 좋습니다. FQDN(서버 이름) * 필드에 도메인 이름 대신 IP 주소를 제공하는 경우 * 경로 스타일 URL * 을 사용해야 합니다.
+*Path-Style URL*은 ONTAP의 기본값이지만, StorageGRID에는 가상 호스팅 스타일 요청을 사용하는 것이 좋습니다. *서버 이름(FQDN)* 필드에 도메인 이름 대신 IP 주소를 제공하는 경우 반드시 *Path-Style URL*을 사용해야 합니다.
 
 
 

@@ -11,7 +11,7 @@ summary: '그룹 및 사용자를 만들거나 가져오고 각 그룹에 권한
 
 
 [role="lead"]
-그룹 및 사용자를 만들거나 가져오고 각 그룹에 권한을 할당하여 StorageGRID에 액세스할 수 있는 사용자와 사용자가 수행할 수 있는 작업을 제어할 수 있습니다. 선택적으로 SSO(Single Sign-On)를 활성화하고, 클라이언트 인증서를 생성하고, 그리드 암호를 변경할 수 있습니다.
+StorageGRID 그룹 및 사용자를 생성하거나 가져오고 각 그룹에 권한을 할당하여 StorageGRID에 액세스할 수 있는 사용자와 수행할 수 있는 작업을 제어할 수 있습니다. 선택적으로 단일 로그인(SSO)을 활성화하고, 클라이언트 인증서를 생성하고, 그리드 암호를 변경하고, 다중 관리자 인증을 사용할 수 있습니다.
 
 
 
@@ -34,7 +34,7 @@ NOTE: 다른 LDAP v3 서비스를 사용하려면 기술 지원 부서에 문의
 [[enable-single-sign-on]]
 == SSO(Single Sign-On)를 활성화합니다
 
-StorageGRID 시스템은 SAML 2.0(Security Assertion Markup Language 2.0) 표준을 사용하여 SSO(Single Sign-On)를 지원합니다.  당신이 후에link:how-sso-works.html["SSO를 구성하고 사용하도록 설정합니다"] 모든 사용자는 Grid Manager, Tenant Manager, Grid Management API 또는 Tenant Management API에 액세스하기 전에 외부 ID 공급자로부터 인증을 받아야 합니다.  로컬 사용자는 StorageGRID 에 로그인할 수 없습니다.
+StorageGRID 시스템은 SAML 2.0(Security Assertion Markup Language 2.0) 또는 OIDC(OpenID Connect) 표준을 사용한 싱글 사인온(SSO)을 지원합니다. link:how-sso-works.html["SSO를 구성하고 사용하도록 설정합니다"] 후에는 모든 사용자가 Grid Manager, Tenant Manager, Grid Management API 또는 Tenant Management API에 액세스하기 전에 외부 ID 공급자를 통해 인증을 받아야 합니다. 로컬 사용자는 StorageGRID에 로그인할 수 없습니다.
 
 
 
@@ -49,3 +49,10 @@ StorageGRID 시스템은 SAML 2.0(Security Assertion Markup Language 2.0) 표준
 == 노드 콘솔 암호를 변경합니다
 
 그리드의 각 노드에는 노드 콘솔 비밀번호가 있는데, SSH를 사용하여 "admin"으로 노드에 로그인하거나 VM/물리적 콘솔 연결에서는 루트 사용자로 로그인해야 합니다.  필요에 따라 다음을 수행할 수 있습니다.link:change-node-console-password.html["노드 콘솔 암호를 변경합니다"] 각 노드에 대해.
+
+
+
+[[use-multi-admin-verification]]
+== 다중 관리자 인증 사용
+
+다중 관리자 검증(MAV)을 사용하면 지정된 관리자의 승인을 받은 후에만 특정 StorageGRID 작업을 수행할 수 있습니다. MAV는 보안이 취약하거나 악의적인 의도를 가진 관리자, 또는 경험이 부족한 관리자가 원치 않는 변경을 하거나 데이터를 삭제하는 것을 방지합니다.

@@ -2,7 +2,7 @@
 permalink: s3/operations-on-buckets.html 
 sidebar: sidebar 
 keywords: bucket, buckets, operations on buckets 
-summary: StorageGRID 시스템은 각 S3 테넌트 계정에 대해 최대 5,000개의 버킷을 지원합니다. 
+summary: StorageGRID 시스템은 각 S3 테넌트 계정당 최대 20,000개의 버킷을 지원합니다. 
 ---
 = StorageGRID의 S3 버킷 작업 및 구현 세부 정보
 :allow-uri-read: 
@@ -11,13 +11,13 @@ summary: StorageGRID 시스템은 각 S3 테넌트 계정에 대해 최대 5,000
 
 
 [role="lead"]
-StorageGRID 시스템은 각 S3 테넌트 계정에 대해 최대 5,000개의 버킷을 지원합니다.
+StorageGRID 시스템은 각 S3 테넌트 계정당 최대 20,000개의 버킷을 지원합니다.
 
 각 그리드에는 최대 100,000개의 버킷을 포함할 수 있습니다.
 
-5,000개의 버킷을 지원하려면 그리드의 각 스토리지 노드에 최소 64GB의 RAM이 있어야 합니다.
+여러 테넌트가 각각 최대 5,000개의 버킷을 보유하는 경우, 그리드의 각 스토리지 노드에는 최소 64GB의 RAM이 있어야 합니다.
 
-버킷 이름 제한은 AWS US 표준 지역 제한을 따르지만, S3 가상 호스팅 스타일 요청을 지원하기 위해 DNS 명명 규칙으로 제한해야 합니다.
+버킷 이름 제한은 AWS 미국 표준 지역 제한을 따르지만, S3 가상 호스팅 스타일 요청을 지원하려면 DNS 명명 규칙에 따라 추가로 제한해야 합니다.
 
 자세한 내용은 다음을 참조하십시오.
 
@@ -27,7 +27,7 @@ StorageGRID 시스템은 각 S3 테넌트 계정에 대해 최대 5,000개의 �
 
 ListObjects(GET Bucket) 및 ListObjectVersions(GET Bucket 개체 버전) 작업은 StorageGRID 지원합니다.link:consistency.html["일관성 값"] .
 
-개별 버킷에 대해 마지막 액세스 시간에 대한 업데이트가 설정되었는지 여부를 확인할 수 있습니다. 을 link:get-bucket-last-access-time-request.html["버킷 최종 액세스 시간 가져오기"]참조하십시오.
+개별 버킷에 대해 마지막 액세스 시간 업데이트가 활성화되었는지 비활성화되었는지 확인할 수 있습니다. link:get-bucket-last-access-time-request.html["버킷 최종 액세스 시간 가져오기"]을 참조하십시오.
 
 다음 표에서는 StorageGRID에서 S3 REST API 버킷 작업을 구축하는 방법을 설명합니다. 이러한 작업을 수행하려면 계정에 필요한 액세스 자격 증명을 제공해야 합니다.
 
@@ -41,6 +41,8 @@ CreateBucket
  a| 
 새 버킷을 생성합니다. 버킷을 만들면 버켓 소유자가 됩니다.
 
+*참고*: S3 디렉터리 버킷은 지원되지 않습니다.
+
 * 버킷 이름은 다음 규칙을 준수해야 합니다.
 +
 ** 각 StorageGRID 시스템에서 고유해야 합니다(테넌트 계정에서만 고유한 것은 아님).
@@ -53,11 +55,14 @@ CreateBucket
 
 * 기본적으로 버킷은 지역에 생성되지만 `us-east-1` 요청 본문의 요청 요소를 사용하여 다른 영역을 지정할 수 `LocationConstraint` 있습니다. 요소를 사용할 때는 `LocationConstraint` 그리드 관리자 또는 그리드 관리 API를 사용하여 정의된 영역의 정확한 이름을 지정해야 합니다. 사용할 지역 이름을 모르는 경우 시스템 관리자에게 문의하십시오.
 +
-*참고*: CreateBucket 요청이 StorageGRID에 정의되지 않은 영역을 사용하는 경우 오류가 발생합니다.
+*참고*: CreateBucket 요청이 StorageGRID에 정의되지 않은 지역을 사용하는 경우 오류가 발생합니다.
 
-* 요청 헤더를 포함하여 S3 오브젝트 잠금이 설정된 버킷을 생성할 수 `x-amz-bucket-object-lock-enabled` 있습니다. 을 link:../s3/use-s3-api-for-s3-object-lock.html["S3 REST API를 사용하여 S3 오브젝트 잠금을 구성합니다"]참조하십시오.
+* S3 Object Lock이 활성화된 버킷을 생성하려면 `x-amz-bucket-object-lock-enabled` 요청 헤더를 포함할 수 있습니다. link:../s3/use-s3-api-for-s3-object-lock.html["S3 REST API를 사용하여 S3 오브젝트 잠금을 구성합니다"]를 참조하십시오.
 +
-버킷을 생성할 때 S3 오브젝트 잠금을 활성화해야 합니다. 버킷을 생성한 후에는 S3 오브젝트 잠금을 추가하거나 비활성화할 수 없습니다. S3 오브젝트 잠금에는 버킷 버전 관리가 필요하며, 이 버전은 버킷을 생성할 때 자동으로 활성화됩니다.
+S3 객체 잠금에는 버킷 버전 관리가 필요하며, S3 객체 잠금이 활성화된 상태로 버킷을 생성하면 버킷 버전 관리 기능이 자동으로 활성화됩니다.
+
++
+S3 객체 잠금은 버킷을 생성할 때 또는 나중에 활성화할 수 있습니다.
 
 
 
@@ -87,7 +92,7 @@ DeleteBucketEncryption
  a| 
 DeleteBucketLifecycle
  a| 
-버킷에서 문서 수정 상태 설정을 삭제합니다. 을 link:create-s3-lifecycle-configuration.html["S3 라이프사이클 구성을 생성합니다"]참조하십시오.
+버킷에서 라이프사이클 구성을 삭제합니다. 을 참조하십시오.link:create-s3-lifecycle-configuration.html["S3 라이프사이클 구성을 생성합니다"]
 
 
 
@@ -110,7 +115,7 @@ DeleteBuckReplication 을 참조하십시오
  a| 
 하위 리소스를 사용하여 `tagging` 버킷에서 모든 태그를 제거합니다.
 
-*주의*: 이 버킷에 대해 기본값이 아닌 ILM 정책 태그가 설정된 경우 이 버킷에 `NTAP-SG-ILM-BUCKET-TAG` 할당된 값이 있는 버킷 태그가 있습니다. 버킷 태그가 있는 경우 DeleteBucketTagging 요청을 `NTAP-SG-ILM-BUCKET-TAG` 실행하지 마십시오. 대신 태그 및 할당된 값만 사용하여 PutBucketTagging 요청을 `NTAP-SG-ILM-BUCKET-TAG` 실행하여 버킷에서 다른 모든 태그를 제거합니다. 버킷 태그를 수정하거나 제거하지 `NTAP-SG-ILM-BUCKET-TAG` 마십시오.
+*주의*: 이 버킷에 기본값이 아닌 ILM 정책 태그가 설정되어 있는 경우,  `NTAP-SG-ILM-BUCKET-TAG` 버킷 태그와 할당된 값이 존재합니다.  `NTAP-SG-ILM-BUCKET-TAG` 버킷 태그가 있는 경우 DeleteBucketTagging 요청을 실행하지 마십시오. 대신,  `NTAP-SG-ILM-BUCKET-TAG` 태그와 할당된 값만 포함하는 PutBucketTagging 요청을 실행하여 버킷에서 다른 모든 태그를 제거하십시오.  `NTAP-SG-ILM-BUCKET-TAG` 버킷 태그를 수정하거나 제거하지 마십시오.
 
 
 
@@ -140,14 +145,14 @@ GetBuckLifecycleConfiguration 을 참조하십시오
 
 (이전 명칭 Get Bucket 수명주기)
  a| 
-버킷의 수명주기 구성을 반환합니다. 을 link:create-s3-lifecycle-configuration.html["S3 라이프사이클 구성을 생성합니다"]참조하십시오.
+버킷의 수명 주기 구성을 반환합니다. 을 참조하십시오.link:create-s3-lifecycle-configuration.html["S3 라이프사이클 구성을 생성합니다"]
 
 
 
  a| 
 GetBucketLocation 을 참조하십시오
  a| 
-CreateBucket 요청에서 요소를 사용하여 설정한 영역을 반환합니다 `LocationConstraint`. 버킷의 영역이 인 경우 `us-east-1` 영역에 대해 빈 문자열이 반환됩니다.
+ `LocationConstraint` 요소를 사용하여 설정된 지역을 CreateBucket 요청에서 반환합니다. 버킷의 지역이  `us-east-1`(기본값)인 경우  `LocationConstraint`에 대해 빈 값이 반환됩니다.
 
 
 
@@ -179,7 +184,7 @@ GetBucketTagging
  a| 
 하위 리소스를 사용하여 `tagging` 버킷의 모든 태그를 반환합니다.
 
-*주의*: 이 버킷에 대해 기본값이 아닌 ILM 정책 태그가 설정된 경우 이 버킷에 `NTAP-SG-ILM-BUCKET-TAG` 할당된 값이 있는 버킷 태그가 있습니다. 이 태그를 수정하거나 제거하지 마십시오.
+*주의*: 이 버킷에 기본값이 아닌 ILM 정책 태그가 설정된 경우,  `NTAP-SG-ILM-BUCKET-TAG` 버킷 태그에 값이 할당됩니다. 이 태그를 수정하거나 삭제하지 마십시오.
 
 
 
@@ -200,7 +205,7 @@ GetObjectLockConfiguration 을 참조하십시오
  a| 
 구성된 경우 버킷 기본 보존 모드와 기본 보존 기간을 반환합니다.
 
-을 link:../s3/use-s3-api-for-s3-object-lock.html["S3 REST API를 사용하여 S3 오브젝트 잠금을 구성합니다"]참조하십시오.
+link:../s3/use-s3-api-for-s3-object-lock.html["S3 REST API를 사용하여 S3 오브젝트 잠금을 구성합니다"]을 참조하십시오.
 
 
 
@@ -285,7 +290,7 @@ StorageGRID는 다음 작업을 지원하지 않습니다.
 * 전환
 
 
-을 link:create-s3-lifecycle-configuration.html["S3 라이프사이클 구성을 생성합니다"]참조하십시오. 버킷 수명 주기의 만료 작업이 ILM 배치 지침과 상호 작용하는 방식을 이해하려면 을 참조하십시오.link:../ilm/how-ilm-operates-throughout-objects-life.html["ILM이 개체 수명 전반에 걸쳐 작동하는 방식"]
+link:create-s3-lifecycle-configuration.html["S3 라이프사이클 구성을 생성합니다"]을 참조하십시오. 버킷 수명 주기의 만료 작업이 ILM 배치 지침과 어떻게 상호 작용하는지 이해하려면 link:../ilm/how-ilm-operates-throughout-objects-life.html["ILM이 개체 수명 전반에 걸쳐 작동하는 방식"]을 참조하십시오.
 
 * 참고 *: 버킷 수명 주기 구성은 S3 오브젝트 잠금이 활성화된 버킷과 함께 사용할 수 있지만 레거시 준수 버킷에서는 버킷 수명 주기 구성이 지원되지 않습니다.
 
@@ -336,7 +341,7 @@ PutBucketNotificationConfiguration을 참조하십시오
  a| 
 BucketPolicy를 참조하십시오
  a| 
-버킷에 첨부된 정책을 설정합니다. 보다 link:use-access-policies.html["버킷 및 그룹 액세스 정책을 사용합니다"] .
+버킷에 연결된 정책을 설정합니다. 자세한 내용은 link:use-access-policies.html["버킷 및 그룹 액세스 정책을 사용합니다"]을 참조하십시오.
 
 
 
@@ -345,10 +350,10 @@ PutBucketReplication을 참조하십시오
  a| 
 link:../tenant/understanding-cloudmirror-replication-service.html["StorageGRID CloudMirror 복제"]요청 본문에 제공된 복제 구성 XML을 사용하여 버킷을 구성합니다. CloudMirror 복제의 경우 다음과 같은 구축 세부 정보를 알고 있어야 합니다.
 
-* StorageGRID는 복제 구성의 V1만 지원합니다. 즉, StorageGRID는 규칙에 요소 사용을 지원하지 `Filter` 않으며 객체 버전을 삭제하기 위한 V1 규칙을 따릅니다. 자세한 내용은 을 참조하십시오 https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-add-config.html["Amazon Simple Storage Service 사용 설명서: 복제 구성"^].
+* StorageGRID는 복제 구성의 V1만 지원합니다. 즉, StorageGRID는 규칙에 대한 `Filter` 요소 사용을 지원하지 않으며 객체 버전 삭제에 대한 V1 규칙을 따릅니다. 자세한 내용은 https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-add-config.html["Amazon Simple Storage Service 사용 설명서: 복제 구성"^]을 참조하십시오.
 * 버킷 복제는 버전 관리되거나 버전이 지정되지 않은 버킷에서 구성할 수 있습니다.
 * 복제 구성 XML의 각 규칙에서 다른 대상 버킷을 지정할 수 있습니다. 소스 버킷은 둘 이상의 대상 버킷에 복제할 수 있습니다.
-* 대상 버킷은 테넌트 관리자 또는 테넌트 관리 API에 지정된 StorageGRID 엔드포인트의 URN으로 지정해야 합니다. 을 link:../tenant/configuring-cloudmirror-replication.html["CloudMirror 복제를 구성합니다"]참조하십시오.
+* 대상 버킷은 테넌트 관리자 또는 테넌트 관리 API에 지정된 StorageGRID 엔드포인트의 URN으로 지정해야 합니다. 을 참조하십시오.link:../tenant/configuring-cloudmirror-replication.html["CloudMirror 복제를 구성합니다"]
 +
 복제 구성이 성공하려면 엔드포인트가 있어야 합니다. 끝점이 없으면 요청이 A로 실패합니다 `400 Bad Request`. 오류 메시지는 다음과 같습니다. `Unable to save the replication policy. The specified endpoint URN does not exist: _URN_.`
 
@@ -375,7 +380,7 @@ BucketTagging
 * 키와 값은 대/소문자를 구분합니다.
 
 
-*주의*: 이 버킷에 대해 기본값이 아닌 ILM 정책 태그가 설정된 경우 이 버킷에 `NTAP-SG-ILM-BUCKET-TAG` 할당된 값이 있는 버킷 태그가 있습니다.  `NTAP-SG-ILM-BUCKET-TAG`버킷 태그가 모든 PutBucketTagging 요청에 할당된 값과 함께 포함되어 있는지 확인합니다. 이 태그를 수정하거나 제거하지 마십시오.
+*주의*: 이 버킷에 기본값이 아닌 ILM 정책 태그가 설정된 경우,  `NTAP-SG-ILM-BUCKET-TAG` 버킷 태그에 값이 할당됩니다. 모든 PutBucketTagging 요청에  `NTAP-SG-ILM-BUCKET-TAG` 버킷 태그와 할당된 값이 포함되어야 합니다. 이 태그를 수정하거나 삭제하지 마십시오.
 
 *참고*: 이 작업은 버킷에 이미 있는 현재 태그를 덮어씁니다. 기존 태그를 세트에서 생략하면 해당 태그가 버킷에 대해 제거됩니다.
 
@@ -395,10 +400,12 @@ PutBucketVersioning을 참조하십시오
  a| 
 PutObjectLockConfiguration 을 참조하십시오
  a| 
-버킷 기본 보존 모드 및 기본 보존 기간을 구성하거나 제거합니다.
+* 버킷 기본 보존 모드 및 기본 보존 기간을 구성하거나 제거합니다.
+* 그리드 관리자가 권한을 부여한 경우 기존 버킷에 S3 객체 잠금을 활성화합니다.
 
-기본 보존 기간이 수정되면 기존 개체 버전의 보존 기한은 그대로 유지되며 새 기본 보존 기간을 사용하여 다시 계산되지 않습니다.
 
-자세한 내용은 을 link:../s3/use-s3-api-for-s3-object-lock.html["S3 REST API를 사용하여 S3 오브젝트 잠금을 구성합니다"]참조하십시오.
+기본 보존 기간이 수정되더라도 기존 객체 버전의 보존 만료일은 그대로 유지되며 새 기본 보존 기간을 사용하여 재계산되지 않습니다.
+
+자세한 내용은 link:../s3/use-s3-api-for-s3-object-lock.html["S3 REST API를 사용하여 S3 오브젝트 잠금을 구성합니다"]을 참조하십시오.
 
 |===

@@ -40,8 +40,8 @@ indexpage:
       url: "../tenant/deleting-s3-bucket.html"
   - title: 테넌트 기능을 사용합니다
     links:
-    - title: 계정 클론
-      url: "../tenant/grid-federation-account-clone.html"
+    - title: 계정 동기화
+      url: "../tenant/grid-federation-account-sync.html"
     - title: 교차 그리드 복제
       url: "../tenant/grid-federation-manage-cross-grid-replication.html"
     - title: 플랫폼 서비스

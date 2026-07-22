@@ -57,9 +57,9 @@ Common Criteria 인증이 필요한 경우 Common Criteria 정책을 사용하�
 --
 .FIPS 엄격한
 --
-Common Criteria 인증이 필요하고 외부 클라이언트가 로드 밸런서 엔드포인트, 테넌트 관리자 및 Grid Manager에 연결할 때 NetApp Cryptographic Security Module(NCSM) 3.0.8 또는 NetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64 모듈을 사용해야 하는 경우 FIPS 엄격한 정책을 사용하세요.  이 정책을 사용하면 성능이 저하될 수 있습니다.
+Common Criteria 인증이 필요하고 로드 밸런서 엔드포인트, Tenant Manager 및 Grid Manager에 대한 외부 클라이언트 연결에 NetApp 암호화 보안 모듈(NCSM) 3.1.2 또는 NetApp StorageGRID 커널 암호화 API 6.12.63-1+ntap1 모듈을 사용해야 하는 경우 FIPS 엄격 정책을 사용하십시오. 이 정책을 사용하면 성능이 저하될 수 있습니다.
 
-NCSM 3.0.8 및 NetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64 모듈은 다음 작업에 사용됩니다.
+NCSM 3.1.2 및 NetApp StorageGRID 커널 암호화 API 6.12.63-1+ntap1 모듈은 다음 작업에 사용됩니다.
 
 ** NCSM
 +
@@ -71,7 +71,7 @@ NCSM 3.0.8 및 NetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64 모듈
 
 
 +
-자세한 내용은 NIST 암호화 알고리즘 검증 프로그램을 참조하세요.link:https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4838["인증서 #4838"^] .
+자세한 내용은 NIST Cryptographic Algorithm Validation Program link:https://csrc.nist.gov/projects/cryptographic-algorithm-validation-program/details?validation=40426["인증서 번호 A7816"^]을 참조하십시오.
 
 ** NetApp StorageGRID 커널 암호화 API 모듈
 +
@@ -80,10 +80,13 @@ NetApp StorageGRID Kernel Crypto API 모듈은 VM 및 StorageGRID 어플라이�
 +
 *** 엔트로피 수집
 *** 노드 암호화
++
+*참고*: 이 모듈은 인증을 위해 제출되지 않았습니다.
+
 
 
 +
-자세한 내용은 NIST 암호화 알고리즘 검증 프로그램을 참조하세요.link:https://csrc.nist.gov/projects/cryptographic-algorithm-validation-program/validation-search?searchMode=implementation&product=NetApp+StorageGRID+Kernel+Crypto+API&productType=-1&ipp=50["인증서 #A6242부터 #A6257까지"^] 그리고link:https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/223["엔트로피 인증서 #E223"^] .
+자세한 내용은 NIST Cryptographic Algorithm Validation Program link:https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/223["엔트로피 인증서 #E223"^]을 참조하십시오.
 
 
 
@@ -94,7 +97,7 @@ NetApp StorageGRID Kernel Crypto API 모듈은 VM 및 StorageGRID 어플라이�
 --
 자신의 암호를 적용해야 하는 경우 사용자 지정 정책을 만듭니다.
 
-선택적으로 StorageGRID 에 FIPS 140 암호화 요구 사항이 있는 경우 FIPS 모드 기능을 활성화하여 NCSM 3.0.8 및 NetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64 모듈을 사용합니다.
+선택적으로, StorageGRID에 FIPS 140 암호화 요구 사항이 있는 경우 FIPS 모드 기능을 활성화하여 NCSM 3.1.2 및 NetApp StorageGRID Kernel Crypto API 6.12.63-1+ntap1 모듈을 사용할 수 있습니다.
 
 .. 설정하다 `fipsMode` 매개변수 `true` .
 .. 메시지가 표시되면,link:../maintain/rolling-reboot-procedure.html["롤링 재부팅을 수행하다"] 모든 노드가 암호화 모듈을 활성화합니다.  재부팅을 시작하고 모니터링하려면 *유지 관리* > *롤링 재부팅*을 사용하세요.
@@ -121,7 +124,7 @@ NetApp StorageGRID Kernel Crypto API 모듈은 VM 및 StorageGRID 어플라이�
 . 만들려는 사용자 지정 정책과 가장 유사한 정책 타일에서 * 세부 정보 보기 * 를 선택합니다.
 . 클립보드로 복사 * 를 선택한 다음 * 취소 * 를 선택합니다.
 +
-image:securitysettings-custom-security-policy-copy.png["기존 정책을 복사하여 사용자 지정 정책을 만듭니다"]
+image:securitysettings_custom_security_policy_copy.png["기존 정책을 복사하여 사용자 지정 정책을 만듭니다"]
 
 . 사용자 정의 정책 * 타일에서 * 구성 및 사용 * 을 선택합니다.
 . 복사한 JSON을 붙여 넣고 필요한 내용을 변경합니다.

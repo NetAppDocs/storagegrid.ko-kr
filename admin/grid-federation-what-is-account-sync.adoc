@@ -1,28 +1,28 @@
 ---
-permalink: admin/grid-federation-what-is-account-clone.html 
+permalink: admin/grid-federation-what-is-account-sync.html 
 sidebar: sidebar 
-keywords: account clone, tenant replication, disaster recovery, grid federation 
-summary: 계정 클론은 테넌트 계정, 테넌트 그룹, 테넌트 사용자의 자동 복제이며, 필요에 따라 그리드 페더레이션 연결에서 StorageGRID 시스템 간의 S3 액세스 키 
+keywords: account sync, tenant replication, disaster recovery, grid federation 
+summary: 계정 동기화는 하나 이상의 그리드 페더레이션 연결에 있는 StorageGRID 시스템 간에 테넌트 계정, 테넌트 그룹, 테넌트 사용자 및 S3 액세스 키를 자동으로 지속적으로 복제하는 기능입니다. 
 ---
-= StorageGRID의 계정 복제에 대해 알아보십시오
+= StorageGRID의 계정 동기화에 대해 알아보십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-계정 클론은 테넌트 계정, 테넌트 그룹, 테넌트 사용자 및 의 StorageGRID 시스템 간에 선택적으로 S3 액세스 키를 자동으로 복제하는 link:grid-federation-overview.html["그리드 페더레이션 연결"]것입니다.
+계정 동기화는 하나 이상의 link:grid-federation-overview.html["그리드 페더레이션 연결"]에 있는 StorageGRID 시스템 간에 테넌트 계정, 테넌트 그룹, 테넌트 사용자 및 선택적으로 S3 액세스 키를 자동으로 지속적으로 복제하는 것입니다.
 
-에 계정 클론이 필요합니다.link:grid-federation-what-is-cross-grid-replication.html["교차 그리드 복제"] 소스 StorageGRID 시스템에서 대상 StorageGRID 시스템으로 계정 정보를 클론 복제하면 테넌트 사용자 및 그룹이 두 그리드 중 하나의 해당 버킷과 객체에 액세스할 수 있습니다.
+계정 동기화는 link:grid-federation-what-is-cross-grid-replication.html["교차 그리드 복제"]에 필요합니다. StorageGRID 시스템 간 계정 정보를 동기화하면 테넌트 사용자와 그룹이 연결된 모든 그리드에서 해당 버킷과 객체에 액세스할 수 있습니다.
 
 
 
-[[workflow-for-account-clone]]
-== 계정 클론 워크플로우
+[[workflow-for-account-sync]]
+== 계정 동기화 워크플로
 
-워크플로우 다이어그램은 그리드 관리자 및 허용된 테넌트가 계정 클론을 설정하기 위해 수행하는 단계를 보여 줍니다. 이러한 단계는 이후에 link:grid-federation-create-connection.html["그리드 페더레이션 연결이 구성되어 있습니다"]수행됩니다.
+워크플로 다이어그램은 그리드 관리자와 권한이 있는 테넌트가 계정 동기화를 설정하기 위해 수행하는 단계를 보여줍니다. 이러한 단계는 link:grid-federation-create-connection.html["그리드 페더레이션 연결이 구성되어 있습니다"] 이후에 수행됩니다.
 
-image:grid-federation-account-clone-workflow.png["계정 클론 워크플로우"]
+image:grid_federation_account_sync_workflow.png["계정 동기화 워크플로"]
 
 
 
@@ -33,8 +33,8 @@ image:grid-federation-account-clone-workflow.png["계정 클론 워크플로우"
 
 
 
-[[account-clone-ssoconfigure-sso-for-account-clone-optional]]
-=== [[account-clone-SSO]] 계정 클론에 대한 SSO 구성(선택 사항)
+[[account-sync-ssoconfigure-sso-for-account-sync-optional]]
+=== [[account-sync-sso]]계정 동기화를 위한 SSO 구성(선택 사항)
 
 그리드 페더레이션 연결의 StorageGRID 시스템 중 하나에서 SSO를 사용하는 경우 두 그리드에서 모두 SSO를 사용해야 합니다. 그리드 페더레이션을 위해 테넌트 계정을 생성하기 전에 테넌트의 소스 및 대상 그리드에 대한 그리드 관리자가 다음 단계를 수행해야 합니다.
 
@@ -53,8 +53,8 @@ NOTE: 이 관리 그룹이 테넌트를 생성하기 전에 두 그리드에 없
 
 
 
-[[account-clone-identity-federationconfigure-grid-level-identity-federation-for-account-clone-optional]]
-=== [[account-clone-identity-federation]] 계정 클론에 대한 그리드 수준 ID 페더레이션 구성(선택 사항)
+[[account-sync-identity-federationconfigure-grid-level-identity-federation-for-account-sync-optional]]
+=== [[account-sync-identity-federation]]계정 동기화를 위한 그리드 수준 ID 페더레이션 구성(선택 사항)
 
 StorageGRID 시스템 중 하나에서 SSO 없이 ID 페더레이션을 사용하는 경우 두 그리드 모두 ID 페더레이션을 사용해야 합니다. 그리드 페더레이션을 위해 테넌트 계정을 생성하기 전에 테넌트의 소스 및 대상 그리드에 대한 그리드 관리자가 다음 단계를 수행해야 합니다.
 
@@ -76,7 +76,7 @@ NOTE: 두 그리드에 없는 통합 그룹에 루트 액세스 권한을 할당
 선택적으로 SSO 또는 ID 페더레이션을 구성한 후 그리드 관리자는 다음 단계를 수행하여 버킷 객체를 다른 StorageGRID 시스템으로 복제할 수 있는 테넌트를 결정합니다.
 
 .단계
-. 계정 클론 작업을 위해 테넌트의 소스 그리드로 사용할 그리드를 결정합니다.
+. 테넌트 계정 동기화 작업을 위해 테넌트의 소스 그리드로 사용할 그리드를 결정합니다.
 +
 테넌트가 처음 생성된 그리드를 테넌트의 _source GRID_라고 합니다. 테넌트가 복제되는 그리드를 테넌트의_destination grid _ 라고 합니다.
 
@@ -84,7 +84,7 @@ NOTE: 두 그리드에 없는 통합 그룹에 루트 액세스 권한을 할당
 . 그리드 페더레이션 연결 사용 * 권한을 할당합니다.
 . 테넌트 계정이 자신의 통합 사용자를 관리할 경우 * 사용자 ID 소스 사용 * 권한을 할당합니다.
 +
-이 권한이 할당된 경우 소스 및 대상 테넌트 계정 모두 통합 그룹을 생성하기 전에 동일한 ID 소스를 구성해야 합니다. 소스 테넌트에 추가된 통합 그룹은 두 그리드 모두 동일한 ID 소스를 사용하지 않는 한 대상 테넌트에 복제할 수 없습니다.
+이 권한이 할당된 경우, 페더레이션 그룹을 생성하기 전에 소스 및 대상 테넌트 계정 모두 동일한 ID 소스를 구성해야 합니다. 소스 테넌트에 추가된 페더레이션 그룹은 두 그리드가 동일한 ID 소스를 사용하지 않으면 대상 테넌트와 동기화할 수 없습니다.
 
 . 특정 그리드 페더레이션 연결을 선택합니다.
 . 새 테넌트 또는 수정된 테넌트를 저장합니다.
@@ -93,30 +93,30 @@ NOTE: 두 그리드에 없는 통합 그룹에 루트 액세스 권한을 할당
 
 +
 ** 두 테넌트 계정 모두 동일한 계정 ID, 이름, 스토리지 할당량 및 할당된 권한이 있습니다.
-** 테넌트에 대한 루트 액세스 권한이 있는 통합 그룹을 선택한 경우 해당 그룹이 대상 테넌트에 복제됩니다.
-** 테넌트에 대한 루트 액세스 권한이 있는 로컬 사용자를 선택한 경우 해당 사용자는 대상 테넌트에 복제됩니다. 그러나 해당 사용자의 암호는 복제되지 않습니다.
+** 테넌트에 대한 루트 액세스 권한을 갖도록 페더레이션 그룹을 선택한 경우 해당 그룹은 대상 테넌트에 복제됩니다. 그러나 페더레이션 그룹 및 사용자의 경우 지속적인 동기화는 발생하지 않습니다. 일회성 복제만 수행됩니다.
+** 로컬 사용자를 선택하여 테넌트에 대한 루트 액세스 권한을 부여한 경우, 해당 사용자는 대상 테넌트에 동기화됩니다.
 
 
 
 
-자세한 내용은 을 참조하십시오 link:grid-federation-manage-tenants.html["그리드 페더레이션에 허용된 테넌트 관리"].
+자세한 내용은 link:grid-federation-manage-tenants.html["그리드 페더레이션에 허용된 테넌트 관리"]를 참조하십시오.
 
 
 
 [[permitted-tenant-account-workflow]]
 == 허용된 테넌트 계정 워크플로
 
-그리드 페더레이션 연결 사용 * 권한이 있는 테넌트가 대상 그리드에 복제된 후에 허용된 테넌트 계정은 테넌트 그룹, 사용자 및 S3 액세스 키를 클론 복제하기 위해 다음 단계를 수행할 수 있습니다.
+*그리드 페더레이션 연결 사용* 권한이 있는 테넌트가 대상 그리드로 복제된 후, 허용된 테넌트 계정은 다음 단계를 수행하여 테넌트 그룹, 사용자 및 S3 액세스 키를 동기화할 수 있습니다.
 
 .단계
-. 테넌트의 소스 격자에서 테넌트 계정에 로그인합니다.
-. 허용되는 경우 소스 및 대상 테넌트 계정 모두에서 ID 페더레이션을 구성합니다.
-. 소스 테넌트에 그룹 및 사용자를 생성합니다.
+. 연결된 모든 그리드에서 테넌트 계정에 로그인합니다.
+. 허용되는 경우 소스 및 대상 테넌트 계정 모두에 ID 페더레이션을 구성하십시오.
+. 연결된 모든 그리드에서 그룹과 사용자를 생성합니다.
 +
-소스 테넌트에 새 그룹 또는 사용자가 생성되면 StorageGRID는 자동으로 대상 테넌트에 클론을 생성하지만 대상에서 다시 소스로 클론을 생성하지 않습니다.
+테넌트에서 새 그룹 또는 사용자가 생성되면 StorageGRID가 자동으로 대상 테넌트에 동기화합니다.
 
 . S3 액세스 키를 생성합니다.
-. 필요에 따라 소스 테넌트에서 대상 테넌트로 S3 액세스 키를 복제합니다.
+. 선택적으로 소스 테넌트에서 대상 테넌트로 S3 액세스 키를 동기화합니다.
 
 
-허용되는 테넌트 계정 워크플로에 대한 자세한 내용과 그룹, 사용자 및 S3 액세스 키의 클론 생성 방법에 대한 자세한 내용은  및 을 참조하십시오link:../tenant/grid-federation-account-clone.html["클론 테넌트 그룹 및 사용자"]link:../tenant/grid-federation-clone-keys-with-api.html["API를 사용하여 S3 액세스 키의 클론을 생성합니다"].
+허용된 테넌트 계정 워크플로에 대한 자세한 내용과 그룹, 사용자 및 S3 액세스 키가 동기화되는 방법을 알아보려면 link:../tenant/grid-federation-account-sync.html["테넌트 그룹 및 사용자 동기화"]을 참조하십시오.

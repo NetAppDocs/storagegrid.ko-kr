@@ -363,9 +363,9 @@ TLS
 
 |===
 --
-.웹훅 엔드포인트만
+.웹훅 및 Kafka 엔드포인트
 --
-웹훅 엔드포인트에 대한 TLS 연결을 확인합니다.
+웹훅 또는 Kafka 엔드포인트에 대한 TLS 연결을 확인하십시오.
 
 [cols="1a,2a"]
 |===
@@ -397,6 +397,15 @@ mTLS
 사용자 지정 CA 인증서를 사용합니다
  a| 
 사용자 지정 CA 인증서는 엔드포인트에 연결할 때 서버의 ID를 확인하는 데 사용됩니다.
+
+
+
+ a| 
+운영 체제 CA 인증서를 사용합니다
+ a| 
+운영 체제에 설치된 기본 그리드 CA 인증서를 사용하여 연결을 보호합니다.
+
+*참고*: 웹훅 엔드포인트에는 이 옵션이 없습니다.
 
 |===
 *mTLS*를 선택하면 이러한 옵션을 사용할 수 있습니다.
@@ -454,4 +463,5 @@ NOTE: 테넌트 계정에 플랫폼 서비스가 활성화되어 있지 않으�
 * link:configuring-cloudmirror-replication.html["CloudMirror 복제를 구성합니다"]
 * link:configuring-event-notifications.html["이벤트 알림을 구성합니다"]
 * link:configuring-search-integration-service.html["검색 통합 서비스를 구성합니다"]
+* link:../network/external-communications.html["외부 통신에 사용되는 포트"]
 

@@ -18,13 +18,33 @@ StorageGRID 시스템에 대해 SSO(Single Sign-On)를 활성화하기 전에 �
 [[identity-provider-requirements]]
 == ID 공급자 요구 사항
 
-StorageGRID는 다음 SSO ID 공급자(IDP)를 지원합니다.
+StorageGRID는 여러 SSO ID 공급자(IdP)를 지원합니다.
+
+[role="tabbed-block"]
+====
+.OIDC
+--
+OpenID Connect(OIDC)에서 지원되는 SSO IdPs는 다음과 같습니다.
+
+* AD FS(Active Directory Federation Service)
+* 마이크로소프트 엔트라 ID
+* Keycloak
+* PingFederate(PingFederate)
+* Okta
+
+
+--
+.SAML
+--
+다음 SSO IdPs는 Security Assertion Markup Language 2.0(SAML 2.0)에 대해 지원됩니다.
 
 * AD FS(Active Directory Federation Service)
 * 마이크로소프트 엔트라 ID
 * PingFederate(PingFederate)
 
 
+--
+====
 SSO ID 공급자를 구성하려면 먼저 StorageGRID 시스템에 대한 ID 페더레이션을 구성해야 합니다. ID 페더레이션에 사용하는 LDAP 서비스 유형은 구현할 수 있는 SSO 유형을 제어합니다.
 
 [cols="1a,1a"]
@@ -36,6 +56,8 @@ SSO ID 공급자를 구성하려면 먼저 StorageGRID 시스템에 대한 ID �
 Active Directory를 클릭합니다
  a| 
 * Active Directory를 클릭합니다
+* Keycloak
+* Okta
 * 엔트라 ID
 * PingFederate(PingFederate)
 

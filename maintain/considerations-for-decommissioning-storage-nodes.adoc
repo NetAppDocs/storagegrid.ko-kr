@@ -40,7 +40,7 @@ summary: 스토리지 노드를 해제하기 전에 노드를 복제할 수 있�
 접속된 스토리지 노드 해체 시 고려 사항을 검토합니다.
 
 * 단일 서비스 해제 노드 절차에서 10개 이상의 스토리지 노드를 서비스 해제할 수 없습니다.
-* 시스템은 항상 및 활성 을 포함한 운영 요구 사항을 충족할 수 있는 충분한 스토리지 노드를 포함해야 link:understanding-adc-service-quorum.html["ADC 쿼럼"]link:reviewing-ilm-policy-and-storage-configuration.html["ILM 정책"]합니다. 이러한 제한을 충족하려면 기존 스토리지 노드를 폐기하기 전에 확장 작업에서 새 스토리지 노드를 추가해야 할 수 있습니다.
+* 시스템은 운영 요구 사항을 충족하기 위해 항상 충분한 스토리지 노드를 포함해야 합니다. 여기에는 link:understanding-adc-service-quorum.html["ADC 쿼럼"] 및 활성 link:reviewing-ilm-policy-and-storage-configuration.html["ILM 정책"]이(가) 포함됩니다. 폐기로 인해 사이트의 ADC 수가 쿼럼 미만으로 떨어지는 경우, StorageGRID는 ADC 서비스를 동일 사이트 내의 사용 가능한 비 ADC 스토리지 노드로 자동으로 이동하여 ADC 쿼럼을 유지합니다. ADC 서비스를 자동으로 이동할 수 없는 경우, 기존 스토리지 노드를 폐기하기 전에 link:../expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html["확장 작업에서 새 스토리지 노드를 추가합니다."]해야 할 수 있습니다.
 +
 소프트웨어 기반 메타데이터 전용 노드가 포함된 그리드에서 스토리지 노드를 해제할 때는 주의하십시오. store_both_objects 및 메타데이터로 구성된 모든 노드를 해제하면 그리드에서 객체를 저장하는 기능이 제거됩니다. 메타데이터 전용 스토리지 노드에 대한 자세한 내용은 을 link:../primer/what-storage-node-is.html#types-of-storage-nodes["스토리지 노드 유형"]참조하십시오.
 

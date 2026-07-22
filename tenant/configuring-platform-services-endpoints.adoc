@@ -42,8 +42,6 @@ StorageGRID는 S3 버킷을 나타내는 복제 엔드포인트를 지원합니�
 
 StorageGRID Amazon SNS, Kafka 및 웹훅 엔드포인트를 지원합니다.  SQS(Simple Queue Service) 및 AWS Lambda 엔드포인트는 지원되지 않습니다.
 
-Kafka 엔드포인트의 경우 Mutual TLS가 지원되지 않습니다.  결과적으로, 만약 당신이 가지고 있다면 `ssl.client.auth` 로 설정 `required` Kafka 브로커 구성에서 Kafka 엔드포인트 구성 문제가 발생할 수 있습니다.
-
 
 
 [[endpoints-for-the-search-integration-service]]

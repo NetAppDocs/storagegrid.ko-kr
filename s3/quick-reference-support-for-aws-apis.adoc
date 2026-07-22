@@ -13,10 +13,10 @@ summary: '이 페이지에서는 StorageGRID에서 Amazon S3(Simple Storage Serv
 [role="lead"]
 이 페이지에서는 StorageGRID에서 Amazon S3(Simple Storage Service) API를 지원하는 방법을 요약합니다.
 
-이 페이지에는 StorageGRID에서 지원하는 S3 작업만 포함됩니다.
+이 페이지에는 StorageGRID에서 지원하는 S3 작업만 포함되어 있습니다. 나열되지 않은 S3 작업은  `501 Not Implemented`을 반환하거나 의도치 않은 동작을 초래할 수 있습니다.
 
 
-NOTE: 각 작업에 대한 AWS 설명서를 보려면 제목에서 링크를 선택합니다.
+TIP: 각 작업에 대한 AWS 설명서를 보려면 제목에서 링크를 선택합니다.
 
 
 
@@ -73,12 +73,20 @@ link:operations-for-multipart-uploads.html["멀티파트 업로드 작업"]
 StorageGRID는 이 요청에 대해 모두 지원하며<<common-params,공통 매개 변수 및 머리글>>, 이 추가 URI 쿼리 매개 변수는 다음과 같습니다.
 
 * `uploadId`
+* `x-amz-checksum-crc32`
+* `x-amz-checksum-crc32c`
+* `x-amz-checksum-crc64nvme`
 * `x-amz-checksum-sha256`
+* `x-amz-checksum-type`
+* `x-amz-storage-class`
 
 
 .본문 XML 태그를 요청합니다
 StorageGRID는 다음과 같은 요청 본문 XML 태그를 지원합니다.
 
+* `ChecksumCRC32`
+* `ChecksumCRC32C`
+* `ChecksumCRC64NVME`
 * `ChecksumSHA256`
 * `CompleteMultipartUpload`
 * `ETag`
@@ -97,6 +105,7 @@ link:complete-multipart-upload.html["CompleteMultipartUpload를 클릭합니다"
 .Uri 쿼리 매개 변수 및 요청 헤더
 StorageGRID는 이 요청에 대한 모든 <<common-params,공통 매개 변수 및 머리글>>항목과 다음 추가 헤더를 지원합니다.
 
+* `x-amz-checksum-algorithm`
 * `x-amz-copy-source`
 * `x-amz-copy-source-if-match`
 * `x-amz-copy-source-if-modified-since`
@@ -156,6 +165,7 @@ StorageGRID는 이 요청에 대한 모든 <<common-params,공통 매개 변수 
 * `Content-Language`
 * `Expires`
 * `x-amz-checksum-algorithm`
+* `x-amz-checksum-type`
 * `x-amz-server-side-encryption`
 * `x-amz-storage-class`
 * `x-amz-server-side-encryption-customer-algorithm`
@@ -898,6 +908,9 @@ StorageGRID는 이 요청에 대한 모든 <<common-params,공통 매개 변수 
 * `Content-Encoding`
 * `Content-Language`
 * `Expires`
+* `x-amz-checksum-crc32`
+* `x-amz-checksum-crc32c`
+* `x-amz-checksum-crc64nvme`
 * `x-amz-checksum-sha256`
 * `x-amz-server-side-encryption`
 * `x-amz-storage-class`
@@ -938,10 +951,12 @@ link:use-s3-api-for-s3-object-lock.html["S3 REST API를 사용하여 S3 오브�
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectLockConfiguration.html["PutObjectLockConfiguration 을 참조하십시오"^]
 
 .Uri 쿼리 매개 변수 및 요청 헤더
-StorageGRID는 이 요청에 대해 모두를 <<common-params,공통 매개 변수 및 머리글>>지원합니다.
+StorageGRID는 이 요청에 대해 _대부분의_ <<common-params,공통 매개 변수 및 머리글>>을 지원합니다.
 
 .요청 본문
-StorageGRID는 구현 시 Amazon S3 REST API에 의해 정의된 모든 요청 본문 매개 변수를 지원합니다.
+StorageGRID 구현 당시 Amazon S3 REST API에서 정의된 대부분의 요청 본문 매개변수를 지원하지만, 다음 예외 사항이 있습니다.
+
+PutObjectLockConfiguration을 사용하여 기존 버킷에 S3 객체 잠금을 활성화하려면 그리드 관리자의 권한이 필요합니다.
 
 .StorageGRID 설명서
 link:use-s3-api-for-s3-object-lock.html["S3 REST API를 사용하여 S3 오브젝트 잠금을 구성합니다"]
@@ -1017,6 +1032,9 @@ StorageGRID는 이 요청에 대해 모두 지원하며 <<common-params,공통 �
 
 그리고 이러한 추가 요청 헤더는 다음과 같습니다.
 
+* `x-amz-checksum-crc32`
+* `x-amz-checksum-crc32c`
+* `x-amz-checksum-crc64nvme`
 * `x-amz-checksum-sha256`
 * `x-amz-server-side-encryption-customer-algorithm`
 * `x-amz-server-side-encryption-customer-key`

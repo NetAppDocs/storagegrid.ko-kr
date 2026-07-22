@@ -21,10 +21,10 @@ summary: 테넌트 관리자를 사용하여 오브젝트 데이터용 S3 버킷
 NOTE: 버킷 또는 객체의 S3 객체 잠금 속성을 설정하거나 수정하는 권한은 다음을 통해 부여될 수 있습니다.link:../s3/use-access-policies.html["버킷 정책 또는 그룹 정책"] .
 
 * 버킷에 S3 오브젝트 잠금을 설정할 계획이라면 그리드 관리자가 StorageGRID 시스템에 대한 글로벌 S3 오브젝트 잠금 설정을 활성화했으며 S3 오브젝트 잠금 버킷 및 오브젝트 요구 사항을 검토했습니다.
-* 각 테넌트에 5,000개의 버킷이 있는 경우 그리드의 각 스토리지 노드에 최소 64GB의 RAM이 있습니다.
+* 여러 테넌트가 각각 최대 5,000개의 버킷을 사용할 경우, 그리드의 각 스토리지 노드에는 최소 64GB의 RAM이 필요합니다.
 +
 
-NOTE: 각 그리드에는 최대 100,000개의 버킷이 포함될 수 있습니다.link:../tenant/what-is-branch-bucket.html["가지 버킷"] .
+NOTE: StorageGRID 시스템은 각 S3 테넌트 계정당 최대 20,000개의 버킷을 지원합니다. 각 그리드는 최대 100,000개의 버킷을 가질 수 있으며, 여기에는 link:../tenant/what-is-branch-bucket.html["가지 버킷"]이 포함됩니다. 또한 link:../tenant/manage-branch-buckets.html["분기 버킷 깊이"]에 대한 제한도 있습니다.
 
 
 
@@ -63,7 +63,7 @@ NOTE: 각 그리드에는 최대 100,000개의 버킷이 포함될 수 있습니
 ** 가상 호스팅 스타일 요청에는 기간을 포함할 수 없습니다. 마침표는 서버 와일드카드 인증서 확인에 문제를 일으킬 수 있습니다.
 
 
-자세한 내용은 를 https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html["버킷 명명 규칙에 대한 AWS(Amazon Web Services) 문서입니다"^]참조하십시오.
+자세한 내용은  https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html["버킷 명명 규칙에 대한 AWS(Amazon Web Services) 문서입니다"^]을 참조하십시오.
 
 * 참고 *: 버킷을 만든 후에는 버킷 이름을 변경할 수 없습니다.
 

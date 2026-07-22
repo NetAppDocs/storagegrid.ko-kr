@@ -44,7 +44,7 @@ StorageGRID 시스템은 NTP(네트워크 시간 프로토콜)를 사용하여 �
 
 
 
-NOTE: 프로덕션 수준 StorageGRID 설치에 외부 NTP 소스를 지정할 때 Windows Server 2016 이전 버전의 Windows에서는 Windows 시간(W32Time) 서비스를 사용하지 마십시오. 이전 버전의 Windows의 시간 서비스는 정확하지 않으며 StorageGRID를 비롯한 정확도가 높은 환경에서 사용할 수 있도록 Microsoft에서 지원되지 않습니다. 자세한 내용은 을 참조하십시오 https://support.microsoft.com/en-us/help/939322/support-boundary-to-configure-the-windows-time-service-for-high-accura["정확도가 높은 환경에 대한 Windows 시간 서비스를 구성하기 위한 경계를 지원합니다"^].
+NOTE: 운영 환경 StorageGRID 설치에서 외부 NTP 소스를 지정할 때 Windows Server 2016 이전 버전의 Windows에서는 Windows 시간(W32Time) 서비스를 사용하지 마십시오. 이전 버전의 Windows 시간 서비스는 정확도가 충분하지 않으며 StorageGRID를 포함한 고정밀 환경에서의 사용에 대해 Microsoft에서 지원하지 않습니다. 자세한 내용은 https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/support-boundary-high-accuracy-time["높은 정확도의 시간을 위한 지원 경계"^]을 참조하십시오.
 
 
 

@@ -23,16 +23,17 @@ summary: 동일한 사이트의 다른 스토리지 노드로 ADC 서비스를 �
 
 
 .이 작업에 대해
-다음을 수행하려는 경우 ADC 이동 절차를 사용하세요.
-
-* ADC 서비스를 호스팅하는 스토리지 노드를 해제합니다.
-* ADC 서비스를 호스팅하는 스토리지 노드를 데이터 전용 스토리지 노드로 변환
-
-
-저장 노드를 해제하려는 경우link:../maintain/convert-to-data-only-node.html["스토리지 노드를 데이터 전용 노드로 변환"] , 먼저 ADC 이동 절차를 사용해야 할 수도 있습니다.  다음을 확인해야 합니다.link:../maintain/understanding-adc-service-quorum.html["ADC 정족수가 유지됩니다."] .
+ADC 이동 절차를 사용하여 스토리지 노드 간에 ADC 서비스를 수동으로 이동할 수 있습니다. 예를 들어, 노드 간에 ADC 서비스를 재분배하거나 ADC 서비스를 성능이 더 높은 노드로 이동할 수 있습니다.
 
 이 절차는 ADC, IDNT, ACCT 및 RSM 서비스를 동일한 사이트의 한 스토리지 노드에서 다른 스토리지 노드로 이동합니다.  RSM, IDNT, ACCT 서비스는 ADC 서비스에 종속되어 있으므로 ADC 서비스가 이동하면 자동으로 이동합니다.
 
+[NOTE]
+====
+* link:../maintain/convert-to-data-only-node.html["스토리지 노드를 데이터 전용 노드로 변환"] 전이나 스토리지 노드를 폐기하기 전에 ADC 서비스를 수동으로 이동할 필요가 없습니다. 이러한 절차는 필요에 따라 ADC 서비스를 자동으로 이동합니다. 요구 사항에 대한 자세한 내용은 link:../maintain/understanding-adc-service-quorum.html["ADC 쿼럼이란 무엇입니까?"]을 참조하십시오.
+* StorageGRID는 ADC 서비스를 호스팅하기 위한 요구 사항을 충족하는 최신 스토리지 노드로 서비스를 이전합니다.
+
+
+====
 .단계
 . 소스 및 대상 노드의 노드 ID를 기록합니다.
 +

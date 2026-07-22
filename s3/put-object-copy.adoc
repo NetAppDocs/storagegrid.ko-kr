@@ -39,10 +39,10 @@ NOTE: StorageGRID 11.6 이하에서 업그레이드한 경우 5GiB를 초과하�
 
 요청에 사용자 정의 메타데이터의 키 이름이나 값에 UTF-8 값이 포함되어 있으면 StorageGRID 동작이 정의되지 않습니다.
 
-StorageGRID는 사용자 정의 메타데이터의 키 이름이나 값에 포함된 이스케이프된 UTF-8 문자를 구문 분석하거나 해석하지 않습니다. 이스케이프된 UTF-8 문자는 ASCII 문자로 처리됩니다.
+StorageGRID는 사용자 정의 메타데이터의 키 이름 또는 값에 포함된 이스케이프 처리된 UTF-8 문자를 구문 분석하거나 해석하지 않습니다. 이스케이프 처리된 UTF-8 문자는 ASCII 문자로 처리됩니다.
 
 * 사용자 정의 메타데이터에 이스케이프된 UTF-8 문자가 포함된 경우 요청이 성공합니다.
-* 키 이름 또는 값의 해석된 값에 인쇄할 수 없는 문자가 포함된 경우 StorageGRID는 헤더를 반환하지 `x-amz-missing-meta` 않습니다.
+* StorageGRID는 키 이름이나 값의 해석된 값에 인쇄할 수 없는 문자가 포함된 경우 `x-amz-missing-meta` 헤더를 반환하지 않습니다.
 
 
 
@@ -53,6 +53,20 @@ StorageGRID는 사용자 정의 메타데이터의 키 이름이나 값에 포�
 지원되는 요청 헤더는 다음과 같습니다.
 
 * `Content-Type`
+* `x-amz-checksum-algorithm`:  `CRC32`,  `CRC32C`,  `CRC64NVME` 또는  `SHA256`을 지정하십시오.
++
+객체를 복사할 때 원본 객체에  `checksum` 또는  `x-amz-checksum-algorithm`이 포함된 경우 복사된 객체는 FULL_OBJECT 체크섬을 갖습니다.
+
++
+원본 객체에 체크섬이 있지만 요청에  `x-amz-checksum-algorithm`이 포함되지 않거나 지원되지 않는 체크섬 값을 사용하는 경우, 복사된 객체는 원본 객체와 동일한 유형의 체크섬을 갖습니다. StorageGRID는 유효하지 않거나 지원되지 않는  `x-amz-checksum-algorithm` 값을 무시합니다.
+
++
+원본 개체에 체크섬이 없고 `x-amz-checksum-algorithm`가 포함되지 않거나 지원되지 않는 체크섬 값을 사용하는 경우, 복사된 개체에는 체크섬이 없습니다.
+
++
+
+NOTE: CopyObject 요청에 체크섬이 지정되지 않고 소스 객체에 체크섬이 없는 경우, StorageGRID는 해당 객체에 대한 기본 CRC-64/NVME 체크섬을 계산하지 않습니다.
+
 * `x-amz-copy-source`
 * `x-amz-copy-source-if-match`
 * `x-amz-copy-source-if-none-match`
@@ -108,15 +122,11 @@ StorageGRID는 사용자 정의 메타데이터의 키 이름이나 값에 포�
 * `Expires`
 * `If-Match`
 +
- `If-Match header`은(는) 승인되었지만 작동하지 않습니다.
+ `If-Match` 헤더는 StorageGRID 구성에 따라 다르게 동작합니다. 이 헤더를 제공하면 오류 메시지(501 구현되지 않음)가 반환될 수 있습니다.  `If-Match` 헤더가 허용되지만 제대로 작동하지 않는 경우, 더 엄격한 501 구현되지 않음 오류 동작을 활성화하는 방법에 대한 안내와 함께 알림이 표시될 수 있습니다.
 
 * `If-None-Match`
 +
- `If-None-Match header`은(는) 승인되었지만 작동하지 않습니다.
-
-* `x-amz-checksum-algorithm`
-+
-개체를 복사할 때 소스 개체에 체크섬이 있으면 StorageGRID에서 해당 체크섬 값을 새 개체에 복사하지 않습니다. 이 동작은 개체 요청에서 을 사용하려고 하는지 여부에 관계없이 `x-amz-checksum-algorithm` 적용됩니다.
+ `If-None-Match` 헤더는 StorageGRID 구성에 따라 다르게 동작합니다. 이 헤더를 제공하면 오류 메시지(501 구현되지 않음)가 반환될 수 있습니다.  `If-None-Match` 헤더가 허용되지만 제대로 작동하지 않는 경우, 더 엄격한 501 구현되지 않음 오류 동작을 활성화하는 방법에 대한 안내와 함께 알림이 표시될 수 있습니다.
 
 * `x-amz-website-redirect-location`
 
@@ -149,10 +159,10 @@ NOTE: S3 오브젝트 잠금이 설정된 상태에서 오브젝트를 버킷에
 
 헤더에 지정된 소스 버킷 및 키가 대상 버킷 및 키와 다른 경우 `x-amz-copy-source` 소스 오브젝트 데이터의 복사본이 대상에 기록됩니다.
 
-소스와 대상이 일치하고 헤더가 로 지정된 `REPLACE` 경우 `x-amz-metadata-directive` 객체의 메타데이터는 요청에 제공된 메타데이터 값으로 업데이트됩니다. 이 경우 StorageGRID는 오브젝트를 다시 수집하지 않습니다. 여기에는 두 가지 중요한 결과가 있습니다.
+소스와 대상이 일치하고  `x-amz-metadata-directive` 헤더가  `REPLACE`로 지정된 경우, 객체의 메타데이터는 요청에 제공된 메타데이터 값으로 업데이트됩니다. 이 경우 StorageGRID는 객체를 다시 수집하지 않습니다. 이는 두 가지 중요한 결과를 가져옵니다.
 
 * 기존 개체를 현재 위치에서 암호화하거나 기존 개체의 암호화를 변경하는 데 CopyObject 를 사용할 수 없습니다. 헤더나 `x-amz-server-side-encryption-customer-algorithm` 헤더를 제공하면 `x-amz-server-side-encryption` StorageGRID는 요청을 거부하고 반환합니다 `XNotImplemented`.
-* 일치하는 ILM 규칙에 지정된 Ingest 동작 옵션은 사용되지 않습니다. ILM이 정상적인 백그라운드 ILM 프로세스에 의해 다시 평가될 때 업데이트로 인해 트리거되는 개체 배치에 대한 모든 변경 사항이 발생합니다.
+* 일치하는 ILM 규칙에 지정된 수집 동작 옵션은 사용되지 않습니다. 업데이트로 인해 발생하는 객체 배치 변경 사항은 일반적인 백그라운드 ILM 프로세스에 의해 ILM이 재평가될 때 적용됩니다.
 +
 즉, ILM 규칙이 수집 동작에 Strict 옵션을 사용하는 경우 필요한 개체 배치를 만들 수 없는 경우(예: 새로 필요한 위치를 사용할 수 없음) 작업이 수행되지 않습니다. 업데이트된 오브젝트는 필요한 배치가 가능할 때까지 현재 위치를 유지합니다.
 

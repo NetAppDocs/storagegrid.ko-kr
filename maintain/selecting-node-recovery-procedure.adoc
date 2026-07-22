@@ -2,7 +2,7 @@
 permalink: maintain/selecting-node-recovery-procedure.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, procedure 
-summary: 실패한 노드 유형에 대해 올바른 복구 절차를 선택해야 합니다. 
+summary: 오류가 발생한 노드 유형에 맞는 복구 절차를 선택하십시오. 
 ---
 = StorageGRID 노드 복구 절차를 선택합니다
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 실패한 노드 유형에 대해 올바른 복구 절차를 선택해�
 
 
 [role="lead"]
-실패한 노드 유형에 대해 올바른 복구 절차를 선택해야 합니다.
+오류가 발생한 노드 유형에 맞는 복구 절차를 선택하십시오.
 
 [cols="1a,2a"]
 |===
@@ -19,18 +19,9 @@ summary: 실패한 노드 유형에 대해 올바른 복구 절차를 선택해�
 
 
  a| 
-둘 이상의 스토리지 노드
+스토리지 노드
  a| 
-기술 지원 부서에 문의하십시오. 둘 이상의 스토리지 노드에 장애가 발생한 경우 기술 지원 부서에서 복구를 지원하여 데이터 손실을 초래하는 데이터베이스 불일치를 방지해야 합니다. 사이트 복구 절차가 필요할 수 있습니다.
-
-link:how-site-recovery-is-performed-by-technical-support.html["기술 지원 부서에서 사이트를 복구하는 방법"]
-
-
-
- a| 
-단일 스토리지 노드
- a| 
-스토리지 노드 복구 절차는 장애 유형과 기간에 따라 다릅니다.
+스토리지 노드 복구 절차는 장애 유형에 따라 다릅니다.
 
 link:recovering-from-storage-node-failures.html["스토리지 노드 장애 복구"]
 
@@ -59,4 +50,4 @@ https://docs.netapp.com/us-en/storagegrid-118/maintain/recovering-from-archive-n
 
 |===
 
-NOTE: 두 개 이상의 그리드 노드를 호스팅하는 서버에 장애가 발생하면 원하는 순서로 노드를 복구할 수 있습니다. 하지만 실패한 서버가 기본 관리 노드를 호스팅하는 경우 먼저 해당 노드를 복구해야 합니다. 기본 관리 노드를 먼저 복구하면 다른 노드 복구가 기본 관리 노드에 연결하기 위해 기다리는 동안 중단되는 것을 방지할 수 있습니다.
+NOTE: 하나 이상의 그리드 노드를 호스팅하는 서버에 장애가 발생하면 어떤 순서로든 노드를 복구할 수 있습니다. 그러나 장애가 발생한 서버가 기본 Admin Node를 호스팅하고 있고 비기본 Admin Node가 존재하지 않는 경우, 기본 Admin Node를 먼저 복구해야 합니다. 기본 Admin Node를 먼저 복구하면 다른 노드가 기본 Admin Node에 접속을 시도할 때 복구가 중단되는 것을 방지할 수 있습니다. 비기본 Admin Node를 사용할 수 있는 경우, 이를 사용하여 다른 노드를 복구할 수도 있으므로 기본 Admin Node에 접속하지 않고도 해당 복구를 진행할 수 있습니다.

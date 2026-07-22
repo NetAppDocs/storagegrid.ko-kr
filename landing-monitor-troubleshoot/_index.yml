@@ -19,12 +19,14 @@ indexpage:
       url: "../monitor/monitoring-storage-capacity.html"
   - title: 알림 및 알림을 관리합니다
     links:
+    - title: AutoSupport를 사용합니다
+      url: "../monitor/what-is-autosupport.html"
     - title: 알림을 관리합니다
       url: "../monitor/managing-alerts.html"
     - title: 사용자 지정 알림을 생성합니다
       url: "../monitor/creating-custom-alert-rules.html"
-    - title: 경고 이메일을 관리합니다
-      url: "../monitor/email-alert-notifications.html"
+    - title: 이메일 서버 구성
+      url: "../monitor/configure-email-server.html"
     - title: SNMP 모니터링을 사용합니다
       url: "../monitor/using-snmp-monitoring.html"
   - title: 감사 메시지 및 기타 로그를 사용합니다
@@ -39,6 +41,8 @@ indexpage:
       url: "../monitor/logs-files-reference.html"
   - title: 진단하고 문제를 해결합니다
     links:
+    - title: AutoSupport를 사용합니다
+      url: "../monitor/what-is-autosupport.html"
     - title: 지원 메트릭을 검토합니다
       url: "../monitor/reviewing-support-metrics.html"
     - title: I/O 우선순위 변경

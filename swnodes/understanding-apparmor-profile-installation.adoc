@@ -36,7 +36,7 @@ sudo apparmor_parser -R /etc/apparmor.d/<profile.name>
 sudo ln -s /etc/apparmor.d/bin.ping /etc/apparmor.d/disable/
 sudo apparmor_parser -R /etc/apparmor.d/bin.ping
 ----
-* AppArmor를 모두 비활성화합니다. Ubuntu 9.10 이상의 경우 Ubuntu 온라인 커뮤니티의 지침을 따릅니다 https://help.ubuntu.com/community/AppArmor#Disable_AppArmor_framework["AppArmor를 비활성화합니다"^]. 최신 Ubuntu 버전에서는 AppArmor를 완전히 비활성화할 수 없습니다.
+* AppArmor를 완전히 비활성화하십시오. Ubuntu 9.10 이상 버전의 경우,  https://help.ubuntu.com/community["우분투 온라인 커뮤니티"]의 지침을 따르십시오. 최신 Ubuntu 버전에서는 AppArmor를 완전히 비활성화하는 것이 불가능할 수 있습니다.
 +
 AppArmor를 비활성화하면 StorageGRID 로그 파일에 AppArmor가 활성화되었음을 나타내는 항목이 나타나지 않습니다.
 

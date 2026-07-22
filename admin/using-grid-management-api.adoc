@@ -43,10 +43,7 @@ Swagger 사용자 인터페이스는 각 API 작동에 대한 전체 세부 정�
 CAUTION: API 문서 웹 페이지를 사용하여 수행하는 모든 API 작업은 라이브 작업입니다. 실수로 구성 데이터나 기타 데이터를 작성, 업데이트 또는 삭제하지 않도록 주의하십시오.
 
 .단계
-. Grid Manager 헤더에서 도움말 아이콘을 선택하고 * API documentation * 을 선택합니다.
-+
-image:help_menu.png["도움말 메뉴"]
-
+. 그리드 관리자 헤더에서 도움말 아이콘 image:icon_help_menu_bar.png["도움말 아이콘"]을 선택하고 *API 문서*를 선택합니다.
 . 전용 API로 작업을 수행하려면 StorageGRID 관리 API 페이지에서 * 전용 API 설명서 * 로 이동 * 을 선택합니다.
 +
 사설 API는 사전 통보 없이 변경될 수 있습니다. StorageGRID 전용 엔드포인트도 요청의 API 버전을 무시합니다.

@@ -1,0 +1,16 @@
+---
+permalink: release-notes/index.html 
+sidebar: sidebar 
+keywords: release notes 
+summary: 수정된 문제와 알려진 문제에 대한 릴리스별 정보를 확인하십시오. 
+---
+= 릴리스 정보
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+수정된 문제와 알려진 문제에 대한 릴리스별 정보를 확인하십시오.
+
+NetApp 지원 사이트에 로그인하여 StorageGRID 12.1 릴리스 노트가 포함된 https://library.netapp.com/ecm/ecm_download_file/ECMLP3373065["PDF 파일을 보거나 다운로드합니다."^] 페이지를 확인하십시오.

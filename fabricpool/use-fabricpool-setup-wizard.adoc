@@ -69,7 +69,7 @@ StorageGRID 시스템에 ID 페더레이션이나 SSO(Single Sign-On)를 사용�
 === 도메인 이름 가져오기 및 구성
 
 * StorageGRID에 사용할 FQDN(정규화된 도메인 이름)을 알고 있습니다. DNS(Domain Name Server) 항목은 이 FQDN을 마법사를 사용하여 생성한 HA 그룹의 가상 IP(VIP) 주소에 매핑합니다. 을 link:../fabricpool/configure-dns-server.html["DNS 서버를 구성합니다"]참조하십시오.
-* S3 가상 호스팅 방식의 요청을 사용할 계획이라면 이 link:../admin/configuring-s3-api-endpoint-domain-names.html["S3 끝점 도메인 이름을 구성했습니다"]있습니다. ONTAP에서는 기본적으로 경로 스타일 URL을 사용하지만 가상 호스팅 스타일 요청을 사용하는 것이 좋습니다.
+* S3 가상 호스팅 스타일 요청을 사용할 계획이라면, link:../admin/configuring-s3-api-endpoint-domain-names.html["S3 끝점 도메인 이름을 구성했습니다"]. ONTAP는 기본적으로 경로 스타일 URL을 사용하지만 가상 호스팅 스타일 요청을 사용하는 것이 좋습니다.
 
 
 

@@ -29,8 +29,10 @@ indexpage:
     links:
     - title: Linux 노드를 교체합니다
       url: "../maintain/all-node-types-replacing-linux-node.html"
-    - title: VMware 노드를 교체합니다
+    - title: VMware 노드를 복구 노드로 교체
       url: "../maintain/all-node-types-replacing-vmware-node.html"
+    - title: VMware 노드를 SG1000 또는 SG100으로 교체
+      url: "../maintain/replace-vmware-node-with-sg1000-sg100.html"
     - title: Linux 또는 VMware 노드를 서비스 어플라이언스로 교체합니다
       url: "../maintain/installing-services-appliance-platform-change-only.html"
     - title: 클론 어플라이언스 노드

@@ -1,0 +1,198 @@
+---
+permalink: admin/grid-federation-automate-connections.html 
+sidebar: sidebar 
+keywords: automate, automating, automation, automatic, configuration, configure 
+summary: StorageGRID 버전 12.1 이상을 실행하는 StorageGRID 시스템을 두 개 이상 설치하고 구성한 후에는 manage-grid-federation.py Python 스크립트와 JSON 구성 파일을 사용하여 그리드 페더레이션 연결의 생성, 편집 및 유지 관리를 자동화할 수 있습니다. 
+---
+= StorageGRID에서 그리드 페더레이션 연결 자동화
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 버전 12.1 이상을 실행하는 StorageGRID 시스템을 두 개 이상 설치하고 구성한 후에는  `manage-grid-federation.py` Python 스크립트와 JSON 구성 파일을 사용하여 그리드 페더레이션 연결의 생성, 편집 및 유지 관리를 자동화할 수 있습니다.
+
+.시작하기 전에
+* 모든 그리드는 StorageGRID 12.1 이상 버전을 실행하고 있습니다.
+* 그리드에서 단일 로그인(SSO)이 활성화된 경우, SSO를 비활성화한 것입니다.
+* Linux 시스템에 Python 3.6 이상 버전이 설치되어 있어야 합니다.
+* 설치 아카이브에서 다음 파일의 위치를 알고 있습니다.
++
+[cols="1,2"]
+|===
+| 파일 이름 | 설명 
+
+
+| manage-grid-federation.py | 그리드 연합 연결 관리를 자동화하는 데 사용되는 Python 스크립트 
+
+
+| manage-grid-federation.sample.json | 스크립트와 함께 사용할 예제 구성 파일 
+|===
+* 귀하는 `manage-grid-federation.json` 구성 파일을 생성했습니다. 이 파일을 생성하려면 예제 구성 파일 `manage-grid-federation.sample.json`을 수정하면 됩니다.
+
+
+
+CAUTION:  `manage-grid-federation.json` 구성 파일에서 그리드 관리자 암호와 프로비저닝 암호를 안전한 위치에 저장하십시오. 파일에 자격 증명이 누락된 경우 스크립트가 대화형으로 자격 증명을 입력하라는 메시지를 표시합니다. 또한 수정된 구성 파일의 백업을 안전한 위치에 저장해야 합니다.
+
+
+
+[[configuration-file-fields]]
+== 구성 파일 필드
+
+JSON 구성 파일은 객체 배열입니다. 각 객체는 하나의 그리드를 나타내며 다음 필드를 지원합니다.
+
+[cols="1m,1,2"]
+|===
+| 필드에 입력합니다 | 필수 요소입니다 | 설명 
+
+
+| 호스트 이름 | 예 | 그리드의 관리 노드 호스트 이름 또는 IP 주소 
+
+
+| grid_name | 예 | 그리드에 표시할 이름 (최대 12자) 
+
+
+| 사용자 이름 | 아니요 | 그리드 관리자 사용자 이름(생략 시 대화형으로 입력 요청) 
+
+
+| 비밀번호 | 아니요 | 그리드 관리자 암호(입력하지 않을 경우 대화형으로 입력하라는 메시지가 표시됨) 
+
+
+| 암호문 | 아니요 | 프로비저닝 암호(생략 시 대화형으로 입력 요청) 
+
+
+| ca_bundle | 아니요 | SSL 검증을 위한 사용자 지정 CA 인증서 번들의 경로 
+
+
+| 지역 | 아니요 | 글로벌 네임스페이스 연결에 사용할 기본 S3 리전 
+
+
+| CNAME | 아니요 | 글로벌 네임스페이스 연결에 필요한 CNAME 
+
+
+| globalEndpoint | 아니요 | 원하는 글로벌 네임스페이스 엔드포인트 
+|===
+
+NOTE: 전역 네임스페이스 필드 (`region`,  `CNAME`,  `globalEndpoint`)를 구성하는 경우 각 그리드에 대해 세 가지 필드를 모두 제공해야 합니다. 리전과 CNAME은 그리드 간에 고유해야 하며,  `globalEndpoint` 값은 모든 그리드에서 동일해야 합니다.
+
+.이 작업에 대해
+ `manage-grid-federation.py` Python 스크립트와  `manage-grid-federation.json` 구성 파일을 사용하여 그리드 페더레이션 연결 관리를 자동화할 수 있습니다. 스크립트는 다음 작업을 수행합니다.
+
+* 그리드 관리 API를 사용하여 각 그리드에 인증합니다.
+* 모든 그리드가 StorageGRID 12.1 이상 버전을 실행 중인지 확인합니다.
+* 모든 그리드에서 싱글 사인온(SSO)이 비활성화되어 있는지 확인합니다.
+* 기존 그리드 페더레이션 연결 및 S3 구성을 검색합니다
+* 구성 시 S3 지역, CNAME 및 글로벌 네임스페이스 엔드포인트 설정을 업데이트합니다.
+* 아직 연결되지 않은 모든 그리드 쌍에 대해 새 그리드 페더레이션 연결을 생성합니다.
+* 표시 이름이나 전역 네임스페이스 설정이 변경될 때 기존 연결을 편집합니다.
+* 모든 연결 및 해당 상태에 대한 요약을 표시합니다.
+
+
+
+TIP: 그리드 관리자 UI 또는 그리드 관리 API를 직접 사용하여 그리드 페더레이션 연결을 관리할 수도 있습니다.
+
+.단계
+. Python 스크립트를 실행하기 위해 사용 중인 Linux 시스템에 로그인합니다.
+. 스크립트가 있는 디렉토리로 변경합니다.
++
+예를 들면 다음과 같습니다.
+
++
+[listing]
+----
+cd StorageGRID-Webscale-version/platform
+----
++
+여기서 *platform*은  `debs`,  `rpms` 또는  `vsphere`입니다.
+
+. Python 스크립트를 실행하고 생성한 구성 파일을 사용합니다.
++
+예를 들면 다음과 같습니다.
+
++
+`./manage-grid-federation.py -i manage-grid-federation.json`
+
++
+다음 명령줄 옵션을 사용할 수 있습니다.
+
++
+[cols="2m,1,3"]
+|===
+| 옵션을 선택합니다 | 기본값 | 설명 
+
+
+| -i, --input-json-file | _(필수)_ | 그리드 목록이 포함된 JSON 구성 파일의 경로 
+
+
+| -b, --base-port | 23001 | 새로운 그리드 연합 연결을 위한 시작 포트 번호 
+
+
+| --no-verify-ssl | SSL 확인 활성화됨 | 로컬 네트워크와 그리드 네트워크 간 연결에 대한 SSL 인증서 검증을 비활성화합니다. 
+|===
+
+
+
+
+[[edit-existing-connections]]
+== 기존 연결 편집
+
+스크립트가 기존 연결에 변경이 필요한 경우(예: 그리드 표시 이름이 변경되었거나 전역 네임스페이스 설정을 업데이트해야 하는 경우) 제안된 수정 사항에 대한 요약을 표시하고 진행하기 전에 확인을 요청합니다.
+
+글로벌 네임스페이스가 활성화된 그리드에서 S3 구성 업데이트((`region`, `CNAME`, 또는 `globalEndpoint`)가 필요한 경우, 스크립트는 변경 사항을 적용하기 위해 글로벌 네임스페이스를 일시적으로 비활성화해야 합니다. 이 경우, 확인 메시지에 일시적인 라우팅 중단에 대한 경고가 표시됩니다.
+
+[listing]
+----
+*** Global Namespace Disable Required ***
+Global Namespace must be disabled to update region/CNAME/globalEndpoint settings.
+Routing requests will not work until Global Namespace is re-enabled.
+Grids requiring S3 updates: grid1.example.com, grid2.example.com
+Proceed with these edits and the temporary routing outage? [y/N]:
+----
+
+CAUTION: S3 구성 업데이트 중에는 글로벌 네임스페이스가 일시적으로 비활성화되므로 글로벌 네임스페이스 라우팅 요청이 작동하지 않습니다. 이 작업은 유지보수 윈도우 중에 계획하십시오.
+
+.작업을 마친 후
+스크립트에 다음과 유사한 확인 요약이 표시되면 그리드 페더레이션 연결이 설정 및 구성된 것입니다.
+
+[listing]
+----
+===== Newly Established Connections =====
+ • Grid-A and Grid-B — grid-a.example.com and grid-b.example.com on port 23001
+
+Total new connections: 1
+
+===== All Grid-Federation Connections =====
+  Name              Source                Target                Port   Status    Global Namespace
+  ----------------  --------------------  --------------------  -----  --------  ----------------
+  Grid-A and Grid-B grid-a.example.com    grid-b.example.com    23001  new       enabled
+
+Total connections listed: 1
+
+===== Grid S3 Configuration Summary =====
+ grid-a.example.com:
+    Default Region: us-east-1
+    CNAME: s3-a.example.com
+    Global namespace endpoint: gn.example.com
+ grid-b.example.com:
+    Default Region: us-west-1
+    CNAME: s3-b.example.com
+    Global namespace endpoint: gn.example.com
+----
+
+
+[[exit-status]]
+== 종료 상태
+
+[cols="1m,4"]
+|===
+| 코드 | 설명 
+
+
+| 0 | 스크립트 실행이 성공적으로 완료되었습니다. 
+
+
+| 1 | 유효성 검사에 실패했거나 그리드 API 호출에서 오류가 발생했습니다(로그 출력을 확인하십시오). 
+|===
+
+NOTE: 연결에 실패하는 경우 스크립트는 나머지 연결 쌍 처리를 계속하고 모든 실패 내역을 출력의 "실패한 연결" 섹션에 보고합니다. 오류 메시지를 검토하고 문제를 해결한 후 스크립트를 다시 실행하십시오.

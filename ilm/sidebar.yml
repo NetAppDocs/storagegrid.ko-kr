@@ -113,8 +113,8 @@ entries:
     url: "/ilm/workflow-for-s3-object-lock.html"
   - title: S3 오브젝트 잠금에 대한 요구사항
     url: "/ilm/requirements-for-s3-object-lock.html"
-  - title: S3 오브젝트 잠금을 전역적으로 활성화합니다
-    url: "/ilm/enabling-s3-object-lock-globally.html"
+  - title: S3 객체 잠금 활성화
+    url: "/ilm/enabling-s3-object-lock.html"
   - title: S3 오브젝트 잠금 또는 레거시 규정 준수 구성을 업데이트할 때 일관성 오류 해결
     url: "/ilm/resolving-consistency-errors-when-updating-bucket-s3-object-lock-configuration.html"
 - title: ILM 규칙 및 정책의 예

@@ -38,7 +38,9 @@ summary: 교체 호스트에서 StorageGRID 노드를 실행하기 위해 수행
  a| 
 기본 관리자 노드
  a| 
-link:configuring-replacement-primary-admin-node.html["대체 운영 관리자 노드를 구성합니다"]
+* link:selecting-start-recovery-to-configure-primary-admin-node.html["기본 관리 노드를 구성하려면 복구 시작을 선택하십시오."]
+* link:selecting-start-recovery-to-configure-non-primary-admin-node.html["비기본 관리 노드를 사용하여 기본 관리 노드를 복구합니다."]
+
 
 
 
@@ -74,6 +76,6 @@ link:selecting-start-recovery-to-configure-storage-node.html["복구 시작 을 
 * 에 대해 구성 파일 변수의 값이 `BLOCK_DEVICE_<PURPOSE>` 호스트 장애 전에 수행했던 것과 동일한 데이터를 포함하지 않는 블록 디바이스를 참조하는 경우 `<PURPOSE>`
 
  a| 
-link:recovering-from-storage-volume-failure-where-system-drive-is-intact.html["시스템 드라이브가 손상되지 않은 스토리지 볼륨 장애로부터 복구합니다"]
+link:reviewing-warnings-about-storage-volume-recovery.html["시스템 드라이브가 손상되지 않은 스토리지 볼륨 장애로부터 복구합니다"]
 
 |===

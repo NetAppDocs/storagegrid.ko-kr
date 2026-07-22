@@ -2,7 +2,7 @@
 permalink: release-notes/removed-or-deprecated-features.html 
 sidebar: sidebar 
 keywords:  
-summary: StorageGRID 12.0에서 제거되거나 더 이상 사용되지 않는 기능에 대해 알아보세요. 업그레이드하기 전에 제거되거나 더 이상 사용되지 않는 기능이 클라이언트 애플리케이션이나 그리드 구성에 영향을 미치는지 확인하십시오. 
+summary: StorageGRID 12.1.0에서 제거되거나 더 이상 사용되지 않는 기능에 대해 알아보십시오. 업그레이드하기 전에 제거되거나 더 이상 사용되지 않는 기능이 클라이언트 애플리케이션이나 그리드 구성에 영향을 미치는지 확인하십시오. 
 ---
 = StorageGRID에서 제거되거나 더 이상 사용되지 않는 기능
 :allow-uri-read: 
@@ -11,14 +11,14 @@ summary: StorageGRID 12.0에서 제거되거나 더 이상 사용되지 않는 �
 
 
 [role="lead"]
-StorageGRID 12.0에서 제거되거나 더 이상 사용되지 않는 기능에 대해 알아보세요. 업그레이드하기 전에 제거되거나 더 이상 사용되지 않는 기능이 클라이언트 애플리케이션이나 그리드 구성에 영향을 미치는지 확인하십시오.
+StorageGRID 12.1.0에서 제거되거나 더 이상 사용되지 않는 기능에 대해 알아보십시오. 업그레이드하기 전에 제거되거나 더 이상 사용되지 않는 기능이 클라이언트 애플리케이션이나 그리드 구성에 영향을 미치는지 확인하십시오.
 
 
 
 [[definitions]]
 == 정의
 
-사용되지 않음:: 이 기능은 새 생산 환경에서 사용할 수 없습니다 *. 기존 운영 환경에서 이 기능을 계속 사용할 수 있습니다.
+사용되지 않음:: 새로운 운영 환경에서는 해당 기능을 사용해서는 안 됩니다. 기존 운영 환경에서는 해당 기능을 계속 사용할 수 있습니다.
 수명 종료:: 이 기능을 지원하는 마지막으로 배송된 버전입니다. 경우에 따라 이 단계에서 기능에 대한 문서가 제거될 수 있습니다.
 제거되었습니다:: 이 기능을 지원하지 * 않는 * 첫 번째 버전입니다.
 
@@ -38,6 +38,19 @@ NOTE: 특정 상황에서 NetApp는 특정 기능에 대한 지원을 예상보�
 [cols="2a,1a,1a,1a,3a"]
 |===
 | 피처 | 사용되지 않음 | 수명 종료 | 제거되었습니다 | 이전 문서에 대한 링크 
+
+
+ a| 
+AES-128 암호화를 위한 글로벌 SSE 설정
+ a| 
+12.1
+ a| 
+12.2
+ a| 
+12.3
+ a| 
+StorageGRID 12.1.0부터 새로 저장된 객체 데이터의 AES-128 암호화 지원이 더 이상 사용되지 않습니다. 원래 AES-128로 암호화된 저장된 객체를 검색하는 기능은 계속 지원됩니다.
+
 
 
  a| 
@@ -66,8 +79,8 @@ https://docs.netapp.com/us-en/storagegrid-118/maintain/considerations-for-decomm
 
 * 참고 *: 업그레이드를 시작하기 전에 다음을 수행해야 합니다.
 
-. 모든 아카이브 노드를 해제합니다. 을 https://docs.netapp.com/us-en/storagegrid-118/maintain/grid-node-decommissioning.html["그리드 노드 폐기(StorageGRID 11.8 문서 사이트)"^]참조하십시오.
-. 스토리지 풀 및 ILM 정책에서 모든 아카이브 노드 참조를 제거합니다. 을 https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_11.9_software_upgrade_resolution_guide["NetApp 기술 자료: StorageGRID 11.9 소프트웨어 업그레이드 해결 가이드"^]참조하십시오.
+. 모든 아카이브 노드를 사용 중지하십시오. 자세한 내용은 https://docs.netapp.com/us-en/storagegrid-118/maintain/grid-node-decommissioning.html["그리드 노드 폐기(StorageGRID 11.8 문서 사이트)"^]을 참조하십시오.
+. 스토리지 풀 및 ILM 정책에서 모든 아카이브 노드 참조를 제거하십시오. 을(를) 참조하십시오. https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_11.9_software_upgrade_resolution_guide["NetApp 기술 자료: StorageGRID 11.9 소프트웨어 업그레이드 해결 가이드"^]
 
 
 

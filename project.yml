@@ -10,8 +10,10 @@ settings:
     harmony_enabled: false
     hide_language_selector: false
   versions:
-  - version-number: '12.0'
+  - version-number: '12.1'
     url: "/storagegrid"
+  - version-number: '12.0'
+    url: "/storagegrid-120"
   - version-number: '11.9'
     url: "/storagegrid-119"
   - version-number: '11.8'
@@ -25,13 +27,13 @@ settings:
   langs: ko-kr,us-en,de-de,es-es,fr-fr,it-it,pt-br,ja-jp,zh-cn,zh-tw
 sidebar:
   entries:
-  - title: StorageGRID 12.0 소프트웨어
+  - title: StorageGRID 12.1 소프트웨어
     url: "/index.html"
   - title: StorageGRID 어플라이언스
     url: "/swnodes/storagegrid-hardware.html"
   - title: 릴리스 정보
     entries:
-    - title: StorageGRID 12.0의 새로운 기능
+    - title: StorageGRID 12.1의 새로운 기능
       url: "/release-notes/whats-new.html"
     - title: 제거되었거나 더 이상 사용되지 않는 기능
       url: "/release-notes/removed-or-deprecated-features.html"
@@ -39,6 +41,8 @@ sidebar:
       url: "/release-notes/changes-to-grid-management-api.html"
     - title: 테넌트 관리 API의 변경 사항
       url: "/release-notes/changes-to-tenant-management-api.html"
+    - title: S3 REST API 지원 변경 사항
+      url: "/release-notes/changes-to-s3-rest-api.html"
   - title: 시작하십시오
     url: "/landing-get-started/index.html"
     entries:
@@ -269,22 +273,20 @@ sidebar:
           url: "/maintain/selecting-start-recovery-to-configure-appliance-storage-node.html"
         - title: 어플라이언스 스토리지 볼륨 다시 마운트 및 다시 포맷(수동 단계)
           url: "/maintain/remounting-and-reformatting-appliance-storage-volumes.html"
-        - title: 어플라이언스의 스토리지 볼륨에 오브젝트 데이터를 복원합니다
+        - title: 어플라이언스 스토리지 볼륨에 객체 데이터 복원
           url: "/maintain/restoring-object-data-to-storage-volume-for-appliance.html"
         - title: 어플라이언스 스토리지 노드를 복구한 후 스토리지 상태를 확인합니다
           url: "/maintain/checking-storage-state-after-recovering-sga.html"
       - title: 시스템 드라이브가 손상되지 않은 스토리지 볼륨 장애로부터 복구합니다
+        pdf-filename: 시스템 드라이브가 손상되지 않은 스토리지 볼륨 장애로부터 복구합니다
         entries:
-        - title: 복구 작업
-          pdf-filename: 시스템 드라이브가 손상되지 않은 스토리지 볼륨 장애로부터 복구합니다
-          url: "/maintain/recovering-from-storage-volume-failure-where-system-drive-is-intact.html"
         - title: 저장소 볼륨 복구에 대한 경고
           url: "/maintain/reviewing-warnings-about-storage-volume-recovery.html"
         - title: 장애가 발생한 스토리지 볼륨을 식별하고 마운트 해제합니다
           url: "/maintain/identifying-and-unmounting-failed-storage-volumes.html"
         - title: 장애가 발생한 스토리지 볼륨을 복구하고 Cassandra 데이터베이스를 재구축합니다
           url: "/maintain/recovering-failed-storage-volumes-and-rebuilding-cassandra-database.html"
-        - title: 시스템 드라이브가 손상되지 않은 스토리지 볼륨에 개체 데이터를 복원합니다
+        - title: 시스템 드라이브가 손상되지 않은 StorageGRID 볼륨에 객체 데이터 복원
           url: "/maintain/restoring-object-data-to-storage-volume-where-system-drive-is-intact.html"
         - title: 스토리지 볼륨을 복구한 후 스토리지 상태를 확인하십시오
           url: "/maintain/checking-storage-state-after-recovering-storage-volumes.html"
@@ -298,23 +300,19 @@ sidebar:
           url: "/maintain/selecting-start-recovery-to-configure-storage-node.html"
         - title: 스토리지 볼륨 다시 마운트 및 다시 포맷(수동 단계)
           url: "/maintain/remounting-and-reformatting-storage-volumes-manual-steps.html"
-        - title: 오브젝트 데이터를 스토리지 볼륨으로 복원(시스템 드라이브 장애)
+        - title: 객체 데이터를 스토리지 볼륨으로 복원
           url: "/maintain/restoring-object-data-to-storage-volume.html"
         - title: 스토리지 노드 시스템 드라이브를 복구한 후 스토리지 상태를 확인합니다
           url: "/maintain/checking-storage-state-after-recovering-storage-node-system-drive.html"
-      - title: Grid Manager를 사용하여 개체 데이터를 복원합니다
-        url: "/maintain/restoring-volume.html"
-      - title: 수리 - 데이터 작업을 모니터링합니다
-        url: "/maintain/monitor-repairs.html"
     - title: 관리자 노드 오류에서 복구
       entries:
       - title: 기본 또는 비기본 관리자 노드
         pdf-filename: 관리자 노드 오류에서 복구
         url: "/maintain/recovering-from-admin-node-failures.html"
-      - title: 운영 관리 노드 오류에서 복구
+      - title: 기본 관리 노드 장애 발생 시 동일한 기본 관리 노드를 사용하여 복구합니다.
         entries:
-        - title: 기본 관리자 노드를 복구합니다
-          pdf-filename: 운영 관리 노드 오류에서 복구
+        - title: 동일한 기본 관리 노드를 사용하여 기본 관리 노드를 복구합니다.
+          pdf-filename: 동일한 기본 관리 노드를 사용하여 기본 관리 노드를 복구합니다.
           url: "/maintain/recovering-from-primary-admin-node-failures.html"
         - title: 실패한 기본 관리 노드에서 감사 로그를 복사합니다
           url: "/maintain/copying-audit-logs-from-failed-primary-admin-node.html"
@@ -330,6 +328,23 @@ sidebar:
           url: "/maintain/restoring-admin-node-database-primary-admin-node.html"
         - title: 기본 관리 노드를 복구할 때 Prometheus 메트릭을 복원합니다
           url: "/maintain/restoring-prometheus-metrics-primary-admin-node.html"
+      - title: 기본 관리 노드 장애에서 비기본 관리 노드를 사용하여 복구
+        entries:
+        - title: 비기본 관리 노드를 사용하여 기본 관리 노드를 복구합니다.
+          pdf-filename: 비기본 관리 노드를 사용하여 기본 관리 노드를 복구합니다.
+          url: "/maintain/recovering-from-primary-admin-node-failures-using-npan.html"
+        - title: 실패한 기본 관리 노드에서 감사 로그를 복사합니다
+          url: "/maintain/copying-audit-logs-from-failed-primary-admin-node-using-npan.html"
+        - title: 기본 관리 노드를 교체합니다
+          url: "/maintain/replacing-primary-admin-node-using-npan.html"
+        - title: 기본 관리 노드를 구성하려면 복구 시작을 선택하십시오.
+          url: "/maintain/selecting-start-recovery-to-configure-primary-admin-node.html"
+        - title: 기본 관리자 노드에 대한 핫픽스 요구 사항을 결정합니다
+          url: "/maintain/assess-hotfix-requirement-during-primary-admin-node-recovery-using-npan.html"
+        - title: 복구된 운영 관리자 노드에서 감사 로그를 복구합니다
+          url: "/maintain/restoring-audit-log-on-recovered-primary-admin-node-using-npan.html"
+        - title: 기본 관리 노드를 복구할 때 Prometheus 메트릭을 복원합니다
+          url: "/maintain/restoring-prometheus-metrics-primary-admin-node-using-npan.html"
       - title: 운영 관리자 노드가 아닌 노드에서 복구합니다
         entries:
         - title: 기본 관리자 노드가 아닌 관리자 노드를 복구합니다
@@ -369,8 +384,10 @@ sidebar:
         url: "/maintain/restoring-existing-nodes.html"
       - title: '다음 단계: 필요한 경우 추가 복구 단계를 수행합니다'
         url: "/maintain/whats-next-performing-additional-recovery-steps-if-required.html"
-    - title: VMware 노드를 교체합니다
+    - title: VMware 노드를 복구 노드로 교체
       url: "/maintain/all-node-types-replacing-vmware-node.html"
+    - title: VMware 노드를 SG1000 또는 SG100으로 교체
+      url: "/maintain/replace-vmware-node-with-sg1000-sg100.html"
     - title: 장애가 발생한 노드를 서비스 어플라이언스로 교체합니다
       entries:
       - title: 교체 지침

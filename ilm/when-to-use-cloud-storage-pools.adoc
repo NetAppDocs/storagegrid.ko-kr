@@ -50,7 +50,7 @@ StorageGRID의 복사본에 액세스할 수 없는 경우 클라우드 스토�
 [[maintain-multiple-cloud-endpoints]]
 == 여러 클라우드 엔드포인트 유지 관리
 
-오브젝트 데이터를 두 개 이상의 클라우드에 계층화하거나 백업하려는 경우 여러 Cloud Storage Pool 엔드포인트를 구성할 수 있습니다. ILM 규칙의 필터를 사용하여 각 클라우드 스토리지 풀에 저장할 오브젝트를 지정할 수 있습니다. 예를 들어, 일부 테넌트 또는 버킷의 오브젝트를 Amazon S3 빙하에 저장하고 다른 테넌트 또는 버킷의 오브젝트를 Azure Blob 스토리지에 저장할 수 있습니다. 또는 Amazon S3 Glacier와 Azure Blob 스토리지 간에 데이터를 이동할 수 있습니다.
+여러 클라우드에 객체 데이터를 계층화하거나 백업하려면 여러 클라우드 스토리지 풀 엔드포인트를 구성할 수 있습니다. ILM 규칙의 필터를 사용하면 각 클라우드 스토리지 풀에 저장할 객체를 지정할 수 있습니다. 예를 들어, 일부 테넌트 또는 버킷의 객체는 Amazon S3 Glacier에 저장하고 다른 테넌트 또는 버킷의 객체는 Azure Blob Storage에 저장할 수 있습니다. 또는 Amazon S3 Glacier와 Azure Blob Storage 간에 데이터를 이동할 수도 있습니다.
 
 
 NOTE: 여러 Cloud Storage Pool 엔드포인트를 사용할 경우 한 번에 하나의 Cloud Storage Pool에만 개체를 저장할 수 있습니다.

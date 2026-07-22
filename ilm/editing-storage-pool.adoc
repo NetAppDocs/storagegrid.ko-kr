@@ -43,4 +43,4 @@ CAUTION: 기존 스토리지 풀에서 사이트를 추가하거나 제거하더
 
 
 .작업을 마친 후
-활성 ILM 정책에 사용된 스토리지 풀에 새 사이트 또는 스토리지 성적을 추가한 경우 새 ILM 정책을 활성화하여 StorageGRID가 새 사이트 또는 스토리지 등급을 사용하도록 강제합니다. 예를 들어, 기존 ILM 정책을 클론 복제한 다음 클론을 활성화합니다. 을 link:working-with-ilm-rules-and-ilm-policies.html["ILM 규칙 및 ILM 정책 작업"]참조하십시오.
+활성 ILM 정책에서 사용되는 스토리지 풀에 새 사이트 또는 스토리지 등급을 추가한 경우, StorageGRID가 새 사이트 또는 스토리지 등급을 사용하도록 강제하려면 새 ILM 정책을 활성화해야 합니다. 예를 들어 기존 ILM 정책을 복제한 다음 복제본을 활성화합니다. 을 참조하십시오. link:working-with-ilm-rules-and-ilm-policies.html["ILM 규칙 및 ILM 정책 작업"]

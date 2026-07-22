@@ -1,0 +1,55 @@
+---
+permalink: admin/learn-about-setting-up-sso-saml.html 
+sidebar: sidebar 
+keywords: use sandbox mode for sso, how to test single sign-on 
+summary: 'StorageGRID에서 SSO(Single Sign-On)를 설정하면 StorageGRID(서비스 제공업체)와 SSO ID 제공업체가 사용자 인증 요청에 대해 안전하게 통신할 수 있습니다.' 
+---
+= StorageGRID에서 SAML을 사용하여 SSO를 설정하는 방법에 대해 알아보세요.
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID에서 SSO(Single Sign-On)를 설정하면 StorageGRID(서비스 제공업체)와 SSO ID 제공업체가 사용자 인증 요청에 대해 안전하게 통신할 수 있습니다.
+
+StorageGRID에서 OpenID Connect(OIDC) 또는 SAML을 사용하여 SSO를 설정할 수 있습니다. SAML을 사용하여 StorageGRID에서 SSO를 설정하려면 다음의 개략적인 단계를 따르거나 link:learn-about-setting-up-sso-oidc.html["OIDC를 사용하여 SSO 설정하기"]에 대해 알아보십시오.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"]SSO 구성
+[role="quick-margin-para"]
+SAML용 SSO 구성 마법사를 선택합니다. 그런 다음 ID 공급자를 사용하여 SSO를 구성하고 샌드박스 모드로 들어갑니다.
+
+[role="quick-margin-para"]
+link:configure-sso-saml.html["SAML을 사용하여 SSO 구성"]에 대해 알아보십시오
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"] ID 공급자 구성
+[role="quick-margin-para"]
+사용하려는 SSO ID 공급자에 따라 ID 페더레이션 LDAP 서비스 유형으로 Active Directory 또는 Entra ID를 선택할 수 있습니다.
+
+[role="quick-margin-list"]
+* Active Directory Federation Service(AD FS)의 경우 AD FS, Entra ID 또는 PingFederate ID 공급자를 사용할 수 있습니다.
+* Entra ID의 경우, Entra ID ID 제공업체만 사용할 수 있습니다.
+
+
+[role="quick-margin-para"]
+SSO ID 공급자 소프트웨어를 사용하여 그리드의 각 관리 노드에 대한 SAML을 구성하십시오.
+
+[role="quick-margin-list"]
+* Active Directory의 link:creating-relying-party-trusts-in-ad-fs-saml.html["각 관리 노드에 대한 애플리케이션 그룹 생성"]에 대해 알아보십시오.
+* Entra ID의 link:creating-enterprise-application-entra-id-saml.html["각 관리 노드에 대한 애플리케이션 생성"]에 대해 알아보기
+* link:creating-sp-connection-ping-saml.html["각 관리 노드에 대한 서비스 제공자 연결 생성"]에 대해 알아보기 PingFederate
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["세 가지"] 테스트 구성
+[role="quick-margin-para"]
+각 관리 노드에 대해 SAML을 구성한 후 SSO 구성 마법사로 돌아가 구성을 테스트합니다.
+
+[role="quick-margin-para"]
+link:configure-sso-saml.html#test-sso["SSO 구성 테스트"]에 대해 알아보십시오
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"] SSO 활성화
+[role="quick-margin-para"]
+모든 StorageGRID 사용자에 대해 SSO를 활성화합니다.
+
+[role="quick-margin-para"]
+link:configure-sso-saml.html#enable-sso-saml["StorageGRID 사용자를 위한 SSO 활성화"]에 대해 알아보십시오

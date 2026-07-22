@@ -13,7 +13,7 @@ summary: 'HTTP 또는 HTTPS를 사용하여 AutoSupport 패키지를 보내는 �
 [role="lead"]
 HTTP 또는 HTTPS를 사용하여 AutoSupport 패키지를 보내는 경우 관리 노드와 기술 지원(AutoSupport) 간에 비투명 프록시 서버를 구성할 수 있습니다.
 
-AutoSupport에 대한 자세한 내용은 을 link:configure-autosupport-grid-manager.html["AutoSupport를 구성합니다"]참조하십시오.
+AutoSupport에 대한 자세한 내용은 link:../monitor/configure-autosupport-grid-manager.html["AutoSupport를 구성합니다"]을 참조하십시오.
 
 .시작하기 전에
 * 있습니다. link:admin-group-permissions.html["특정 액세스 권한"]
