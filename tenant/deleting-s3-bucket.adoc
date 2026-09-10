@@ -22,7 +22,7 @@ summary: 테넌트 관리자를 사용하여 비어 있는 S3 버킷을 삭제�
 .이 작업에 대해
 다음 지침은 Tenant Manager를 사용하여 S3 버킷을 삭제하는 방법을 설명합니다. 또는 를 사용하여 S3 버킷을 삭제할 수도 link:understanding-tenant-management-api.html["테넌트 관리 API"]link:../s3/operations-on-buckets.html["S3 REST API"]있습니다.
 
-S3 버킷에 오브젝트, 비현재 오브젝트 버전이 포함되어 있거나 마커를 삭제할 수 없습니다. S3 버전 개체가 삭제되는 방법에 대한 자세한 내용은 을 참조하십시오link:../ilm/how-objects-are-deleted.html["오브젝트 삭제 방법"].
+객체, 현재 버전이 아닌 객체 버전 또는 삭제 마커가 포함된 S3 버킷은 삭제할 수 없습니다. S3 버전 관리 객체 삭제 방법에 대한 자세한 내용은 link:../ilm/how-objects-and-delete-markers-are-deleted.html["오브젝트와 삭제 표시가 삭제되는 방법"]을 참조하십시오.
 
 .단계
 . 대시보드에서 * 버킷 보기 * 를 선택하거나 * 스토리지(S3) * > * 버킷 * 을 선택합니다.

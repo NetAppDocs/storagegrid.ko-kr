@@ -32,7 +32,7 @@ TIP: S3 오브젝트 잠금을 사용하는 버킷은 모든 오브젝트에 대
 
 
 * 버킷에 오브젝트 버전 관리가 활성화된 경우 버킷 작업에서 오브젝트 삭제 작업을 사용하여 StorageGRID 11.8 이상에서 생성된 삭제 표식을 제거할 수 있습니다.
-* 버킷에 개체 버전 관리가 활성화된 경우 오브젝트 삭제 작업은 StorageGRID 11.7 이하에서 생성된 삭제 표식을 제거하지 않습니다. 에서 버킷의 오브젝트 삭제에 대한 정보를 link:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["S3 버전 오브젝트 삭제 방법"]참조하십시오.
+* 버킷에 객체 버전 관리가 활성화된 경우, 객체 삭제 작업은 StorageGRID 11.7 이하 버전에서 생성된 삭제 마커를 제거하지 않습니다. 버킷에서 객체를 삭제하는 방법에 대한 자세한 내용은 link:../ilm/how-objects-and-delete-markers-are-deleted.html#delete-s3-versioned-objects["S3 버전 오브젝트 삭제 방법"]을 참조하십시오.
 * 을 사용하는 경우 link:grid-federation-manage-cross-grid-replication.html["교차 그리드 복제"]다음 사항에 유의하십시오.
 +
 ** 이 옵션을 사용해도 다른 그리드의 버킷에서 오브젝트가 삭제되지 않습니다.

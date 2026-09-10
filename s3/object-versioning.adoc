@@ -34,7 +34,19 @@ ILM 정책은 개체의 각 버전에 적용됩니다. ILM 스캔 프로세스�
 
 NOTE: 다중 파트 업로드 작업을 사용하여 새 버전의 개체를 업로드할 때 개체의 원래 버전에 대한 비현재 시간은 다중 파트 업로드가 완료될 때가 아닌 새 버전에 대해 다중 파트 업로드가 생성된 시점을 반영합니다. 제한된 경우 원래 버전의 비현재 시간이 현재 버전의 시간보다 몇 시간 또는 며칠 빨라질 수 있습니다.
 
+
+
+[[how-object-versioning-uses-storage-capacity-in-storagegrid]]
+== 오브젝트 버전 관리가 StorageGRID에서 스토리지 용량을 사용하는 방법
+
+오브젝트 버전 관리에 사용되는 스토리지 공간의 크기는 오브젝트를 업로드하는 횟수, ILM 정책 규칙 및 누적된 비최신 버전 수에 따라 달라집니다.
+
+* 버킷에서 버전 관리가 활성화된 경우, 오브젝트의 각 버전은 완전한 별도의 오브젝트로 저장됩니다. 1GB 파일을 5번 업로드하면 StorageGRID는 해당 오브젝트에 대해 5GB의 원시 데이터(5 x 1GB)를 저장합니다.
+* ILM 정책은 각 오브젝트 버전에 대해 평가됩니다. 예를 들어, 2개 복사본 복제 ILM 규칙이 있는 경우 StorageGRID는 각 오브젝트 버전(현재 버전과 이전 버전)의 복제본을 두 개 저장합니다. 이 ILM 규칙이 1GB 오브젝트의 버전 10개가 있는 버킷에 적용되면 20GB의 물리적 스토리지가 사용됩니다.
+* S3 버킷 수명 주기 정책이나 현재 버전이 아닌 버전을 대상으로 하는 ILM 규칙이 없으면 StorageGRID는 모든 이전 버전을 무기한으로 보관하며, 이로 인해 스토리지 사용량이 계속 증가합니다. 이는 버전 관리 버킷에서 예기치 않은 스토리지 증가가 발생하는 일반적인 원인입니다.
+
+
 .관련 정보
-* link:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["S3 버전 오브젝트 삭제 방법"]
+* link:../ilm/how-objects-and-delete-markers-are-deleted.html#delete-s3-versioned-objects["S3 버전 오브젝트 삭제 방법"]
 * link:../ilm/example-4-ilm-rules-and-policy-for-s3-versioned-objects.html["S3 버전 오브젝트 ILM 규칙 및 정책(예 4)"]..
 

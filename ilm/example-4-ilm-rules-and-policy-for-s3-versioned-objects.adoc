@@ -138,4 +138,4 @@ NOTE: "비현재 시간" 규칙은 현재 개체 버전에 적용되는 규칙 �
 
 
 .관련 정보
-link:how-objects-are-deleted.html["오브젝트 삭제 방법"]
+link:how-objects-and-delete-markers-are-deleted.html["오브젝트와 삭제 표시가 삭제되는 방법"]

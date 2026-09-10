@@ -38,7 +38,7 @@ NOTE: S3 버킷 라이프사이클이 구성된 경우 라이프사이클 만료
 
 
 
-자세한 내용은 을 link:../ilm/how-objects-are-deleted.html["오브젝트 삭제 방법"] 참조하십시오.
+자세한 내용은 link:../ilm/how-objects-and-delete-markers-are-deleted.html["오브젝트와 삭제 표시가 삭제되는 방법"]을 참조하십시오.
 
 
 

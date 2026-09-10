@@ -44,6 +44,7 @@ summary: 분기 버킷은 특정 시간에 존재했던 버킷의 객체에 대�
 
 
 [[operations-on-objects-in-branch-buckets]]
+[[operations-in-branch-buckets]]
 == 브랜치 버킷의 객체에 대한 작업
 
 * 브랜치 버킷에 대한 PUT 객체 작업은 브랜치에 객체를 생성합니다.
@@ -110,4 +111,4 @@ HEAD/GET이 개체 버전이 존재하지 않는다는 것을 반환합니다.
 |===
 
 
-또한 참조link:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["S3 버전 오브젝트 삭제 방법"] .
+또한 link:../ilm/how-objects-and-delete-markers-are-deleted.html#delete-s3-versioned-objects["S3 버전 오브젝트 삭제 방법"]을(를) 참조하십시오.

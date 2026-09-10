@@ -29,8 +29,8 @@ entries:
       url: "/ilm/advantages-disadvantages-and-requirements-for-ec.html"
   - title: 개체 보존이 결정되는 방식
     url: "/ilm/how-object-retention-is-determined.html"
-  - title: 오브젝트 삭제 방법
-    url: "/ilm/how-objects-are-deleted.html"
+  - title: 오브젝트와 삭제 표시가 삭제되는 방법
+    url: "/ilm/how-objects-and-delete-markers-are-deleted.html"
 - title: 저장 점수를 생성하고 할당합니다
   url: "/ilm/creating-and-assigning-storage-grades.html"
 - title: 스토리지 풀을 사용합니다
@@ -135,3 +135,5 @@ entries:
     url: "/ilm/example-7-compliant-ilm-policy-for-s3-object-lock.html"
   - title: '예 8: S3 버킷 라이프사이클 및 ILM 정책의 우선순위'
     url: "/ilm/example-8-priorities-for-s3-bucket-lifecycle-and-ilm-policy.html"
+  - title: '예제 9: 버전 관리를 일시 중단한 후 현재 버전이 아닌 버전 및 삭제 마커 삭제'
+    url: "/ilm/example-9-delete-noncurrent-versions-and-expired-delete-markers.html"

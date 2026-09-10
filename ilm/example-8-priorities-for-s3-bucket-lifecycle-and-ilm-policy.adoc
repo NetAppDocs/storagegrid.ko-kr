@@ -88,6 +88,7 @@ ILM 정책::
 
 
 [[example-of-using-bucket-lifecycle-to-duplicate-ilm-and-clean-up-expired-delete-markers]]
+[[use-bucket-to-lifecycle-remove-expired-delete-markers]]
 == 버킷 수명 주기를 사용하여 ILM을 복제하고 만료된 삭제 마커를 정리하는 예
 
 ILM 정책::

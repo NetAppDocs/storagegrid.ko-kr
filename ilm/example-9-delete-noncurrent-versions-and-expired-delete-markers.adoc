@@ -1,0 +1,49 @@
+---
+permalink: ilm/example-9-delete-noncurrent-versions-and-expired-delete-markers.html 
+sidebar: sidebar 
+keywords: retention priority, example S3 bucket lifecycle, example ILM policy 
+summary: 라이프사이클 구성에 따라 오브젝트는 S3 버킷 라이프사이클 또는 ILM 정책의 보존 설정을 따릅니다. 
+---
+= StorageGRID에서 현재 버전이 아닌 버전 및 만료된 삭제 마커 삭제
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+버킷에서 버전 관리를 일시 중단하는 경우, 현재 버전이 아닌 항목과 만료된 null 버전 삭제 마커를 처리하도록 버킷 수명 주기를 구성해야 합니다.
+
+최신 버전이 아닌 버전 및 만료된 삭제 마커를 처리하는 버킷 수명 주기 구성 예시:: 이러한 단계는 ILM 정책이 활성화된 버킷에서 수행됩니다.
++
+--
+. 버전 관리를 활성화합니다. 동일한 이름을 가진 오브젝트가 수집될 때 이전 버전은 비현재 버전으로 유지되며 삭제 요청 시 삭제 마커가 생성됩니다. 비현재 버전은 액세스할 수 있지만 스토리지 공간을 사용합니다.
+. 원하는 구성이 하나의 버전만 유지하고 현재 버전이 아닌 버전에서 사용되는 스토리지 공간을 확보하는 것이므로 버전 관리를 일시 중단합니다. 이 설정은 다음 단계에서 진행됩니다.
+. 버킷 수명 주기를 구성하여 버전 관리가 일시 중단된 후 남아 있는 최신 버전이 아닌 버전과 삭제 마커를 처리합니다.
+
+
+--
+ILM 정책::
++
+--
+수집 시간 참조 기준 규칙(기본값): Day 0에 X 복사본을 영구적으로 유지합니다
+
+--
+버킷 수명 주기::
++
+--
+`"Filter": {}, "Expiration": {"ExpiredObjectDeleteMarker": true}, "NoncurrentVersionExpiration": {"NoncurrentDays": 1}`
+
+--
+결과:: 버킷 수명 주기는 최신 버전이 아닌 버전과 만료된 삭제 마커를 처리하도록 구성되어 있습니다.
++
+--
+. 하루 이상 지난 버전은 모두 삭제됩니다. 최신 버전만 영구적으로 보존됩니다.
+. 이름이  `draftdoc`인 오브젝트가 수집되었으며 버전 ID는  `NULL`입니다.
+. 동일한 이름을 가진 다른 오브젝트가 수집되면((`draftdoc`), null 버전을 덮어쓰고 교체하며 이전 버전을 즉시 삭제합니다.
+.  `draftdoc`에 버전 ID를 지정하지 않고 삭제 요청을 하면 null 버전 삭제 마커가 생성되어 null 버전 오브젝트를 대체하고 삭제합니다.
+. 현재 버전이 아닌 버전이 없으므로 null 버전 삭제 마커가 만료되었습니다.
+. 잠시 후 만료된 null 버전 삭제 표시가 삭제됩니다.
+
+
+--
+
