@@ -31,7 +31,7 @@ S3 테넌트를 사용하는 경우 S3 버킷의 버전 관리 상태를 변경�
 
 * link:../s3/object-versioning.html["오브젝트 버전 관리"]
 * link:../ilm/example-4-ilm-rules-and-policy-for-s3-versioned-objects.html["S3 버전 오브젝트 ILM 규칙 및 정책(예 4)"]
-* link:../ilm/how-objects-and-delete-markers-are-deleted.html["오브젝트 및 삭제 표시가 삭제되는 방법"]
+* link:../ilm/how-objects-and-delete-markers-are-deleted.html["오브젝트와 삭제 표시가 삭제되는 방법"]
 
 
 .단계
