@@ -19,27 +19,25 @@ entries:
     url: "/admin/viewing-storagegrid-license-information.html"
   - title: StorageGRID 라이센스 정보를 업데이트합니다
     url: "/admin/updating-storagegrid-license-information.html"
-  - title: API를 사용합니다
+  - title: Grid Management API를 사용합니다
+    pdf-filename: Grid Management API를 참조하십시오
+    url: "/admin/using-grid-management-api.html"
+  - title: Grid Management API 작업
+    url: "/admin/grid-management-api-operations.html"
+  - title: Grid Management API 버전 관리
+    url: "/admin/grid-management-api-versioning.html"
+  - title: 사이트 간 요청 위조(CSRF)로부터 보호
+    url: "/admin/protecting-against-cross-site-request-forgery-csrf.html"
+  - title: SSO(Single Sign-On)가 활성화된 경우 API를 사용합니다
     entries:
-    - title: Grid Management API를 사용합니다
-      pdf-filename: Grid Management API를 참조하십시오
-      url: "/admin/using-grid-management-api.html"
-    - title: Grid Management API 작업
-      url: "/admin/grid-management-api-operations.html"
-    - title: Grid Management API 버전 관리
-      url: "/admin/grid-management-api-versioning.html"
-    - title: 사이트 간 요청 위조(CSRF)로부터 보호
-      url: "/admin/protecting-against-cross-site-request-forgery-csrf.html"
-    - title: SSO(Single Sign-On)가 활성화된 경우 API를 사용합니다
-      entries:
-      - title: Active Directory를 클릭합니다
-        url: "/admin/use-api-if-sso-is-enabled-adfs.html"
-      - title: 엔트라 ID
-        url: "/admin/use-api-if-sso-is-enabled-entra-id.html"
-      - title: PingFederate(PingFederate)
-        url: "/admin/use-api-if-sso-is-enabled-ping.html"
-    - title: API를 사용하여 기능을 비활성화합니다
-      url: "/admin/deactivate-features-from-api.html"
+    - title: Active Directory를 클릭합니다
+      url: "/admin/use-api-if-sso-is-enabled-adfs.html"
+    - title: 엔트라 ID
+      url: "/admin/use-api-if-sso-is-enabled-entra-id.html"
+    - title: PingFederate(PingFederate)
+      url: "/admin/use-api-if-sso-is-enabled-ping.html"
+  - title: API를 사용하여 기능을 비활성화합니다
+    url: "/admin/deactivate-features-from-api.html"
 - title: StorageGRID에 대한 액세스를 제어합니다
   entries:
   - title: StorageGRID 액세스
@@ -59,46 +57,44 @@ entries:
     url: "/admin/admin-group-permissions.html"
   - title: 사용자 관리
     url: "/admin/managing-users.html"
-  - title: SSO(Single Sign-On) 사용
+  - title: SSO 작동 방식
+    url: "/admin/how-sso-works.html"
+  - title: SSO 요구 사항
+    url: "/admin/requirements-for-sso.html"
+  - title: 페더레이션 사용자가 로그인할 수 있는지 확인합니다
+    url: "/admin/confirming-federated-users-can-sign-in.html"
+  - title: OIDC를 사용하여 SSO 설정
     entries:
-    - title: SSO 작동 방식
-      url: "/admin/how-sso-works.html"
-    - title: SSO 요구 사항
-      url: "/admin/requirements-for-sso.html"
-    - title: 페더레이션 사용자가 로그인할 수 있는지 확인합니다
-      url: "/admin/confirming-federated-users-can-sign-in.html"
-    - title: OIDC를 사용하여 SSO 설정
-      entries:
-      - title: 자세히 알아보기
-        url: "/admin/learn-about-setting-up-sso-oidc.html"
-      - title: AD FS에서 애플리케이션 그룹 생성
-        url: "/admin/creating-relying-party-trusts-in-ad-fs-oidc.html"
-      - title: Entra ID에서 애플리케이션 생성
-        url: "/admin/creating-enterprise-application-entra-id-oidc.html"
-      - title: Keycloak에서 클라이언트 생성
-        url: "/admin/create-client-keycloak-oidc.html"
-      - title: Okta 애플리케이션 생성
-        url: "/admin/create-okta-application-oidc.html"
-      - title: PingFederate에서 SP 연결을 생성합니다
-        url: "/admin/creating-sp-connection-ping-oidc.html"
-      - title: SSO 구성
-        url: "/admin/configure-sso-oidc.html"
-    - title: SAML을 사용하여 SSO 설정
-      entries:
-      - title: 자세히 알아보기
-        url: "/admin/learn-about-setting-up-sso-saml.html"
-      - title: SSO 구성
-        url: "/admin/configure-sso-saml.html"
-      - title: AD FS에서 기반 당사자 트러스트를 생성합니다
-        url: "/admin/creating-relying-party-trusts-in-ad-fs-saml.html"
-      - title: Entra ID에서 엔터프라이즈 애플리케이션 만들기
-        url: "/admin/creating-enterprise-application-entra-id-saml.html"
-      - title: PingFederate에서 SP 연결을 생성합니다
-        url: "/admin/creating-sp-connection-ping-saml.html"
-    - title: SSO 비활성화
-      url: "/admin/disabling-single-sign-on.html"
-    - title: 한 관리 노드에 대해 SSO를 일시적으로 비활성화하고 다시 활성화합니다.
-      url: "/admin/temporarily-disabling-and-reenabling-sso-for-admin-node.html"
+    - title: 자세히 알아보기
+      url: "/admin/learn-about-setting-up-sso-oidc.html"
+    - title: AD FS에서 애플리케이션 그룹 생성
+      url: "/admin/creating-relying-party-trusts-in-ad-fs-oidc.html"
+    - title: Entra ID에서 애플리케이션 생성
+      url: "/admin/creating-enterprise-application-entra-id-oidc.html"
+    - title: Keycloak에서 클라이언트 생성
+      url: "/admin/create-client-keycloak-oidc.html"
+    - title: Okta 애플리케이션 생성
+      url: "/admin/create-okta-application-oidc.html"
+    - title: PingFederate에서 SP 연결을 생성합니다
+      url: "/admin/creating-sp-connection-ping-oidc.html"
+    - title: SSO 구성
+      url: "/admin/configure-sso-oidc.html"
+  - title: SAML을 사용하여 SSO 설정
+    entries:
+    - title: 자세히 알아보기
+      url: "/admin/learn-about-setting-up-sso-saml.html"
+    - title: SSO 구성
+      url: "/admin/configure-sso-saml.html"
+    - title: AD FS에서 기반 당사자 트러스트를 생성합니다
+      url: "/admin/creating-relying-party-trusts-in-ad-fs-saml.html"
+    - title: Entra ID에서 엔터프라이즈 애플리케이션 만들기
+      url: "/admin/creating-enterprise-application-entra-id-saml.html"
+    - title: PingFederate에서 SP 연결을 생성합니다
+      url: "/admin/creating-sp-connection-ping-saml.html"
+  - title: SSO 비활성화
+    url: "/admin/disabling-single-sign-on.html"
+  - title: 한 관리 노드에 대해 SSO를 일시적으로 비활성화하고 다시 활성화합니다.
+    url: "/admin/temporarily-disabling-and-reenabling-sso-for-admin-node.html"
   - title: 다중 관리자 인증 사용
     entries:
     - title: 다중 관리자 인증에 대해 알아보기
